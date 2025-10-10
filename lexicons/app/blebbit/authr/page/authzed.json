@@ -1,5 +1,48 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:veavz5io7eocwh7dbrhr2thi",
+	"schema": {
+		"id": "app.blebbit.authr.page.authzed",
+		"defs": {},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"$authzed": {
+			"relations": {
+				"owner": [
+					"user",
+					"group#member"
+				],
+				"editor": [
+					"user",
+					"group#member"
+				],
+				"parent": [
+					"folder"
+				],
+				"reader": [
+					"user",
+					"group#member"
+				],
+				"reviewer": [
+					"user",
+					"group#member"
+				],
+				"commenter": [
+					"user",
+					"group#member"
+				]
+			},
+			"permissions": {
+				"read": "reader + comment + parent->read",
+				"admin": "owner + parent->admin",
+				"write": "editor + admin + parent->write",
+				"comment": "commenter + feedback + parent->comment",
+				"feedback": "reviewer + write + parent->feedback"
+			}
+		},
+		"revision": 1,
+		"description": "Relations and permissions available on pages for the Authr Example"
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

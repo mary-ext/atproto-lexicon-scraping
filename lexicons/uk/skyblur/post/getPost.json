@@ -1,5 +1,57 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:4sm3vprfyl55ui3yhjd7w4po",
+	"schema": {
+		"id": "uk.skyblur.post.getPost",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uri"
+						],
+						"properties": {
+							"uri": {
+								"type": "string",
+								"format": "at-uri",
+								"description": "Skyblur post at-uri. It shoud be uk.skyblur.post collection."
+							},
+							"password": {
+								"type": "string",
+								"description": "If the specified uri is password-protected, please provide the password. If no password is specified, the non-protected content will be returned."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"text"
+						],
+						"properties": {
+							"text": {
+								"type": "string"
+							},
+							"message": {
+								"type": "string"
+							},
+							"additional": {
+								"type": "string"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Get Skyblur post. If the specified post is password-protected, you can retrieve the unlocked content by providing the password."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

@@ -1,5 +1,42 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:web:stream.place",
+	"schema": {
+		"id": "place.stream.key",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"signingKey",
+						"createdAt"
+					],
+					"properties": {
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Client-declared timestamp when this key was created."
+						},
+						"createdBy": {
+							"type": "string",
+							"description": "The name of the client that created this key."
+						},
+						"signingKey": {
+							"type": "string",
+							"maxLength": 57,
+							"minLength": 57,
+							"description": "The did:key signing key for the stream."
+						}
+					}
+				},
+				"description": "Record linking an atproto identity with a stream signing key"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

@@ -1,5 +1,48 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:wez36htzdmk6gxiw7vyi7pga",
+	"schema": {
+		"id": "dev.fudgeu.experimental.atforumv1.forum.category",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"group",
+						"categoryType"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 100,
+							"minLength": 1
+						},
+						"group": {
+							"type": "string",
+							"format": "at-uri"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 300
+						},
+						"categoryType": {
+							"enum": [
+								"discussion",
+								"question"
+							],
+							"type": "string"
+						}
+					}
+				},
+				"description": "A method of grouping posts into a single 'category'"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

@@ -1,5 +1,57 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:dhnigydy24fp542wu5sxqy33",
+	"schema": {
+		"id": "org.devcon.event.test",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"title",
+						"start",
+						"end"
+					],
+					"properties": {
+						"end": {
+							"type": "string",
+							"format": "datetime",
+							"description": "End time of the event"
+						},
+						"url": {
+							"type": "string",
+							"description": "URL of the event"
+						},
+						"start": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Start time of the event"
+						},
+						"title": {
+							"type": "string",
+							"description": "Title of the event"
+						},
+						"location": {
+							"type": "string",
+							"description": "Location of the event"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"description": {
+							"type": "string",
+							"description": "Description of the event"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

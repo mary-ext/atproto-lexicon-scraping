@@ -1,5 +1,43 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:veavz5io7eocwh7dbrhr2thi",
+	"schema": {
+		"id": "app.blebbit.authr.page.defs",
+		"defs": {
+			"pageForm": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"public": {
+						"type": "boolean"
+					}
+				}
+			},
+			"pageView": {
+				"type": "object",
+				"properties": {
+					"cuid": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"public": {
+						"type": "boolean"
+					},
+					"content": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"revision": 1,
+		"description": "Common page defs for the Authr Example"
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

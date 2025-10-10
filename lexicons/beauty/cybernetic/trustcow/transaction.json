@@ -1,5 +1,60 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:ah3egzlbahv35s722qydv225",
+	"schema": {
+		"id": "beauty.cybernetic.trustcow.transaction",
+		"defs": {
+			"main": {
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"serviceProvider",
+						"serviceConsumer",
+						"transactionId",
+						"createdAt"
+					],
+					"properties": {
+						"amount": {
+							"type": "string",
+							"description": "Transaction amount (optional, in whatever currency applies)"
+						},
+						"currency": {
+							"type": "string",
+							"maxLength": 10,
+							"description": "Currency code (optional, e.g. USD, EUR, BTC)"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When the transaction occurred"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 500,
+							"description": "Description of the service or product transacted"
+						},
+						"transactionId": {
+							"type": "string",
+							"maxLength": 128,
+							"description": "Unique identifier for this transaction, must be identical in both parties' records"
+						},
+						"serviceConsumer": {
+							"type": "string",
+							"description": "DID of the service consumer identity"
+						},
+						"serviceProvider": {
+							"type": "string",
+							"description": "DID of the service provider identity"
+						}
+					}
+				},
+				"description": "A verified transaction between two ATProto identities that must be stored in both parties' PDS"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

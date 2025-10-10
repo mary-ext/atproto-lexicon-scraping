@@ -1,5 +1,71 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:web:stream.place",
+	"schema": {
+		"id": "place.stream.defs",
+		"defs": {
+			"blockView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"cid",
+					"blocker",
+					"record",
+					"indexedAt"
+				],
+				"properties": {
+					"cid": {
+						"type": "string",
+						"format": "cid"
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"record": {
+						"ref": "app.bsky.graph.block",
+						"type": "ref"
+					},
+					"blocker": {
+						"ref": "app.bsky.actor.defs#profileViewBasic",
+						"type": "ref"
+					},
+					"indexedAt": {
+						"type": "string",
+						"format": "datetime"
+					}
+				}
+			},
+			"rendition": {
+				"type": "object",
+				"required": [
+					"name"
+				],
+				"properties": {
+					"name": {
+						"type": "string"
+					}
+				}
+			},
+			"renditions": {
+				"type": "object",
+				"required": [
+					"renditions"
+				],
+				"properties": {
+					"renditions": {
+						"type": "array",
+						"items": {
+							"ref": "#rendition",
+							"type": "ref"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

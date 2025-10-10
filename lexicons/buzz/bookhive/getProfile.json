@@ -1,5 +1,64 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:enu2j5xjlqsjaylv3du4myh4",
+	"schema": {
+		"id": "buzz.bookhive.getProfile",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"books",
+							"profile",
+							"activity"
+						],
+						"properties": {
+							"books": {
+								"type": "array",
+								"items": {
+									"ref": "buzz.bookhive.defs#userBook",
+									"type": "ref"
+								},
+								"description": "All books in the user's library"
+							},
+							"profile": {
+								"ref": "buzz.bookhive.defs#profile",
+								"type": "ref",
+								"description": "The user's profile"
+							},
+							"activity": {
+								"type": "array",
+								"items": {
+									"ref": "buzz.bookhive.defs#activity",
+									"type": "ref"
+								},
+								"description": "The user's activity"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"properties": {
+						"did": {
+							"type": "string",
+							"description": "The user's DID to get the profile of"
+						},
+						"handle": {
+							"type": "string",
+							"description": "The user's handle to get the profile of"
+						}
+					}
+				},
+				"description": "Get a profile's info. Does not require authentication."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

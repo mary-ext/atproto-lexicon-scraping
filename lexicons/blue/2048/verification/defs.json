@@ -1,5 +1,50 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:zylhqsjug3f76uqxguhviqka",
+	"schema": {
+		"id": "blue.2048.verification.defs",
+		"defs": {
+			"verificationRef": {
+				"type": "object",
+				"required": [
+					"keyRef",
+					"recordRef",
+					"subject",
+					"signature",
+					"createdAt"
+				],
+				"properties": {
+					"keyRef": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "The at://uri for the public did:key to verify the remote record. This also counts as the authority of the verification (example @2048.blue). As well as the type of verification by the collection name (blue.2048.key.game)."
+					},
+					"subject": {
+						"type": "string",
+						"format": "did",
+						"description": "DID of the subject the verification applies to."
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime"
+					},
+					"recordRef": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "The at://uri for the record that is being verified."
+					},
+					"signature": {
+						"type": "string",
+						"description": "The public verifiable signature of the record. Serialization of the records valued"
+					}
+				},
+				"description": "Holds the signature for another record showing it has verified it to the best of it's ability and it should be trusted if the signatures match."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Reusable types for an at://2048 authority to prove that it has verified a record "
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

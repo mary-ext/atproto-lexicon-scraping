@@ -1,5 +1,59 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:web:clippr.social",
+	"schema": {
+		"id": "social.clippr.actor.searchProfiles",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"actors"
+						],
+						"properties": {
+							"actors": {
+								"type": "array",
+								"items": {
+									"ref": "social.clippr.actor.defs#profileView",
+									"type": "ref"
+								}
+							},
+							"cursor": {
+								"type": "string",
+								"description": "A parameter used for pagination"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"properties": {
+						"q": {
+							"type": "string",
+							"description": "Search query string"
+						},
+						"limit": {
+							"type": "integer",
+							"default": 25,
+							"maximum": 100,
+							"minimum": 1,
+							"description": "The number of profiles to be returned in the query"
+						},
+						"cursor": {
+							"type": "string",
+							"description": "A parameter used for pagination"
+						}
+					}
+				},
+				"description": "Find profiles matching search criteria. Does not require auth."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

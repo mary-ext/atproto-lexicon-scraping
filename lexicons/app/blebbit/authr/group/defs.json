@@ -1,5 +1,55 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:veavz5io7eocwh7dbrhr2thi",
+	"schema": {
+		"id": "app.blebbit.authr.group.defs",
+		"defs": {
+			"groupForm": {
+				"type": "object",
+				"required": [
+					"name"
+				],
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"public": {
+						"type": "boolean"
+					},
+					"display": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					}
+				}
+			},
+			"groupView": {
+				"type": "object",
+				"properties": {
+					"cuid": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"public": {
+						"type": "boolean"
+					},
+					"display": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"revision": 1,
+		"description": "Common defs for the Authr Example"
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

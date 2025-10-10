@@ -1,5 +1,30 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:2uwoih2htodskvgocarwv5eq",
+	"schema": {
+		"id": "community.lexicon.location.hthree",
+		"defs": {
+			"main": {
+				"type": "object",
+				"required": [
+					"value"
+				],
+				"properties": {
+					"name": {
+						"type": "string",
+						"description": "The name of the location."
+					},
+					"value": {
+						"type": "string",
+						"description": "The h3 encoded location."
+					}
+				},
+				"description": "A physical location in the form of a H3 encoded location."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

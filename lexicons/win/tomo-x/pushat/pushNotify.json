@@ -1,5 +1,43 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:qcwvyds5tixmcwkwrg3hxgxd",
+	"schema": {
+		"id": "win.tomo-x.pushat.pushNotify",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"body",
+							"target"
+						],
+						"properties": {
+							"body": {
+								"ref": "win.tomo-x.pushat.defs#notifyBody",
+								"type": "ref"
+							},
+							"target": {
+								"type": "string",
+								"format": "did"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"type": "object",
+						"properties": {}
+					},
+					"encoding": "application/json"
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

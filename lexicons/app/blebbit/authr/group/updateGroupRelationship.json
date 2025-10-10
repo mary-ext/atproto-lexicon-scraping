@@ -1,5 +1,48 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:veavz5io7eocwh7dbrhr2thi",
+	"schema": {
+		"id": "app.blebbit.authr.group.updateGroupRelationship",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"subject",
+							"relation",
+							"resource"
+						],
+						"properties": {
+							"subject": {
+								"type": "string"
+							},
+							"relation": {
+								"type": "string"
+							},
+							"resource": {
+								"type": "string"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"$authzed": "admin",
+				"$flexicon": {
+					"action": "rel-update"
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"revision": 1,
+		"$flexicon": {
+			"lname": "group",
+			"lplural": "groups"
+		},
+		"description": "update a relationship for group"
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

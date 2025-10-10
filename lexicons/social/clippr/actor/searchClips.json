@@ -1,5 +1,68 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:web:clippr.social",
+	"schema": {
+		"id": "social.clippr.actor.searchClips",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"clips"
+						],
+						"properties": {
+							"clips": {
+								"type": "array",
+								"items": {
+									"ref": "social.clippr.feed.defs#clipView",
+									"type": "ref"
+								},
+								"description": "A list of clips and their associated details"
+							},
+							"cursor": {
+								"type": "string",
+								"description": "A parameter to paginate results"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"q"
+					],
+					"properties": {
+						"q": {
+							"type": "string",
+							"description": "Search query string"
+						},
+						"actor": {
+							"type": "string",
+							"format": "at-identifier",
+							"description": "An actor to filter results to"
+						},
+						"limit": {
+							"type": "integer",
+							"default": 25,
+							"maximum": 100,
+							"minimum": 1,
+							"description": "How many clips to return in the query output"
+						},
+						"cursor": {
+							"type": "string",
+							"description": "A parameter to paginate results"
+						}
+					}
+				},
+				"description": "Find clips matching search criteria. Does not require auth."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

@@ -1,5 +1,60 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:veavz5io7eocwh7dbrhr2thi",
+	"schema": {
+		"id": "app.blebbit.authr.group.getGroup",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"properties": {
+							"cuid": {
+								"type": "string"
+							},
+							"name": {
+								"type": "string"
+							},
+							"public": {
+								"type": "boolean"
+							},
+							"display": {
+								"type": "string"
+							},
+							"description": {
+								"type": "string"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"$authzed": "read",
+				"$flexicon": {
+					"action": "get"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"id"
+					],
+					"properties": {
+						"id": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"revision": 1,
+		"$flexicon": {
+			"lname": "group",
+			"lplural": "groups"
+		},
+		"description": "get a group by id"
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

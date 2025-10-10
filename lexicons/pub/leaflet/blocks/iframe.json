@@ -1,5 +1,30 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:btxrwcaeyodrap5mnjw2fvmz",
+	"schema": {
+		"id": "pub.leaflet.blocks.iframe",
+		"defs": {
+			"main": {
+				"type": "object",
+				"required": [
+					"url"
+				],
+				"properties": {
+					"url": {
+						"type": "string",
+						"format": "uri"
+					},
+					"height": {
+						"type": "integer",
+						"maximum": 1600,
+						"minimum": 16
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

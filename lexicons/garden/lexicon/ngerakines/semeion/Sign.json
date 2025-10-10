@@ -1,5 +1,23 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:akhgi4ekkeaupiqsis6g2gqg",
+	"schema": {
+		"id": "garden.lexicon.ngerakines.semeion.Sign",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"encoding": "*/*"
+				},
+				"output": {
+					"encoding": "application/octet-stream"
+				},
+				"description": "Sign a payload"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

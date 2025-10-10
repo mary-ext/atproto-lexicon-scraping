@@ -1,5 +1,34 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:veavz5io7eocwh7dbrhr2thi",
+	"schema": {
+		"id": "app.blebbit.authr.folder.deleteFolder",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"$authzed": "admin",
+				"$flexicon": {
+					"action": "delete"
+				},
+				"parameters": {
+					"type": "params",
+					"properties": {
+						"id": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"revision": 1,
+		"$flexicon": {
+			"lname": "folder",
+			"lplural": "folders"
+		},
+		"description": "delete a folder"
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

@@ -1,5 +1,78 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:web:atwork.place",
+	"schema": {
+		"id": "place.atwork.searchListings",
+		"defs": {
+			"main": {
+				"type": "query",
+				"errors": [
+					{
+						"name": "SearchFailed",
+						"description": "Failed to search listings"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"listings"
+						],
+						"properties": {
+							"listings": {
+								"type": "array",
+								"items": {
+									"ref": "#listingRecord",
+									"type": "ref"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"query"
+					],
+					"properties": {
+						"query": {
+							"type": "string",
+							"description": "Search query string for full-text search"
+						}
+					}
+				},
+				"description": "Search job listings using full-text query"
+			},
+			"listingRecord": {
+				"type": "object",
+				"required": [
+					"uri",
+					"cid"
+				],
+				"properties": {
+					"cid": {
+						"type": "string",
+						"format": "cid",
+						"description": "CID of the listing record"
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "AT-URI of the listing (at://did/place.atwork.listing/rkey)"
+					},
+					"value": {
+						"ref": "place.atwork.listing",
+						"type": "ref",
+						"description": "The full job listing record"
+					}
+				},
+				"description": "A job listing record with metadata for strong references"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

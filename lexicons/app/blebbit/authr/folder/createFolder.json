@@ -1,5 +1,57 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:veavz5io7eocwh7dbrhr2thi",
+	"schema": {
+		"id": "app.blebbit.authr.folder.createFolder",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"public": {
+								"type": "boolean"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"type": "object",
+						"properties": {
+							"cuid": {
+								"type": "string"
+							},
+							"name": {
+								"type": "string"
+							},
+							"public": {
+								"type": "boolean"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"$authzed": "admin",
+				"$flexicon": {
+					"action": "create"
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"revision": 1,
+		"$flexicon": {
+			"lname": "folder",
+			"lplural": "folders"
+		},
+		"description": "create a folder"
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

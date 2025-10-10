@@ -1,5 +1,41 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:akhgi4ekkeaupiqsis6g2gqg",
+	"schema": {
+		"id": "garden.lexicon.ngerakines.helloworld.Hello",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"message"
+						],
+						"properties": {
+							"message": {
+								"type": "string",
+								"maxLength": 64
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [],
+					"properties": {
+						"subject": {
+							"type": "string",
+							"maxLength": 55
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

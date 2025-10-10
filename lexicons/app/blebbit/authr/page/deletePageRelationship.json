@@ -1,5 +1,47 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:veavz5io7eocwh7dbrhr2thi",
+	"schema": {
+		"id": "app.blebbit.authr.page.deletePageRelationship",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"subject",
+							"resource"
+						],
+						"properties": {
+							"subject": {
+								"type": "string"
+							},
+							"relation": {
+								"type": "string"
+							},
+							"resource": {
+								"type": "string"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"$authzed": "admin",
+				"$flexicon": {
+					"action": "rel-delete"
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"revision": 1,
+		"$flexicon": {
+			"lname": "page",
+			"lplural": "pages"
+		},
+		"description": "delete a relationship for page"
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

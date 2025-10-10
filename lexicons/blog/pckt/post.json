@@ -1,5 +1,77 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:revjuqmkvrw6fnkxppqtszpv",
+	"schema": {
+		"id": "blog.pckt.post",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"title",
+						"blocks",
+						"url",
+						"blog"
+					],
+					"properties": {
+						"url": {
+							"type": "string",
+							"format": "uri"
+						},
+						"blog": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref"
+						},
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						},
+						"cover": {
+							"type": "blob",
+							"accept": [
+								"image/*"
+							]
+						},
+						"title": {
+							"type": "string"
+						},
+						"blocks": {
+							"refs": [],
+							"type": "union",
+							"closed": false
+						},
+						"images": {
+							"type": "array",
+							"items": {
+								"type": "blob",
+								"accept": [
+									"image/*"
+								]
+							}
+						},
+						"bodyPlain": {
+							"type": "string"
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"publishedAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A blog post record. References a parent blog, and contains post title, body content, URL, tags, cover image, inline images, and timestamps."
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

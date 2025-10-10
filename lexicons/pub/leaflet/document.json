@@ -1,5 +1,66 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:btxrwcaeyodrap5mnjw2fvmz",
+	"schema": {
+		"id": "pub.leaflet.document",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"pages",
+						"author",
+						"title",
+						"publication"
+					],
+					"properties": {
+						"pages": {
+							"type": "array",
+							"items": {
+								"refs": [
+									"pub.leaflet.pages.linearDocument"
+								],
+								"type": "union"
+							}
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 1280,
+							"maxGraphemes": 128
+						},
+						"author": {
+							"type": "string",
+							"format": "at-identifier"
+						},
+						"postRef": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 3000,
+							"maxGraphemes": 300
+						},
+						"publication": {
+							"type": "string",
+							"format": "at-uri"
+						},
+						"publishedAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "Record containing a document"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"revision": 1,
+		"description": "A lexicon for long form rich media documents"
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

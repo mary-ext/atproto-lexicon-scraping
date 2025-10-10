@@ -1,5 +1,43 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:4v4y5r3lwsbtmsxhile2ljac",
+	"schema": {
+		"id": "app.bsky.video.getUploadLimits",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"canUpload"
+						],
+						"properties": {
+							"error": {
+								"type": "string"
+							},
+							"message": {
+								"type": "string"
+							},
+							"canUpload": {
+								"type": "boolean"
+							},
+							"remainingDailyBytes": {
+								"type": "integer"
+							},
+							"remainingDailyVideos": {
+								"type": "integer"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Get video upload limits for the authenticated user."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

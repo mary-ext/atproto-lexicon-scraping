@@ -1,5 +1,111 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:e7rftrdyz5e2rw4y6ocszew2",
+	"schema": {
+		"id": "social.grain.photo.defs",
+		"defs": {
+			"exifView": {
+				"type": "object",
+				"required": [
+					"photo",
+					"createdAt"
+				],
+				"properties": {
+					"cid": {
+						"type": "string",
+						"format": "cid"
+					},
+					"iSO": {
+						"type": "integer"
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"make": {
+						"type": "string"
+					},
+					"flash": {
+						"type": "string"
+					},
+					"model": {
+						"type": "string"
+					},
+					"photo": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"fNumber": {
+						"type": "string"
+					},
+					"lensMake": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime"
+					},
+					"lensModel": {
+						"type": "string"
+					},
+					"exposureTime": {
+						"type": "string"
+					},
+					"dateTimeOriginal": {
+						"type": "string"
+					},
+					"focalLengthIn35mmFormat": {
+						"type": "string"
+					}
+				}
+			},
+			"photoView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"cid",
+					"thumb",
+					"fullsize",
+					"alt"
+				],
+				"properties": {
+					"alt": {
+						"type": "string",
+						"description": "Alt text description of the image, for accessibility."
+					},
+					"cid": {
+						"type": "string",
+						"format": "cid"
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"exif": {
+						"ref": "social.grain.photo.defs#exifView",
+						"type": "ref",
+						"description": "EXIF metadata for the photo, if available."
+					},
+					"thumb": {
+						"type": "string",
+						"format": "uri",
+						"description": "Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View."
+					},
+					"fullsize": {
+						"type": "string",
+						"format": "uri",
+						"description": "Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View."
+					},
+					"aspectRatio": {
+						"ref": "social.grain.defs#aspectRatio",
+						"type": "ref"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

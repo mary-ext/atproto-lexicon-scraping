@@ -1,5 +1,278 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:lcieujcfkv4jx7gehsvok3pr",
+	"schema": {
+		"id": "net.anisota.beta.game.session",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"startedAt",
+						"status",
+						"platform",
+						"clientVersion"
+					],
+					"properties": {
+						"status": {
+							"enum": [
+								"active",
+								"ended",
+								"expired",
+								"invalidated"
+							],
+							"type": "string",
+							"description": "Current status of the session"
+						},
+						"endedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When the session ended (ISO 8601)"
+						},
+						"duration": {
+							"type": "integer",
+							"minimum": 0,
+							"description": "Total session duration in milliseconds (calculated when session ends)"
+						},
+						"metadata": {
+							"ref": "#metadata",
+							"type": "ref"
+						},
+						"platform": {
+							"enum": [
+								"web",
+								"mobile",
+								"desktop",
+								"pwa"
+							],
+							"type": "string",
+							"description": "Platform where the session occurred"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When the session record was created"
+						},
+						"endReason": {
+							"enum": [
+								"logout",
+								"timeout",
+								"inactivity",
+								"user_initiated",
+								"device_switch",
+								"app_close",
+								"forced_end"
+							],
+							"type": "string",
+							"description": "Why the session ended"
+						},
+						"startedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When the session began (ISO 8601)"
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When the session record was last updated"
+						},
+						"clientVersion": {
+							"type": "string",
+							"description": "Version of the client application"
+						},
+						"lastActivityAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp of the last recorded activity in this session"
+						},
+						"relatedLogUris": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							},
+							"description": "URIs of log records that occurred during this session"
+						},
+						"sessionContext": {
+							"ref": "#sessionContext",
+							"type": "ref"
+						},
+						"activitySummary": {
+							"ref": "#activitySummary",
+							"type": "ref"
+						},
+						"parentSessionUri": {
+							"type": "string",
+							"description": "URI of the previous session if this is a continuation (e.g., after brief inactivity)"
+						},
+						"relatedSessionUris": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							},
+							"description": "URIs of related sessions (e.g., same day, same device)"
+						},
+						"relatedProgressUris": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							},
+							"description": "URIs of progress records created during this session"
+						}
+					}
+				},
+				"description": "A game session record tracking a continuous period of user engagement with the application"
+			},
+			"metadata": {
+				"type": "object",
+				"properties": {
+					"features": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"description": "List of features used during the session"
+					},
+					"networkCondition": {
+						"enum": [
+							"online",
+							"offline",
+							"slow",
+							"unknown"
+						],
+						"type": "string",
+						"description": "Network condition during session"
+					},
+					"performanceMetrics": {
+						"ref": "#performanceMetrics",
+						"type": "ref"
+					}
+				},
+				"description": "Additional session metadata"
+			},
+			"gameActions": {
+				"type": "object",
+				"properties": {
+					"levelUps": {
+						"type": "integer",
+						"minimum": 0
+					},
+					"feedsLoaded": {
+						"type": "integer",
+						"minimum": 0
+					},
+					"postsViewed": {
+						"type": "integer",
+						"minimum": 0
+					},
+					"itemsCollected": {
+						"type": "integer",
+						"minimum": 0
+					},
+					"specimensCollected": {
+						"type": "integer",
+						"minimum": 0
+					},
+					"dailyRewardsClaimed": {
+						"type": "integer",
+						"minimum": 0
+					}
+				},
+				"description": "Game-specific actions performed"
+			},
+			"sessionContext": {
+				"type": "object",
+				"properties": {
+					"referrer": {
+						"type": "string",
+						"description": "Referrer URL if applicable"
+					},
+					"isNewUser": {
+						"type": "boolean",
+						"description": "Whether this was a new user's first session"
+					},
+					"entryPoint": {
+						"enum": [
+							"direct",
+							"refresh",
+							"login",
+							"oauth_callback",
+							"pwa_launch",
+							"deep_link"
+						],
+						"type": "string",
+						"description": "How the user entered the app"
+					},
+					"authenticationMethod": {
+						"enum": [
+							"oauth",
+							"existing_session",
+							"anonymous"
+						],
+						"type": "string",
+						"description": "How the user was authenticated"
+					}
+				},
+				"description": "Context about how the session started"
+			},
+			"activitySummary": {
+				"type": "object",
+				"properties": {
+					"currentXP": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Player's total XP at the time of this session update"
+					},
+					"gameActions": {
+						"ref": "#gameActions",
+						"type": "ref"
+					},
+					"totalEvents": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Total number of events logged in this session"
+					},
+					"currentLevel": {
+						"type": "integer",
+						"minimum": 1,
+						"description": "Player's current level at the time of this session update"
+					},
+					"pagesVisited": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"description": "List of unique pages/routes visited"
+					},
+					"xpGainedThisSession": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Total XP gained during this specific session"
+					}
+				},
+				"description": "Summary of activity during this session"
+			},
+			"performanceMetrics": {
+				"type": "object",
+				"properties": {
+					"errorCount": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Number of errors encountered"
+					},
+					"averageResponseTime": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Average API response time in milliseconds (rounded to nearest integer)"
+					}
+				},
+				"description": "Performance-related data"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

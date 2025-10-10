@@ -1,5 +1,36 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:gzryvspftup4ieqrqdo2svxf",
+	"schema": {
+		"id": "net.aftertheinter.coolthingtwo",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"status",
+						"createdAt"
+					],
+					"properties": {
+						"status": {
+							"type": "string",
+							"maxLength": 32,
+							"minLength": 1,
+							"maxGraphemes": 1
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

@@ -1,5 +1,7 @@
 {
-	"authority": null,
+	"authority": "did:plc:jovwg6whom2olc7dh7by6ceg",
 	"schema": null,
-	"meta": {}
+	"meta": {
+		"errorAt": 1760078004263
+	}
 }

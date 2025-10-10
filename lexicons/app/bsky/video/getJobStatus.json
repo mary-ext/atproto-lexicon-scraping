@@ -1,5 +1,43 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:4v4y5r3lwsbtmsxhile2ljac",
+	"schema": {
+		"id": "app.bsky.video.getJobStatus",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"jobStatus"
+						],
+						"properties": {
+							"jobStatus": {
+								"ref": "app.bsky.video.defs#jobStatus",
+								"type": "ref"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"jobId"
+					],
+					"properties": {
+						"jobId": {
+							"type": "string"
+						}
+					}
+				},
+				"description": "Get status details for a video processing job."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

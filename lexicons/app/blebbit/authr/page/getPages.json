@@ -1,5 +1,47 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:veavz5io7eocwh7dbrhr2thi",
+	"schema": {
+		"id": "app.blebbit.authr.page.getPages",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"properties": {
+							"pages": {
+								"type": "array",
+								"items": {
+									"ref": "app.blebbit.authr.page.defs#pageView",
+									"type": "ref"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"$authzed": [
+					"read"
+				],
+				"parameters": {
+					"type": "params",
+					"properties": {
+						"limit": {
+							"type": "integer"
+						},
+						"cursor": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"revision": 1,
+		"description": "get a page list"
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

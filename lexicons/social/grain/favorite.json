@@ -1,5 +1,34 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:e7rftrdyz5e2rw4y6ocszew2",
+	"schema": {
+		"id": "social.grain.favorite",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"createdAt",
+						"subject"
+					],
+					"properties": {
+						"subject": {
+							"type": "string",
+							"format": "at-uri"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

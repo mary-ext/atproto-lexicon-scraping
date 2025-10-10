@@ -1,5 +1,59 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:web:atwork.place",
+	"schema": {
+		"id": "place.atwork.profile",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"properties": {
+						"facets": {
+							"type": "array",
+							"items": {
+								"ref": "app.bsky.richtext.facet",
+								"type": "ref"
+							},
+							"description": "Annotations of text (mentions, URLs, hashtags, etc) in the description."
+						},
+						"status": {
+							"type": "string",
+							"description": "The current status of the identity.",
+							"knownValues": [
+								"place.atwork.profile#hiring",
+								"place.atwork.profile#forhire"
+							]
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 2000,
+							"description": "A free text description of the identity.",
+							"maxGraphemes": 2000
+						},
+						"displayName": {
+							"type": "string",
+							"maxLength": 200,
+							"description": "The display name of the identity.",
+							"maxGraphemes": 200
+						}
+					}
+				},
+				"description": "A user profile for AT://Work.Place"
+			},
+			"hiring": {
+				"type": "token",
+				"description": "Indicates the identity is actively hiring"
+			},
+			"forhire": {
+				"type": "token",
+				"description": "Indicates the identity is available for hire"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

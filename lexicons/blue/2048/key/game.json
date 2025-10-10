@@ -1,5 +1,36 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:zylhqsjug3f76uqxguhviqka",
+	"schema": {
+		"id": "blue.2048.key.game",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"key",
+						"createdAt"
+					],
+					"properties": {
+						"key": {
+							"ref": "blue.2048.key.defs#key",
+							"type": "ref",
+							"description": "A did:key that is used to verify an at://2048 authority has verified this game to a certain degree"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "A record that holds a did:key for verifying a players game. This is intended to be written at a verification authorities repo"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

@@ -1,5 +1,36 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:veavz5io7eocwh7dbrhr2thi",
+	"schema": {
+		"id": "app.blebbit.authr.page.record",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"properties": {
+						"cuid": {
+							"type": "string"
+						},
+						"name": {
+							"type": "string"
+						},
+						"public": {
+							"type": "boolean"
+						},
+						"content": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"revision": 1,
+		"description": "Lexicon for pages on Authr Example"
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

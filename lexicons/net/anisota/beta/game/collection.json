@@ -1,5 +1,162 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:lcieujcfkv4jx7gehsvok3pr",
+	"schema": {
+		"id": "net.anisota.beta.game.collection",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"specimenId",
+						"quantity",
+						"acquiredAt",
+						"createdAt"
+					],
+					"properties": {
+						"genus": {
+							"type": "string",
+							"maxLength": 100,
+							"description": "Taxonomic genus"
+						},
+						"family": {
+							"type": "string",
+							"maxLength": 100,
+							"description": "Taxonomic family"
+						},
+						"rarity": {
+							"enum": [
+								"common",
+								"uncommon",
+								"rare",
+								"epic",
+								"legendary"
+							],
+							"type": "string",
+							"description": "Rarity level of the specimen"
+						},
+						"source": {
+							"enum": [
+								"game_card",
+								"field_observation",
+								"trade",
+								"quest",
+								"research"
+							],
+							"type": "string",
+							"description": "How the specimen was acquired"
+						},
+						"status": {
+							"enum": [
+								"seen",
+								"collected"
+							],
+							"type": "string",
+							"description": "Collection status of this specimen"
+						},
+						"species": {
+							"type": "string",
+							"maxLength": 100,
+							"description": "Taxonomic species"
+						},
+						"lastSeen": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When the specimen was last encountered"
+						},
+						"quantity": {
+							"type": "integer",
+							"minimum": 1,
+							"description": "Number of specimens collected"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When the record was created"
+						},
+						"acquiredAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When the specimen was first acquired"
+						},
+						"commonName": {
+							"type": "string",
+							"maxLength": 200,
+							"description": "Common name of the specimen"
+						},
+						"specimenId": {
+							"type": "string",
+							"maxLength": 100,
+							"description": "Unique identifier for the specimen"
+						},
+						"lastModified": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When the record was last modified"
+						},
+						"logRecordUri": {
+							"type": "string",
+							"description": "URI of the game.log record that documents the acquisition of this specimen"
+						},
+						"specimenData": {
+							"ref": "#specimenData",
+							"type": "ref"
+						},
+						"sourceDetails": {
+							"ref": "#sourceDetails",
+							"type": "ref"
+						},
+						"scientificName": {
+							"type": "string",
+							"maxLength": 200,
+							"description": "Scientific name of the specimen"
+						}
+					}
+				},
+				"description": "Beta version: Record representing a collected specimen in a player's collection"
+			},
+			"specimenData": {
+				"type": "object",
+				"properties": {
+					"authorship": {
+						"type": "string",
+						"description": "Scientific authorship of the species"
+					},
+					"description": {
+						"type": "string",
+						"description": "Detailed description of the specimen"
+					}
+				},
+				"description": "Complete specimen information"
+			},
+			"sourceDetails": {
+				"type": "object",
+				"properties": {
+					"attempts": {
+						"type": "integer",
+						"description": "Number of attempts before successful capture"
+					},
+					"location": {
+						"type": "string",
+						"description": "Location where specimen was found or observed"
+					},
+					"gameCardUri": {
+						"type": "string",
+						"description": "URI of the game card that provided this specimen"
+					},
+					"catchProbability": {
+						"type": "string",
+						"description": "Probability used when catching this specimen (decimal string, e.g. '0.75')"
+					}
+				},
+				"description": "Additional details about how the specimen was acquired"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

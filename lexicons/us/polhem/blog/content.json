@@ -1,5 +1,48 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:p5a4pydyirvdkmc3lhw2iykp",
+	"schema": {
+		"id": "us.polhem.blog.content",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"content",
+						"slug",
+						"createdAt"
+					],
+					"properties": {
+						"slug": {
+							"type": "string",
+							"maxLength": 100
+						},
+						"images": {
+							"type": "array",
+							"items": {
+								"ref": "us.polhem.blog.image",
+								"type": "ref"
+							}
+						},
+						"content": {
+							"type": "string",
+							"maxLength": 100000
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "Record describing a page content block."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Generic blocks of web content for my personal blog (https://polhem.us)"
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

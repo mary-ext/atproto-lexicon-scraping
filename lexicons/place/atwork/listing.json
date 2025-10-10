@@ -1,5 +1,73 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:web:atwork.place",
+	"schema": {
+		"id": "place.atwork.listing",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"title",
+						"notBefore",
+						"notAfter",
+						"description"
+					],
+					"properties": {
+						"title": {
+							"type": "string",
+							"maxLength": 200,
+							"description": "The title of the job listing."
+						},
+						"facets": {
+							"type": "array",
+							"items": {
+								"ref": "app.bsky.richtext.facet",
+								"type": "ref"
+							},
+							"description": "Annotations of text (mentions, URLs, hashtags, etc)."
+						},
+						"notAfter": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Client-declared timestamp when the job listing expires."
+						},
+						"applyLink": {
+							"type": "string",
+							"format": "uri",
+							"description": "URL where applicants can apply for the job."
+						},
+						"locations": {
+							"type": "array",
+							"items": {
+								"refs": [
+									"community.lexicon.location.hthree"
+								],
+								"type": "union"
+							},
+							"description": "Locations that are relevant to the job listing."
+						},
+						"notBefore": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Client-declared timestamp when the job listing becomes visible."
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 10000,
+							"description": "The description of the job listing.",
+							"maxGraphemes": 10000
+						}
+					}
+				},
+				"description": "A job listing"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

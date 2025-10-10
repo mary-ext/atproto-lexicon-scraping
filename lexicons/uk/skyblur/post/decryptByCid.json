@@ -1,5 +1,67 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:4sm3vprfyl55ui3yhjd7w4po",
+	"schema": {
+		"id": "uk.skyblur.post.decryptByCid",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"pds",
+							"repo",
+							"cid",
+							"password"
+						],
+						"properties": {
+							"cid": {
+								"type": "string",
+								"format": "cid"
+							},
+							"pds": {
+								"type": "string",
+								"format": "uri"
+							},
+							"repo": {
+								"type": "string",
+								"format": "did"
+							},
+							"password": {
+								"type": "string"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"text"
+						],
+						"properties": {
+							"text": {
+								"type": "string"
+							},
+							"message": {
+								"type": "string"
+							},
+							"additional": {
+								"type": "string"
+							}
+						}
+					},
+					"encoding": "application/json",
+					"description": "Returns the encrypted result."
+				},
+				"description": "Decrypting the post by blob cid."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

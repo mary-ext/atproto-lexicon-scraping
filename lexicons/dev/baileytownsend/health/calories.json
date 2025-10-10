@@ -1,5 +1,38 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:rnpkyqnmsw4ipey6eotbdnnf",
+	"schema": {
+		"id": "dev.baileytownsend.health.calories",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"intake",
+						"burned",
+						"createdAt"
+					],
+					"properties": {
+						"burned": {
+							"type": "integer"
+						},
+						"intake": {
+							"type": "integer"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "A record of daily intake and burned calories."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }

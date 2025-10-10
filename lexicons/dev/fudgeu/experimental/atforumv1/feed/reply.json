@@ -1,5 +1,44 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:wez36htzdmk6gxiw7vyi7pga",
+	"schema": {
+		"id": "dev.fudgeu.experimental.atforumv1.feed.reply",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"content",
+						"createdAt",
+						"root"
+					],
+					"properties": {
+						"root": {
+							"type": "string",
+							"format": "at-uri"
+						},
+						"content": {
+							"type": "string",
+							"maxLength": 10000
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "An initial post that starts a discussion"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760078004263
+	}
 }
