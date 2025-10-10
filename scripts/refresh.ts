@@ -100,12 +100,16 @@ for await (const relname of sortedEntries) {
 	}
 
 	if (status === undefined) {
-		const errorAt = doc.meta.errorAt;
-
-		if (errorAt === undefined) {
-			doc.meta.errorAt = startedAt;
-		} else if (differenceInDays(startedAt, errorAt) > MAX_FAILURE_DAYS) {
+		if (doc.authority === null || doc.schema === null) {
 			status = 'fail';
+		} else {
+			const errorAt = doc.meta.errorAt;
+
+			if (errorAt === undefined) {
+				doc.meta.errorAt = startedAt;
+			} else if (differenceInDays(startedAt, errorAt) > MAX_FAILURE_DAYS) {
+				status = 'fail';
+			}
 		}
 	}
 
