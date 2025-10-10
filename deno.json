@@ -1,0 +1,24 @@
+{
+	"fmt": {
+		"useTabs": true,
+		"indentWidth": 2,
+		"lineWidth": 110,
+		"semiColons": true,
+		"singleQuote": true
+	},
+	"imports": {
+		"@atcute/atproto": "npm:@atcute/atproto@^3.1.7",
+		"@atcute/car": "npm:@atcute/car@^3.1.2",
+		"@atcute/client": "npm:@atcute/client@^4.0.4",
+		"@atcute/identity": "npm:@atcute/identity@^1.1.1",
+		"@atcute/identity-resolver": "npm:@atcute/identity-resolver@^1.1.4",
+		"@atcute/jetstream": "npm:@atcute/jetstream@^1.1.1",
+		"@atcute/lexicon-doc": "npm:@atcute/lexicon-doc@^1.1.2",
+		"@atcute/lexicon-resolver": "npm:@atcute/lexicon-resolver@^0.1.2",
+		"@atcute/lexicons": "npm:@atcute/lexicons@^1.2.2",
+		"@badrap/valita": "npm:@badrap/valita@^0.4.6",
+		"@mary/array-fns": "jsr:@mary/array-fns@^0.1.5",
+		"date-fns": "npm:date-fns@^4.1.0",
+		"dequal": "npm:dequal@^2.0.3"
+	}
+}
