@@ -1,5 +1,32 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:6msi3pj7krzih5qxqtryxlzw",
+	"schema": {
+		"id": "com.atproto.sync.requestCrawl",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"hostname"
+						],
+						"properties": {
+							"hostname": {
+								"type": "string",
+								"description": "Hostname of the current service (eg, PDS) that is requesting to be crawled."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Request a service to persistently crawl hosted repos. Expected use is new PDS instances declaring their existence to Relays. Does not require auth."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760079039517
+	}
 }

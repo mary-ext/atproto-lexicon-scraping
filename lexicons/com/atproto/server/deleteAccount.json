@@ -1,5 +1,48 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:6msi3pj7krzih5qxqtryxlzw",
+	"schema": {
+		"id": "com.atproto.server.deleteAccount",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"did",
+							"password",
+							"token"
+						],
+						"properties": {
+							"did": {
+								"type": "string",
+								"format": "did"
+							},
+							"token": {
+								"type": "string"
+							},
+							"password": {
+								"type": "string"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "ExpiredToken"
+					},
+					{
+						"name": "InvalidToken"
+					}
+				],
+				"description": "Delete an actor's account with a token and password. Can only be called after requesting a deletion token. Requires auth."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760079039517
+	}
 }

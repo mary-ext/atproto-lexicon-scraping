@@ -1,5 +1,31 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:6msi3pj7krzih5qxqtryxlzw",
+	"schema": {
+		"id": "com.atproto.repo.strongRef",
+		"defs": {
+			"main": {
+				"type": "object",
+				"required": [
+					"uri",
+					"cid"
+				],
+				"properties": {
+					"cid": {
+						"type": "string",
+						"format": "cid"
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A URI with a content-hash fingerprint."
+	},
+	"meta": {
+		"indexedAt": 1760079039517
+	}
 }

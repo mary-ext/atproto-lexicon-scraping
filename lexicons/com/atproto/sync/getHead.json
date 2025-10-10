@@ -1,5 +1,50 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:6msi3pj7krzih5qxqtryxlzw",
+	"schema": {
+		"id": "com.atproto.sync.getHead",
+		"defs": {
+			"main": {
+				"type": "query",
+				"errors": [
+					{
+						"name": "HeadNotFound"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"root"
+						],
+						"properties": {
+							"root": {
+								"type": "string",
+								"format": "cid"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"did"
+					],
+					"properties": {
+						"did": {
+							"type": "string",
+							"format": "did",
+							"description": "The DID of the repo."
+						}
+					}
+				},
+				"description": "DEPRECATED - please use com.atproto.sync.getLatestCommit instead"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760079039517
+	}
 }

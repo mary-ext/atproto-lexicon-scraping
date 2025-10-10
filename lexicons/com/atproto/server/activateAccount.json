@@ -1,5 +1,17 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:6msi3pj7krzih5qxqtryxlzw",
+	"schema": {
+		"id": "com.atproto.server.activateAccount",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"description": "Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760079039517
+	}
 }

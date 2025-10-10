@@ -1,5 +1,50 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:6msi3pj7krzih5qxqtryxlzw",
+	"schema": {
+		"id": "com.atproto.admin.getAccountInfos",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"infos"
+						],
+						"properties": {
+							"infos": {
+								"type": "array",
+								"items": {
+									"ref": "com.atproto.admin.defs#accountView",
+									"type": "ref"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"dids"
+					],
+					"properties": {
+						"dids": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "did"
+							}
+						}
+					}
+				},
+				"description": "Get details about some accounts."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760079039517
+	}
 }

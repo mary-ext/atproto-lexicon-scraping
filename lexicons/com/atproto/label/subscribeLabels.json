@@ -1,5 +1,76 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:6msi3pj7krzih5qxqtryxlzw",
+	"schema": {
+		"id": "com.atproto.label.subscribeLabels",
+		"defs": {
+			"info": {
+				"type": "object",
+				"required": [
+					"name"
+				],
+				"properties": {
+					"name": {
+						"type": "string",
+						"knownValues": [
+							"OutdatedCursor"
+						]
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"main": {
+				"type": "subscription",
+				"errors": [
+					{
+						"name": "FutureCursor"
+					}
+				],
+				"message": {
+					"schema": {
+						"refs": [
+							"#labels",
+							"#info"
+						],
+						"type": "union"
+					}
+				},
+				"parameters": {
+					"type": "params",
+					"properties": {
+						"cursor": {
+							"type": "integer",
+							"description": "The last known event seq number to backfill from."
+						}
+					}
+				},
+				"description": "Subscribe to stream of labels (and negations). Public endpoint implemented by mod services. Uses same sequencing scheme as repo event stream."
+			},
+			"labels": {
+				"type": "object",
+				"required": [
+					"seq",
+					"labels"
+				],
+				"properties": {
+					"seq": {
+						"type": "integer"
+					},
+					"labels": {
+						"type": "array",
+						"items": {
+							"ref": "com.atproto.label.defs#label",
+							"type": "ref"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760079039517
+	}
 }
