@@ -44,6 +44,8 @@ do {
 		},
 	}));
 
+	repoCursor = backfills.cursor;
+
 	for (const { did } of backfills.repos) {
 		console.log(`processing ${did}`);
 
@@ -87,6 +89,8 @@ do {
 						},
 					}),
 				);
+
+				cursor = data.cursor;
 
 				for (const { uri } of data.records) {
 					const { rkey: nsid } = assertCanonicalResourceUri(uri);
