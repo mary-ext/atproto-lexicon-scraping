@@ -35,5 +35,8 @@
 	"meta": {
 		"indexedAt": 1760078004263,
 		"errorAt": 1760141389164
+	},
+	"references": {
+		"main": []
 	}
 }

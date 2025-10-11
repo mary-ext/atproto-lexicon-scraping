@@ -335,5 +335,36 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"modlist": [],
+		"listView": [
+			"app.bsky.actor.defs",
+			"app.bsky.richtext.facet",
+			"com.atproto.label.defs"
+		],
+		"curatelist": [],
+		"listPurpose": [],
+		"listItemView": [
+			"app.bsky.actor.defs",
+			"com.atproto.label.defs"
+		],
+		"relationship": [],
+		"listViewBasic": [
+			"com.atproto.label.defs"
+		],
+		"notFoundActor": [],
+		"referencelist": [],
+		"listViewerState": [],
+		"starterPackView": [
+			"app.bsky.actor.defs",
+			"app.bsky.feed.defs",
+			"app.bsky.richtext.facet",
+			"com.atproto.label.defs"
+		],
+		"starterPackViewBasic": [
+			"app.bsky.actor.defs",
+			"com.atproto.label.defs"
+		]
 	}
 }

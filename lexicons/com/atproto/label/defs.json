@@ -195,5 +195,13 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"label": [],
+		"selfLabel": [],
+		"labelValue": [],
+		"selfLabels": [],
+		"labelValueDefinition": [],
+		"labelValueDefinitionStrings": []
 	}
 }

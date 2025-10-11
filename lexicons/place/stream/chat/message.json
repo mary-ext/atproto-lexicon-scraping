@@ -69,5 +69,15 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"main": [
+			"app.bsky.richtext.facet",
+			"com.atproto.repo.strongRef",
+			"place.stream.richtext.facet"
+		],
+		"replyRef": [
+			"com.atproto.repo.strongRef"
+		]
 	}
 }

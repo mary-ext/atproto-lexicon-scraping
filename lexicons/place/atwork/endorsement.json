@@ -56,5 +56,10 @@
 	},
 	"meta": {
 		"indexedAt": 1760141389164
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
 	}
 }

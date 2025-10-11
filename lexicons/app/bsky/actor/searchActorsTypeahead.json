@@ -50,5 +50,12 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"main": [
+			"app.bsky.actor.defs",
+			"app.bsky.graph.defs",
+			"com.atproto.label.defs"
+		]
 	}
 }

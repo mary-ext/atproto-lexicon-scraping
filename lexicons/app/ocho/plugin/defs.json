@@ -346,5 +346,23 @@
 	},
 	"meta": {
 		"indexedAt": 1760153945665
+	},
+	"references": {
+		"db": [],
+		"ios": [],
+		"web": [],
+		"asset": [],
+		"expoGo": [],
+		"plugin": [],
+		"android": [],
+		"manifest": [],
+		"stringId": [],
+		"developer": [],
+		"expoClient": [],
+		"launchAsset": [],
+		"adaptiveIcon": [],
+		"pluginConfig": [],
+		"manifestExtra": [],
+		"androidStatusBar": []
 	}
 }

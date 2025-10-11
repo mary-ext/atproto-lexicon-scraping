@@ -41,5 +41,10 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"main": [
+			"com.atproto.label.defs"
+		]
 	}
 }

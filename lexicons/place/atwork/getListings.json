@@ -69,5 +69,17 @@
 	},
 	"meta": {
 		"indexedAt": 1760141389164
+	},
+	"references": {
+		"main": [
+			"app.bsky.richtext.facet",
+			"community.lexicon.location.hthree",
+			"place.atwork.listing"
+		],
+		"listingRecord": [
+			"app.bsky.richtext.facet",
+			"community.lexicon.location.hthree",
+			"place.atwork.listing"
+		]
 	}
 }

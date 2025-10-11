@@ -134,5 +134,14 @@
 	},
 	"meta": {
 		"indexedAt": 1760079039517
+	},
+	"references": {
+		"repoRef": [],
+		"statusAttr": [],
+		"accountView": [
+			"com.atproto.server.defs"
+		],
+		"repoBlobRef": [],
+		"threatSignature": []
 	}
 }

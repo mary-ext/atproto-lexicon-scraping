@@ -103,5 +103,12 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"main": [
+			"buzz.bookhive.defs",
+			"buzz.bookhive.hiveBook",
+			"com.atproto.repo.strongRef"
+		]
 	}
 }

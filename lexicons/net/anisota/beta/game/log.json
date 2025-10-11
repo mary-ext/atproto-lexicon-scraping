@@ -306,5 +306,15 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"main": [],
+		"metadata": [],
+		"rewardItem": [],
+		"feedContext": [],
+		"gameCardData": [],
+		"itemUsageData": [],
+		"collectionData": [],
+		"dailyRewardsData": []
 	}
 }

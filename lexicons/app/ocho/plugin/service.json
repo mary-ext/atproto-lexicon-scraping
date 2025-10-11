@@ -33,5 +33,10 @@
 	},
 	"meta": {
 		"indexedAt": 1760153945665
+	},
+	"references": {
+		"main": [
+			"app.ocho.plugin.defs"
+		]
 	}
 }

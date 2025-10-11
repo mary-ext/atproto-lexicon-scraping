@@ -85,5 +85,12 @@
 	},
 	"meta": {
 		"indexedAt": 1760079039517
+	},
+	"references": {
+		"main": [
+			"com.atproto.admin.defs",
+			"com.atproto.moderation.defs",
+			"com.atproto.repo.strongRef"
+		]
 	}
 }

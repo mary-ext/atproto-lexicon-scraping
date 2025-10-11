@@ -116,5 +116,17 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"id": [],
+		"bold": [],
+		"code": [],
+		"link": [],
+		"main": [],
+		"italic": [],
+		"byteSlice": [],
+		"highlight": [],
+		"underline": [],
+		"strikethrough": []
 	}
 }

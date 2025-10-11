@@ -110,5 +110,16 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"main": [
+			"pub.leaflet.theme.backgroundImage",
+			"pub.leaflet.theme.color"
+		],
+		"theme": [
+			"pub.leaflet.theme.backgroundImage",
+			"pub.leaflet.theme.color"
+		],
+		"preferences": []
 	}
 }

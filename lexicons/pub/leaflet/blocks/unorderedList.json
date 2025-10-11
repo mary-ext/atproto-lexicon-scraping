@@ -47,5 +47,19 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"main": [
+			"pub.leaflet.blocks.header",
+			"pub.leaflet.blocks.image",
+			"pub.leaflet.blocks.text",
+			"pub.leaflet.richtext.facet"
+		],
+		"listItem": [
+			"pub.leaflet.blocks.header",
+			"pub.leaflet.blocks.image",
+			"pub.leaflet.blocks.text",
+			"pub.leaflet.richtext.facet"
+		]
 	}
 }

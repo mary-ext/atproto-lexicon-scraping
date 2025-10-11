@@ -54,5 +54,13 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"messageView": [
+			"app.bsky.actor.defs",
+			"app.bsky.graph.defs",
+			"com.atproto.label.defs",
+			"place.stream.chat.profile"
+		]
 	}
 }

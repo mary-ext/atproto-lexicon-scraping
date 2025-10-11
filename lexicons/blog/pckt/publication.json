@@ -79,5 +79,10 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"main": [
+			"blog.pckt.theme"
+		]
 	}
 }

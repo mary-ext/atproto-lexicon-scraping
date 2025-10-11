@@ -68,5 +68,11 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"main": [
+			"social.clippr.actor.defs",
+			"social.clippr.feed.defs"
+		]
 	}
 }

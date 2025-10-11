@@ -44,5 +44,10 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"main": [
+			"us.polhem.blog.image"
+		]
 	}
 }

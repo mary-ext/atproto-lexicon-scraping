@@ -90,5 +90,12 @@
 	},
 	"meta": {
 		"indexedAt": 1760141389164
+	},
+	"references": {
+		"main": [
+			"app.bsky.richtext.facet"
+		],
+		"hiring": [],
+		"forhire": []
 	}
 }

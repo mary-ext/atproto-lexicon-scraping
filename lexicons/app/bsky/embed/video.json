@@ -93,5 +93,14 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"main": [
+			"app.bsky.embed.defs"
+		],
+		"view": [
+			"app.bsky.embed.defs"
+		],
+		"caption": []
 	}
 }

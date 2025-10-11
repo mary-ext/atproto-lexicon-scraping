@@ -41,5 +41,14 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"main": [
+			"app.bsky.actor.defs",
+			"app.bsky.feed.defs",
+			"app.bsky.graph.defs",
+			"app.bsky.richtext.facet",
+			"com.atproto.label.defs"
+		]
 	}
 }

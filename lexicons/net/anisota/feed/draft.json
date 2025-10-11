@@ -104,5 +104,21 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"main": [
+			"app.bsky.embed.defs",
+			"app.bsky.embed.external",
+			"app.bsky.embed.images",
+			"app.bsky.embed.record",
+			"app.bsky.embed.recordWithMedia",
+			"app.bsky.embed.video",
+			"app.bsky.richtext.facet",
+			"com.atproto.label.defs",
+			"com.atproto.repo.strongRef"
+		],
+		"replyRef": [
+			"com.atproto.repo.strongRef"
+		]
 	}
 }

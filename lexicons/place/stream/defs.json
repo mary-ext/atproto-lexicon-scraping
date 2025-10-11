@@ -67,5 +67,15 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"blockView": [
+			"app.bsky.actor.defs",
+			"app.bsky.graph.block",
+			"app.bsky.graph.defs",
+			"com.atproto.label.defs"
+		],
+		"rendition": [],
+		"renditions": []
 	}
 }

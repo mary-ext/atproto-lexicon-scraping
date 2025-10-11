@@ -131,5 +131,21 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"labelerView": [
+			"app.bsky.actor.defs",
+			"app.bsky.graph.defs",
+			"com.atproto.label.defs"
+		],
+		"labelerPolicies": [
+			"com.atproto.label.defs"
+		],
+		"labelerViewerState": [],
+		"labelerViewDetailed": [
+			"app.bsky.actor.defs",
+			"app.bsky.graph.defs",
+			"com.atproto.label.defs"
+		]
 	}
 }

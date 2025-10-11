@@ -83,5 +83,15 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"main": [
+			"pub.leaflet.pages.linearDocument",
+			"pub.leaflet.richtext.facet"
+		],
+		"replyRef": [],
+		"linearDocumentQuote": [
+			"pub.leaflet.pages.linearDocument"
+		]
 	}
 }

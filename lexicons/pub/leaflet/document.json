@@ -62,5 +62,23 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef",
+			"pub.leaflet.blocks.blockquote",
+			"pub.leaflet.blocks.bskyPost",
+			"pub.leaflet.blocks.code",
+			"pub.leaflet.blocks.header",
+			"pub.leaflet.blocks.horizontalRule",
+			"pub.leaflet.blocks.iframe",
+			"pub.leaflet.blocks.image",
+			"pub.leaflet.blocks.math",
+			"pub.leaflet.blocks.text",
+			"pub.leaflet.blocks.unorderedList",
+			"pub.leaflet.blocks.website",
+			"pub.leaflet.pages.linearDocument",
+			"pub.leaflet.richtext.facet"
+		]
 	}
 }

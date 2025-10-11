@@ -37,5 +37,11 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"main": [
+			"app.bsky.labeler.defs",
+			"com.atproto.label.defs"
+		]
 	}
 }

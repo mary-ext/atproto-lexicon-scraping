@@ -149,5 +149,24 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"uri": [],
+		"main": [
+			"community.lexicon.location.address",
+			"community.lexicon.location.fsq",
+			"community.lexicon.location.geo",
+			"community.lexicon.location.hthree"
+		],
+		"mode": [],
+		"hybrid": [],
+		"status": [],
+		"planned": [],
+		"virtual": [],
+		"inperson": [],
+		"cancelled": [],
+		"postponed": [],
+		"scheduled": [],
+		"rescheduled": []
 	}
 }

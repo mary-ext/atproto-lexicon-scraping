@@ -246,5 +246,19 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"owned": [],
+		"review": [],
+		"comment": [
+			"com.atproto.repo.strongRef"
+		],
+		"profile": [],
+		"reading": [],
+		"activity": [],
+		"finished": [],
+		"userBook": [],
+		"abandoned": [],
+		"wantToRead": []
 	}
 }

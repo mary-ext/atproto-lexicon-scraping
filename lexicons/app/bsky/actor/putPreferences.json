@@ -28,5 +28,12 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"main": [
+			"app.bsky.actor.defs",
+			"app.bsky.feed.postgate",
+			"app.bsky.feed.threadgate"
+		]
 	}
 }

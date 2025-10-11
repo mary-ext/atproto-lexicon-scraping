@@ -518,5 +518,107 @@
 	},
 	"meta": {
 		"indexedAt": 1760078004263
+	},
+	"references": {
+		"postView": [
+			"app.bsky.actor.defs",
+			"app.bsky.embed.defs",
+			"app.bsky.embed.external",
+			"app.bsky.embed.images",
+			"app.bsky.embed.record",
+			"app.bsky.embed.recordWithMedia",
+			"app.bsky.embed.video",
+			"app.bsky.graph.defs",
+			"app.bsky.labeler.defs",
+			"app.bsky.richtext.facet",
+			"com.atproto.label.defs"
+		],
+		"replyRef": [
+			"app.bsky.actor.defs",
+			"app.bsky.embed.defs",
+			"app.bsky.embed.external",
+			"app.bsky.embed.images",
+			"app.bsky.embed.record",
+			"app.bsky.embed.recordWithMedia",
+			"app.bsky.embed.video",
+			"app.bsky.graph.defs",
+			"app.bsky.labeler.defs",
+			"app.bsky.richtext.facet",
+			"com.atproto.label.defs"
+		],
+		"reasonPin": [],
+		"blockedPost": [
+			"app.bsky.actor.defs",
+			"app.bsky.graph.defs",
+			"com.atproto.label.defs"
+		],
+		"interaction": [],
+		"requestLess": [],
+		"requestMore": [],
+		"viewerState": [],
+		"feedViewPost": [
+			"app.bsky.actor.defs",
+			"app.bsky.embed.defs",
+			"app.bsky.embed.external",
+			"app.bsky.embed.images",
+			"app.bsky.embed.record",
+			"app.bsky.embed.recordWithMedia",
+			"app.bsky.embed.video",
+			"app.bsky.graph.defs",
+			"app.bsky.labeler.defs",
+			"app.bsky.richtext.facet",
+			"com.atproto.label.defs"
+		],
+		"notFoundPost": [],
+		"reasonRepost": [
+			"app.bsky.actor.defs",
+			"app.bsky.graph.defs",
+			"com.atproto.label.defs"
+		],
+		"blockedAuthor": [
+			"app.bsky.actor.defs",
+			"app.bsky.graph.defs",
+			"com.atproto.label.defs"
+		],
+		"generatorView": [
+			"app.bsky.actor.defs",
+			"app.bsky.graph.defs",
+			"app.bsky.richtext.facet",
+			"com.atproto.label.defs"
+		],
+		"threadContext": [],
+		"threadViewPost": [
+			"app.bsky.actor.defs",
+			"app.bsky.embed.defs",
+			"app.bsky.embed.external",
+			"app.bsky.embed.images",
+			"app.bsky.embed.record",
+			"app.bsky.embed.recordWithMedia",
+			"app.bsky.embed.video",
+			"app.bsky.graph.defs",
+			"app.bsky.labeler.defs",
+			"app.bsky.richtext.facet",
+			"com.atproto.label.defs"
+		],
+		"threadgateView": [
+			"app.bsky.graph.defs",
+			"com.atproto.label.defs"
+		],
+		"interactionLike": [],
+		"interactionSeen": [],
+		"clickthroughItem": [],
+		"contentModeVideo": [],
+		"interactionQuote": [],
+		"interactionReply": [],
+		"interactionShare": [],
+		"skeletonFeedPost": [],
+		"clickthroughEmbed": [],
+		"interactionRepost": [],
+		"skeletonReasonPin": [],
+		"clickthroughAuthor": [],
+		"clickthroughReposter": [],
+		"generatorViewerState": [],
+		"skeletonReasonRepost": [],
+		"contentModeUnspecified": []
 	}
 }
