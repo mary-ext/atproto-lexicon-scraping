@@ -1,5 +1,47 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:jm4zwg4raokwfysioe7767zh",
+	"schema": {
+		"id": "app.ocho.push.register",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"pushToken"
+						],
+						"properties": {
+							"pushToken": {
+								"type": "string",
+								"description": "The expo push token"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"success"
+						],
+						"properties": {
+							"success": {
+								"type": "boolean",
+								"description": "Whether the token was successfully registered."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Registers for push notifications on a given device."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760153945665
+	}
 }

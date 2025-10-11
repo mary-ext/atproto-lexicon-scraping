@@ -1,5 +1,44 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:jm4zwg4raokwfysioe7767zh",
+	"schema": {
+		"id": "app.ocho.server.getToken",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"token"
+						],
+						"properties": {
+							"token": {
+								"type": "string"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"aud"
+					],
+					"properties": {
+						"aud": {
+							"type": "string",
+							"format": "did",
+							"description": "The DID of the service that the user will authenticate with"
+						}
+					}
+				},
+				"description": "Get a token for a user to authenticate with a service."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760153945665
+	}
 }

@@ -1,5 +1,31 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:jm4zwg4raokwfysioe7767zh",
+	"schema": {
+		"id": "app.ocho.auth.requestEmailUpdate",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"tokenRequired"
+						],
+						"properties": {
+							"tokenRequired": {
+								"type": "boolean"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Request a token in order to update email."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760153945665
+	}
 }

@@ -1,5 +1,37 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:jm4zwg4raokwfysioe7767zh",
+	"schema": {
+		"id": "app.ocho.auth.defs",
+		"defs": {
+			"authCallback": {
+				"type": "object",
+				"required": [
+					"refreshJwt",
+					"accessJwt",
+					"handle",
+					"did"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did"
+					},
+					"handle": {
+						"type": "string"
+					},
+					"accessJwt": {
+						"type": "string"
+					},
+					"refreshJwt": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760153945665
+	}
 }

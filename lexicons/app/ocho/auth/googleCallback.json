@@ -1,5 +1,32 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:jm4zwg4raokwfysioe7767zh",
+	"schema": {
+		"id": "app.ocho.auth.googleCallback",
+		"defs": {
+			"main": {
+				"type": "query",
+				"parameters": {
+					"type": "params",
+					"required": [
+						"code",
+						"state"
+					],
+					"properties": {
+						"code": {
+							"type": "string"
+						},
+						"state": {
+							"type": "string"
+						}
+					}
+				},
+				"description": "A handler for the Ocho AppView Oauth system"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760153945665
+	}
 }

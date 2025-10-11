@@ -1,5 +1,48 @@
 {
-	"authority": null,
-	"schema": null,
-	"meta": {}
+	"authority": "did:plc:jm4zwg4raokwfysioe7767zh",
+	"schema": {
+		"id": "app.ocho.plugin.getManifest",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"ref": "app.ocho.plugin.defs#manifest",
+						"type": "ref",
+						"description": "The plugin manifest, which includes the plugin's metadata, launch asset, and extra information. TODO: Fix these types."
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"did",
+						"platform"
+					],
+					"properties": {
+						"did": {
+							"type": "string",
+							"format": "did",
+							"description": "The did of the plugin to retrieve the manifest for"
+						},
+						"platform": {
+							"enum": [
+								"ios",
+								"android",
+								"web"
+							],
+							"type": "string",
+							"description": "The platform for which to retrieve the plugin manifest"
+						}
+					}
+				},
+				"description": "Get the manifest for an Ocho plugin."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760153945665
+	}
 }
