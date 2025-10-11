@@ -33,6 +33,7 @@
 		"description": "A status lexicon, made for short messages in plain text for display on profiles."
 	},
 	"meta": {
-		"indexedAt": 1760078004263
+		"indexedAt": 1760078004263,
+		"errorAt": 1760141389164
 	}
 }

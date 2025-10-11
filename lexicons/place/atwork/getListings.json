@@ -29,10 +29,14 @@
 						"tag": {
 							"type": "string",
 							"description": "Filter listings by hashtag"
+						},
+						"identity": {
+							"type": "string",
+							"description": "Filter listings by creator DID (e.g., did:plc:abc123)"
 						}
 					}
 				},
-				"description": "Get job listings, optionally filtered by tag"
+				"description": "Get job listings, optionally filtered by tag or identity"
 			},
 			"listingRecord": {
 				"type": "object",
@@ -64,6 +68,6 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263
+		"indexedAt": 1760141389164
 	}
 }

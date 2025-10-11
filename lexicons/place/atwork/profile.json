@@ -9,6 +9,24 @@
 				"record": {
 					"type": "object",
 					"properties": {
+						"avatar": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg"
+							],
+							"maxSize": 1000000,
+							"description": "Small image to be displayed next to job listings from account. AKA, 'profile picture'"
+						},
+						"banner": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg"
+							],
+							"maxSize": 1000000,
+							"description": "Larger horizontal image to display behind profile view."
+						},
 						"facets": {
 							"type": "array",
 							"items": {
@@ -16,6 +34,15 @@
 								"type": "ref"
 							},
 							"description": "Annotations of text (mentions, URLs, hashtags, etc) in the description."
+						},
+						"resume": {
+							"type": "blob",
+							"accept": [
+								"application/pdf",
+								"text/plain"
+							],
+							"maxSize": 4000000,
+							"description": "The identity's resume."
 						},
 						"status": {
 							"type": "string",
@@ -36,6 +63,14 @@
 							"maxLength": 200,
 							"description": "The display name of the identity.",
 							"maxGraphemes": 200
+						},
+						"profile_host": {
+							"type": "string",
+							"description": "The service used for profile links",
+							"knownValues": [
+								"bsky.app",
+								"blacksky.community"
+							]
 						}
 					}
 				},
@@ -54,6 +89,6 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263
+		"indexedAt": 1760141389164
 	}
 }
