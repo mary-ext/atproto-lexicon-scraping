@@ -26,6 +26,9 @@ jobs:
       - name: Run refresh script
         run: deno run -A ./scripts/refresh.ts
 
+      - name: Run decorate script
+        run: deno run -A ./scripts/decorate.ts
+
       - name: Push to repository
         run: |
           git config user.name github-actions[bot]
