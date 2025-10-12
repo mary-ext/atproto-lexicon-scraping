@@ -19,12 +19,21 @@
 							},
 							"target": {
 								"type": "string",
-								"format": "did"
+								"format": "did",
+								"description": "The DID of the target user to whom the notification will be sent."
 							}
 						}
 					},
 					"encoding": "application/json"
 				},
+				"errors": [
+					{
+						"name": "ServiceNotAllowedError"
+					},
+					{
+						"name": "DeviceNotFoundError"
+					}
+				],
 				"output": {
 					"schema": {
 						"type": "object",
@@ -38,7 +47,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263
+		"indexedAt": 1760227745051
 	},
 	"references": {
 		"main": [
