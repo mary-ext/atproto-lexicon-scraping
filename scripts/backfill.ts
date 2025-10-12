@@ -37,6 +37,9 @@ console.log(`starting backfill at ${startedAt}`);
 let repoCursor: string | undefined;
 do {
 	const backfills = await ok(relayClient.get('com.atproto.sync.listReposByCollection', {
+		headers: {
+			'user-agent': 'github:mary-ext/atproto-lexicon-scraping',
+		},
 		params: {
 			collection: 'com.atproto.lexicon.schema',
 			cursor: repoCursor,
@@ -81,6 +84,9 @@ do {
 				const data = await ok(
 					pdsClient.get('com.atproto.repo.listRecords', {
 						signal: AbortSignal.timeout(5_000),
+						headers: {
+							'user-agent': 'github:mary-ext/atproto-lexicon-scraping',
+						},
 						params: {
 							repo: did,
 							collection: 'com.atproto.lexicon.schema',
