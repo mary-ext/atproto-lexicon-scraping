@@ -25,7 +25,7 @@ jobs:
         run: deno run -A ./scripts/backfill-slices.ts
 
       - name: Run backfill-refs script
-        run: deno run -A ./scripts/backfill-slices.ts
+        run: deno run -A ./scripts/backfill-refs.ts
 
       - name: Run refresh script
         run: deno run -A ./scripts/refresh.ts
