@@ -72,7 +72,8 @@
 		"description": "A blog post record. References a parent blog, and contains post title, body content, URL, tags, cover image, inline images, and timestamps."
 	},
 	"meta": {
-		"indexedAt": 1760078004263
+		"indexedAt": 1760078004263,
+		"errorAt": 1760659937196
 	},
 	"references": {
 		"main": [

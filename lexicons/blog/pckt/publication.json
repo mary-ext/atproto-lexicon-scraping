@@ -78,7 +78,8 @@
 		"description": "A publication record with core metadata, plus slots for theme and extensions for additional features."
 	},
 	"meta": {
-		"indexedAt": 1760078004263
+		"indexedAt": 1760078004263,
+		"errorAt": 1760659937196
 	},
 	"references": {
 		"main": [

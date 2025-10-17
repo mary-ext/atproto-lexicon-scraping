@@ -62,7 +62,8 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760079039517
+		"indexedAt": 1760079039517,
+		"errorAt": 1760659937196
 	},
 	"references": {
 		"main": [

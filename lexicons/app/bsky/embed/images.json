@@ -93,7 +93,8 @@
 		"description": "A set of images embedded in a Bluesky record (eg, a post)."
 	},
 	"meta": {
-		"indexedAt": 1760078004263
+		"indexedAt": 1760078004263,
+		"errorAt": 1760659937196
 	},
 	"references": {
 		"main": [

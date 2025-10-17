@@ -85,7 +85,8 @@
 		"description": "A blog record type for publishing blog metadata and configuration. Contains name, description, URL, RSS feed, theme settings, and an icon."
 	},
 	"meta": {
-		"indexedAt": 1760078004263
+		"indexedAt": 1760078004263,
+		"errorAt": 1760659937196
 	},
 	"references": {
 		"main": [],

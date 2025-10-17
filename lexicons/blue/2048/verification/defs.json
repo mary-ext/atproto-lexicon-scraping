@@ -45,7 +45,8 @@
 		"description": "Reusable types for an at://2048 authority to prove that it has verified a record "
 	},
 	"meta": {
-		"indexedAt": 1760078004263
+		"indexedAt": 1760078004263,
+		"errorAt": 1760659937196
 	},
 	"references": {
 		"verificationRef": []
