@@ -66,7 +66,9 @@
 	"references": {
 		"main": [
 			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
 			"app.bsky.graph.defs",
+			"app.bsky.notification.defs",
 			"app.bsky.richtext.facet",
 			"com.atproto.label.defs"
 		]

@@ -107,14 +107,14 @@
 						}
 					}
 				},
-				"description": "Find posts matching search criteria, returning views of those posts."
+				"description": "Find posts matching search criteria, returning views of those posts. Note that this API endpoint may require authentication (eg, not public) for some service providers and implementations."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1760746336429,
 		"errorAt": 1760659937196
 	},
 	"references": {
@@ -129,6 +129,7 @@
 			"app.bsky.feed.defs",
 			"app.bsky.graph.defs",
 			"app.bsky.labeler.defs",
+			"app.bsky.notification.defs",
 			"app.bsky.richtext.facet",
 			"com.atproto.label.defs"
 		]

@@ -100,7 +100,7 @@
 					},
 					"reason": {
 						"type": "string",
-						"description": "Expected values are 'like', 'repost', 'follow', 'mention', 'reply', 'quote', and 'starterpack-joined'.",
+						"description": "The reason why this notification was delivered - e.g. your post was liked, or you received a new follower.",
 						"knownValues": [
 							"like",
 							"repost",
@@ -108,7 +108,12 @@
 							"mention",
 							"reply",
 							"quote",
-							"starterpack-joined"
+							"starterpack-joined",
+							"verified",
+							"unverified",
+							"like-via-repost",
+							"repost-via-repost",
+							"subscribed-post"
 						]
 					},
 					"record": {
@@ -129,18 +134,22 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1760746336429,
 		"errorAt": 1760659937196
 	},
 	"references": {
 		"main": [
 			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
 			"app.bsky.graph.defs",
+			"app.bsky.notification.defs",
 			"com.atproto.label.defs"
 		],
 		"notification": [
 			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
 			"app.bsky.graph.defs",
+			"app.bsky.notification.defs",
 			"com.atproto.label.defs"
 		]
 	}

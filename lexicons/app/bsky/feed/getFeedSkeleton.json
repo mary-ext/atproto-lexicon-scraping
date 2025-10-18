@@ -24,6 +24,11 @@
 									"type": "ref"
 								}
 							},
+							"reqId": {
+								"type": "string",
+								"maxLength": 100,
+								"description": "Unique identifier per request that may be passed back alongside interactions."
+							},
 							"cursor": {
 								"type": "string"
 							}
@@ -60,7 +65,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1760746336429,
 		"errorAt": 1760659937196
 	},
 	"references": {

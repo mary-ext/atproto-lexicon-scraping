@@ -19,6 +19,10 @@
 								"description": "Additional context about the content and violation.",
 								"maxGraphemes": 2000
 							},
+							"modTool": {
+								"ref": "#modTool",
+								"type": "ref"
+							},
 							"subject": {
 								"refs": [
 									"com.atproto.admin.defs#repoRef",
@@ -78,13 +82,30 @@
 					"encoding": "application/json"
 				},
 				"description": "Submit a moderation report regarding an atproto account or record. Implemented by moderation services (with PDS proxying), and requires auth."
+			},
+			"modTool": {
+				"type": "object",
+				"required": [
+					"name"
+				],
+				"properties": {
+					"meta": {
+						"type": "unknown",
+						"description": "Additional arbitrary metadata about the source"
+					},
+					"name": {
+						"type": "string",
+						"description": "Name/identifier of the source (e.g., 'bsky-app/android', 'bsky-web/chrome')"
+					}
+				},
+				"description": "Moderation tool information for tracing the source of the action"
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760079039517,
+		"indexedAt": 1760746336429,
 		"errorAt": 1760659937196
 	},
 	"references": {
@@ -92,6 +113,7 @@
 			"com.atproto.admin.defs",
 			"com.atproto.moderation.defs",
 			"com.atproto.repo.strongRef"
-		]
+		],
+		"modTool": []
 	}
 }

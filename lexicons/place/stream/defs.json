@@ -71,8 +71,10 @@
 	"references": {
 		"blockView": [
 			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
 			"app.bsky.graph.block",
 			"app.bsky.graph.defs",
+			"app.bsky.notification.defs",
 			"com.atproto.label.defs"
 		],
 		"rendition": [],

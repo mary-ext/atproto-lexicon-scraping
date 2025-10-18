@@ -68,6 +68,9 @@
 					},
 					"repostCount": {
 						"type": "integer"
+					},
+					"bookmarkCount": {
+						"type": "integer"
 					}
 				}
 			},
@@ -151,6 +154,11 @@
 							"app.bsky.feed.defs#interactionShare"
 						]
 					},
+					"reqId": {
+						"type": "string",
+						"maxLength": 100,
+						"description": "Unique identifier per request that may be passed back alongside interactions."
+					},
 					"feedContext": {
 						"type": "string",
 						"maxLength": 2000,
@@ -180,6 +188,9 @@
 						"type": "string",
 						"format": "at-uri"
 					},
+					"bookmarked": {
+						"type": "boolean"
+					},
 					"threadMuted": {
 						"type": "boolean"
 					},
@@ -205,6 +216,11 @@
 					"reply": {
 						"ref": "#replyRef",
 						"type": "ref"
+					},
+					"reqId": {
+						"type": "string",
+						"maxLength": 100,
+						"description": "Unique identifier per request that may be passed back alongside interactions."
 					},
 					"reason": {
 						"refs": [
@@ -247,6 +263,14 @@
 					"by": {
 						"ref": "app.bsky.actor.defs#profileViewBasic",
 						"type": "ref"
+					},
+					"cid": {
+						"type": "string",
+						"format": "cid"
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
 					},
 					"indexedAt": {
 						"type": "string",
@@ -517,7 +541,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1760746336429,
 		"errorAt": 1760659937196
 	},
 	"references": {
@@ -531,6 +555,7 @@
 			"app.bsky.embed.video",
 			"app.bsky.graph.defs",
 			"app.bsky.labeler.defs",
+			"app.bsky.notification.defs",
 			"app.bsky.richtext.facet",
 			"com.atproto.label.defs"
 		],
@@ -544,13 +569,16 @@
 			"app.bsky.embed.video",
 			"app.bsky.graph.defs",
 			"app.bsky.labeler.defs",
+			"app.bsky.notification.defs",
 			"app.bsky.richtext.facet",
 			"com.atproto.label.defs"
 		],
 		"reasonPin": [],
 		"blockedPost": [
 			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
 			"app.bsky.graph.defs",
+			"app.bsky.notification.defs",
 			"com.atproto.label.defs"
 		],
 		"interaction": [],
@@ -567,23 +595,30 @@
 			"app.bsky.embed.video",
 			"app.bsky.graph.defs",
 			"app.bsky.labeler.defs",
+			"app.bsky.notification.defs",
 			"app.bsky.richtext.facet",
 			"com.atproto.label.defs"
 		],
 		"notFoundPost": [],
 		"reasonRepost": [
 			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
 			"app.bsky.graph.defs",
+			"app.bsky.notification.defs",
 			"com.atproto.label.defs"
 		],
 		"blockedAuthor": [
 			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
 			"app.bsky.graph.defs",
+			"app.bsky.notification.defs",
 			"com.atproto.label.defs"
 		],
 		"generatorView": [
 			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
 			"app.bsky.graph.defs",
+			"app.bsky.notification.defs",
 			"app.bsky.richtext.facet",
 			"com.atproto.label.defs"
 		],
@@ -598,6 +633,7 @@
 			"app.bsky.embed.video",
 			"app.bsky.graph.defs",
 			"app.bsky.labeler.defs",
+			"app.bsky.notification.defs",
 			"app.bsky.richtext.facet",
 			"com.atproto.label.defs"
 		],

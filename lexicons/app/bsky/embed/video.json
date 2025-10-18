@@ -20,7 +20,8 @@
 						"accept": [
 							"video/mp4"
 						],
-						"maxSize": 50000000
+						"maxSize": 100000000,
+						"description": "The mp4 video file. May be up to 100mb, formerly limited to 50mb."
 					},
 					"captions": {
 						"type": "array",
@@ -92,7 +93,7 @@
 		"description": "A video embedded in a Bluesky record (eg, a post)."
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1760746336429,
 		"errorAt": 1760659937196
 	},
 	"references": {

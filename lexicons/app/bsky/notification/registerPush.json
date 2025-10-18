@@ -32,6 +32,10 @@
 							"serviceDid": {
 								"type": "string",
 								"format": "did"
+							},
+							"ageRestricted": {
+								"type": "boolean",
+								"description": "Set to true when the actor is age restricted"
 							}
 						}
 					},
@@ -44,7 +48,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1760746336429,
 		"errorAt": 1760659937196
 	},
 	"references": {

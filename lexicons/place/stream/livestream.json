@@ -134,13 +134,17 @@
 		"viewerCount": [],
 		"livestreamView": [
 			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
 			"app.bsky.graph.defs",
+			"app.bsky.notification.defs",
 			"com.atproto.label.defs"
 		],
 		"streamplaceAnything": [
 			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
 			"app.bsky.graph.block",
 			"app.bsky.graph.defs",
+			"app.bsky.notification.defs",
 			"com.atproto.label.defs",
 			"place.stream.chat.defs",
 			"place.stream.chat.profile",

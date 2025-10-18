@@ -45,6 +45,17 @@
 						},
 						"cursor": {
 							"type": "string"
+						},
+						"purposes": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"knownValues": [
+									"modlist",
+									"curatelist"
+								]
+							},
+							"description": "Optional filter by list purpose. If not specified, all supported types are returned."
 						}
 					}
 				},
@@ -55,13 +66,15 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1760746336429,
 		"errorAt": 1760659937196
 	},
 	"references": {
 		"main": [
 			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
 			"app.bsky.graph.defs",
+			"app.bsky.notification.defs",
 			"app.bsky.richtext.facet",
 			"com.atproto.label.defs"
 		]

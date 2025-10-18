@@ -38,9 +38,6 @@
 							"#sync",
 							"#identity",
 							"#account",
-							"#handle",
-							"#migrate",
-							"#tombstone",
 							"#info"
 						],
 						"type": "union"
@@ -176,33 +173,6 @@
 				},
 				"description": "Represents an update of repository state. Note that empty commits are allowed, which include no repo data changes, but an update to rev and signature."
 			},
-			"handle": {
-				"type": "object",
-				"required": [
-					"seq",
-					"did",
-					"handle",
-					"time"
-				],
-				"properties": {
-					"did": {
-						"type": "string",
-						"format": "did"
-					},
-					"seq": {
-						"type": "integer"
-					},
-					"time": {
-						"type": "string",
-						"format": "datetime"
-					},
-					"handle": {
-						"type": "string",
-						"format": "handle"
-					}
-				},
-				"description": "DEPRECATED -- Use #identity event instead"
-			},
 			"repoOp": {
 				"type": "object",
 				"nullable": [
@@ -275,35 +245,6 @@
 				},
 				"description": "Represents a change to an account's status on a host (eg, PDS or Relay). The semantics of this event are that the status is at the host which emitted the event, not necessarily that at the currently active PDS. Eg, a Relay takedown would emit a takedown with active=false, even if the PDS is still active."
 			},
-			"migrate": {
-				"type": "object",
-				"nullable": [
-					"migrateTo"
-				],
-				"required": [
-					"seq",
-					"did",
-					"migrateTo",
-					"time"
-				],
-				"properties": {
-					"did": {
-						"type": "string",
-						"format": "did"
-					},
-					"seq": {
-						"type": "integer"
-					},
-					"time": {
-						"type": "string",
-						"format": "datetime"
-					},
-					"migrateTo": {
-						"type": "string"
-					}
-				},
-				"description": "DEPRECATED -- Use #account event instead"
-			},
 			"identity": {
 				"type": "object",
 				"required": [
@@ -330,35 +271,13 @@
 					}
 				},
 				"description": "Represents a change to an account's identity. Could be an updated handle, signing key, or pds hosting endpoint. Serves as a prod to all downstream services to refresh their identity cache."
-			},
-			"tombstone": {
-				"type": "object",
-				"required": [
-					"seq",
-					"did",
-					"time"
-				],
-				"properties": {
-					"did": {
-						"type": "string",
-						"format": "did"
-					},
-					"seq": {
-						"type": "integer"
-					},
-					"time": {
-						"type": "string",
-						"format": "datetime"
-					}
-				},
-				"description": "DEPRECATED -- Use #account event instead"
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760079039517,
+		"indexedAt": 1760746336429,
 		"errorAt": 1760659937196
 	},
 	"references": {
@@ -366,11 +285,8 @@
 		"main": [],
 		"sync": [],
 		"commit": [],
-		"handle": [],
 		"repoOp": [],
 		"account": [],
-		"migrate": [],
-		"identity": [],
-		"tombstone": []
+		"identity": []
 	}
 }

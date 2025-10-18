@@ -26,6 +26,30 @@
 						"createdAt": {
 							"type": "string",
 							"format": "datetime"
+						},
+						"reasonTypes": {
+							"type": "array",
+							"items": {
+								"ref": "com.atproto.moderation.defs#reasonType",
+								"type": "ref"
+							},
+							"description": "The set of report reason 'codes' which are in-scope for this service to review and action. These usually align to policy categories. If not defined (distinct from empty array), all reason types are allowed."
+						},
+						"subjectTypes": {
+							"type": "array",
+							"items": {
+								"ref": "com.atproto.moderation.defs#subjectType",
+								"type": "ref"
+							},
+							"description": "The set of subject types (account, record, etc) this service accepts reports on."
+						},
+						"subjectCollections": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "nsid"
+							},
+							"description": "Set of record types (collection NSIDs) which can be reported to this service. If not defined (distinct from empty array), default is any record type."
 						}
 					}
 				},
@@ -36,13 +60,14 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1760746336429,
 		"errorAt": 1760659937196
 	},
 	"references": {
 		"main": [
 			"app.bsky.labeler.defs",
-			"com.atproto.label.defs"
+			"com.atproto.label.defs",
+			"com.atproto.moderation.defs"
 		]
 	}
 }

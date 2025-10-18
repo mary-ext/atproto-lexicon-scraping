@@ -42,7 +42,7 @@
 								"type": "string",
 								"format": "at-uri"
 							},
-							"maxLength": 50,
+							"maxLength": 300,
 							"description": "List of hidden reply URIs."
 						}
 					}
@@ -82,7 +82,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1760746336429,
 		"errorAt": 1760659937196
 	},
 	"references": {

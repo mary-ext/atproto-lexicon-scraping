@@ -34,6 +34,16 @@
 							"type": "union",
 							"description": "Self-label values, specific to the Bluesky application, on the overall account."
 						},
+						"website": {
+							"type": "string",
+							"format": "uri"
+						},
+						"pronouns": {
+							"type": "string",
+							"maxLength": 200,
+							"description": "Free-form pronouns text.",
+							"maxGraphemes": 20
+						},
 						"createdAt": {
 							"type": "string",
 							"format": "datetime"
@@ -66,7 +76,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1760746336429,
 		"errorAt": 1760659937196
 	},
 	"references": {
