@@ -1,0 +1,36 @@
+{
+	"authority": "did:plc:33dt5kftu3jq2h5h4jjlqezt",
+	"schema": {
+		"id": "tools.ozone.set.upsertSet",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"ref": "tools.ozone.set.defs#set",
+						"type": "ref"
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"ref": "tools.ozone.set.defs#setView",
+						"type": "ref"
+					},
+					"encoding": "application/json"
+				},
+				"description": "Create or update set metadata"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760748771506
+	},
+	"references": {
+		"main": [
+			"tools.ozone.set.defs"
+		]
+	}
+}

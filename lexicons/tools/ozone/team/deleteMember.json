@@ -1,0 +1,45 @@
+{
+	"authority": "did:plc:33dt5kftu3jq2h5h4jjlqezt",
+	"schema": {
+		"id": "tools.ozone.team.deleteMember",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"did"
+						],
+						"properties": {
+							"did": {
+								"type": "string",
+								"format": "did"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "MemberNotFound",
+						"description": "The member being deleted does not exist"
+					},
+					{
+						"name": "CannotDeleteSelf",
+						"description": "You can not delete yourself from the team"
+					}
+				],
+				"description": "Delete a member from ozone team. Requires admin role."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760748771506
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -1,0 +1,34 @@
+{
+	"authority": "did:plc:33dt5kftu3jq2h5h4jjlqezt",
+	"schema": {
+		"id": "tools.ozone.communication.deleteTemplate",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"id"
+						],
+						"properties": {
+							"id": {
+								"type": "string"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Delete a communication template."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760748771506
+	},
+	"references": {
+		"main": []
+	}
+}

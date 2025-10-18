@@ -1,0 +1,48 @@
+{
+	"authority": "did:plc:33dt5kftu3jq2h5h4jjlqezt",
+	"schema": {
+		"id": "tools.ozone.set.deleteSet",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"name"
+						],
+						"properties": {
+							"name": {
+								"type": "string",
+								"description": "Name of the set to delete"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "SetNotFound",
+						"description": "set with the given name does not exist"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"properties": {}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Delete an entire set. Attempting to delete a set that does not exist will result in an error."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760748771506
+	},
+	"references": {
+		"main": []
+	}
+}

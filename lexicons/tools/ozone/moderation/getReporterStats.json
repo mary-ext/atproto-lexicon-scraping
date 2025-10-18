@@ -1,0 +1,56 @@
+{
+	"authority": "did:plc:33dt5kftu3jq2h5h4jjlqezt",
+	"schema": {
+		"id": "tools.ozone.moderation.getReporterStats",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"stats"
+						],
+						"properties": {
+							"stats": {
+								"type": "array",
+								"items": {
+									"ref": "tools.ozone.moderation.defs#reporterStats",
+									"type": "ref"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"dids"
+					],
+					"properties": {
+						"dids": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "did"
+							},
+							"maxLength": 100
+						}
+					}
+				},
+				"description": "Get reporter stats for a list of users."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760748771506
+	},
+	"references": {
+		"main": [
+			"tools.ozone.moderation.defs"
+		]
+	}
+}

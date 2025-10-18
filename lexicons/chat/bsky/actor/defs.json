@@ -1,0 +1,71 @@
+{
+	"authority": "did:plc:4v4y5r3lwsbtmsxhile2ljac",
+	"schema": {
+		"id": "chat.bsky.actor.defs",
+		"defs": {
+			"profileViewBasic": {
+				"type": "object",
+				"required": [
+					"did",
+					"handle"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did"
+					},
+					"avatar": {
+						"type": "string",
+						"format": "uri"
+					},
+					"handle": {
+						"type": "string",
+						"format": "handle"
+					},
+					"labels": {
+						"type": "array",
+						"items": {
+							"ref": "com.atproto.label.defs#label",
+							"type": "ref"
+						}
+					},
+					"viewer": {
+						"ref": "app.bsky.actor.defs#viewerState",
+						"type": "ref"
+					},
+					"associated": {
+						"ref": "app.bsky.actor.defs#profileAssociated",
+						"type": "ref"
+					},
+					"displayName": {
+						"type": "string",
+						"maxLength": 640,
+						"maxGraphemes": 64
+					},
+					"chatDisabled": {
+						"type": "boolean",
+						"description": "Set to true when the actor cannot actively participate in conversations"
+					},
+					"verification": {
+						"ref": "app.bsky.actor.defs#verificationState",
+						"type": "ref"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760748771506
+	},
+	"references": {
+		"profileViewBasic": [
+			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
+			"app.bsky.graph.defs",
+			"app.bsky.notification.defs",
+			"com.atproto.label.defs"
+		]
+	}
+}

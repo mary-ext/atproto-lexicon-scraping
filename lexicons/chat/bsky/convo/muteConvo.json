@@ -1,0 +1,64 @@
+{
+	"authority": "did:plc:4v4y5r3lwsbtmsxhile2ljac",
+	"schema": {
+		"id": "chat.bsky.convo.muteConvo",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"convoId"
+						],
+						"properties": {
+							"convoId": {
+								"type": "string"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"convo"
+						],
+						"properties": {
+							"convo": {
+								"ref": "chat.bsky.convo.defs#convoView",
+								"type": "ref"
+							}
+						}
+					},
+					"encoding": "application/json"
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760748771506
+	},
+	"references": {
+		"main": [
+			"app.bsky.actor.defs",
+			"app.bsky.embed.defs",
+			"app.bsky.embed.external",
+			"app.bsky.embed.images",
+			"app.bsky.embed.record",
+			"app.bsky.embed.recordWithMedia",
+			"app.bsky.embed.video",
+			"app.bsky.feed.defs",
+			"app.bsky.graph.defs",
+			"app.bsky.labeler.defs",
+			"app.bsky.notification.defs",
+			"app.bsky.richtext.facet",
+			"chat.bsky.actor.defs",
+			"chat.bsky.convo.defs",
+			"com.atproto.label.defs"
+		]
+	}
+}

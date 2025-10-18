@@ -1,0 +1,55 @@
+{
+	"authority": "did:plc:33dt5kftu3jq2h5h4jjlqezt",
+	"schema": {
+		"id": "tools.ozone.setting.removeOptions",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"keys",
+							"scope"
+						],
+						"properties": {
+							"keys": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"format": "nsid"
+								},
+								"maxLength": 200,
+								"minLength": 1
+							},
+							"scope": {
+								"type": "string",
+								"knownValues": [
+									"instance",
+									"personal"
+								]
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"type": "object",
+						"properties": {}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Delete settings by key"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760748771506
+	},
+	"references": {
+		"main": []
+	}
+}

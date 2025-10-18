@@ -1,0 +1,71 @@
+{
+	"authority": "did:plc:4v4y5r3lwsbtmsxhile2ljac",
+	"schema": {
+		"id": "chat.bsky.convo.getConvoAvailability",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"canChat"
+						],
+						"properties": {
+							"convo": {
+								"ref": "chat.bsky.convo.defs#convoView",
+								"type": "ref"
+							},
+							"canChat": {
+								"type": "boolean"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"members"
+					],
+					"properties": {
+						"members": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "did"
+							},
+							"maxLength": 10,
+							"minLength": 1
+						}
+					}
+				},
+				"description": "Get whether the requester and the other members can chat. If an existing convo is found for these members, it is returned."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760748771506
+	},
+	"references": {
+		"main": [
+			"app.bsky.actor.defs",
+			"app.bsky.embed.defs",
+			"app.bsky.embed.external",
+			"app.bsky.embed.images",
+			"app.bsky.embed.record",
+			"app.bsky.embed.recordWithMedia",
+			"app.bsky.embed.video",
+			"app.bsky.feed.defs",
+			"app.bsky.graph.defs",
+			"app.bsky.labeler.defs",
+			"app.bsky.notification.defs",
+			"app.bsky.richtext.facet",
+			"chat.bsky.actor.defs",
+			"chat.bsky.convo.defs",
+			"com.atproto.label.defs"
+		]
+	}
+}

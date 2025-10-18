@@ -1,0 +1,64 @@
+{
+	"authority": "did:plc:33dt5kftu3jq2h5h4jjlqezt",
+	"schema": {
+		"id": "tools.ozone.moderation.getRepos",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"repos"
+						],
+						"properties": {
+							"repos": {
+								"type": "array",
+								"items": {
+									"refs": [
+										"tools.ozone.moderation.defs#repoViewDetail",
+										"tools.ozone.moderation.defs#repoViewNotFound"
+									],
+									"type": "union"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"dids"
+					],
+					"properties": {
+						"dids": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "did"
+							},
+							"maxLength": 100
+						}
+					}
+				},
+				"description": "Get details about some repositories."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760748771506
+	},
+	"references": {
+		"main": [
+			"chat.bsky.convo.defs",
+			"com.atproto.admin.defs",
+			"com.atproto.label.defs",
+			"com.atproto.repo.strongRef",
+			"com.atproto.server.defs",
+			"tools.ozone.moderation.defs"
+		]
+	}
+}

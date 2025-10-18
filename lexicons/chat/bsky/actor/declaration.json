@@ -1,0 +1,37 @@
+{
+	"authority": "did:plc:4v4y5r3lwsbtmsxhile2ljac",
+	"schema": {
+		"id": "chat.bsky.actor.declaration",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"allowIncoming"
+					],
+					"properties": {
+						"allowIncoming": {
+							"type": "string",
+							"knownValues": [
+								"all",
+								"none",
+								"following"
+							]
+						}
+					}
+				},
+				"description": "A declaration of a Bluesky chat account."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760748771506
+	},
+	"references": {
+		"main": []
+	}
+}
