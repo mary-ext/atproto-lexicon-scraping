@@ -53,6 +53,18 @@
 						"signingKey": {
 							"type": "string",
 							"description": "The DID of the signing key used for this segment"
+						},
+						"contentRights": {
+							"ref": "place.stream.metadata.contentRights",
+							"type": "ref"
+						},
+						"contentWarnings": {
+							"ref": "place.stream.metadata.contentWarnings",
+							"type": "ref"
+						},
+						"distributionPolicy": {
+							"ref": "place.stream.metadata.distributionPolicy",
+							"type": "ref"
 						}
 					}
 				},
@@ -145,10 +157,14 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263
+		"indexedAt": 1760833025378
 	},
 	"references": {
-		"main": [],
+		"main": [
+			"place.stream.metadata.contentRights",
+			"place.stream.metadata.contentWarnings",
+			"place.stream.metadata.distributionPolicy"
+		],
 		"audio": [],
 		"video": [],
 		"framerate": [],
