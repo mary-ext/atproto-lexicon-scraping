@@ -54,7 +54,6 @@ for await (const relname of sortedEntries) {
 			continue;
 		}
 
-		console.log(`  found ${nsid}`);
 		foundNsids.add(nsid);
 
 		const doc: ScrapedEntry = {
@@ -74,8 +73,10 @@ for await (const relname of sortedEntries) {
 
 		try {
 			await Deno.writeTextFile(filename, json, { createNew: true });
+			console.log(`  found ${nsid} [new]`);
 		} catch (err) {
 			if (err instanceof Deno.errors.AlreadyExists) {
+				console.log(`  found ${nsid}`);
 				continue;
 			}
 
