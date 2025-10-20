@@ -1,0 +1,25 @@
+{
+	"authority": "did:plc:dh5z4ffoxlugvbynwmef4e77",
+	"schema": {
+		"id": "social.flockfeeds.lexical.howtostep",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"properties": {}
+				},
+				"description": "A step in the instructions for how to achieve a result. It is an ordered list with HowToDirection and/or HowToTip items."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760919388435
+	},
+	"references": {
+		"main": []
+	}
+}

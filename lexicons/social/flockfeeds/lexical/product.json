@@ -1,0 +1,521 @@
+{
+	"authority": "did:plc:dh5z4ffoxlugvbynwmef4e77",
+	"schema": {
+		"id": "social.flockfeeds.lexical.product",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"properties": {
+						"mpn": {
+							"type": "string",
+							"description": "The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers."
+						},
+						"nsn": {
+							"type": "string",
+							"description": "Indicates the [NATO stock number](https://en.wikipedia.org/wiki/NATO_Stock_Number) (nsn) of a [[Product]]."
+						},
+						"sku": {
+							"type": "string",
+							"description": "The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers."
+						},
+						"url": {
+							"type": "string",
+							"format": "uri",
+							"description": "URL of the item."
+						},
+						"asin": {
+							"type": "string",
+							"description": "An Amazon Standard Identification Number (ASIN) is a 10-character alphanumeric unique identifier assigned by Amazon.com and its partners for product identification within the Amazon organization (summary from [Wikipedia](https://en.wikipedia.org/wiki/Amazon_Standard_Identification_Number)'s article).\n\nNote also that this is a definition for how to include ASINs in Schema.org data, and not a definition of ASINs in general - see documentation from Amazon for authoritative details.\nASINs are most commonly encoded as text strings, but the [asin] property supports URL/URI as potential values too."
+						},
+						"gtin": {
+							"type": "string",
+							"description": "A Global Trade Item Number ([GTIN](https://www.gs1.org/standards/id-keys/gtin)). GTINs identify trade items, including products and services, using numeric identification codes.\n\nA correct [[gtin]] value should be a valid GTIN, which means that it should be an all-numeric string of either 8, 12, 13 or 14 digits, or a \"GS1 Digital Link\" URL based on such a string. The numeric component should also have a [valid GS1 check digit](https://www.gs1.org/services/check-digit-calculator) and meet the other rules for valid GTINs. See also [GS1's GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) and [Wikipedia](https://en.wikipedia.org/wiki/Global_Trade_Item_Number) for more details. Left-padding of the gtin values is not required or encouraged. The [[gtin]] property generalizes the earlier [[gtin8]], [[gtin12]], [[gtin13]], and [[gtin14]] properties.\n\nThe GS1 [digital link specifications](https://www.gs1.org/standards/Digital-Link/) expresses GTINs as URLs (URIs, IRIs, etc.).\nDigital Links should be populated into the [[hasGS1DigitalLink]] attribute.\n\nNote also that this is a definition for how to include GTINs in Schema.org data, and not a definition of GTINs in general - see the GS1 documentation for authoritative details."
+						},
+						"logo": {
+							"ref": "social.flockfeeds.lexical.imageobject",
+							"type": "ref",
+							"description": "An associated logo."
+						},
+						"name": {
+							"type": "string",
+							"description": "The name of the item."
+						},
+						"size": {
+							"refs": [
+								"social.flockfeeds.lexical.definedterm",
+								"social.flockfeeds.lexical.sizespecification",
+								"social.flockfeeds.lexical.quantitativevalue"
+							],
+							"type": "union",
+							"description": "A standardized size of a product or creative work, specified either through a simple textual string (for example 'XL', '32Wx34L'), a  QuantitativeValue with a unitCode, or a comprehensive and structured [[SizeSpecification]]; in other cases, the [[width]], [[height]], [[depth]] and [[weight]] properties may be more applicable."
+						},
+						"award": {
+							"type": "string",
+							"description": "An award won by or for this item."
+						},
+						"brand": {
+							"refs": [
+								"social.flockfeeds.lexical.organization",
+								"social.flockfeeds.lexical.brand"
+							],
+							"type": "union",
+							"description": "The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person."
+						},
+						"color": {
+							"type": "string",
+							"description": "The color of the product."
+						},
+						"depth": {
+							"refs": [
+								"social.flockfeeds.lexical.distance",
+								"social.flockfeeds.lexical.quantitativevalue"
+							],
+							"type": "union",
+							"description": "The depth of the item."
+						},
+						"gtin8": {
+							"type": "string",
+							"description": "The GTIN-8 code of the product, or the product to which the offer refers. This code is also known as EAN/UCC-8 or 8-digit EAN. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details."
+						},
+						"image": {
+							"ref": "social.flockfeeds.lexical.imageobject",
+							"type": "ref",
+							"description": "An image of the item. This can be a [[URL]] or a fully described [[ImageObject]]."
+						},
+						"model": {
+							"ref": "social.flockfeeds.lexical.productmodel",
+							"type": "ref",
+							"description": "The model of the product. Use with the URL of a ProductModel or a textual representation of the model identifier. The URL of the ProductModel can be from an external source. It is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14 and mpn properties."
+						},
+						"width": {
+							"refs": [
+								"social.flockfeeds.lexical.quantitativevalue",
+								"social.flockfeeds.lexical.distance"
+							],
+							"type": "union",
+							"description": "The width of the item."
+						},
+						"awards": {
+							"type": "string",
+							"description": "Awards won by or for this item."
+						},
+						"gtin12": {
+							"type": "string",
+							"description": "The GTIN-12 code of the product, or the product to which the offer refers. The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C. Company Prefix, Item Reference, and Check Digit used to identify trade items. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details."
+						},
+						"gtin13": {
+							"type": "string",
+							"description": "The GTIN-13 code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceding zero. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details."
+						},
+						"gtin14": {
+							"type": "string",
+							"description": "The GTIN-14 code of the product, or the product to which the offer refers. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details."
+						},
+						"height": {
+							"refs": [
+								"social.flockfeeds.lexical.distance",
+								"social.flockfeeds.lexical.quantitativevalue"
+							],
+							"type": "union",
+							"description": "The height of the item."
+						},
+						"offers": {
+							"refs": [
+								"social.flockfeeds.lexical.demand",
+								"social.flockfeeds.lexical.offer"
+							],
+							"type": "union",
+							"description": "An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer."
+						},
+						"review": {
+							"ref": "social.flockfeeds.lexical.review",
+							"type": "ref",
+							"description": "A review of the item."
+						},
+						"sameAs": {
+							"type": "string",
+							"format": "uri",
+							"description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website."
+						},
+						"slogan": {
+							"type": "string",
+							"description": "A slogan or motto associated with the item."
+						},
+						"weight": {
+							"refs": [
+								"social.flockfeeds.lexical.quantitativevalue",
+								"social.flockfeeds.lexical.mass"
+							],
+							"type": "union",
+							"description": "The weight of the product or person."
+						},
+						"funding": {
+							"ref": "social.flockfeeds.lexical.grant",
+							"type": "ref",
+							"description": "A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]]."
+						},
+						"pattern": {
+							"ref": "social.flockfeeds.lexical.definedterm",
+							"type": "ref",
+							"description": "A pattern that something has, for example 'polka dot', 'striped', 'Canadian flag'. Values are typically expressed as text, although links to controlled value schemes are also supported."
+						},
+						"reviews": {
+							"ref": "social.flockfeeds.lexical.review",
+							"type": "ref",
+							"description": "Review of the item."
+						},
+						"audience": {
+							"ref": "social.flockfeeds.lexical.audience",
+							"type": "ref",
+							"description": "An intended audience, i.e. a group for whom something was created."
+						},
+						"category": {
+							"refs": [
+								"social.flockfeeds.lexical.physicalactivitycategory",
+								"social.flockfeeds.lexical.categorycode",
+								"social.flockfeeds.lexical.thing"
+							],
+							"type": "union",
+							"description": "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy."
+						},
+						"keywords": {
+							"ref": "social.flockfeeds.lexical.definedterm",
+							"type": "ref",
+							"description": "Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property."
+						},
+						"material": {
+							"ref": "social.flockfeeds.lexical.product",
+							"type": "ref",
+							"description": "A material that something is made from, e.g. leather, wool, cotton, paper."
+						},
+						"mobileUrl": {
+							"type": "string",
+							"format": "uri",
+							"description": "The [[mobileUrl]] property is provided for specific situations in which data consumers need to determine whether one of several provided URLs is a dedicated 'mobile site'.\n\nTo discourage over-use, and reflecting intial usecases, the property is expected only on [[Product]] and [[Offer]], rather than [[Thing]]. The general trend in web technology is towards [responsive design](https://en.wikipedia.org/wiki/Responsive_web_design) in which content can be flexibly adapted to a wide range of browsing environments. Pages and sites referenced with the long-established [[url]] property should ideally also be usable on a wide variety of devices, including mobile phones. In most cases, it would be pointless and counter productive to attempt to update all [[url]] markup to use [[mobileUrl]] for more mobile-oriented pages. The property is intended for the case when items (primarily [[Product]] and [[Offer]]) have extra URLs hosted on an additional \"mobile site\" alongside the main one. It should not be taken as an endorsement of this publication style."
+						},
+						"productID": {
+							"type": "string",
+							"description": "The product identifier, such as ISBN. For example: ``` meta itemprop=\"productID\" content=\"isbn:123-456-789\" ```."
+						},
+						"subjectOf": {
+							"refs": [
+								"social.flockfeeds.lexical.event",
+								"social.flockfeeds.lexical.creativework"
+							],
+							"type": "union",
+							"description": "A CreativeWork or Event about this Thing."
+						},
+						"identifier": {
+							"ref": "social.flockfeeds.lexical.propertyvalue",
+							"type": "ref",
+							"description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details."
+						},
+						"colorSwatch": {
+							"ref": "social.flockfeeds.lexical.imageobject",
+							"type": "ref",
+							"description": "A color swatch image, visualizing the color of a [[Product]]. Should match the textual description specified in the [[color]] property. This can be a URL or a fully described ImageObject."
+						},
+						"description": {
+							"ref": "social.flockfeeds.lexical.textobject",
+							"type": "ref",
+							"description": "A description of the item."
+						},
+						"isRelatedTo": {
+							"refs": [
+								"social.flockfeeds.lexical.service",
+								"social.flockfeeds.lexical.product"
+							],
+							"type": "union",
+							"description": "A pointer to another, somehow related product (or multiple products)."
+						},
+						"isSimilarTo": {
+							"refs": [
+								"social.flockfeeds.lexical.service",
+								"social.flockfeeds.lexical.product"
+							],
+							"type": "union",
+							"description": "A pointer to another, functionally similar product (or multiple products)."
+						},
+						"isVariantOf": {
+							"refs": [
+								"social.flockfeeds.lexical.productmodel",
+								"social.flockfeeds.lexical.productgroup"
+							],
+							"type": "union",
+							"description": "Indicates the kind of product that this is a variant of. In the case of [[ProductModel]], this is a pointer (from a ProductModel) to a base product from which this product is a variant. It is safe to infer that the variant inherits all product features from the base model, unless defined locally. This is not transitive. In the case of a [[ProductGroup]], the group description also serves as a template, representing a set of Products that vary on explicitly defined, specific dimensions only (so it defines both a set of variants, as well as which values distinguish amongst those variants). When used with [[ProductGroup]], this property can apply to any [[Product]] included in the group."
+						},
+						"releaseDate": {
+							"type": "string",
+							"format": "datetime",
+							"description": "The release date of a product or product model. This can be used to distinguish the exact variant of a product."
+						},
+						"manufacturer": {
+							"ref": "social.flockfeeds.lexical.organization",
+							"type": "ref",
+							"description": "The manufacturer of the product."
+						},
+						"purchaseDate": {
+							"type": "string",
+							"format": "datetime",
+							"description": "The date the item, e.g. vehicle, was purchased by the current owner."
+						},
+						"alternateName": {
+							"type": "string",
+							"description": "An alias for the item."
+						},
+						"itemCondition": {
+							"ref": "social.flockfeeds.lexical.offeritemcondition",
+							"type": "ref",
+							"description": "A predefined value from OfferItemCondition specifying the condition of the product or service, or the products or services included in the offer. Also used for product return policies to specify the condition of products accepted for returns."
+						},
+						"negativeNotes": {
+							"refs": [
+								"social.flockfeeds.lexical.listitem",
+								"social.flockfeeds.lexical.webcontent",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
+							"description": "Provides negative considerations regarding something, most typically in pro/con lists for reviews (alongside [[positiveNotes]]). For symmetry \n\nIn the case of a [[Review]], the property describes the [[itemReviewed]] from the perspective of the review; in the case of a [[Product]], the product itself is being described. Since product descriptions \ntend to emphasise positive claims, it may be relatively unusual to find [[negativeNotes]] used in this way. Nevertheless for the sake of symmetry, [[negativeNotes]] can be used on [[Product]].\n\nThe property values can be expressed either as unstructured text (repeated as necessary), or if ordered, as a list (in which case the most negative is at the beginning of the list)."
+						},
+						"positiveNotes": {
+							"refs": [
+								"social.flockfeeds.lexical.webcontent",
+								"social.flockfeeds.lexical.itemlist",
+								"social.flockfeeds.lexical.listitem"
+							],
+							"type": "union",
+							"description": "Provides positive considerations regarding something, for example product highlights or (alongside [[negativeNotes]]) pro/con lists for reviews.\n\nIn the case of a [[Review]], the property describes the [[itemReviewed]] from the perspective of the review; in the case of a [[Product]], the product itself is being described.\n\nThe property values can be expressed either as unstructured text (repeated as necessary), or if ordered, as a list (in which case the most positive is at the beginning of the list)."
+						},
+						"additionalType": {
+							"type": "string",
+							"description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"https://schema.org/docs/styleguide.html\">style guide</a>."
+						},
+						"hasMeasurement": {
+							"ref": "social.flockfeeds.lexical.quantitativevalue",
+							"type": "ref",
+							"description": "A measurement of an item, For example, the inseam of pants, the wheel size of a bicycle, the gauge of a screw, or the carbon footprint measured for certification by an authority. Usually an exact measurement, but can also be a range of measurements for adjustable products, for example belts and ski bindings."
+						},
+						"productionDate": {
+							"type": "string",
+							"format": "datetime",
+							"description": "The date of production of the item, e.g. vehicle."
+						},
+						"aggregateRating": {
+							"ref": "social.flockfeeds.lexical.aggregaterating",
+							"type": "ref",
+							"description": "The overall rating, based on a collection of reviews or ratings, of the item."
+						},
+						"countryOfOrigin": {
+							"ref": "social.flockfeeds.lexical.country",
+							"type": "ref",
+							"description": "The country of origin of something, including products as well as creative  works such as movie and TV content.\n\nIn the case of TV and movie, this would be the country of the principle offices of the production company or individual responsible for the movie. For other kinds of [[CreativeWork]] it is difficult to provide fully general guidance, and properties such as [[contentLocation]] and [[locationCreated]] may be more applicable.\n\nIn the case of products, the country of origin of the product. The exact interpretation of this may vary by context and product type, and cannot be fully enumerated here."
+						},
+						"isConsumableFor": {
+							"ref": "social.flockfeeds.lexical.product",
+							"type": "ref",
+							"description": "A pointer to another product (or multiple products) for which this product is a consumable."
+						},
+						"potentialAction": {
+							"ref": "social.flockfeeds.lexical.action",
+							"type": "ref",
+							"description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role."
+						},
+						"hasCertification": {
+							"ref": "social.flockfeeds.lexical.certification",
+							"type": "ref",
+							"description": "Certification information about a product, organization, service, place, or person."
+						},
+						"isFamilyFriendly": {
+							"type": "boolean",
+							"description": "Indicates whether this content is family friendly."
+						},
+						"mainEntityOfPage": {
+							"ref": "social.flockfeeds.lexical.creativework",
+							"type": "ref",
+							"description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details."
+						},
+						"countryOfAssembly": {
+							"type": "string",
+							"description": "The place where the product was assembled."
+						},
+						"hasGS1DigitalLink": {
+							"type": "string",
+							"format": "uri",
+							"description": "The <a href=\"https://www.gs1.org/standards/gs1-digital-link\">GS1 digital link</a> associated with the object. This URL should conform to the particular requirements of digital links. The link should only contain the Application Identifiers (AIs) that are relevant for the entity being annotated, for instance a [[Product]] or an [[Organization]], and for the correct granularity. In particular, for products:<ul><li>A Digital Link that contains a serial number (AI <code>21</code>) should only be present on instances of [[IndividualProduct]]</li><li>A Digital Link that contains a lot number (AI <code>10</code>) should be annotated as [[SomeProduct]] if only products from that lot are sold, or [[IndividualProduct]] if there is only a specific product.</li><li>A Digital Link that contains a global model number (AI <code>8013</code>)  should be attached to a [[Product]] or a [[ProductModel]].</li></ul> Other item types should be adapted similarly."
+						},
+						"additionalProperty": {
+							"ref": "social.flockfeeds.lexical.propertyvalue",
+							"type": "ref",
+							"description": "A property-value pair representing an additional characteristic of the entity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.\\n\\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. https://schema.org/width, https://schema.org/color, https://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism."
+						},
+						"inProductGroupWithID": {
+							"type": "string",
+							"description": "Indicates the [[productGroupID]] for a [[ProductGroup]] that this product [[isVariantOf]]."
+						},
+						"hasAdultConsideration": {
+							"type": "string",
+							"description": "Used to tag an item to be intended or suitable for consumption or use by adults only."
+						},
+						"countryOfLastProcessing": {
+							"type": "string",
+							"description": "The place where the item (typically [[Product]]) was last processed and tested before importation."
+						},
+						"hasMerchantReturnPolicy": {
+							"ref": "social.flockfeeds.lexical.merchantreturnpolicy",
+							"type": "ref",
+							"description": "Specifies a MerchantReturnPolicy that may be applicable."
+						},
+						"disambiguatingDescription": {
+							"type": "string",
+							"description": "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation."
+						},
+						"isAccessoryOrSparePartFor": {
+							"ref": "social.flockfeeds.lexical.product",
+							"type": "ref",
+							"description": "A pointer to another product (or multiple products) for which this product is an accessory or spare part."
+						},
+						"hasEnergyConsumptionDetails": {
+							"ref": "social.flockfeeds.lexical.energyconsumptiondetails",
+							"type": "ref",
+							"description": "Defines the energy efficiency Category (also known as \"class\" or \"rating\") for a product according to an international energy efficiency standard."
+						}
+					}
+				},
+				"description": "Any offered product or service. For example: a pair of shoes; a concert ticket; the rental of a car; a haircut; or an episode of a TV show streamed online."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760919388435
+	},
+	"references": {
+		"main": [
+			"social.flockfeeds.lexical.action",
+			"social.flockfeeds.lexical.actionstatustype",
+			"social.flockfeeds.lexical.administrativearea",
+			"social.flockfeeds.lexical.aggregateoffer",
+			"social.flockfeeds.lexical.aggregaterating",
+			"social.flockfeeds.lexical.alignmentobject",
+			"social.flockfeeds.lexical.audience",
+			"social.flockfeeds.lexical.audioobject",
+			"social.flockfeeds.lexical.biochementity",
+			"social.flockfeeds.lexical.brand",
+			"social.flockfeeds.lexical.breadcrumblist",
+			"social.flockfeeds.lexical.broadcastservice",
+			"social.flockfeeds.lexical.businessentitytype",
+			"social.flockfeeds.lexical.businessfunction",
+			"social.flockfeeds.lexical.categorycode",
+			"social.flockfeeds.lexical.certification",
+			"social.flockfeeds.lexical.claim",
+			"social.flockfeeds.lexical.class",
+			"social.flockfeeds.lexical.clip",
+			"social.flockfeeds.lexical.comment",
+			"social.flockfeeds.lexical.contactpoint",
+			"social.flockfeeds.lexical.correctioncomment",
+			"social.flockfeeds.lexical.country",
+			"social.flockfeeds.lexical.creativework",
+			"social.flockfeeds.lexical.creativeworkseason",
+			"social.flockfeeds.lexical.creativeworkseries",
+			"social.flockfeeds.lexical.cssselectortype",
+			"social.flockfeeds.lexical.definedterm",
+			"social.flockfeeds.lexical.definedtermset",
+			"social.flockfeeds.lexical.deliverymethod",
+			"social.flockfeeds.lexical.demand",
+			"social.flockfeeds.lexical.distance",
+			"social.flockfeeds.lexical.duration",
+			"social.flockfeeds.lexical.educationaloccupationalcredential",
+			"social.flockfeeds.lexical.educationalorganization",
+			"social.flockfeeds.lexical.energyconsumptiondetails",
+			"social.flockfeeds.lexical.entrypoint",
+			"social.flockfeeds.lexical.enumeration",
+			"social.flockfeeds.lexical.episode",
+			"social.flockfeeds.lexical.event",
+			"social.flockfeeds.lexical.eventstatustype",
+			"social.flockfeeds.lexical.gendertype",
+			"social.flockfeeds.lexical.geocoordinates",
+			"social.flockfeeds.lexical.geoshape",
+			"social.flockfeeds.lexical.geospatialgeometry",
+			"social.flockfeeds.lexical.grant",
+			"social.flockfeeds.lexical.howto",
+			"social.flockfeeds.lexical.hypertocentry",
+			"social.flockfeeds.lexical.imageobject",
+			"social.flockfeeds.lexical.interactioncounter",
+			"social.flockfeeds.lexical.itemavailability",
+			"social.flockfeeds.lexical.itemlist",
+			"social.flockfeeds.lexical.itemlistordertype",
+			"social.flockfeeds.lexical.language",
+			"social.flockfeeds.lexical.listitem",
+			"social.flockfeeds.lexical.loanorcredit",
+			"social.flockfeeds.lexical.locationfeaturespecification",
+			"social.flockfeeds.lexical.map",
+			"social.flockfeeds.lexical.mass",
+			"social.flockfeeds.lexical.measurementmethodenum",
+			"social.flockfeeds.lexical.measurementtypeenumeration",
+			"social.flockfeeds.lexical.mediaobject",
+			"social.flockfeeds.lexical.mediasubscription",
+			"social.flockfeeds.lexical.medicalentity",
+			"social.flockfeeds.lexical.memberprogramtier",
+			"social.flockfeeds.lexical.menuitem",
+			"social.flockfeeds.lexical.merchantreturnpolicy",
+			"social.flockfeeds.lexical.monetaryamount",
+			"social.flockfeeds.lexical.musicalbum",
+			"social.flockfeeds.lexical.musiccomposition",
+			"social.flockfeeds.lexical.musicgroup",
+			"social.flockfeeds.lexical.musicplaylist",
+			"social.flockfeeds.lexical.musicrecording",
+			"social.flockfeeds.lexical.newsarticle",
+			"social.flockfeeds.lexical.occupation",
+			"social.flockfeeds.lexical.offer",
+			"social.flockfeeds.lexical.offercatalog",
+			"social.flockfeeds.lexical.offeritemcondition",
+			"social.flockfeeds.lexical.offershippingdetails",
+			"social.flockfeeds.lexical.openinghoursspecification",
+			"social.flockfeeds.lexical.organization",
+			"social.flockfeeds.lexical.ownershipinfo",
+			"social.flockfeeds.lexical.paymentmethod",
+			"social.flockfeeds.lexical.performinggroup",
+			"social.flockfeeds.lexical.person",
+			"social.flockfeeds.lexical.photograph",
+			"social.flockfeeds.lexical.physicalactivitycategory",
+			"social.flockfeeds.lexical.place",
+			"social.flockfeeds.lexical.postaladdress",
+			"social.flockfeeds.lexical.pricespecification",
+			"social.flockfeeds.lexical.productgroup",
+			"social.flockfeeds.lexical.productmodel",
+			"social.flockfeeds.lexical.programmembership",
+			"social.flockfeeds.lexical.property",
+			"social.flockfeeds.lexical.propertyvalue",
+			"social.flockfeeds.lexical.publicationevent",
+			"social.flockfeeds.lexical.qualitativevalue",
+			"social.flockfeeds.lexical.quantitativevalue",
+			"social.flockfeeds.lexical.rating",
+			"social.flockfeeds.lexical.review",
+			"social.flockfeeds.lexical.schedule",
+			"social.flockfeeds.lexical.service",
+			"social.flockfeeds.lexical.sizegroupenumeration",
+			"social.flockfeeds.lexical.sizespecification",
+			"social.flockfeeds.lexical.sizesystemenumeration",
+			"social.flockfeeds.lexical.softwareapplication",
+			"social.flockfeeds.lexical.speakablespecification",
+			"social.flockfeeds.lexical.specialty",
+			"social.flockfeeds.lexical.structuredvalue",
+			"social.flockfeeds.lexical.textobject",
+			"social.flockfeeds.lexical.thing",
+			"social.flockfeeds.lexical.trip",
+			"social.flockfeeds.lexical.typeandquantitynode",
+			"social.flockfeeds.lexical.videoobject",
+			"social.flockfeeds.lexical.virtuallocation",
+			"social.flockfeeds.lexical.warrantypromise",
+			"social.flockfeeds.lexical.webcontent",
+			"social.flockfeeds.lexical.webpage",
+			"social.flockfeeds.lexical.webpageelement",
+			"social.flockfeeds.lexical.website",
+			"social.flockfeeds.lexical.xpathtype"
+		]
+	}
+}

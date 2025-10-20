@@ -1,0 +1,294 @@
+{
+	"authority": "did:plc:dh5z4ffoxlugvbynwmef4e77",
+	"schema": {
+		"id": "social.flockfeeds.lexical.sizespecification",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"properties": {
+						"url": {
+							"type": "string",
+							"format": "uri",
+							"description": "URL of the item."
+						},
+						"name": {
+							"type": "string",
+							"description": "The name of the item."
+						},
+						"equal": {
+							"ref": "social.flockfeeds.lexical.qualitativevalue",
+							"type": "ref",
+							"description": "This ordering relation for qualitative values indicates that the subject is equal to the object."
+						},
+						"image": {
+							"ref": "social.flockfeeds.lexical.imageobject",
+							"type": "ref",
+							"description": "An image of the item. This can be a [[URL]] or a fully described [[ImageObject]]."
+						},
+						"lesser": {
+							"ref": "social.flockfeeds.lexical.qualitativevalue",
+							"type": "ref",
+							"description": "This ordering relation for qualitative values indicates that the subject is lesser than the object."
+						},
+						"sameAs": {
+							"type": "string",
+							"format": "uri",
+							"description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website."
+						},
+						"greater": {
+							"ref": "social.flockfeeds.lexical.qualitativevalue",
+							"type": "ref",
+							"description": "This ordering relation for qualitative values indicates that the subject is greater than the object."
+						},
+						"nonEqual": {
+							"ref": "social.flockfeeds.lexical.qualitativevalue",
+							"type": "ref",
+							"description": "This ordering relation for qualitative values indicates that the subject is not equal to the object."
+						},
+						"sizeGroup": {
+							"ref": "social.flockfeeds.lexical.sizegroupenumeration",
+							"type": "ref",
+							"description": "The size group (also known as \"size type\") for a product's size. Size groups are common in the fashion industry to define size segments and suggested audiences for wearable products. Multiple values can be combined, for example \"men's big and tall\", \"petite maternity\" or \"regular\"."
+						},
+						"subjectOf": {
+							"refs": [
+								"social.flockfeeds.lexical.event",
+								"social.flockfeeds.lexical.creativework"
+							],
+							"type": "union",
+							"description": "A CreativeWork or Event about this Thing."
+						},
+						"identifier": {
+							"ref": "social.flockfeeds.lexical.propertyvalue",
+							"type": "ref",
+							"description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details."
+						},
+						"sizeSystem": {
+							"ref": "social.flockfeeds.lexical.sizesystemenumeration",
+							"type": "ref",
+							"description": "The size system used to identify a product's size. Typically either a standard (for example, \"GS1\" or \"ISO-EN13402\"), country code (for example \"US\" or \"JP\"), or a measuring system (for example \"Metric\" or \"Imperial\")."
+						},
+						"description": {
+							"ref": "social.flockfeeds.lexical.textobject",
+							"type": "ref",
+							"description": "A description of the item."
+						},
+						"suggestedAge": {
+							"ref": "social.flockfeeds.lexical.quantitativevalue",
+							"type": "ref",
+							"description": "The age or age range for the intended audience or person, for example 3-12 months for infants, 1-5 years for toddlers."
+						},
+						"supersededBy": {
+							"refs": [
+								"social.flockfeeds.lexical.enumeration",
+								"social.flockfeeds.lexical.class",
+								"social.flockfeeds.lexical.property"
+							],
+							"type": "union",
+							"description": "Relates a term (i.e. a property, class or enumeration) to one that supersedes it."
+						},
+						"alternateName": {
+							"type": "string",
+							"description": "An alias for the item."
+						},
+						"lesserOrEqual": {
+							"ref": "social.flockfeeds.lexical.qualitativevalue",
+							"type": "ref",
+							"description": "This ordering relation for qualitative values indicates that the subject is lesser than or equal to the object."
+						},
+						"additionalType": {
+							"type": "string",
+							"description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"https://schema.org/docs/styleguide.html\">style guide</a>."
+						},
+						"greaterOrEqual": {
+							"ref": "social.flockfeeds.lexical.qualitativevalue",
+							"type": "ref",
+							"description": "This ordering relation for qualitative values indicates that the subject is greater than or equal to the object."
+						},
+						"hasMeasurement": {
+							"ref": "social.flockfeeds.lexical.quantitativevalue",
+							"type": "ref",
+							"description": "A measurement of an item, For example, the inseam of pants, the wheel size of a bicycle, the gauge of a screw, or the carbon footprint measured for certification by an authority. Usually an exact measurement, but can also be a range of measurements for adjustable products, for example belts and ski bindings."
+						},
+						"valueReference": {
+							"refs": [
+								"social.flockfeeds.lexical.definedterm",
+								"social.flockfeeds.lexical.measurementtypeenumeration",
+								"social.flockfeeds.lexical.enumeration",
+								"social.flockfeeds.lexical.qualitativevalue",
+								"social.flockfeeds.lexical.quantitativevalue",
+								"social.flockfeeds.lexical.propertyvalue",
+								"social.flockfeeds.lexical.structuredvalue"
+							],
+							"type": "union",
+							"description": "A secondary value that provides additional information on the original value, e.g. a reference temperature or a type of measurement."
+						},
+						"potentialAction": {
+							"ref": "social.flockfeeds.lexical.action",
+							"type": "ref",
+							"description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role."
+						},
+						"suggestedGender": {
+							"ref": "social.flockfeeds.lexical.gendertype",
+							"type": "ref",
+							"description": "The suggested gender of the intended person or audience, for example \"male\", \"female\", or \"unisex\"."
+						},
+						"mainEntityOfPage": {
+							"ref": "social.flockfeeds.lexical.creativework",
+							"type": "ref",
+							"description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details."
+						},
+						"additionalProperty": {
+							"ref": "social.flockfeeds.lexical.propertyvalue",
+							"type": "ref",
+							"description": "A property-value pair representing an additional characteristic of the entity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.\\n\\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. https://schema.org/width, https://schema.org/color, https://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism."
+						},
+						"suggestedMeasurement": {
+							"ref": "social.flockfeeds.lexical.quantitativevalue",
+							"type": "ref",
+							"description": "A suggested range of body measurements for the intended audience or person, for example inseam between 32 and 34 inches or height between 170 and 190 cm. Typically found on a size chart for wearable products."
+						},
+						"disambiguatingDescription": {
+							"type": "string",
+							"description": "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation."
+						}
+					}
+				},
+				"description": "Size related properties of a product, typically a size code ([[name]]) and optionally a [[sizeSystem]], [[sizeGroup]], and product measurements ([[hasMeasurement]]). In addition, the intended audience can be defined through [[suggestedAge]], [[suggestedGender]], and suggested body measurements ([[suggestedMeasurement]])."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1760919388435
+	},
+	"references": {
+		"main": [
+			"social.flockfeeds.lexical.action",
+			"social.flockfeeds.lexical.actionstatustype",
+			"social.flockfeeds.lexical.administrativearea",
+			"social.flockfeeds.lexical.aggregateoffer",
+			"social.flockfeeds.lexical.aggregaterating",
+			"social.flockfeeds.lexical.alignmentobject",
+			"social.flockfeeds.lexical.audience",
+			"social.flockfeeds.lexical.audioobject",
+			"social.flockfeeds.lexical.biochementity",
+			"social.flockfeeds.lexical.brand",
+			"social.flockfeeds.lexical.breadcrumblist",
+			"social.flockfeeds.lexical.broadcastservice",
+			"social.flockfeeds.lexical.businessentitytype",
+			"social.flockfeeds.lexical.businessfunction",
+			"social.flockfeeds.lexical.categorycode",
+			"social.flockfeeds.lexical.certification",
+			"social.flockfeeds.lexical.claim",
+			"social.flockfeeds.lexical.class",
+			"social.flockfeeds.lexical.clip",
+			"social.flockfeeds.lexical.comment",
+			"social.flockfeeds.lexical.contactpoint",
+			"social.flockfeeds.lexical.correctioncomment",
+			"social.flockfeeds.lexical.country",
+			"social.flockfeeds.lexical.creativework",
+			"social.flockfeeds.lexical.creativeworkseason",
+			"social.flockfeeds.lexical.creativeworkseries",
+			"social.flockfeeds.lexical.cssselectortype",
+			"social.flockfeeds.lexical.definedterm",
+			"social.flockfeeds.lexical.definedtermset",
+			"social.flockfeeds.lexical.deliverymethod",
+			"social.flockfeeds.lexical.demand",
+			"social.flockfeeds.lexical.distance",
+			"social.flockfeeds.lexical.duration",
+			"social.flockfeeds.lexical.educationaloccupationalcredential",
+			"social.flockfeeds.lexical.educationalorganization",
+			"social.flockfeeds.lexical.energyconsumptiondetails",
+			"social.flockfeeds.lexical.entrypoint",
+			"social.flockfeeds.lexical.enumeration",
+			"social.flockfeeds.lexical.episode",
+			"social.flockfeeds.lexical.event",
+			"social.flockfeeds.lexical.eventstatustype",
+			"social.flockfeeds.lexical.gendertype",
+			"social.flockfeeds.lexical.geocoordinates",
+			"social.flockfeeds.lexical.geoshape",
+			"social.flockfeeds.lexical.geospatialgeometry",
+			"social.flockfeeds.lexical.grant",
+			"social.flockfeeds.lexical.howto",
+			"social.flockfeeds.lexical.hypertocentry",
+			"social.flockfeeds.lexical.imageobject",
+			"social.flockfeeds.lexical.interactioncounter",
+			"social.flockfeeds.lexical.itemavailability",
+			"social.flockfeeds.lexical.itemlist",
+			"social.flockfeeds.lexical.itemlistordertype",
+			"social.flockfeeds.lexical.language",
+			"social.flockfeeds.lexical.listitem",
+			"social.flockfeeds.lexical.loanorcredit",
+			"social.flockfeeds.lexical.locationfeaturespecification",
+			"social.flockfeeds.lexical.map",
+			"social.flockfeeds.lexical.mass",
+			"social.flockfeeds.lexical.measurementmethodenum",
+			"social.flockfeeds.lexical.measurementtypeenumeration",
+			"social.flockfeeds.lexical.mediaobject",
+			"social.flockfeeds.lexical.mediasubscription",
+			"social.flockfeeds.lexical.medicalentity",
+			"social.flockfeeds.lexical.memberprogramtier",
+			"social.flockfeeds.lexical.menuitem",
+			"social.flockfeeds.lexical.merchantreturnpolicy",
+			"social.flockfeeds.lexical.monetaryamount",
+			"social.flockfeeds.lexical.musicalbum",
+			"social.flockfeeds.lexical.musiccomposition",
+			"social.flockfeeds.lexical.musicgroup",
+			"social.flockfeeds.lexical.musicplaylist",
+			"social.flockfeeds.lexical.musicrecording",
+			"social.flockfeeds.lexical.newsarticle",
+			"social.flockfeeds.lexical.occupation",
+			"social.flockfeeds.lexical.offer",
+			"social.flockfeeds.lexical.offercatalog",
+			"social.flockfeeds.lexical.offeritemcondition",
+			"social.flockfeeds.lexical.offershippingdetails",
+			"social.flockfeeds.lexical.openinghoursspecification",
+			"social.flockfeeds.lexical.organization",
+			"social.flockfeeds.lexical.ownershipinfo",
+			"social.flockfeeds.lexical.paymentmethod",
+			"social.flockfeeds.lexical.performinggroup",
+			"social.flockfeeds.lexical.person",
+			"social.flockfeeds.lexical.photograph",
+			"social.flockfeeds.lexical.physicalactivitycategory",
+			"social.flockfeeds.lexical.place",
+			"social.flockfeeds.lexical.postaladdress",
+			"social.flockfeeds.lexical.pricespecification",
+			"social.flockfeeds.lexical.product",
+			"social.flockfeeds.lexical.productgroup",
+			"social.flockfeeds.lexical.productmodel",
+			"social.flockfeeds.lexical.programmembership",
+			"social.flockfeeds.lexical.property",
+			"social.flockfeeds.lexical.propertyvalue",
+			"social.flockfeeds.lexical.publicationevent",
+			"social.flockfeeds.lexical.qualitativevalue",
+			"social.flockfeeds.lexical.quantitativevalue",
+			"social.flockfeeds.lexical.rating",
+			"social.flockfeeds.lexical.review",
+			"social.flockfeeds.lexical.schedule",
+			"social.flockfeeds.lexical.service",
+			"social.flockfeeds.lexical.sizegroupenumeration",
+			"social.flockfeeds.lexical.sizesystemenumeration",
+			"social.flockfeeds.lexical.softwareapplication",
+			"social.flockfeeds.lexical.speakablespecification",
+			"social.flockfeeds.lexical.specialty",
+			"social.flockfeeds.lexical.structuredvalue",
+			"social.flockfeeds.lexical.textobject",
+			"social.flockfeeds.lexical.thing",
+			"social.flockfeeds.lexical.trip",
+			"social.flockfeeds.lexical.typeandquantitynode",
+			"social.flockfeeds.lexical.videoobject",
+			"social.flockfeeds.lexical.virtuallocation",
+			"social.flockfeeds.lexical.warrantypromise",
+			"social.flockfeeds.lexical.webcontent",
+			"social.flockfeeds.lexical.webpage",
+			"social.flockfeeds.lexical.webpageelement",
+			"social.flockfeeds.lexical.website",
+			"social.flockfeeds.lexical.xpathtype"
+		]
+	}
+}
