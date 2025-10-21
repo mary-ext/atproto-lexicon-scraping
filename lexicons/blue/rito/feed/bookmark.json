@@ -1,0 +1,104 @@
+{
+	"authority": "did:plc:xnkb4hzxcuqbvwk5np7awf2u",
+	"schema": {
+		"id": "blue.rito.feed.bookmark",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"comments",
+						"subject",
+						"createdAt"
+					],
+					"properties": {
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 250,
+								"minLength": 1,
+								"maxGraphemes": 25,
+								"minGraphemes": 1
+							},
+							"maxLength": 10,
+							"description": "Tags describing the uri's description (max 10 tags, 25 charactors)"
+						},
+						"subject": {
+							"type": "string",
+							"format": "uri"
+						},
+						"comments": {
+							"type": "array",
+							"items": {
+								"ref": "blue.rito.feed.bookmark#locale",
+								"type": "ref"
+							},
+							"minLength": 1,
+							"description": "Title and comment in different languages."
+						},
+						"ogpImage": {
+							"type": "string",
+							"format": "uri",
+							"description": "OGP Image Uri"
+						},
+						"ogpTitle": {
+							"type": "string",
+							"description": "OGP Title"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"ogpDescription": {
+							"type": "string",
+							"description": "OGP Description"
+						}
+					}
+				},
+				"description": "Records a bookmark."
+			},
+			"locale": {
+				"type": "object",
+				"required": [
+					"lang",
+					"title"
+				],
+				"properties": {
+					"lang": {
+						"enum": [
+							"ja",
+							"en"
+						],
+						"type": "string",
+						"maxLength": 6,
+						"description": "Comments Language"
+					},
+					"title": {
+						"type": "string",
+						"maxLength": 500,
+						"description": "URI's title",
+						"maxGraphemes": 50
+					},
+					"comment": {
+						"type": "string",
+						"maxLength": 100000,
+						"description": "URI's comment. It can use GitHub Flavored Markdown.",
+						"maxGraphemes": 10000
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1761005727963
+	},
+	"references": {
+		"main": [],
+		"locale": []
+	}
+}
