@@ -21,29 +21,42 @@
 						"agent": {
 							"refs": [
 								"social.flockfeeds.lexical.person",
-								"social.flockfeeds.lexical.organization"
+								"social.flockfeeds.lexical.organization",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "The direct performer or driver of the action (animate or inanimate). E.g. *John* wrote a book."
 						},
 						"error": {
-							"ref": "social.flockfeeds.lexical.thing",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.thing",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "For failed actions, more information on the cause of the failure."
 						},
 						"image": {
-							"ref": "social.flockfeeds.lexical.imageobject",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.imageobject",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "An image of the item. This can be a [[URL]] or a fully described [[ImageObject]]."
 						},
 						"object": {
-							"ref": "social.flockfeeds.lexical.thing",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.thing",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The object upon which the action is carried out, whose state is kept intact or changed. Also known as the semantic roles patient, affected or undergoer (which change their state) or theme (which doesn't). E.g. John read *a book*."
 						},
 						"result": {
-							"ref": "social.flockfeeds.lexical.thing",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.thing",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The result produced in the action. E.g. John wrote *a book*."
 						},
 						"sameAs": {
@@ -52,8 +65,11 @@
 							"description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website."
 						},
 						"target": {
-							"ref": "social.flockfeeds.lexical.entrypoint",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.entrypoint",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Indicates a target EntryPoint, or url, for an Action."
 						},
 						"endTime": {
@@ -64,7 +80,8 @@
 							"refs": [
 								"social.flockfeeds.lexical.virtuallocation",
 								"social.flockfeeds.lexical.postaladdress",
-								"social.flockfeeds.lexical.place"
+								"social.flockfeeds.lexical.place",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "The location of, for example, where an event is happening, where an organization is located, or where an action takes place."
@@ -72,7 +89,8 @@
 						"provider": {
 							"refs": [
 								"social.flockfeeds.lexical.person",
-								"social.flockfeeds.lexical.organization"
+								"social.flockfeeds.lexical.organization",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
@@ -84,42 +102,59 @@
 						"subjectOf": {
 							"refs": [
 								"social.flockfeeds.lexical.event",
-								"social.flockfeeds.lexical.creativework"
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "A CreativeWork or Event about this Thing."
 						},
 						"identifier": {
-							"ref": "social.flockfeeds.lexical.propertyvalue",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.propertyvalue",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details."
 						},
 						"instrument": {
-							"ref": "social.flockfeeds.lexical.thing",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.thing",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The object that helped the agent perform the action. E.g. John wrote a book with *a pen*."
 						},
 						"description": {
-							"ref": "social.flockfeeds.lexical.textobject",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.textobject",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A description of the item."
 						},
 						"participant": {
 							"refs": [
 								"social.flockfeeds.lexical.organization",
-								"social.flockfeeds.lexical.person"
+								"social.flockfeeds.lexical.person",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "Other co-agents that participated in the action indirectly. E.g. John wrote a book with *Steve*."
 						},
 						"actionStatus": {
-							"ref": "social.flockfeeds.lexical.actionstatustype",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.actionstatustype",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Indicates the current disposition of the Action."
 						},
 						"actionProcess": {
-							"ref": "social.flockfeeds.lexical.howto",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.howto",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Description of the process by which the action was performed."
 						},
 						"alternateName": {
@@ -131,13 +166,19 @@
 							"description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"https://schema.org/docs/styleguide.html\">style guide</a>."
 						},
 						"potentialAction": {
-							"ref": "social.flockfeeds.lexical.action",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.action",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role."
 						},
 						"mainEntityOfPage": {
-							"ref": "social.flockfeeds.lexical.creativework",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details."
 						},
 						"disambiguatingDescription": {
@@ -153,15 +194,17 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760919388435
+		"indexedAt": 1761092156999
 	},
 	"references": {
 		"main": [
+			"social.flockfeeds.lexical.aboutpage",
 			"social.flockfeeds.lexical.actionstatustype",
 			"social.flockfeeds.lexical.administrativearea",
 			"social.flockfeeds.lexical.aggregateoffer",
 			"social.flockfeeds.lexical.aggregaterating",
 			"social.flockfeeds.lexical.alignmentobject",
+			"social.flockfeeds.lexical.article",
 			"social.flockfeeds.lexical.audience",
 			"social.flockfeeds.lexical.audioobject",
 			"social.flockfeeds.lexical.biochementity",
@@ -171,6 +214,7 @@
 			"social.flockfeeds.lexical.businessentitytype",
 			"social.flockfeeds.lexical.businessfunction",
 			"social.flockfeeds.lexical.categorycode",
+			"social.flockfeeds.lexical.categorycodeset",
 			"social.flockfeeds.lexical.certification",
 			"social.flockfeeds.lexical.claim",
 			"social.flockfeeds.lexical.class",
@@ -201,6 +245,7 @@
 			"social.flockfeeds.lexical.geocoordinates",
 			"social.flockfeeds.lexical.geoshape",
 			"social.flockfeeds.lexical.geospatialgeometry",
+			"social.flockfeeds.lexical.governmentbenefitstype",
 			"social.flockfeeds.lexical.grant",
 			"social.flockfeeds.lexical.howto",
 			"social.flockfeeds.lexical.hypertocentry",
@@ -220,9 +265,11 @@
 			"social.flockfeeds.lexical.mediaobject",
 			"social.flockfeeds.lexical.mediasubscription",
 			"social.flockfeeds.lexical.medicalentity",
+			"social.flockfeeds.lexical.memberprogram",
 			"social.flockfeeds.lexical.memberprogramtier",
 			"social.flockfeeds.lexical.menuitem",
 			"social.flockfeeds.lexical.merchantreturnpolicy",
+			"social.flockfeeds.lexical.merchantreturnpolicyseasonaloverride",
 			"social.flockfeeds.lexical.monetaryamount",
 			"social.flockfeeds.lexical.musicalbum",
 			"social.flockfeeds.lexical.musiccomposition",
@@ -230,6 +277,7 @@
 			"social.flockfeeds.lexical.musicplaylist",
 			"social.flockfeeds.lexical.musicrecording",
 			"social.flockfeeds.lexical.newsarticle",
+			"social.flockfeeds.lexical.nonprofittype",
 			"social.flockfeeds.lexical.occupation",
 			"social.flockfeeds.lexical.offer",
 			"social.flockfeeds.lexical.offercatalog",
@@ -259,6 +307,8 @@
 			"social.flockfeeds.lexical.review",
 			"social.flockfeeds.lexical.schedule",
 			"social.flockfeeds.lexical.service",
+			"social.flockfeeds.lexical.servicechannel",
+			"social.flockfeeds.lexical.shippingservice",
 			"social.flockfeeds.lexical.sizegroupenumeration",
 			"social.flockfeeds.lexical.sizespecification",
 			"social.flockfeeds.lexical.sizesystemenumeration",

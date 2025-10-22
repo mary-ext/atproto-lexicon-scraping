@@ -39,8 +39,11 @@
 							"description": "The GTIN-8 code of the product, or the product to which the offer refers. This code is also known as EAN/UCC-8 or 8-digit EAN. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details."
 						},
 						"image": {
-							"ref": "social.flockfeeds.lexical.imageobject",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.imageobject",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "An image of the item. This can be a [[URL]] or a fully described [[ImageObject]]."
 						},
 						"gtin12": {
@@ -63,20 +66,25 @@
 						"seller": {
 							"refs": [
 								"social.flockfeeds.lexical.organization",
-								"social.flockfeeds.lexical.person"
+								"social.flockfeeds.lexical.person",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider."
 						},
 						"warranty": {
-							"ref": "social.flockfeeds.lexical.warrantypromise",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.warrantypromise",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The warranty promise(s) included in the offer."
 						},
 						"subjectOf": {
 							"refs": [
 								"social.flockfeeds.lexical.event",
-								"social.flockfeeds.lexical.creativework"
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "A CreativeWork or Event about this Thing."
@@ -90,19 +98,26 @@
 							"refs": [
 								"social.flockfeeds.lexical.geoshape",
 								"social.flockfeeds.lexical.administrativearea",
-								"social.flockfeeds.lexical.place"
+								"social.flockfeeds.lexical.place",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "The geographic area where a service or offered item is provided."
 						},
 						"identifier": {
-							"ref": "social.flockfeeds.lexical.propertyvalue",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.propertyvalue",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details."
 						},
 						"description": {
-							"ref": "social.flockfeeds.lexical.textobject",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.textobject",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A description of the item."
 						},
 						"itemOffered": {
@@ -113,14 +128,18 @@
 								"social.flockfeeds.lexical.product",
 								"social.flockfeeds.lexical.menuitem",
 								"social.flockfeeds.lexical.creativework",
-								"social.flockfeeds.lexical.trip"
+								"social.flockfeeds.lexical.trip",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "An item being offered (or demanded). The transactional nature of the offer or demand is documented using [[businessFunction]], e.g. sell, lease etc. While several common expected types are listed explicitly in this definition, others can be used. Using a second type, such as Product or a subtype of Product, can clarify the nature of the offer."
 						},
 						"availability": {
-							"ref": "social.flockfeeds.lexical.itemavailability",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.itemavailability",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The availability of this item&#x2014;for example In stock, Out of stock, Pre-order, etc."
 						},
 						"serialNumber": {
@@ -137,8 +156,11 @@
 							"description": "An alias for the item."
 						},
 						"itemCondition": {
-							"ref": "social.flockfeeds.lexical.offeritemcondition",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.offeritemcondition",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A predefined value from OfferItemCondition specifying the condition of the product or service, or the products or services included in the offer. Also used for product return policies to specify the condition of products accepted for returns."
 						},
 						"additionalType": {
@@ -148,24 +170,34 @@
 						"eligibleRegion": {
 							"refs": [
 								"social.flockfeeds.lexical.geoshape",
-								"social.flockfeeds.lexical.place"
+								"social.flockfeeds.lexical.place",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.\\n\\nSee also [[ineligibleRegion]]."
 						},
 						"includesObject": {
-							"ref": "social.flockfeeds.lexical.typeandquantitynode",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.typeandquantitynode",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "This links to a node or nodes indicating the exact quantity of the products included in  an [[Offer]] or [[ProductCollection]]."
 						},
 						"inventoryLevel": {
-							"ref": "social.flockfeeds.lexical.quantitativevalue",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.quantitativevalue",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The current approximate inventory level for the item or items."
 						},
 						"potentialAction": {
-							"ref": "social.flockfeeds.lexical.action",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.action",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role."
 						},
 						"availabilityEnds": {
@@ -173,41 +205,60 @@
 							"description": "The end of the availability of the product or service included in the offer."
 						},
 						"businessFunction": {
-							"ref": "social.flockfeeds.lexical.businessfunction",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.businessfunction",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The business function (e.g. sell, lease, repair, dispose) of the offer or component of a bundle (TypeAndQuantityNode). The default is http://purl.org/goodrelations/v1#Sell."
 						},
 						"deliveryLeadTime": {
-							"ref": "social.flockfeeds.lexical.quantitativevalue",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.quantitativevalue",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The typical delay between the receipt of the order and the goods either leaving the warehouse or being prepared for pickup, in case the delivery method is on site pickup."
 						},
 						"eligibleDuration": {
-							"ref": "social.flockfeeds.lexical.quantitativevalue",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.quantitativevalue",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The duration for which the given offer is valid."
 						},
 						"eligibleQuantity": {
-							"ref": "social.flockfeeds.lexical.quantitativevalue",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.quantitativevalue",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The interval and unit of measurement of ordering quantities for which the offer or price specification is valid. This allows e.g. specifying that a certain freight charge is valid only for a certain quantity."
 						},
 						"ineligibleRegion": {
 							"refs": [
 								"social.flockfeeds.lexical.place",
-								"social.flockfeeds.lexical.geoshape"
+								"social.flockfeeds.lexical.geoshape",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\\n\\nSee also [[eligibleRegion]]."
 						},
 						"mainEntityOfPage": {
-							"ref": "social.flockfeeds.lexical.creativework",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details."
 						},
 						"availableAtOrFrom": {
-							"ref": "social.flockfeeds.lexical.place",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.place",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The place(s) from which the offer can be obtained (e.g. store locations)."
 						},
 						"availabilityStarts": {
@@ -215,31 +266,44 @@
 							"description": "The beginning of the availability of the product or service included in the offer."
 						},
 						"priceSpecification": {
-							"ref": "social.flockfeeds.lexical.pricespecification",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.pricespecification",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "One or more detailed price specifications, indicating the unit price and delivery or payment charges."
 						},
 						"eligibleCustomerType": {
-							"ref": "social.flockfeeds.lexical.businessentitytype",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.businessentitytype",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The type(s) of customers for which the given offer is valid."
 						},
 						"acceptedPaymentMethod": {
 							"refs": [
 								"social.flockfeeds.lexical.paymentmethod",
-								"social.flockfeeds.lexical.loanorcredit"
+								"social.flockfeeds.lexical.loanorcredit",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "The payment method(s) that are accepted in general by an organization, or for some specific demand or offer."
 						},
 						"availableDeliveryMethod": {
-							"ref": "social.flockfeeds.lexical.deliverymethod",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.deliverymethod",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The delivery method(s) available for this offer."
 						},
 						"advanceBookingRequirement": {
-							"ref": "social.flockfeeds.lexical.quantitativevalue",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.quantitativevalue",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The amount of time that is required between accepting the offer and the actual usage of the resource or service."
 						},
 						"disambiguatingDescription": {
@@ -247,8 +311,11 @@
 							"description": "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation."
 						},
 						"eligibleTransactionVolume": {
-							"ref": "social.flockfeeds.lexical.pricespecification",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.pricespecification",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The transaction volume, in a monetary unit, for which the offer or price specification is valid, e.g. for indicating a minimal purchasing volume, to express free shipping above a certain order volume, or to limit the acceptance of credit cards to purchases to a certain minimal amount."
 						}
 					}
@@ -260,16 +327,18 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760919388435
+		"indexedAt": 1761092156999
 	},
 	"references": {
 		"main": [
+			"social.flockfeeds.lexical.aboutpage",
 			"social.flockfeeds.lexical.action",
 			"social.flockfeeds.lexical.actionstatustype",
 			"social.flockfeeds.lexical.administrativearea",
 			"social.flockfeeds.lexical.aggregateoffer",
 			"social.flockfeeds.lexical.aggregaterating",
 			"social.flockfeeds.lexical.alignmentobject",
+			"social.flockfeeds.lexical.article",
 			"social.flockfeeds.lexical.audience",
 			"social.flockfeeds.lexical.audioobject",
 			"social.flockfeeds.lexical.biochementity",
@@ -279,6 +348,7 @@
 			"social.flockfeeds.lexical.businessentitytype",
 			"social.flockfeeds.lexical.businessfunction",
 			"social.flockfeeds.lexical.categorycode",
+			"social.flockfeeds.lexical.categorycodeset",
 			"social.flockfeeds.lexical.certification",
 			"social.flockfeeds.lexical.claim",
 			"social.flockfeeds.lexical.class",
@@ -308,6 +378,7 @@
 			"social.flockfeeds.lexical.geocoordinates",
 			"social.flockfeeds.lexical.geoshape",
 			"social.flockfeeds.lexical.geospatialgeometry",
+			"social.flockfeeds.lexical.governmentbenefitstype",
 			"social.flockfeeds.lexical.grant",
 			"social.flockfeeds.lexical.howto",
 			"social.flockfeeds.lexical.hypertocentry",
@@ -327,9 +398,11 @@
 			"social.flockfeeds.lexical.mediaobject",
 			"social.flockfeeds.lexical.mediasubscription",
 			"social.flockfeeds.lexical.medicalentity",
+			"social.flockfeeds.lexical.memberprogram",
 			"social.flockfeeds.lexical.memberprogramtier",
 			"social.flockfeeds.lexical.menuitem",
 			"social.flockfeeds.lexical.merchantreturnpolicy",
+			"social.flockfeeds.lexical.merchantreturnpolicyseasonaloverride",
 			"social.flockfeeds.lexical.monetaryamount",
 			"social.flockfeeds.lexical.musicalbum",
 			"social.flockfeeds.lexical.musiccomposition",
@@ -337,6 +410,7 @@
 			"social.flockfeeds.lexical.musicplaylist",
 			"social.flockfeeds.lexical.musicrecording",
 			"social.flockfeeds.lexical.newsarticle",
+			"social.flockfeeds.lexical.nonprofittype",
 			"social.flockfeeds.lexical.occupation",
 			"social.flockfeeds.lexical.offer",
 			"social.flockfeeds.lexical.offercatalog",
@@ -366,6 +440,8 @@
 			"social.flockfeeds.lexical.review",
 			"social.flockfeeds.lexical.schedule",
 			"social.flockfeeds.lexical.service",
+			"social.flockfeeds.lexical.servicechannel",
+			"social.flockfeeds.lexical.shippingservice",
 			"social.flockfeeds.lexical.sizegroupenumeration",
 			"social.flockfeeds.lexical.sizespecification",
 			"social.flockfeeds.lexical.sizesystemenumeration",

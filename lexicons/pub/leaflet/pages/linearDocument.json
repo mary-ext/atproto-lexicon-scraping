@@ -5,7 +5,13 @@
 		"defs": {
 			"main": {
 				"type": "object",
+				"required": [
+					"blocks"
+				],
 				"properties": {
+					"id": {
+						"type": "string"
+					},
 					"blocks": {
 						"type": "array",
 						"items": {
@@ -33,7 +39,8 @@
 							"pub.leaflet.blocks.math",
 							"pub.leaflet.blocks.code",
 							"pub.leaflet.blocks.horizontalRule",
-							"pub.leaflet.blocks.bskyPost"
+							"pub.leaflet.blocks.bskyPost",
+							"pub.leaflet.blocks.page"
 						],
 						"type": "union"
 					},
@@ -97,7 +104,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1761092156999,
 		"errorAt": 1760659937196
 	},
 	"references": {
@@ -111,6 +118,7 @@
 			"pub.leaflet.blocks.iframe",
 			"pub.leaflet.blocks.image",
 			"pub.leaflet.blocks.math",
+			"pub.leaflet.blocks.page",
 			"pub.leaflet.blocks.text",
 			"pub.leaflet.blocks.unorderedList",
 			"pub.leaflet.blocks.website",
@@ -126,6 +134,7 @@
 			"pub.leaflet.blocks.iframe",
 			"pub.leaflet.blocks.image",
 			"pub.leaflet.blocks.math",
+			"pub.leaflet.blocks.page",
 			"pub.leaflet.blocks.text",
 			"pub.leaflet.blocks.unorderedList",
 			"pub.leaflet.blocks.website",

@@ -25,7 +25,8 @@
 						"owns": {
 							"refs": [
 								"social.flockfeeds.lexical.product",
-								"social.flockfeeds.lexical.ownershipinfo"
+								"social.flockfeeds.lexical.ownershipinfo",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "Products owned by the organization or person."
@@ -37,7 +38,8 @@
 						"brand": {
 							"refs": [
 								"social.flockfeeds.lexical.organization",
-								"social.flockfeeds.lexical.brand"
+								"social.flockfeeds.lexical.brand",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person."
@@ -47,13 +49,19 @@
 							"description": "Email address."
 						},
 						"image": {
-							"ref": "social.flockfeeds.lexical.imageobject",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.imageobject",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "An image of the item. This can be a [[URL]] or a fully described [[ImageObject]]."
 						},
 						"knows": {
-							"ref": "social.flockfeeds.lexical.person",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.person",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The most generic bi-directional social/work relation."
 						},
 						"naics": {
@@ -61,8 +69,11 @@
 							"description": "The North American Industry Classification System (NAICS) code for a particular organization or business person."
 						},
 						"seeks": {
-							"ref": "social.flockfeeds.lexical.demand",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.demand",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A pointer to products or services sought by the organization or person (demand)."
 						},
 						"taxID": {
@@ -80,25 +91,33 @@
 						"funder": {
 							"refs": [
 								"social.flockfeeds.lexical.organization",
-								"social.flockfeeds.lexical.person"
+								"social.flockfeeds.lexical.person",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "A person or organization that supports (sponsors) something through some kind of financial contribution."
 						},
 						"gender": {
-							"ref": "social.flockfeeds.lexical.gendertype",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.gendertype",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Gender of something, typically a [[Person]], but possibly also fictional characters, animals, etc. While https://schema.org/Male and https://schema.org/Female may be used, text strings are also acceptable for people who are not a binary gender. The [[gender]] property can also be used in an extended sense to cover e.g. the gender of sports teams. As with the gender of individuals, we do not try to enumerate all possibilities. A mixed-gender [[SportsTeam]] can be indicated with a text value of \"Mixed\"."
 						},
 						"hasPOS": {
-							"ref": "social.flockfeeds.lexical.place",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.place",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Points-of-Sales operated by the organization or person."
 						},
 						"height": {
 							"refs": [
 								"social.flockfeeds.lexical.distance",
-								"social.flockfeeds.lexical.quantitativevalue"
+								"social.flockfeeds.lexical.quantitativevalue",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "The height of the item."
@@ -108,8 +127,11 @@
 							"description": "The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place."
 						},
 						"parent": {
-							"ref": "social.flockfeeds.lexical.person",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.person",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A parent of this person."
 						},
 						"sameAs": {
@@ -118,52 +140,75 @@
 							"description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website."
 						},
 						"skills": {
-							"ref": "social.flockfeeds.lexical.definedterm",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.definedterm",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A statement of knowledge, skill, ability, task or any other assertion expressing a competency that is either claimed by a person, an organization or desired or required to fulfill a role or to work in an occupation."
 						},
 						"spouse": {
-							"ref": "social.flockfeeds.lexical.person",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.person",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The person's spouse."
 						},
 						"weight": {
 							"refs": [
 								"social.flockfeeds.lexical.quantitativevalue",
-								"social.flockfeeds.lexical.mass"
+								"social.flockfeeds.lexical.mass",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "The weight of the product or person."
 						},
 						"address": {
-							"ref": "social.flockfeeds.lexical.postaladdress",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.postaladdress",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Physical address of the item."
 						},
 						"follows": {
-							"ref": "social.flockfeeds.lexical.person",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.person",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The most generic uni-directional social relation."
 						},
 						"funding": {
-							"ref": "social.flockfeeds.lexical.grant",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.grant",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]]."
 						},
 						"parents": {
-							"ref": "social.flockfeeds.lexical.person",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.person",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A parents of the person."
 						},
 						"sibling": {
-							"ref": "social.flockfeeds.lexical.person",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.person",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A sibling of the person."
 						},
 						"sponsor": {
 							"refs": [
 								"social.flockfeeds.lexical.organization",
-								"social.flockfeeds.lexical.person"
+								"social.flockfeeds.lexical.person",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "A person or organization that supports a thing through a pledge, promise, or financial contribution. E.g. a sponsor of a Medical Study or a corporate sponsor of an event."
@@ -171,7 +216,8 @@
 						"alumniOf": {
 							"refs": [
 								"social.flockfeeds.lexical.organization",
-								"social.flockfeeds.lexical.educationalorganization"
+								"social.flockfeeds.lexical.educationalorganization",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "An organization that the person is an alumni of."
@@ -181,20 +227,27 @@
 							"description": "A [callsign](https://en.wikipedia.org/wiki/Call_sign), as used in broadcasting and radio communications to identify people, radio and TV stations, or vehicles."
 						},
 						"children": {
-							"ref": "social.flockfeeds.lexical.person",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.person",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A child of the person."
 						},
 						"jobTitle": {
-							"ref": "social.flockfeeds.lexical.definedterm",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.definedterm",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The job title of the person (for example, Financial Manager)."
 						},
 						"memberOf": {
 							"refs": [
 								"social.flockfeeds.lexical.organization",
 								"social.flockfeeds.lexical.memberprogramtier",
-								"social.flockfeeds.lexical.programmembership"
+								"social.flockfeeds.lexical.programmembership",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "An Organization (or ProgramMembership) to which this Person or Organization belongs."
@@ -202,7 +255,8 @@
 						"netWorth": {
 							"refs": [
 								"social.flockfeeds.lexical.pricespecification",
-								"social.flockfeeds.lexical.monetaryamount"
+								"social.flockfeeds.lexical.monetaryamount",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "The total financial value of the person as calculated by subtracting the total value of liabilities from the total value of assets."
@@ -210,19 +264,26 @@
 						"pronouns": {
 							"refs": [
 								"social.flockfeeds.lexical.structuredvalue",
-								"social.flockfeeds.lexical.definedterm"
+								"social.flockfeeds.lexical.definedterm",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "A short string listing or describing pronouns for a person. Typically the person concerned is the best authority as pronouns are a critical part of personal identity and expression. Publishers and consumers of this information are reminded to treat this data responsibly, take country-specific laws related to gender expression into account, and be wary of out-of-date data and drawing unwarranted inferences about the person being described.\n\nIn English, formulations such as \"they/them\", \"she/her\", and \"he/him\" are commonly used online and can also be used here. We do not intend to enumerate all possible micro-syntaxes in all languages. More structured and well-defined external values for pronouns can be referenced using the [[StructuredValue]] or [[DefinedTerm]] values."
 						},
 						"siblings": {
-							"ref": "social.flockfeeds.lexical.person",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.person",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A sibling of the person."
 						},
 						"worksFor": {
-							"ref": "social.flockfeeds.lexical.organization",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.organization",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Organizations that the person works for."
 						},
 						"birthDate": {
@@ -231,8 +292,11 @@
 							"description": "Date of birth."
 						},
 						"colleague": {
-							"ref": "social.flockfeeds.lexical.person",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.person",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A colleague of the person."
 						},
 						"deathDate": {
@@ -249,14 +313,18 @@
 							"description": "Given name. In the U.S., the first name of a Person."
 						},
 						"relatedTo": {
-							"ref": "social.flockfeeds.lexical.person",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.person",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The most generic familial relation."
 						},
 						"subjectOf": {
 							"refs": [
 								"social.flockfeeds.lexical.event",
-								"social.flockfeeds.lexical.creativework"
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "A CreativeWork or Event about this Thing."
@@ -266,18 +334,27 @@
 							"description": "The telephone number."
 						},
 						"birthPlace": {
-							"ref": "social.flockfeeds.lexical.place",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.place",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The place where the person was born."
 						},
 						"colleagues": {
-							"ref": "social.flockfeeds.lexical.person",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.person",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A colleague of the person."
 						},
 						"deathPlace": {
-							"ref": "social.flockfeeds.lexical.place",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.place",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The place where the person died."
 						},
 						"familyName": {
@@ -285,49 +362,74 @@
 							"description": "Family name. In the U.S., the last name of a Person."
 						},
 						"identifier": {
-							"ref": "social.flockfeeds.lexical.propertyvalue",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.propertyvalue",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details."
 						},
 						"knowsAbout": {
-							"ref": "social.flockfeeds.lexical.thing",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.thing",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Of a [[Person]], and less typically of an [[Organization]], to indicate a topic that is known about - suggesting possible expertise but not implying it. We do not distinguish skill levels here, or relate this to educational content, events, objectives or [[JobPosting]] descriptions."
 						},
 						"makesOffer": {
-							"ref": "social.flockfeeds.lexical.offer",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.offer",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A pointer to products or services offered by the organization or person."
 						},
 						"affiliation": {
-							"ref": "social.flockfeeds.lexical.organization",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.organization",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "An organization that this person is affiliated with. For example, a school/university, a club, or a team."
 						},
 						"description": {
-							"ref": "social.flockfeeds.lexical.textobject",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.textobject",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A description of the item."
 						},
 						"nationality": {
-							"ref": "social.flockfeeds.lexical.country",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.country",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Nationality of the person."
 						},
 						"performerIn": {
-							"ref": "social.flockfeeds.lexical.event",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.event",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Event that this person is a performer or participant in."
 						},
 						"contactPoint": {
-							"ref": "social.flockfeeds.lexical.contactpoint",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.contactpoint",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A contact point for a person or organization."
 						},
 						"homeLocation": {
 							"refs": [
 								"social.flockfeeds.lexical.place",
-								"social.flockfeeds.lexical.contactpoint"
+								"social.flockfeeds.lexical.contactpoint",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "A contact location for a person's residence."
@@ -335,7 +437,8 @@
 						"workLocation": {
 							"refs": [
 								"social.flockfeeds.lexical.contactpoint",
-								"social.flockfeeds.lexical.place"
+								"social.flockfeeds.lexical.place",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "A contact location for a person's place of work."
@@ -345,23 +448,35 @@
 							"description": "An alias for the item."
 						},
 						"contactPoints": {
-							"ref": "social.flockfeeds.lexical.contactpoint",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.contactpoint",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A contact point for a person or organization."
 						},
 						"hasCredential": {
-							"ref": "social.flockfeeds.lexical.educationaloccupationalcredential",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.educationaloccupationalcredential",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A credential awarded to the Person or Organization."
 						},
 						"hasOccupation": {
-							"ref": "social.flockfeeds.lexical.occupation",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.occupation",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The Person's occupation. For past professions, use Role for expressing dates."
 						},
 						"knowsLanguage": {
-							"ref": "social.flockfeeds.lexical.language",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.language",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Of a [[Person]], and less typically of an [[Organization]], to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47)."
 						},
 						"additionalName": {
@@ -373,8 +488,11 @@
 							"description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"https://schema.org/docs/styleguide.html\">style guide</a>."
 						},
 						"hasOfferCatalog": {
-							"ref": "social.flockfeeds.lexical.offercatalog",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.offercatalog",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Indicates an OfferCatalog listing for this Organization, Person, or Service."
 						},
 						"honorificPrefix": {
@@ -386,18 +504,27 @@
 							"description": "An honorific suffix following a Person's name such as M.D./PhD/MSCSW."
 						},
 						"potentialAction": {
-							"ref": "social.flockfeeds.lexical.action",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.action",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role."
 						},
 						"hasCertification": {
-							"ref": "social.flockfeeds.lexical.certification",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.certification",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Certification information about a product, organization, service, place, or person."
 						},
 						"mainEntityOfPage": {
-							"ref": "social.flockfeeds.lexical.creativework",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details."
 						},
 						"globalLocationNumber": {
@@ -405,18 +532,27 @@
 							"description": "The [Global Location Number](http://www.gs1.org/gln) (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations."
 						},
 						"interactionStatistic": {
-							"ref": "social.flockfeeds.lexical.interactioncounter",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.interactioncounter",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The number of interactions for the CreativeWork using the WebSite or SoftwareApplication. The most specific child type of InteractionCounter should be used."
 						},
 						"publishingPrinciples": {
-							"ref": "social.flockfeeds.lexical.creativework",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The publishingPrinciples property indicates (typically via [[URL]]) a document describing the editorial principles of an [[Organization]] (or individual, e.g. a [[Person]] writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a [[CreativeWork]] (e.g. [[NewsArticle]]) the principles are those of the party primarily responsible for the creation of the [[CreativeWork]].\n\nWhile such policies are most typically expressed in natural language, sometimes related information (e.g. indicating a [[funder]]) can be expressed using schema.org terminology."
 						},
 						"agentInteractionStatistic": {
-							"ref": "social.flockfeeds.lexical.interactioncounter",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.interactioncounter",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The number of completed interactions for this entity, in a particular role (the 'agent'), in a particular action (indicated in the statistic), and in a particular context (i.e. interactionService)."
 						},
 						"disambiguatingDescription": {
@@ -432,16 +568,18 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760919388435
+		"indexedAt": 1761092156999
 	},
 	"references": {
 		"main": [
+			"social.flockfeeds.lexical.aboutpage",
 			"social.flockfeeds.lexical.action",
 			"social.flockfeeds.lexical.actionstatustype",
 			"social.flockfeeds.lexical.administrativearea",
 			"social.flockfeeds.lexical.aggregateoffer",
 			"social.flockfeeds.lexical.aggregaterating",
 			"social.flockfeeds.lexical.alignmentobject",
+			"social.flockfeeds.lexical.article",
 			"social.flockfeeds.lexical.audience",
 			"social.flockfeeds.lexical.audioobject",
 			"social.flockfeeds.lexical.biochementity",
@@ -451,6 +589,7 @@
 			"social.flockfeeds.lexical.businessentitytype",
 			"social.flockfeeds.lexical.businessfunction",
 			"social.flockfeeds.lexical.categorycode",
+			"social.flockfeeds.lexical.categorycodeset",
 			"social.flockfeeds.lexical.certification",
 			"social.flockfeeds.lexical.claim",
 			"social.flockfeeds.lexical.class",
@@ -481,6 +620,7 @@
 			"social.flockfeeds.lexical.geocoordinates",
 			"social.flockfeeds.lexical.geoshape",
 			"social.flockfeeds.lexical.geospatialgeometry",
+			"social.flockfeeds.lexical.governmentbenefitstype",
 			"social.flockfeeds.lexical.grant",
 			"social.flockfeeds.lexical.howto",
 			"social.flockfeeds.lexical.hypertocentry",
@@ -500,9 +640,11 @@
 			"social.flockfeeds.lexical.mediaobject",
 			"social.flockfeeds.lexical.mediasubscription",
 			"social.flockfeeds.lexical.medicalentity",
+			"social.flockfeeds.lexical.memberprogram",
 			"social.flockfeeds.lexical.memberprogramtier",
 			"social.flockfeeds.lexical.menuitem",
 			"social.flockfeeds.lexical.merchantreturnpolicy",
+			"social.flockfeeds.lexical.merchantreturnpolicyseasonaloverride",
 			"social.flockfeeds.lexical.monetaryamount",
 			"social.flockfeeds.lexical.musicalbum",
 			"social.flockfeeds.lexical.musiccomposition",
@@ -510,6 +652,7 @@
 			"social.flockfeeds.lexical.musicplaylist",
 			"social.flockfeeds.lexical.musicrecording",
 			"social.flockfeeds.lexical.newsarticle",
+			"social.flockfeeds.lexical.nonprofittype",
 			"social.flockfeeds.lexical.occupation",
 			"social.flockfeeds.lexical.offer",
 			"social.flockfeeds.lexical.offercatalog",
@@ -538,6 +681,8 @@
 			"social.flockfeeds.lexical.review",
 			"social.flockfeeds.lexical.schedule",
 			"social.flockfeeds.lexical.service",
+			"social.flockfeeds.lexical.servicechannel",
+			"social.flockfeeds.lexical.shippingservice",
 			"social.flockfeeds.lexical.sizegroupenumeration",
 			"social.flockfeeds.lexical.sizespecification",
 			"social.flockfeeds.lexical.sizesystemenumeration",

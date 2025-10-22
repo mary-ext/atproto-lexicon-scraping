@@ -19,13 +19,19 @@
 							"description": "The name of the item."
 						},
 						"image": {
-							"ref": "social.flockfeeds.lexical.imageobject",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.imageobject",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "An image of the item. This can be a [[URL]] or a fully described [[ImageObject]]."
 						},
 						"value": {
-							"ref": "social.flockfeeds.lexical.structuredvalue",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.structuredvalue",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The value of a [[QuantitativeValue]] (including [[Observation]]) or property value node.\\n\\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\\n* For [[PropertyValue]], it can be 'Text', 'Number', 'Boolean', or 'StructuredValue'.\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator."
 						},
 						"sameAs": {
@@ -48,7 +54,8 @@
 						"subjectOf": {
 							"refs": [
 								"social.flockfeeds.lexical.event",
-								"social.flockfeeds.lexical.creativework"
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "A CreativeWork or Event about this Thing."
@@ -59,13 +66,19 @@
 							"description": "The date when the item becomes valid."
 						},
 						"identifier": {
-							"ref": "social.flockfeeds.lexical.propertyvalue",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.propertyvalue",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details."
 						},
 						"description": {
-							"ref": "social.flockfeeds.lexical.textobject",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.textobject",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A description of the item."
 						},
 						"validThrough": {
@@ -82,13 +95,19 @@
 							"description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"https://schema.org/docs/styleguide.html\">style guide</a>."
 						},
 						"potentialAction": {
-							"ref": "social.flockfeeds.lexical.action",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.action",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role."
 						},
 						"mainEntityOfPage": {
-							"ref": "social.flockfeeds.lexical.creativework",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details."
 						},
 						"disambiguatingDescription": {
@@ -104,16 +123,18 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760919388435
+		"indexedAt": 1761092156999
 	},
 	"references": {
 		"main": [
+			"social.flockfeeds.lexical.aboutpage",
 			"social.flockfeeds.lexical.action",
 			"social.flockfeeds.lexical.actionstatustype",
 			"social.flockfeeds.lexical.administrativearea",
 			"social.flockfeeds.lexical.aggregateoffer",
 			"social.flockfeeds.lexical.aggregaterating",
 			"social.flockfeeds.lexical.alignmentobject",
+			"social.flockfeeds.lexical.article",
 			"social.flockfeeds.lexical.audience",
 			"social.flockfeeds.lexical.audioobject",
 			"social.flockfeeds.lexical.biochementity",
@@ -123,6 +144,7 @@
 			"social.flockfeeds.lexical.businessentitytype",
 			"social.flockfeeds.lexical.businessfunction",
 			"social.flockfeeds.lexical.categorycode",
+			"social.flockfeeds.lexical.categorycodeset",
 			"social.flockfeeds.lexical.certification",
 			"social.flockfeeds.lexical.claim",
 			"social.flockfeeds.lexical.class",
@@ -153,6 +175,7 @@
 			"social.flockfeeds.lexical.geocoordinates",
 			"social.flockfeeds.lexical.geoshape",
 			"social.flockfeeds.lexical.geospatialgeometry",
+			"social.flockfeeds.lexical.governmentbenefitstype",
 			"social.flockfeeds.lexical.grant",
 			"social.flockfeeds.lexical.howto",
 			"social.flockfeeds.lexical.hypertocentry",
@@ -172,15 +195,18 @@
 			"social.flockfeeds.lexical.mediaobject",
 			"social.flockfeeds.lexical.mediasubscription",
 			"social.flockfeeds.lexical.medicalentity",
+			"social.flockfeeds.lexical.memberprogram",
 			"social.flockfeeds.lexical.memberprogramtier",
 			"social.flockfeeds.lexical.menuitem",
 			"social.flockfeeds.lexical.merchantreturnpolicy",
+			"social.flockfeeds.lexical.merchantreturnpolicyseasonaloverride",
 			"social.flockfeeds.lexical.musicalbum",
 			"social.flockfeeds.lexical.musiccomposition",
 			"social.flockfeeds.lexical.musicgroup",
 			"social.flockfeeds.lexical.musicplaylist",
 			"social.flockfeeds.lexical.musicrecording",
 			"social.flockfeeds.lexical.newsarticle",
+			"social.flockfeeds.lexical.nonprofittype",
 			"social.flockfeeds.lexical.occupation",
 			"social.flockfeeds.lexical.offer",
 			"social.flockfeeds.lexical.offercatalog",
@@ -210,6 +236,8 @@
 			"social.flockfeeds.lexical.review",
 			"social.flockfeeds.lexical.schedule",
 			"social.flockfeeds.lexical.service",
+			"social.flockfeeds.lexical.servicechannel",
+			"social.flockfeeds.lexical.shippingservice",
 			"social.flockfeeds.lexical.sizegroupenumeration",
 			"social.flockfeeds.lexical.sizespecification",
 			"social.flockfeeds.lexical.sizesystemenumeration",

@@ -22,7 +22,8 @@
 							"refs": [
 								"social.flockfeeds.lexical.definedterm",
 								"social.flockfeeds.lexical.sizespecification",
-								"social.flockfeeds.lexical.quantitativevalue"
+								"social.flockfeeds.lexical.quantitativevalue",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "A standardized size of a product or creative work, specified either through a simple textual string (for example 'XL', '32Wx34L'), a  QuantitativeValue with a unitCode, or a comprehensive and structured [[SizeSpecification]]; in other cases, the [[width]], [[height]], [[depth]] and [[weight]] properties may be more applicable."
@@ -32,15 +33,19 @@
 							"description": "The textual content of this CreativeWork."
 						},
 						"about": {
-							"ref": "social.flockfeeds.lexical.thing",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.thing",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The subject matter of the content."
 						},
 						"audio": {
 							"refs": [
 								"social.flockfeeds.lexical.audioobject",
 								"social.flockfeeds.lexical.musicrecording",
-								"social.flockfeeds.lexical.clip"
+								"social.flockfeeds.lexical.clip",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "An embedded audio object."
@@ -54,14 +59,18 @@
 							"description": "Genre of the creative work, broadcast channel or group."
 						},
 						"image": {
-							"ref": "social.flockfeeds.lexical.imageobject",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.imageobject",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "An image of the item. This can be a [[URL]] or a fully described [[ImageObject]]."
 						},
 						"video": {
 							"refs": [
 								"social.flockfeeds.lexical.videoobject",
-								"social.flockfeeds.lexical.clip"
+								"social.flockfeeds.lexical.clip",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "An embedded video object."
@@ -69,7 +78,8 @@
 						"width": {
 							"refs": [
 								"social.flockfeeds.lexical.quantitativevalue",
-								"social.flockfeeds.lexical.distance"
+								"social.flockfeeds.lexical.distance",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "The width of the item."
@@ -77,7 +87,8 @@
 						"author": {
 							"refs": [
 								"social.flockfeeds.lexical.person",
-								"social.flockfeeds.lexical.organization"
+								"social.flockfeeds.lexical.organization",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably."
@@ -87,14 +98,18 @@
 							"description": "Awards won by or for this item."
 						},
 						"editor": {
-							"ref": "social.flockfeeds.lexical.person",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.person",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Specifies the Person who edited the CreativeWork."
 						},
 						"funder": {
 							"refs": [
 								"social.flockfeeds.lexical.organization",
-								"social.flockfeeds.lexical.person"
+								"social.flockfeeds.lexical.person",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "A person or organization that supports (sponsors) something through some kind of financial contribution."
@@ -102,7 +117,8 @@
 						"height": {
 							"refs": [
 								"social.flockfeeds.lexical.distance",
-								"social.flockfeeds.lexical.quantitativevalue"
+								"social.flockfeeds.lexical.quantitativevalue",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "The height of the item."
@@ -110,14 +126,18 @@
 						"offers": {
 							"refs": [
 								"social.flockfeeds.lexical.demand",
-								"social.flockfeeds.lexical.offer"
+								"social.flockfeeds.lexical.offer",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer."
 						},
 						"review": {
-							"ref": "social.flockfeeds.lexical.review",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.review",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A review of the item."
 						},
 						"sameAs": {
@@ -134,19 +154,26 @@
 							"description": "The bitrate of the media object."
 						},
 						"caption": {
-							"ref": "social.flockfeeds.lexical.mediaobject",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.mediaobject",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The caption for this object. For downloadable machine formats (closed caption, subtitles etc.) use MediaObject and indicate the [[encodingFormat]]."
 						},
 						"comment": {
-							"ref": "social.flockfeeds.lexical.comment",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.comment",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Comments, typically from users."
 						},
 						"creator": {
 							"refs": [
 								"social.flockfeeds.lexical.person",
-								"social.flockfeeds.lexical.organization"
+								"social.flockfeeds.lexical.organization",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork."
@@ -161,46 +188,68 @@
 							"description": "Date the content expires and is no longer useful or available. For example a [[VideoObject]] or [[NewsArticle]] whose availability or relevance is time-limited, a [[ClaimReview]] fact check whose publisher wants to indicate that it may no longer be relevant (or helpful to highlight) after some date, or a [[Certification]] the validity has expired."
 						},
 						"funding": {
-							"ref": "social.flockfeeds.lexical.grant",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.grant",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]]."
 						},
 						"hasPart": {
-							"ref": "social.flockfeeds.lexical.creativework",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense)."
 						},
 						"license": {
-							"ref": "social.flockfeeds.lexical.creativework",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A license document that applies to this content, typically indicated by URL."
 						},
 						"pattern": {
-							"ref": "social.flockfeeds.lexical.definedterm",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.definedterm",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A pattern that something has, for example 'polka dot', 'striped', 'Canadian flag'. Values are typically expressed as text, although links to controlled value schemes are also supported."
 						},
 						"reviews": {
-							"ref": "social.flockfeeds.lexical.review",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.review",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Review of the item."
 						},
 						"spatial": {
-							"ref": "social.flockfeeds.lexical.place",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.place",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The \"spatial\" property can be used in cases when more specific properties\n(e.g. [[locationCreated]], [[spatialCoverage]], [[contentLocation]]) are not known to be appropriate."
 						},
 						"sponsor": {
 							"refs": [
 								"social.flockfeeds.lexical.organization",
-								"social.flockfeeds.lexical.person"
+								"social.flockfeeds.lexical.person",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "A person or organization that supports a thing through a pledge, promise, or financial contribution. E.g. a sponsor of a Medical Study or a corporate sponsor of an event."
 						},
 						"teaches": {
-							"ref": "social.flockfeeds.lexical.definedterm",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.definedterm",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The item being described is intended to help a person learn the competency or learning outcome defined by the referenced term."
 						},
 						"version": {
@@ -212,24 +261,34 @@
 							"description": "An abstract is a short description that summarizes a [[CreativeWork]]."
 						},
 						"assesses": {
-							"ref": "social.flockfeeds.lexical.definedterm",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.definedterm",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The item being described is intended to assess the competency or learning outcome defined by the referenced term."
 						},
 						"audience": {
-							"ref": "social.flockfeeds.lexical.audience",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.audience",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "An intended audience, i.e. a group for whom something was created."
 						},
 						"citation": {
-							"ref": "social.flockfeeds.lexical.creativework",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc."
 						},
 						"duration": {
 							"refs": [
 								"social.flockfeeds.lexical.duration",
-								"social.flockfeeds.lexical.quantitativevalue"
+								"social.flockfeeds.lexical.quantitativevalue",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601)."
@@ -244,8 +303,11 @@
 							"description": "A URL pointing to a player for a specific video. In general, this is the information in the ```src``` element of an ```embed``` tag and should not be the same as the content of the ```loc``` tag."
 						},
 						"encoding": {
-							"ref": "social.flockfeeds.lexical.mediaobject",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.mediaobject",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A media object that encodes this CreativeWork. This property is a synonym for associatedMedia."
 						},
 						"headline": {
@@ -253,23 +315,35 @@
 							"description": "Headline of the article."
 						},
 						"isPartOf": {
-							"ref": "social.flockfeeds.lexical.creativework",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of."
 						},
 						"keywords": {
-							"ref": "social.flockfeeds.lexical.definedterm",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.definedterm",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property."
 						},
 						"material": {
-							"ref": "social.flockfeeds.lexical.product",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.product",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A material that something is made from, e.g. leather, wool, cotton, paper."
 						},
 						"mentions": {
-							"ref": "social.flockfeeds.lexical.thing",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.thing",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Indicates that the CreativeWork contains a reference to, but is not necessarily about a concept."
 						},
 						"position": {
@@ -279,7 +353,8 @@
 						"producer": {
 							"refs": [
 								"social.flockfeeds.lexical.person",
-								"social.flockfeeds.lexical.organization"
+								"social.flockfeeds.lexical.organization",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "The person or organization who produced the work (e.g. music album, movie, TV/radio series etc.)."
@@ -287,7 +362,8 @@
 						"provider": {
 							"refs": [
 								"social.flockfeeds.lexical.person",
-								"social.flockfeeds.lexical.organization"
+								"social.flockfeeds.lexical.organization",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
@@ -297,13 +373,19 @@
 							"description": "The \"temporal\" property can be used in cases where more specific properties\n(e.g. [[temporalCoverage]], [[dateCreated]], [[dateModified]], [[datePublished]]) are not known to be appropriate."
 						},
 						"character": {
-							"ref": "social.flockfeeds.lexical.person",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.person",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Fictional person connected with a creative work."
 						},
 						"encodings": {
-							"ref": "social.flockfeeds.lexical.mediaobject",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.mediaobject",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A media object that encodes this CreativeWork."
 						},
 						"isBasedOn": {
@@ -314,14 +396,18 @@
 						"publisher": {
 							"refs": [
 								"social.flockfeeds.lexical.person",
-								"social.flockfeeds.lexical.organization"
+								"social.flockfeeds.lexical.organization",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "The publisher of the article in question."
 						},
 						"sdLicense": {
-							"ref": "social.flockfeeds.lexical.creativework",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A license document that applies to this structured data, typically indicated by URL."
 						},
 						"startTime": {
@@ -331,19 +417,26 @@
 						"subjectOf": {
 							"refs": [
 								"social.flockfeeds.lexical.event",
-								"social.flockfeeds.lexical.creativework"
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "A CreativeWork or Event about this Thing."
 						},
 						"thumbnail": {
-							"ref": "social.flockfeeds.lexical.imageobject",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.imageobject",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Thumbnail image for an image or video."
 						},
 						"usageInfo": {
-							"ref": "social.flockfeeds.lexical.creativework",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The schema.org [[usageInfo]] property indicates further information about a [[CreativeWork]]. This property is applicable both to works that are freely available and to those that require payment or other transactions. It can reference additional information, e.g. community expectations on preferred linking and citation conventions, as well as purchasing details. For something that can be commercially licensed, usageInfo can provide detailed, resource-specific information about licensing options.\n\nThis property can be used alongside the license property which indicates license(s) applicable to some piece of content. The usageInfo property can provide information about other licensing options, e.g. acquiring commercial usage rights for an image that is also available under non-commercial creative commons licenses."
 						},
 						"wordCount": {
@@ -355,8 +448,11 @@
 							"description": "The human sensory perceptual system or cognitive faculty through which a person may process or perceive information. Values should be drawn from the [approved vocabulary](https://www.w3.org/2021/a11y-discov-vocab/latest/#accessMode-vocabulary)."
 						},
 						"archivedAt": {
-							"ref": "social.flockfeeds.lexical.webpage",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.webpage",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Indicates a page or other link involved in archival of a [[CreativeWork]]. In the case of [[MediaReview]], the items in a [[MediaReviewItem]] may often become inaccessible, but be archived by archival, journalistic, activist, or law enforcement organizations. In such cases, the referenced page may not directly publish the content."
 						},
 						"contentUrl": {
@@ -365,8 +461,11 @@
 							"description": "Actual bytes of the media object, for example the image file or video file."
 						},
 						"correction": {
-							"ref": "social.flockfeeds.lexical.correctioncomment",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.correctioncomment",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Indicates a correction to a [[CreativeWork]], either via a [[CorrectionComment]], textually or in another document."
 						},
 						"creditText": {
@@ -378,24 +477,34 @@
 							"description": "Media type, typically MIME format (see [IANA site](http://www.iana.org/assignments/media-types/media-types.xhtml)) of the content, e.g. application/zip of a SoftwareApplication binary. In cases where a CreativeWork has several media type representations, 'encoding' can be used to indicate each MediaObject alongside particular fileFormat information. Unregistered or niche file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia entry."
 						},
 						"identifier": {
-							"ref": "social.flockfeeds.lexical.propertyvalue",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.propertyvalue",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details."
 						},
 						"inLanguage": {
-							"ref": "social.flockfeeds.lexical.language",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.language",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]]."
 						},
 						"mainEntity": {
-							"ref": "social.flockfeeds.lexical.thing",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.thing",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Indicates the primary entity described in some page or other CreativeWork."
 						},
 						"maintainer": {
 							"refs": [
 								"social.flockfeeds.lexical.person",
-								"social.flockfeeds.lexical.organization"
+								"social.flockfeeds.lexical.organization",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "A maintainer of a [[Dataset]], software package ([[SoftwareApplication]]), or other [[Project]]. A maintainer is a [[Person]] or [[Organization]] that manages contributions to, and/or publication of, some (typically complex) artifact. It is common for distributions of software and data to be based on \"upstream\" sources. When [[maintainer]] is applied to a specific version of something e.g. a particular version or packaging of a [[Dataset]], it is always  possible that the upstream source has a different maintainer. The [[isBasedOn]] property can be used to indicate such relationships between datasets to make the different maintenance roles clear. Similarly in the case of software, a package may have dedicated maintainers working on integration into software distributions such as Ubuntu, as well as upstream maintainers of the underlying work."
@@ -405,8 +514,11 @@
 							"description": "Player type required&#x2014;for example, Flash or Silverlight."
 						},
 						"recordedAt": {
-							"ref": "social.flockfeeds.lexical.event",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.event",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The Event where the CreativeWork was recorded. The CreativeWork may capture all or part of the event."
 						},
 						"transcript": {
@@ -416,7 +528,8 @@
 						"translator": {
 							"refs": [
 								"social.flockfeeds.lexical.person",
-								"social.flockfeeds.lexical.organization"
+								"social.flockfeeds.lexical.organization",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "Organization or person who adapts a creative work to different languages, regional differences and technical requirements of a target market, or that translates during some event."
@@ -433,7 +546,8 @@
 						"contributor": {
 							"refs": [
 								"social.flockfeeds.lexical.organization",
-								"social.flockfeeds.lexical.person"
+								"social.flockfeeds.lexical.person",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "A secondary contributor to the CreativeWork or Event."
@@ -444,26 +558,36 @@
 							"description": "The date on which the CreativeWork was created or the item was added to a DataFeed."
 						},
 						"description": {
-							"ref": "social.flockfeeds.lexical.textobject",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.textobject",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A description of the item."
 						},
 						"publication": {
-							"ref": "social.flockfeeds.lexical.publicationevent",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.publicationevent",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A publication event associated with the item."
 						},
 						"sdPublisher": {
 							"refs": [
 								"social.flockfeeds.lexical.person",
-								"social.flockfeeds.lexical.organization"
+								"social.flockfeeds.lexical.organization",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "Indicates the party responsible for generating and publishing the current structured data markup, typically in cases where the structured data is derived automatically from existing published content but published on a different site. For example, student projects and open data initiatives often re-publish existing content with more explicitly structured metadata. The\n[[sdPublisher]] property helps make such practices more explicit."
 						},
 						"workExample": {
-							"ref": "social.flockfeeds.lexical.creativework",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Example/instance/realization/derivation of the concept of this creative work. E.g. the paperback edition, first edition, or e-book."
 						},
 						"commentCount": {
@@ -481,8 +605,11 @@
 							"description": "A thumbnail image relevant to the Thing."
 						},
 						"timeRequired": {
-							"ref": "social.flockfeeds.lexical.duration",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.duration",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Approximate or typical time it usually takes to work with or through the content of this work for the typical or target audience."
 						},
 						"alternateName": {
@@ -490,8 +617,11 @@
 							"description": "An alias for the item."
 						},
 						"contentRating": {
-							"ref": "social.flockfeeds.lexical.rating",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.rating",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Official rating of a piece of content&#x2014;for example, 'MPAA PG-13'."
 						},
 						"copyrightYear": {
@@ -509,13 +639,19 @@
 							"description": "A link to the page containing the comments of the CreativeWork."
 						},
 						"exampleOfWork": {
-							"ref": "social.flockfeeds.lexical.creativework",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A creative work that this work is an example/instance/realization/derivation of."
 						},
 						"releasedEvent": {
-							"ref": "social.flockfeeds.lexical.publicationevent",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.publicationevent",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The place and time the release was issued, expressed as a PublicationEvent."
 						},
 						"schemaVersion": {
@@ -527,8 +663,11 @@
 							"description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"https://schema.org/docs/styleguide.html\">style guide</a>."
 						},
 						"educationalUse": {
-							"ref": "social.flockfeeds.lexical.definedterm",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.definedterm",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The purpose of a work in the context of education; for example, 'assignment', 'group work'."
 						},
 						"encodingFormat": {
@@ -536,34 +675,50 @@
 							"description": "Media type typically expressed using a MIME format (see [IANA site](http://www.iana.org/assignments/media-types/media-types.xhtml) and [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types)), e.g. application/zip for a SoftwareApplication binary, audio/mpeg for .mp3 etc.\n\nIn cases where a [[CreativeWork]] has several media type representations, [[encoding]] can be used to indicate each [[MediaObject]] alongside particular [[encodingFormat]] information.\n\nUnregistered or niche encoding and file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia/Wikidata entry."
 						},
 						"materialExtent": {
-							"ref": "social.flockfeeds.lexical.quantitativevalue",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.quantitativevalue",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The quantity of the materials being described or an expression of the physical space they occupy."
 						},
 						"regionsAllowed": {
-							"ref": "social.flockfeeds.lexical.place",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.place",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The regions where the media is allowed. If not specified, then it's assumed to be allowed everywhere. Specify the countries in [ISO 3166 format](http://en.wikipedia.org/wiki/ISO_3166)."
 						},
 						"aggregateRating": {
-							"ref": "social.flockfeeds.lexical.aggregaterating",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.aggregaterating",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The overall rating, based on a collection of reviews or ratings, of the item."
 						},
 						"associatedMedia": {
-							"ref": "social.flockfeeds.lexical.mediaobject",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.mediaobject",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A media object that encodes this CreativeWork. This property is a synonym for encoding."
 						},
 						"contentLocation": {
-							"ref": "social.flockfeeds.lexical.place",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.place",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The location depicted or described in the content. For example, the location in a photograph or painting."
 						},
 						"copyrightHolder": {
 							"refs": [
 								"social.flockfeeds.lexical.person",
-								"social.flockfeeds.lexical.organization"
+								"social.flockfeeds.lexical.organization",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "The party holding the legal copyright to the CreativeWork."
@@ -573,18 +728,27 @@
 							"description": "Text of a notice appropriate for describing the copyright aspects of this Creative Work, ideally indicating the owner of the copyright for the Work."
 						},
 						"countryOfOrigin": {
-							"ref": "social.flockfeeds.lexical.country",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.country",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The country of origin of something, including products as well as creative  works such as movie and TV content.\n\nIn the case of TV and movie, this would be the country of the principle offices of the production company or individual responsible for the movie. For other kinds of [[CreativeWork]] it is difficult to provide fully general guidance, and properties such as [[contentLocation]] and [[locationCreated]] may be more applicable.\n\nIn the case of products, the country of origin of the product. The exact interpretation of this may vary by context and product type, and cannot be fully enumerated here."
 						},
 						"locationCreated": {
-							"ref": "social.flockfeeds.lexical.place",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.place",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The location where the CreativeWork was created, which may not be the same as the location depicted in the CreativeWork."
 						},
 						"potentialAction": {
-							"ref": "social.flockfeeds.lexical.action",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.action",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role."
 						},
 						"sdDatePublished": {
@@ -593,8 +757,11 @@
 							"description": "Indicates the date on which the current structured data was generated / published. Typically used alongside [[sdPublisher]]."
 						},
 						"spatialCoverage": {
-							"ref": "social.flockfeeds.lexical.place",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.place",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The spatialCoverage of a CreativeWork indicates the place(s) which are the focus of the content. It is a subproperty of\n      contentLocation intended primarily for more technical and detailed materials. For example with a Dataset, it indicates\n      areas that the dataset describes: a dataset of New York weather would have spatialCoverage which was the place: the state of New York."
 						},
 						"typicalAgeRange": {
@@ -602,8 +769,11 @@
 							"description": "The typical expected age range, e.g. '7-9', '11-'."
 						},
 						"workTranslation": {
-							"ref": "social.flockfeeds.lexical.creativework",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A work that is a translation of the content of this work. E.g. 西遊記 has an English workTranslation “Journey to the West”, a German workTranslation “Monkeys Pilgerfahrt” and a Vietnamese  translation Tây du ký bình khảo."
 						},
 						"accessibilityAPI": {
@@ -611,14 +781,18 @@
 							"description": "Indicates that the resource is compatible with the referenced accessibility API. Values should be drawn from the [approved vocabulary](https://www.w3.org/2021/a11y-discov-vocab/latest/#accessibilityAPI-vocabulary)."
 						},
 						"educationalLevel": {
-							"ref": "social.flockfeeds.lexical.definedterm",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.definedterm",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The level in terms of progression through an educational or training context. Examples of educational levels include 'beginner', 'intermediate' or 'advanced', and formal sets of level indicators."
 						},
 						"ineligibleRegion": {
 							"refs": [
 								"social.flockfeeds.lexical.place",
-								"social.flockfeeds.lexical.geoshape"
+								"social.flockfeeds.lexical.geoshape",
+								"social.flockfeeds.lexical.itemlist"
 							],
 							"type": "union",
 							"description": "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\\n\\nSee also [[eligibleRegion]]."
@@ -628,13 +802,19 @@
 							"description": "Indicates whether this content is family friendly."
 						},
 						"mainEntityOfPage": {
-							"ref": "social.flockfeeds.lexical.creativework",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details."
 						},
 						"publisherImprint": {
-							"ref": "social.flockfeeds.lexical.organization",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.organization",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The publishing division which published the comic."
 						},
 						"temporalCoverage": {
@@ -642,13 +822,19 @@
 							"description": "The temporalCoverage of a CreativeWork indicates the period that the content applies to, i.e. that it describes, either as a DateTime or as a textual string indicating a time period in [ISO 8601 time interval format](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals). In\n      the case of a Dataset it will typically indicate the relevant time period in a precise notation (e.g. for a 2011 census dataset, the year 2011 would be written \"2011/2012\"). Other forms of content, e.g. ScholarlyArticle, Book, TVSeries or TVEpisode, may indicate their temporalCoverage in broader terms - textually or via well-known URL.\n      Written works such as books may sometimes have precise temporal coverage too, e.g. a work set in 1939 - 1945 can be indicated in ISO 8601 interval format format via \"1939/1945\".\n\nOpen-ended date ranges can be written with \"..\" in place of the end date. For example, \"2015-11/..\" indicates a range beginning in November 2015 and with no specified final date. This is tentative and might be updated in future when ISO 8601 is officially updated."
 						},
 						"accountablePerson": {
-							"ref": "social.flockfeeds.lexical.person",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.person",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Specifies the Person that is legally accountable for the CreativeWork."
 						},
 						"associatedArticle": {
-							"ref": "social.flockfeeds.lexical.newsarticle",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.newsarticle",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "A NewsArticle associated with the Media Object."
 						},
 						"digitalSourceType": {
@@ -660,18 +846,27 @@
 							"description": "The predominant mode of learning supported by the learning resource. Acceptable values are 'active', 'expositive', or 'mixed'."
 						},
 						"productionCompany": {
-							"ref": "social.flockfeeds.lexical.organization",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.organization",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The production company or studio responsible for the item, e.g. series, video game, episode etc."
 						},
 						"translationOfWork": {
-							"ref": "social.flockfeeds.lexical.creativework",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The work that this work has been translated from. E.g. 物种起源 is a translationOf “On the Origin of Species”."
 						},
 						"acquireLicensePage": {
-							"ref": "social.flockfeeds.lexical.creativework",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Indicates a page documenting how licenses can be purchased or otherwise acquired, for the current item."
 						},
 						"conditionsOfAccess": {
@@ -679,18 +874,27 @@
 							"description": "Conditions that affect the availability of, or method(s) of access to, an item. Typically used for real world items such as an [[ArchiveComponent]] held by an [[ArchiveOrganization]]. This property is not suitable for use as a general Web access control mechanism. It is expressed only in natural language.\\n\\nFor example \"Available by appointment from the Reading Room\" or \"Accessible only from logged-in accounts \"."
 						},
 						"creativeWorkStatus": {
-							"ref": "social.flockfeeds.lexical.definedterm",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.definedterm",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The status of a creative work in terms of its stage in a lifecycle. Example terms include Incomplete, Draft, Published, Obsolete. Some organizations define a set of terms for the stages of their publication lifecycle."
 						},
 						"interpretedAsClaim": {
-							"ref": "social.flockfeeds.lexical.claim",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.claim",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Used to indicate a specific claim contained, implied, translated or refined from the content of a [[MediaObject]] or other [[CreativeWork]]. The interpreting party can be indicated using [[claimInterpreter]]."
 						},
 						"sourceOrganization": {
-							"ref": "social.flockfeeds.lexical.organization",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.organization",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The Organization on whose behalf the creator was working."
 						},
 						"accessibilityHazard": {
@@ -706,8 +910,11 @@
 							"description": "Represents textual captioning from a [[MediaObject]], e.g. text of a 'meme'."
 						},
 						"encodesCreativeWork": {
-							"ref": "social.flockfeeds.lexical.creativework",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The CreativeWork encoded by this media object."
 						},
 						"isAccessibleForFree": {
@@ -737,28 +944,43 @@
 							"description": "The specific time described by a creative work, for works (e.g. articles, video objects etc.) that emphasise a particular moment within an Event."
 						},
 						"educationalAlignment": {
-							"ref": "social.flockfeeds.lexical.alignmentobject",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.alignmentobject",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "An alignment to an established educational framework.\n\nThis property should not be used where the nature of the alignment can be described using a simple property, for example to express that a resource [[teaches]] or [[assesses]] a competency."
 						},
 						"interactionStatistic": {
-							"ref": "social.flockfeeds.lexical.interactioncounter",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.interactioncounter",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The number of interactions for the CreativeWork using the WebSite or SoftwareApplication. The most specific child type of InteractionCounter should be used."
 						},
 						"learningResourceType": {
-							"ref": "social.flockfeeds.lexical.definedterm",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.definedterm",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The predominant type or kind characterizing the learning resource. For example, 'presentation', 'handout'."
 						},
 						"publishingPrinciples": {
-							"ref": "social.flockfeeds.lexical.creativework",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.creativework",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "The publishingPrinciples property indicates (typically via [[URL]]) a document describing the editorial principles of an [[Organization]] (or individual, e.g. a [[Person]] writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a [[CreativeWork]] (e.g. [[NewsArticle]]) the principles are those of the party primarily responsible for the creation of the [[CreativeWork]].\n\nWhile such policies are most typically expressed in natural language, sometimes related information (e.g. indicating a [[funder]]) can be expressed using schema.org terminology."
 						},
 						"requiresSubscription": {
-							"ref": "social.flockfeeds.lexical.mediasubscription",
-							"type": "ref",
+							"refs": [
+								"social.flockfeeds.lexical.mediasubscription",
+								"social.flockfeeds.lexical.itemlist"
+							],
+							"type": "union",
 							"description": "Indicates if use of the media require a subscription  (either paid or free). Allowed values are ```true``` or ```false``` (note that an earlier version had 'yes', 'no')."
 						},
 						"disambiguatingDescription": {
@@ -774,16 +996,18 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760919388435
+		"indexedAt": 1761092156999
 	},
 	"references": {
 		"main": [
+			"social.flockfeeds.lexical.aboutpage",
 			"social.flockfeeds.lexical.action",
 			"social.flockfeeds.lexical.actionstatustype",
 			"social.flockfeeds.lexical.administrativearea",
 			"social.flockfeeds.lexical.aggregateoffer",
 			"social.flockfeeds.lexical.aggregaterating",
 			"social.flockfeeds.lexical.alignmentobject",
+			"social.flockfeeds.lexical.article",
 			"social.flockfeeds.lexical.audience",
 			"social.flockfeeds.lexical.biochementity",
 			"social.flockfeeds.lexical.brand",
@@ -792,6 +1016,7 @@
 			"social.flockfeeds.lexical.businessentitytype",
 			"social.flockfeeds.lexical.businessfunction",
 			"social.flockfeeds.lexical.categorycode",
+			"social.flockfeeds.lexical.categorycodeset",
 			"social.flockfeeds.lexical.certification",
 			"social.flockfeeds.lexical.claim",
 			"social.flockfeeds.lexical.class",
@@ -822,6 +1047,7 @@
 			"social.flockfeeds.lexical.geocoordinates",
 			"social.flockfeeds.lexical.geoshape",
 			"social.flockfeeds.lexical.geospatialgeometry",
+			"social.flockfeeds.lexical.governmentbenefitstype",
 			"social.flockfeeds.lexical.grant",
 			"social.flockfeeds.lexical.howto",
 			"social.flockfeeds.lexical.hypertocentry",
@@ -841,9 +1067,11 @@
 			"social.flockfeeds.lexical.mediaobject",
 			"social.flockfeeds.lexical.mediasubscription",
 			"social.flockfeeds.lexical.medicalentity",
+			"social.flockfeeds.lexical.memberprogram",
 			"social.flockfeeds.lexical.memberprogramtier",
 			"social.flockfeeds.lexical.menuitem",
 			"social.flockfeeds.lexical.merchantreturnpolicy",
+			"social.flockfeeds.lexical.merchantreturnpolicyseasonaloverride",
 			"social.flockfeeds.lexical.monetaryamount",
 			"social.flockfeeds.lexical.musicalbum",
 			"social.flockfeeds.lexical.musiccomposition",
@@ -851,6 +1079,7 @@
 			"social.flockfeeds.lexical.musicplaylist",
 			"social.flockfeeds.lexical.musicrecording",
 			"social.flockfeeds.lexical.newsarticle",
+			"social.flockfeeds.lexical.nonprofittype",
 			"social.flockfeeds.lexical.occupation",
 			"social.flockfeeds.lexical.offer",
 			"social.flockfeeds.lexical.offercatalog",
@@ -880,6 +1109,8 @@
 			"social.flockfeeds.lexical.review",
 			"social.flockfeeds.lexical.schedule",
 			"social.flockfeeds.lexical.service",
+			"social.flockfeeds.lexical.servicechannel",
+			"social.flockfeeds.lexical.shippingservice",
 			"social.flockfeeds.lexical.sizegroupenumeration",
 			"social.flockfeeds.lexical.sizespecification",
 			"social.flockfeeds.lexical.sizesystemenumeration",
