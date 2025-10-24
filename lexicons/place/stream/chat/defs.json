@@ -34,7 +34,7 @@
 					},
 					"replyTo": {
 						"refs": [
-							"place.stream.chat.defs#messageView"
+							"#messageView"
 						],
 						"type": "union"
 					},
@@ -53,7 +53,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263
+		"indexedAt": 1761264807452
 	},
 	"references": {
 		"messageView": [

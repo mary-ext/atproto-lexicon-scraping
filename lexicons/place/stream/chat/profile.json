@@ -10,7 +10,7 @@
 					"type": "object",
 					"properties": {
 						"color": {
-							"ref": "place.stream.chat.profile#color",
+							"ref": "#color",
 							"type": "ref"
 						}
 					}
@@ -48,7 +48,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263
+		"indexedAt": 1761264807452
 	},
 	"references": {
 		"main": [],
