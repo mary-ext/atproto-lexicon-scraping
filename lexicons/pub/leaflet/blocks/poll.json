@@ -1,0 +1,30 @@
+{
+	"authority": "did:plc:btxrwcaeyodrap5mnjw2fvmz",
+	"schema": {
+		"id": "pub.leaflet.blocks.poll",
+		"defs": {
+			"main": {
+				"type": "object",
+				"required": [
+					"pollRef"
+				],
+				"properties": {
+					"pollRef": {
+						"ref": "com.atproto.repo.strongRef",
+						"type": "ref"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1761351322244
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}

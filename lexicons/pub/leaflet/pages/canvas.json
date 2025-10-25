@@ -1,7 +1,7 @@
 {
 	"authority": "did:plc:btxrwcaeyodrap5mnjw2fvmz",
 	"schema": {
-		"id": "pub.leaflet.pages.linearDocument",
+		"id": "pub.leaflet.pages.canvas",
 		"defs": {
 			"main": {
 				"type": "object",
@@ -24,9 +24,18 @@
 			"block": {
 				"type": "object",
 				"required": [
-					"block"
+					"block",
+					"x",
+					"y",
+					"width"
 				],
 				"properties": {
+					"x": {
+						"type": "integer"
+					},
+					"y": {
+						"type": "integer"
+					},
 					"block": {
 						"refs": [
 							"pub.leaflet.blocks.iframe",
@@ -40,19 +49,18 @@
 							"pub.leaflet.blocks.code",
 							"pub.leaflet.blocks.horizontalRule",
 							"pub.leaflet.blocks.bskyPost",
-							"pub.leaflet.blocks.page",
-							"pub.leaflet.blocks.poll"
+							"pub.leaflet.blocks.page"
 						],
 						"type": "union"
 					},
-					"alignment": {
-						"type": "string",
-						"knownValues": [
-							"#textAlignLeft",
-							"#textAlignCenter",
-							"#textAlignRight",
-							"#textAlignJustify"
-						]
+					"width": {
+						"type": "integer"
+					},
+					"height": {
+						"type": "integer"
+					},
+					"rotation": {
+						"type": "integer"
 					}
 				}
 			},
@@ -105,8 +113,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1761351322244,
-		"errorAt": 1760659937196
+		"indexedAt": 1761351322244
 	},
 	"references": {
 		"main": [
@@ -120,7 +127,6 @@
 			"pub.leaflet.blocks.image",
 			"pub.leaflet.blocks.math",
 			"pub.leaflet.blocks.page",
-			"pub.leaflet.blocks.poll",
 			"pub.leaflet.blocks.text",
 			"pub.leaflet.blocks.unorderedList",
 			"pub.leaflet.blocks.website",
@@ -137,7 +143,6 @@
 			"pub.leaflet.blocks.image",
 			"pub.leaflet.blocks.math",
 			"pub.leaflet.blocks.page",
-			"pub.leaflet.blocks.poll",
 			"pub.leaflet.blocks.text",
 			"pub.leaflet.blocks.unorderedList",
 			"pub.leaflet.blocks.website",

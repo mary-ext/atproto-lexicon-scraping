@@ -19,7 +19,8 @@
 							"type": "array",
 							"items": {
 								"refs": [
-									"pub.leaflet.pages.linearDocument"
+									"pub.leaflet.pages.linearDocument",
+									"pub.leaflet.pages.canvas"
 								],
 								"type": "union"
 							}
@@ -61,7 +62,7 @@
 		"description": "A lexicon for long form rich media documents"
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1761351322244,
 		"errorAt": 1760659937196
 	},
 	"references": {
@@ -76,9 +77,11 @@
 			"pub.leaflet.blocks.image",
 			"pub.leaflet.blocks.math",
 			"pub.leaflet.blocks.page",
+			"pub.leaflet.blocks.poll",
 			"pub.leaflet.blocks.text",
 			"pub.leaflet.blocks.unorderedList",
 			"pub.leaflet.blocks.website",
+			"pub.leaflet.pages.canvas",
 			"pub.leaflet.pages.linearDocument",
 			"pub.leaflet.richtext.facet"
 		]

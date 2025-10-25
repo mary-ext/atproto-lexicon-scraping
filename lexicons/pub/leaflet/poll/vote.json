@@ -1,0 +1,42 @@
+{
+	"authority": "did:plc:btxrwcaeyodrap5mnjw2fvmz",
+	"schema": {
+		"id": "pub.leaflet.poll.vote",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"poll",
+						"option"
+					],
+					"properties": {
+						"poll": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref"
+						},
+						"option": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						}
+					}
+				},
+				"description": "Record declaring a vote on a poll"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1761351322244
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}

@@ -1,0 +1,57 @@
+{
+	"authority": "did:plc:btxrwcaeyodrap5mnjw2fvmz",
+	"schema": {
+		"id": "pub.leaflet.poll.definition",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"options"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 500,
+							"maxGraphemes": 100
+						},
+						"endDate": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"options": {
+							"type": "array",
+							"items": {
+								"ref": "#option",
+								"type": "ref"
+							}
+						}
+					}
+				},
+				"description": "Record declaring a poll"
+			},
+			"option": {
+				"type": "object",
+				"properties": {
+					"text": {
+						"type": "string",
+						"maxLength": 500,
+						"maxGraphemes": 50
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1761351322244
+	},
+	"references": {
+		"main": [],
+		"option": []
+	}
+}
