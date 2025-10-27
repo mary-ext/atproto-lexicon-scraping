@@ -1,0 +1,111 @@
+{
+	"authority": "did:plc:7puq73yz2hkvbcpdhnsze2qw",
+	"schema": {
+		"id": "place.wisp.fs",
+		"defs": {
+			"file": {
+				"type": "object",
+				"required": [
+					"type",
+					"blob"
+				],
+				"properties": {
+					"blob": {
+						"type": "blob",
+						"accept": [
+							"*/*"
+						],
+						"maxSize": 1000000,
+						"description": "Content blob ref"
+					},
+					"type": {
+						"type": "string",
+						"const": "file"
+					}
+				}
+			},
+			"main": {
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"site",
+						"root",
+						"createdAt"
+					],
+					"properties": {
+						"root": {
+							"ref": "#directory",
+							"type": "ref"
+						},
+						"site": {
+							"type": "string"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"fileCount": {
+							"type": "integer",
+							"maximum": 1000,
+							"minimum": 0
+						}
+					}
+				},
+				"description": "Virtual filesystem manifest for a Wisp site"
+			},
+			"entry": {
+				"type": "object",
+				"required": [
+					"name",
+					"node"
+				],
+				"properties": {
+					"name": {
+						"type": "string",
+						"maxLength": 255
+					},
+					"node": {
+						"refs": [
+							"#file",
+							"#directory"
+						],
+						"type": "union"
+					}
+				}
+			},
+			"directory": {
+				"type": "object",
+				"required": [
+					"type",
+					"entries"
+				],
+				"properties": {
+					"type": {
+						"type": "string",
+						"const": "directory"
+					},
+					"entries": {
+						"type": "array",
+						"items": {
+							"ref": "#entry",
+							"type": "ref"
+						},
+						"maxLength": 500
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1761524226745
+	},
+	"references": {
+		"file": [],
+		"main": [],
+		"entry": [],
+		"directory": []
+	}
+}
