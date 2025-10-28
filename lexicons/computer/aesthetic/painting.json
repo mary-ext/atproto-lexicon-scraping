@@ -1,0 +1,74 @@
+{
+	"authority": "did:plc:k3k3wknzkcnekbnyde4dbatz",
+	"schema": {
+		"id": "computer.aesthetic.painting",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"slug",
+						"code",
+						"imageUrl",
+						"when",
+						"ref"
+					],
+					"properties": {
+						"ref": {
+							"type": "string",
+							"maxLength": 24,
+							"description": "MongoDB ObjectId reference for bidirectional sync"
+						},
+						"code": {
+							"type": "string",
+							"maxLength": 10,
+							"description": "Short alphanumeric code for easy lookup (e.g., 'a3b')"
+						},
+						"slug": {
+							"type": "string",
+							"maxLength": 128,
+							"description": "Timestamp slug (may include recording: imageSlug:recordingSlug)"
+						},
+						"when": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Creation timestamp (ISO 8601)"
+						},
+						"imageUrl": {
+							"type": "string",
+							"format": "uri",
+							"maxLength": 512,
+							"description": "URL to full resolution PNG"
+						},
+						"thumbnail": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg"
+							],
+							"maxSize": 1048576,
+							"description": "Thumbnail preview (max 1MB)"
+						},
+						"recordingUrl": {
+							"type": "string",
+							"format": "uri",
+							"maxLength": 512,
+							"description": "URL to .zip recording file (if available)"
+						}
+					}
+				},
+				"description": "A digital painting created on aesthetic.computer"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1761610506735
+	},
+	"references": {
+		"main": []
+	}
+}
