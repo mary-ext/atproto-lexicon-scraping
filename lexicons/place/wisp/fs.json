@@ -21,6 +21,17 @@
 					"type": {
 						"type": "string",
 						"const": "file"
+					},
+					"encoding": {
+						"enum": [
+							"gzip"
+						],
+						"type": "string",
+						"description": "Content encoding (e.g., gzip for compressed files)"
+					},
+					"mimeType": {
+						"type": "string",
+						"description": "Original MIME type before compression"
 					}
 				}
 			},
@@ -100,7 +111,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1761524226745
+		"indexedAt": 1761696976141
 	},
 	"references": {
 		"file": [],
