@@ -1,0 +1,53 @@
+{
+	"authority": "did:plc:dh5z4ffoxlugvbynwmef4e77",
+	"schema": {
+		"id": "social.flockfeeds.lexical.vocab",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"id",
+						"label",
+						"createdAt"
+					],
+					"properties": {
+						"id": {
+							"type": "string",
+							"format": "uri",
+							"description": "Canonical URI/IRI for this vocab term."
+						},
+						"label": {
+							"type": "string",
+							"description": "Human-readable label."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when this vocab entry was created (ISO 8601)."
+						},
+						"description": {
+							"type": "string",
+							"description": "Optional longer description."
+						},
+						"alternateType": {
+							"type": "string",
+							"description": "Specifies the kind of this record, expected to be a URI (recommended) or plain string."
+						}
+					}
+				},
+				"description": "Canonical schema for vocabulary entries."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1761783363904
+	},
+	"references": {
+		"main": []
+	}
+}
