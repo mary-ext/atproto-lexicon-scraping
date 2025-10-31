@@ -41,7 +41,8 @@
 							"pub.leaflet.blocks.horizontalRule",
 							"pub.leaflet.blocks.bskyPost",
 							"pub.leaflet.blocks.page",
-							"pub.leaflet.blocks.poll"
+							"pub.leaflet.blocks.poll",
+							"pub.leaflet.blocks.button"
 						],
 						"type": "union"
 					},
@@ -99,13 +100,16 @@
 			},
 			"textAlignCenter": {
 				"type": "token"
+			},
+			"textAlignJustify": {
+				"type": "token"
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1761351322244,
+		"indexedAt": 1761869743793,
 		"errorAt": 1760659937196
 	},
 	"references": {
@@ -113,6 +117,7 @@
 			"com.atproto.repo.strongRef",
 			"pub.leaflet.blocks.blockquote",
 			"pub.leaflet.blocks.bskyPost",
+			"pub.leaflet.blocks.button",
 			"pub.leaflet.blocks.code",
 			"pub.leaflet.blocks.header",
 			"pub.leaflet.blocks.horizontalRule",
@@ -130,6 +135,7 @@
 			"com.atproto.repo.strongRef",
 			"pub.leaflet.blocks.blockquote",
 			"pub.leaflet.blocks.bskyPost",
+			"pub.leaflet.blocks.button",
 			"pub.leaflet.blocks.code",
 			"pub.leaflet.blocks.header",
 			"pub.leaflet.blocks.horizontalRule",
@@ -147,6 +153,7 @@
 		"position": [],
 		"textAlignLeft": [],
 		"textAlignRight": [],
-		"textAlignCenter": []
+		"textAlignCenter": [],
+		"textAlignJustify": []
 	}
 }

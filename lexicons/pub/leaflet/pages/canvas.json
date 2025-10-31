@@ -50,7 +50,8 @@
 							"pub.leaflet.blocks.horizontalRule",
 							"pub.leaflet.blocks.bskyPost",
 							"pub.leaflet.blocks.page",
-							"pub.leaflet.blocks.poll"
+							"pub.leaflet.blocks.poll",
+							"pub.leaflet.blocks.button"
 						],
 						"type": "union"
 					},
@@ -115,13 +116,14 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1761783363904
+		"indexedAt": 1761869743793
 	},
 	"references": {
 		"main": [
 			"com.atproto.repo.strongRef",
 			"pub.leaflet.blocks.blockquote",
 			"pub.leaflet.blocks.bskyPost",
+			"pub.leaflet.blocks.button",
 			"pub.leaflet.blocks.code",
 			"pub.leaflet.blocks.header",
 			"pub.leaflet.blocks.horizontalRule",
@@ -139,6 +141,7 @@
 			"com.atproto.repo.strongRef",
 			"pub.leaflet.blocks.blockquote",
 			"pub.leaflet.blocks.bskyPost",
+			"pub.leaflet.blocks.button",
 			"pub.leaflet.blocks.code",
 			"pub.leaflet.blocks.header",
 			"pub.leaflet.blocks.horizontalRule",
