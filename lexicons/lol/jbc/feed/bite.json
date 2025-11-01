@@ -1,0 +1,37 @@
+{
+	"authority": "did:web:web.jbc.lol",
+	"schema": {
+		"id": "lol.jbc.feed.bite",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"properties": {
+						"subject": {
+							"type": "string"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"required": [
+					"subject",
+					"createdAt"
+				],
+				"description": "Record declaring a 'bite' of a piece of subject content."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1761956230323
+	},
+	"references": {
+		"main": []
+	}
+}
