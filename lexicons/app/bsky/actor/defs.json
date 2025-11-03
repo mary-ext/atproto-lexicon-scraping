@@ -169,6 +169,10 @@
 						"type": "string",
 						"format": "did"
 					},
+					"debug": {
+						"type": "unknown",
+						"description": "Debug information for internal development"
+					},
 					"avatar": {
 						"type": "string",
 						"format": "uri"
@@ -529,6 +533,10 @@
 						"type": "string",
 						"format": "did"
 					},
+					"debug": {
+						"type": "unknown",
+						"description": "Debug information for internal development"
+					},
 					"avatar": {
 						"type": "string",
 						"format": "uri"
@@ -715,6 +723,10 @@
 						"type": "string",
 						"format": "did"
 					},
+					"debug": {
+						"type": "unknown",
+						"description": "Debug information for internal development"
+					},
 					"avatar": {
 						"type": "string",
 						"format": "uri"
@@ -876,7 +888,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760746336429,
+		"indexedAt": 1762129005281,
 		"errorAt": 1760659937196
 	},
 	"references": {

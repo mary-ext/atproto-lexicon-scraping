@@ -151,6 +151,11 @@
 							"format": "did",
 							"description": "Get all subject statuses that were reviewed by a specific moderator"
 						},
+						"minStrikeCount": {
+							"type": "integer",
+							"minimum": 1,
+							"description": "If specified, only subjects that belong to an account that has at least this many active strikes will be returned."
+						},
 						"reportedBefore": {
 							"type": "string",
 							"format": "datetime",
@@ -230,7 +235,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760748771506
+		"indexedAt": 1762129005281
 	},
 	"references": {
 		"main": [

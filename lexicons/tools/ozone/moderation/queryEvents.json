@@ -86,6 +86,10 @@
 							"type": "boolean",
 							"description": "If true, only events with comments are returned"
 						},
+						"withStrike": {
+							"type": "boolean",
+							"description": "If specified, only events where strikeCount value is set are returned."
+						},
 						"addedLabels": {
 							"type": "array",
 							"items": {
@@ -174,7 +178,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760748771506
+		"indexedAt": 1762129005281
 	},
 	"references": {
 		"main": [

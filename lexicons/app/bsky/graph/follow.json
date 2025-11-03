@@ -13,6 +13,10 @@
 						"createdAt"
 					],
 					"properties": {
+						"via": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref"
+						},
 						"subject": {
 							"type": "string",
 							"format": "did"
@@ -30,10 +34,12 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1762129005281,
 		"errorAt": 1760659937196
 	},
 	"references": {
-		"main": []
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
 	}
 }

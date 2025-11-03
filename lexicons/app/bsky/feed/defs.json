@@ -21,6 +21,10 @@
 						"type": "string",
 						"format": "at-uri"
 					},
+					"debug": {
+						"type": "unknown",
+						"description": "Debug information for internal development"
+					},
 					"embed": {
 						"refs": [
 							"app.bsky.embed.images#view",
@@ -541,7 +545,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760746336429,
+		"indexedAt": 1762129005281,
 		"errorAt": 1760659937196
 	},
 	"references": {

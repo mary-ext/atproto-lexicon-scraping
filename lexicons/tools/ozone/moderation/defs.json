@@ -492,6 +492,30 @@
 					}
 				}
 			},
+			"accountStrike": {
+				"type": "object",
+				"properties": {
+					"lastStrikeAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": "Timestamp of the most recent strike received"
+					},
+					"firstStrikeAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": "Timestamp of the first strike received"
+					},
+					"totalStrikeCount": {
+						"type": "integer",
+						"description": "Total number of strikes ever received (including expired strikes)"
+					},
+					"activeStrikeCount": {
+						"type": "integer",
+						"description": "Current number of active strikes (excluding expired strikes)"
+					}
+				},
+				"description": "Strike information for an account"
+			},
 			"identityEvent": {
 				"type": "object",
 				"required": [
@@ -533,9 +557,30 @@
 						"type": "string",
 						"description": "The content of the email sent to the user."
 					},
+					"policies": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"maxLength": 5,
+						"description": "Names/Keywords of the policies that necessitated the email."
+					},
+					"strikeCount": {
+						"type": "integer",
+						"description": "Number of strikes to assign to the user for this violation. Normally 0 as an indicator of a warning and only added as a strike on a repeat offense."
+					},
 					"subjectLine": {
 						"type": "string",
 						"description": "The subject line of the email sent to the user."
+					},
+					"severityLevel": {
+						"type": "string",
+						"description": "Severity level of the violation. Normally 'sev-1' that adds strike on repeat offense"
+					},
+					"strikeExpiresAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": "When the strike should expire. If not provided, the strike never expires."
 					}
 				},
 				"description": "Keep a log of outgoing email to a user"
@@ -840,9 +885,22 @@
 						"maxLength": 5,
 						"description": "Names/Keywords of the policies that drove the decision."
 					},
+					"strikeCount": {
+						"type": "integer",
+						"description": "Number of strikes to assign to the user for this violation."
+					},
+					"severityLevel": {
+						"type": "string",
+						"description": "Severity level of the violation (e.g., 'sev-0', 'sev-1', 'sev-2', etc.)."
+					},
 					"durationInHours": {
 						"type": "integer",
 						"description": "Indicates how long the takedown should be in effect before automatically expiring."
+					},
+					"strikeExpiresAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": "When the strike should expire. If not provided, the strike never expires."
 					},
 					"acknowledgeAccountSubjects": {
 						"type": "boolean",
@@ -1044,6 +1102,11 @@
 					"suspendUntil": {
 						"type": "string",
 						"format": "datetime"
+					},
+					"accountStrike": {
+						"ref": "#accountStrike",
+						"type": "ref",
+						"description": "Strike information for the account (account-level only)"
 					},
 					"priorityScore": {
 						"type": "integer",
@@ -1381,6 +1444,22 @@
 					"comment": {
 						"type": "string",
 						"description": "Describe reasoning behind the reversal."
+					},
+					"policies": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"maxLength": 5,
+						"description": "Names/Keywords of the policy infraction for which takedown is being reversed."
+					},
+					"strikeCount": {
+						"type": "integer",
+						"description": "Number of strikes to subtract from the user's strike count. Usually set from the last policy infraction's severity."
+					},
+					"severityLevel": {
+						"type": "string",
+						"description": "Severity level of the violation. Usually set from the last policy infraction's severity."
 					}
 				},
 				"description": "Revert take down action on a subject"
@@ -1443,7 +1522,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760748771506
+		"indexedAt": 1762129005281
 	},
 	"references": {
 		"modTool": [],
@@ -1494,6 +1573,7 @@
 		"recordsStats": [],
 		"reviewClosed": [],
 		"videoDetails": [],
+		"accountStrike": [],
 		"identityEvent": [],
 		"modEventEmail": [],
 		"modEventLabel": [],
