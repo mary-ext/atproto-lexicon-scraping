@@ -1,0 +1,60 @@
+{
+	"authority": "did:plc:ffhsvgvnjwkbbhoi62pezi4x",
+	"schema": {
+		"id": "tech.manos.twmirror.post",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"tweetId",
+						"twUserId",
+						"bskyPost",
+						"createdAt"
+					],
+					"properties": {
+						"tweetId": {
+							"ref": "#TwitterId",
+							"type": "ref",
+							"description": "ID of mirrored tweet."
+						},
+						"bskyPost": {
+							"ref": "com.atproto.repo.strongRef#strongRef",
+							"type": "ref",
+							"description": "strongRef to mirrored post on Bluesky."
+						},
+						"twUserId": {
+							"ref": "#TwitterId",
+							"type": "ref",
+							"description": "ID of the mirrored Twitter user."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Tweet timestamp (regardless of backdating setting)."
+						}
+					}
+				},
+				"description": "Sidecar record for mirrored Twitter posts. The rkey should match the bskyPost ref."
+			},
+			"TwitterId": {
+				"type": "string",
+				"maxLength": 20,
+				"minLength": 1
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1762388137210
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		],
+		"TwitterId": []
+	}
+}

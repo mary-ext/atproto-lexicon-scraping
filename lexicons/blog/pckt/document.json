@@ -1,7 +1,7 @@
 {
 	"authority": "did:plc:revjuqmkvrw6fnkxppqtszpv",
 	"schema": {
-		"id": "blog.pckt.post",
+		"id": "blog.pckt.document",
 		"defs": {
 			"main": {
 				"key": "tid",
@@ -85,11 +85,10 @@
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1,
-		"description": "A blog post record. References a parent blog, and contains post title, body content, URL, tags, cover image, inline images, and timestamps."
+		"description": "A blog document record. References a parent blog, and contains document title, body content, URL, tags, cover image, inline images, and timestamps."
 	},
 	"meta": {
-		"indexedAt": 1762388137210,
-		"errorAt": 1760659937196
+		"indexedAt": 1762388137210
 	},
 	"references": {
 		"main": [
