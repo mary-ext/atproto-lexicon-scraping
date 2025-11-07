@@ -27,7 +27,8 @@
 						"name": {
 							"type": "string",
 							"maxLength": 200,
-							"description": "Publication name/title"
+							"description": "Publication name/title",
+							"maxGraphemes": 100
 						},
 						"theme": {
 							"refs": [
@@ -40,7 +41,8 @@
 						"basePath": {
 							"type": "string",
 							"format": "uri",
-							"description": "Base URL path for the publication ex https://blog.pckt.blog"
+							"maxLength": 2000,
+							"description": "Base URL path for the publication (e.g., https://blog.pckt.blog)"
 						},
 						"createdAt": {
 							"type": "string",
@@ -66,7 +68,8 @@
 						"description": {
 							"type": "string",
 							"maxLength": 2000,
-							"description": "Publication description"
+							"description": "Publication description or tagline",
+							"maxGraphemes": 500
 						}
 					}
 				},
@@ -75,10 +78,10 @@
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1,
-		"description": "A publication record with core metadata, plus slots for theme and extensions for additional features."
+		"description": "A publication (blog) record representing a collection of documents. Contains metadata, branding, theme configuration, and optional extensions. Publications serve as the parent container for blog documents."
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1762474570340,
 		"errorAt": 1760659937196
 	},
 	"references": {

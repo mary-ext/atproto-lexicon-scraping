@@ -17,26 +17,38 @@
 					"properties": {
 						"url": {
 							"type": "string",
-							"format": "uri"
+							"format": "uri",
+							"maxLength": 2000,
+							"description": "Canonical URL where this document is published"
 						},
 						"blog": {
 							"ref": "com.atproto.repo.strongRef",
-							"type": "ref"
+							"type": "ref",
+							"description": "Reference to the parent publication (blog) this document belongs to"
 						},
 						"tags": {
 							"type": "array",
 							"items": {
-								"type": "string"
-							}
+								"type": "string",
+								"maxLength": 100,
+								"maxGraphemes": 50
+							},
+							"maxLength": 20,
+							"description": "Optional tags for categorization and discovery"
 						},
 						"cover": {
 							"type": "blob",
 							"accept": [
 								"image/*"
-							]
+							],
+							"maxSize": 10000000,
+							"description": "Optional cover/featured image (10MB max)"
 						},
 						"title": {
-							"type": "string"
+							"type": "string",
+							"maxLength": 1280,
+							"description": "Document title/headline",
+							"maxGraphemes": 128
 						},
 						"blocks": {
 							"type": "array",
@@ -57,7 +69,8 @@
 								],
 								"type": "union",
 								"closed": false
-							}
+							},
+							"description": "Structured content blocks composing the document body"
 						},
 						"images": {
 							"type": "array",
@@ -65,19 +78,26 @@
 								"type": "blob",
 								"accept": [
 									"image/*"
-								]
-							}
+								],
+								"maxSize": 10000000
+							},
+							"description": "Blob references for images used within the document content"
 						},
 						"bodyPlain": {
-							"type": "string"
+							"type": "string",
+							"maxLength": 100000,
+							"description": "Plain text representation of the document content for search and preview",
+							"maxGraphemes": 50000
 						},
 						"updatedAt": {
 							"type": "string",
-							"format": "datetime"
+							"format": "datetime",
+							"description": "Timestamp when the document was last modified"
 						},
 						"publishedAt": {
 							"type": "string",
-							"format": "datetime"
+							"format": "datetime",
+							"description": "Timestamp when the document was first published"
 						}
 					}
 				}
@@ -85,10 +105,10 @@
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1,
-		"description": "A blog document record. References a parent blog, and contains document title, body content, URL, tags, cover image, inline images, and timestamps."
+		"description": "A long-form blog document with rich content. Documents belong to a publication (blog) and contain structured content blocks, metadata, and optional media. This is the primary record type for blog posts."
 	},
 	"meta": {
-		"indexedAt": 1762388137210
+		"indexedAt": 1762474570340
 	},
 	"references": {
 		"main": [
