@@ -2528,7 +2528,8 @@
 		"description": "Shared property wrappers for CreativeWork types"
 	},
 	"meta": {
-		"indexedAt": 1762560896603
+		"indexedAt": 1762560896603,
+		"errorAt": 1762647435070
 	},
 	"references": {
 		"urlList": [],

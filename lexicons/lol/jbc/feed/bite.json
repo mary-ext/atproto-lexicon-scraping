@@ -29,7 +29,8 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1761956230323
+		"indexedAt": 1761956230323,
+		"errorAt": 1762647435070
 	},
 	"references": {
 		"main": []
