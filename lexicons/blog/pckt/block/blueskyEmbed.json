@@ -1,0 +1,50 @@
+{
+	"authority": "did:plc:revjuqmkvrw6fnkxppqtszpv",
+	"schema": {
+		"id": "blog.pckt.block.blueskyEmbed",
+		"defs": {
+			"main": {
+				"type": "object",
+				"required": [
+					"attrs"
+				],
+				"properties": {
+					"attrs": {
+						"ref": "#embedAttrs",
+						"type": "ref",
+						"description": "Embed attributes"
+					}
+				}
+			},
+			"embedAttrs": {
+				"type": "object",
+				"required": [
+					"url"
+				],
+				"properties": {
+					"url": {
+						"type": "string",
+						"format": "uri",
+						"description": "URL of the Bluesky post to embed"
+					},
+					"html": {
+						"type": "string",
+						"maxLength": 50000,
+						"description": "Pre-rendered HTML content of the embedded post"
+					}
+				},
+				"description": "Embed attributes"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Embedded Bluesky social media post. Displays rich content from Bluesky including the post author, text, images, and engagement metrics."
+	},
+	"meta": {
+		"indexedAt": 1762820167045
+	},
+	"references": {
+		"main": [],
+		"embedAttrs": []
+	}
+}

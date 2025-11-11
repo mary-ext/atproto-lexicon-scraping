@@ -1,0 +1,20 @@
+{
+	"authority": "did:plc:revjuqmkvrw6fnkxppqtszpv",
+	"schema": {
+		"id": "blog.pckt.mark.bold",
+		"defs": {
+			"main": {
+				"type": "object"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Bold text formatting. Renders text with a heavier weight, typically used for emphasis or to highlight important content."
+	},
+	"meta": {
+		"indexedAt": 1762820167045
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -1,0 +1,20 @@
+{
+	"authority": "did:plc:revjuqmkvrw6fnkxppqtszpv",
+	"schema": {
+		"id": "blog.pckt.mark.italic",
+		"defs": {
+			"main": {
+				"type": "object"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Italic text formatting. Renders text in a slanted style, typically used for emphasis, titles, or foreign words."
+	},
+	"meta": {
+		"indexedAt": 1762820167045
+	},
+	"references": {
+		"main": []
+	}
+}

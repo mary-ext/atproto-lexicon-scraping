@@ -1,0 +1,20 @@
+{
+	"authority": "did:plc:revjuqmkvrw6fnkxppqtszpv",
+	"schema": {
+		"id": "blog.pckt.block.hardBreak",
+		"defs": {
+			"main": {
+				"type": "object"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Hard line break within inline content. Forces text to continue on a new line without creating a new paragraph."
+	},
+	"meta": {
+		"indexedAt": 1762820167045
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -1,0 +1,1197 @@
+{
+	"authority": "did:plc:dh5z4ffoxlugvbynwmef4e77",
+	"schema": {
+		"id": "social.flockfeeds.lexical.type.Offer",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"properties": {
+						"mpn": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#mpnScalar",
+								"social.flockfeeds.lexical.prop.offer#mpnList"
+							],
+							"type": "union"
+						},
+						"sku": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#skuScalar",
+								"social.flockfeeds.lexical.prop.offer#skuList"
+							],
+							"type": "union"
+						},
+						"url": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#urlScalar",
+								"social.flockfeeds.lexical.prop.offer#urlList"
+							],
+							"type": "union"
+						},
+						"asin": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#asinScalar",
+								"social.flockfeeds.lexical.prop.offer#asinList"
+							],
+							"type": "union"
+						},
+						"gtin": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#gtinScalar",
+								"social.flockfeeds.lexical.prop.offer#gtinList"
+							],
+							"type": "union"
+						},
+						"name": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#nameScalar",
+								"social.flockfeeds.lexical.prop.offer#nameList"
+							],
+							"type": "union"
+						},
+						"addOn": {
+							"refs": [
+								"social.flockfeeds.lexical.type.Offer#embedded",
+								"social.flockfeeds.lexical.prop.offer#addOnList"
+							],
+							"type": "union"
+						},
+						"gtin8": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#gtin8Scalar",
+								"social.flockfeeds.lexical.prop.offer#gtin8List"
+							],
+							"type": "union"
+						},
+						"image": {
+							"refs": [
+								"social.flockfeeds.lexical.type.ImageObject#embedded",
+								"social.flockfeeds.lexical.prop.offer#imageScalar",
+								"social.flockfeeds.lexical.prop.offer#imageList"
+							],
+							"type": "union"
+						},
+						"price": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#priceScalar",
+								"social.flockfeeds.lexical.prop.offer#priceList"
+							],
+							"type": "union"
+						},
+						"gtin12": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#gtin12Scalar",
+								"social.flockfeeds.lexical.prop.offer#gtin12List"
+							],
+							"type": "union"
+						},
+						"gtin13": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#gtin13Scalar",
+								"social.flockfeeds.lexical.prop.offer#gtin13List"
+							],
+							"type": "union"
+						},
+						"gtin14": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#gtin14Scalar",
+								"social.flockfeeds.lexical.prop.offer#gtin14List"
+							],
+							"type": "union"
+						},
+						"review": {
+							"refs": [
+								"social.flockfeeds.lexical.type.Review#embedded",
+								"social.flockfeeds.lexical.prop.offer#reviewList"
+							],
+							"type": "union"
+						},
+						"sameAs": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#sameAsScalar",
+								"social.flockfeeds.lexical.prop.offer#sameAsList"
+							],
+							"type": "union"
+						},
+						"seller": {
+							"refs": [
+								"social.flockfeeds.lexical.type.Organization#embedded",
+								"social.flockfeeds.lexical.type.Person#embedded",
+								"social.flockfeeds.lexical.prop.offer#sellerList"
+							],
+							"type": "union"
+						},
+						"reviews": {
+							"refs": [
+								"social.flockfeeds.lexical.type.Review#embedded",
+								"social.flockfeeds.lexical.prop.offer#reviewsList"
+							],
+							"type": "union"
+						},
+						"category": {
+							"refs": [
+								"social.flockfeeds.lexical.type.CategoryCode#embedded",
+								"social.flockfeeds.lexical.type.PhysicalActivityCategory#embedded",
+								"social.flockfeeds.lexical.type.Thing#embedded",
+								"social.flockfeeds.lexical.prop.offer#categoryScalar",
+								"social.flockfeeds.lexical.prop.offer#categoryList"
+							],
+							"type": "union"
+						},
+						"warranty": {
+							"refs": [
+								"social.flockfeeds.lexical.type.WarrantyPromise#embedded",
+								"social.flockfeeds.lexical.prop.offer#warrantyList"
+							],
+							"type": "union"
+						},
+						"mobileUrl": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#mobileUrlScalar",
+								"social.flockfeeds.lexical.prop.offer#mobileUrlList"
+							],
+							"type": "union"
+						},
+						"offeredBy": {
+							"refs": [
+								"social.flockfeeds.lexical.type.Organization#embedded",
+								"social.flockfeeds.lexical.type.Person#embedded",
+								"social.flockfeeds.lexical.prop.offer#offeredByList"
+							],
+							"type": "union"
+						},
+						"subjectOf": {
+							"refs": [
+								"social.flockfeeds.lexical.type.CreativeWork#embedded",
+								"social.flockfeeds.lexical.type.Event#embedded",
+								"social.flockfeeds.lexical.prop.offer#subjectOfList"
+							],
+							"type": "union"
+						},
+						"validFrom": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#validFromScalar",
+								"social.flockfeeds.lexical.prop.offer#validFromList"
+							],
+							"type": "union"
+						},
+						"areaServed": {
+							"refs": [
+								"social.flockfeeds.lexical.type.AdministrativeArea#embedded",
+								"social.flockfeeds.lexical.type.GeoShape#embedded",
+								"social.flockfeeds.lexical.type.Place#embedded",
+								"social.flockfeeds.lexical.prop.offer#areaServedScalar",
+								"social.flockfeeds.lexical.prop.offer#areaServedList"
+							],
+							"type": "union"
+						},
+						"identifier": {
+							"refs": [
+								"social.flockfeeds.lexical.type.PropertyValue#embedded",
+								"social.flockfeeds.lexical.prop.offer#identifierScalar",
+								"social.flockfeeds.lexical.prop.offer#identifierList"
+							],
+							"type": "union"
+						},
+						"description": {
+							"refs": [
+								"social.flockfeeds.lexical.type.TextObject#embedded",
+								"social.flockfeeds.lexical.prop.offer#descriptionScalar",
+								"social.flockfeeds.lexical.prop.offer#descriptionList"
+							],
+							"type": "union"
+						},
+						"itemOffered": {
+							"refs": [
+								"social.flockfeeds.lexical.type.AggregateOffer#embedded",
+								"social.flockfeeds.lexical.type.CreativeWork#embedded",
+								"social.flockfeeds.lexical.type.Event#embedded",
+								"social.flockfeeds.lexical.type.MenuItem#embedded",
+								"social.flockfeeds.lexical.type.Product#embedded",
+								"social.flockfeeds.lexical.type.Service#embedded",
+								"social.flockfeeds.lexical.type.Trip#embedded",
+								"social.flockfeeds.lexical.prop.offer#itemOfferedList"
+							],
+							"type": "union"
+						},
+						"leaseLength": {
+							"refs": [
+								"social.flockfeeds.lexical.type.QuantitativeValue#embedded",
+								"social.flockfeeds.lexical.prop.offer#leaseLengthScalar",
+								"social.flockfeeds.lexical.prop.offer#leaseLengthList"
+							],
+							"type": "union"
+						},
+						"availability": {
+							"refs": [
+								"social.flockfeeds.lexical.type.ItemAvailability#embedded",
+								"social.flockfeeds.lexical.prop.offer#availabilityScalar",
+								"social.flockfeeds.lexical.prop.offer#availabilityList"
+							],
+							"type": "union"
+						},
+						"serialNumber": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#serialNumberScalar",
+								"social.flockfeeds.lexical.prop.offer#serialNumberList"
+							],
+							"type": "union"
+						},
+						"validThrough": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#validThroughScalar",
+								"social.flockfeeds.lexical.prop.offer#validThroughList"
+							],
+							"type": "union"
+						},
+						"alternateName": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#alternateNameScalar",
+								"social.flockfeeds.lexical.prop.offer#alternateNameList"
+							],
+							"type": "union"
+						},
+						"itemCondition": {
+							"refs": [
+								"social.flockfeeds.lexical.type.OfferItemCondition#embedded",
+								"social.flockfeeds.lexical.prop.offer#itemConditionScalar",
+								"social.flockfeeds.lexical.prop.offer#itemConditionList"
+							],
+							"type": "union"
+						},
+						"priceCurrency": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#priceCurrencyScalar",
+								"social.flockfeeds.lexical.prop.offer#priceCurrencyList"
+							],
+							"type": "union"
+						},
+						"additionalType": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#additionalTypeScalar",
+								"social.flockfeeds.lexical.prop.offer#additionalTypeList"
+							],
+							"type": "union"
+						},
+						"eligibleRegion": {
+							"refs": [
+								"social.flockfeeds.lexical.type.GeoShape#embedded",
+								"social.flockfeeds.lexical.type.Place#embedded",
+								"social.flockfeeds.lexical.prop.offer#eligibleRegionScalar",
+								"social.flockfeeds.lexical.prop.offer#eligibleRegionList"
+							],
+							"type": "union"
+						},
+						"hasMeasurement": {
+							"refs": [
+								"social.flockfeeds.lexical.type.QuantitativeValue#embedded",
+								"social.flockfeeds.lexical.prop.offer#hasMeasurementList"
+							],
+							"type": "union"
+						},
+						"includesObject": {
+							"refs": [
+								"social.flockfeeds.lexical.type.TypeAndQuantityNode#embedded",
+								"social.flockfeeds.lexical.prop.offer#includesObjectList"
+							],
+							"type": "union"
+						},
+						"inventoryLevel": {
+							"refs": [
+								"social.flockfeeds.lexical.type.QuantitativeValue#embedded",
+								"social.flockfeeds.lexical.prop.offer#inventoryLevelList"
+							],
+							"type": "union"
+						},
+						"aggregateRating": {
+							"refs": [
+								"social.flockfeeds.lexical.type.AggregateRating#embedded",
+								"social.flockfeeds.lexical.prop.offer#aggregateRatingList"
+							],
+							"type": "union"
+						},
+						"potentialAction": {
+							"refs": [
+								"social.flockfeeds.lexical.type.Action#embedded",
+								"social.flockfeeds.lexical.prop.offer#potentialActionList"
+							],
+							"type": "union"
+						},
+						"priceValidUntil": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#priceValidUntilScalar",
+								"social.flockfeeds.lexical.prop.offer#priceValidUntilList"
+							],
+							"type": "union"
+						},
+						"shippingDetails": {
+							"refs": [
+								"social.flockfeeds.lexical.type.OfferShippingDetails#embedded",
+								"social.flockfeeds.lexical.prop.offer#shippingDetailsList"
+							],
+							"type": "union"
+						},
+						"availabilityEnds": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#availabilityEndsScalar",
+								"social.flockfeeds.lexical.prop.offer#availabilityEndsList"
+							],
+							"type": "union"
+						},
+						"businessFunction": {
+							"refs": [
+								"social.flockfeeds.lexical.type.BusinessFunction#embedded",
+								"social.flockfeeds.lexical.prop.offer#businessFunctionScalar",
+								"social.flockfeeds.lexical.prop.offer#businessFunctionList"
+							],
+							"type": "union"
+						},
+						"deliveryLeadTime": {
+							"refs": [
+								"social.flockfeeds.lexical.type.QuantitativeValue#embedded",
+								"social.flockfeeds.lexical.prop.offer#deliveryLeadTimeList"
+							],
+							"type": "union"
+						},
+						"eligibleDuration": {
+							"refs": [
+								"social.flockfeeds.lexical.type.QuantitativeValue#embedded",
+								"social.flockfeeds.lexical.prop.offer#eligibleDurationList"
+							],
+							"type": "union"
+						},
+						"eligibleQuantity": {
+							"refs": [
+								"social.flockfeeds.lexical.type.QuantitativeValue#embedded",
+								"social.flockfeeds.lexical.prop.offer#eligibleQuantityList"
+							],
+							"type": "union"
+						},
+						"ineligibleRegion": {
+							"refs": [
+								"social.flockfeeds.lexical.type.GeoShape#embedded",
+								"social.flockfeeds.lexical.type.Place#embedded",
+								"social.flockfeeds.lexical.prop.offer#ineligibleRegionScalar",
+								"social.flockfeeds.lexical.prop.offer#ineligibleRegionList"
+							],
+							"type": "union"
+						},
+						"isFamilyFriendly": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#isFamilyFriendlyScalar",
+								"social.flockfeeds.lexical.prop.offer#isFamilyFriendlyList"
+							],
+							"type": "union"
+						},
+						"mainEntityOfPage": {
+							"refs": [
+								"social.flockfeeds.lexical.type.CreativeWork#embedded",
+								"social.flockfeeds.lexical.prop.offer#mainEntityOfPageScalar",
+								"social.flockfeeds.lexical.prop.offer#mainEntityOfPageList"
+							],
+							"type": "union"
+						},
+						"availableAtOrFrom": {
+							"refs": [
+								"social.flockfeeds.lexical.type.Place#embedded",
+								"social.flockfeeds.lexical.prop.offer#availableAtOrFromList"
+							],
+							"type": "union"
+						},
+						"hasGS1DigitalLink": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#hasGS1DigitalLinkScalar",
+								"social.flockfeeds.lexical.prop.offer#hasGS1DigitalLinkList"
+							],
+							"type": "union"
+						},
+						"additionalProperty": {
+							"refs": [
+								"social.flockfeeds.lexical.type.PropertyValue#embedded",
+								"social.flockfeeds.lexical.prop.offer#additionalPropertyList"
+							],
+							"type": "union"
+						},
+						"availabilityStarts": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#availabilityStartsScalar",
+								"social.flockfeeds.lexical.prop.offer#availabilityStartsList"
+							],
+							"type": "union"
+						},
+						"priceSpecification": {
+							"refs": [
+								"social.flockfeeds.lexical.type.PriceSpecification#embedded",
+								"social.flockfeeds.lexical.prop.offer#priceSpecificationList"
+							],
+							"type": "union"
+						},
+						"validForMemberTier": {
+							"refs": [
+								"social.flockfeeds.lexical.type.MemberProgramTier#embedded",
+								"social.flockfeeds.lexical.prop.offer#validForMemberTierList"
+							],
+							"type": "union"
+						},
+						"eligibleCustomerType": {
+							"refs": [
+								"social.flockfeeds.lexical.type.BusinessEntityType#embedded",
+								"social.flockfeeds.lexical.prop.offer#eligibleCustomerTypeScalar",
+								"social.flockfeeds.lexical.prop.offer#eligibleCustomerTypeList"
+							],
+							"type": "union"
+						},
+						"acceptedPaymentMethod": {
+							"refs": [
+								"social.flockfeeds.lexical.type.LoanOrCredit#embedded",
+								"social.flockfeeds.lexical.type.PaymentMethod#embedded",
+								"social.flockfeeds.lexical.prop.offer#acceptedPaymentMethodScalar",
+								"social.flockfeeds.lexical.prop.offer#acceptedPaymentMethodList"
+							],
+							"type": "union"
+						},
+						"hasAdultConsideration": {
+							"refs": [
+								"social.flockfeeds.lexical.type.AdultOrientedEnumeration#embedded",
+								"social.flockfeeds.lexical.prop.offer#hasAdultConsiderationScalar",
+								"social.flockfeeds.lexical.prop.offer#hasAdultConsiderationList"
+							],
+							"type": "union"
+						},
+						"availableDeliveryMethod": {
+							"refs": [
+								"social.flockfeeds.lexical.type.DeliveryMethod#embedded",
+								"social.flockfeeds.lexical.prop.offer#availableDeliveryMethodScalar",
+								"social.flockfeeds.lexical.prop.offer#availableDeliveryMethodList"
+							],
+							"type": "union"
+						},
+						"checkoutPageURLTemplate": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#checkoutPageURLTemplateScalar",
+								"social.flockfeeds.lexical.prop.offer#checkoutPageURLTemplateList"
+							],
+							"type": "union"
+						},
+						"hasMerchantReturnPolicy": {
+							"refs": [
+								"social.flockfeeds.lexical.type.MerchantReturnPolicy#embedded",
+								"social.flockfeeds.lexical.prop.offer#hasMerchantReturnPolicyList"
+							],
+							"type": "union"
+						},
+						"advanceBookingRequirement": {
+							"refs": [
+								"social.flockfeeds.lexical.type.QuantitativeValue#embedded",
+								"social.flockfeeds.lexical.prop.offer#advanceBookingRequirementList"
+							],
+							"type": "union"
+						},
+						"disambiguatingDescription": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.offer#disambiguatingDescriptionScalar",
+								"social.flockfeeds.lexical.prop.offer#disambiguatingDescriptionList"
+							],
+							"type": "union"
+						},
+						"eligibleTransactionVolume": {
+							"refs": [
+								"social.flockfeeds.lexical.type.PriceSpecification#embedded",
+								"social.flockfeeds.lexical.prop.offer#eligibleTransactionVolumeList"
+							],
+							"type": "union"
+						}
+					},
+					"description": "An offer to transfer some rights to an item or to provide a service — for example, an offer to sell tickets to an event, to rent the DVD of a movie, to stream a TV show over the internet, to repair a motorcycle, or to loan a book.\\n\\nNote: As the [[businessFunction]] property, which identifies the form of offer (e.g. sell, lease, repair, dispose), defaults to http://purl.org/goodrelations/v1#Sell; an Offer without a defined businessFunction value can be assumed to be an offer to sell.\\n\\nFor [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, see [Check Digit calculator](http://www.gs1.org/barcodes/support/check_digit_calculator) and [validation guide](http://www.gs1us.org/resources/standards/gtin-validation-guide) from [GS1](http://www.gs1.org/)."
+				}
+			},
+			"embedded": {
+				"type": "object",
+				"properties": {
+					"mpn": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#mpnScalar",
+							"social.flockfeeds.lexical.prop.offer#mpnList"
+						],
+						"type": "union"
+					},
+					"sku": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#skuScalar",
+							"social.flockfeeds.lexical.prop.offer#skuList"
+						],
+						"type": "union"
+					},
+					"url": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#urlScalar",
+							"social.flockfeeds.lexical.prop.offer#urlList"
+						],
+						"type": "union"
+					},
+					"asin": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#asinScalar",
+							"social.flockfeeds.lexical.prop.offer#asinList"
+						],
+						"type": "union"
+					},
+					"gtin": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#gtinScalar",
+							"social.flockfeeds.lexical.prop.offer#gtinList"
+						],
+						"type": "union"
+					},
+					"name": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#nameScalar",
+							"social.flockfeeds.lexical.prop.offer#nameList"
+						],
+						"type": "union"
+					},
+					"addOn": {
+						"refs": [
+							"social.flockfeeds.lexical.type.Offer#embedded",
+							"social.flockfeeds.lexical.prop.offer#addOnList"
+						],
+						"type": "union"
+					},
+					"gtin8": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#gtin8Scalar",
+							"social.flockfeeds.lexical.prop.offer#gtin8List"
+						],
+						"type": "union"
+					},
+					"image": {
+						"refs": [
+							"social.flockfeeds.lexical.type.ImageObject#embedded",
+							"social.flockfeeds.lexical.prop.offer#imageScalar",
+							"social.flockfeeds.lexical.prop.offer#imageList"
+						],
+						"type": "union"
+					},
+					"price": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#priceScalar",
+							"social.flockfeeds.lexical.prop.offer#priceList"
+						],
+						"type": "union"
+					},
+					"gtin12": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#gtin12Scalar",
+							"social.flockfeeds.lexical.prop.offer#gtin12List"
+						],
+						"type": "union"
+					},
+					"gtin13": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#gtin13Scalar",
+							"social.flockfeeds.lexical.prop.offer#gtin13List"
+						],
+						"type": "union"
+					},
+					"gtin14": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#gtin14Scalar",
+							"social.flockfeeds.lexical.prop.offer#gtin14List"
+						],
+						"type": "union"
+					},
+					"review": {
+						"refs": [
+							"social.flockfeeds.lexical.type.Review#embedded",
+							"social.flockfeeds.lexical.prop.offer#reviewList"
+						],
+						"type": "union"
+					},
+					"sameAs": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#sameAsScalar",
+							"social.flockfeeds.lexical.prop.offer#sameAsList"
+						],
+						"type": "union"
+					},
+					"seller": {
+						"refs": [
+							"social.flockfeeds.lexical.type.Organization#embedded",
+							"social.flockfeeds.lexical.type.Person#embedded",
+							"social.flockfeeds.lexical.prop.offer#sellerList"
+						],
+						"type": "union"
+					},
+					"reviews": {
+						"refs": [
+							"social.flockfeeds.lexical.type.Review#embedded",
+							"social.flockfeeds.lexical.prop.offer#reviewsList"
+						],
+						"type": "union"
+					},
+					"category": {
+						"refs": [
+							"social.flockfeeds.lexical.type.CategoryCode#embedded",
+							"social.flockfeeds.lexical.type.PhysicalActivityCategory#embedded",
+							"social.flockfeeds.lexical.type.Thing#embedded",
+							"social.flockfeeds.lexical.prop.offer#categoryScalar",
+							"social.flockfeeds.lexical.prop.offer#categoryList"
+						],
+						"type": "union"
+					},
+					"warranty": {
+						"refs": [
+							"social.flockfeeds.lexical.type.WarrantyPromise#embedded",
+							"social.flockfeeds.lexical.prop.offer#warrantyList"
+						],
+						"type": "union"
+					},
+					"mobileUrl": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#mobileUrlScalar",
+							"social.flockfeeds.lexical.prop.offer#mobileUrlList"
+						],
+						"type": "union"
+					},
+					"offeredBy": {
+						"refs": [
+							"social.flockfeeds.lexical.type.Organization#embedded",
+							"social.flockfeeds.lexical.type.Person#embedded",
+							"social.flockfeeds.lexical.prop.offer#offeredByList"
+						],
+						"type": "union"
+					},
+					"subjectOf": {
+						"refs": [
+							"social.flockfeeds.lexical.type.CreativeWork#embedded",
+							"social.flockfeeds.lexical.type.Event#embedded",
+							"social.flockfeeds.lexical.prop.offer#subjectOfList"
+						],
+						"type": "union"
+					},
+					"validFrom": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#validFromScalar",
+							"social.flockfeeds.lexical.prop.offer#validFromList"
+						],
+						"type": "union"
+					},
+					"areaServed": {
+						"refs": [
+							"social.flockfeeds.lexical.type.AdministrativeArea#embedded",
+							"social.flockfeeds.lexical.type.GeoShape#embedded",
+							"social.flockfeeds.lexical.type.Place#embedded",
+							"social.flockfeeds.lexical.prop.offer#areaServedScalar",
+							"social.flockfeeds.lexical.prop.offer#areaServedList"
+						],
+						"type": "union"
+					},
+					"identifier": {
+						"refs": [
+							"social.flockfeeds.lexical.type.PropertyValue#embedded",
+							"social.flockfeeds.lexical.prop.offer#identifierScalar",
+							"social.flockfeeds.lexical.prop.offer#identifierList"
+						],
+						"type": "union"
+					},
+					"description": {
+						"refs": [
+							"social.flockfeeds.lexical.type.TextObject#embedded",
+							"social.flockfeeds.lexical.prop.offer#descriptionScalar",
+							"social.flockfeeds.lexical.prop.offer#descriptionList"
+						],
+						"type": "union"
+					},
+					"itemOffered": {
+						"refs": [
+							"social.flockfeeds.lexical.type.AggregateOffer#embedded",
+							"social.flockfeeds.lexical.type.CreativeWork#embedded",
+							"social.flockfeeds.lexical.type.Event#embedded",
+							"social.flockfeeds.lexical.type.MenuItem#embedded",
+							"social.flockfeeds.lexical.type.Product#embedded",
+							"social.flockfeeds.lexical.type.Service#embedded",
+							"social.flockfeeds.lexical.type.Trip#embedded",
+							"social.flockfeeds.lexical.prop.offer#itemOfferedList"
+						],
+						"type": "union"
+					},
+					"leaseLength": {
+						"refs": [
+							"social.flockfeeds.lexical.type.QuantitativeValue#embedded",
+							"social.flockfeeds.lexical.prop.offer#leaseLengthScalar",
+							"social.flockfeeds.lexical.prop.offer#leaseLengthList"
+						],
+						"type": "union"
+					},
+					"availability": {
+						"refs": [
+							"social.flockfeeds.lexical.type.ItemAvailability#embedded",
+							"social.flockfeeds.lexical.prop.offer#availabilityScalar",
+							"social.flockfeeds.lexical.prop.offer#availabilityList"
+						],
+						"type": "union"
+					},
+					"serialNumber": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#serialNumberScalar",
+							"social.flockfeeds.lexical.prop.offer#serialNumberList"
+						],
+						"type": "union"
+					},
+					"validThrough": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#validThroughScalar",
+							"social.flockfeeds.lexical.prop.offer#validThroughList"
+						],
+						"type": "union"
+					},
+					"alternateName": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#alternateNameScalar",
+							"social.flockfeeds.lexical.prop.offer#alternateNameList"
+						],
+						"type": "union"
+					},
+					"itemCondition": {
+						"refs": [
+							"social.flockfeeds.lexical.type.OfferItemCondition#embedded",
+							"social.flockfeeds.lexical.prop.offer#itemConditionScalar",
+							"social.flockfeeds.lexical.prop.offer#itemConditionList"
+						],
+						"type": "union"
+					},
+					"priceCurrency": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#priceCurrencyScalar",
+							"social.flockfeeds.lexical.prop.offer#priceCurrencyList"
+						],
+						"type": "union"
+					},
+					"additionalType": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#additionalTypeScalar",
+							"social.flockfeeds.lexical.prop.offer#additionalTypeList"
+						],
+						"type": "union"
+					},
+					"eligibleRegion": {
+						"refs": [
+							"social.flockfeeds.lexical.type.GeoShape#embedded",
+							"social.flockfeeds.lexical.type.Place#embedded",
+							"social.flockfeeds.lexical.prop.offer#eligibleRegionScalar",
+							"social.flockfeeds.lexical.prop.offer#eligibleRegionList"
+						],
+						"type": "union"
+					},
+					"hasMeasurement": {
+						"refs": [
+							"social.flockfeeds.lexical.type.QuantitativeValue#embedded",
+							"social.flockfeeds.lexical.prop.offer#hasMeasurementList"
+						],
+						"type": "union"
+					},
+					"includesObject": {
+						"refs": [
+							"social.flockfeeds.lexical.type.TypeAndQuantityNode#embedded",
+							"social.flockfeeds.lexical.prop.offer#includesObjectList"
+						],
+						"type": "union"
+					},
+					"inventoryLevel": {
+						"refs": [
+							"social.flockfeeds.lexical.type.QuantitativeValue#embedded",
+							"social.flockfeeds.lexical.prop.offer#inventoryLevelList"
+						],
+						"type": "union"
+					},
+					"aggregateRating": {
+						"refs": [
+							"social.flockfeeds.lexical.type.AggregateRating#embedded",
+							"social.flockfeeds.lexical.prop.offer#aggregateRatingList"
+						],
+						"type": "union"
+					},
+					"potentialAction": {
+						"refs": [
+							"social.flockfeeds.lexical.type.Action#embedded",
+							"social.flockfeeds.lexical.prop.offer#potentialActionList"
+						],
+						"type": "union"
+					},
+					"priceValidUntil": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#priceValidUntilScalar",
+							"social.flockfeeds.lexical.prop.offer#priceValidUntilList"
+						],
+						"type": "union"
+					},
+					"shippingDetails": {
+						"refs": [
+							"social.flockfeeds.lexical.type.OfferShippingDetails#embedded",
+							"social.flockfeeds.lexical.prop.offer#shippingDetailsList"
+						],
+						"type": "union"
+					},
+					"availabilityEnds": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#availabilityEndsScalar",
+							"social.flockfeeds.lexical.prop.offer#availabilityEndsList"
+						],
+						"type": "union"
+					},
+					"businessFunction": {
+						"refs": [
+							"social.flockfeeds.lexical.type.BusinessFunction#embedded",
+							"social.flockfeeds.lexical.prop.offer#businessFunctionScalar",
+							"social.flockfeeds.lexical.prop.offer#businessFunctionList"
+						],
+						"type": "union"
+					},
+					"deliveryLeadTime": {
+						"refs": [
+							"social.flockfeeds.lexical.type.QuantitativeValue#embedded",
+							"social.flockfeeds.lexical.prop.offer#deliveryLeadTimeList"
+						],
+						"type": "union"
+					},
+					"eligibleDuration": {
+						"refs": [
+							"social.flockfeeds.lexical.type.QuantitativeValue#embedded",
+							"social.flockfeeds.lexical.prop.offer#eligibleDurationList"
+						],
+						"type": "union"
+					},
+					"eligibleQuantity": {
+						"refs": [
+							"social.flockfeeds.lexical.type.QuantitativeValue#embedded",
+							"social.flockfeeds.lexical.prop.offer#eligibleQuantityList"
+						],
+						"type": "union"
+					},
+					"ineligibleRegion": {
+						"refs": [
+							"social.flockfeeds.lexical.type.GeoShape#embedded",
+							"social.flockfeeds.lexical.type.Place#embedded",
+							"social.flockfeeds.lexical.prop.offer#ineligibleRegionScalar",
+							"social.flockfeeds.lexical.prop.offer#ineligibleRegionList"
+						],
+						"type": "union"
+					},
+					"isFamilyFriendly": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#isFamilyFriendlyScalar",
+							"social.flockfeeds.lexical.prop.offer#isFamilyFriendlyList"
+						],
+						"type": "union"
+					},
+					"mainEntityOfPage": {
+						"refs": [
+							"social.flockfeeds.lexical.type.CreativeWork#embedded",
+							"social.flockfeeds.lexical.prop.offer#mainEntityOfPageScalar",
+							"social.flockfeeds.lexical.prop.offer#mainEntityOfPageList"
+						],
+						"type": "union"
+					},
+					"availableAtOrFrom": {
+						"refs": [
+							"social.flockfeeds.lexical.type.Place#embedded",
+							"social.flockfeeds.lexical.prop.offer#availableAtOrFromList"
+						],
+						"type": "union"
+					},
+					"hasGS1DigitalLink": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#hasGS1DigitalLinkScalar",
+							"social.flockfeeds.lexical.prop.offer#hasGS1DigitalLinkList"
+						],
+						"type": "union"
+					},
+					"additionalProperty": {
+						"refs": [
+							"social.flockfeeds.lexical.type.PropertyValue#embedded",
+							"social.flockfeeds.lexical.prop.offer#additionalPropertyList"
+						],
+						"type": "union"
+					},
+					"availabilityStarts": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#availabilityStartsScalar",
+							"social.flockfeeds.lexical.prop.offer#availabilityStartsList"
+						],
+						"type": "union"
+					},
+					"priceSpecification": {
+						"refs": [
+							"social.flockfeeds.lexical.type.PriceSpecification#embedded",
+							"social.flockfeeds.lexical.prop.offer#priceSpecificationList"
+						],
+						"type": "union"
+					},
+					"validForMemberTier": {
+						"refs": [
+							"social.flockfeeds.lexical.type.MemberProgramTier#embedded",
+							"social.flockfeeds.lexical.prop.offer#validForMemberTierList"
+						],
+						"type": "union"
+					},
+					"eligibleCustomerType": {
+						"refs": [
+							"social.flockfeeds.lexical.type.BusinessEntityType#embedded",
+							"social.flockfeeds.lexical.prop.offer#eligibleCustomerTypeScalar",
+							"social.flockfeeds.lexical.prop.offer#eligibleCustomerTypeList"
+						],
+						"type": "union"
+					},
+					"acceptedPaymentMethod": {
+						"refs": [
+							"social.flockfeeds.lexical.type.LoanOrCredit#embedded",
+							"social.flockfeeds.lexical.type.PaymentMethod#embedded",
+							"social.flockfeeds.lexical.prop.offer#acceptedPaymentMethodScalar",
+							"social.flockfeeds.lexical.prop.offer#acceptedPaymentMethodList"
+						],
+						"type": "union"
+					},
+					"hasAdultConsideration": {
+						"refs": [
+							"social.flockfeeds.lexical.type.AdultOrientedEnumeration#embedded",
+							"social.flockfeeds.lexical.prop.offer#hasAdultConsiderationScalar",
+							"social.flockfeeds.lexical.prop.offer#hasAdultConsiderationList"
+						],
+						"type": "union"
+					},
+					"availableDeliveryMethod": {
+						"refs": [
+							"social.flockfeeds.lexical.type.DeliveryMethod#embedded",
+							"social.flockfeeds.lexical.prop.offer#availableDeliveryMethodScalar",
+							"social.flockfeeds.lexical.prop.offer#availableDeliveryMethodList"
+						],
+						"type": "union"
+					},
+					"checkoutPageURLTemplate": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#checkoutPageURLTemplateScalar",
+							"social.flockfeeds.lexical.prop.offer#checkoutPageURLTemplateList"
+						],
+						"type": "union"
+					},
+					"hasMerchantReturnPolicy": {
+						"refs": [
+							"social.flockfeeds.lexical.type.MerchantReturnPolicy#embedded",
+							"social.flockfeeds.lexical.prop.offer#hasMerchantReturnPolicyList"
+						],
+						"type": "union"
+					},
+					"advanceBookingRequirement": {
+						"refs": [
+							"social.flockfeeds.lexical.type.QuantitativeValue#embedded",
+							"social.flockfeeds.lexical.prop.offer#advanceBookingRequirementList"
+						],
+						"type": "union"
+					},
+					"disambiguatingDescription": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.offer#disambiguatingDescriptionScalar",
+							"social.flockfeeds.lexical.prop.offer#disambiguatingDescriptionList"
+						],
+						"type": "union"
+					},
+					"eligibleTransactionVolume": {
+						"refs": [
+							"social.flockfeeds.lexical.type.PriceSpecification#embedded",
+							"social.flockfeeds.lexical.prop.offer#eligibleTransactionVolumeList"
+						],
+						"type": "union"
+					}
+				},
+				"description": "An offer to transfer some rights to an item or to provide a service — for example, an offer to sell tickets to an event, to rent the DVD of a movie, to stream a TV show over the internet, to repair a motorcycle, or to loan a book.\\n\\nNote: As the [[businessFunction]] property, which identifies the form of offer (e.g. sell, lease, repair, dispose), defaults to http://purl.org/goodrelations/v1#Sell; an Offer without a defined businessFunction value can be assumed to be an offer to sell.\\n\\nFor [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, see [Check Digit calculator](http://www.gs1.org/barcodes/support/check_digit_calculator) and [validation guide](http://www.gs1us.org/resources/standards/gtin-validation-guide) from [GS1](http://www.gs1.org/)."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1762820167045
+	},
+	"references": {
+		"main": [
+			"social.flockfeeds.lexical.prop.brand",
+			"social.flockfeeds.lexical.prop.imageObject",
+			"social.flockfeeds.lexical.prop.offer",
+			"social.flockfeeds.lexical.prop.organization",
+			"social.flockfeeds.lexical.prop.product",
+			"social.flockfeeds.lexical.type.AboutPage",
+			"social.flockfeeds.lexical.type.Action",
+			"social.flockfeeds.lexical.type.AdministrativeArea",
+			"social.flockfeeds.lexical.type.AdultOrientedEnumeration",
+			"social.flockfeeds.lexical.type.AggregateOffer",
+			"social.flockfeeds.lexical.type.AggregateRating",
+			"social.flockfeeds.lexical.type.AlignmentObject",
+			"social.flockfeeds.lexical.type.Article",
+			"social.flockfeeds.lexical.type.Audience",
+			"social.flockfeeds.lexical.type.AudioObject",
+			"social.flockfeeds.lexical.type.Brand",
+			"social.flockfeeds.lexical.type.BusinessEntityType",
+			"social.flockfeeds.lexical.type.BusinessFunction",
+			"social.flockfeeds.lexical.type.CategoryCode",
+			"social.flockfeeds.lexical.type.Certification",
+			"social.flockfeeds.lexical.type.Claim",
+			"social.flockfeeds.lexical.type.Clip",
+			"social.flockfeeds.lexical.type.Comment",
+			"social.flockfeeds.lexical.type.ContactPoint",
+			"social.flockfeeds.lexical.type.CorrectionComment",
+			"social.flockfeeds.lexical.type.Country",
+			"social.flockfeeds.lexical.type.CreativeWork",
+			"social.flockfeeds.lexical.type.DefinedTerm",
+			"social.flockfeeds.lexical.type.DeliveryMethod",
+			"social.flockfeeds.lexical.type.Demand",
+			"social.flockfeeds.lexical.type.Distance",
+			"social.flockfeeds.lexical.type.EducationalOccupationalCredential",
+			"social.flockfeeds.lexical.type.EnergyConsumptionDetails",
+			"social.flockfeeds.lexical.type.Event",
+			"social.flockfeeds.lexical.type.GeoShape",
+			"social.flockfeeds.lexical.type.Grant",
+			"social.flockfeeds.lexical.type.IPTCDigitalSourceEnumeration",
+			"social.flockfeeds.lexical.type.ImageObject",
+			"social.flockfeeds.lexical.type.InteractionCounter",
+			"social.flockfeeds.lexical.type.ItemAvailability",
+			"social.flockfeeds.lexical.type.ItemList",
+			"social.flockfeeds.lexical.type.Language",
+			"social.flockfeeds.lexical.type.ListItem",
+			"social.flockfeeds.lexical.type.LoanOrCredit",
+			"social.flockfeeds.lexical.type.Mass",
+			"social.flockfeeds.lexical.type.MediaObject",
+			"social.flockfeeds.lexical.type.MediaSubscription",
+			"social.flockfeeds.lexical.type.MemberProgram",
+			"social.flockfeeds.lexical.type.MemberProgramTier",
+			"social.flockfeeds.lexical.type.MenuItem",
+			"social.flockfeeds.lexical.type.MerchantReturnPolicy",
+			"social.flockfeeds.lexical.type.MusicRecording",
+			"social.flockfeeds.lexical.type.NewsArticle",
+			"social.flockfeeds.lexical.type.NonprofitType",
+			"social.flockfeeds.lexical.type.OfferCatalog",
+			"social.flockfeeds.lexical.type.OfferItemCondition",
+			"social.flockfeeds.lexical.type.OfferShippingDetails",
+			"social.flockfeeds.lexical.type.Organization",
+			"social.flockfeeds.lexical.type.OwnershipInfo",
+			"social.flockfeeds.lexical.type.PaymentMethod",
+			"social.flockfeeds.lexical.type.Person",
+			"social.flockfeeds.lexical.type.PhysicalActivityCategory",
+			"social.flockfeeds.lexical.type.Place",
+			"social.flockfeeds.lexical.type.PostalAddress",
+			"social.flockfeeds.lexical.type.PriceSpecification",
+			"social.flockfeeds.lexical.type.Product",
+			"social.flockfeeds.lexical.type.ProductGroup",
+			"social.flockfeeds.lexical.type.ProductModel",
+			"social.flockfeeds.lexical.type.ProductReturnPolicy",
+			"social.flockfeeds.lexical.type.ProgramMembership",
+			"social.flockfeeds.lexical.type.PropertyValue",
+			"social.flockfeeds.lexical.type.PublicationEvent",
+			"social.flockfeeds.lexical.type.QuantitativeValue",
+			"social.flockfeeds.lexical.type.Rating",
+			"social.flockfeeds.lexical.type.Review",
+			"social.flockfeeds.lexical.type.Service",
+			"social.flockfeeds.lexical.type.ShippingService",
+			"social.flockfeeds.lexical.type.SizeSpecification",
+			"social.flockfeeds.lexical.type.TextObject",
+			"social.flockfeeds.lexical.type.Thing",
+			"social.flockfeeds.lexical.type.Trip",
+			"social.flockfeeds.lexical.type.TypeAndQuantityNode",
+			"social.flockfeeds.lexical.type.VideoObject",
+			"social.flockfeeds.lexical.type.VirtualLocation",
+			"social.flockfeeds.lexical.type.WarrantyPromise",
+			"social.flockfeeds.lexical.type.WebContent",
+			"social.flockfeeds.lexical.type.WebPage"
+		],
+		"embedded": [
+			"social.flockfeeds.lexical.prop.brand",
+			"social.flockfeeds.lexical.prop.imageObject",
+			"social.flockfeeds.lexical.prop.offer",
+			"social.flockfeeds.lexical.prop.organization",
+			"social.flockfeeds.lexical.prop.product",
+			"social.flockfeeds.lexical.type.AboutPage",
+			"social.flockfeeds.lexical.type.Action",
+			"social.flockfeeds.lexical.type.AdministrativeArea",
+			"social.flockfeeds.lexical.type.AdultOrientedEnumeration",
+			"social.flockfeeds.lexical.type.AggregateOffer",
+			"social.flockfeeds.lexical.type.AggregateRating",
+			"social.flockfeeds.lexical.type.AlignmentObject",
+			"social.flockfeeds.lexical.type.Article",
+			"social.flockfeeds.lexical.type.Audience",
+			"social.flockfeeds.lexical.type.AudioObject",
+			"social.flockfeeds.lexical.type.Brand",
+			"social.flockfeeds.lexical.type.BusinessEntityType",
+			"social.flockfeeds.lexical.type.BusinessFunction",
+			"social.flockfeeds.lexical.type.CategoryCode",
+			"social.flockfeeds.lexical.type.Certification",
+			"social.flockfeeds.lexical.type.Claim",
+			"social.flockfeeds.lexical.type.Clip",
+			"social.flockfeeds.lexical.type.Comment",
+			"social.flockfeeds.lexical.type.ContactPoint",
+			"social.flockfeeds.lexical.type.CorrectionComment",
+			"social.flockfeeds.lexical.type.Country",
+			"social.flockfeeds.lexical.type.CreativeWork",
+			"social.flockfeeds.lexical.type.DefinedTerm",
+			"social.flockfeeds.lexical.type.DeliveryMethod",
+			"social.flockfeeds.lexical.type.Demand",
+			"social.flockfeeds.lexical.type.Distance",
+			"social.flockfeeds.lexical.type.EducationalOccupationalCredential",
+			"social.flockfeeds.lexical.type.EnergyConsumptionDetails",
+			"social.flockfeeds.lexical.type.Event",
+			"social.flockfeeds.lexical.type.GeoShape",
+			"social.flockfeeds.lexical.type.Grant",
+			"social.flockfeeds.lexical.type.IPTCDigitalSourceEnumeration",
+			"social.flockfeeds.lexical.type.ImageObject",
+			"social.flockfeeds.lexical.type.InteractionCounter",
+			"social.flockfeeds.lexical.type.ItemAvailability",
+			"social.flockfeeds.lexical.type.ItemList",
+			"social.flockfeeds.lexical.type.Language",
+			"social.flockfeeds.lexical.type.ListItem",
+			"social.flockfeeds.lexical.type.LoanOrCredit",
+			"social.flockfeeds.lexical.type.Mass",
+			"social.flockfeeds.lexical.type.MediaObject",
+			"social.flockfeeds.lexical.type.MediaSubscription",
+			"social.flockfeeds.lexical.type.MemberProgram",
+			"social.flockfeeds.lexical.type.MemberProgramTier",
+			"social.flockfeeds.lexical.type.MenuItem",
+			"social.flockfeeds.lexical.type.MerchantReturnPolicy",
+			"social.flockfeeds.lexical.type.MusicRecording",
+			"social.flockfeeds.lexical.type.NewsArticle",
+			"social.flockfeeds.lexical.type.NonprofitType",
+			"social.flockfeeds.lexical.type.OfferCatalog",
+			"social.flockfeeds.lexical.type.OfferItemCondition",
+			"social.flockfeeds.lexical.type.OfferShippingDetails",
+			"social.flockfeeds.lexical.type.Organization",
+			"social.flockfeeds.lexical.type.OwnershipInfo",
+			"social.flockfeeds.lexical.type.PaymentMethod",
+			"social.flockfeeds.lexical.type.Person",
+			"social.flockfeeds.lexical.type.PhysicalActivityCategory",
+			"social.flockfeeds.lexical.type.Place",
+			"social.flockfeeds.lexical.type.PostalAddress",
+			"social.flockfeeds.lexical.type.PriceSpecification",
+			"social.flockfeeds.lexical.type.Product",
+			"social.flockfeeds.lexical.type.ProductGroup",
+			"social.flockfeeds.lexical.type.ProductModel",
+			"social.flockfeeds.lexical.type.ProductReturnPolicy",
+			"social.flockfeeds.lexical.type.ProgramMembership",
+			"social.flockfeeds.lexical.type.PropertyValue",
+			"social.flockfeeds.lexical.type.PublicationEvent",
+			"social.flockfeeds.lexical.type.QuantitativeValue",
+			"social.flockfeeds.lexical.type.Rating",
+			"social.flockfeeds.lexical.type.Review",
+			"social.flockfeeds.lexical.type.Service",
+			"social.flockfeeds.lexical.type.ShippingService",
+			"social.flockfeeds.lexical.type.SizeSpecification",
+			"social.flockfeeds.lexical.type.TextObject",
+			"social.flockfeeds.lexical.type.Thing",
+			"social.flockfeeds.lexical.type.Trip",
+			"social.flockfeeds.lexical.type.TypeAndQuantityNode",
+			"social.flockfeeds.lexical.type.VideoObject",
+			"social.flockfeeds.lexical.type.VirtualLocation",
+			"social.flockfeeds.lexical.type.WarrantyPromise",
+			"social.flockfeeds.lexical.type.WebContent",
+			"social.flockfeeds.lexical.type.WebPage"
+		]
+	}
+}

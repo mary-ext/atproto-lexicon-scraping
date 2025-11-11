@@ -4,30 +4,26 @@
 		"id": "blog.pckt.theme",
 		"defs": {
 			"main": {
-				"key": "tid",
-				"type": "record",
-				"record": {
-					"type": "object",
-					"required": [
-						"light",
-						"dark"
-					],
-					"properties": {
-						"dark": {
-							"ref": "#palette",
-							"type": "ref",
-							"description": "Dark mode color palette"
-						},
-						"font": {
-							"type": "string",
-							"maxLength": 100,
-							"description": "Font family name (optional)"
-						},
-						"light": {
-							"ref": "#palette",
-							"type": "ref",
-							"description": "Light mode color palette"
-						}
+				"type": "object",
+				"required": [
+					"light",
+					"dark"
+				],
+				"properties": {
+					"dark": {
+						"ref": "#palette",
+						"type": "ref",
+						"description": "Dark mode color palette"
+					},
+					"font": {
+						"type": "string",
+						"maxLength": 100,
+						"description": "Font family name (optional)"
+					},
+					"light": {
+						"ref": "#palette",
+						"type": "ref",
+						"description": "Light mode color palette"
 					}
 				},
 				"description": "Theme configuration for a blog publication"
@@ -76,7 +72,7 @@
 		"description": "Theme record for blog publications with light and dark mode color schemes."
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1762820167045,
 		"errorAt": 1760659937196
 	},
 	"references": {

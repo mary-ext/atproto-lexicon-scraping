@@ -1,0 +1,20 @@
+{
+	"authority": "did:plc:revjuqmkvrw6fnkxppqtszpv",
+	"schema": {
+		"id": "blog.pckt.mark.strike",
+		"defs": {
+			"main": {
+				"type": "object"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Strikethrough text formatting. Renders text with a line through it, typically used to indicate deleted or outdated content."
+	},
+	"meta": {
+		"indexedAt": 1762820167045
+	},
+	"references": {
+		"main": []
+	}
+}
