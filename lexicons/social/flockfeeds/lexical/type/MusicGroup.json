@@ -1,7 +1,7 @@
 {
 	"authority": "did:plc:dh5z4ffoxlugvbynwmef4e77",
 	"schema": {
-		"id": "social.flockfeeds.lexical.type.Organization",
+		"id": "social.flockfeeds.lexical.type.MusicGroup",
 		"defs": {
 			"main": {
 				"key": "tid",
@@ -11,30 +11,30 @@
 					"properties": {
 						"url": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#urlScalar",
-								"social.flockfeeds.lexical.prop.organization#urlList"
+								"social.flockfeeds.lexical.prop.musicGroup#urlScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#urlList"
 							],
 							"type": "union"
 						},
 						"duns": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#dunsScalar",
-								"social.flockfeeds.lexical.prop.organization#dunsList"
+								"social.flockfeeds.lexical.prop.musicGroup#dunsScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#dunsList"
 							],
 							"type": "union"
 						},
 						"logo": {
 							"refs": [
 								"social.flockfeeds.lexical.type.ImageObject#embedded",
-								"social.flockfeeds.lexical.prop.organization#logoScalar",
-								"social.flockfeeds.lexical.prop.organization#logoList"
+								"social.flockfeeds.lexical.prop.musicGroup#logoScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#logoList"
 							],
 							"type": "union"
 						},
 						"name": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#nameScalar",
-								"social.flockfeeds.lexical.prop.organization#nameList"
+								"social.flockfeeds.lexical.prop.musicGroup#nameScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#nameList"
 							],
 							"type": "union"
 						},
@@ -42,14 +42,21 @@
 							"refs": [
 								"social.flockfeeds.lexical.type.OwnershipInfo#embedded",
 								"social.flockfeeds.lexical.type.Product#embedded",
-								"social.flockfeeds.lexical.prop.organization#ownsList"
+								"social.flockfeeds.lexical.prop.musicGroup#ownsList"
+							],
+							"type": "union"
+						},
+						"album": {
+							"refs": [
+								"social.flockfeeds.lexical.type.MusicAlbum#embedded",
+								"social.flockfeeds.lexical.prop.musicGroup#albumList"
 							],
 							"type": "union"
 						},
 						"award": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#awardScalar",
-								"social.flockfeeds.lexical.prop.organization#awardList"
+								"social.flockfeeds.lexical.prop.musicGroup#awardScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#awardList"
 							],
 							"type": "union"
 						},
@@ -57,78 +64,100 @@
 							"refs": [
 								"social.flockfeeds.lexical.type.Brand#embedded",
 								"social.flockfeeds.lexical.type.Organization#embedded",
-								"social.flockfeeds.lexical.prop.organization#brandList"
+								"social.flockfeeds.lexical.prop.musicGroup#brandList"
 							],
 							"type": "union"
 						},
 						"email": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#emailScalar",
-								"social.flockfeeds.lexical.prop.organization#emailList"
+								"social.flockfeeds.lexical.prop.musicGroup#emailScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#emailList"
 							],
 							"type": "union"
 						},
 						"event": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Event#embedded",
-								"social.flockfeeds.lexical.prop.organization#eventList"
+								"social.flockfeeds.lexical.prop.musicGroup#eventList"
+							],
+							"type": "union"
+						},
+						"genre": {
+							"refs": [
+								"social.flockfeeds.lexical.prop.musicGroup#genreScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#genreList"
 							],
 							"type": "union"
 						},
 						"image": {
 							"refs": [
 								"social.flockfeeds.lexical.type.ImageObject#embedded",
-								"social.flockfeeds.lexical.prop.organization#imageScalar",
-								"social.flockfeeds.lexical.prop.organization#imageList"
+								"social.flockfeeds.lexical.prop.musicGroup#imageScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#imageList"
 							],
 							"type": "union"
 						},
 						"naics": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#naicsScalar",
-								"social.flockfeeds.lexical.prop.organization#naicsList"
+								"social.flockfeeds.lexical.prop.musicGroup#naicsScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#naicsList"
 							],
 							"type": "union"
 						},
 						"seeks": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Demand#embedded",
-								"social.flockfeeds.lexical.prop.organization#seeksList"
+								"social.flockfeeds.lexical.prop.musicGroup#seeksList"
 							],
 							"type": "union"
 						},
 						"taxID": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#taxIDScalar",
-								"social.flockfeeds.lexical.prop.organization#taxIDList"
+								"social.flockfeeds.lexical.prop.musicGroup#taxIDScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#taxIDList"
+							],
+							"type": "union"
+						},
+						"track": {
+							"refs": [
+								"social.flockfeeds.lexical.type.ItemList#embedded",
+								"social.flockfeeds.lexical.type.MusicRecording#embedded",
+								"social.flockfeeds.lexical.prop.musicGroup#trackList"
 							],
 							"type": "union"
 						},
 						"vatID": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#vatIDScalar",
-								"social.flockfeeds.lexical.prop.organization#vatIDList"
+								"social.flockfeeds.lexical.prop.musicGroup#vatIDScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#vatIDList"
+							],
+							"type": "union"
+						},
+						"albums": {
+							"refs": [
+								"social.flockfeeds.lexical.type.MusicAlbum#embedded",
+								"social.flockfeeds.lexical.prop.musicGroup#albumsList"
 							],
 							"type": "union"
 						},
 						"alumni": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Person#embedded",
-								"social.flockfeeds.lexical.prop.organization#alumniList"
+								"social.flockfeeds.lexical.prop.musicGroup#alumniList"
 							],
 							"type": "union"
 						},
 						"awards": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#awardsScalar",
-								"social.flockfeeds.lexical.prop.organization#awardsList"
+								"social.flockfeeds.lexical.prop.musicGroup#awardsScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#awardsList"
 							],
 							"type": "union"
 						},
 						"events": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Event#embedded",
-								"social.flockfeeds.lexical.prop.organization#eventsList"
+								"social.flockfeeds.lexical.prop.musicGroup#eventsList"
 							],
 							"type": "union"
 						},
@@ -136,21 +165,21 @@
 							"refs": [
 								"social.flockfeeds.lexical.type.Organization#embedded",
 								"social.flockfeeds.lexical.type.Person#embedded",
-								"social.flockfeeds.lexical.prop.organization#funderList"
+								"social.flockfeeds.lexical.prop.musicGroup#funderList"
 							],
 							"type": "union"
 						},
 						"hasPOS": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Place#embedded",
-								"social.flockfeeds.lexical.prop.organization#hasPOSList"
+								"social.flockfeeds.lexical.prop.musicGroup#hasPOSList"
 							],
 							"type": "union"
 						},
 						"isicV4": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#isicV4Scalar",
-								"social.flockfeeds.lexical.prop.organization#isicV4List"
+								"social.flockfeeds.lexical.prop.musicGroup#isicV4Scalar",
+								"social.flockfeeds.lexical.prop.musicGroup#isicV4List"
 							],
 							"type": "union"
 						},
@@ -158,44 +187,51 @@
 							"refs": [
 								"social.flockfeeds.lexical.type.Organization#embedded",
 								"social.flockfeeds.lexical.type.Person#embedded",
-								"social.flockfeeds.lexical.prop.organization#memberList"
+								"social.flockfeeds.lexical.prop.musicGroup#memberList"
 							],
 							"type": "union"
 						},
 						"review": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Review#embedded",
-								"social.flockfeeds.lexical.prop.organization#reviewList"
+								"social.flockfeeds.lexical.prop.musicGroup#reviewList"
 							],
 							"type": "union"
 						},
 						"sameAs": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#sameAsScalar",
-								"social.flockfeeds.lexical.prop.organization#sameAsList"
+								"social.flockfeeds.lexical.prop.musicGroup#sameAsScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#sameAsList"
 							],
 							"type": "union"
 						},
 						"skills": {
 							"refs": [
 								"social.flockfeeds.lexical.type.DefinedTerm#embedded",
-								"social.flockfeeds.lexical.prop.organization#skillsScalar",
-								"social.flockfeeds.lexical.prop.organization#skillsList"
+								"social.flockfeeds.lexical.prop.musicGroup#skillsScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#skillsList"
 							],
 							"type": "union"
 						},
 						"slogan": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#sloganScalar",
-								"social.flockfeeds.lexical.prop.organization#sloganList"
+								"social.flockfeeds.lexical.prop.musicGroup#sloganScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#sloganList"
+							],
+							"type": "union"
+						},
+						"tracks": {
+							"refs": [
+								"social.flockfeeds.lexical.type.MusicRecording#embedded",
+								"social.flockfeeds.lexical.prop.musicGroup#tracksList"
 							],
 							"type": "union"
 						},
 						"address": {
 							"refs": [
 								"social.flockfeeds.lexical.type.PostalAddress#embedded",
-								"social.flockfeeds.lexical.prop.organization#addressScalar",
-								"social.flockfeeds.lexical.prop.organization#addressList"
+								"social.flockfeeds.lexical.prop.musicGroup#addressScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#addressList"
 							],
 							"type": "union"
 						},
@@ -203,21 +239,21 @@
 							"refs": [
 								"social.flockfeeds.lexical.type.Organization#embedded",
 								"social.flockfeeds.lexical.type.Person#embedded",
-								"social.flockfeeds.lexical.prop.organization#founderList"
+								"social.flockfeeds.lexical.prop.musicGroup#founderList"
 							],
 							"type": "union"
 						},
 						"funding": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Grant#embedded",
-								"social.flockfeeds.lexical.prop.organization#fundingList"
+								"social.flockfeeds.lexical.prop.musicGroup#fundingList"
 							],
 							"type": "union"
 						},
 						"leiCode": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#leiCodeScalar",
-								"social.flockfeeds.lexical.prop.organization#leiCodeList"
+								"social.flockfeeds.lexical.prop.musicGroup#leiCodeScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#leiCodeList"
 							],
 							"type": "union"
 						},
@@ -225,14 +261,14 @@
 							"refs": [
 								"social.flockfeeds.lexical.type.Organization#embedded",
 								"social.flockfeeds.lexical.type.Person#embedded",
-								"social.flockfeeds.lexical.prop.organization#membersList"
+								"social.flockfeeds.lexical.prop.musicGroup#membersList"
 							],
 							"type": "union"
 						},
 						"reviews": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Review#embedded",
-								"social.flockfeeds.lexical.prop.organization#reviewsList"
+								"social.flockfeeds.lexical.prop.musicGroup#reviewsList"
 							],
 							"type": "union"
 						},
@@ -240,29 +276,29 @@
 							"refs": [
 								"social.flockfeeds.lexical.type.Organization#embedded",
 								"social.flockfeeds.lexical.type.Person#embedded",
-								"social.flockfeeds.lexical.prop.organization#sponsorList"
+								"social.flockfeeds.lexical.prop.musicGroup#sponsorList"
 							],
 							"type": "union"
 						},
 						"employee": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Person#embedded",
-								"social.flockfeeds.lexical.prop.organization#employeeList"
+								"social.flockfeeds.lexical.prop.musicGroup#employeeList"
 							],
 							"type": "union"
 						},
 						"founders": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Person#embedded",
-								"social.flockfeeds.lexical.prop.organization#foundersList"
+								"social.flockfeeds.lexical.prop.musicGroup#foundersList"
 							],
 							"type": "union"
 						},
 						"keywords": {
 							"refs": [
 								"social.flockfeeds.lexical.type.DefinedTerm#embedded",
-								"social.flockfeeds.lexical.prop.organization#keywordsScalar",
-								"social.flockfeeds.lexical.prop.organization#keywordsList"
+								"social.flockfeeds.lexical.prop.musicGroup#keywordsScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#keywordsList"
 							],
 							"type": "union"
 						},
@@ -271,8 +307,8 @@
 								"social.flockfeeds.lexical.type.Place#embedded",
 								"social.flockfeeds.lexical.type.PostalAddress#embedded",
 								"social.flockfeeds.lexical.type.VirtualLocation#embedded",
-								"social.flockfeeds.lexical.prop.organization#locationScalar",
-								"social.flockfeeds.lexical.prop.organization#locationList"
+								"social.flockfeeds.lexical.prop.musicGroup#locationScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#locationList"
 							],
 							"type": "union"
 						},
@@ -281,28 +317,28 @@
 								"social.flockfeeds.lexical.type.MemberProgramTier#embedded",
 								"social.flockfeeds.lexical.type.Organization#embedded",
 								"social.flockfeeds.lexical.type.ProgramMembership#embedded",
-								"social.flockfeeds.lexical.prop.organization#memberOfList"
+								"social.flockfeeds.lexical.prop.musicGroup#memberOfList"
 							],
 							"type": "union"
 						},
 						"employees": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Person#embedded",
-								"social.flockfeeds.lexical.prop.organization#employeesList"
+								"social.flockfeeds.lexical.prop.musicGroup#employeesList"
 							],
 							"type": "union"
 						},
 						"faxNumber": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#faxNumberScalar",
-								"social.flockfeeds.lexical.prop.organization#faxNumberList"
+								"social.flockfeeds.lexical.prop.musicGroup#faxNumberScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#faxNumberList"
 							],
 							"type": "union"
 						},
 						"legalName": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#legalNameScalar",
-								"social.flockfeeds.lexical.prop.organization#legalNameList"
+								"social.flockfeeds.lexical.prop.musicGroup#legalNameScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#legalNameList"
 							],
 							"type": "union"
 						},
@@ -310,14 +346,14 @@
 							"refs": [
 								"social.flockfeeds.lexical.type.CreativeWork#embedded",
 								"social.flockfeeds.lexical.type.Event#embedded",
-								"social.flockfeeds.lexical.prop.organization#subjectOfList"
+								"social.flockfeeds.lexical.prop.musicGroup#subjectOfList"
 							],
 							"type": "union"
 						},
 						"telephone": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#telephoneScalar",
-								"social.flockfeeds.lexical.prop.organization#telephoneList"
+								"social.flockfeeds.lexical.prop.musicGroup#telephoneScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#telephoneList"
 							],
 							"type": "union"
 						},
@@ -326,53 +362,53 @@
 								"social.flockfeeds.lexical.type.AdministrativeArea#embedded",
 								"social.flockfeeds.lexical.type.GeoShape#embedded",
 								"social.flockfeeds.lexical.type.Place#embedded",
-								"social.flockfeeds.lexical.prop.organization#areaServedScalar",
-								"social.flockfeeds.lexical.prop.organization#areaServedList"
+								"social.flockfeeds.lexical.prop.musicGroup#areaServedScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#areaServedList"
 							],
 							"type": "union"
 						},
 						"department": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Organization#embedded",
-								"social.flockfeeds.lexical.prop.organization#departmentList"
+								"social.flockfeeds.lexical.prop.musicGroup#departmentList"
 							],
 							"type": "union"
 						},
 						"identifier": {
 							"refs": [
 								"social.flockfeeds.lexical.type.PropertyValue#embedded",
-								"social.flockfeeds.lexical.prop.organization#identifierScalar",
-								"social.flockfeeds.lexical.prop.organization#identifierList"
+								"social.flockfeeds.lexical.prop.musicGroup#identifierScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#identifierList"
 							],
 							"type": "union"
 						},
 						"knowsAbout": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Thing#embedded",
-								"social.flockfeeds.lexical.prop.organization#knowsAboutScalar",
-								"social.flockfeeds.lexical.prop.organization#knowsAboutList"
+								"social.flockfeeds.lexical.prop.musicGroup#knowsAboutScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#knowsAboutList"
 							],
 							"type": "union"
 						},
 						"makesOffer": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Offer#embedded",
-								"social.flockfeeds.lexical.prop.organization#makesOfferList"
+								"social.flockfeeds.lexical.prop.musicGroup#makesOfferList"
 							],
 							"type": "union"
 						},
 						"description": {
 							"refs": [
 								"social.flockfeeds.lexical.type.TextObject#embedded",
-								"social.flockfeeds.lexical.prop.organization#descriptionScalar",
-								"social.flockfeeds.lexical.prop.organization#descriptionList"
+								"social.flockfeeds.lexical.prop.musicGroup#descriptionScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#descriptionList"
 							],
 							"type": "union"
 						},
 						"iso6523Code": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#iso6523CodeScalar",
-								"social.flockfeeds.lexical.prop.organization#iso6523CodeList"
+								"social.flockfeeds.lexical.prop.musicGroup#iso6523CodeScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#iso6523CodeList"
 							],
 							"type": "union"
 						},
@@ -381,216 +417,223 @@
 								"social.flockfeeds.lexical.type.AdministrativeArea#embedded",
 								"social.flockfeeds.lexical.type.GeoShape#embedded",
 								"social.flockfeeds.lexical.type.Place#embedded",
-								"social.flockfeeds.lexical.prop.organization#serviceAreaList"
+								"social.flockfeeds.lexical.prop.musicGroup#serviceAreaList"
 							],
 							"type": "union"
 						},
 						"contactPoint": {
 							"refs": [
 								"social.flockfeeds.lexical.type.ContactPoint#embedded",
-								"social.flockfeeds.lexical.prop.organization#contactPointList"
+								"social.flockfeeds.lexical.prop.musicGroup#contactPointList"
 							],
 							"type": "union"
 						},
 						"ethicsPolicy": {
 							"refs": [
 								"social.flockfeeds.lexical.type.CreativeWork#embedded",
-								"social.flockfeeds.lexical.prop.organization#ethicsPolicyScalar",
-								"social.flockfeeds.lexical.prop.organization#ethicsPolicyList"
+								"social.flockfeeds.lexical.prop.musicGroup#ethicsPolicyScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#ethicsPolicyList"
 							],
 							"type": "union"
 						},
 						"foundingDate": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#foundingDateScalar",
-								"social.flockfeeds.lexical.prop.organization#foundingDateList"
+								"social.flockfeeds.lexical.prop.musicGroup#foundingDateScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#foundingDateList"
 							],
 							"type": "union"
 						},
 						"legalAddress": {
 							"refs": [
 								"social.flockfeeds.lexical.type.PostalAddress#embedded",
-								"social.flockfeeds.lexical.prop.organization#legalAddressList"
+								"social.flockfeeds.lexical.prop.musicGroup#legalAddressList"
 							],
 							"type": "union"
 						},
 						"alternateName": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#alternateNameScalar",
-								"social.flockfeeds.lexical.prop.organization#alternateNameList"
+								"social.flockfeeds.lexical.prop.musicGroup#alternateNameScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#alternateNameList"
 							],
 							"type": "union"
 						},
 						"contactPoints": {
 							"refs": [
 								"social.flockfeeds.lexical.type.ContactPoint#embedded",
-								"social.flockfeeds.lexical.prop.organization#contactPointsList"
+								"social.flockfeeds.lexical.prop.musicGroup#contactPointsList"
 							],
 							"type": "union"
 						},
 						"hasCredential": {
 							"refs": [
 								"social.flockfeeds.lexical.type.EducationalOccupationalCredential#embedded",
-								"social.flockfeeds.lexical.prop.organization#hasCredentialList"
+								"social.flockfeeds.lexical.prop.musicGroup#hasCredentialList"
 							],
 							"type": "union"
 						},
 						"knowsLanguage": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Language#embedded",
-								"social.flockfeeds.lexical.prop.organization#knowsLanguageScalar",
-								"social.flockfeeds.lexical.prop.organization#knowsLanguageList"
+								"social.flockfeeds.lexical.prop.musicGroup#knowsLanguageScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#knowsLanguageList"
 							],
 							"type": "union"
 						},
 						"additionalType": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#additionalTypeScalar",
-								"social.flockfeeds.lexical.prop.organization#additionalTypeList"
+								"social.flockfeeds.lexical.prop.musicGroup#additionalTypeScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#additionalTypeList"
 							],
 							"type": "union"
 						},
 						"aggregateRating": {
 							"refs": [
 								"social.flockfeeds.lexical.type.AggregateRating#embedded",
-								"social.flockfeeds.lexical.prop.organization#aggregateRatingList"
+								"social.flockfeeds.lexical.prop.musicGroup#aggregateRatingList"
 							],
 							"type": "union"
 						},
 						"dissolutionDate": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#dissolutionDateScalar",
-								"social.flockfeeds.lexical.prop.organization#dissolutionDateList"
+								"social.flockfeeds.lexical.prop.musicGroup#dissolutionDateScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#dissolutionDateList"
 							],
 							"type": "union"
 						},
 						"diversityPolicy": {
 							"refs": [
 								"social.flockfeeds.lexical.type.CreativeWork#embedded",
-								"social.flockfeeds.lexical.prop.organization#diversityPolicyScalar",
-								"social.flockfeeds.lexical.prop.organization#diversityPolicyList"
+								"social.flockfeeds.lexical.prop.musicGroup#diversityPolicyScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#diversityPolicyList"
 							],
 							"type": "union"
 						},
 						"hasOfferCatalog": {
 							"refs": [
 								"social.flockfeeds.lexical.type.OfferCatalog#embedded",
-								"social.flockfeeds.lexical.prop.organization#hasOfferCatalogList"
+								"social.flockfeeds.lexical.prop.musicGroup#hasOfferCatalogList"
 							],
 							"type": "union"
 						},
 						"nonprofitStatus": {
 							"refs": [
 								"social.flockfeeds.lexical.type.NonprofitType#embedded",
-								"social.flockfeeds.lexical.prop.organization#nonprofitStatusScalar",
-								"social.flockfeeds.lexical.prop.organization#nonprofitStatusList"
+								"social.flockfeeds.lexical.prop.musicGroup#nonprofitStatusScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#nonprofitStatusList"
 							],
 							"type": "union"
 						},
 						"potentialAction": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Action#embedded",
-								"social.flockfeeds.lexical.prop.organization#potentialActionList"
+								"social.flockfeeds.lexical.prop.musicGroup#potentialActionList"
 							],
 							"type": "union"
 						},
 						"subOrganization": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Organization#embedded",
-								"social.flockfeeds.lexical.prop.organization#subOrganizationList"
+								"social.flockfeeds.lexical.prop.musicGroup#subOrganizationList"
 							],
 							"type": "union"
 						},
 						"foundingLocation": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Place#embedded",
-								"social.flockfeeds.lexical.prop.organization#foundingLocationList"
+								"social.flockfeeds.lexical.prop.musicGroup#foundingLocationList"
 							],
 							"type": "union"
 						},
 						"hasCertification": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Certification#embedded",
-								"social.flockfeeds.lexical.prop.organization#hasCertificationList"
+								"social.flockfeeds.lexical.prop.musicGroup#hasCertificationList"
 							],
 							"type": "union"
 						},
 						"hasMemberProgram": {
 							"refs": [
 								"social.flockfeeds.lexical.type.MemberProgram#embedded",
-								"social.flockfeeds.lexical.prop.organization#hasMemberProgramList"
+								"social.flockfeeds.lexical.prop.musicGroup#hasMemberProgramList"
 							],
 							"type": "union"
 						},
 						"mainEntityOfPage": {
 							"refs": [
 								"social.flockfeeds.lexical.type.CreativeWork#embedded",
-								"social.flockfeeds.lexical.prop.organization#mainEntityOfPageScalar",
-								"social.flockfeeds.lexical.prop.organization#mainEntityOfPageList"
+								"social.flockfeeds.lexical.prop.musicGroup#mainEntityOfPageScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#mainEntityOfPageList"
+							],
+							"type": "union"
+						},
+						"musicGroupMember": {
+							"refs": [
+								"social.flockfeeds.lexical.type.Person#embedded",
+								"social.flockfeeds.lexical.prop.musicGroup#musicGroupMemberList"
 							],
 							"type": "union"
 						},
 						"correctionsPolicy": {
 							"refs": [
 								"social.flockfeeds.lexical.type.CreativeWork#embedded",
-								"social.flockfeeds.lexical.prop.organization#correctionsPolicyScalar",
-								"social.flockfeeds.lexical.prop.organization#correctionsPolicyList"
+								"social.flockfeeds.lexical.prop.musicGroup#correctionsPolicyScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#correctionsPolicyList"
 							],
 							"type": "union"
 						},
 						"hasGS1DigitalLink": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#hasGS1DigitalLinkScalar",
-								"social.flockfeeds.lexical.prop.organization#hasGS1DigitalLinkList"
+								"social.flockfeeds.lexical.prop.musicGroup#hasGS1DigitalLinkScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#hasGS1DigitalLinkList"
 							],
 							"type": "union"
 						},
 						"numberOfEmployees": {
 							"refs": [
 								"social.flockfeeds.lexical.type.QuantitativeValue#embedded",
-								"social.flockfeeds.lexical.prop.organization#numberOfEmployeesList"
+								"social.flockfeeds.lexical.prop.musicGroup#numberOfEmployeesList"
 							],
 							"type": "union"
 						},
 						"hasShippingService": {
 							"refs": [
 								"social.flockfeeds.lexical.type.ShippingService#embedded",
-								"social.flockfeeds.lexical.prop.organization#hasShippingServiceList"
+								"social.flockfeeds.lexical.prop.musicGroup#hasShippingServiceList"
 							],
 							"type": "union"
 						},
 						"parentOrganization": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Organization#embedded",
-								"social.flockfeeds.lexical.prop.organization#parentOrganizationList"
+								"social.flockfeeds.lexical.prop.musicGroup#parentOrganizationList"
 							],
 							"type": "union"
 						},
 						"companyRegistration": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Certification#embedded",
-								"social.flockfeeds.lexical.prop.organization#companyRegistrationList"
+								"social.flockfeeds.lexical.prop.musicGroup#companyRegistrationList"
 							],
 							"type": "union"
 						},
 						"legalRepresentative": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Person#embedded",
-								"social.flockfeeds.lexical.prop.organization#legalRepresentativeList"
+								"social.flockfeeds.lexical.prop.musicGroup#legalRepresentativeList"
 							],
 							"type": "union"
 						},
 						"globalLocationNumber": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#globalLocationNumberScalar",
-								"social.flockfeeds.lexical.prop.organization#globalLocationNumberList"
+								"social.flockfeeds.lexical.prop.musicGroup#globalLocationNumberScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#globalLocationNumberList"
 							],
 							"type": "union"
 						},
 						"interactionStatistic": {
 							"refs": [
 								"social.flockfeeds.lexical.type.InteractionCounter#embedded",
-								"social.flockfeeds.lexical.prop.organization#interactionStatisticList"
+								"social.flockfeeds.lexical.prop.musicGroup#interactionStatisticList"
 							],
 							"type": "union"
 						},
@@ -598,24 +641,24 @@
 							"refs": [
 								"social.flockfeeds.lexical.type.AboutPage#embedded",
 								"social.flockfeeds.lexical.type.CreativeWork#embedded",
-								"social.flockfeeds.lexical.prop.organization#ownershipFundingInfoScalar",
-								"social.flockfeeds.lexical.prop.organization#ownershipFundingInfoList"
+								"social.flockfeeds.lexical.prop.musicGroup#ownershipFundingInfoScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#ownershipFundingInfoList"
 							],
 							"type": "union"
 						},
 						"publishingPrinciples": {
 							"refs": [
 								"social.flockfeeds.lexical.type.CreativeWork#embedded",
-								"social.flockfeeds.lexical.prop.organization#publishingPrinciplesScalar",
-								"social.flockfeeds.lexical.prop.organization#publishingPrinciplesList"
+								"social.flockfeeds.lexical.prop.musicGroup#publishingPrinciplesScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#publishingPrinciplesList"
 							],
 							"type": "union"
 						},
 						"unnamedSourcesPolicy": {
 							"refs": [
 								"social.flockfeeds.lexical.type.CreativeWork#embedded",
-								"social.flockfeeds.lexical.prop.organization#unnamedSourcesPolicyScalar",
-								"social.flockfeeds.lexical.prop.organization#unnamedSourcesPolicyList"
+								"social.flockfeeds.lexical.prop.musicGroup#unnamedSourcesPolicyScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#unnamedSourcesPolicyList"
 							],
 							"type": "union"
 						},
@@ -623,57 +666,57 @@
 							"refs": [
 								"social.flockfeeds.lexical.type.LoanOrCredit#embedded",
 								"social.flockfeeds.lexical.type.PaymentMethod#embedded",
-								"social.flockfeeds.lexical.prop.organization#acceptedPaymentMethodScalar",
-								"social.flockfeeds.lexical.prop.organization#acceptedPaymentMethodList"
+								"social.flockfeeds.lexical.prop.musicGroup#acceptedPaymentMethodScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#acceptedPaymentMethodList"
 							],
 							"type": "union"
 						},
 						"hasProductReturnPolicy": {
 							"refs": [
 								"social.flockfeeds.lexical.type.ProductReturnPolicy#embedded",
-								"social.flockfeeds.lexical.prop.organization#hasProductReturnPolicyList"
+								"social.flockfeeds.lexical.prop.musicGroup#hasProductReturnPolicyList"
 							],
 							"type": "union"
 						},
 						"diversityStaffingReport": {
 							"refs": [
 								"social.flockfeeds.lexical.type.Article#embedded",
-								"social.flockfeeds.lexical.prop.organization#diversityStaffingReportScalar",
-								"social.flockfeeds.lexical.prop.organization#diversityStaffingReportList"
+								"social.flockfeeds.lexical.prop.musicGroup#diversityStaffingReportScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#diversityStaffingReportList"
 							],
 							"type": "union"
 						},
 						"hasMerchantReturnPolicy": {
 							"refs": [
 								"social.flockfeeds.lexical.type.MerchantReturnPolicy#embedded",
-								"social.flockfeeds.lexical.prop.organization#hasMerchantReturnPolicyList"
+								"social.flockfeeds.lexical.prop.musicGroup#hasMerchantReturnPolicyList"
 							],
 							"type": "union"
 						},
 						"actionableFeedbackPolicy": {
 							"refs": [
 								"social.flockfeeds.lexical.type.CreativeWork#embedded",
-								"social.flockfeeds.lexical.prop.organization#actionableFeedbackPolicyScalar",
-								"social.flockfeeds.lexical.prop.organization#actionableFeedbackPolicyList"
+								"social.flockfeeds.lexical.prop.musicGroup#actionableFeedbackPolicyScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#actionableFeedbackPolicyList"
 							],
 							"type": "union"
 						},
 						"agentInteractionStatistic": {
 							"refs": [
 								"social.flockfeeds.lexical.type.InteractionCounter#embedded",
-								"social.flockfeeds.lexical.prop.organization#agentInteractionStatisticList"
+								"social.flockfeeds.lexical.prop.musicGroup#agentInteractionStatisticList"
 							],
 							"type": "union"
 						},
 						"disambiguatingDescription": {
 							"refs": [
-								"social.flockfeeds.lexical.prop.organization#disambiguatingDescriptionScalar",
-								"social.flockfeeds.lexical.prop.organization#disambiguatingDescriptionList"
+								"social.flockfeeds.lexical.prop.musicGroup#disambiguatingDescriptionScalar",
+								"social.flockfeeds.lexical.prop.musicGroup#disambiguatingDescriptionList"
 							],
 							"type": "union"
 						}
 					},
-					"description": "An organization such as a school, NGO, corporation, club, etc."
+					"description": "A musical group, such as a band, an orchestra, or a choir. Can also be a solo musician."
 				}
 			},
 			"embedded": {
@@ -681,30 +724,30 @@
 				"properties": {
 					"url": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#urlScalar",
-							"social.flockfeeds.lexical.prop.organization#urlList"
+							"social.flockfeeds.lexical.prop.musicGroup#urlScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#urlList"
 						],
 						"type": "union"
 					},
 					"duns": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#dunsScalar",
-							"social.flockfeeds.lexical.prop.organization#dunsList"
+							"social.flockfeeds.lexical.prop.musicGroup#dunsScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#dunsList"
 						],
 						"type": "union"
 					},
 					"logo": {
 						"refs": [
 							"social.flockfeeds.lexical.type.ImageObject#embedded",
-							"social.flockfeeds.lexical.prop.organization#logoScalar",
-							"social.flockfeeds.lexical.prop.organization#logoList"
+							"social.flockfeeds.lexical.prop.musicGroup#logoScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#logoList"
 						],
 						"type": "union"
 					},
 					"name": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#nameScalar",
-							"social.flockfeeds.lexical.prop.organization#nameList"
+							"social.flockfeeds.lexical.prop.musicGroup#nameScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#nameList"
 						],
 						"type": "union"
 					},
@@ -712,14 +755,21 @@
 						"refs": [
 							"social.flockfeeds.lexical.type.OwnershipInfo#embedded",
 							"social.flockfeeds.lexical.type.Product#embedded",
-							"social.flockfeeds.lexical.prop.organization#ownsList"
+							"social.flockfeeds.lexical.prop.musicGroup#ownsList"
+						],
+						"type": "union"
+					},
+					"album": {
+						"refs": [
+							"social.flockfeeds.lexical.type.MusicAlbum#embedded",
+							"social.flockfeeds.lexical.prop.musicGroup#albumList"
 						],
 						"type": "union"
 					},
 					"award": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#awardScalar",
-							"social.flockfeeds.lexical.prop.organization#awardList"
+							"social.flockfeeds.lexical.prop.musicGroup#awardScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#awardList"
 						],
 						"type": "union"
 					},
@@ -727,78 +777,100 @@
 						"refs": [
 							"social.flockfeeds.lexical.type.Brand#embedded",
 							"social.flockfeeds.lexical.type.Organization#embedded",
-							"social.flockfeeds.lexical.prop.organization#brandList"
+							"social.flockfeeds.lexical.prop.musicGroup#brandList"
 						],
 						"type": "union"
 					},
 					"email": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#emailScalar",
-							"social.flockfeeds.lexical.prop.organization#emailList"
+							"social.flockfeeds.lexical.prop.musicGroup#emailScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#emailList"
 						],
 						"type": "union"
 					},
 					"event": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Event#embedded",
-							"social.flockfeeds.lexical.prop.organization#eventList"
+							"social.flockfeeds.lexical.prop.musicGroup#eventList"
+						],
+						"type": "union"
+					},
+					"genre": {
+						"refs": [
+							"social.flockfeeds.lexical.prop.musicGroup#genreScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#genreList"
 						],
 						"type": "union"
 					},
 					"image": {
 						"refs": [
 							"social.flockfeeds.lexical.type.ImageObject#embedded",
-							"social.flockfeeds.lexical.prop.organization#imageScalar",
-							"social.flockfeeds.lexical.prop.organization#imageList"
+							"social.flockfeeds.lexical.prop.musicGroup#imageScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#imageList"
 						],
 						"type": "union"
 					},
 					"naics": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#naicsScalar",
-							"social.flockfeeds.lexical.prop.organization#naicsList"
+							"social.flockfeeds.lexical.prop.musicGroup#naicsScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#naicsList"
 						],
 						"type": "union"
 					},
 					"seeks": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Demand#embedded",
-							"social.flockfeeds.lexical.prop.organization#seeksList"
+							"social.flockfeeds.lexical.prop.musicGroup#seeksList"
 						],
 						"type": "union"
 					},
 					"taxID": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#taxIDScalar",
-							"social.flockfeeds.lexical.prop.organization#taxIDList"
+							"social.flockfeeds.lexical.prop.musicGroup#taxIDScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#taxIDList"
+						],
+						"type": "union"
+					},
+					"track": {
+						"refs": [
+							"social.flockfeeds.lexical.type.ItemList#embedded",
+							"social.flockfeeds.lexical.type.MusicRecording#embedded",
+							"social.flockfeeds.lexical.prop.musicGroup#trackList"
 						],
 						"type": "union"
 					},
 					"vatID": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#vatIDScalar",
-							"social.flockfeeds.lexical.prop.organization#vatIDList"
+							"social.flockfeeds.lexical.prop.musicGroup#vatIDScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#vatIDList"
+						],
+						"type": "union"
+					},
+					"albums": {
+						"refs": [
+							"social.flockfeeds.lexical.type.MusicAlbum#embedded",
+							"social.flockfeeds.lexical.prop.musicGroup#albumsList"
 						],
 						"type": "union"
 					},
 					"alumni": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Person#embedded",
-							"social.flockfeeds.lexical.prop.organization#alumniList"
+							"social.flockfeeds.lexical.prop.musicGroup#alumniList"
 						],
 						"type": "union"
 					},
 					"awards": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#awardsScalar",
-							"social.flockfeeds.lexical.prop.organization#awardsList"
+							"social.flockfeeds.lexical.prop.musicGroup#awardsScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#awardsList"
 						],
 						"type": "union"
 					},
 					"events": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Event#embedded",
-							"social.flockfeeds.lexical.prop.organization#eventsList"
+							"social.flockfeeds.lexical.prop.musicGroup#eventsList"
 						],
 						"type": "union"
 					},
@@ -806,21 +878,21 @@
 						"refs": [
 							"social.flockfeeds.lexical.type.Organization#embedded",
 							"social.flockfeeds.lexical.type.Person#embedded",
-							"social.flockfeeds.lexical.prop.organization#funderList"
+							"social.flockfeeds.lexical.prop.musicGroup#funderList"
 						],
 						"type": "union"
 					},
 					"hasPOS": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Place#embedded",
-							"social.flockfeeds.lexical.prop.organization#hasPOSList"
+							"social.flockfeeds.lexical.prop.musicGroup#hasPOSList"
 						],
 						"type": "union"
 					},
 					"isicV4": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#isicV4Scalar",
-							"social.flockfeeds.lexical.prop.organization#isicV4List"
+							"social.flockfeeds.lexical.prop.musicGroup#isicV4Scalar",
+							"social.flockfeeds.lexical.prop.musicGroup#isicV4List"
 						],
 						"type": "union"
 					},
@@ -828,44 +900,51 @@
 						"refs": [
 							"social.flockfeeds.lexical.type.Organization#embedded",
 							"social.flockfeeds.lexical.type.Person#embedded",
-							"social.flockfeeds.lexical.prop.organization#memberList"
+							"social.flockfeeds.lexical.prop.musicGroup#memberList"
 						],
 						"type": "union"
 					},
 					"review": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Review#embedded",
-							"social.flockfeeds.lexical.prop.organization#reviewList"
+							"social.flockfeeds.lexical.prop.musicGroup#reviewList"
 						],
 						"type": "union"
 					},
 					"sameAs": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#sameAsScalar",
-							"social.flockfeeds.lexical.prop.organization#sameAsList"
+							"social.flockfeeds.lexical.prop.musicGroup#sameAsScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#sameAsList"
 						],
 						"type": "union"
 					},
 					"skills": {
 						"refs": [
 							"social.flockfeeds.lexical.type.DefinedTerm#embedded",
-							"social.flockfeeds.lexical.prop.organization#skillsScalar",
-							"social.flockfeeds.lexical.prop.organization#skillsList"
+							"social.flockfeeds.lexical.prop.musicGroup#skillsScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#skillsList"
 						],
 						"type": "union"
 					},
 					"slogan": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#sloganScalar",
-							"social.flockfeeds.lexical.prop.organization#sloganList"
+							"social.flockfeeds.lexical.prop.musicGroup#sloganScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#sloganList"
+						],
+						"type": "union"
+					},
+					"tracks": {
+						"refs": [
+							"social.flockfeeds.lexical.type.MusicRecording#embedded",
+							"social.flockfeeds.lexical.prop.musicGroup#tracksList"
 						],
 						"type": "union"
 					},
 					"address": {
 						"refs": [
 							"social.flockfeeds.lexical.type.PostalAddress#embedded",
-							"social.flockfeeds.lexical.prop.organization#addressScalar",
-							"social.flockfeeds.lexical.prop.organization#addressList"
+							"social.flockfeeds.lexical.prop.musicGroup#addressScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#addressList"
 						],
 						"type": "union"
 					},
@@ -873,21 +952,21 @@
 						"refs": [
 							"social.flockfeeds.lexical.type.Organization#embedded",
 							"social.flockfeeds.lexical.type.Person#embedded",
-							"social.flockfeeds.lexical.prop.organization#founderList"
+							"social.flockfeeds.lexical.prop.musicGroup#founderList"
 						],
 						"type": "union"
 					},
 					"funding": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Grant#embedded",
-							"social.flockfeeds.lexical.prop.organization#fundingList"
+							"social.flockfeeds.lexical.prop.musicGroup#fundingList"
 						],
 						"type": "union"
 					},
 					"leiCode": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#leiCodeScalar",
-							"social.flockfeeds.lexical.prop.organization#leiCodeList"
+							"social.flockfeeds.lexical.prop.musicGroup#leiCodeScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#leiCodeList"
 						],
 						"type": "union"
 					},
@@ -895,14 +974,14 @@
 						"refs": [
 							"social.flockfeeds.lexical.type.Organization#embedded",
 							"social.flockfeeds.lexical.type.Person#embedded",
-							"social.flockfeeds.lexical.prop.organization#membersList"
+							"social.flockfeeds.lexical.prop.musicGroup#membersList"
 						],
 						"type": "union"
 					},
 					"reviews": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Review#embedded",
-							"social.flockfeeds.lexical.prop.organization#reviewsList"
+							"social.flockfeeds.lexical.prop.musicGroup#reviewsList"
 						],
 						"type": "union"
 					},
@@ -910,29 +989,29 @@
 						"refs": [
 							"social.flockfeeds.lexical.type.Organization#embedded",
 							"social.flockfeeds.lexical.type.Person#embedded",
-							"social.flockfeeds.lexical.prop.organization#sponsorList"
+							"social.flockfeeds.lexical.prop.musicGroup#sponsorList"
 						],
 						"type": "union"
 					},
 					"employee": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Person#embedded",
-							"social.flockfeeds.lexical.prop.organization#employeeList"
+							"social.flockfeeds.lexical.prop.musicGroup#employeeList"
 						],
 						"type": "union"
 					},
 					"founders": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Person#embedded",
-							"social.flockfeeds.lexical.prop.organization#foundersList"
+							"social.flockfeeds.lexical.prop.musicGroup#foundersList"
 						],
 						"type": "union"
 					},
 					"keywords": {
 						"refs": [
 							"social.flockfeeds.lexical.type.DefinedTerm#embedded",
-							"social.flockfeeds.lexical.prop.organization#keywordsScalar",
-							"social.flockfeeds.lexical.prop.organization#keywordsList"
+							"social.flockfeeds.lexical.prop.musicGroup#keywordsScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#keywordsList"
 						],
 						"type": "union"
 					},
@@ -941,8 +1020,8 @@
 							"social.flockfeeds.lexical.type.Place#embedded",
 							"social.flockfeeds.lexical.type.PostalAddress#embedded",
 							"social.flockfeeds.lexical.type.VirtualLocation#embedded",
-							"social.flockfeeds.lexical.prop.organization#locationScalar",
-							"social.flockfeeds.lexical.prop.organization#locationList"
+							"social.flockfeeds.lexical.prop.musicGroup#locationScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#locationList"
 						],
 						"type": "union"
 					},
@@ -951,28 +1030,28 @@
 							"social.flockfeeds.lexical.type.MemberProgramTier#embedded",
 							"social.flockfeeds.lexical.type.Organization#embedded",
 							"social.flockfeeds.lexical.type.ProgramMembership#embedded",
-							"social.flockfeeds.lexical.prop.organization#memberOfList"
+							"social.flockfeeds.lexical.prop.musicGroup#memberOfList"
 						],
 						"type": "union"
 					},
 					"employees": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Person#embedded",
-							"social.flockfeeds.lexical.prop.organization#employeesList"
+							"social.flockfeeds.lexical.prop.musicGroup#employeesList"
 						],
 						"type": "union"
 					},
 					"faxNumber": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#faxNumberScalar",
-							"social.flockfeeds.lexical.prop.organization#faxNumberList"
+							"social.flockfeeds.lexical.prop.musicGroup#faxNumberScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#faxNumberList"
 						],
 						"type": "union"
 					},
 					"legalName": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#legalNameScalar",
-							"social.flockfeeds.lexical.prop.organization#legalNameList"
+							"social.flockfeeds.lexical.prop.musicGroup#legalNameScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#legalNameList"
 						],
 						"type": "union"
 					},
@@ -980,14 +1059,14 @@
 						"refs": [
 							"social.flockfeeds.lexical.type.CreativeWork#embedded",
 							"social.flockfeeds.lexical.type.Event#embedded",
-							"social.flockfeeds.lexical.prop.organization#subjectOfList"
+							"social.flockfeeds.lexical.prop.musicGroup#subjectOfList"
 						],
 						"type": "union"
 					},
 					"telephone": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#telephoneScalar",
-							"social.flockfeeds.lexical.prop.organization#telephoneList"
+							"social.flockfeeds.lexical.prop.musicGroup#telephoneScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#telephoneList"
 						],
 						"type": "union"
 					},
@@ -996,53 +1075,53 @@
 							"social.flockfeeds.lexical.type.AdministrativeArea#embedded",
 							"social.flockfeeds.lexical.type.GeoShape#embedded",
 							"social.flockfeeds.lexical.type.Place#embedded",
-							"social.flockfeeds.lexical.prop.organization#areaServedScalar",
-							"social.flockfeeds.lexical.prop.organization#areaServedList"
+							"social.flockfeeds.lexical.prop.musicGroup#areaServedScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#areaServedList"
 						],
 						"type": "union"
 					},
 					"department": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Organization#embedded",
-							"social.flockfeeds.lexical.prop.organization#departmentList"
+							"social.flockfeeds.lexical.prop.musicGroup#departmentList"
 						],
 						"type": "union"
 					},
 					"identifier": {
 						"refs": [
 							"social.flockfeeds.lexical.type.PropertyValue#embedded",
-							"social.flockfeeds.lexical.prop.organization#identifierScalar",
-							"social.flockfeeds.lexical.prop.organization#identifierList"
+							"social.flockfeeds.lexical.prop.musicGroup#identifierScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#identifierList"
 						],
 						"type": "union"
 					},
 					"knowsAbout": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Thing#embedded",
-							"social.flockfeeds.lexical.prop.organization#knowsAboutScalar",
-							"social.flockfeeds.lexical.prop.organization#knowsAboutList"
+							"social.flockfeeds.lexical.prop.musicGroup#knowsAboutScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#knowsAboutList"
 						],
 						"type": "union"
 					},
 					"makesOffer": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Offer#embedded",
-							"social.flockfeeds.lexical.prop.organization#makesOfferList"
+							"social.flockfeeds.lexical.prop.musicGroup#makesOfferList"
 						],
 						"type": "union"
 					},
 					"description": {
 						"refs": [
 							"social.flockfeeds.lexical.type.TextObject#embedded",
-							"social.flockfeeds.lexical.prop.organization#descriptionScalar",
-							"social.flockfeeds.lexical.prop.organization#descriptionList"
+							"social.flockfeeds.lexical.prop.musicGroup#descriptionScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#descriptionList"
 						],
 						"type": "union"
 					},
 					"iso6523Code": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#iso6523CodeScalar",
-							"social.flockfeeds.lexical.prop.organization#iso6523CodeList"
+							"social.flockfeeds.lexical.prop.musicGroup#iso6523CodeScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#iso6523CodeList"
 						],
 						"type": "union"
 					},
@@ -1051,216 +1130,223 @@
 							"social.flockfeeds.lexical.type.AdministrativeArea#embedded",
 							"social.flockfeeds.lexical.type.GeoShape#embedded",
 							"social.flockfeeds.lexical.type.Place#embedded",
-							"social.flockfeeds.lexical.prop.organization#serviceAreaList"
+							"social.flockfeeds.lexical.prop.musicGroup#serviceAreaList"
 						],
 						"type": "union"
 					},
 					"contactPoint": {
 						"refs": [
 							"social.flockfeeds.lexical.type.ContactPoint#embedded",
-							"social.flockfeeds.lexical.prop.organization#contactPointList"
+							"social.flockfeeds.lexical.prop.musicGroup#contactPointList"
 						],
 						"type": "union"
 					},
 					"ethicsPolicy": {
 						"refs": [
 							"social.flockfeeds.lexical.type.CreativeWork#embedded",
-							"social.flockfeeds.lexical.prop.organization#ethicsPolicyScalar",
-							"social.flockfeeds.lexical.prop.organization#ethicsPolicyList"
+							"social.flockfeeds.lexical.prop.musicGroup#ethicsPolicyScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#ethicsPolicyList"
 						],
 						"type": "union"
 					},
 					"foundingDate": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#foundingDateScalar",
-							"social.flockfeeds.lexical.prop.organization#foundingDateList"
+							"social.flockfeeds.lexical.prop.musicGroup#foundingDateScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#foundingDateList"
 						],
 						"type": "union"
 					},
 					"legalAddress": {
 						"refs": [
 							"social.flockfeeds.lexical.type.PostalAddress#embedded",
-							"social.flockfeeds.lexical.prop.organization#legalAddressList"
+							"social.flockfeeds.lexical.prop.musicGroup#legalAddressList"
 						],
 						"type": "union"
 					},
 					"alternateName": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#alternateNameScalar",
-							"social.flockfeeds.lexical.prop.organization#alternateNameList"
+							"social.flockfeeds.lexical.prop.musicGroup#alternateNameScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#alternateNameList"
 						],
 						"type": "union"
 					},
 					"contactPoints": {
 						"refs": [
 							"social.flockfeeds.lexical.type.ContactPoint#embedded",
-							"social.flockfeeds.lexical.prop.organization#contactPointsList"
+							"social.flockfeeds.lexical.prop.musicGroup#contactPointsList"
 						],
 						"type": "union"
 					},
 					"hasCredential": {
 						"refs": [
 							"social.flockfeeds.lexical.type.EducationalOccupationalCredential#embedded",
-							"social.flockfeeds.lexical.prop.organization#hasCredentialList"
+							"social.flockfeeds.lexical.prop.musicGroup#hasCredentialList"
 						],
 						"type": "union"
 					},
 					"knowsLanguage": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Language#embedded",
-							"social.flockfeeds.lexical.prop.organization#knowsLanguageScalar",
-							"social.flockfeeds.lexical.prop.organization#knowsLanguageList"
+							"social.flockfeeds.lexical.prop.musicGroup#knowsLanguageScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#knowsLanguageList"
 						],
 						"type": "union"
 					},
 					"additionalType": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#additionalTypeScalar",
-							"social.flockfeeds.lexical.prop.organization#additionalTypeList"
+							"social.flockfeeds.lexical.prop.musicGroup#additionalTypeScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#additionalTypeList"
 						],
 						"type": "union"
 					},
 					"aggregateRating": {
 						"refs": [
 							"social.flockfeeds.lexical.type.AggregateRating#embedded",
-							"social.flockfeeds.lexical.prop.organization#aggregateRatingList"
+							"social.flockfeeds.lexical.prop.musicGroup#aggregateRatingList"
 						],
 						"type": "union"
 					},
 					"dissolutionDate": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#dissolutionDateScalar",
-							"social.flockfeeds.lexical.prop.organization#dissolutionDateList"
+							"social.flockfeeds.lexical.prop.musicGroup#dissolutionDateScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#dissolutionDateList"
 						],
 						"type": "union"
 					},
 					"diversityPolicy": {
 						"refs": [
 							"social.flockfeeds.lexical.type.CreativeWork#embedded",
-							"social.flockfeeds.lexical.prop.organization#diversityPolicyScalar",
-							"social.flockfeeds.lexical.prop.organization#diversityPolicyList"
+							"social.flockfeeds.lexical.prop.musicGroup#diversityPolicyScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#diversityPolicyList"
 						],
 						"type": "union"
 					},
 					"hasOfferCatalog": {
 						"refs": [
 							"social.flockfeeds.lexical.type.OfferCatalog#embedded",
-							"social.flockfeeds.lexical.prop.organization#hasOfferCatalogList"
+							"social.flockfeeds.lexical.prop.musicGroup#hasOfferCatalogList"
 						],
 						"type": "union"
 					},
 					"nonprofitStatus": {
 						"refs": [
 							"social.flockfeeds.lexical.type.NonprofitType#embedded",
-							"social.flockfeeds.lexical.prop.organization#nonprofitStatusScalar",
-							"social.flockfeeds.lexical.prop.organization#nonprofitStatusList"
+							"social.flockfeeds.lexical.prop.musicGroup#nonprofitStatusScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#nonprofitStatusList"
 						],
 						"type": "union"
 					},
 					"potentialAction": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Action#embedded",
-							"social.flockfeeds.lexical.prop.organization#potentialActionList"
+							"social.flockfeeds.lexical.prop.musicGroup#potentialActionList"
 						],
 						"type": "union"
 					},
 					"subOrganization": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Organization#embedded",
-							"social.flockfeeds.lexical.prop.organization#subOrganizationList"
+							"social.flockfeeds.lexical.prop.musicGroup#subOrganizationList"
 						],
 						"type": "union"
 					},
 					"foundingLocation": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Place#embedded",
-							"social.flockfeeds.lexical.prop.organization#foundingLocationList"
+							"social.flockfeeds.lexical.prop.musicGroup#foundingLocationList"
 						],
 						"type": "union"
 					},
 					"hasCertification": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Certification#embedded",
-							"social.flockfeeds.lexical.prop.organization#hasCertificationList"
+							"social.flockfeeds.lexical.prop.musicGroup#hasCertificationList"
 						],
 						"type": "union"
 					},
 					"hasMemberProgram": {
 						"refs": [
 							"social.flockfeeds.lexical.type.MemberProgram#embedded",
-							"social.flockfeeds.lexical.prop.organization#hasMemberProgramList"
+							"social.flockfeeds.lexical.prop.musicGroup#hasMemberProgramList"
 						],
 						"type": "union"
 					},
 					"mainEntityOfPage": {
 						"refs": [
 							"social.flockfeeds.lexical.type.CreativeWork#embedded",
-							"social.flockfeeds.lexical.prop.organization#mainEntityOfPageScalar",
-							"social.flockfeeds.lexical.prop.organization#mainEntityOfPageList"
+							"social.flockfeeds.lexical.prop.musicGroup#mainEntityOfPageScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#mainEntityOfPageList"
+						],
+						"type": "union"
+					},
+					"musicGroupMember": {
+						"refs": [
+							"social.flockfeeds.lexical.type.Person#embedded",
+							"social.flockfeeds.lexical.prop.musicGroup#musicGroupMemberList"
 						],
 						"type": "union"
 					},
 					"correctionsPolicy": {
 						"refs": [
 							"social.flockfeeds.lexical.type.CreativeWork#embedded",
-							"social.flockfeeds.lexical.prop.organization#correctionsPolicyScalar",
-							"social.flockfeeds.lexical.prop.organization#correctionsPolicyList"
+							"social.flockfeeds.lexical.prop.musicGroup#correctionsPolicyScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#correctionsPolicyList"
 						],
 						"type": "union"
 					},
 					"hasGS1DigitalLink": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#hasGS1DigitalLinkScalar",
-							"social.flockfeeds.lexical.prop.organization#hasGS1DigitalLinkList"
+							"social.flockfeeds.lexical.prop.musicGroup#hasGS1DigitalLinkScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#hasGS1DigitalLinkList"
 						],
 						"type": "union"
 					},
 					"numberOfEmployees": {
 						"refs": [
 							"social.flockfeeds.lexical.type.QuantitativeValue#embedded",
-							"social.flockfeeds.lexical.prop.organization#numberOfEmployeesList"
+							"social.flockfeeds.lexical.prop.musicGroup#numberOfEmployeesList"
 						],
 						"type": "union"
 					},
 					"hasShippingService": {
 						"refs": [
 							"social.flockfeeds.lexical.type.ShippingService#embedded",
-							"social.flockfeeds.lexical.prop.organization#hasShippingServiceList"
+							"social.flockfeeds.lexical.prop.musicGroup#hasShippingServiceList"
 						],
 						"type": "union"
 					},
 					"parentOrganization": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Organization#embedded",
-							"social.flockfeeds.lexical.prop.organization#parentOrganizationList"
+							"social.flockfeeds.lexical.prop.musicGroup#parentOrganizationList"
 						],
 						"type": "union"
 					},
 					"companyRegistration": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Certification#embedded",
-							"social.flockfeeds.lexical.prop.organization#companyRegistrationList"
+							"social.flockfeeds.lexical.prop.musicGroup#companyRegistrationList"
 						],
 						"type": "union"
 					},
 					"legalRepresentative": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Person#embedded",
-							"social.flockfeeds.lexical.prop.organization#legalRepresentativeList"
+							"social.flockfeeds.lexical.prop.musicGroup#legalRepresentativeList"
 						],
 						"type": "union"
 					},
 					"globalLocationNumber": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#globalLocationNumberScalar",
-							"social.flockfeeds.lexical.prop.organization#globalLocationNumberList"
+							"social.flockfeeds.lexical.prop.musicGroup#globalLocationNumberScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#globalLocationNumberList"
 						],
 						"type": "union"
 					},
 					"interactionStatistic": {
 						"refs": [
 							"social.flockfeeds.lexical.type.InteractionCounter#embedded",
-							"social.flockfeeds.lexical.prop.organization#interactionStatisticList"
+							"social.flockfeeds.lexical.prop.musicGroup#interactionStatisticList"
 						],
 						"type": "union"
 					},
@@ -1268,24 +1354,24 @@
 						"refs": [
 							"social.flockfeeds.lexical.type.AboutPage#embedded",
 							"social.flockfeeds.lexical.type.CreativeWork#embedded",
-							"social.flockfeeds.lexical.prop.organization#ownershipFundingInfoScalar",
-							"social.flockfeeds.lexical.prop.organization#ownershipFundingInfoList"
+							"social.flockfeeds.lexical.prop.musicGroup#ownershipFundingInfoScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#ownershipFundingInfoList"
 						],
 						"type": "union"
 					},
 					"publishingPrinciples": {
 						"refs": [
 							"social.flockfeeds.lexical.type.CreativeWork#embedded",
-							"social.flockfeeds.lexical.prop.organization#publishingPrinciplesScalar",
-							"social.flockfeeds.lexical.prop.organization#publishingPrinciplesList"
+							"social.flockfeeds.lexical.prop.musicGroup#publishingPrinciplesScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#publishingPrinciplesList"
 						],
 						"type": "union"
 					},
 					"unnamedSourcesPolicy": {
 						"refs": [
 							"social.flockfeeds.lexical.type.CreativeWork#embedded",
-							"social.flockfeeds.lexical.prop.organization#unnamedSourcesPolicyScalar",
-							"social.flockfeeds.lexical.prop.organization#unnamedSourcesPolicyList"
+							"social.flockfeeds.lexical.prop.musicGroup#unnamedSourcesPolicyScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#unnamedSourcesPolicyList"
 						],
 						"type": "union"
 					},
@@ -1293,69 +1379,70 @@
 						"refs": [
 							"social.flockfeeds.lexical.type.LoanOrCredit#embedded",
 							"social.flockfeeds.lexical.type.PaymentMethod#embedded",
-							"social.flockfeeds.lexical.prop.organization#acceptedPaymentMethodScalar",
-							"social.flockfeeds.lexical.prop.organization#acceptedPaymentMethodList"
+							"social.flockfeeds.lexical.prop.musicGroup#acceptedPaymentMethodScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#acceptedPaymentMethodList"
 						],
 						"type": "union"
 					},
 					"hasProductReturnPolicy": {
 						"refs": [
 							"social.flockfeeds.lexical.type.ProductReturnPolicy#embedded",
-							"social.flockfeeds.lexical.prop.organization#hasProductReturnPolicyList"
+							"social.flockfeeds.lexical.prop.musicGroup#hasProductReturnPolicyList"
 						],
 						"type": "union"
 					},
 					"diversityStaffingReport": {
 						"refs": [
 							"social.flockfeeds.lexical.type.Article#embedded",
-							"social.flockfeeds.lexical.prop.organization#diversityStaffingReportScalar",
-							"social.flockfeeds.lexical.prop.organization#diversityStaffingReportList"
+							"social.flockfeeds.lexical.prop.musicGroup#diversityStaffingReportScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#diversityStaffingReportList"
 						],
 						"type": "union"
 					},
 					"hasMerchantReturnPolicy": {
 						"refs": [
 							"social.flockfeeds.lexical.type.MerchantReturnPolicy#embedded",
-							"social.flockfeeds.lexical.prop.organization#hasMerchantReturnPolicyList"
+							"social.flockfeeds.lexical.prop.musicGroup#hasMerchantReturnPolicyList"
 						],
 						"type": "union"
 					},
 					"actionableFeedbackPolicy": {
 						"refs": [
 							"social.flockfeeds.lexical.type.CreativeWork#embedded",
-							"social.flockfeeds.lexical.prop.organization#actionableFeedbackPolicyScalar",
-							"social.flockfeeds.lexical.prop.organization#actionableFeedbackPolicyList"
+							"social.flockfeeds.lexical.prop.musicGroup#actionableFeedbackPolicyScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#actionableFeedbackPolicyList"
 						],
 						"type": "union"
 					},
 					"agentInteractionStatistic": {
 						"refs": [
 							"social.flockfeeds.lexical.type.InteractionCounter#embedded",
-							"social.flockfeeds.lexical.prop.organization#agentInteractionStatisticList"
+							"social.flockfeeds.lexical.prop.musicGroup#agentInteractionStatisticList"
 						],
 						"type": "union"
 					},
 					"disambiguatingDescription": {
 						"refs": [
-							"social.flockfeeds.lexical.prop.organization#disambiguatingDescriptionScalar",
-							"social.flockfeeds.lexical.prop.organization#disambiguatingDescriptionList"
+							"social.flockfeeds.lexical.prop.musicGroup#disambiguatingDescriptionScalar",
+							"social.flockfeeds.lexical.prop.musicGroup#disambiguatingDescriptionList"
 						],
 						"type": "union"
 					}
 				},
-				"description": "An organization such as a school, NGO, corporation, club, etc."
+				"description": "A musical group, such as a band, an orchestra, or a choir. Can also be a solo musician."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1762820167045
+		"indexedAt": 1762906561686
 	},
 	"references": {
 		"main": [
 			"social.flockfeeds.lexical.prop.brand",
 			"social.flockfeeds.lexical.prop.imageObject",
+			"social.flockfeeds.lexical.prop.musicGroup",
 			"social.flockfeeds.lexical.prop.offer",
 			"social.flockfeeds.lexical.prop.organization",
 			"social.flockfeeds.lexical.prop.person",
@@ -1409,6 +1496,7 @@
 			"social.flockfeeds.lexical.type.MenuItem",
 			"social.flockfeeds.lexical.type.MerchantReturnPolicy",
 			"social.flockfeeds.lexical.type.MonetaryAmount",
+			"social.flockfeeds.lexical.type.MusicAlbum",
 			"social.flockfeeds.lexical.type.MusicRecording",
 			"social.flockfeeds.lexical.type.NewsArticle",
 			"social.flockfeeds.lexical.type.NonprofitType",
@@ -1417,6 +1505,7 @@
 			"social.flockfeeds.lexical.type.OfferCatalog",
 			"social.flockfeeds.lexical.type.OfferItemCondition",
 			"social.flockfeeds.lexical.type.OfferShippingDetails",
+			"social.flockfeeds.lexical.type.Organization",
 			"social.flockfeeds.lexical.type.OwnershipInfo",
 			"social.flockfeeds.lexical.type.PaymentMethod",
 			"social.flockfeeds.lexical.type.Person",
@@ -1451,6 +1540,7 @@
 		"embedded": [
 			"social.flockfeeds.lexical.prop.brand",
 			"social.flockfeeds.lexical.prop.imageObject",
+			"social.flockfeeds.lexical.prop.musicGroup",
 			"social.flockfeeds.lexical.prop.offer",
 			"social.flockfeeds.lexical.prop.organization",
 			"social.flockfeeds.lexical.prop.person",
@@ -1504,6 +1594,7 @@
 			"social.flockfeeds.lexical.type.MenuItem",
 			"social.flockfeeds.lexical.type.MerchantReturnPolicy",
 			"social.flockfeeds.lexical.type.MonetaryAmount",
+			"social.flockfeeds.lexical.type.MusicAlbum",
 			"social.flockfeeds.lexical.type.MusicRecording",
 			"social.flockfeeds.lexical.type.NewsArticle",
 			"social.flockfeeds.lexical.type.NonprofitType",
@@ -1512,6 +1603,7 @@
 			"social.flockfeeds.lexical.type.OfferCatalog",
 			"social.flockfeeds.lexical.type.OfferItemCondition",
 			"social.flockfeeds.lexical.type.OfferShippingDetails",
+			"social.flockfeeds.lexical.type.Organization",
 			"social.flockfeeds.lexical.type.OwnershipInfo",
 			"social.flockfeeds.lexical.type.PaymentMethod",
 			"social.flockfeeds.lexical.type.Person",

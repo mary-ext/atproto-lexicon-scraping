@@ -70,10 +70,26 @@
 							"maxLength": 2000,
 							"description": "Publication description or tagline",
 							"maxGraphemes": 500
+						},
+						"preferences": {
+							"ref": "#preferences",
+							"type": "ref",
+							"description": "Publication preferences and settings"
 						}
 					}
 				},
 				"description": "Record declaring a publication"
+			},
+			"preferences": {
+				"type": "object",
+				"properties": {
+					"showInDiscover": {
+						"type": "boolean",
+						"default": true,
+						"description": "Whether documents from this publication should appear in public discover feeds"
+					}
+				},
+				"description": "Publication preferences and discovery settings"
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
@@ -81,12 +97,13 @@
 		"description": "A publication (blog) record representing a collection of documents. Contains metadata, branding, theme configuration, and optional extensions. Publications serve as the parent container for blog documents."
 	},
 	"meta": {
-		"indexedAt": 1762474570340,
+		"indexedAt": 1762906561686,
 		"errorAt": 1760659937196
 	},
 	"references": {
 		"main": [
 			"blog.pckt.theme"
-		]
+		],
+		"preferences": []
 	}
 }

@@ -11,20 +11,13 @@
 					"required": [
 						"title",
 						"blocks",
-						"url",
-						"blog"
+						"publication"
 					],
 					"properties": {
-						"url": {
+						"slug": {
 							"type": "string",
-							"format": "uri",
-							"maxLength": 2000,
-							"description": "Canonical URL where this document is published"
-						},
-						"blog": {
-							"ref": "com.atproto.repo.strongRef",
-							"type": "ref",
-							"description": "Reference to the parent publication (blog) this document belongs to"
+							"maxLength": 500,
+							"description": "URL-friendly slug for the document (used to construct canonical URL)"
 						},
 						"tags": {
 							"type": "array",
@@ -94,6 +87,11 @@
 							"format": "datetime",
 							"description": "Timestamp when the document was last modified"
 						},
+						"publication": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "Reference to the parent publication this document belongs to"
+						},
 						"publishedAt": {
 							"type": "string",
 							"format": "datetime",
@@ -108,7 +106,7 @@
 		"description": "A long-form blog document with rich content. Documents belong to a publication (blog) and contain structured content blocks, metadata, and optional media. This is the primary record type for blog posts."
 	},
 	"meta": {
-		"indexedAt": 1762474570340
+		"indexedAt": 1762906561686
 	},
 	"references": {
 		"main": [
