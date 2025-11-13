@@ -820,9 +820,11 @@
 	},
 	"references": {
 		"main": [
+			"social.flockfeeds.lexical.prop.article",
 			"social.flockfeeds.lexical.prop.brand",
 			"social.flockfeeds.lexical.prop.imageObject",
 			"social.flockfeeds.lexical.prop.musicEvent",
+			"social.flockfeeds.lexical.prop.newsArticle",
 			"social.flockfeeds.lexical.prop.offer",
 			"social.flockfeeds.lexical.prop.organization",
 			"social.flockfeeds.lexical.prop.person",
@@ -909,6 +911,7 @@
 			"social.flockfeeds.lexical.type.Service",
 			"social.flockfeeds.lexical.type.ShippingService",
 			"social.flockfeeds.lexical.type.SizeSpecification",
+			"social.flockfeeds.lexical.type.SpeakableSpecification",
 			"social.flockfeeds.lexical.type.StructuredValue",
 			"social.flockfeeds.lexical.type.TextObject",
 			"social.flockfeeds.lexical.type.Thing",
@@ -921,9 +924,11 @@
 			"social.flockfeeds.lexical.type.WebPage"
 		],
 		"embedded": [
+			"social.flockfeeds.lexical.prop.article",
 			"social.flockfeeds.lexical.prop.brand",
 			"social.flockfeeds.lexical.prop.imageObject",
 			"social.flockfeeds.lexical.prop.musicEvent",
+			"social.flockfeeds.lexical.prop.newsArticle",
 			"social.flockfeeds.lexical.prop.offer",
 			"social.flockfeeds.lexical.prop.organization",
 			"social.flockfeeds.lexical.prop.person",
@@ -1010,6 +1015,7 @@
 			"social.flockfeeds.lexical.type.Service",
 			"social.flockfeeds.lexical.type.ShippingService",
 			"social.flockfeeds.lexical.type.SizeSpecification",
+			"social.flockfeeds.lexical.type.SpeakableSpecification",
 			"social.flockfeeds.lexical.type.StructuredValue",
 			"social.flockfeeds.lexical.type.TextObject",
 			"social.flockfeeds.lexical.type.Thing",

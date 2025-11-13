@@ -2022,8 +2022,10 @@
 	},
 	"references": {
 		"main": [
+			"social.flockfeeds.lexical.prop.article",
 			"social.flockfeeds.lexical.prop.brand",
 			"social.flockfeeds.lexical.prop.imageObject",
+			"social.flockfeeds.lexical.prop.newsArticle",
 			"social.flockfeeds.lexical.prop.offer",
 			"social.flockfeeds.lexical.prop.organization",
 			"social.flockfeeds.lexical.prop.person",
@@ -2120,8 +2122,10 @@
 			"social.flockfeeds.lexical.type.WebPage"
 		],
 		"embedded": [
+			"social.flockfeeds.lexical.prop.article",
 			"social.flockfeeds.lexical.prop.brand",
 			"social.flockfeeds.lexical.prop.imageObject",
+			"social.flockfeeds.lexical.prop.newsArticle",
 			"social.flockfeeds.lexical.prop.offer",
 			"social.flockfeeds.lexical.prop.organization",
 			"social.flockfeeds.lexical.prop.person",
