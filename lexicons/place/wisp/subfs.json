@@ -1,7 +1,7 @@
 {
 	"authority": "did:plc:7puq73yz2hkvbcpdhnsze2qw",
 	"schema": {
-		"id": "place.wisp.fs",
+		"id": "place.wisp.subfs",
 		"defs": {
 			"file": {
 				"type": "object",
@@ -44,7 +44,6 @@
 				"record": {
 					"type": "object",
 					"required": [
-						"site",
 						"root",
 						"createdAt"
 					],
@@ -52,9 +51,6 @@
 						"root": {
 							"ref": "#directory",
 							"type": "ref"
-						},
-						"site": {
-							"type": "string"
 						},
 						"createdAt": {
 							"type": "string",
@@ -67,7 +63,7 @@
 						}
 					}
 				},
-				"description": "Virtual filesystem manifest for a Wisp site"
+				"description": "Virtual filesystem subtree referenced by place.wisp.fs records. When a subfs entry is expanded, its root entries are merged (flattened) into the parent directory, allowing large directories to be split across multiple records while maintaining a flat structure."
 			},
 			"entry": {
 				"type": "object",
@@ -97,10 +93,6 @@
 					"subject"
 				],
 				"properties": {
-					"flat": {
-						"type": "boolean",
-						"description": "If true, the subfs record's root entries are merged (flattened) into the parent directory, replacing the subfs entry. If false (default), the subfs entries are placed in a subdirectory with the subfs entry's name. Flat merging is useful for splitting large directories across multiple records while maintaining a flat structure."
-					},
 					"type": {
 						"type": "string",
 						"const": "subfs"
@@ -108,7 +100,7 @@
 					"subject": {
 						"type": "string",
 						"format": "at-uri",
-						"description": "AT-URI pointing to a place.wisp.subfs record containing this subtree."
+						"description": "AT-URI pointing to another place.wisp.subfs record for nested subtrees. When expanded, the referenced record's root entries are merged (flattened) into the parent directory, allowing recursive splitting of large directory structures."
 					}
 				}
 			},
@@ -138,8 +130,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1763252238190,
-		"errorAt": 1762560896603
+		"indexedAt": 1763252238190
 	},
 	"references": {
 		"file": [],
