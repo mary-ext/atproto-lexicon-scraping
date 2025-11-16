@@ -37,11 +37,3 @@ export const scrapedEntrySchema = v.object({
 });
 
 export type ScrapedEntry = v.Infer<typeof scrapedEntrySchema>;
-
-export const stateSchema = v.object({
-	jetstream: v.object({
-		cursor: int,
-	}),
-});
-
-export type State = v.Infer<typeof stateSchema>;
