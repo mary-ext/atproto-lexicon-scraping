@@ -130,7 +130,8 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1763252238190
+		"indexedAt": 1763252238190,
+		"errorAt": 1763338583091
 	},
 	"references": {
 		"file": [],
