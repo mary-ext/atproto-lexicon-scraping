@@ -38,7 +38,8 @@
 		"description": "Preformatted code block with optional syntax highlighting. Preserves whitespace and displays code in a monospace font."
 	},
 	"meta": {
-		"indexedAt": 1762820167045
+		"indexedAt": 1762820167045,
+		"errorAt": 1763424966943
 	},
 	"references": {
 		"main": [
