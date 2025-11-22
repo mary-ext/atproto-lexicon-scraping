@@ -1,0 +1,44 @@
+{
+	"authority": "did:plc:aolkloygz4xdpye44god4oqm",
+	"schema": {
+		"id": "fyi.frontpage.richtext.block",
+		"defs": {
+			"main": {
+				"type": "object",
+				"required": [
+					"content"
+				],
+				"properties": {
+					"content": {
+						"refs": [
+							"#plaintextParagraph"
+						],
+						"type": "union"
+					}
+				}
+			},
+			"plaintextParagraph": {
+				"type": "object",
+				"required": [
+					"text"
+				],
+				"properties": {
+					"text": {
+						"type": "string",
+						"maxLength": 100000,
+						"maxGraphemes": 10000
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1763770519308
+	},
+	"references": {
+		"main": [],
+		"plaintextParagraph": []
+	}
+}
