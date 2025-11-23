@@ -31,6 +31,7 @@
 		"main": [
 			"blog.pckt.block.hardBreak",
 			"blog.pckt.block.listItem",
+			"blog.pckt.block.mention",
 			"blog.pckt.block.orderedList",
 			"blog.pckt.block.paragraph",
 			"blog.pckt.block.text",

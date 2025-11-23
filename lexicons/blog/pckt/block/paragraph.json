@@ -11,12 +11,13 @@
 						"items": {
 							"refs": [
 								"blog.pckt.block.text",
-								"blog.pckt.block.hardBreak"
+								"blog.pckt.block.hardBreak",
+								"blog.pckt.block.mention"
 							],
 							"type": "union",
 							"closed": false
 						},
-						"description": "Array of inline content nodes (text and hard breaks)"
+						"description": "Array of inline content nodes (text, hard breaks, and mentions)"
 					}
 				}
 			}
@@ -26,11 +27,12 @@
 		"description": "A paragraph block containing inline text content with optional formatting. Paragraphs are the basic unit of text content in documents."
 	},
 	"meta": {
-		"indexedAt": 1762647435070
+		"indexedAt": 1763857098965
 	},
 	"references": {
 		"main": [
 			"blog.pckt.block.hardBreak",
+			"blog.pckt.block.mention",
 			"blog.pckt.block.text",
 			"blog.pckt.mark.bold",
 			"blog.pckt.mark.code",

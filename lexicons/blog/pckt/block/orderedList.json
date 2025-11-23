@@ -48,6 +48,7 @@
 			"blog.pckt.block.bulletList",
 			"blog.pckt.block.hardBreak",
 			"blog.pckt.block.listItem",
+			"blog.pckt.block.mention",
 			"blog.pckt.block.paragraph",
 			"blog.pckt.block.text",
 			"blog.pckt.mark.bold",

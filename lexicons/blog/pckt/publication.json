@@ -10,6 +10,7 @@
 					"type": "object",
 					"required": [
 						"name",
+						"basePath",
 						"createdAt"
 					],
 					"properties": {
@@ -97,7 +98,7 @@
 		"description": "A publication (blog) record representing a collection of documents. Contains metadata, branding, theme configuration, and optional extensions. Publications serve as the parent container for blog documents."
 	},
 	"meta": {
-		"indexedAt": 1762906561686,
+		"indexedAt": 1763857098965,
 		"errorAt": 1760659937196
 	},
 	"references": {
