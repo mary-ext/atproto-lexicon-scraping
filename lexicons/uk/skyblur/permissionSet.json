@@ -1,0 +1,49 @@
+{
+	"authority": "did:plc:4sm3vprfyl55ui3yhjd7w4po",
+	"schema": {
+		"id": "uk.skyblur.permissionSet",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Skyblur",
+				"detail": "Posts (including password-protected) and preference",
+				"detail:lang": {
+					"ja-JP": "投稿（パスワード付き含む）および設定"
+				},
+				"permissions": [
+					{
+						"type": "permission",
+						"resource": "repo",
+						"collection": [
+							"uk.skyblur.post",
+							"uk.skyblur.preference"
+						]
+					},
+					{
+						"aud": "*",
+						"lxm": [
+							"uk.skyblur.post.encrypt"
+						],
+						"type": "permission",
+						"resource": "rpc"
+					},
+					{
+						"type": "permission",
+						"accept": [
+							"*/*"
+						],
+						"resource": "blob"
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1763888430441
+	},
+	"references": {
+		"main": []
+	}
+}

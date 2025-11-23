@@ -1,0 +1,322 @@
+{
+	"authority": "did:plc:q3enoeuha5b2zx4p4atxtb7x",
+	"schema": {
+		"id": "org.custorium.temp.jsonfg.geometryObjects",
+		"defs": {
+			"point": {
+				"type": "object",
+				"required": [
+					"coordinates"
+				],
+				"properties": {
+					"bbox": {
+						"refs": [
+							"#bbox2d",
+							"#bbox3d"
+						],
+						"type": "union"
+					},
+					"coordRefSys": {
+						"ref": "org.custorium.temp.jsonfg.coordRefSys",
+						"type": "ref"
+					},
+					"coordinates": {
+						"ref": "#position",
+						"type": "ref"
+					},
+					"denominator": {
+						"ref": "#denominator",
+						"type": "ref"
+					}
+				},
+				"description": "JsonFG Point with additional 'denominator' member"
+			},
+			"bbox2d": {
+				"type": "array",
+				"items": {
+					"ref": "#numerator",
+					"type": "ref"
+				},
+				"maxLength": 4,
+				"minLength": 4
+			},
+			"bbox3d": {
+				"type": "array",
+				"items": {
+					"ref": "#numerator",
+					"type": "ref"
+				},
+				"maxLength": 6,
+				"minLength": 6
+			},
+			"polygon": {
+				"type": "object",
+				"required": [
+					"coordinates"
+				],
+				"properties": {
+					"bbox": {
+						"refs": [
+							"#bbox2d",
+							"#bbox3d"
+						],
+						"type": "union"
+					},
+					"coordRefSys": {
+						"ref": "org.custorium.temp.jsonfg.coordRefSys",
+						"type": "ref"
+					},
+					"coordinates": {
+						"type": "array",
+						"items": {
+							"type": "array",
+							"items": {
+								"ref": "#position",
+								"type": "ref"
+							},
+							"minLength": 4
+						}
+					},
+					"denominator": {
+						"ref": "#denominator",
+						"type": "ref"
+					}
+				},
+				"description": "JsonFG Polygon with additional 'denominator' member"
+			},
+			"position": {
+				"type": "array",
+				"items": {
+					"ref": "#numerator",
+					"type": "ref"
+				},
+				"maxLength": 3,
+				"minLength": 2
+			},
+			"numerator": {
+				"type": "integer",
+				"description": "The numerator of a floating point value ( can be calculated by dividing this numerator with the nearest denominator)"
+			},
+			"lineString": {
+				"type": "object",
+				"required": [
+					"coordinates"
+				],
+				"properties": {
+					"bbox": {
+						"refs": [
+							"#bbox2d",
+							"#bbox3d"
+						],
+						"type": "union"
+					},
+					"coordRefSys": {
+						"ref": "org.custorium.temp.jsonfg.coordRefSys",
+						"type": "ref"
+					},
+					"coordinates": {
+						"type": "array",
+						"items": {
+							"ref": "#position",
+							"type": "ref"
+						}
+					},
+					"denominator": {
+						"ref": "#denominator",
+						"type": "ref"
+					}
+				},
+				"description": "JsonFG LineString with additional 'denominator' member"
+			},
+			"multiPoint": {
+				"type": "object",
+				"required": [
+					"coordinates"
+				],
+				"properties": {
+					"bbox": {
+						"refs": [
+							"#bbox2d",
+							"#bbox3d"
+						],
+						"type": "union"
+					},
+					"coordRefSys": {
+						"ref": "org.custorium.temp.jsonfg.coordRefSys",
+						"type": "ref"
+					},
+					"coordinates": {
+						"type": "array",
+						"items": {
+							"ref": "#position",
+							"type": "ref"
+						}
+					},
+					"denominator": {
+						"ref": "#denominator",
+						"type": "ref"
+					}
+				},
+				"description": "JsonFG MultiPoint with additional 'denominator' member"
+			},
+			"position3d": {
+				"type": "array",
+				"items": {
+					"type": "integer"
+				},
+				"maxLength": 3,
+				"minLength": 3
+			},
+			"denominator": {
+				"type": "integer",
+				"default": 0,
+				"description": "The denominator of the coordinates so a denominator value of 10 and a coordinate ( numerator ) value of 1 mean a float coordinate of 0.1"
+			},
+			"multiPolygon": {
+				"type": "object",
+				"required": [
+					"coordinates"
+				],
+				"properties": {
+					"bbox": {
+						"refs": [
+							"#bbox2d",
+							"#bbox3d"
+						],
+						"type": "union"
+					},
+					"coordRefSys": {
+						"ref": "org.custorium.temp.jsonfg.coordRefSys",
+						"type": "ref"
+					},
+					"coordinates": {
+						"type": "array",
+						"items": {
+							"type": "array",
+							"items": {
+								"type": "array",
+								"items": {
+									"ref": "#position",
+									"type": "ref"
+								},
+								"minLength": 4
+							}
+						}
+					},
+					"denominator": {
+						"ref": "#denominator",
+						"type": "ref"
+					}
+				},
+				"description": "JsonFG MultiPolygon with additional 'denominator' member"
+			},
+			"multiLineString": {
+				"type": "object",
+				"required": [
+					"coordinates"
+				],
+				"properties": {
+					"bbox": {
+						"refs": [
+							"#bbox2d",
+							"#bbox3d"
+						],
+						"type": "union"
+					},
+					"coordRefSys": {
+						"ref": "org.custorium.temp.jsonfg.coordRefSys",
+						"type": "ref"
+					},
+					"coordinates": {
+						"type": "array",
+						"items": {
+							"type": "array",
+							"items": {
+								"ref": "#position",
+								"type": "ref"
+							},
+							"minLength": 2
+						}
+					},
+					"denominator": {
+						"ref": "#denominator",
+						"type": "ref"
+					}
+				},
+				"description": "JsonFG MultiLineString with additional 'denominator' member"
+			},
+			"geometryCollection": {
+				"type": "object",
+				"required": [
+					"geometries"
+				],
+				"properties": {
+					"bbox": {
+						"refs": [
+							"#bbox2d",
+							"#bbox3d"
+						],
+						"type": "union"
+					},
+					"type": {
+						"enum": [
+							"GeometryCollection"
+						],
+						"type": "string"
+					},
+					"geometries": {
+						"refs": [
+							"#point",
+							"#lineString",
+							"#polygon",
+							"#multiPoint",
+							"#multiLineString",
+							"#multiPolygon"
+						],
+						"type": "union"
+					},
+					"coordRefSys": {
+						"ref": "org.custorium.temp.jsonfg.coordRefSys",
+						"type": "ref"
+					}
+				},
+				"description": "JsonFG GeometryCollection"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "WIP, A straitforward translation from OGC Features and Geometries Json (https://portal.ogc.org/files/107269#schema-geometry-objects) to ATProto lexicon, following the draft lexicon styleguide. The most distinct change is addition of a denominator property to higher level objects and using the name native ATProto $type instead of type"
+	},
+	"meta": {
+		"indexedAt": 1763888430441
+	},
+	"references": {
+		"point": [
+			"org.custorium.temp.jsonfg.coordRefSys"
+		],
+		"bbox2d": [],
+		"bbox3d": [],
+		"polygon": [
+			"org.custorium.temp.jsonfg.coordRefSys"
+		],
+		"position": [],
+		"numerator": [],
+		"lineString": [
+			"org.custorium.temp.jsonfg.coordRefSys"
+		],
+		"multiPoint": [
+			"org.custorium.temp.jsonfg.coordRefSys"
+		],
+		"position3d": [],
+		"denominator": [],
+		"multiPolygon": [
+			"org.custorium.temp.jsonfg.coordRefSys"
+		],
+		"multiLineString": [
+			"org.custorium.temp.jsonfg.coordRefSys"
+		],
+		"geometryCollection": [
+			"org.custorium.temp.jsonfg.coordRefSys"
+		]
+	}
+}

@@ -1,0 +1,42 @@
+{
+	"authority": "did:plc:jouroezrzk55xq3kbg34gqum",
+	"schema": {
+		"id": "com.welistskyblue.permissionSet",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "WeListSkyBlue",
+				"detail": "Edit lists and interactions",
+				"detail:lang": {
+					"en": "Edit lists and interactions",
+					"de-DE": "Listen und Interaktionen bearbeiten",
+					"es-ES": "Editar listas e interacciones",
+					"fr-FR": "Modifier les listes et les interactions",
+					"ja-JP": "リスト編集およびインタラクション",
+					"pt-BR": "Editar listas e interações"
+				},
+				"permissions": [
+					{
+						"type": "permission",
+						"resource": "repo",
+						"collection": [
+							"com.welistskyblue.list.collection",
+							"com.welistskyblue.list.item",
+							"com.welistskyblue.list.like",
+							"com.welistskyblue.list.congrats",
+							"com.welistskyblue.list.comment"
+						]
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1763888430441
+	},
+	"references": {
+		"main": []
+	}
+}
