@@ -3,6 +3,7 @@ import { glob } from 'node:fs/promises';
 import { differenceInDays } from 'date-fns/differenceInDays';
 import { dequal } from 'dequal';
 
+import { refineLexiconDoc } from '@atcute/lexicon-doc';
 import {
 	DohJsonLexiconAuthorityResolver,
 	LexiconSchemaResolver,
@@ -91,8 +92,19 @@ for await (const relname of sortedEntries) {
 			break main;
 		}
 
-		if (!dequal(resolved.rawSchema, doc.schema)) {
-			doc.schema = resolved.rawSchema as BareDocument;
+		const issues = refineLexiconDoc(resolved.schema, true);
+		if (issues.length > 0) {
+			console.log(`  found linting errors`);
+
+			for (const issue of issues) {
+				console.log(`    - .${issue.path.join('.')}: ${issue.message}`);
+			}
+
+			break main;
+		}
+
+		if (!dequal(resolved.schema, doc.schema)) {
+			doc.schema = resolved.schema as BareDocument;
 			doc.meta.indexedAt = startedAt;
 		}
 

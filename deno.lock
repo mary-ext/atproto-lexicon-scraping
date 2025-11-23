@@ -2,13 +2,13 @@
   "version": "5",
   "specifiers": {
     "jsr:@mary/array-fns@~0.1.5": "0.1.5",
-    "npm:@atcute/atproto@^3.1.7": "3.1.7",
-    "npm:@atcute/client@^4.0.4": "4.0.4",
-    "npm:@atcute/identity-resolver@^1.1.4": "1.1.4_@atcute+identity@1.1.1",
-    "npm:@atcute/identity@^1.1.1": "1.1.1",
-    "npm:@atcute/lexicon-doc@^1.1.3": "1.1.3",
-    "npm:@atcute/lexicon-resolver@~0.1.2": "0.1.2_@atcute+identity@1.1.1_@atcute+identity-resolver@1.1.4__@atcute+identity@1.1.1",
-    "npm:@atcute/lexicons@^1.2.2": "1.2.2",
+    "npm:@atcute/atproto@^3.1.9": "3.1.9",
+    "npm:@atcute/client@^4.0.5": "4.0.5",
+    "npm:@atcute/identity-resolver@^1.1.4": "1.1.4_@atcute+identity@1.1.2",
+    "npm:@atcute/identity@^1.1.2": "1.1.2",
+    "npm:@atcute/lexicon-doc@2": "2.0.0",
+    "npm:@atcute/lexicon-resolver@~0.1.4": "0.1.4_@atcute+identity@1.1.2_@atcute+identity-resolver@1.1.4__@atcute+identity@1.1.2",
+    "npm:@atcute/lexicons@^1.2.4": "1.2.4",
     "npm:@badrap/valita@~0.4.6": "0.4.6",
     "npm:date-fns@^4.1.0": "4.1.0",
     "npm:dequal@^2.0.3": "2.0.3"
@@ -19,53 +19,52 @@
     }
   },
   "npm": {
-    "@atcute/atproto@3.1.7": {
-      "integrity": "sha512-3Ym8qaVZg2vf8qw0KO1aue39z/5oik5J+UDoSes1vr8ddw40UVLA5sV4bXSKmLnhzQHiLLgoVZXe4zaKfozPoQ==",
+    "@atcute/atproto@3.1.9": {
+      "integrity": "sha512-DyWwHCTdR4hY2BPNbLXgVmm7lI+fceOwWbE4LXbGvbvVtSn+ejSVFaAv01Ra3kWDha0whsOmbJL8JP0QPpf1+w==",
       "dependencies": [
         "@atcute/lexicons"
       ]
     },
-    "@atcute/car@3.1.2": {
-      "integrity": "sha512-OZoi1C20Nj8aDRM/A5JeeQMLsQRm6/B7PqVI7T2tyoojiBsL+Vm42QRKxtTsJg+VFaTnWhOzQbf08GZpf2YW4Q==",
+    "@atcute/car@5.0.0": {
+      "integrity": "sha512-OIY2xTXv8lSpZsDSn/UYQtJSMvDw5Hi4Q+uyvmiqSM+fht08QRAEq/nxa5YFciPZ3nfDFnZ3//EgJw7QhkSXLQ==",
       "dependencies": [
         "@atcute/cbor",
         "@atcute/cid",
         "@atcute/uint8array",
-        "@atcute/varint",
-        "yocto-queue"
+        "@atcute/varint"
       ]
     },
-    "@atcute/cbor@2.2.6": {
-      "integrity": "sha512-pDfsn/vPTmgeXZiZdyc5vCGCPSxWlfTUIGFMCd5SroAgoLk1v9xxF7R/8+gt1lj1OKAwCwhS0doVmtLjqqzdbA==",
+    "@atcute/cbor@2.2.8": {
+      "integrity": "sha512-UzOAN9BuN6JCXgn0ryV8qZuRJUDrNqrbLd6EFM8jc6RYssjRyGRxNy6RZ1NU/07Hd8Tq/0pz8+nQiMu5Zai5uw==",
       "dependencies": [
         "@atcute/cid",
         "@atcute/multibase",
         "@atcute/uint8array"
       ]
     },
-    "@atcute/cid@2.2.4": {
-      "integrity": "sha512-6RUMyt7rp6KOSb4TWwifOZURnFrGgKqYyjVkYjiAcscZWgJpJxwoCUCdonxCfxhQtB0yJ+WlfqNXicGB+Pe94A==",
+    "@atcute/cid@2.2.6": {
+      "integrity": "sha512-bTAHHbJ24p+E//V4KCS4xdmd39o211jJswvqQOevj7vk+5IYcgDLx1ryZWZ1sEPOo9x875li/kj5gpKL14RDwQ==",
       "dependencies": [
         "@atcute/multibase",
         "@atcute/uint8array"
       ]
     },
-    "@atcute/client@4.0.4": {
-      "integrity": "sha512-0vkYe6HcGAef8FS4dlGMqCCPG4I4Lve1R8Amk8UEviUVofiqlv1WGoeez9CJFL8G/7vhcgVV9rPTHLJEjZ4RdQ==",
+    "@atcute/client@4.0.5": {
+      "integrity": "sha512-R8Qen8goGmEkynYGg2m6XFlVmz0GTDvQ+9w+4QqOob+XMk8/WDpF4aImev7WKEde/rV2gjcqW7zM8E6W9NShDA==",
       "dependencies": [
         "@atcute/identity",
         "@atcute/lexicons"
       ]
     },
-    "@atcute/crypto@2.2.5": {
-      "integrity": "sha512-9CbQ9cJ68XewsbLrgdmWQS2uDD9D0hizWFJ3OOZ16TCuARREmzKEpFgHlMxPswR3bDxjwfiXzmYUlHaTqsnxRQ==",
+    "@atcute/crypto@2.2.6": {
+      "integrity": "sha512-vkuexF+kmrKE1/Uqzub99Qi4QpnxA2jbu60E6PTgL4XypELQ6rb59MB/J1VbY2gs0kd3ET7+L3+NWpKD5nXyfA==",
       "dependencies": [
         "@atcute/multibase",
         "@atcute/uint8array",
         "@noble/secp256k1"
       ]
     },
-    "@atcute/identity-resolver@1.1.4_@atcute+identity@1.1.1": {
+    "@atcute/identity-resolver@1.1.4_@atcute+identity@1.1.2": {
       "integrity": "sha512-/SVh8vf2cXFJenmBnGeYF2aY3WGQm3cJeew5NWTlkqoy3LvJ5wkvKq9PWu4Tv653VF40rPOp6LOdVr9Fa+q5rA==",
       "dependencies": [
         "@atcute/identity",
@@ -74,45 +73,63 @@
         "@badrap/valita"
       ]
     },
-    "@atcute/identity@1.1.1": {
-      "integrity": "sha512-zax42n693VEhnC+5tndvO2KLDTMkHOz8UExwmklvJv7R9VujfEwiSWhcv6Jgwb3ellaG8wjiQ1lMOIjLLvwh0Q==",
+    "@atcute/identity@1.1.2": {
+      "integrity": "sha512-vn0RN7SUF6N0sEPG9yyT6a0MzpfVS8BhsiLtB8OeS4qp2rLMQW33pelCpNitP1N+fq03MFlDGzs5p7K4qMs4cA==",
       "dependencies": [
         "@atcute/lexicons",
         "@badrap/valita"
       ]
     },
-    "@atcute/lexicon-doc@1.1.3": {
-      "integrity": "sha512-HlQBmB4NCZPzREyVzr7lzjRxSiRHook2xfa7DgA3dk3oYZ+KnnPEtS6M1sAmAAddtUdrOrJ+0xJPQHkfElZmpQ==",
+    "@atcute/lexicon-doc@2.0.0": {
+      "integrity": "sha512-Lw2e5FGUgV8vPZ9TLBKMtvgUnxFm4HNOl1ta/kQDZPwT5xL5QnhqBHJ4h0sjxec21KlIPLHMvE7j41lW7ecrPA==",
       "dependencies": [
+        "@atcute/lexicons",
         "@badrap/valita"
       ]
     },
-    "@atcute/lexicon-resolver@0.1.2_@atcute+identity@1.1.1_@atcute+identity-resolver@1.1.4__@atcute+identity@1.1.1": {
-      "integrity": "sha512-qiBZspJQIcVL/9ZkWMIThsavbX4PL6F2IEEow5V/eCgKiknfq5G2X4ULb+iKvI2vwl9STCeUpctUT3/q4nXVqg==",
+    "@atcute/lexicon-resolver@0.1.4_@atcute+identity@1.1.2_@atcute+identity-resolver@1.1.4__@atcute+identity@1.1.2": {
+      "integrity": "sha512-8MAN3wrlP+PvyAbzHgzavaGeNNHq/r0LDEV4ABqDozHIZ2pcLR3O3J40UdiGW6ldeC/YciSkkmpl6f/zP3sXzw==",
       "dependencies": [
-        "@atcute/car",
-        "@atcute/cbor",
-        "@atcute/cid",
         "@atcute/crypto",
         "@atcute/identity",
         "@atcute/identity-resolver",
         "@atcute/lexicon-doc",
         "@atcute/lexicons",
-        "@atcute/uint8array",
+        "@atcute/repo",
         "@atcute/util-fetch",
         "@badrap/valita"
       ]
     },
-    "@atcute/lexicons@1.2.2": {
-      "integrity": "sha512-bgEhJq5Z70/0TbK5sx+tAkrR8FsCODNiL2gUEvS5PuJfPxmFmRYNWaMGehxSPaXWpU2+Oa9ckceHiYbrItDTkA==",
+    "@atcute/lexicons@1.2.4": {
+      "integrity": "sha512-s6fl/SVjQMv7jiitLCcZ434X+VrTsJt7Fl9iJg8WXHJIELRz/U0sNUoP++oWd7bvPy1Vcd2Wnm+YtTm/Zn7AIQ==",
       "dependencies": [
         "@standard-schema/spec",
         "esm-env"
       ]
     },
+    "@atcute/mst@0.1.0": {
+      "integrity": "sha512-h+iDToKEnBpigk2DOHjSqY63vJtjYKUIztqu1CZ0P+I54wV2SrgoqAXAT1xrW6A1Iup8cjTv+U2H5WVG4KxPLw==",
+      "dependencies": [
+        "@atcute/cbor",
+        "@atcute/cid",
+        "@atcute/uint8array"
+      ]
+    },
     "@atcute/multibase@1.1.6": {
       "integrity": "sha512-HBxuCgYLKPPxETV0Rot4VP9e24vKl8JdzGCZOVsDaOXJgbRZoRIF67Lp0H/OgnJeH/Xpva8Z5ReoTNJE5dn3kg==",
       "dependencies": [
+        "@atcute/uint8array"
+      ]
+    },
+    "@atcute/repo@0.1.0": {
+      "integrity": "sha512-INiYAuma8dydBu7cqd2WVpcXh3mzhIepYBUqFWAK5MqMulPRLTRCc/9GW3G9pxYrOdlvLCVamG2Jf8XK0nuFEw==",
+      "dependencies": [
+        "@atcute/car",
+        "@atcute/cbor",
+        "@atcute/cid",
+        "@atcute/crypto",
+        "@atcute/lexicons",
+        "@atcute/mst",
         "@atcute/uint8array"
       ]
     },
@@ -131,8 +148,8 @@
     "@badrap/valita@0.4.6": {
       "integrity": "sha512-4kdqcjyxo/8RQ8ayjms47HCWZIF5981oE5nIenbfThKDxWXtEHKipAOWlflpPJzZx9y/JWYQkp18Awr7VuepFg=="
     },
-    "@noble/secp256k1@2.3.0": {
-      "integrity": "sha512-0TQed2gcBbIrh7Ccyw+y/uZQvbJwm7Ao4scBUxqpBCcsOlZG0O4KGfjtNAy/li4W8n1xt3dxrwJ0beZ2h2G6Kw=="
+    "@noble/secp256k1@3.0.0": {
+      "integrity": "sha512-NJBaR352KyIvj3t6sgT/+7xrNyF9Xk9QlLSIqUGVUYlsnDTAUqY8LOmwpcgEx4AMJXRITQ5XEVHD+mMaPfr3mg=="
     },
     "@standard-schema/spec@1.0.0": {
       "integrity": "sha512-m2bOd0f2RT9k8QJx1JN85cZYyH1RqFBdlwtkSlf4tBDYLCiiZnv1fIIwacK6cqwXavOydf0NPToMQgpKq+dVlA=="
@@ -145,21 +162,18 @@
     },
     "esm-env@1.2.2": {
       "integrity": "sha512-Epxrv+Nr/CaL4ZcFGPJIYLWFom+YeV1DqMLHJoEd9SYRxNbaFruBwfEX/kkHUJf55j2+TUbmDcmuilbP1TmXHA=="
-    },
-    "yocto-queue@1.2.1": {
-      "integrity": "sha512-AyeEbWOu/TAXdxlV9wmGcR0+yh2j3vYPGOECcIj2S7MkrLyC7ne+oye2BKTItt0ii2PHk4cDy+95+LshzbXnGg=="
     }
   },
   "workspace": {
     "dependencies": [
       "jsr:@mary/array-fns@~0.1.5",
-      "npm:@atcute/atproto@^3.1.7",
-      "npm:@atcute/client@^4.0.4",
+      "npm:@atcute/atproto@^3.1.9",
+      "npm:@atcute/client@^4.0.5",
       "npm:@atcute/identity-resolver@^1.1.4",
-      "npm:@atcute/identity@^1.1.1",
-      "npm:@atcute/lexicon-doc@^1.1.3",
-      "npm:@atcute/lexicon-resolver@~0.1.2",
-      "npm:@atcute/lexicons@^1.2.2",
+      "npm:@atcute/identity@^1.1.2",
+      "npm:@atcute/lexicon-doc@2",
+      "npm:@atcute/lexicon-resolver@~0.1.4",
+      "npm:@atcute/lexicons@^1.2.4",
       "npm:@badrap/valita@~0.4.6",
       "npm:date-fns@^4.1.0",
       "npm:dequal@^2.0.3"
