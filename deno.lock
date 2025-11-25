@@ -3,12 +3,12 @@
   "specifiers": {
     "jsr:@mary/array-fns@~0.1.5": "0.1.5",
     "npm:@atcute/atproto@^3.1.9": "3.1.9",
-    "npm:@atcute/client@^4.0.5": "4.0.5",
-    "npm:@atcute/identity-resolver@^1.1.4": "1.1.4_@atcute+identity@1.1.2",
-    "npm:@atcute/identity@^1.1.2": "1.1.2",
-    "npm:@atcute/lexicon-doc@2": "2.0.0",
-    "npm:@atcute/lexicon-resolver@~0.1.4": "0.1.4_@atcute+identity@1.1.2_@atcute+identity-resolver@1.1.4__@atcute+identity@1.1.2",
-    "npm:@atcute/lexicons@^1.2.4": "1.2.4",
+    "npm:@atcute/client@^4.1.0": "4.1.0",
+    "npm:@atcute/identity-resolver@^1.1.4": "1.1.4_@atcute+identity@1.1.3",
+    "npm:@atcute/identity@^1.1.3": "1.1.3",
+    "npm:@atcute/lexicon-doc@^2.0.2": "2.0.2",
+    "npm:@atcute/lexicon-resolver@~0.1.4": "0.1.4_@atcute+identity@1.1.3_@atcute+identity-resolver@1.1.4__@atcute+identity@1.1.3",
+    "npm:@atcute/lexicons@^1.2.5": "1.2.5",
     "npm:@badrap/valita@~0.4.6": "0.4.6",
     "npm:date-fns@^4.1.0": "4.1.0",
     "npm:dequal@^2.0.3": "2.0.3"
@@ -49,8 +49,8 @@
         "@atcute/uint8array"
       ]
     },
-    "@atcute/client@4.0.5": {
-      "integrity": "sha512-R8Qen8goGmEkynYGg2m6XFlVmz0GTDvQ+9w+4QqOob+XMk8/WDpF4aImev7WKEde/rV2gjcqW7zM8E6W9NShDA==",
+    "@atcute/client@4.1.0": {
+      "integrity": "sha512-AYhSu3RSDA2VDkVGOmad320NRbUUUf5pCFWJcOzlk25YC/4kyzmMFfpzhf1jjjEcY+anNBXGGhav/kKB1evggQ==",
       "dependencies": [
         "@atcute/identity",
         "@atcute/lexicons"
@@ -64,7 +64,7 @@
         "@noble/secp256k1"
       ]
     },
-    "@atcute/identity-resolver@1.1.4_@atcute+identity@1.1.2": {
+    "@atcute/identity-resolver@1.1.4_@atcute+identity@1.1.3": {
       "integrity": "sha512-/SVh8vf2cXFJenmBnGeYF2aY3WGQm3cJeew5NWTlkqoy3LvJ5wkvKq9PWu4Tv653VF40rPOp6LOdVr9Fa+q5rA==",
       "dependencies": [
         "@atcute/identity",
@@ -73,21 +73,22 @@
         "@badrap/valita"
       ]
     },
-    "@atcute/identity@1.1.2": {
-      "integrity": "sha512-vn0RN7SUF6N0sEPG9yyT6a0MzpfVS8BhsiLtB8OeS4qp2rLMQW33pelCpNitP1N+fq03MFlDGzs5p7K4qMs4cA==",
+    "@atcute/identity@1.1.3": {
+      "integrity": "sha512-oIqPoI8TwWeQxvcLmFEZLdN2XdWcaLVtlm8pNk0E72As9HNzzD9pwKPrLr3rmTLRIoULPPFmq9iFNsTeCIU9ng==",
       "dependencies": [
         "@atcute/lexicons",
         "@badrap/valita"
       ]
     },
-    "@atcute/lexicon-doc@2.0.0": {
-      "integrity": "sha512-Lw2e5FGUgV8vPZ9TLBKMtvgUnxFm4HNOl1ta/kQDZPwT5xL5QnhqBHJ4h0sjxec21KlIPLHMvE7j41lW7ecrPA==",
+    "@atcute/lexicon-doc@2.0.2": {
+      "integrity": "sha512-AzXftnl4j1I2kOMIUhLQokOHYeb/RdfVFLseiyCJhxakNIwSK0cPjYq+jmGPaRqqGqDNKLCUNjVNDDruQbA+oA==",
       "dependencies": [
+        "@atcute/identity",
         "@atcute/lexicons",
         "@badrap/valita"
       ]
     },
-    "@atcute/lexicon-resolver@0.1.4_@atcute+identity@1.1.2_@atcute+identity-resolver@1.1.4__@atcute+identity@1.1.2": {
+    "@atcute/lexicon-resolver@0.1.4_@atcute+identity@1.1.3_@atcute+identity-resolver@1.1.4__@atcute+identity@1.1.3": {
       "integrity": "sha512-8MAN3wrlP+PvyAbzHgzavaGeNNHq/r0LDEV4ABqDozHIZ2pcLR3O3J40UdiGW6ldeC/YciSkkmpl6f/zP3sXzw==",
       "dependencies": [
         "@atcute/crypto",
@@ -100,8 +101,8 @@
         "@badrap/valita"
       ]
     },
-    "@atcute/lexicons@1.2.4": {
-      "integrity": "sha512-s6fl/SVjQMv7jiitLCcZ434X+VrTsJt7Fl9iJg8WXHJIELRz/U0sNUoP++oWd7bvPy1Vcd2Wnm+YtTm/Zn7AIQ==",
+    "@atcute/lexicons@1.2.5": {
+      "integrity": "sha512-9yO9WdgxW8jZ7SbzUycH710z+JmsQ9W9n5S6i6eghYju32kkluFmgBeS47r8e8p2+Dv4DemS7o/3SUGsX9FR5Q==",
       "dependencies": [
         "@standard-schema/spec",
         "esm-env"
@@ -168,12 +169,12 @@
     "dependencies": [
       "jsr:@mary/array-fns@~0.1.5",
       "npm:@atcute/atproto@^3.1.9",
-      "npm:@atcute/client@^4.0.5",
+      "npm:@atcute/client@^4.1.0",
       "npm:@atcute/identity-resolver@^1.1.4",
-      "npm:@atcute/identity@^1.1.2",
-      "npm:@atcute/lexicon-doc@2",
+      "npm:@atcute/identity@^1.1.3",
+      "npm:@atcute/lexicon-doc@^2.0.2",
       "npm:@atcute/lexicon-resolver@~0.1.4",
-      "npm:@atcute/lexicons@^1.2.4",
+      "npm:@atcute/lexicons@^1.2.5",
       "npm:@badrap/valita@~0.4.6",
       "npm:date-fns@^4.1.0",
       "npm:dequal@^2.0.3"
