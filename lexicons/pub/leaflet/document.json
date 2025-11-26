@@ -11,8 +11,7 @@
 					"required": [
 						"pages",
 						"author",
-						"title",
-						"publication"
+						"title"
 					],
 					"properties": {
 						"pages": {
@@ -24,6 +23,10 @@
 								],
 								"type": "union"
 							}
+						},
+						"theme": {
+							"ref": "pub.leaflet.publication#theme",
+							"type": "ref"
 						},
 						"title": {
 							"type": "string",
@@ -62,7 +65,7 @@
 		"description": "A lexicon for long form rich media documents"
 	},
 	"meta": {
-		"indexedAt": 1761351322244,
+		"indexedAt": 1764116164158,
 		"errorAt": 1760659937196
 	},
 	"references": {
@@ -84,7 +87,10 @@
 			"pub.leaflet.blocks.website",
 			"pub.leaflet.pages.canvas",
 			"pub.leaflet.pages.linearDocument",
-			"pub.leaflet.richtext.facet"
+			"pub.leaflet.publication",
+			"pub.leaflet.richtext.facet",
+			"pub.leaflet.theme.backgroundImage",
+			"pub.leaflet.theme.color"
 		]
 	}
 }
