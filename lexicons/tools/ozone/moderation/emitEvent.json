@@ -100,6 +100,7 @@
 	},
 	"references": {
 		"main": [
+			"app.bsky.ageassurance.defs",
 			"chat.bsky.convo.defs",
 			"com.atproto.admin.defs",
 			"com.atproto.moderation.defs",

@@ -1,0 +1,56 @@
+{
+	"authority": "did:plc:xhvreb3sb62k5u73jkjt64jr",
+	"schema": {
+		"id": "org.okazu-diary.embed.external",
+		"defs": {
+			"main": {
+				"type": "object",
+				"required": [
+					"uri"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "uri"
+					},
+					"thumb": {
+						"ref": "#thumb",
+						"type": "ref"
+					},
+					"title": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					}
+				}
+			},
+			"thumb": {
+				"type": "object",
+				"required": [
+					"cid",
+					"uri"
+				],
+				"properties": {
+					"cid": {
+						"type": "string",
+						"format": "cid"
+					},
+					"uri": {
+						"type": "string",
+						"format": "uri"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1764548391461
+	},
+	"references": {
+		"main": [],
+		"thumb": []
+	}
+}

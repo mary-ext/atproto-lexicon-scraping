@@ -1,0 +1,89 @@
+{
+	"authority": "did:plc:xhvreb3sb62k5u73jkjt64jr",
+	"schema": {
+		"id": "org.okazu-diary.feed.entry",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"datetime"
+					],
+					"properties": {
+						"via": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "Reference to another `org.okazu-diary.feed.entry` record or an `org.okazu-diary.feed.collectionItem` record whose `subjects` this collection item is derived from."
+						},
+						"note": {
+							"type": "string",
+							"maxLength": 5000,
+							"description": "Remarks on the activity.",
+							"maxGraphemes": 500
+						},
+						"tags": {
+							"type": "array",
+							"items": {
+								"ref": "org.okazu-diary.feed.defs#tag",
+								"type": "ref"
+							},
+							"maxLength": 64,
+							"description": "User-specified tags for the entry."
+						},
+						"labels": {
+							"refs": [
+								"com.atproto.label.defs#selfLabels"
+							],
+							"type": "union",
+							"description": "General-purpose self-label values primarily for consumption by generic AT clients who may not expect the sensitive nature of this Lexicon. Publishers of this record are strongly recommended to always include at least one of the protocol-global label values; namely, `porn`, `sexual`, `graphic-media`, and `nudity`, unless the subjects, tags, and the note are all known to be safe by themselves. It is the safest to unconditionally include the `sexual` value, which has the `adultOnly` semantics, but it is acceptable to use a stronger (`porn`/`graphic-media`) or more moderate (`nudity`) value instead if the user decides so. To put warnings on the subject even for explicit users of the Okazu-Diary.org application, put self-labels in the `labels` property value of individual `subject` values as well."
+						},
+						"datetime": {
+							"type": "string",
+							"description": "User-defined date and time associated with the activity, typically the datetime of the climax of the activity or simply of the record creation. The string format must satisfy all the requirements of the `datetime` format from the Lexicon language, except the requirement of whole seconds precision, but the datetime must at least specify up to the day (e.g. valid: `4545-07-21Z`, `1919-04-05T04:05+09:00`, invalid: `1919Z`). This is a subset of ISO 8601-1:2019 datetime format, but not RFC 3339 (whose time format requires whole seconds precision)."
+						},
+						"subjects": {
+							"type": "array",
+							"items": {
+								"ref": "org.okazu-diary.feed.defs#subject",
+								"type": "ref"
+							},
+							"maxLength": 16,
+							"description": "Materials used for gratification. Leave the array empty if it is known that there is no applicable material. Omit the property if the materials are uncertain."
+						},
+						"hadHiatus": {
+							"type": "boolean",
+							"default": false,
+							"description": "If `true`, indicates that there may have been unrecorded activities since the last entry, so that the data in the meantime are not reliable for statistical purposes."
+						},
+						"visibility": {
+							"type": "string",
+							"default": "public",
+							"description": "Indicates the intended audience of the entry. A `public` entry (default) is fully public. An `unlisted` entry should not be listed in public profile feeds.",
+							"knownValues": [
+								"public",
+								"unlisted"
+							]
+						}
+					}
+				},
+				"description": "A diary entry to record a self-gratification activity."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1764548391461
+	},
+	"references": {
+		"main": [
+			"com.atproto.label.defs",
+			"com.atproto.repo.strongRef",
+			"org.okazu-diary.embed.external",
+			"org.okazu-diary.embed.record",
+			"org.okazu-diary.feed.defs"
+		]
+	}
+}

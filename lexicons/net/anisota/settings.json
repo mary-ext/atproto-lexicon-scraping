@@ -603,6 +603,14 @@
 						"type": "boolean",
 						"description": "Show newest posts first"
 					},
+					"showBlockedPosts": {
+						"type": "boolean",
+						"description": "Show content from users you have blocked"
+					},
+					"showOlderSection": {
+						"type": "boolean",
+						"description": "Show Older section in notifications"
+					},
 					"confirmDraftSaves": {
 						"type": "boolean",
 						"description": "Show warning before saving drafts"
@@ -619,6 +627,10 @@
 					"keyboardShortcuts": {
 						"ref": "#keyboardShortcuts",
 						"type": "ref"
+					},
+					"showUnreadSection": {
+						"type": "boolean",
+						"description": "Show Unread section in notifications"
 					},
 					"batchNotifications": {
 						"type": "boolean",
@@ -645,6 +657,10 @@
 						"type": "boolean",
 						"description": "Hide posts that have been liked or reposted to focus on new content"
 					},
+					"bypassDetachedQuotes": {
+						"type": "boolean",
+						"description": "Bypass detached quotes to see the full content that was removed by the author"
+					},
 					"showThreadSuggestion": {
 						"type": "boolean",
 						"description": "Show thread suggestion when typing beyond character limit in post composer"
@@ -669,6 +685,10 @@
 						"type": "boolean",
 						"description": "Force chronological sorting of posts"
 					},
+					"highlightNotifications": {
+						"type": "boolean",
+						"description": "Enable notification highlighting to surface important notifications from notable accounts"
+					},
 					"includeReplyEngagement": {
 						"type": "boolean",
 						"description": "Include engagement metrics from reply posts in stats calculations"
@@ -679,6 +699,40 @@
 					},
 					"filterRelationshipTypes": {
 						"ref": "#filterRelationshipTypes",
+						"type": "ref"
+					},
+					"showRecentlyReadSection": {
+						"type": "boolean",
+						"description": "Show Recently Read section in notifications"
+					},
+					"highlightByFollowerRatio": {
+						"type": "boolean",
+						"description": "Also require a minimum follower-to-following ratio for highlighting"
+					},
+					"showNewHighlightsSection": {
+						"type": "boolean",
+						"description": "Show New Highlights section in notifications"
+					},
+					"showNotificationSections": {
+						"type": "boolean",
+						"description": "Enable notification sections (New Highlights, Unread, Recently Read, Older)"
+					},
+					"highlightMaxFollowerCount": {
+						"type": "integer",
+						"description": "Maximum follower count for notification highlighting"
+					},
+					"highlightMinFollowerCount": {
+						"type": "string",
+						"maxLength": 20,
+						"description": "Minimum follower count for notification highlighting (stored as string or integer)"
+					},
+					"highlightMinFollowerRatio": {
+						"type": "string",
+						"maxLength": 20,
+						"description": "Minimum follower-to-following ratio for highlighting (stored as string)"
+					},
+					"highlightNotificationTypes": {
+						"ref": "#highlightNotificationTypes",
 						"type": "ref"
 					},
 					"filterNotificationsByFollowers": {
@@ -910,6 +964,35 @@
 				},
 				"description": "Post composer keyboard shortcuts"
 			},
+			"highlightNotificationTypes": {
+				"type": "object",
+				"properties": {
+					"likes": {
+						"type": "boolean",
+						"description": "Highlight like notifications"
+					},
+					"quotes": {
+						"type": "boolean",
+						"description": "Highlight quote notifications"
+					},
+					"follows": {
+						"type": "boolean",
+						"description": "Highlight follow notifications"
+					},
+					"replies": {
+						"type": "boolean",
+						"description": "Highlight reply notifications"
+					},
+					"reposts": {
+						"type": "boolean",
+						"description": "Highlight repost notifications"
+					},
+					"mentions": {
+						"type": "boolean",
+						"description": "Highlight mention notifications"
+					}
+				}
+			},
 			"keyboardShortcutsNavigation": {
 				"type": "object",
 				"properties": {
@@ -972,7 +1055,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1762474570340
+		"indexedAt": 1764548391461
 	},
 	"references": {
 		"main": [],
@@ -991,6 +1074,7 @@
 		"keyboardShortcutsGlobal": [],
 		"keyboardShortcutsModals": [],
 		"keyboardShortcutsComposer": [],
+		"highlightNotificationTypes": [],
 		"keyboardShortcutsNavigation": [],
 		"keyboardShortcutsPostInteractions": []
 	}

@@ -1,0 +1,124 @@
+{
+	"authority": "did:plc:gqpqghnqiowg5424adjwmhmg",
+	"schema": {
+		"id": "art.cllctv.embed.images",
+		"defs": {
+			"main": {
+				"type": "object",
+				"required": [
+					"images"
+				],
+				"properties": {
+					"images": {
+						"type": "array",
+						"items": {
+							"ref": "#image",
+							"type": "ref"
+						},
+						"maxLength": 9
+					}
+				}
+			},
+			"view": {
+				"type": "object",
+				"required": [
+					"images"
+				],
+				"properties": {
+					"images": {
+						"type": "array",
+						"items": {
+							"ref": "#viewImage",
+							"type": "ref"
+						},
+						"maxLength": 9
+					}
+				}
+			},
+			"image": {
+				"type": "object",
+				"required": [
+					"image",
+					"alt"
+				],
+				"properties": {
+					"alt": {
+						"type": "string",
+						"description": "Alt text description of the image, for accessibility."
+					},
+					"image": {
+						"type": "blob",
+						"accept": [
+							"image/*"
+						],
+						"maxSize": 50000000
+					},
+					"tombstone": {
+						"ref": "art.cllctv.embed.defs#tombstone",
+						"type": "ref"
+					},
+					"aspectRatio": {
+						"ref": "app.bsky.embed.defs#aspectRatio",
+						"type": "ref"
+					}
+				}
+			},
+			"viewImage": {
+				"type": "object",
+				"required": [
+					"thumb",
+					"fullsize",
+					"alt"
+				],
+				"properties": {
+					"alt": {
+						"type": "string",
+						"description": "Alt text description of the image, for accessibility."
+					},
+					"thumb": {
+						"type": "string",
+						"format": "uri",
+						"description": "Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View."
+					},
+					"fullsize": {
+						"type": "string",
+						"format": "uri",
+						"description": "Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View."
+					},
+					"tombstone": {
+						"ref": "art.cllctv.embed.defs#tombstone",
+						"type": "ref"
+					},
+					"aspectRatio": {
+						"ref": "app.bsky.embed.defs#aspectRatio",
+						"type": "ref"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A set of images embedded in a cllctv.ART record (eg, a post)."
+	},
+	"meta": {
+		"indexedAt": 1764548391461
+	},
+	"references": {
+		"main": [
+			"app.bsky.embed.defs",
+			"art.cllctv.embed.defs"
+		],
+		"view": [
+			"app.bsky.embed.defs",
+			"art.cllctv.embed.defs"
+		],
+		"image": [
+			"app.bsky.embed.defs",
+			"art.cllctv.embed.defs"
+		],
+		"viewImage": [
+			"app.bsky.embed.defs",
+			"art.cllctv.embed.defs"
+		]
+	}
+}

@@ -1,0 +1,63 @@
+{
+	"authority": "did:plc:xhvreb3sb62k5u73jkjt64jr",
+	"schema": {
+		"id": "org.okazu-diary.actor.profile",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"properties": {
+						"avatar": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg"
+							],
+							"maxSize": 1000000,
+							"description": "Small image to be displayed on the profile. AKA, 'profile picture'."
+						},
+						"labels": {
+							"refs": [
+								"com.atproto.label.defs#selfLabels"
+							],
+							"type": "union",
+							"description": "Self-label values, specific to the Okazu-Diary.org application, on the overall account."
+						},
+						"website": {
+							"type": "string",
+							"format": "uri"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 2560,
+							"description": "Free-form profile description text.",
+							"maxGraphemes": 256
+						},
+						"displayName": {
+							"type": "string",
+							"maxLength": 640,
+							"maxGraphemes": 64
+						}
+					}
+				},
+				"description": "A declaration of an Okazu-Diary.org profile. If the repository has an `app.bsky.actor.profile` record, the application can substitute omitted properties of this record with the counterpart properties from that record, except for the `createdAt` and `labels` properties."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1764548391461
+	},
+	"references": {
+		"main": [
+			"com.atproto.label.defs"
+		]
+	}
+}

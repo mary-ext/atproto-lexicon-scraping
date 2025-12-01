@@ -565,6 +565,10 @@
 						"maxLength": 5,
 						"description": "Names/Keywords of the policies that necessitated the email."
 					},
+					"isDelivered": {
+						"type": "boolean",
+						"description": "Indicates whether the email was successfully delivered to the user's inbox."
+					},
 					"strikeCount": {
 						"type": "integer",
 						"description": "Number of strikes to assign to the user for this violation. Normally 0 as an indicator of a warning and only added as a strike on a repeat offense."
@@ -893,6 +897,17 @@
 						"type": "string",
 						"description": "Severity level of the violation (e.g., 'sev-0', 'sev-1', 'sev-2', etc.)."
 					},
+					"targetServices": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"knownValues": [
+								"appview",
+								"pds"
+							]
+						},
+						"description": "List of services where the takedown should be applied. If empty or not provided, takedown is applied on all configured services."
+					},
 					"durationInHours": {
 						"type": "integer",
 						"description": "Indicates how long the takedown should be in effect before automatically expiring."
@@ -989,6 +1004,10 @@
 					"attemptId"
 				],
 				"properties": {
+					"access": {
+						"ref": "app.bsky.ageassurance.defs#access",
+						"type": "ref"
+					},
 					"initIp": {
 						"type": "string",
 						"description": "The IP address used when initiating the AA flow."
@@ -999,7 +1018,7 @@
 					},
 					"status": {
 						"type": "string",
-						"description": "The status of the age assurance process.",
+						"description": "The status of the Age Assurance process.",
 						"knownValues": [
 							"unknown",
 							"pending",
@@ -1022,6 +1041,14 @@
 					"completeUa": {
 						"type": "string",
 						"description": "The user agent used when completing the AA flow."
+					},
+					"regionCode": {
+						"type": "string",
+						"description": "The ISO 3166-2 region code provided when beginning the Age Assurance flow."
+					},
+					"countryCode": {
+						"type": "string",
+						"description": "The ISO 3166-1 alpha-2 country code provided when beginning the Age Assurance flow."
 					}
 				},
 				"description": "Age assurance info coming directly from users. Only works on DID subjects."
@@ -1254,10 +1281,10 @@
 			"subjectReviewState": {
 				"type": "string",
 				"knownValues": [
-					"#reviewOpen",
-					"#reviewEscalated",
-					"#reviewClosed",
-					"#reviewNone"
+					"tools.ozone.moderation.defs#reviewOpen",
+					"tools.ozone.moderation.defs#reviewEscalated",
+					"tools.ozone.moderation.defs#reviewClosed",
+					"tools.ozone.moderation.defs#reviewNone"
 				]
 			},
 			"modEventAcknowledge": {
@@ -1471,6 +1498,10 @@
 					"status"
 				],
 				"properties": {
+					"access": {
+						"ref": "app.bsky.ageassurance.defs#access",
+						"type": "ref"
+					},
 					"status": {
 						"type": "string",
 						"description": "The status to be set for the user decided by a moderator, overriding whatever value the user had previously. Use reset to default to original state.",
@@ -1522,7 +1553,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1762129005281
+		"indexedAt": 1764548391461
 	},
 	"references": {
 		"modTool": [],
@@ -1565,6 +1596,7 @@
 		"imageDetails": [],
 		"modEventMute": [],
 		"modEventView": [
+			"app.bsky.ageassurance.defs",
 			"chat.bsky.convo.defs",
 			"com.atproto.admin.defs",
 			"com.atproto.moderation.defs",
@@ -1609,13 +1641,16 @@
 			"com.atproto.server.defs"
 		],
 		"repoViewNotFound": [],
-		"ageAssuranceEvent": [],
+		"ageAssuranceEvent": [
+			"app.bsky.ageassurance.defs"
+		],
 		"subjectStatusView": [
 			"chat.bsky.convo.defs",
 			"com.atproto.admin.defs",
 			"com.atproto.repo.strongRef"
 		],
 		"modEventViewDetail": [
+			"app.bsky.ageassurance.defs",
 			"chat.bsky.convo.defs",
 			"com.atproto.admin.defs",
 			"com.atproto.moderation.defs",
@@ -1633,7 +1668,9 @@
 		"modEventUnmuteReporter": [],
 		"timelineEventPlcCreate": [],
 		"modEventReverseTakedown": [],
-		"ageAssuranceOverrideEvent": [],
+		"ageAssuranceOverrideEvent": [
+			"app.bsky.ageassurance.defs"
+		],
 		"timelineEventPlcOperation": [],
 		"timelineEventPlcTombstone": [],
 		"cancelScheduledTakedownEvent": [],

@@ -17,10 +17,10 @@
 					"role": {
 						"type": "string",
 						"knownValues": [
-							"#roleAdmin",
-							"#roleModerator",
-							"#roleTriage",
-							"#roleVerifier"
+							"tools.ozone.team.defs#roleAdmin",
+							"tools.ozone.team.defs#roleModerator",
+							"tools.ozone.team.defs#roleTriage",
+							"tools.ozone.team.defs#roleVerifier"
 						]
 					},
 					"profile": {
@@ -64,7 +64,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760748771506
+		"indexedAt": 1764548391461
 	},
 	"references": {
 		"member": [

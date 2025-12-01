@@ -412,10 +412,6 @@
 							"random",
 							"hotness"
 						]
-					},
-					"prioritizeFollowedUsers": {
-						"type": "boolean",
-						"description": "Show followed users at the top of all replies."
 					}
 				}
 			},
@@ -888,7 +884,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1762129005281,
+		"indexedAt": 1764548391461,
 		"errorAt": 1760659937196
 	},
 	"references": {
