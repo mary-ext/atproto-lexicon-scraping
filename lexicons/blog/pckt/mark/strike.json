@@ -4,15 +4,16 @@
 		"id": "blog.pckt.mark.strike",
 		"defs": {
 			"main": {
-				"type": "object"
+				"type": "object",
+				"required": [],
+				"properties": {}
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
-		"lexicon": 1,
-		"description": "Strikethrough text formatting. Renders text with a line through it, typically used to indicate deleted or outdated content."
+		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1762820167045
+		"indexedAt": 1764720969463
 	},
 	"references": {
 		"main": []

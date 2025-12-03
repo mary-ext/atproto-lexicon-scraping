@@ -1,0 +1,70 @@
+{
+	"authority": "did:plc:jovwg6whom2olc7dh7by6ceg",
+	"schema": {
+		"id": "org.user-intents.demo.declaration",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"properties": {
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": ""
+						},
+						"bulkDataset": {
+							"ref": "#intent",
+							"type": "ref",
+							"description": "Inclusion of account data in bulk 'snapshot' datasets which are publicly redistributed, even if only for a fixed time period"
+						},
+						"protocolBridging": {
+							"ref": "#intent",
+							"type": "ref",
+							"description": "Bridging account data or interactions into distinct social web protocol ecosystems"
+						},
+						"publicAccessArchive": {
+							"ref": "#intent",
+							"type": "ref",
+							"description": "Public access to or replay of account data as part of archiving and preservation efforts"
+						},
+						"syntheticContentGeneration": {
+							"ref": "#intent",
+							"type": "ref",
+							"description": "Use of account data as input to machine learning models which could be used to generate synthetic content or interactions"
+						}
+					}
+				},
+				"required": [],
+				"description": "TODO"
+			},
+			"intent": {
+				"type": "object",
+				"required": [
+					"updatedAt"
+				],
+				"properties": {
+					"allow": {
+						"type": "boolean",
+						"description": "indicates user intent for reuse. Note that this field is optional, and thus tri-state (true, false, undefined)"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": ""
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1764720969463
+	},
+	"references": {
+		"main": [],
+		"intent": []
+	}
+}
