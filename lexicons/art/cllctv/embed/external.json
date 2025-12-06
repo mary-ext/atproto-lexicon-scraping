@@ -20,10 +20,15 @@
 						"accept": [
 							"image/*"
 						],
-						"maxSize": 5000000
+						"maxSize": 1000000
 					},
 					"title": {
 						"type": "string"
+					},
+					"thumbHash": {
+						"type": "string",
+						"maxLength": 640,
+						"maxGraphemes": 64
 					},
 					"description": {
 						"type": "string"
@@ -59,7 +64,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1764548391461
+		"indexedAt": 1764980149164
 	},
 	"references": {
 		"main": [],

@@ -53,6 +53,11 @@
 						],
 						"maxSize": 50000000
 					},
+					"imageHash": {
+						"type": "string",
+						"maxLength": 640,
+						"maxGraphemes": 64
+					},
 					"tombstone": {
 						"ref": "art.cllctv.embed.defs#tombstone",
 						"type": "ref"
@@ -101,7 +106,7 @@
 		"description": "A set of images embedded in a cllctv.ART record (eg, a post)."
 	},
 	"meta": {
-		"indexedAt": 1764548391461
+		"indexedAt": 1764980149164
 	},
 	"references": {
 		"main": [
