@@ -1,0 +1,39 @@
+{
+	"authority": "did:plc:gqpqghnqiowg5424adjwmhmg",
+	"schema": {
+		"id": "art.cllctv.feed.pin",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"subject",
+						"createdAt"
+					],
+					"properties": {
+						"subject": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1765066691445
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}
