@@ -1,17 +1,13 @@
 {
-	"authority": "did:web:clippr.social",
+	"authority": "did:plc:4yyodmfofysz4bec2iudgjmt",
 	"schema": {
-		"id": "social.clippr.actor.profile",
+		"id": "social.sket.actor.profile",
 		"defs": {
 			"main": {
 				"key": "literal:self",
 				"type": "record",
 				"record": {
 					"type": "object",
-					"required": [
-						"createdAt",
-						"displayName"
-					],
 					"properties": {
 						"avatar": {
 							"type": "blob",
@@ -20,36 +16,42 @@
 								"image/jpeg"
 							],
 							"maxSize": 1000000,
-							"description": "Image to show on user's profiles"
+							"description": ""
+						},
+						"banner": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg"
+							],
+							"maxSize": 1000000,
+							"description": ""
 						},
 						"createdAt": {
 							"type": "string",
-							"format": "datetime",
-							"description": "The creation date of the profile"
+							"format": "datetime"
 						},
 						"description": {
 							"type": "string",
-							"maxLength": 5000,
-							"description": "Text for user to describe themselves",
-							"maxGraphemes": 500
+							"maxLength": 2560,
+							"description": "",
+							"maxGraphemes": 256
 						},
 						"displayName": {
 							"type": "string",
 							"maxLength": 640,
-							"description": "A display name to be shown on a profile",
 							"maxGraphemes": 64
 						}
 					}
 				},
-				"description": "A declaration of a Clippr account's profile."
+				"description": ""
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
-		"errorAt": 1765239382943
+		"indexedAt": 1765239382943
 	},
 	"references": {
 		"main": []
