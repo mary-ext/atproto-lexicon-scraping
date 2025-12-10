@@ -1,0 +1,76 @@
+{
+	"authority": "did:plc:7ewx3bksukdk6a4vycoykhhw",
+	"schema": {
+		"id": "com.atprotofans.getSupporters",
+		"defs": {
+			"main": {
+				"type": "query",
+				"errors": [
+					{
+						"name": "InvalidRequest",
+						"description": "Invalid DID format."
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"supporters"
+						],
+						"properties": {
+							"cursor": {
+								"type": "string",
+								"description": "Pagination cursor for fetching the next page of results."
+							},
+							"supporters": {
+								"type": "array",
+								"items": {
+									"ref": "com.atprotofans.hydratedProfile",
+									"type": "ref"
+								},
+								"description": "List of supporter profiles."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"subject"
+					],
+					"properties": {
+						"limit": {
+							"type": "integer",
+							"default": 50,
+							"maximum": 100,
+							"minimum": 1,
+							"description": "Maximum number of supporters to return."
+						},
+						"cursor": {
+							"type": "string",
+							"description": "Pagination cursor for fetching additional results."
+						},
+						"subject": {
+							"type": "string",
+							"format": "did",
+							"description": "DID of the subject to get supporters for."
+						}
+					}
+				},
+				"description": "Get a paginated list of supporters for a subject."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1765325807048
+	},
+	"references": {
+		"main": [
+			"app.bsky.richtext.facet",
+			"com.atprotofans.hydratedProfile"
+		]
+	}
+}

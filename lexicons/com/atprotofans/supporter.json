@@ -1,0 +1,50 @@
+{
+	"authority": "did:plc:7ewx3bksukdk6a4vycoykhhw",
+	"schema": {
+		"id": "com.atprotofans.supporter",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"subject"
+					],
+					"properties": {
+						"subject": {
+							"type": "string",
+							"format": "did",
+							"description": "DID of the identity being supported."
+						},
+						"signatures": {
+							"type": "array",
+							"items": {
+								"refs": [
+									"com.atproto.repo.strongRef",
+									"com.atprotofans.supporterProof",
+									"com.atprotofans.brokerProof"
+								],
+								"type": "union"
+							},
+							"description": "Attestation proofs for this support relationship."
+						}
+					}
+				},
+				"description": "Record declaring support for another identity. Stored in the supporter's repository."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1765325807048
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef",
+			"com.atprotofans.brokerProof",
+			"com.atprotofans.supporterProof"
+		]
+	}
+}
