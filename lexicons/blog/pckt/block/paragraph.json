@@ -6,6 +6,14 @@
 			"main": {
 				"type": "object",
 				"properties": {
+					"facets": {
+						"type": "array",
+						"items": {
+							"ref": "blog.pckt.richtext.facet",
+							"type": "ref"
+						},
+						"description": "Facets for text formatting and features within this paragraph"
+					},
 					"content": {
 						"type": "array",
 						"items": {
@@ -27,19 +35,14 @@
 		"description": "A paragraph block containing inline text content with optional formatting. Paragraphs are the basic unit of text content in documents."
 	},
 	"meta": {
-		"indexedAt": 1763857098965
+		"indexedAt": 1765412216695
 	},
 	"references": {
 		"main": [
 			"blog.pckt.block.hardBreak",
 			"blog.pckt.block.mention",
 			"blog.pckt.block.text",
-			"blog.pckt.mark.bold",
-			"blog.pckt.mark.code",
-			"blog.pckt.mark.italic",
-			"blog.pckt.mark.link",
-			"blog.pckt.mark.strike",
-			"blog.pckt.mark.underline"
+			"blog.pckt.richtext.facet"
 		]
 	}
 }

@@ -9,10 +9,10 @@
 					"content"
 				],
 				"properties": {
-					"attrs": {
-						"ref": "#orderedListAttrs",
-						"type": "ref",
-						"description": "Optional attributes for the ordered list"
+					"start": {
+						"type": "integer",
+						"minimum": 1,
+						"description": "Starting number for the ordered list (default: 1)"
 					},
 					"content": {
 						"type": "array",
@@ -23,41 +23,21 @@
 						"description": "Array of list items"
 					}
 				}
-			},
-			"orderedListAttrs": {
-				"type": "object",
-				"properties": {
-					"start": {
-						"type": "integer",
-						"minimum": 1,
-						"description": "Starting number for the ordered list"
-					}
-				},
-				"description": "Ordered list attributes"
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1,
-		"description": "Ordered numbered list. Each item can contain rich content including nested lists. Numbering can start at any positive integer."
+		"description": "Ordered numbered list. Each item can contain rich content including nested lists."
 	},
 	"meta": {
-		"indexedAt": 1762820167045
+		"indexedAt": 1765412216695
 	},
 	"references": {
 		"main": [
 			"blog.pckt.block.bulletList",
-			"blog.pckt.block.hardBreak",
 			"blog.pckt.block.listItem",
-			"blog.pckt.block.mention",
-			"blog.pckt.block.paragraph",
 			"blog.pckt.block.text",
-			"blog.pckt.mark.bold",
-			"blog.pckt.mark.code",
-			"blog.pckt.mark.italic",
-			"blog.pckt.mark.link",
-			"blog.pckt.mark.strike",
-			"blog.pckt.mark.underline"
-		],
-		"orderedListAttrs": []
+			"blog.pckt.richtext.facet"
+		]
 	}
 }

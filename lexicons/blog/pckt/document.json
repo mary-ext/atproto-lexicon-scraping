@@ -125,12 +125,7 @@
 			"blog.pckt.block.taskItem",
 			"blog.pckt.block.taskList",
 			"blog.pckt.block.text",
-			"blog.pckt.mark.bold",
-			"blog.pckt.mark.code",
-			"blog.pckt.mark.italic",
-			"blog.pckt.mark.link",
-			"blog.pckt.mark.strike",
-			"blog.pckt.mark.underline",
+			"blog.pckt.richtext.facet",
 			"com.atproto.repo.strongRef"
 		]
 	}
