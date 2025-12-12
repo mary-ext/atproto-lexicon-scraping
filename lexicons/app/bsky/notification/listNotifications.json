@@ -113,7 +113,8 @@
 							"unverified",
 							"like-via-repost",
 							"repost-via-repost",
-							"subscribed-post"
+							"subscribed-post",
+							"contact-match"
 						]
 					},
 					"record": {
@@ -134,7 +135,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760746336429,
+		"indexedAt": 1765498603940,
 		"errorAt": 1760659937196
 	},
 	"references": {

@@ -14,6 +14,13 @@
 						"title"
 					],
 					"properties": {
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 50
+							}
+						},
 						"pages": {
 							"type": "array",
 							"items": {
@@ -65,7 +72,7 @@
 		"description": "A lexicon for long form rich media documents"
 	},
 	"meta": {
-		"indexedAt": 1764116164158,
+		"indexedAt": 1765498603940,
 		"errorAt": 1760659937196
 	},
 	"references": {

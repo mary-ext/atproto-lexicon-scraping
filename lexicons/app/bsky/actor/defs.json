@@ -145,6 +145,7 @@
 						"#savedFeedsPref",
 						"#savedFeedsPrefV2",
 						"#personalDetailsPref",
+						"#declaredAgePref",
 						"#feedViewPref",
 						"#threadViewPref",
 						"#interestsPref",
@@ -414,6 +415,24 @@
 						]
 					}
 				}
+			},
+			"declaredAgePref": {
+				"type": "object",
+				"properties": {
+					"isOverAge13": {
+						"type": "boolean",
+						"description": "Indicates if the user has declared that they are over 13 years of age."
+					},
+					"isOverAge16": {
+						"type": "boolean",
+						"description": "Indicates if the user has declared that they are over 16 years of age."
+					},
+					"isOverAge18": {
+						"type": "boolean",
+						"description": "Indicates if the user has declared that they are over 18 years of age."
+					}
+				},
+				"description": "Read-only preference containing value(s) inferred from the user's declared birthdate. Absence of this preference object in the response indicates that the user has not made a declaration."
 			},
 			"hiddenPostsPref": {
 				"type": "object",
@@ -884,7 +903,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1764548391461,
+		"indexedAt": 1765498603940,
 		"errorAt": 1760659937196
 	},
 	"references": {
@@ -922,6 +941,7 @@
 		"mutedWordsPref": [],
 		"savedFeedsPref": [],
 		"threadViewPref": [],
+		"declaredAgePref": [],
 		"hiddenPostsPref": [],
 		"labelerPrefItem": [],
 		"mutedWordTarget": [],

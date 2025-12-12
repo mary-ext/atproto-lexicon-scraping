@@ -1,0 +1,38 @@
+{
+	"authority": "did:plc:rnpkyqnmsw4ipey6eotbdnnf",
+	"schema": {
+		"id": "xyz.atpoke.graph.poke",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"subject",
+						"createdAt"
+					],
+					"properties": {
+						"subject": {
+							"type": "string",
+							"format": "did"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "Record declaring you poked another did, there can be multiple pokes per did"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1765498603940
+	},
+	"references": {
+		"main": []
+	}
+}

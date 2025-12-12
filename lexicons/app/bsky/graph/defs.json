@@ -115,6 +115,16 @@
 						"type": "string",
 						"format": "did"
 					},
+					"blocking": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "if the actor blocks this DID, this is the AT-URI of the block record"
+					},
+					"blockedBy": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "if the actor is blocked by this DID, contains the AT-URI of the block record"
+					},
 					"following": {
 						"type": "string",
 						"format": "at-uri",
@@ -124,6 +134,16 @@
 						"type": "string",
 						"format": "at-uri",
 						"description": "if the actor is followed by this DID, contains the AT-URI of the follow record"
+					},
+					"blockedByList": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "if the actor is blocked by this DID via a block list, contains the AT-URI of the listblock record"
+					},
+					"blockingByList": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "if the actor blocks this DID via a block list, this is the AT-URI of the listblock record"
 					}
 				},
 				"description": "lists the bi-directional graph relationships between one actor (not indicated in the object), and the target actors (the DID included in the object)"
@@ -334,7 +354,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1765498603940,
 		"errorAt": 1760659937196
 	},
 	"references": {

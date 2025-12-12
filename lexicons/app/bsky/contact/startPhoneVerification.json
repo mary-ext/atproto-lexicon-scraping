@@ -1,0 +1,56 @@
+{
+	"authority": "did:plc:4v4y5r3lwsbtmsxhile2ljac",
+	"schema": {
+		"id": "app.bsky.contact.startPhoneVerification",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"phone"
+						],
+						"properties": {
+							"phone": {
+								"type": "string",
+								"description": "The phone number to receive the code via SMS."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "RateLimitExceeded"
+					},
+					{
+						"name": "InvalidDid"
+					},
+					{
+						"name": "InvalidPhone"
+					},
+					{
+						"name": "InternalError"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"properties": {}
+					},
+					"encoding": "application/json"
+				},
+				"description": "WARNING: This is unstable and under active development, don't use it while this warning is here. Starts a phone verification flow. The phone passed will receive a code via SMS that should be passed to `app.bsky.contact.verifyPhone`. Requires authentication."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1765498603940
+	},
+	"references": {
+		"main": []
+	}
+}

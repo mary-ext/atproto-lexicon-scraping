@@ -1,0 +1,47 @@
+{
+	"authority": "did:plc:4v4y5r3lwsbtmsxhile2ljac",
+	"schema": {
+		"id": "app.bsky.contact.getSyncStatus",
+		"defs": {
+			"main": {
+				"type": "query",
+				"errors": [
+					{
+						"name": "InvalidDid"
+					},
+					{
+						"name": "InternalError"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"properties": {
+							"syncStatus": {
+								"ref": "app.bsky.contact.defs#syncStatus",
+								"type": "ref",
+								"description": "If present, indicates the user has imported their contacts. If not present, indicates the user never used the feature or called `app.bsky.contact.removeData` and didn't import again since."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"properties": {}
+				},
+				"description": "WARNING: This is unstable and under active development, don't use it while this warning is here. Gets the user's current contact import status. Requires authentication."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1765498603940
+	},
+	"references": {
+		"main": [
+			"app.bsky.contact.defs"
+		]
+	}
+}

@@ -1513,6 +1513,7 @@
 					},
 					"comment": {
 						"type": "string",
+						"minLength": 1,
 						"description": "Comment describing the reason for the override."
 					}
 				},
@@ -1543,6 +1544,7 @@
 				"properties": {
 					"comment": {
 						"type": "string",
+						"minLength": 1,
 						"description": "Comment describing the reason for the revocation."
 					}
 				},
@@ -1553,7 +1555,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1764548391461
+		"indexedAt": 1765498603940
 	},
 	"references": {
 		"modTool": [],
