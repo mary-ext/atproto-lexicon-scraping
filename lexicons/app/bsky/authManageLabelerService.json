@@ -1,0 +1,37 @@
+{
+	"authority": "did:plc:4v4y5r3lwsbtmsxhile2ljac",
+	"schema": {
+		"id": "app.bsky.authManageLabelerService",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Manage Hosted Labeling Service",
+				"detail": "Configure labeler declaration records.",
+				"title:lang": {},
+				"detail:lang": {},
+				"permissions": [
+					{
+						"type": "permission",
+						"action": [
+							"create",
+							"update",
+							"delete"
+						],
+						"resource": "repo",
+						"collection": [
+							"app.bsky.labeler.service"
+						]
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1765584975880
+	},
+	"references": {
+		"main": []
+	}
+}
