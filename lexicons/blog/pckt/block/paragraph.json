@@ -35,7 +35,8 @@
 		"description": "A paragraph block containing inline text content with optional formatting. Paragraphs are the basic unit of text content in documents."
 	},
 	"meta": {
-		"indexedAt": 1765412216695
+		"indexedAt": 1765412216695,
+		"errorAt": 1765671513874
 	},
 	"references": {
 		"main": [
