@@ -1,0 +1,64 @@
+{
+	"authority": "did:plc:2tpqeou2twn2lvronqe2ipoi",
+	"schema": {
+		"id": "fyi.questionable.question",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"summary",
+						"createdAt"
+					],
+					"properties": {
+						"answers": {
+							"type": "array",
+							"items": {
+								"ref": "com.atproto.repo.strongRef",
+								"type": "ref"
+							},
+							"maxLength": 10
+						},
+						"content": {
+							"type": "string",
+							"maxLength": 10000,
+							"maxGraphemes": 10000
+						},
+						"summary": {
+							"type": "string",
+							"maxLength": 3000,
+							"minLength": 3,
+							"description": "A short summary of the question",
+							"maxGraphemes": 300
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"languages": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "language"
+							},
+							"maxLength": 3
+						}
+					}
+				},
+				"description": "A question asked on questionable.fyi"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1765757895895
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}
