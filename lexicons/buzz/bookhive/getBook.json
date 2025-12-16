@@ -57,6 +57,14 @@
 								},
 								"description": "Reviews of the book"
 							},
+							"activity": {
+								"type": "array",
+								"items": {
+									"ref": "buzz.bookhive.defs#activity",
+									"type": "ref"
+								},
+								"description": "Other users' activity on the book"
+							},
 							"comments": {
 								"type": "array",
 								"items": {
@@ -78,6 +86,11 @@
 								"type": "string",
 								"format": "datetime",
 								"description": "The date the user finished reading the book"
+							},
+							"bookProgress": {
+								"ref": "buzz.bookhive.defs#bookProgress",
+								"type": "ref",
+								"description": "Reading progress for the user"
 							}
 						}
 					},
@@ -102,7 +115,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1765844234444,
 		"errorAt": 1760659937196
 	},
 	"references": {

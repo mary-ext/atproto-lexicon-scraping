@@ -74,6 +74,11 @@
 							"type": "string",
 							"format": "datetime",
 							"description": "The date the user finished reading the book"
+						},
+						"bookProgress": {
+							"ref": "buzz.bookhive.defs#bookProgress",
+							"type": "ref",
+							"description": "Progress tracking details for the book"
 						}
 					}
 				},
@@ -84,10 +89,12 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1765844234444,
 		"errorAt": 1760659937196
 	},
 	"references": {
-		"main": []
+		"main": [
+			"buzz.bookhive.defs"
+		]
 	}
 }

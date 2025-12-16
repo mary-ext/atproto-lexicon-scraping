@@ -107,6 +107,10 @@
 					},
 					"displayName": {
 						"type": "string"
+					},
+					"isFollowing": {
+						"type": "boolean",
+						"description": "Whether the authed user is following this profile"
 					}
 				}
 			},
@@ -120,7 +124,9 @@
 					"type",
 					"createdAt",
 					"hiveId",
-					"title"
+					"title",
+					"userDid",
+					"userHandle"
 				],
 				"properties": {
 					"type": {
@@ -140,9 +146,17 @@
 						"type": "string",
 						"description": "The hive id of the book"
 					},
+					"userDid": {
+						"type": "string",
+						"description": "The DID of the user who added the book"
+					},
 					"createdAt": {
 						"type": "string",
 						"format": "datetime"
+					},
+					"userHandle": {
+						"type": "string",
+						"description": "The handle of the user who added the book"
 					}
 				}
 			},
@@ -153,6 +167,7 @@
 			"userBook": {
 				"type": "object",
 				"required": [
+					"userDid",
 					"title",
 					"authors",
 					"hiveId",
@@ -207,6 +222,10 @@
 						"minLength": 1,
 						"description": "The authors of the book (tab separated)"
 					},
+					"userDid": {
+						"type": "string",
+						"description": "The DID of the user who added the book"
+					},
 					"createdAt": {
 						"type": "string",
 						"format": "datetime"
@@ -225,10 +244,19 @@
 						"format": "datetime",
 						"description": "The date the user finished reading the book"
 					},
+					"userHandle": {
+						"type": "string",
+						"description": "The handle of the user who added the book"
+					},
 					"description": {
 						"type": "string",
 						"maxLength": 5000,
 						"description": "Book description/summary"
+					},
+					"bookProgress": {
+						"ref": "buzz.bookhive.defs#bookProgress",
+						"type": "ref",
+						"description": "Progress tracking information for the book"
 					}
 				}
 			},
@@ -239,13 +267,53 @@
 			"wantToRead": {
 				"type": "token",
 				"description": "User wants to read the book"
+			},
+			"bookProgress": {
+				"type": "object",
+				"required": [
+					"updatedAt"
+				],
+				"properties": {
+					"percent": {
+						"type": "integer",
+						"maximum": 100,
+						"minimum": 0,
+						"description": "How far through the book the reader is (0-100)"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": "When the progress was last updated"
+					},
+					"totalPages": {
+						"type": "integer",
+						"minimum": 1,
+						"description": "Total number of pages in the book"
+					},
+					"currentPage": {
+						"type": "integer",
+						"minimum": 1,
+						"description": "Current page the user is on"
+					},
+					"totalChapters": {
+						"type": "integer",
+						"minimum": 1,
+						"description": "Total number of chapters in the book"
+					},
+					"currentChapter": {
+						"type": "integer",
+						"minimum": 1,
+						"description": "Current chapter the user is on"
+					}
+				},
+				"description": "Reading progress tracking data"
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1765844234444,
 		"errorAt": 1760659937196
 	},
 	"references": {
@@ -260,6 +328,7 @@
 		"finished": [],
 		"userBook": [],
 		"abandoned": [],
-		"wantToRead": []
+		"wantToRead": [],
+		"bookProgress": []
 	}
 }

@@ -11,7 +11,8 @@
 						"required": [
 							"books",
 							"profile",
-							"activity"
+							"activity",
+							"friendActivity"
 						],
 						"properties": {
 							"books": {
@@ -34,6 +35,14 @@
 									"type": "ref"
 								},
 								"description": "The user's activity"
+							},
+							"friendActivity": {
+								"type": "array",
+								"items": {
+									"ref": "buzz.bookhive.defs#userBook",
+									"type": "ref"
+								},
+								"description": "The user's friend activity"
 							}
 						}
 					},
@@ -59,7 +68,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1765844234444,
 		"errorAt": 1760659937196
 	},
 	"references": {
