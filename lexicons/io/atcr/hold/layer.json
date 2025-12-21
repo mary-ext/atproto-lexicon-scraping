@@ -1,0 +1,66 @@
+{
+	"authority": "did:plc:wfj5kyialpmcv2fzk6uqwsln",
+	"schema": {
+		"id": "io.atcr.hold.layer",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"digest",
+						"size",
+						"mediaType",
+						"repository",
+						"userDid",
+						"userHandle",
+						"createdAt"
+					],
+					"properties": {
+						"size": {
+							"type": "integer",
+							"description": "Size in bytes"
+						},
+						"digest": {
+							"type": "string",
+							"description": "Layer digest (e.g., sha256:abc123...)"
+						},
+						"userDid": {
+							"type": "string",
+							"format": "did",
+							"description": "DID of user who uploaded this layer"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "RFC3339 timestamp of when the layer was uploaded"
+						},
+						"mediaType": {
+							"type": "string",
+							"description": "Media type (e.g., application/vnd.oci.image.layer.v1.tar+gzip)"
+						},
+						"repository": {
+							"type": "string",
+							"description": "Repository this layer belongs to"
+						},
+						"userHandle": {
+							"type": "string",
+							"format": "handle",
+							"description": "Handle of user (for display purposes)"
+						}
+					}
+				},
+				"description": "Represents metadata about a container layer stored in the hold. Stored in the hold's embedded PDS for tracking and analytics."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1766276313627
+	},
+	"references": {
+		"main": []
+	}
+}

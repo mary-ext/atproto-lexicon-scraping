@@ -1,0 +1,59 @@
+{
+	"authority": "did:plc:wfj5kyialpmcv2fzk6uqwsln",
+	"schema": {
+		"id": "io.atcr.hold.crew",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"member",
+						"role",
+						"permissions",
+						"addedAt"
+					],
+					"properties": {
+						"role": {
+							"type": "string",
+							"description": "Member's role in the hold",
+							"knownValues": [
+								"owner",
+								"admin",
+								"write",
+								"read"
+							]
+						},
+						"member": {
+							"type": "string",
+							"format": "did",
+							"description": "DID of the crew member"
+						},
+						"addedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "RFC3339 timestamp of when the member was added"
+						},
+						"permissions": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							},
+							"description": "Specific permissions granted to this member"
+						}
+					}
+				},
+				"description": "Crew member in a hold's embedded PDS. Grants access permissions to push blobs to the hold. Stored in the hold's embedded PDS (one record per member)."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1766276313627
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -1,0 +1,35 @@
+{
+	"authority": "did:plc:2tpqeou2twn2lvronqe2ipoi",
+	"schema": {
+		"id": "fyi.questionable.actor.profile",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"properties": {
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"displayName": {
+							"type": "string",
+							"maxLength": 640,
+							"maxGraphemes": 64
+						}
+					}
+				},
+				"description": "A declaration of a Questionable account profile."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1766276313627
+	},
+	"references": {
+		"main": []
+	}
+}

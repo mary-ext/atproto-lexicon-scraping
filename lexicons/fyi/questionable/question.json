@@ -10,26 +10,37 @@
 					"type": "object",
 					"required": [
 						"summary",
+						"text",
 						"createdAt"
 					],
 					"properties": {
+						"text": {
+							"type": "string",
+							"maxLength": 10000,
+							"minLength": 1,
+							"description": "The full text of the question",
+							"maxGraphemes": 10000
+						},
 						"answers": {
 							"type": "array",
 							"items": {
 								"ref": "com.atproto.repo.strongRef",
 								"type": "ref"
 							},
-							"maxLength": 10
+							"maxLength": 10,
+							"description": "The answers selected by the author of the question as answering the question"
 						},
-						"content": {
-							"type": "string",
-							"maxLength": 10000,
-							"maxGraphemes": 10000
+						"context": {
+							"refs": [
+								"fyi.questionable.actor.profile"
+							],
+							"type": "union",
+							"closed": false
 						},
 						"summary": {
 							"type": "string",
 							"maxLength": 3000,
-							"minLength": 3,
+							"minLength": 1,
 							"description": "A short summary of the question",
 							"maxGraphemes": 300
 						},
@@ -43,7 +54,8 @@
 								"type": "string",
 								"format": "language"
 							},
-							"maxLength": 3
+							"maxLength": 3,
+							"description": "Indicates human language of the primary text content."
 						}
 					}
 				},
@@ -54,11 +66,12 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1765757895895
+		"indexedAt": 1766276313627
 	},
 	"references": {
 		"main": [
-			"com.atproto.repo.strongRef"
+			"com.atproto.repo.strongRef",
+			"fyi.questionable.actor.profile"
 		]
 	}
 }

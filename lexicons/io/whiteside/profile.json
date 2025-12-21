@@ -1,0 +1,46 @@
+{
+	"authority": "did:plc:voaulu4vdmpdwevimf4i6lnj",
+	"schema": {
+		"id": "io.whiteside.profile",
+		"defs": {
+			"main": {
+				"key": "literal:bio",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"heading",
+						"content",
+						"updatedAt"
+					],
+					"properties": {
+						"content": {
+							"type": "string",
+							"maxLength": 5000,
+							"description": "Profile content in plain text or markdown format"
+						},
+						"heading": {
+							"type": "string",
+							"maxLength": 200,
+							"description": "Profile section heading (e.g. 'Hey, I'm John')"
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Last update timestamp in ISO 8601 format"
+						}
+					}
+				},
+				"description": "Profile information (bio, skills, etc.)"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1766276313627
+	},
+	"references": {
+		"main": []
+	}
+}
