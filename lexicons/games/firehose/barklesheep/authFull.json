@@ -1,0 +1,33 @@
+{
+	"authority": "did:web:firehose.games",
+	"schema": {
+		"id": "games.firehose.barklesheep.authFull",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Full Barklesheep Permissions",
+				"detail": "Place sheeps and play Barklesheep.",
+				"title:lang": {},
+				"detail:lang": {},
+				"permissions": [
+					{
+						"lxm": [
+							"games.firehose.barklesheep.placeSheeps"
+						],
+						"type": "permission",
+						"resource": "rpc",
+						"inheritAud": true
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1766362669487
+	},
+	"references": {
+		"main": []
+	}
+}

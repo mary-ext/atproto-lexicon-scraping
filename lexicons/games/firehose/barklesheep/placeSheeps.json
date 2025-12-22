@@ -1,0 +1,73 @@
+{
+	"authority": "did:web:firehose.games",
+	"schema": {
+		"id": "games.firehose.barklesheep.placeSheeps",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"gameId",
+							"sheeps"
+						],
+						"properties": {
+							"gameId": {
+								"type": "string"
+							},
+							"sheeps": {
+								"type": "array",
+								"items": {
+									"ref": "#sheepPlacement",
+									"type": "ref"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"type": "object",
+						"properties": {
+							"success": {
+								"type": "boolean"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Place sheeps on the barkleboard"
+			},
+			"sheepPlacement": {
+				"type": "object",
+				"required": [
+					"type",
+					"start",
+					"horizontal"
+				],
+				"properties": {
+					"type": {
+						"type": "string"
+					},
+					"start": {
+						"type": "integer"
+					},
+					"horizontal": {
+						"type": "boolean"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1766362669487
+	},
+	"references": {
+		"main": [],
+		"sheepPlacement": []
+	}
+}
