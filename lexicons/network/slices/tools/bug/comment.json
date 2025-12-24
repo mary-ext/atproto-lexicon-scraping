@@ -1,0 +1,66 @@
+{
+	"authority": "did:plc:dzmqinfp7efnofbqg5npjmth",
+	"schema": {
+		"id": "network.slices.tools.bug.comment",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"bug",
+						"body",
+						"createdAt"
+					],
+					"properties": {
+						"bug": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "Reference to the bug report"
+						},
+						"body": {
+							"type": "string",
+							"maxLength": 10000,
+							"maxGraphemes": 3000
+						},
+						"parent": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "Optional reference to parent comment for threading"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"bodyFacets": {
+							"type": "array",
+							"items": {
+								"ref": "app.bsky.richtext.facet",
+								"type": "ref"
+							},
+							"description": "Annotations of body text (mentions and links)"
+						},
+						"attachments": {
+							"refs": [
+								"network.slices.tools.defs#images"
+							],
+							"type": "union"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1766535407390
+	},
+	"references": {
+		"main": [
+			"app.bsky.richtext.facet",
+			"network.slices.tools.defs"
+		]
+	}
+}

@@ -1,0 +1,44 @@
+{
+	"authority": "did:plc:dzmqinfp7efnofbqg5npjmth",
+	"schema": {
+		"id": "network.slices.tools.bug.issue",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"bug",
+						"issue",
+						"createdAt"
+					],
+					"properties": {
+						"bug": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "Reference to the bug report"
+						},
+						"issue": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "Reference to the linked issue"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1766535407390
+	},
+	"references": {
+		"main": []
+	}
+}

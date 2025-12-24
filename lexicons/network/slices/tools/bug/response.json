@@ -1,0 +1,65 @@
+{
+	"authority": "did:plc:dzmqinfp7efnofbqg5npjmth",
+	"schema": {
+		"id": "network.slices.tools.bug.response",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"bug",
+						"status",
+						"createdAt"
+					],
+					"properties": {
+						"bug": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "Reference to the bug report"
+						},
+						"status": {
+							"type": "string",
+							"knownValues": [
+								"acknowledged",
+								"fixed",
+								"wontfix",
+								"duplicate",
+								"invalid"
+							]
+						},
+						"message": {
+							"type": "string",
+							"maxLength": 3000,
+							"description": "Optional explanation or link to fix",
+							"maxGraphemes": 1000
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"messageFacets": {
+							"type": "array",
+							"items": {
+								"ref": "app.bsky.richtext.facet",
+								"type": "ref"
+							},
+							"description": "Annotations of message (mentions and links)"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1766535407390
+	},
+	"references": {
+		"main": [
+			"app.bsky.richtext.facet"
+		]
+	}
+}

@@ -13,7 +13,7 @@
 					],
 					"properties": {
 						"publication": {
-							"ref": "site.standard.publication",
+							"ref": "com.atproto.repo.strongRef",
 							"type": "ref"
 						}
 					}
@@ -24,14 +24,12 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1765671513874,
+		"indexedAt": 1766535407390,
 		"errorAt": 1760659937196
 	},
 	"references": {
 		"main": [
-			"site.standard.publication",
-			"site.standard.theme.basic",
-			"site.standard.theme.color"
+			"com.atproto.repo.strongRef"
 		]
 	}
 }

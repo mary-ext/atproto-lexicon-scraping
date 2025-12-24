@@ -48,6 +48,15 @@
 							"ref": "com.atproto.repo.strongRef",
 							"type": "ref"
 						},
+						"coverImage": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg",
+								"image/webp"
+							],
+							"maxSize": 1000000
+						},
 						"description": {
 							"type": "string",
 							"maxLength": 3000,
@@ -72,7 +81,7 @@
 		"description": "A lexicon for long form rich media documents"
 	},
 	"meta": {
-		"indexedAt": 1765498603940,
+		"indexedAt": 1766535407390,
 		"errorAt": 1760659937196
 	},
 	"references": {

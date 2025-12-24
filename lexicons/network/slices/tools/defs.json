@@ -1,0 +1,53 @@
+{
+	"authority": "did:plc:dzmqinfp7efnofbqg5npjmth",
+	"schema": {
+		"id": "network.slices.tools.defs",
+		"defs": {
+			"image": {
+				"type": "object",
+				"required": [
+					"image",
+					"alt"
+				],
+				"properties": {
+					"alt": {
+						"type": "string",
+						"description": "Alt text description of the image, for accessibility"
+					},
+					"image": {
+						"type": "blob",
+						"accept": [
+							"image/*"
+						],
+						"maxSize": 1000000
+					}
+				}
+			},
+			"images": {
+				"type": "object",
+				"required": [
+					"images"
+				],
+				"properties": {
+					"images": {
+						"type": "array",
+						"items": {
+							"ref": "#image",
+							"type": "ref"
+						},
+						"maxLength": 4
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1766535407390
+	},
+	"references": {
+		"image": [],
+		"images": []
+	}
+}

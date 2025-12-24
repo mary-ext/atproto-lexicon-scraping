@@ -9,11 +9,16 @@
 				"record": {
 					"type": "object",
 					"required": [
-						"document"
+						"document",
+						"site"
 					],
 					"properties": {
+						"site": {
+							"type": "string",
+							"format": "uri"
+						},
 						"document": {
-							"ref": "site.standard.document",
+							"ref": "com.atproto.repo.strongRef",
 							"type": "ref"
 						}
 					}
@@ -24,12 +29,11 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1765671513874
+		"indexedAt": 1766535407390
 	},
 	"references": {
 		"main": [
-			"com.atproto.repo.strongRef",
-			"site.standard.document"
+			"com.atproto.repo.strongRef"
 		]
 	}
 }

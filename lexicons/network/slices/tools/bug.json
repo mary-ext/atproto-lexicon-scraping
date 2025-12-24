@@ -1,0 +1,94 @@
+{
+	"authority": "did:plc:dzmqinfp7efnofbqg5npjmth",
+	"schema": {
+		"id": "network.slices.tools.bug",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"title",
+						"namespace",
+						"description",
+						"stepsToReproduce",
+						"severity",
+						"createdAt"
+					],
+					"properties": {
+						"title": {
+							"type": "string",
+							"maxLength": 300,
+							"maxGraphemes": 100
+						},
+						"appUsed": {
+							"type": "string",
+							"maxLength": 300
+						},
+						"severity": {
+							"type": "string",
+							"knownValues": [
+								"cosmetic",
+								"annoying",
+								"broken",
+								"unusable"
+							]
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"namespace": {
+							"type": "string",
+							"description": "Target namespace like 'social.grain' or 'app.bsky'"
+						},
+						"attachments": {
+							"refs": [
+								"network.slices.tools.defs#images"
+							],
+							"type": "union"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 10000,
+							"maxGraphemes": 3000
+						},
+						"stepsToReproduce": {
+							"type": "string",
+							"maxLength": 5000,
+							"maxGraphemes": 1500
+						},
+						"descriptionFacets": {
+							"type": "array",
+							"items": {
+								"ref": "network.slices.tools.richtext.facet",
+								"type": "ref"
+							},
+							"description": "Annotations of description (mentions and links)"
+						},
+						"stepsToReproduceFacets": {
+							"type": "array",
+							"items": {
+								"ref": "network.slices.tools.richtext.facet",
+								"type": "ref"
+							},
+							"description": "Annotations of steps to reproduce (mentions and links)"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1766535407390
+	},
+	"references": {
+		"main": [
+			"network.slices.tools.defs",
+			"network.slices.tools.richtext.facet"
+		]
+	}
+}
