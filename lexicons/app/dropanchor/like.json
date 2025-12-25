@@ -53,7 +53,8 @@
 		"description": "A like record for check-ins in the Anchor app"
 	},
 	"meta": {
-		"indexedAt": 1765671513874
+		"indexedAt": 1765671513874,
+		"errorAt": 1766621839193
 	},
 	"references": {
 		"main": [],

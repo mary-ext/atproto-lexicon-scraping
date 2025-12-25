@@ -32,7 +32,8 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1766535407390
+		"indexedAt": 1766535407390,
+		"errorAt": 1766621839193
 	},
 	"references": {
 		"main": []
