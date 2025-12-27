@@ -1,0 +1,49 @@
+{
+	"authority": "did:plc:wfj5kyialpmcv2fzk6uqwsln",
+	"schema": {
+		"id": "io.atcr.authFullApp",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "AT Container Registry",
+				"detail": "Push and pull container images to the ATProto Container Registry. Includes creating and managing image manifests, tags, and repository settings.",
+				"permissions": [
+					{
+						"type": "permission",
+						"action": [
+							"create",
+							"update",
+							"delete"
+						],
+						"resource": "repo",
+						"collection": [
+							"io.atcr.manifest",
+							"io.atcr.tag",
+							"io.atcr.sailor.star",
+							"io.atcr.sailor.profile",
+							"io.atcr.repo.page"
+						]
+					},
+					{
+						"aud": "*",
+						"lxm": [
+							"com.atproto.repo.getRecord"
+						],
+						"type": "permission",
+						"resource": "rpc"
+					}
+				],
+				"title:langs": {},
+				"detail:langs": {}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1766794619045
+	},
+	"references": {
+		"main": []
+	}
+}

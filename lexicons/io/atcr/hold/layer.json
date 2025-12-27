@@ -24,6 +24,7 @@
 						},
 						"digest": {
 							"type": "string",
+							"maxLength": 128,
 							"description": "Layer digest (e.g., sha256:abc123...)"
 						},
 						"userDid": {
@@ -38,10 +39,12 @@
 						},
 						"mediaType": {
 							"type": "string",
+							"maxLength": 128,
 							"description": "Media type (e.g., application/vnd.oci.image.layer.v1.tar+gzip)"
 						},
 						"repository": {
 							"type": "string",
+							"maxLength": 255,
 							"description": "Repository this layer belongs to"
 						},
 						"userHandle": {
@@ -58,7 +61,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1766276313627
+		"indexedAt": 1766794619045
 	},
 	"references": {
 		"main": []

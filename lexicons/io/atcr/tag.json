@@ -36,6 +36,7 @@
 						},
 						"manifestDigest": {
 							"type": "string",
+							"maxLength": 128,
 							"description": "DEPRECATED: Digest of the manifest (e.g., 'sha256:...'). Kept for backward compatibility with old records. New records should use 'manifest' field instead."
 						}
 					}
@@ -47,7 +48,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1766276313627
+		"indexedAt": 1766794619045
 	},
 	"references": {
 		"main": []

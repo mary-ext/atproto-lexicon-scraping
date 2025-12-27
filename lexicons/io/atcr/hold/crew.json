@@ -17,6 +17,7 @@
 					"properties": {
 						"role": {
 							"type": "string",
+							"maxLength": 32,
 							"description": "Member's role in the hold",
 							"knownValues": [
 								"owner",
@@ -38,7 +39,8 @@
 						"permissions": {
 							"type": "array",
 							"items": {
-								"type": "string"
+								"type": "string",
+								"maxLength": 64
 							},
 							"description": "Specific permissions granted to this member"
 						}
@@ -51,7 +53,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1766276313627
+		"indexedAt": 1766794619045
 	},
 	"references": {
 		"main": []

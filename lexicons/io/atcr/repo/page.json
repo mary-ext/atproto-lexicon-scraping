@@ -1,0 +1,61 @@
+{
+	"authority": "did:plc:wfj5kyialpmcv2fzk6uqwsln",
+	"schema": {
+		"id": "io.atcr.repo.page",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"repository",
+						"createdAt",
+						"updatedAt"
+					],
+					"properties": {
+						"avatar": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg",
+								"image/webp"
+							],
+							"maxSize": 3000000,
+							"description": "Repository avatar/icon image."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Record creation timestamp"
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Record last updated timestamp"
+						},
+						"repository": {
+							"type": "string",
+							"maxLength": 256,
+							"description": "The name of the repository (e.g., 'myapp'). Must match the rkey."
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 100000,
+							"description": "Markdown README/description content for the repository page."
+						}
+					}
+				},
+				"description": "Repository page metadata including description and avatar. Users can edit this directly in their PDS to customize their repository page."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1766794619045
+	},
+	"references": {
+		"main": []
+	}
+}

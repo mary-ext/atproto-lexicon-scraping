@@ -27,10 +27,12 @@
 						},
 						"region": {
 							"type": "string",
+							"maxLength": 64,
 							"description": "S3 region where blobs are stored"
 						},
 						"provider": {
 							"type": "string",
+							"maxLength": 64,
 							"description": "Deployment provider (e.g., fly.io, aws, etc.)"
 						},
 						"deployedAt": {
@@ -55,7 +57,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1766276313627
+		"indexedAt": 1766794619045
 	},
 	"references": {
 		"main": []

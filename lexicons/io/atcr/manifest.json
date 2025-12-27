@@ -23,6 +23,7 @@
 						},
 						"digest": {
 							"type": "string",
+							"maxLength": 128,
 							"description": "Content digest (e.g., 'sha256:abc123...')"
 						},
 						"layers": {
@@ -58,6 +59,7 @@
 						},
 						"mediaType": {
 							"type": "string",
+							"maxLength": 128,
 							"description": "OCI media type",
 							"knownValues": [
 								"application/vnd.oci.image.manifest.v1+json",
@@ -101,25 +103,30 @@
 				"properties": {
 					"os": {
 						"type": "string",
+						"maxLength": 32,
 						"description": "Operating system (e.g., 'linux', 'windows', 'darwin')"
 					},
 					"variant": {
 						"type": "string",
+						"maxLength": 32,
 						"description": "Optional CPU variant (e.g., 'v7' for ARM)"
 					},
 					"osVersion": {
 						"type": "string",
+						"maxLength": 64,
 						"description": "Optional OS version"
 					},
 					"osFeatures": {
 						"type": "array",
 						"items": {
-							"type": "string"
+							"type": "string",
+							"maxLength": 64
 						},
 						"description": "Optional OS features"
 					},
 					"architecture": {
 						"type": "string",
+						"maxLength": 32,
 						"description": "CPU architecture (e.g., 'amd64', 'arm64', 'arm')"
 					}
 				},
@@ -147,10 +154,12 @@
 					},
 					"digest": {
 						"type": "string",
+						"maxLength": 128,
 						"description": "Content digest (e.g., 'sha256:...')"
 					},
 					"mediaType": {
 						"type": "string",
+						"maxLength": 128,
 						"description": "MIME type of the blob"
 					},
 					"annotations": {
@@ -174,6 +183,7 @@
 					},
 					"digest": {
 						"type": "string",
+						"maxLength": 128,
 						"description": "Content digest (e.g., 'sha256:...')"
 					},
 					"platform": {
@@ -183,6 +193,7 @@
 					},
 					"mediaType": {
 						"type": "string",
+						"maxLength": 128,
 						"description": "Media type of the referenced manifest"
 					},
 					"annotations": {
@@ -197,7 +208,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1766276313627
+		"indexedAt": 1766794619045
 	},
 	"references": {
 		"main": [],
