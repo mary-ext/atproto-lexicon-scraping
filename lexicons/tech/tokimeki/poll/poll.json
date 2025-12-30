@@ -1,0 +1,58 @@
+{
+	"authority": "did:plc:4tr5dqti7nmu6g2czpthntak",
+	"schema": {
+		"id": "tech.tokimeki.poll.poll",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"options",
+						"createdAt",
+						"endsAt"
+					],
+					"properties": {
+						"endsAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When the poll closes for voting"
+						},
+						"options": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 100,
+								"maxGraphemes": 50
+							},
+							"maxLength": 4,
+							"minLength": 2,
+							"description": "Poll options (2-4 choices)"
+						},
+						"subject": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "Reference to the post this poll is attached to"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "A poll record that can be attached to a post via embed.external"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1767053832516
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}
