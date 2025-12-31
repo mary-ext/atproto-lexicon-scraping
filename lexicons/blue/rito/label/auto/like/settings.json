@@ -1,0 +1,67 @@
+{
+	"authority": "did:plc:xnkb4hzxcuqbvwk5np7awf2u",
+	"schema": {
+		"id": "blue.rito.label.auto.like.settings",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"apply",
+						"createdAt"
+					],
+					"properties": {
+						"apply": {
+							"refs": [
+								"blue.rito.label.auto.like.settings#postRef"
+							],
+							"type": "union",
+							"description": "The post to apply the label to"
+						},
+						"delete": {
+							"refs": [
+								"blue.rito.label.auto.like.settings#postRef"
+							],
+							"type": "union",
+							"description": "The post to remove the label from"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "Setting Like based auto labeling."
+			},
+			"postRef": {
+				"type": "object",
+				"required": [
+					"uri",
+					"cid"
+				],
+				"properties": {
+					"cid": {
+						"type": "string",
+						"description": "CID of the post"
+					},
+					"uri": {
+						"type": "string",
+						"format": "uri",
+						"description": "URI of the post"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1767140297210
+	},
+	"references": {
+		"main": [],
+		"postRef": []
+	}
+}
