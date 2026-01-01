@@ -1,0 +1,64 @@
+{
+	"authority": "did:plc:ql5sv4umsrxadcsgtz3m5mq6",
+	"schema": {
+		"id": "net.asadaame5121.at-circle.request",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"ring",
+						"siteUrl",
+						"siteTitle",
+						"createdAt"
+					],
+					"properties": {
+						"ring": {
+							"ref": "net.asadaame5121.at-circle.defs#ringRef",
+							"type": "ref"
+						},
+						"rssUrl": {
+							"type": "string",
+							"format": "uri",
+							"description": "RSS feed URL of the site"
+						},
+						"message": {
+							"type": "string",
+							"maxLength": 1000,
+							"description": "Introduction message",
+							"maxGraphemes": 100
+						},
+						"siteUrl": {
+							"type": "string",
+							"format": "uri",
+							"description": "URL of the site to register"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"siteTitle": {
+							"type": "string",
+							"maxLength": 1000,
+							"description": "Title of the site",
+							"maxGraphemes": 100
+						}
+					}
+				},
+				"description": "A request to join a webring"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1767226782048
+	},
+	"references": {
+		"main": [
+			"net.asadaame5121.at-circle.defs"
+		]
+	}
+}

@@ -1,7 +1,7 @@
 {
 	"authority": "did:plc:xhvreb3sb62k5u73jkjt64jr",
 	"schema": {
-		"id": "org.okazu-diary.feed.collection",
+		"id": "org.okazu-diary.material.collection",
 		"defs": {
 			"main": {
 				"key": "tid",
@@ -43,8 +43,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1764548391461,
-		"errorAt": 1767226782048
+		"indexedAt": 1767226782048
 	},
 	"references": {
 		"main": [

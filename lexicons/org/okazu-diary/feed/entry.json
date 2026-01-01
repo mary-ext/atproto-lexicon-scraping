@@ -15,7 +15,7 @@
 						"via": {
 							"ref": "com.atproto.repo.strongRef",
 							"type": "ref",
-							"description": "Reference to another `org.okazu-diary.feed.entry` record or an `org.okazu-diary.feed.collectionItem` record whose `subjects` this collection item is derived from."
+							"description": "Reference to another `org.okazu-diary.feed.entry` record or an `org.okazu-diary.material.collectionItem` record from this entry is derived."
 						},
 						"note": {
 							"type": "string",
@@ -26,18 +26,18 @@
 						"tags": {
 							"type": "array",
 							"items": {
-								"ref": "org.okazu-diary.feed.defs#tag",
+								"ref": "org.okazu-diary.material.defs#tag",
 								"type": "ref"
 							},
 							"maxLength": 64,
-							"description": "User-specified tags for the entry."
+							"description": "User-specified tags for the activity."
 						},
 						"labels": {
 							"refs": [
 								"com.atproto.label.defs#selfLabels"
 							],
 							"type": "union",
-							"description": "General-purpose self-label values primarily for consumption by generic AT clients who may not expect the sensitive nature of this Lexicon. Publishers of this record are strongly recommended to always include at least one of the protocol-global label values; namely, `porn`, `sexual`, `graphic-media`, and `nudity`, unless the subjects, tags, and the note are all known to be safe by themselves. It is the safest to unconditionally include the `sexual` value, which has the `adultOnly` semantics, but it is acceptable to use a stronger (`porn`/`graphic-media`) or more moderate (`nudity`) value instead if the user decides so. To put warnings on the subject even for explicit users of the Okazu-Diary.org application, put self-labels in the `labels` property value of individual `subject` values as well."
+							"description": "Self-label values for this post. Effectively content warnings for the note and tags."
 						},
 						"datetime": {
 							"type": "string",
@@ -46,11 +46,11 @@
 						"subjects": {
 							"type": "array",
 							"items": {
-								"ref": "org.okazu-diary.feed.defs#subject",
+								"ref": "com.atproto.repo.strongRef",
 								"type": "ref"
 							},
 							"maxLength": 16,
-							"description": "Materials used for gratification. Leave the array empty if it is known that there is no applicable material. Omit the property if the materials are uncertain."
+							"description": "References to `org.okazu-diary.material.external` records associated with the activity. Leave the array empty if it is known that there is no applicable material. Omit the property if the materials are uncertain. Although this property uses a `strongRef` to make a reference to an external repository reliable to some extent, it is recommended that you copy the record to your own repository if you want to reference a record from another repository."
 						},
 						"hadHiatus": {
 							"type": "boolean",
@@ -75,15 +75,13 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1764548391461
+		"indexedAt": 1767226782048
 	},
 	"references": {
 		"main": [
 			"com.atproto.label.defs",
 			"com.atproto.repo.strongRef",
-			"org.okazu-diary.embed.external",
-			"org.okazu-diary.embed.record",
-			"org.okazu-diary.feed.defs"
+			"org.okazu-diary.material.defs"
 		]
 	}
 }

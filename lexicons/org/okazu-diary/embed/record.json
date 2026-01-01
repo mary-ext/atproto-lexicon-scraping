@@ -21,7 +21,8 @@
 		"description": "A representation of a record embedded in a diary entry record (eg. a Bluesky post)."
 	},
 	"meta": {
-		"indexedAt": 1764548391461
+		"indexedAt": 1764548391461,
+		"errorAt": 1767226782048
 	},
 	"references": {
 		"main": [

@@ -1,0 +1,29 @@
+{
+	"authority": "did:plc:xhvreb3sb62k5u73jkjt64jr",
+	"schema": {
+		"id": "org.okazu-diary.material.defs",
+		"defs": {
+			"tag": {
+				"type": "object",
+				"required": [
+					"value"
+				],
+				"properties": {
+					"value": {
+						"type": "string",
+						"maxLength": 256,
+						"minLength": 1
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1767226782048
+	},
+	"references": {
+		"tag": []
+	}
+}
