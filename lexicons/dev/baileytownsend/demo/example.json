@@ -1,0 +1,41 @@
+{
+	"authority": "did:plc:rnpkyqnmsw4ipey6eotbdnnf",
+	"schema": {
+		"id": "dev.baileytownsend.demo.example",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"createdAt"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 640,
+							"minLength": 1,
+							"description": "A name of something",
+							"maxGraphemes": 64
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "An example record for showing permissions ets"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1767313073704
+	},
+	"references": {
+		"main": []
+	}
+}
