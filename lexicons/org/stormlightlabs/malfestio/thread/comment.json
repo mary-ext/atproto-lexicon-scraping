@@ -1,0 +1,50 @@
+{
+	"authority": "did:plc:xg2vq45muivyy3xwatcehspu",
+	"schema": {
+		"id": "org.stormlightlabs.malfestio.thread.comment",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"subjectRef",
+						"body",
+						"createdAt"
+					],
+					"properties": {
+						"body": {
+							"type": "string",
+							"maxLength": 5000,
+							"description": "The comment text."
+						},
+						"replyTo": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "The parent comment if this is a reply."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"subjectRef": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "The root subject being commented on."
+						}
+					}
+				},
+				"description": "A comment on a deck, card, or note."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1767399385486
+	},
+	"references": {
+		"main": []
+	}
+}

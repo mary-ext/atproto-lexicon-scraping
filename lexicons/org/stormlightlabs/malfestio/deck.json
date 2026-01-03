@@ -1,0 +1,94 @@
+{
+	"authority": "did:plc:xg2vq45muivyy3xwatcehspu",
+	"schema": {
+		"id": "org.stormlightlabs.malfestio.deck",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"title",
+						"createdAt"
+					],
+					"properties": {
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 100
+							},
+							"maxLength": 64
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 300,
+							"description": "Title of the deck."
+						},
+						"license": {
+							"type": "string",
+							"maxLength": 500,
+							"description": "License for the deck content."
+						},
+						"cardRefs": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "at-uri"
+							},
+							"description": "Ordered list of references to cards in this deck."
+						},
+						"language": {
+							"type": "string",
+							"maxLength": 20,
+							"description": "Language code for the deck content (e.g., 'en', 'es', 'fr')."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp of last update."
+						},
+						"sourceRefs": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "at-uri"
+							},
+							"description": "References to source materials (articles, lectures) used in this deck."
+						},
+						"visibility": {
+							"type": "string",
+							"default": "public",
+							"maxLength": 100,
+							"description": "Visibility setting for the deck.",
+							"knownValues": [
+								"private",
+								"unlisted",
+								"public"
+							]
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 3000,
+							"description": "Description of the deck context."
+						}
+					}
+				},
+				"description": "A collection of flashcards and sources."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1767399385486
+	},
+	"references": {
+		"main": []
+	}
+}

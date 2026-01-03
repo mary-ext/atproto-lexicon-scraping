@@ -37,12 +37,9 @@
 							"maxGraphemes": 128
 						},
 						"content": {
-							"type": "array",
-							"items": {
-								"refs": [],
-								"type": "union",
-								"closed": false
-							}
+							"refs": [],
+							"type": "union",
+							"closed": false
 						},
 						"updatedAt": {
 							"type": "string",
@@ -79,7 +76,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1766535407390
+		"indexedAt": 1767399385486
 	},
 	"references": {
 		"main": [

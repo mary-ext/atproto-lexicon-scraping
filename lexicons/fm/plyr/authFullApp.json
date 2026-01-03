@@ -1,0 +1,39 @@
+{
+	"authority": "did:plc:vs3hnzq2daqbszxlysywzy54",
+	"schema": {
+		"id": "fm.plyr.authFullApp",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "plyr.fm",
+				"description": "Upload and manage audio content, playlists, likes, and comments.",
+				"permissions": [
+					{
+						"type": "permission",
+						"action": [
+							"create",
+							"update",
+							"delete"
+						],
+						"resource": "repo",
+						"collection": [
+							"fm.plyr.track",
+							"fm.plyr.like",
+							"fm.plyr.comment",
+							"fm.plyr.list",
+							"fm.plyr.actor.profile"
+						]
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1767399385486
+	},
+	"references": {
+		"main": []
+	}
+}
