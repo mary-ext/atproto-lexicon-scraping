@@ -1,0 +1,34 @@
+{
+	"authority": "did:plc:4zht3z4caxwrw3dlsybodywc",
+	"schema": {
+		"id": "dev.vielle.guestbook.authEntry",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Sign a guestbook",
+				"detail": "Create a new signature for any guestbook. Cannot delete or edit new or existing signatures",
+				"permissions": [
+					{
+						"type": "permission",
+						"action": [
+							"create"
+						],
+						"resource": "repo",
+						"collection": [
+							"dev.vielle.guestbook.entry"
+						]
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Permission to create a new signature for a guestbook"
+	},
+	"meta": {
+		"indexedAt": 1767485983471
+	},
+	"references": {
+		"main": []
+	}
+}

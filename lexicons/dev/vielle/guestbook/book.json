@@ -1,0 +1,36 @@
+{
+	"authority": "did:plc:4zht3z4caxwrw3dlsybodywc",
+	"schema": {
+		"id": "dev.vielle.guestbook.book",
+		"defs": {
+			"main": {
+				"key": "nsid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"site"
+					],
+					"properties": {
+						"site": {
+							"type": "string",
+							"format": "uri"
+						},
+						"title": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Book for guesbook signing. dev.vielle.guestbook.entry records will refer to this. The rkey should be nsid (reverse dns) for the domain this is a guestbook for"
+	},
+	"meta": {
+		"indexedAt": 1767485983471
+	},
+	"references": {
+		"main": []
+	}
+}

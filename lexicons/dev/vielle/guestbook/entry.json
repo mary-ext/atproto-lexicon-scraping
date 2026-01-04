@@ -1,0 +1,37 @@
+{
+	"authority": "did:plc:4zht3z4caxwrw3dlsybodywc",
+	"schema": {
+		"id": "dev.vielle.guestbook.entry",
+		"defs": {
+			"main": {
+				"key": "nsid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"book",
+						"contents"
+					],
+					"properties": {
+						"book": {
+							"type": "string",
+							"format": "at-uri"
+						},
+						"contents": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Signature for a guestbook. This references the dev.vielle.guestbook.book record for the given website. The rkey should be nsid (reverse dns) for the domain this is a signature for"
+	},
+	"meta": {
+		"indexedAt": 1767485983471
+	},
+	"references": {
+		"main": []
+	}
+}
