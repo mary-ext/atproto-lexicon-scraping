@@ -1,0 +1,87 @@
+{
+	"authority": "did:plc:tgudj2fjm77pzkuawquqhsxm",
+	"schema": {
+		"id": "events.smokesignal.profile",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"properties": {
+						"avatar": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg"
+							],
+							"maxSize": 3000000,
+							"description": "Small image to be displayed next to events. AKA, 'profile picture'"
+						},
+						"banner": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg"
+							],
+							"maxSize": 3000000,
+							"description": "Larger horizontal image to display behind profile view."
+						},
+						"facets": {
+							"type": "array",
+							"items": {
+								"ref": "app.bsky.richtext.facet",
+								"type": "ref"
+							},
+							"description": "Annotations of text (mentions, URLs, hashtags, etc) in the description."
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 2000,
+							"description": "A free text description of the identity.",
+							"maxGraphemes": 2000
+						},
+						"displayName": {
+							"type": "string",
+							"maxLength": 200,
+							"description": "The display name of the identity.",
+							"maxGraphemes": 200
+						},
+						"profileHost": {
+							"type": "string",
+							"maxLength": 60,
+							"description": "The format used for profile links",
+							"knownValues": [
+								"bsky.app",
+								"blacksky.community",
+								"aturi"
+							],
+							"maxGraphemes": 60
+						}
+					}
+				},
+				"description": "A user profile for Smoke Signal"
+			},
+			"hiring": {
+				"type": "token",
+				"description": "Indicates the identity is actively hiring"
+			},
+			"forhire": {
+				"type": "token",
+				"description": "Indicates the identity is available for hire"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1767658691107
+	},
+	"references": {
+		"main": [
+			"app.bsky.richtext.facet"
+		],
+		"hiring": [],
+		"forhire": []
+	}
+}

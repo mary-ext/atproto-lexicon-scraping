@@ -1,0 +1,48 @@
+{
+	"authority": "did:plc:2hcnfmbfr4ucfbjpnvjqvt3e",
+	"schema": {
+		"id": "cat.vt3e.gallery.groupItem",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"group",
+						"image",
+						"addedAt"
+					],
+					"properties": {
+						"note": {
+							"type": "string"
+						},
+						"group": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "uri of the group that the image belongs to"
+						},
+						"image": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "uri of the image that this item represents"
+						},
+						"addedAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "defines an item in a gallery group"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1767658691107
+	},
+	"references": {
+		"main": []
+	}
+}

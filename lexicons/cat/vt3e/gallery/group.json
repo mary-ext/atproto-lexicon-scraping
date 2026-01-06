@@ -1,0 +1,41 @@
+{
+	"authority": "did:plc:2hcnfmbfr4ucfbjpnvjqvt3e",
+	"schema": {
+		"id": "cat.vt3e.gallery.group",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"createdAt"
+					],
+					"properties": {
+						"title": {
+							"type": "string",
+							"maxLength": 300
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 1000
+						}
+					}
+				},
+				"description": "defines a group of images in the gallery"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1767658691107
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -1,0 +1,56 @@
+{
+	"authority": "did:plc:ggobmtqnjirtchpwgydxoecb",
+	"schema": {
+		"id": "social.tophhie.profile",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"createdAt",
+						"communicationPreferences"
+					],
+					"properties": {
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "ISO 8601 timestamp when this profile record was created."
+						},
+						"communicationPreferences": {
+							"ref": "#communicationPreferences",
+							"type": "ref",
+							"description": "User's opt-in/out preferences for communications."
+						}
+					},
+					"description": "Tophhie profile record"
+				}
+			},
+			"communicationPreferences": {
+				"type": "object",
+				"required": [
+					"marketing"
+				],
+				"properties": {
+					"marketing": {
+						"type": "boolean",
+						"description": "True if the user consents to receive marketing communications."
+					}
+				},
+				"description": "Granular communication consent flags."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"revision": 0,
+		"description": "Tophhie Social: profile record containing various PDS specific settings."
+	},
+	"meta": {
+		"indexedAt": 1767658691107
+	},
+	"references": {
+		"main": [],
+		"communicationPreferences": []
+	}
+}
