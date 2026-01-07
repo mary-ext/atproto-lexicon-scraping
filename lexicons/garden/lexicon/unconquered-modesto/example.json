@@ -1,0 +1,32 @@
+{
+	"authority": "did:plc:cbkjy5n7bk3ax2wplmtjofq2",
+	"schema": {
+		"id": "garden.lexicon.unconquered-modesto.example",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"message2"
+					],
+					"properties": {
+						"message2": {
+							"type": "string"
+						}
+					}
+				},
+				"description": "My lexicon description"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1767744959621
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -1,0 +1,41 @@
+{
+	"authority": "did:plc:pz4sp2vf5w26wnaee253gfms",
+	"schema": {
+		"id": "dev.tsunagite.difficulty",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name"
+					],
+					"properties": {
+						"name": {
+							"ref": "dev.tsunagite.translatable",
+							"type": "ref",
+							"description": "The human-readable name of the difficulty slot for use in UI."
+						},
+						"color": {
+							"type": "string",
+							"description": "The hex code color of the difficulty slot."
+						}
+					}
+				},
+				"description": "A difficulty slot in a game hosting leaderboards via Tsunagite."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Definitions related to difficulty slots in games hosting leaderboards via Tsunagite."
+	},
+	"meta": {
+		"indexedAt": 1767744959621
+	},
+	"references": {
+		"main": [
+			"dev.tsunagite.translatable"
+		]
+	}
+}

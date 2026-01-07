@@ -1,0 +1,45 @@
+{
+	"authority": "did:plc:rnpkyqnmsw4ipey6eotbdnnf",
+	"schema": {
+		"id": "social.pace.daily.step",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"steps",
+						"createdAt",
+						"updatedAt"
+					],
+					"properties": {
+						"steps": {
+							"type": "integer",
+							"description": "The number of steps taken during the day"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "The first time this record was created"
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "The last time this record was updated"
+						}
+					}
+				},
+				"description": "A daily recording of your steps for that day. This record is expected to be update throughout the day and represent's 12am-12pm in your timezone, or what you count as a \"day\". The key is also traditionally the date of your \"day\" yyy-mm-dd."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1767744959621
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -1,0 +1,63 @@
+{
+	"authority": "did:plc:pz4sp2vf5w26wnaee253gfms",
+	"schema": {
+		"id": "dev.tsunagite.types",
+		"defs": {
+			"typedRef": {
+				"type": "object",
+				"properties": {
+					"ref": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "The AT URI of the record this object references."
+					},
+					"type": {
+						"type": "string",
+						"format": "record-key",
+						"description": "The type of the record this object references."
+					}
+				},
+				"description": "A typed record reference that does not require a CID hash."
+			},
+			"indexable": {
+				"type": "object",
+				"required": [
+					"id",
+					"name",
+					"index"
+				],
+				"properties": {
+					"id": {
+						"type": "string",
+						"format": "record-key",
+						"maxLength": 32,
+						"minLength": 1,
+						"description": "The internal ID for the value, limited to the RecordKey character set."
+					},
+					"name": {
+						"ref": "dev.tsunagite.translatable",
+						"type": "ref",
+						"description": "The human-readable name of the value for displaying in UIs."
+					},
+					"index": {
+						"type": "integer",
+						"description": "The numeric index used for sorting."
+					}
+				},
+				"description": "A named value with a numeric index for sorting."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Assistant data types for Tsunagite lexicons."
+	},
+	"meta": {
+		"indexedAt": 1767744959621
+	},
+	"references": {
+		"typedRef": [],
+		"indexable": [
+			"dev.tsunagite.translatable"
+		]
+	}
+}

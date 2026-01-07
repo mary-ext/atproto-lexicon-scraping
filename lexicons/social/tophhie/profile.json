@@ -18,6 +18,16 @@
 							"format": "datetime",
 							"description": "ISO 8601 timestamp when this profile record was created."
 						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "ISO 8601 timestamp when this profile record was updated."
+						},
+						"pdsPreferences": {
+							"ref": "#pdsPreferences",
+							"type": "ref",
+							"description": "User's opt-in/out preferences for PDS features."
+						},
 						"communicationPreferences": {
 							"ref": "#communicationPreferences",
 							"type": "ref",
@@ -26,6 +36,17 @@
 					},
 					"description": "Tophhie profile record"
 				}
+			},
+			"pdsPreferences": {
+				"type": "object",
+				"required": [],
+				"properties": {
+					"accessibilityScoring": {
+						"type": "boolean",
+						"description": "True if the user participates in accessibility scoring."
+					}
+				},
+				"description": "Granular PDS preference consent flags."
 			},
 			"communicationPreferences": {
 				"type": "object",
@@ -47,10 +68,11 @@
 		"description": "Tophhie Social: profile record containing various PDS specific settings."
 	},
 	"meta": {
-		"indexedAt": 1767658691107
+		"indexedAt": 1767744959621
 	},
 	"references": {
 		"main": [],
+		"pdsPreferences": [],
 		"communicationPreferences": []
 	}
 }

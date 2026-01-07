@@ -13,6 +13,11 @@
 							"type": "string",
 							"format": "datetime"
 						},
+						"description": {
+							"type": "string",
+							"maxLength": 2560,
+							"maxGraphemes": 256
+						},
 						"displayName": {
 							"type": "string",
 							"maxLength": 640,
@@ -27,7 +32,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1766276313627
+		"indexedAt": 1767744959621
 	},
 	"references": {
 		"main": []

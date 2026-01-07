@@ -1,7 +1,7 @@
 {
 	"authority": "did:plc:2yt5tojliyazlgmtrqrbvobl",
 	"schema": {
-		"id": "io.whiteley.luke.ATlas.pin",
+		"id": "io.whiteley.ATlas.pin",
 		"defs": {
 			"main": {
 				"key": "literal:self",
@@ -46,15 +46,14 @@
 						}
 					}
 				},
-				"description": "A user's geographical pin on the ATlas"
+				"description": "A user's geographical pin on the atlas"
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1767053832516,
-		"errorAt": 1767744959621
+		"indexedAt": 1767744959621
 	},
 	"references": {
 		"main": []
