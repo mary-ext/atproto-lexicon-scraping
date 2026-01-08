@@ -52,6 +52,11 @@
 						],
 						"type": "union"
 					},
+					"pageWidth": {
+						"type": "integer",
+						"maximum": 1600,
+						"minimum": 0
+					},
 					"accentText": {
 						"refs": [
 							"pub.leaflet.theme.color#rgba",
@@ -108,7 +113,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1761092156999,
+		"indexedAt": 1767831495082,
 		"errorAt": 1760659937196
 	},
 	"references": {

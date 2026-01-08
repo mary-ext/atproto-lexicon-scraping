@@ -1,7 +1,7 @@
 {
-	"authority": "did:plc:cbkjy5n7bk3ax2wplmtjofq2",
+	"authority": "did:plc:izttpdp3l6vss5crelt5kcux",
 	"schema": {
-		"id": "garden.lexicon.lawyerlike-deangelo.example",
+		"id": "garden.lexicon.conquering-wolfhound.example",
 		"defs": {
 			"main": {
 				"key": "tid",
@@ -11,15 +11,14 @@
 					"required": [],
 					"properties": {}
 				},
-				"description": "My lexicon description"
+				"description": "The Conquering Wolfhound!!!!!!"
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1767744959621,
-		"errorAt": 1767831495082
+		"indexedAt": 1767831495082
 	},
 	"references": {
 		"main": []
