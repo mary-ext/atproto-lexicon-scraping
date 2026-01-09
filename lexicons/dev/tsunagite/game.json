@@ -42,7 +42,8 @@
 					"required": [
 						"name",
 						"judgments",
-						"scoreComponents"
+						"scoreComponents",
+						"defaultComponent"
 					],
 					"properties": {
 						"logo": {
@@ -107,6 +108,11 @@
 								"description": "If you need a component type that doesn't exist yet, contact @lemmaeof.gay"
 							},
 							"description": "All the components of a score in the game, including grades, lamps, EX score, and whatever other constructs are used."
+						},
+						"defaultComponent": {
+							"type": "string",
+							"format": "record-key",
+							"description": "The default component for leaderboard sorting."
 						}
 					}
 				},
@@ -200,7 +206,7 @@
 		"description": "Definitions related to games hosting leaderboards via Tunagite."
 	},
 	"meta": {
-		"indexedAt": 1767744959621
+		"indexedAt": 1767917849937
 	},
 	"references": {
 		"enum": [

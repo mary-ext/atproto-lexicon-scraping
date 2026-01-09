@@ -1,0 +1,38 @@
+{
+	"authority": "did:plc:vro3sykit2gjemuza2pwvxwy",
+	"schema": {
+		"id": "city.yoyle.status",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"text"
+					],
+					"properties": {
+						"text": {
+							"type": "string",
+							"maxLength": 3000,
+							"maxGraphemes": 300
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "Short status update"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1767917849937
+	},
+	"references": {
+		"main": []
+	}
+}

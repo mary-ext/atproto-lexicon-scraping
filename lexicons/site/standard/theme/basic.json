@@ -16,34 +16,39 @@
 						"refs": [
 							"site.standard.theme.color#rgb"
 						],
-						"type": "union"
+						"type": "union",
+						"description": "Color used for links and button backgrounds."
 					},
 					"background": {
 						"refs": [
 							"site.standard.theme.color#rgb"
 						],
-						"type": "union"
+						"type": "union",
+						"description": "Color used for content background."
 					},
 					"foreground": {
 						"refs": [
 							"site.standard.theme.color#rgb"
 						],
-						"type": "union"
+						"type": "union",
+						"description": "Color used for content text."
 					},
 					"accentForeground": {
 						"refs": [
 							"site.standard.theme.color#rgb"
 						],
-						"type": "union"
+						"type": "union",
+						"description": "Color used for button text."
 					}
-				}
+				},
+				"description": "A simplified theme definition for publications, providing basic color customization for content display across different platforms and applications."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1765671513874
+		"indexedAt": 1767917849937
 	},
 	"references": {
 		"main": [

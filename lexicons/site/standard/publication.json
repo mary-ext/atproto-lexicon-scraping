@@ -15,51 +15,60 @@
 					"properties": {
 						"url": {
 							"type": "string",
-							"format": "uri"
+							"format": "uri",
+							"description": "Base publication url (ex: https://standard.site). The canonical document URL is formed by combining this value with the document path."
 						},
 						"icon": {
 							"type": "blob",
 							"accept": [
 								"image/*"
 							],
-							"maxSize": 1000000
+							"maxSize": 1000000,
+							"description": "Square image to identify the publication. Should be at least 256x256."
 						},
 						"name": {
 							"type": "string",
 							"maxLength": 1280,
+							"description": "Name of the publication.",
 							"maxGraphemes": 128
 						},
 						"basicTheme": {
 							"ref": "site.standard.theme.basic",
-							"type": "ref"
+							"type": "ref",
+							"description": "Simplified publication theme for tools and apps to utilize when displaying content."
 						},
 						"description": {
 							"type": "string",
 							"maxLength": 3000,
+							"description": "Brief description of the publication.",
 							"maxGraphemes": 300
 						},
 						"preferences": {
 							"ref": "#preferences",
-							"type": "ref"
+							"type": "ref",
+							"description": "Object containing platform specific preferences (with a few shared properties)."
 						}
 					}
-				}
+				},
+				"description": "A publication record representing a blog, website, or content platform. Publications serve as containers for documents and define the overall branding and settings."
 			},
 			"preferences": {
 				"type": "object",
 				"properties": {
 					"showInDiscover": {
 						"type": "boolean",
-						"default": true
+						"default": true,
+						"description": "Boolean which decides whether the publication should appear in discovery feeds."
 					}
-				}
+				},
+				"description": "Platform-specific preferences for the publication, including discovery and visibility settings."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1766535407390
+		"indexedAt": 1767917849937
 	},
 	"references": {
 		"main": [
