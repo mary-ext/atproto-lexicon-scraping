@@ -9,35 +9,107 @@
 				"record": {
 					"type": "object",
 					"required": [
-						"serviceType",
-						"methods"
+						"serviceType"
 					],
 					"properties": {
 						"methods": {
 							"type": "array",
 							"items": {
-								"type": "string",
-								"format": "at-uri"
+								"ref": "#method",
+								"type": "ref"
 							},
-							"description": "AT-URIs pointing to lexicon schemas that define methods available on this service."
+							"description": "Methods available on this service."
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 1000,
+							"description": "Description of what this service provides."
 						},
 						"serviceType": {
 							"type": "string",
 							"maxLength": 100,
 							"description": "The type of service being declared."
+						},
+						"urlTemplates": {
+							"type": "array",
+							"items": {
+								"ref": "#urlTemplate",
+								"type": "ref"
+							},
+							"description": "URL templates for constructing web URLs from AT-URIs or record data. Useful for linking to web views of records."
 						}
 					}
 				},
 				"description": "Declares XRPC methods available on a DID document service. The rkey is the service fragment ID without the # prefix (e.g., 'atproto_pds' for '#atproto_pds')."
+			},
+			"method": {
+				"type": "object",
+				"required": [
+					"lexicon"
+				],
+				"properties": {
+					"lexicon": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "AT-URI pointing to a lexicon schema that defines this method."
+					},
+					"deprecated": {
+						"type": "boolean",
+						"description": "Whether this method is deprecated and should no longer be used."
+					},
+					"authMethods": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"maxLength": 50,
+							"knownValues": [
+								"none",
+								"atproto.admin",
+								"atproto.bearer",
+								"atproto.oauth",
+								"atproto.inter-service"
+							]
+						},
+						"description": "Authentication methods supported by this method."
+					}
+				}
+			},
+			"urlTemplate": {
+				"type": "object",
+				"required": [
+					"url"
+				],
+				"properties": {
+					"url": {
+						"type": "string",
+						"maxLength": 2000,
+						"description": "URI template with placeholders for record data"
+					},
+					"collections": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"format": "nsid"
+						},
+						"description": "NSIDs of collections this URL template applies to."
+					},
+					"description": {
+						"type": "string",
+						"maxLength": 1000,
+						"description": "Description of what this URL template is for."
+					}
+				}
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1767658691107
+		"indexedAt": 1768004244235
 	},
 	"references": {
-		"main": []
+		"main": [],
+		"method": [],
+		"urlTemplate": []
 	}
 }

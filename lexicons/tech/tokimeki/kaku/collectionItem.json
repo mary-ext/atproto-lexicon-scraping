@@ -1,0 +1,52 @@
+{
+	"authority": "did:plc:4tr5dqti7nmu6g2czpthntak",
+	"schema": {
+		"id": "tech.tokimeki.kaku.collectionItem",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"collection",
+						"post",
+						"createdAt"
+					],
+					"properties": {
+						"post": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "Reference to the post"
+						},
+						"order": {
+							"type": "integer",
+							"minimum": 0,
+							"description": "Order within the collection"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"collection": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "Reference to the collection"
+						}
+					}
+				},
+				"description": "An item in a collection linking to a post"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768004244235
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}

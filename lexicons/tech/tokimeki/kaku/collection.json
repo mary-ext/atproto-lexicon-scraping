@@ -1,0 +1,52 @@
+{
+	"authority": "did:plc:4tr5dqti7nmu6g2czpthntak",
+	"schema": {
+		"id": "tech.tokimeki.kaku.collection",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"createdAt"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 100,
+							"minLength": 1,
+							"description": "Collection name",
+							"maxGraphemes": 50
+						},
+						"isPublic": {
+							"type": "boolean",
+							"default": true,
+							"description": "Whether the collection is publicly visible"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 500,
+							"description": "Collection description",
+							"maxGraphemes": 200
+						}
+					}
+				},
+				"description": "A collection to organize drawings into folders"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768004244235
+	},
+	"references": {
+		"main": []
+	}
+}

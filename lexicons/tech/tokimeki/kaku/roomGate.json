@@ -1,0 +1,47 @@
+{
+	"authority": "did:plc:4tr5dqti7nmu6g2czpthntak",
+	"schema": {
+		"id": "tech.tokimeki.kaku.roomGate",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"room",
+						"createdAt"
+					],
+					"properties": {
+						"room": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "Reference to the ROOM post"
+						},
+						"isClosed": {
+							"type": "boolean",
+							"default": false,
+							"description": "Whether the room is closed for new replies"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the gate was created"
+						}
+					}
+				},
+				"description": "Gate settings for a ROOM post (like threadgate)"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768004244235
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}

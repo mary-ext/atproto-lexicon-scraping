@@ -1,0 +1,52 @@
+{
+	"authority": "did:plc:tg7czpgjgkh3teov45ffzlgd",
+	"schema": {
+		"id": "blue.skytalk.talk.thread",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"channelId",
+						"title",
+						"createdAt"
+					],
+					"properties": {
+						"text": {
+							"type": "string",
+							"maxLength": 4000,
+							"description": "The text content of the thread",
+							"maxGraphemes": 40000
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 300,
+							"description": "The title of the thread",
+							"maxGraphemes": 3000
+						},
+						"channelId": {
+							"type": "string",
+							"description": "The channel this thread belongs to"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp of thread creation"
+						}
+					}
+				},
+				"description": "A thread in a channel"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768004244235
+	},
+	"references": {
+		"main": []
+	}
+}
