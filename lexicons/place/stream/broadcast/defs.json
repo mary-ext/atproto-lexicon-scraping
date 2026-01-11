@@ -1,16 +1,15 @@
 {
 	"authority": "did:web:iame.li",
 	"schema": {
-		"id": "place.stream.chat.defs",
+		"id": "place.stream.broadcast.defs",
 		"defs": {
-			"messageView": {
+			"broadcastOriginView": {
 				"type": "object",
 				"required": [
 					"uri",
 					"cid",
 					"author",
-					"record",
-					"indexedAt"
+					"record"
 				],
 				"properties": {
 					"cid": {
@@ -27,24 +26,6 @@
 					},
 					"record": {
 						"type": "unknown"
-					},
-					"deleted": {
-						"type": "boolean",
-						"description": "If true, this message has been deleted or labeled and should be cleared from the cache"
-					},
-					"replyTo": {
-						"refs": [
-							"#messageView"
-						],
-						"type": "union"
-					},
-					"indexedAt": {
-						"type": "string",
-						"format": "datetime"
-					},
-					"chatProfile": {
-						"ref": "place.stream.chat.profile",
-						"type": "ref"
 					}
 				}
 			}
@@ -53,16 +34,15 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1765844234444
+		"indexedAt": 1768090771048
 	},
 	"references": {
-		"messageView": [
+		"broadcastOriginView": [
 			"app.bsky.actor.defs",
 			"app.bsky.embed.external",
 			"app.bsky.graph.defs",
 			"app.bsky.notification.defs",
-			"com.atproto.label.defs",
-			"place.stream.chat.profile"
+			"com.atproto.label.defs"
 		]
 	}
 }

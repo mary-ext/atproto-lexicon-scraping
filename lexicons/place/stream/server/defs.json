@@ -1,5 +1,5 @@
 {
-	"authority": "did:web:stream.place",
+	"authority": "did:web:iame.li",
 	"schema": {
 		"id": "place.stream.server.defs",
 		"defs": {

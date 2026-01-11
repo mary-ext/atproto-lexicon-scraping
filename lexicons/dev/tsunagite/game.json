@@ -206,7 +206,8 @@
 		"description": "Definitions related to games hosting leaderboards via Tunagite."
 	},
 	"meta": {
-		"indexedAt": 1767917849937
+		"indexedAt": 1767917849937,
+		"errorAt": 1768090771048
 	},
 	"references": {
 		"enum": [

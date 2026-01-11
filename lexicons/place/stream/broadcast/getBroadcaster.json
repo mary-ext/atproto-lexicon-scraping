@@ -1,0 +1,53 @@
+{
+	"authority": "did:web:iame.li",
+	"schema": {
+		"id": "place.stream.broadcast.getBroadcaster",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"broadcaster"
+						],
+						"properties": {
+							"admins": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"format": "did"
+								},
+								"description": "Array of DIDs authorized as admins"
+							},
+							"server": {
+								"type": "string",
+								"format": "did",
+								"description": "DID of this particular Streamplace server"
+							},
+							"broadcaster": {
+								"type": "string",
+								"format": "did",
+								"description": "DID of the Streamplace broadcaster to which this server belongs"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"properties": {}
+				},
+				"description": "Get information about a Streamplace broadcaster."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768090771048
+	},
+	"references": {
+		"main": []
+	}
+}

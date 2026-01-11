@@ -39,11 +39,12 @@
 						"visibility": {
 							"enum": [
 								"public",
-								"password"
+								"password",
+								"login"
 							],
 							"type": "string",
 							"maxLength": 100,
-							"description": "For 'password', the text only contains blurred text, and additional is always empty. The unblurred text and additional are included in the encryptBody.",
+							"description": "For 'login', the post requires login to view (Bluesky account required). For 'password', the text only contains blurred text, and additional is always empty. The unblurred text and additional are included in the encryptBody.",
 							"maxGraphemes": 10
 						},
 						"encryptBody": {
@@ -59,7 +60,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1768090771048,
 		"errorAt": 1760659937196
 	},
 	"references": {
