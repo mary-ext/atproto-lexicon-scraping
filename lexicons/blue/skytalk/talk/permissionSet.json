@@ -6,23 +6,19 @@
 			"main": {
 				"type": "permission-set",
 				"title": "SkyTalk.Blue",
-				"detail": "Create threads and comments",
+				"detail": "Create threads and comments, and reactions",
 				"detail:lang": {
-					"en": "Create threads and comments",
-					"ja-JP": "スレッドとコメントの作成"
+					"en": "Create threads and comments, add reactions",
+					"ja-JP": "スレッドとコメントの作成、リアクションの追加"
 				},
 				"permissions": [
 					{
 						"type": "permission",
-						"action": [
-							"create",
-							"update",
-							"delete"
-						],
 						"resource": "repo",
 						"collection": [
 							"blue.skytalk.talk.thread",
-							"blue.skytalk.talk.comment"
+							"blue.skytalk.talk.comment",
+							"blue.skytalk.talk.reaction"
 						]
 					}
 				]
@@ -32,7 +28,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768004244235
+		"indexedAt": 1768177130347
 	},
 	"references": {
 		"main": []
