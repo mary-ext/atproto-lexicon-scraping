@@ -1,0 +1,33 @@
+{
+	"authority": "did:web:firehose.chat",
+	"schema": {
+		"id": "chat.firehose.authFull",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Full Firehose Chat Permissions",
+				"detail": "Access channel history and chat features via chat.firehose.stream.",
+				"title:lang": {},
+				"detail:lang": {},
+				"permissions": [
+					{
+						"lxm": [
+							"chat.firehose.getUserChannels"
+						],
+						"type": "permission",
+						"resource": "rpc",
+						"inheritAud": true
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768263322216
+	},
+	"references": {
+		"main": []
+	}
+}

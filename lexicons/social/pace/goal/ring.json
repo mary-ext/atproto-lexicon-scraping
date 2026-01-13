@@ -1,7 +1,7 @@
 {
 	"authority": "did:plc:rnpkyqnmsw4ipey6eotbdnnf",
 	"schema": {
-		"id": "social.pace.daily.ring",
+		"id": "social.pace.goal.ring",
 		"defs": {
 			"main": {
 				"key": "any",
@@ -55,8 +55,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1767744959621,
-		"errorAt": 1768263322216
+		"indexedAt": 1768263322216
 	},
 	"references": {
 		"main": []

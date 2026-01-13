@@ -1,0 +1,42 @@
+{
+	"authority": "did:web:iame.li",
+	"schema": {
+		"id": "place.stream.authFull",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Full Streamplace Access",
+				"detail": "Full access to all Streamplace features and data.",
+				"permissions": [
+					{
+						"type": "permission",
+						"resource": "repo",
+						"collection": [
+							"place.stream.broadcast.origin",
+							"place.stream.broadcast.syndication",
+							"place.stream.chat.gate",
+							"place.stream.chat.message",
+							"place.stream.chat.profile",
+							"place.stream.key",
+							"place.stream.live.recommendations",
+							"place.stream.livestream",
+							"place.stream.metadata.configuration",
+							"place.stream.moderation.permission",
+							"place.stream.multistream.target",
+							"place.stream.segment",
+							"place.stream.server.settings"
+						]
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768263322216
+	},
+	"references": {
+		"main": []
+	}
+}

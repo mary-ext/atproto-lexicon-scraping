@@ -1,0 +1,47 @@
+{
+	"authority": "did:web:firehose.chat",
+	"schema": {
+		"id": "chat.firehose.getUserChannels",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"properties": {
+							"channels": {
+								"type": "array",
+								"items": {
+									"ref": "#channel",
+									"type": "ref"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Get channels for the authenticated user."
+			},
+			"channel": {
+				"type": "object",
+				"properties": {
+					"uri": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768263322216
+	},
+	"references": {
+		"main": [],
+		"channel": []
+	}
+}
