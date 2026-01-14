@@ -1,0 +1,58 @@
+{
+	"authority": "did:plc:t7y5hsuunzeyna2ecje4le7z",
+	"schema": {
+		"id": "social.drydown.fragrance",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"house",
+						"createdAt"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 200,
+							"minLength": 1,
+							"description": "Fragrance name"
+						},
+						"year": {
+							"type": "integer",
+							"maximum": 2100,
+							"minimum": 1000,
+							"description": "Year of release (optional)"
+						},
+						"house": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT URI reference to house record (at://did/social.drydown.house/rkey)"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when fragrance was created"
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp of last update"
+						}
+					}
+				},
+				"description": "An individual fragrance with house reference"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768349916633
+	},
+	"references": {
+		"main": []
+	}
+}

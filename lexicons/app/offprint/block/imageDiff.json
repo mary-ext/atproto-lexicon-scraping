@@ -1,0 +1,64 @@
+{
+	"authority": "did:plc:pgjkomf37an4czloay5zeth6",
+	"schema": {
+		"id": "app.offprint.block.imageDiff",
+		"defs": {
+			"main": {
+				"type": "object",
+				"required": [
+					"images"
+				],
+				"properties": {
+					"width": {
+						"type": "string",
+						"description": "CSS width value"
+					},
+					"images": {
+						"type": "array",
+						"items": {
+							"ref": "app.offprint.block.imageGrid#gridImage",
+							"type": "ref"
+						},
+						"required": true,
+						"maxLength": 2,
+						"minLength": 2,
+						"description": "Exactly 2 images for comparison [before, after]"
+					},
+					"labels": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"maxLength": 2,
+						"minLength": 2,
+						"description": "Labels for the images [before label, after label]"
+					},
+					"caption": {
+						"type": "string",
+						"description": "Comparison caption"
+					},
+					"alignment": {
+						"enum": [
+							"left",
+							"center",
+							"right"
+						],
+						"type": "string",
+						"description": "Horizontal alignment"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768349916633
+	},
+	"references": {
+		"main": [
+			"app.offprint.block.image",
+			"app.offprint.block.imageGrid"
+		]
+	}
+}

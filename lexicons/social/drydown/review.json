@@ -1,0 +1,104 @@
+{
+	"authority": "did:plc:t7y5hsuunzeyna2ecje4le7z",
+	"schema": {
+		"id": "social.drydown.review",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"fragrance",
+						"createdAt"
+					],
+					"properties": {
+						"text": {
+							"type": "string",
+							"maxLength": 3000,
+							"description": "Written review (max 255 graphemes)",
+							"maxGraphemes": 255
+						},
+						"sillage": {
+							"type": "integer",
+							"maximum": 5,
+							"minimum": 1,
+							"description": "Mid-Wear: Trail left behind (1-5)"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the review was created"
+						},
+						"endRating": {
+							"type": "integer",
+							"maximum": 5,
+							"minimum": 1,
+							"description": "Final: How it smells at the end (1-5)"
+						},
+						"fragrance": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "Reference to the social.drydown.fragrance record"
+						},
+						"longevity": {
+							"type": "integer",
+							"maximum": 5,
+							"minimum": 1,
+							"description": "Final: Total duration (1-5)"
+						},
+						"complexity": {
+							"type": "integer",
+							"maximum": 5,
+							"minimum": 1,
+							"description": "Final: Depth and evolution (1-5)"
+						},
+						"drydownRating": {
+							"type": "integer",
+							"maximum": 5,
+							"minimum": 1,
+							"description": "Mid-Wear: How it smells after settling (1-5)"
+						},
+						"midProjection": {
+							"type": "integer",
+							"maximum": 5,
+							"minimum": 1,
+							"description": "Mid-Wear: Scent bubble radius during mid-wear (1-5)"
+						},
+						"openingRating": {
+							"type": "integer",
+							"maximum": 5,
+							"minimum": 1,
+							"description": "First Impression: How it smells immediately (1-5)"
+						},
+						"overallRating": {
+							"type": "integer",
+							"maximum": 5,
+							"minimum": 1,
+							"description": "Final: Holistic 'Gut Score' (1-5)"
+						},
+						"weightedScore": {
+							"type": "integer",
+							"description": "Calculated final score * 1000 (e.g. 4250 = 4.25)"
+						},
+						"openingProjection": {
+							"type": "integer",
+							"maximum": 5,
+							"minimum": 1,
+							"description": "First Impression: Immediate scent bubble radius (1-5)"
+						}
+					}
+				},
+				"description": "A single wearing review of a fragrance"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768349916633
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -1,0 +1,56 @@
+{
+	"authority": "did:plc:pgjkomf37an4czloay5zeth6",
+	"schema": {
+		"id": "app.offprint.block.heading",
+		"defs": {
+			"main": {
+				"type": "object",
+				"required": [
+					"plaintext",
+					"level"
+				],
+				"properties": {
+					"level": {
+						"type": "integer",
+						"maximum": 3,
+						"minimum": 1,
+						"required": true,
+						"description": "Heading level (1-3)"
+					},
+					"facets": {
+						"type": "array",
+						"items": {
+							"ref": "app.offprint.richtext.facet",
+							"type": "ref"
+						},
+						"description": "Facets for text formatting"
+					},
+					"plaintext": {
+						"type": "string",
+						"required": true,
+						"description": "The heading text content"
+					},
+					"textAlign": {
+						"enum": [
+							"left",
+							"center",
+							"right"
+						],
+						"type": "string",
+						"description": "Text alignment"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768349916633
+	},
+	"references": {
+		"main": [
+			"app.offprint.richtext.facet"
+		]
+	}
+}

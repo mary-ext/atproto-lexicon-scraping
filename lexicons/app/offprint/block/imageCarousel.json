@@ -1,0 +1,52 @@
+{
+	"authority": "did:plc:pgjkomf37an4czloay5zeth6",
+	"schema": {
+		"id": "app.offprint.block.imageCarousel",
+		"defs": {
+			"main": {
+				"type": "object",
+				"required": [
+					"images"
+				],
+				"properties": {
+					"images": {
+						"type": "array",
+						"items": {
+							"ref": "app.offprint.block.imageGrid#gridImage",
+							"type": "ref"
+						},
+						"required": true,
+						"maxLength": 6,
+						"minLength": 2,
+						"description": "Array of images in the carousel (2-6)"
+					},
+					"caption": {
+						"type": "string",
+						"description": "Carousel caption"
+					},
+					"autoplay": {
+						"type": "boolean",
+						"default": false,
+						"description": "Auto-advance slides"
+					},
+					"interval": {
+						"type": "integer",
+						"default": 3000,
+						"description": "Milliseconds between slides"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768349916633
+	},
+	"references": {
+		"main": [
+			"app.offprint.block.image",
+			"app.offprint.block.imageGrid"
+		]
+	}
+}

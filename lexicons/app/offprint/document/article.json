@@ -13,10 +13,10 @@
 					],
 					"properties": {
 						"document": {
-							"type": "string",
-							"format": "at-uri",
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
 							"required": true,
-							"description": "Required AT-URI to a `site.standard.document` compatible record. Used to display articles with-in a publication."
+							"description": "Strong reference to a `site.standard.document` compatible record."
 						}
 					}
 				}
@@ -26,9 +26,11 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768004244235
+		"indexedAt": 1768349916633
 	},
 	"references": {
-		"main": []
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
 	}
 }
