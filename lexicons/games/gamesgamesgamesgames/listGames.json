@@ -1,0 +1,54 @@
+{
+	"authority": "did:plc:il7eua5zbt4s2ly2jskjfz2t",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.listGames",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"games"
+						],
+						"properties": {
+							"games": {
+								"type": "array",
+								"items": {
+									"ref": "games.gamesgamesgamesgames.defs#gameSummaryView",
+									"type": "ref"
+								}
+							},
+							"cursor": {
+								"type": "string"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"properties": {
+						"limit": {
+							"type": "integer",
+							"default": 20,
+							"maximum": 100,
+							"minimum": 1
+						}
+					}
+				},
+				"description": "Get a list of games on the network."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768436253209
+	},
+	"references": {
+		"main": [
+			"games.gamesgamesgamesgames.defs"
+		]
+	}
+}

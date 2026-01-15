@@ -1,0 +1,46 @@
+{
+	"authority": "did:plc:il7eua5zbt4s2ly2jskjfz2t",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.getGame",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"game"
+						],
+						"properties": {
+							"game": {
+								"ref": "games.gamesgamesgamesgames.defs#gameDetailView",
+								"type": "ref"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"properties": {
+						"uri": {
+							"type": "string",
+							"format": "at-uri"
+						}
+					}
+				},
+				"description": "Get all details of a game."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768436253209
+	},
+	"references": {
+		"main": [
+			"games.gamesgamesgamesgames.defs"
+		]
+	}
+}

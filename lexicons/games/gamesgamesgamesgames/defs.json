@@ -1,0 +1,101 @@
+{
+	"authority": "did:plc:il7eua5zbt4s2ly2jskjfz2t",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.defs",
+		"defs": {
+			"mode": {
+				"type": "string",
+				"knownValues": [
+					"games.gamesgamesgamesgames.mode#battle-royale",
+					"games.gamesgamesgamesgames.mode#cooperative",
+					"games.gamesgamesgamesgames.mode#mmo",
+					"games.gamesgamesgamesgames.mode#multiplayer",
+					"games.gamesgamesgamesgames.mode#single-player",
+					"games.gamesgamesgamesgames.mode#split-screen"
+				]
+			},
+			"type": {
+				"enum": [
+					"games.gamesgamesgamesgames.type#addon",
+					"games.gamesgamesgamesgames.type#bundle",
+					"games.gamesgamesgamesgames.type#dlc",
+					"games.gamesgamesgamesgames.type#episode",
+					"games.gamesgamesgamesgames.type#expanded-game",
+					"games.gamesgamesgamesgames.type#expansion",
+					"games.gamesgamesgamesgames.type#fork",
+					"games.gamesgamesgamesgames.type#main-game",
+					"games.gamesgamesgamesgames.type#mod",
+					"games.gamesgamesgamesgames.type#port",
+					"games.gamesgamesgamesgames.type#remake",
+					"games.gamesgamesgamesgames.type#remaster",
+					"games.gamesgamesgamesgames.type#season",
+					"games.gamesgamesgamesgames.type#standalone-expansion",
+					"games.gamesgamesgamesgames.type#update"
+				],
+				"type": "string"
+			},
+			"gameDetailView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"name",
+					"summary"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"mode": {
+						"type": "array",
+						"items": {
+							"ref": "games.gamesgamesgamesgames.defs#mode",
+							"type": "ref"
+						}
+					},
+					"name": {
+						"type": "string"
+					},
+					"type": {
+						"ref": "games.gamesgamesgamesgames.defs#type",
+						"type": "ref"
+					},
+					"summary": {
+						"type": "string"
+					}
+				}
+			},
+			"gameSummaryView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"name",
+					"summary"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"name": {
+						"type": "string"
+					},
+					"summary": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768436253209
+	},
+	"references": {
+		"mode": [],
+		"type": [],
+		"gameDetailView": [],
+		"gameSummaryView": []
+	}
+}

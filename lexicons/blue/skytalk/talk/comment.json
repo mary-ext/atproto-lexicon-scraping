@@ -20,6 +20,19 @@
 							"description": "The content of the post",
 							"maxGraphemes": 40000
 						},
+						"blobs": {
+							"type": "array",
+							"items": {
+								"type": "blob",
+								"accept": [
+									"image/*",
+									"audio/*"
+								],
+								"maxSize": 10000000
+							},
+							"maxLength": 1,
+							"description": "Optional attached media (image or audio)"
+						},
 						"createdAt": {
 							"type": "string",
 							"format": "datetime",
@@ -39,7 +52,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768177130347
+		"indexedAt": 1768436253209
 	},
 	"references": {
 		"main": []

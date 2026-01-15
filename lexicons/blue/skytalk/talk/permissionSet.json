@@ -6,10 +6,10 @@
 			"main": {
 				"type": "permission-set",
 				"title": "SkyTalk.Blue",
-				"detail": "Create threads and comments, and reactions",
+				"detail": "Create threads and comments, reactions, and upload media",
 				"detail:lang": {
-					"en": "Create threads and comments, add reactions",
-					"ja-JP": "スレッドとコメントの作成、リアクションの追加"
+					"en": "Create threads and comments, add reactions, upload media",
+					"ja-JP": "スレッドとコメントの作成、リアクションの追加、メディアのアップロード"
 				},
 				"permissions": [
 					{
@@ -20,6 +20,14 @@
 							"blue.skytalk.talk.comment",
 							"blue.skytalk.talk.reaction"
 						]
+					},
+					{
+						"type": "permission",
+						"accept": [
+							"image/*",
+							"audio/*"
+						],
+						"resource": "blob"
 					}
 				]
 			}
@@ -28,7 +36,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768177130347
+		"indexedAt": 1768436253209
 	},
 	"references": {
 		"main": []

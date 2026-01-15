@@ -1,0 +1,60 @@
+{
+	"authority": "did:plc:il7eua5zbt4s2ly2jskjfz2t",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.putGame",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"name",
+							"summary"
+						],
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"type": {
+								"ref": "games.gamesgamesgamesgames.defs#type",
+								"type": "ref",
+								"default": "games.gamesgamesgamesgames.type#game"
+							},
+							"summary": {
+								"type": "string"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"game"
+						],
+						"properties": {
+							"game": {
+								"ref": "games.gamesgamesgamesgames.defs#gameDetailView",
+								"type": "ref"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Stores a game record in the user's repo."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768436253209
+	},
+	"references": {
+		"main": [
+			"games.gamesgamesgamesgames.defs"
+		]
+	}
+}

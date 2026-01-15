@@ -20,6 +20,19 @@
 							"description": "The text content of the thread",
 							"maxGraphemes": 40000
 						},
+						"blobs": {
+							"type": "array",
+							"items": {
+								"type": "blob",
+								"accept": [
+									"image/*",
+									"audio/*"
+								],
+								"maxSize": 10000000
+							},
+							"maxLength": 1,
+							"description": "Optional attached media (image or audio)"
+						},
 						"title": {
 							"type": "string",
 							"maxLength": 300,
@@ -44,7 +57,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768004244235
+		"indexedAt": 1768436253209
 	},
 	"references": {
 		"main": []
