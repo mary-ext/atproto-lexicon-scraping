@@ -28,10 +28,6 @@
 						}
 					}
 				},
-				"required": [
-					"name",
-					"summary"
-				],
 				"description": "A video game."
 			}
 		},
@@ -39,7 +35,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768436253209
+		"indexedAt": 1768522694892
 	},
 	"references": {
 		"main": [

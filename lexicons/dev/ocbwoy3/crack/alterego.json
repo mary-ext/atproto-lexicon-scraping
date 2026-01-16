@@ -1,0 +1,62 @@
+{
+	"authority": "did:plc:s7cesz7cr6ybltaryy4meb6y",
+	"schema": {
+		"id": "dev.ocbwoy3.crack.alterego",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [],
+					"properties": {
+						"avatar": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg"
+							],
+							"maxSize": 1048576,
+							"description": "New profile picture"
+						},
+						"banner": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg"
+							],
+							"maxSize": 1048576,
+							"description": "New profile banner"
+						},
+						"handle": {
+							"type": "string",
+							"maxLength": 64,
+							"minLength": 1,
+							"description": "New profile handle (e.g. spamton.bigshot), can have ANY DOMAIN."
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 3000,
+							"description": "New profile bio (e.g. #1 Rated Salesman1997)"
+						},
+						"displayName": {
+							"type": "string",
+							"maxLength": 64,
+							"minLength": 1,
+							"description": "New display name (e.g. Spamton G. Spamton)"
+						}
+					}
+				},
+				"description": "An alter ego profile record for use on \"Bluesky on Crack\"."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768522694892
+	},
+	"references": {
+		"main": []
+	}
+}

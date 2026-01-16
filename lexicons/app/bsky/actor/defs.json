@@ -108,6 +108,14 @@
 					"record"
 				],
 				"properties": {
+					"cid": {
+						"type": "string",
+						"format": "cid"
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
 					"embed": {
 						"refs": [
 							"app.bsky.embed.external#view"
@@ -133,6 +141,10 @@
 						"type": "string",
 						"format": "datetime",
 						"description": "The date when this status will expire. The application might choose to no longer return the status after expiration."
+					},
+					"isDisabled": {
+						"type": "boolean",
+						"description": "True if the user's go-live access has been disabled by a moderator, false otherwise."
 					}
 				}
 			},
@@ -154,7 +166,8 @@
 						"#bskyAppStatePref",
 						"#labelersPref",
 						"#postInteractionSettingsPref",
-						"#verificationPrefs"
+						"#verificationPrefs",
+						"#liveEventPreferences"
 					],
 					"type": "union"
 				}
@@ -834,6 +847,24 @@
 				},
 				"description": "If set, an active progress guide. Once completed, can be set to undefined. Should have unspecced fields tracking progress."
 			},
+			"liveEventPreferences": {
+				"type": "object",
+				"properties": {
+					"hideAllFeeds": {
+						"type": "boolean",
+						"default": false,
+						"description": "Whether to hide all feeds from live events."
+					},
+					"hiddenFeedIds": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"description": "A list of feed IDs that the user has hidden from live events."
+					}
+				},
+				"description": "Preferences for live events."
+			},
 			"profileAssociatedChat": {
 				"type": "object",
 				"required": [
@@ -903,7 +934,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1765498603940,
+		"indexedAt": 1768522694892,
 		"errorAt": 1760659937196
 	},
 	"references": {
@@ -968,6 +999,7 @@
 			"com.atproto.repo.strongRef"
 		],
 		"bskyAppProgressGuide": [],
+		"liveEventPreferences": [],
 		"profileAssociatedChat": [],
 		"postInteractionSettingsPref": [
 			"app.bsky.feed.postgate",

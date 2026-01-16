@@ -1,0 +1,157 @@
+{
+	"authority": "did:plc:purpkfw7haimc4zu5a57slza",
+	"schema": {
+		"id": "app.greengale.blog.defs",
+		"defs": {
+			"ogp": {
+				"type": "object",
+				"required": [
+					"url"
+				],
+				"properties": {
+					"url": {
+						"type": "string",
+						"format": "uri",
+						"maxLength": 2048,
+						"description": "URL of the OGP image"
+					},
+					"width": {
+						"type": "integer",
+						"description": "Image width in pixels"
+					},
+					"height": {
+						"type": "integer",
+						"description": "Image height in pixels"
+					}
+				},
+				"description": "Open Graph Protocol metadata for social sharing"
+			},
+			"theme": {
+				"type": "object",
+				"properties": {
+					"custom": {
+						"ref": "#customColors",
+						"type": "ref",
+						"description": "Custom color overrides"
+					},
+					"preset": {
+						"enum": [
+							"github-light",
+							"github-dark",
+							"dracula",
+							"nord",
+							"solarized-light",
+							"solarized-dark",
+							"monokai"
+						],
+						"type": "string",
+						"maxLength": 32,
+						"description": "Predefined color theme"
+					}
+				},
+				"description": "Theme configuration for a blog entry"
+			},
+			"selfLabel": {
+				"type": "object",
+				"required": [
+					"val"
+				],
+				"properties": {
+					"val": {
+						"type": "string",
+						"maxLength": 128,
+						"description": "The short string name of the value or type of this label"
+					}
+				},
+				"description": "Metadata tag on an atproto resource, published by the author"
+			},
+			"selfLabels": {
+				"type": "object",
+				"required": [
+					"values"
+				],
+				"properties": {
+					"values": {
+						"type": "array",
+						"items": {
+							"ref": "#selfLabel",
+							"type": "ref"
+						},
+						"maxLength": 10
+					}
+				},
+				"description": "Metadata tags on an atproto resource, published by the author"
+			},
+			"blobMetadata": {
+				"type": "object",
+				"required": [
+					"blobref"
+				],
+				"properties": {
+					"alt": {
+						"type": "string",
+						"maxLength": 1000,
+						"description": "Alt text for accessibility"
+					},
+					"name": {
+						"type": "string",
+						"maxLength": 256,
+						"description": "Original filename"
+					},
+					"labels": {
+						"ref": "#selfLabels",
+						"type": "ref",
+						"description": "Content labels (self-labels) for this image"
+					},
+					"blobref": {
+						"type": "blob",
+						"accept": [
+							"*/*"
+						],
+						"description": "Reference to the blob"
+					}
+				},
+				"description": "Metadata for uploaded binary content"
+			},
+			"customColors": {
+				"type": "object",
+				"properties": {
+					"text": {
+						"type": "string",
+						"maxLength": 64,
+						"description": "Primary text color"
+					},
+					"accent": {
+						"type": "string",
+						"maxLength": 64,
+						"description": "Accent/link color"
+					},
+					"background": {
+						"type": "string",
+						"maxLength": 64,
+						"description": "Background color"
+					},
+					"codeBackground": {
+						"type": "string",
+						"maxLength": 64,
+						"description": "Code block background color"
+					}
+				},
+				"description": "Custom color values (CSS color strings)"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768522694892
+	},
+	"references": {
+		"ogp": [],
+		"theme": [],
+		"selfLabel": [],
+		"selfLabels": [],
+		"blobMetadata": [],
+		"customColors": []
+	}
+}

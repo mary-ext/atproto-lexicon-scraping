@@ -33,69 +33,16 @@
 					"games.gamesgamesgamesgames.type#update"
 				],
 				"type": "string"
-			},
-			"gameDetailView": {
-				"type": "object",
-				"required": [
-					"uri",
-					"name",
-					"summary"
-				],
-				"properties": {
-					"uri": {
-						"type": "string",
-						"format": "at-uri"
-					},
-					"mode": {
-						"type": "array",
-						"items": {
-							"ref": "games.gamesgamesgamesgames.defs#mode",
-							"type": "ref"
-						}
-					},
-					"name": {
-						"type": "string"
-					},
-					"type": {
-						"ref": "games.gamesgamesgamesgames.defs#type",
-						"type": "ref"
-					},
-					"summary": {
-						"type": "string"
-					}
-				}
-			},
-			"gameSummaryView": {
-				"type": "object",
-				"required": [
-					"uri",
-					"name",
-					"summary"
-				],
-				"properties": {
-					"uri": {
-						"type": "string",
-						"format": "at-uri"
-					},
-					"name": {
-						"type": "string"
-					},
-					"summary": {
-						"type": "string"
-					}
-				}
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768436253209
+		"indexedAt": 1768522694892
 	},
 	"references": {
 		"mode": [],
-		"type": [],
-		"gameDetailView": [],
-		"gameSummaryView": []
+		"type": []
 	}
 }
