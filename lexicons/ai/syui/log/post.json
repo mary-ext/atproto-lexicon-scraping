@@ -1,0 +1,52 @@
+{
+	"authority": "did:plc:uqzpqmrjnptsxezjx4xuh2mn",
+	"schema": {
+		"id": "ai.syui.log.post",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"title",
+						"content",
+						"createdAt"
+					],
+					"properties": {
+						"lang": {
+							"type": "string",
+							"maxLength": 10
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 3000,
+							"maxGraphemes": 300
+						},
+						"content": {
+							"type": "string",
+							"maxLength": 1000000,
+							"maxGraphemes": 100000
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"translations": {
+							"type": "unknown"
+						}
+					}
+				},
+				"description": "Record containing a blog post."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768609022818
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -1,0 +1,39 @@
+{
+	"authority": "did:plc:yckosuxxph7mjwtbiztraiex",
+	"schema": {
+		"id": "social.showcase.collection.deleteCollection",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uri"
+						],
+						"properties": {
+							"uri": {
+								"type": "string",
+								"format": "at-uri",
+								"description": "The AT-URI of the collection to delete"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"encoding": "application/json"
+				},
+				"description": "Delete a collection. Requires authentication."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768609022818
+	},
+	"references": {
+		"main": []
+	}
+}

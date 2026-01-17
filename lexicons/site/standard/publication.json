@@ -28,9 +28,9 @@
 						},
 						"name": {
 							"type": "string",
-							"maxLength": 1280,
+							"maxLength": 5000,
 							"description": "Name of the publication.",
-							"maxGraphemes": 128
+							"maxGraphemes": 500
 						},
 						"basicTheme": {
 							"ref": "site.standard.theme.basic",
@@ -39,9 +39,9 @@
 						},
 						"description": {
 							"type": "string",
-							"maxLength": 3000,
+							"maxLength": 30000,
 							"description": "Brief description of the publication.",
-							"maxGraphemes": 300
+							"maxGraphemes": 3000
 						},
 						"preferences": {
 							"ref": "#preferences",
@@ -68,7 +68,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1767917849937
+		"indexedAt": 1768609022818
 	},
 	"references": {
 		"main": [

@@ -1,0 +1,68 @@
+{
+	"authority": "did:plc:yckosuxxph7mjwtbiztraiex",
+	"schema": {
+		"id": "social.showcase.feed.getAuthorFeed",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"feed"
+						],
+						"properties": {
+							"feed": {
+								"type": "array",
+								"items": {
+									"ref": "social.showcase.defs#itemView",
+									"type": "ref"
+								}
+							},
+							"cursor": {
+								"type": "string",
+								"maxLength": 512
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"actor"
+					],
+					"properties": {
+						"actor": {
+							"type": "string",
+							"format": "at-identifier",
+							"description": "The DID or handle of the user"
+						},
+						"limit": {
+							"type": "integer",
+							"default": 50,
+							"maximum": 100,
+							"minimum": 1
+						},
+						"cursor": {
+							"type": "string",
+							"maxLength": 512,
+							"description": "Pagination cursor"
+						}
+					}
+				},
+				"description": "Get a specific user's items. Authentication optional - returns personalized view when authenticated."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768609022818
+	},
+	"references": {
+		"main": [
+			"social.showcase.defs"
+		]
+	}
+}

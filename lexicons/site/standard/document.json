@@ -27,16 +27,16 @@
 							"type": "array",
 							"items": {
 								"type": "string",
-								"maxLength": 100,
-								"maxGraphemes": 50
+								"maxLength": 1280,
+								"maxGraphemes": 128
 							},
 							"description": "Array of strings used to tag or categorize the document. Avoid prepending tags with hashtags."
 						},
 						"title": {
 							"type": "string",
-							"maxLength": 1280,
+							"maxLength": 5000,
 							"description": "Title of the document.",
-							"maxGraphemes": 128
+							"maxGraphemes": 500
 						},
 						"content": {
 							"refs": [],
@@ -64,9 +64,9 @@
 						},
 						"description": {
 							"type": "string",
-							"maxLength": 3000,
+							"maxLength": 30000,
 							"description": "A brief description or excerpt from the document.",
-							"maxGraphemes": 300
+							"maxGraphemes": 3000
 						},
 						"publishedAt": {
 							"type": "string",
@@ -86,7 +86,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1767917849937
+		"indexedAt": 1768609022818
 	},
 	"references": {
 		"main": [

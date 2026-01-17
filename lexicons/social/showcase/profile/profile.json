@@ -1,0 +1,95 @@
+{
+	"authority": "did:plc:yckosuxxph7mjwtbiztraiex",
+	"schema": {
+		"id": "social.showcase.profile.profile",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"did",
+						"handle",
+						"tags",
+						"createdAt"
+					],
+					"properties": {
+						"bio": {
+							"type": "string",
+							"maxLength": 256,
+							"description": "Profile description"
+						},
+						"did": {
+							"type": "string",
+							"maxLength": 2048,
+							"description": "User's DID"
+						},
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 64
+							},
+							"maxLength": 10,
+							"description": "Profile tags for discovery (max 10)"
+						},
+						"avatar": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg",
+								"image/webp"
+							],
+							"maxSize": 1000000,
+							"description": "Avatar image blob (1000x1000px max)"
+						},
+						"banner": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg",
+								"image/webp"
+							],
+							"maxSize": 1000000,
+							"description": "Banner image blob (3000x1000px max)"
+						},
+						"handle": {
+							"type": "string",
+							"maxLength": 253,
+							"description": "User's handle"
+						},
+						"website": {
+							"type": "string",
+							"format": "uri",
+							"maxLength": 2048,
+							"description": "External website URL"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"displayName": {
+							"type": "string",
+							"maxLength": 64,
+							"description": "Display name"
+						}
+					}
+				},
+				"description": "User profile record"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768609022818
+	},
+	"references": {
+		"main": []
+	}
+}

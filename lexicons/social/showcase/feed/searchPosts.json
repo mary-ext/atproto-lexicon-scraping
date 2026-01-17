@@ -1,0 +1,82 @@
+{
+	"authority": "did:plc:yckosuxxph7mjwtbiztraiex",
+	"schema": {
+		"id": "social.showcase.feed.searchPosts",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"results"
+						],
+						"properties": {
+							"cursor": {
+								"type": "string",
+								"maxLength": 512
+							},
+							"results": {
+								"type": "array",
+								"items": {
+									"refs": [
+										"social.showcase.defs#itemView",
+										"social.showcase.defs#collectionView",
+										"social.showcase.defs#profileView"
+									],
+									"type": "union"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"q"
+					],
+					"properties": {
+						"q": {
+							"type": "string",
+							"maxLength": 300,
+							"description": "Search query string"
+						},
+						"type": {
+							"type": "string",
+							"maxLength": 20,
+							"description": "Filter by content type",
+							"knownValues": [
+								"items",
+								"collections",
+								"profiles"
+							]
+						},
+						"limit": {
+							"type": "integer",
+							"default": 50,
+							"maximum": 100,
+							"minimum": 1
+						},
+						"cursor": {
+							"type": "string",
+							"maxLength": 512,
+							"description": "Pagination cursor"
+						}
+					}
+				},
+				"description": "Search items, collections, and profiles (public content only). Authentication optional."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768609022818
+	},
+	"references": {
+		"main": [
+			"social.showcase.defs"
+		]
+	}
+}

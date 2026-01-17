@@ -1,0 +1,61 @@
+{
+	"authority": "did:plc:yckosuxxph7mjwtbiztraiex",
+	"schema": {
+		"id": "social.showcase.feed.getTimeline",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"feed"
+						],
+						"properties": {
+							"feed": {
+								"type": "array",
+								"items": {
+									"ref": "social.showcase.defs#itemView",
+									"type": "ref"
+								}
+							},
+							"cursor": {
+								"type": "string",
+								"maxLength": 512
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"properties": {
+						"limit": {
+							"type": "integer",
+							"default": 50,
+							"maximum": 100,
+							"minimum": 1,
+							"description": "Number of items to load"
+						},
+						"cursor": {
+							"type": "string",
+							"maxLength": 512,
+							"description": "Pagination cursor for infinite scroll"
+						}
+					}
+				},
+				"description": "Get personalized timeline feed (items from followed users + your own items). Requires authentication."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768609022818
+	},
+	"references": {
+		"main": [
+			"social.showcase.defs"
+		]
+	}
+}

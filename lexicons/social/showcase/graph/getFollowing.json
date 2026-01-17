@@ -1,0 +1,68 @@
+{
+	"authority": "did:plc:yckosuxxph7mjwtbiztraiex",
+	"schema": {
+		"id": "social.showcase.graph.getFollowing",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"following"
+						],
+						"properties": {
+							"cursor": {
+								"type": "string",
+								"maxLength": 512
+							},
+							"following": {
+								"type": "array",
+								"items": {
+									"ref": "social.showcase.defs#profileView",
+									"type": "ref"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"actor"
+					],
+					"properties": {
+						"actor": {
+							"type": "string",
+							"format": "at-identifier",
+							"description": "The DID or handle of the user"
+						},
+						"limit": {
+							"type": "integer",
+							"default": 50,
+							"maximum": 100,
+							"minimum": 1
+						},
+						"cursor": {
+							"type": "string",
+							"maxLength": 512,
+							"description": "Pagination cursor"
+						}
+					}
+				},
+				"description": "Get who a user follows. Authentication optional."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768609022818
+	},
+	"references": {
+		"main": [
+			"social.showcase.defs"
+		]
+	}
+}

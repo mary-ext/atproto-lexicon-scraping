@@ -37,7 +37,7 @@
 						"description": {
 							"type": "string",
 							"maxLength": 3000,
-							"description": "New profile bio (e.g. #1 Rated Salesman1997)"
+							"description": "New profile bio (e.g. [[#1 Rated Salesman1997]])"
 						},
 						"displayName": {
 							"type": "string",
@@ -54,7 +54,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768522694892
+		"indexedAt": 1768609022818
 	},
 	"references": {
 		"main": []
