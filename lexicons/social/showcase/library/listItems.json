@@ -1,7 +1,7 @@
 {
 	"authority": "did:plc:yckosuxxph7mjwtbiztraiex",
 	"schema": {
-		"id": "social.showcase.item.listItems",
+		"id": "social.showcase.library.listItems",
 		"defs": {
 			"main": {
 				"type": "query",
@@ -58,8 +58,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768609022818,
-		"errorAt": 1768695565789
+		"indexedAt": 1768695565789
 	},
 	"references": {
 		"main": [

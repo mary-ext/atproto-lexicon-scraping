@@ -10,6 +10,11 @@
 				"permissions": [
 					{
 						"type": "permission",
+						"action": [
+							"create",
+							"update",
+							"delete"
+						],
 						"resource": "repo",
 						"collection": [
 							"social.showcase.profile.profile",
@@ -18,9 +23,14 @@
 					},
 					{
 						"type": "permission",
+						"action": [
+							"create",
+							"update",
+							"delete"
+						],
 						"resource": "repo",
 						"collection": [
-							"social.showcase.item.item",
+							"social.showcase.library.item",
 							"social.showcase.collection.collection",
 							"social.showcase.feed.reaction"
 						]
@@ -32,7 +42,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768609022818
+		"indexedAt": 1768695565789
 	},
 	"references": {
 		"main": []

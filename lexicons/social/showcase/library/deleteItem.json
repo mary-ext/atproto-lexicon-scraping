@@ -1,7 +1,7 @@
 {
 	"authority": "did:plc:yckosuxxph7mjwtbiztraiex",
 	"schema": {
-		"id": "social.showcase.item.deleteItem",
+		"id": "social.showcase.library.deleteItem",
 		"defs": {
 			"main": {
 				"type": "procedure",
@@ -31,8 +31,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768609022818,
-		"errorAt": 1768695565789
+		"indexedAt": 1768695565789
 	},
 	"references": {
 		"main": []

@@ -65,9 +65,23 @@
 							"maxLength": 2048,
 							"description": "External website URL"
 						},
+						"showcase": {
+							"type": "array",
+							"items": {
+								"ref": "social.showcase.defs#showcaseItem",
+								"type": "ref"
+							},
+							"maxLength": 4,
+							"description": "Featured showcase items"
+						},
 						"createdAt": {
 							"type": "string",
 							"format": "datetime"
+						},
+						"itemCount": {
+							"type": "integer",
+							"default": 0,
+							"description": "Total number of items in the user's library"
 						},
 						"updatedAt": {
 							"type": "string",
@@ -77,6 +91,16 @@
 							"type": "string",
 							"maxLength": 64,
 							"description": "Display name"
+						},
+						"schemaVersion": {
+							"type": "integer",
+							"default": 1,
+							"description": "Schema version for migrations (defaults to 1 if missing)"
+						},
+						"collectionCount": {
+							"type": "integer",
+							"default": 0,
+							"description": "Total number of collections"
 						}
 					}
 				},
@@ -87,9 +111,11 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768609022818
+		"indexedAt": 1768695565789
 	},
 	"references": {
-		"main": []
+		"main": [
+			"social.showcase.defs"
+		]
 	}
 }

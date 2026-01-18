@@ -1,0 +1,33 @@
+{
+	"authority": "did:plc:uixgxpiqf4i63p6rgpu7ytmx",
+	"schema": {
+		"id": "com.suibari.atsumeat.config",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"hubRef"
+					],
+					"properties": {
+						"hubRef": {
+							"type": "string",
+							"format": "uri"
+						}
+					}
+				},
+				"description": "Configuration for the Atsumeat app"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768695565789
+	},
+	"references": {
+		"main": []
+	}
+}

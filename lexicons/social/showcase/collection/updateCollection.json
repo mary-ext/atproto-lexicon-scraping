@@ -1,17 +1,25 @@
 {
 	"authority": "did:plc:yckosuxxph7mjwtbiztraiex",
 	"schema": {
-		"id": "social.showcase.profile.updateProfile",
+		"id": "social.showcase.collection.updateCollection",
 		"defs": {
 			"main": {
 				"type": "procedure",
 				"input": {
 					"schema": {
 						"type": "object",
+						"required": [
+							"uri"
+						],
 						"properties": {
-							"bio": {
+							"uri": {
 								"type": "string",
-								"maxLength": 256
+								"format": "at-uri",
+								"description": "The AT-URI of the collection"
+							},
+							"name": {
+								"type": "string",
+								"maxLength": 200
 							},
 							"tags": {
 								"type": "array",
@@ -21,29 +29,28 @@
 								},
 								"maxLength": 10
 							},
-							"avatar": {
-								"type": "blob"
-							},
-							"banner": {
-								"type": "blob"
-							},
-							"website": {
-								"type": "string",
-								"format": "uri",
-								"maxLength": 2048
-							},
-							"showcase": {
+							"items": {
 								"type": "array",
 								"items": {
-									"ref": "social.showcase.defs#showcaseItem",
+									"ref": "social.showcase.defs#collectionItem",
 									"type": "ref"
 								},
-								"maxLength": 4,
-								"description": "Featured showcase items"
+								"maxLength": 500
 							},
-							"displayName": {
+							"coverImage": {
+								"type": "blob"
+							},
+							"visibility": {
 								"type": "string",
-								"maxLength": 64
+								"maxLength": 10,
+								"knownValues": [
+									"public",
+									"private"
+								]
+							},
+							"description": {
+								"type": "string",
+								"maxLength": 1000
 							}
 						}
 					},
@@ -51,12 +58,12 @@
 				},
 				"output": {
 					"schema": {
-						"ref": "social.showcase.defs#profileView",
+						"ref": "social.showcase.defs#collectionView",
 						"type": "ref"
 					},
 					"encoding": "application/json"
 				},
-				"description": "Update user profile. Requires authentication."
+				"description": "Update/reorder a collection. Requires authentication."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
