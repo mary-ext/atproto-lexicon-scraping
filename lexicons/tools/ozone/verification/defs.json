@@ -87,7 +87,8 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760748771506
+		"indexedAt": 1760748771506,
+		"errorAt": 1768781944885
 	},
 	"references": {
 		"verificationView": [

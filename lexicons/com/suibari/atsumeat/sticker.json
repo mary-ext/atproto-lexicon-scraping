@@ -40,6 +40,21 @@
 							"maxLength": 64,
 							"description": "Identifier for the sticker model. 'default' for avatar stickers, 'cid:<cid>' for custom stickers."
 						},
+						"shape": {
+							"type": "string",
+							"maxLength": 64,
+							"description": "The shape of the sticker canvas.",
+							"knownValues": [
+								"circle",
+								"square",
+								"rectangle",
+								"star",
+								"heart",
+								"diamond",
+								"butterfly",
+								"transparent"
+							]
+						},
 						"message": {
 							"type": "string",
 							"maxLength": 6400,
@@ -93,7 +108,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768695565789
+		"indexedAt": 1768781944885
 	},
 	"references": {
 		"main": []

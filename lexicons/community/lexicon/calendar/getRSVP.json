@@ -1,0 +1,74 @@
+{
+	"authority": "did:plc:2uwoih2htodskvgocarwv5eq",
+	"schema": {
+		"id": "community.lexicon.calendar.getRSVP",
+		"defs": {
+			"main": {
+				"type": "query",
+				"errors": [
+					{
+						"name": "NotFound"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uri",
+							"cid",
+							"record"
+						],
+						"properties": {
+							"cid": {
+								"type": "string",
+								"description": "CID of the RSVP record."
+							},
+							"uri": {
+								"type": "string",
+								"format": "at-uri",
+								"description": "AT-URI of the RSVP record."
+							},
+							"record": {
+								"ref": "community.lexicon.calendar.rsvp",
+								"type": "ref",
+								"description": "The RSVP record."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"event",
+						"identity"
+					],
+					"properties": {
+						"event": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT-URI of the event."
+						},
+						"identity": {
+							"type": "string",
+							"format": "did",
+							"description": "DID of the identity to get the RSVP for."
+						}
+					}
+				},
+				"description": "Get an RSVP record for a specific identity and event."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768781944885
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef",
+			"community.lexicon.calendar.rsvp"
+		]
+	}
+}
