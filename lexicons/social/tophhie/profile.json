@@ -10,6 +10,7 @@
 					"type": "object",
 					"required": [
 						"createdAt",
+						"pdsPreferences",
 						"communicationPreferences"
 					],
 					"properties": {
@@ -39,7 +40,10 @@
 			},
 			"pdsPreferences": {
 				"type": "object",
-				"required": [],
+				"required": [
+					"showOnHomepage",
+					"accessibilityScoring"
+				],
 				"properties": {
 					"showOnHomepage": {
 						"type": "boolean",
@@ -72,7 +76,7 @@
 		"description": "Tophhie Social: profile record containing various PDS specific settings."
 	},
 	"meta": {
-		"indexedAt": 1767917849937
+		"indexedAt": 1768868249815
 	},
 	"references": {
 		"main": [],

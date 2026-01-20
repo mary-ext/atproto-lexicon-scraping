@@ -1,0 +1,107 @@
+{
+	"authority": "did:plc:ma37sd3y64o4j7pl57mwn7lb",
+	"schema": {
+		"id": "app.openmkt.marketplace.listing",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"title",
+						"price",
+						"category",
+						"location",
+						"createdAt"
+					],
+					"properties": {
+						"price": {
+							"type": "string",
+							"description": "String representation"
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 300
+						},
+						"images": {
+							"type": "array",
+							"items": {
+								"type": "blob",
+								"accept": [
+									"image/*"
+								],
+								"maxSize": 1000000
+							}
+						},
+						"category": {
+							"type": "string"
+						},
+						"location": {
+							"ref": "#locationObj",
+							"type": "ref"
+						},
+						"metadata": {
+							"ref": "#metadataObj",
+							"type": "ref"
+						},
+						"condition": {
+							"type": "string"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 3000
+						},
+						"externalUrl": {
+							"type": "string",
+							"maxLength": 2000,
+							"description": "Optional external URL for purchasing the item (e.g., Amazon, eBay link)"
+						},
+						"hideFromFriends": {
+							"type": "boolean"
+						}
+					}
+				}
+			},
+			"locationObj": {
+				"type": "object",
+				"properties": {
+					"state": {
+						"type": "string"
+					},
+					"county": {
+						"type": "string"
+					},
+					"locality": {
+						"type": "string"
+					},
+					"zipPrefix": {
+						"type": "string"
+					}
+				}
+			},
+			"metadataObj": {
+				"type": "object",
+				"properties": {
+					"subcategory": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768868249815
+	},
+	"references": {
+		"main": [],
+		"locationObj": [],
+		"metadataObj": []
+	}
+}

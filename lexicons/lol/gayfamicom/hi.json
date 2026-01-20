@@ -1,0 +1,34 @@
+{
+	"authority": "did:web:gayfamicom.lol",
+	"schema": {
+		"id": "lol.gayfamicom.hi",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"properties": {
+						"hello": {
+							"type": "string",
+							"description": "Hi"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "Hi"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768868249815
+	},
+	"references": {
+		"main": []
+	}
+}
