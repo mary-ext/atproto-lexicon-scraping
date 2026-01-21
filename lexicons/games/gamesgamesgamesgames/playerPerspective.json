@@ -1,0 +1,50 @@
+{
+	"authority": "did:plc:il7eua5zbt4s2ly2jskjfz2t",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.playerPerspective",
+		"defs": {
+			"vr": {
+				"type": "token",
+				"description": "Virtual Reality (VR)"
+			},
+			"text": {
+				"type": "token",
+				"description": "Text"
+			},
+			"auditory": {
+				"type": "token",
+				"description": "Auditory"
+			},
+			"sideView": {
+				"type": "token",
+				"description": "Side View"
+			},
+			"isometric": {
+				"type": "token",
+				"description": "Isometric"
+			},
+			"firstPerson": {
+				"type": "token",
+				"description": "First Person"
+			},
+			"thirdPerson": {
+				"type": "token",
+				"description": "Third Person"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768954709804
+	},
+	"references": {
+		"vr": [],
+		"text": [],
+		"auditory": [],
+		"sideView": [],
+		"isometric": [],
+		"firstPerson": [],
+		"thirdPerson": []
+	}
+}

@@ -44,7 +44,8 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1766449033431
+		"indexedAt": 1766449033431,
+		"errorAt": 1768954709804
 	},
 	"references": {
 		"main": []

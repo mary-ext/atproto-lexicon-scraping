@@ -1,0 +1,94 @@
+{
+	"authority": "did:plc:uqzpqmrjnptsxezjx4xuh2mn",
+	"schema": {
+		"id": "ai.syui.log.chat",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"content",
+						"author",
+						"createdAt"
+					],
+					"properties": {
+						"lang": {
+							"type": "string",
+							"maxLength": 10,
+							"description": "Language code of the original content (e.g., 'ja', 'en')."
+						},
+						"root": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT-URI of the root message in the thread."
+						},
+						"author": {
+							"type": "string",
+							"format": "did",
+							"description": "DID of the message author."
+						},
+						"parent": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT-URI of the parent message being replied to."
+						},
+						"content": {
+							"type": "string",
+							"maxLength": 100000,
+							"description": "The content of the message.",
+							"maxGraphemes": 10000
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Client-declared timestamp when this message was created."
+						},
+						"translations": {
+							"ref": "#translationMap",
+							"type": "ref",
+							"description": "Translations of the message in other languages."
+						}
+					}
+				},
+				"description": "Record containing a chat message in a conversation."
+			},
+			"translation": {
+				"type": "object",
+				"properties": {
+					"content": {
+						"type": "string",
+						"maxLength": 100000,
+						"maxGraphemes": 10000
+					}
+				},
+				"description": "A translation of a chat message."
+			},
+			"translationMap": {
+				"type": "object",
+				"properties": {
+					"en": {
+						"ref": "#translation",
+						"type": "ref"
+					},
+					"ja": {
+						"ref": "#translation",
+						"type": "ref"
+					}
+				},
+				"description": "Map of language codes to translations."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768954709804
+	},
+	"references": {
+		"main": [],
+		"translation": [],
+		"translationMap": []
+	}
+}

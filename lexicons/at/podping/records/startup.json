@@ -1,0 +1,73 @@
+{
+	"authority": "did:plc:rxdsh66suionanhzkwtdnldq",
+	"schema": {
+		"id": "at.podping.records.startup",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"serverAccount",
+						"message",
+						"timestamp"
+					],
+					"properties": {
+						"v": {
+							"type": "string",
+							"description": "Optional, e.g. 2.1.0"
+						},
+						"hive": {
+							"type": "string",
+							"format": "uri",
+							"description": "Optional, e.g. https://rpc.mahdiyari.info"
+						},
+						"uuid": {
+							"type": "string",
+							"description": "Optional, e.g. 38a44421-a535-42de-b634-d1f6edce18ce"
+						},
+						"source": {
+							"type": "string",
+							"description": "Optional source reference, minimized to save space, e.g. hive:92042659:cf11299faf19367f3f2d6bef0bf2bc4f59272506:0:podping.ccc (if mirroring the podping in hive block 92042659, transaction id cf11299faf19367f3f2d6bef0bf2bc4f59272506, first operation, hive auth podping.ccc)"
+						},
+						"message": {
+							"type": "string",
+							"description": "e.g. Podping startup complete"
+						},
+						"capacity": {
+							"type": "string",
+							"description": "Optional, e.g. 1,078"
+						},
+						"sessionId": {
+							"type": "string",
+							"description": "Optional, e.g. 9887936240807410000"
+						},
+						"timestamp": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Sender timestamp in ISO format, e.g. 2025-12-29T22:25:09.123Z"
+						},
+						"useTestNode": {
+							"type": "boolean",
+							"description": "Optional"
+						},
+						"serverAccount": {
+							"type": "string",
+							"description": "e.g. podping.aaa"
+						}
+					}
+				},
+				"description": "Normalized podping startup fields. Record TID timestamp should represent when the event was received, useful for global ordering."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768954709804
+	},
+	"references": {
+		"main": []
+	}
+}

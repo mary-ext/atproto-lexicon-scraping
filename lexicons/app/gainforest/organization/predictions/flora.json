@@ -1,0 +1,43 @@
+{
+	"authority": "did:plc:qoti4acfmc5wg6zzmtix6hse",
+	"schema": {
+		"id": "app.gainforest.organization.predictions.flora",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"gbifTaxonKeys",
+						"createdAt"
+					],
+					"properties": {
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "The date and time of the creation of the record"
+						},
+						"gbifTaxonKeys": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"description": "The GBIF taxon key of the flora prediction"
+							},
+							"description": "An array of GBIF taxon keys for each flora prediction"
+						}
+					}
+				},
+				"description": "A declaration of a flora prediction for an organization"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768954709804
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -13,16 +13,23 @@
 							"summary"
 						],
 						"properties": {
+							"mode": {
+								"type": "array",
+								"items": {
+									"ref": "games.gamesgamesgamesgames.defs#mode",
+									"type": "ref"
+								}
+							},
 							"name": {
 								"type": "string"
 							},
-							"type": {
-								"ref": "games.gamesgamesgamesgames.defs#type",
-								"type": "ref",
-								"default": "games.gamesgamesgamesgames.type#game"
-							},
 							"summary": {
 								"type": "string"
+							},
+							"applicationType": {
+								"ref": "games.gamesgamesgamesgames.defs#applicationType",
+								"type": "ref",
+								"default": "games.gamesgamesgamesgames.applicationType#game"
 							}
 						}
 					},
@@ -50,7 +57,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768436253209
+		"indexedAt": 1768954709804
 	},
 	"references": {
 		"main": [

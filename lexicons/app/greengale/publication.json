@@ -29,6 +29,11 @@
 							"type": "ref",
 							"description": "Default theme for posts in this publication"
 						},
+						"voiceTheme": {
+							"ref": "app.greengale.blog.defs#voiceTheme",
+							"type": "ref",
+							"description": "Default voice settings for TTS playback on posts"
+						},
 						"description": {
 							"type": "string",
 							"maxLength": 1000,
@@ -48,7 +53,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768522694892
+		"indexedAt": 1768954709804
 	},
 	"references": {
 		"main": [

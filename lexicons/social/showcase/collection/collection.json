@@ -34,7 +34,7 @@
 						"type": {
 							"type": "string",
 							"maxLength": 20,
-							"description": "Collection type (bookmark is special/hardcoded)",
+							"description": "Collection type: 'custom' = regular collection (user's owned items only), 'bookmark' = bookmark collection (can include other users' items as references)",
 							"knownValues": [
 								"custom",
 								"bookmark"
@@ -48,6 +48,11 @@
 							},
 							"maxLength": 500,
 							"description": "Ordered list of items (max 500)"
+						},
+						"notes": {
+							"type": "string",
+							"maxLength": 2000,
+							"description": "Personal notes about the collection"
 						},
 						"createdAt": {
 							"type": "string",
@@ -94,7 +99,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768695565789
+		"indexedAt": 1768954709804
 	},
 	"references": {
 		"main": [

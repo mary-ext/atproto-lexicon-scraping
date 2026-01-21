@@ -1,0 +1,80 @@
+{
+	"authority": "did:plc:bfjib7fy6dob3gyfssyfd4ry",
+	"schema": {
+		"id": "app.chronosky.permission.schedulerPost",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Chronosky Scheduler Post Access",
+				"detail": "Allows Chronosky scheduler to create posts on your behalf.",
+				"permissions": [
+					{
+						"type": "permission",
+						"action": [
+							"create"
+						],
+						"resource": "repo",
+						"collection": [
+							"app.bsky.feed.post"
+						],
+						"inheritAud": true
+					},
+					{
+						"type": "permission",
+						"action": [
+							"create",
+							"update"
+						],
+						"resource": "repo",
+						"collection": [
+							"app.bsky.feed.postgate",
+							"app.bsky.feed.threadgate"
+						],
+						"inheritAud": true
+					},
+					{
+						"lxm": [
+							"app.bsky.actor.getProfile",
+							"app.bsky.feed.getPostThread"
+						],
+						"type": "permission",
+						"resource": "rpc",
+						"inheritAud": true
+					}
+				],
+				"title:langs": {
+					"de": "Chronosky-Planer-Beitragzugriff",
+					"es": "Acceso a publicaciones del programador Chronosky",
+					"fr": "Accès aux publications du planneur Chronosky",
+					"it": "Accesso post-programmatore Chronosky",
+					"ja": "Chronosky スケジューラの投稿アクセス権限",
+					"ko": "Chronosky 스케줄러 게시물 접근 권한",
+					"pt": "Acesso à publicação do agendador Chronosky",
+					"tu": "Chronosky Zamanlayıcı Gönderi İzinleri",
+					"zh-cn": "Chronosky计划程序的帖子访问权限",
+					"zh-tw": "Chronosky计划程序的帖子訪問權限"
+				},
+				"detail:langs": {
+					"de": "Ermöglicht es dem Chronosky-Planer, in Ihrem Namen Beiträge zu erstellen.",
+					"es": "Permite que el planificador de Chronosky cree posts en su nombre.",
+					"fr": "Permet à Chronosky scheduler de créer des posts en votre nom.",
+					"it": "Chronosky scheduler'ı sizin adınıza postalar oluşturmasına izin verir.",
+					"ja": "Chronoskyがあなたに代わってポストを作成することを許可します。",
+					"ko": "Chronosky 스케줄러가 당신의 이름으로 게시물을 생성할 수 있도록 합니다.",
+					"pt": "Permite que o Chronosky scheduler crie posts em seu nome.",
+					"tu": "Chronosky scheduler'ı sizin adınıza postalar oluşturmasına izin verir.",
+					"zh-cn": "允许Chronosky计划程序在您的名义下创建帖子。",
+					"zh-tw": "允許Chronosky计划程序在您的名義下創建帖子。"
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768954709804
+	},
+	"references": {
+		"main": []
+	}
+}

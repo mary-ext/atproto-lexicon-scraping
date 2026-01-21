@@ -1,0 +1,101 @@
+{
+	"authority": "did:plc:rxdsh66suionanhzkwtdnldq",
+	"schema": {
+		"id": "at.podping.records.podping",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"version",
+						"medium",
+						"reason",
+						"iris",
+						"timestamp"
+					],
+					"properties": {
+						"iris": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "uri"
+							},
+							"description": "The updated feeds, e.g. [ \"https://example.com/path/to/feed.xml\" ]"
+						},
+						"medium": {
+							"enum": [
+								"podcast",
+								"video",
+								"music",
+								"publisher",
+								"audiobook",
+								"film",
+								"blog",
+								"newsletter",
+								"mixed",
+								"course",
+								"podcastL",
+								"videoL",
+								"musicL",
+								"publisherL",
+								"audiobookL",
+								"filmL",
+								"blogL",
+								"newsletterL",
+								"mixedL",
+								"courseL"
+							],
+							"type": "string",
+							"description": "Common medium, e.g. podcast"
+						},
+						"reason": {
+							"enum": [
+								"update",
+								"live",
+								"liveEnd"
+							],
+							"type": "string",
+							"description": "Common reason, e.g. update"
+						},
+						"source": {
+							"type": "string",
+							"description": "Optional source reference, minimized to save space, e.g. hive:92042659:cf11299faf19367f3f2d6bef0bf2bc4f59272506:0:podping.ccc (if mirroring the podping in hive block 92042659, transaction id cf11299faf19367f3f2d6bef0bf2bc4f59272506, first operation, hive auth podping.ccc)"
+						},
+						"version": {
+							"enum": [
+								"0.0",
+								"0.2",
+								"0.3",
+								"0.6",
+								"1.0",
+								"1.1"
+							],
+							"type": "string",
+							"description": "Podping schema version, e.g. 1.1"
+						},
+						"sessionId": {
+							"type": "string",
+							"description": "Optional identifier for the writer session, e.g. 9624937909978522000"
+						},
+						"timestamp": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Sender timestamp in ISO format, untrustworthy due to client bugs, not so useful for global ordering, in either millisecond (3 decimals) or nanosecond precision (9 decimals), e.g. 2025-12-29T22:25:09.123456789Z"
+						}
+					}
+				},
+				"description": "Normalized podping fields, supporting podping v0 through v1.1. Record TID timestamp should represent when the event was received, useful for global ordering."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768954709804
+	},
+	"references": {
+		"main": []
+	}
+}

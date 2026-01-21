@@ -1,0 +1,91 @@
+{
+	"authority": "did:plc:il7eua5zbt4s2ly2jskjfz2t",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.type",
+		"defs": {
+			"dlc": {
+				"type": "token",
+				"description": "Downloadable Content (DLC)"
+			},
+			"mod": {
+				"type": "token",
+				"description": "Mod"
+			},
+			"fork": {
+				"type": "token",
+				"description": "Fork"
+			},
+			"game": {
+				"type": "token",
+				"description": "Game"
+			},
+			"port": {
+				"type": "token",
+				"description": "Port"
+			},
+			"addon": {
+				"type": "token",
+				"description": "Pack / Addon"
+			},
+			"bundle": {
+				"type": "token",
+				"description": "Bundle"
+			},
+			"remake": {
+				"type": "token",
+				"description": "Remake"
+			},
+			"season": {
+				"type": "token",
+				"description": "Season"
+			},
+			"update": {
+				"type": "token",
+				"description": "Update"
+			},
+			"episode": {
+				"type": "token",
+				"description": "Episode"
+			},
+			"remaster": {
+				"type": "token",
+				"description": "Remaster"
+			},
+			"expansion": {
+				"type": "token",
+				"description": "Expansion"
+			},
+			"expandedGame": {
+				"type": "token",
+				"description": "Expanded Game"
+			},
+			"standaloneExpansion": {
+				"type": "token",
+				"description": "Standalone Expansion"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Categories for releases and content."
+	},
+	"meta": {
+		"indexedAt": 1768954709804
+	},
+	"references": {
+		"dlc": [],
+		"mod": [],
+		"fork": [],
+		"game": [],
+		"port": [],
+		"addon": [],
+		"bundle": [],
+		"remake": [],
+		"season": [],
+		"update": [],
+		"episode": [],
+		"remaster": [],
+		"expansion": [],
+		"expandedGame": [],
+		"standaloneExpansion": []
+	}
+}

@@ -31,6 +31,16 @@
 							"maxLength": 500,
 							"description": "Document path relative to the publication URL (e.g., /handle/rkey)"
 						},
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 100,
+								"maxGraphemes": 50
+							},
+							"maxLength": 100,
+							"description": "Optional array of strings to tag/categorize the document. Avoid prepending with hashtags."
+						},
 						"blobs": {
 							"type": "array",
 							"items": {
@@ -100,7 +110,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768522694892
+		"indexedAt": 1768954709804
 	},
 	"references": {
 		"main": [

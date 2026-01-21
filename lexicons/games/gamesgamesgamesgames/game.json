@@ -12,10 +12,6 @@
 						"name": {
 							"type": "string"
 						},
-						"type": {
-							"ref": "games.gamesgamesgamesgames.defs#type",
-							"type": "ref"
-						},
 						"modes": {
 							"type": "array",
 							"items": {
@@ -23,8 +19,48 @@
 								"type": "ref"
 							}
 						},
+						"genres": {
+							"type": "array",
+							"items": {
+								"ref": "games.gamesgamesgamesgames.defs#genre",
+								"type": "ref"
+							}
+						},
+						"parent": {
+							"type": "string",
+							"format": "at-uri"
+						},
+						"themes": {
+							"type": "array",
+							"items": {
+								"ref": "games.gamesgamesgamesgames.defs#theme",
+								"type": "ref"
+							}
+						},
 						"summary": {
 							"type": "string"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"releaseDates": {
+							"type": "array",
+							"items": {
+								"ref": "games.gamesgamesgamesgames.defs#releaseDate",
+								"type": "ref"
+							}
+						},
+						"applicationType": {
+							"ref": "games.gamesgamesgamesgames.defs#applicationType",
+							"type": "ref"
+						},
+						"playerPerspectives": {
+							"type": "array",
+							"items": {
+								"ref": "games.gamesgamesgamesgames.defs#playerPerspective",
+								"type": "ref"
+							}
 						}
 					}
 				},
@@ -35,7 +71,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768522694892
+		"indexedAt": 1768954709804
 	},
 	"references": {
 		"main": [

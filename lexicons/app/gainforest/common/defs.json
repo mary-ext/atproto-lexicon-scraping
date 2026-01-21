@@ -1,0 +1,128 @@
+{
+	"authority": "did:plc:qoti4acfmc5wg6zzmtix6hse",
+	"schema": {
+		"id": "app.gainforest.common.defs",
+		"defs": {
+			"uri": {
+				"type": "object",
+				"required": [
+					"uri"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "uri",
+						"description": "URI to external data",
+						"maxGraphemes": 1024
+					}
+				},
+				"description": "Object containing a URI to external data"
+			},
+			"largeBlob": {
+				"type": "object",
+				"required": [
+					"blob"
+				],
+				"properties": {
+					"blob": {
+						"type": "blob",
+						"accept": [
+							"*/*"
+						],
+						"maxSize": 104857600,
+						"description": "Blob to external data (up to 100MB)"
+					}
+				},
+				"description": "Object containing a blob to external data"
+			},
+			"smallBlob": {
+				"type": "object",
+				"required": [
+					"blob"
+				],
+				"properties": {
+					"blob": {
+						"type": "blob",
+						"accept": [
+							"*/*"
+						],
+						"maxSize": 10485760,
+						"description": "Blob to external data (up to 10MB)"
+					}
+				},
+				"description": "Object containing a blob to external data"
+			},
+			"largeImage": {
+				"type": "object",
+				"required": [
+					"image"
+				],
+				"properties": {
+					"image": {
+						"type": "blob",
+						"accept": [
+							"image/jpeg",
+							"image/jpg",
+							"image/png",
+							"image/webp"
+						],
+						"maxSize": 10485760,
+						"description": "Image (up to 10MB)"
+					}
+				},
+				"description": "Object containing a large image"
+			},
+			"smallImage": {
+				"type": "object",
+				"required": [
+					"image"
+				],
+				"properties": {
+					"image": {
+						"type": "blob",
+						"accept": [
+							"image/jpeg",
+							"image/jpg",
+							"image/png",
+							"image/webp"
+						],
+						"maxSize": 5242880,
+						"description": "Image (up to 5MB)"
+					}
+				},
+				"description": "Object containing a small image"
+			},
+			"indexedOrganization": {
+				"type": "object",
+				"required": [
+					"id",
+					"name"
+				],
+				"properties": {
+					"id": {
+						"type": "string",
+						"format": "uri",
+						"description": "The URI of the organization"
+					},
+					"name": {
+						"type": "string",
+						"description": "The name of the organization"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768954709804
+	},
+	"references": {
+		"uri": [],
+		"largeBlob": [],
+		"smallBlob": [],
+		"largeImage": [],
+		"smallImage": [],
+		"indexedOrganization": []
+	}
+}

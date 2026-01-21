@@ -1,0 +1,51 @@
+{
+	"authority": "did:plc:2aa6fahtis66ymq7rd2yxdwu",
+	"schema": {
+		"id": "at.noted.post",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"title",
+						"slug"
+					],
+					"properties": {
+						"body": {
+							"type": "string"
+						},
+						"slug": {
+							"type": "string"
+						},
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						},
+						"title": {
+							"type": "string"
+						},
+						"extended": {
+							"type": "string"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768954709804
+	},
+	"references": {
+		"main": []
+	}
+}

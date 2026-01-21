@@ -1,0 +1,63 @@
+{
+	"authority": "did:plc:qoti4acfmc5wg6zzmtix6hse",
+	"schema": {
+		"id": "app.gainforest.organization.layer",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"type",
+						"uri",
+						"createdAt"
+					],
+					"properties": {
+						"uri": {
+							"type": "string",
+							"format": "uri",
+							"description": "The URI of the layer"
+						},
+						"name": {
+							"type": "string",
+							"description": "The name of the site"
+						},
+						"type": {
+							"enum": [
+								"geojson_points",
+								"geojson_points_trees",
+								"geojson_line",
+								"choropleth",
+								"choropleth_shannon",
+								"raster_tif",
+								"tms_tile"
+							],
+							"type": "string",
+							"description": "The type of the layer"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "The date and time of the creation of the record"
+						},
+						"description": {
+							"type": "string",
+							"description": "The description of the layer"
+						}
+					}
+				},
+				"description": "A declaration of a layer for an organization"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1768954709804
+	},
+	"references": {
+		"main": []
+	}
+}
