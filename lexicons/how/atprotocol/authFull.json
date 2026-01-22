@@ -1,0 +1,35 @@
+{
+	"authority": "did:plc:ulkr2nr3ciy3hotghs7rfbvs",
+	"schema": {
+		"id": "how.atprotocol.authFull",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Full at://how Permissions",
+				"description": "Allows atprotocol.how records to be created and managed.",
+				"permissions": [
+					{
+						"type": "permission",
+						"action": [
+							"create",
+							"update",
+							"delete"
+						],
+						"resource": "repo",
+						"collection": [
+							"how.atprotocol.profile"
+						]
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769041149152
+	},
+	"references": {
+		"main": []
+	}
+}

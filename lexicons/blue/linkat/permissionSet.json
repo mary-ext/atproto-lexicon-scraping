@@ -1,0 +1,33 @@
+{
+	"authority": "did:plc:thpg3rkgfslxsgeekhkxgdyu",
+	"schema": {
+		"id": "blue.linkat.permissionSet",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Linkat",
+				"detail": "Allows Linkat to create, edit, and delete your board",
+				"permissions": [
+					{
+						"type": "permission",
+						"resource": "repo",
+						"collection": [
+							"blue.linkat.board"
+						]
+					}
+				],
+				"detail:langs": {
+					"ja": "Linkatがあなたのボードを作成・編集・削除することを許可します"
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769041149152
+	},
+	"references": {
+		"main": []
+	}
+}

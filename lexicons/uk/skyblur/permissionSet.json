@@ -26,13 +26,6 @@
 						],
 						"type": "permission",
 						"resource": "rpc"
-					},
-					{
-						"type": "permission",
-						"accept": [
-							"*/*"
-						],
-						"resource": "blob"
 					}
 				]
 			}
@@ -41,7 +34,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1763888430441,
+		"indexedAt": 1769041149152,
 		"errorAt": 1768954709804
 	},
 	"references": {

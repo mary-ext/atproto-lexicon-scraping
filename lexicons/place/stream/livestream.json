@@ -1,5 +1,5 @@
 {
-	"authority": "did:web:iame.li",
+	"authority": "did:plc:gqtagsooi75obldmytuow57q",
 	"schema": {
 		"id": "place.stream.livestream",
 		"defs": {
@@ -138,7 +138,8 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1765844234444
+		"indexedAt": 1765844234444,
+		"errorAt": 1769041149152
 	},
 	"references": {
 		"main": [

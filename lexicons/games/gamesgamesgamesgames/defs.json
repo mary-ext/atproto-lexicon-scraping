@@ -109,7 +109,7 @@
 					"games.gamesgamesgamesgames.applicationType#expandedGame",
 					"games.gamesgamesgamesgames.applicationType#expansion",
 					"games.gamesgamesgamesgames.applicationType#fork",
-					"games.gamesgamesgamesgames.applicationType#mainGame",
+					"games.gamesgamesgamesgames.applicationType#game",
 					"games.gamesgamesgamesgames.applicationType#mod",
 					"games.gamesgamesgamesgames.applicationType#port",
 					"games.gamesgamesgamesgames.applicationType#remake",
@@ -152,7 +152,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768954709804
+		"indexedAt": 1769041149152
 	},
 	"references": {
 		"mode": [],

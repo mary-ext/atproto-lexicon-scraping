@@ -1,0 +1,109 @@
+{
+	"authority": "did:plc:inxsxwx7iglbgqsv2mu2xudu",
+	"schema": {
+		"id": "food.sampler.place",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"coordinates",
+						"createdAt"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 500,
+							"description": "Name of the place"
+						},
+						"address": {
+							"type": "string",
+							"maxLength": 1000,
+							"description": "Human-readable address"
+						},
+						"category": {
+							"type": "string",
+							"maxLength": 100,
+							"description": "Type of place (e.g., 'restaurant', 'cafe', 'bar')"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"maxLength": 100
+						},
+						"coordinates": {
+							"ref": "#coordinates",
+							"type": "ref",
+							"description": "Geographic location"
+						},
+						"identifiers": {
+							"type": "array",
+							"items": {
+								"refs": [
+									"#osmIdentifier"
+								],
+								"type": "union",
+								"closed": false
+							},
+							"maxLength": 10,
+							"description": "External identifiers for this place"
+						}
+					}
+				},
+				"description": "A saved reference to a physical place."
+			},
+			"coordinates": {
+				"type": "object",
+				"required": [
+					"lat",
+					"lon"
+				],
+				"properties": {
+					"lat": {
+						"type": "string",
+						"maxLength": 100,
+						"description": "Latitude in decimal degrees (WGS84)"
+					},
+					"lon": {
+						"type": "string",
+						"maxLength": 100,
+						"description": "Longitude in decimal degrees (WGS84)"
+					}
+				}
+			},
+			"osmIdentifier": {
+				"type": "object",
+				"required": [
+					"type",
+					"id"
+				],
+				"properties": {
+					"id": {
+						"type": "string",
+						"maxLength": 100,
+						"description": "OSM node/way/relation ID (e.g., 'node/1234567')"
+					},
+					"type": {
+						"type": "string",
+						"const": "osm",
+						"maxLength": 100,
+						"description": "Identifier type"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769041149152
+	},
+	"references": {
+		"main": [],
+		"coordinates": [],
+		"osmIdentifier": []
+	}
+}

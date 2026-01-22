@@ -1,0 +1,49 @@
+{
+	"authority": "did:plc:inxsxwx7iglbgqsv2mu2xudu",
+	"schema": {
+		"id": "food.sampler.collection",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"createdAt"
+					],
+					"properties": {
+						"icon": {
+							"type": "string",
+							"maxLength": 50,
+							"description": "Emoji or icon identifier"
+						},
+						"name": {
+							"type": "string",
+							"maxLength": 100,
+							"description": "Collection name"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 1000,
+							"description": "Optional description"
+						}
+					}
+				},
+				"description": "A named list of places."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769041149152
+	},
+	"references": {
+		"main": []
+	}
+}

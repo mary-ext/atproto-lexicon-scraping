@@ -37,8 +37,8 @@
 						},
 						"title": {
 							"type": "string",
-							"maxLength": 1280,
-							"maxGraphemes": 128
+							"maxLength": 5000,
+							"maxGraphemes": 500
 						},
 						"author": {
 							"type": "string",
@@ -59,8 +59,8 @@
 						},
 						"description": {
 							"type": "string",
-							"maxLength": 3000,
-							"maxGraphemes": 300
+							"maxLength": 30000,
+							"maxGraphemes": 3000
 						},
 						"publication": {
 							"type": "string",
@@ -81,7 +81,7 @@
 		"description": "A lexicon for long form rich media documents"
 	},
 	"meta": {
-		"indexedAt": 1766535407390,
+		"indexedAt": 1769041149152,
 		"errorAt": 1760659937196
 	},
 	"references": {
