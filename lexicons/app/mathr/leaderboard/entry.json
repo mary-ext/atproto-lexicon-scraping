@@ -1,0 +1,82 @@
+{
+	"authority": "did:plc:bf6hxs2vtvu62fk5wzlvlq3h",
+	"schema": {
+		"id": "app.mathr.leaderboard.entry",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"playerDid",
+						"level",
+						"totalSuccesses",
+						"totalChallenges",
+						"createdAt"
+					],
+					"properties": {
+						"level": {
+							"type": "integer",
+							"minimum": 1,
+							"description": "The highest level reached by the player"
+						},
+						"postUri": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "Optional AT URI to the player's Bluesky post announcing the score"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the score was verified and added to the leaderboard"
+						},
+						"playerDid": {
+							"type": "string",
+							"format": "did",
+							"description": "The DID of the player who achieved this score"
+						},
+						"percentage": {
+							"type": "integer",
+							"maximum": 100,
+							"minimum": 0,
+							"description": "Success rate as a percentage (0-100)"
+						},
+						"playerAvatar": {
+							"type": "string",
+							"format": "uri",
+							"description": "URL to the player's avatar at the time of submission"
+						},
+						"playerHandle": {
+							"type": "string",
+							"description": "The player's handle at the time of submission"
+						},
+						"totalSuccesses": {
+							"type": "integer",
+							"minimum": 0,
+							"description": "Total number of correct answers"
+						},
+						"totalChallenges": {
+							"type": "integer",
+							"minimum": 1,
+							"description": "Total number of challenges attempted"
+						},
+						"playerDisplayName": {
+							"type": "string",
+							"description": "The player's display name at the time of submission"
+						}
+					}
+				},
+				"description": "A verified leaderboard entry stored in the mathr.app official repository"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769127534871
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -1,0 +1,72 @@
+{
+	"authority": "did:plc:uqzpqmrjnptsxezjx4xuh2mn",
+	"schema": {
+		"id": "ai.syui.at.link",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"links",
+						"createdAt"
+					],
+					"properties": {
+						"links": {
+							"type": "array",
+							"items": {
+								"ref": "#linkItem",
+								"type": "ref"
+							},
+							"description": "Array of external service links."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Client-declared timestamp when this record was created."
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Client-declared timestamp when this record was last updated."
+						}
+					}
+				},
+				"description": "Record containing links to external service profiles."
+			},
+			"linkItem": {
+				"type": "object",
+				"required": [
+					"service",
+					"username"
+				],
+				"properties": {
+					"service": {
+						"type": "string",
+						"description": "Service identifier.",
+						"knownValues": [
+							"github",
+							"youtube",
+							"x"
+						]
+					},
+					"username": {
+						"type": "string",
+						"maxLength": 300,
+						"description": "Username or ID on the service."
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769127534871
+	},
+	"references": {
+		"main": [],
+		"linkItem": []
+	}
+}
