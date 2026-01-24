@@ -11,6 +11,10 @@
 				"type": "token",
 				"description": "Text"
 			},
+			"topDown": {
+				"type": "token",
+				"description": "Top Down / Birdseye"
+			},
 			"auditory": {
 				"type": "token",
 				"description": "Auditory"
@@ -36,11 +40,12 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768954709804
+		"indexedAt": 1769213870289
 	},
 	"references": {
 		"vr": [],
 		"text": [],
+		"topDown": [],
 		"auditory": [],
 		"sideView": [],
 		"isometric": [],

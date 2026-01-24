@@ -1,0 +1,159 @@
+{
+	"authority": "did:web:deckbelcher.com",
+	"schema": {
+		"id": "com.deckbelcher.deck.list",
+		"defs": {
+			"card": {
+				"type": "object",
+				"required": [
+					"ref",
+					"quantity",
+					"section"
+				],
+				"properties": {
+					"ref": {
+						"ref": "com.deckbelcher.defs#cardRef",
+						"type": "ref",
+						"description": "Reference to the card (scryfall printing + oracle card)."
+					},
+					"tags": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"maxLength": 640,
+							"description": "A tag annotation for a card.",
+							"maxGraphemes": 64
+						},
+						"maxLength": 128,
+						"description": "User annotations for this card in this deck (e.g., \"removal\", \"wincon\", \"ramp\")."
+					},
+					"section": {
+						"ref": "#section",
+						"type": "ref",
+						"description": "Which section of the deck this card belongs to. Extensible to support format-specific sections."
+					},
+					"quantity": {
+						"type": "integer",
+						"minimum": 1,
+						"description": "Number of copies in the deck."
+					}
+				},
+				"description": "A card entry in a decklist."
+			},
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"cards",
+						"createdAt"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 1280,
+							"description": "Name of the decklist.",
+							"maxGraphemes": 128
+						},
+						"cards": {
+							"type": "array",
+							"items": {
+								"ref": "#card",
+								"type": "ref"
+							},
+							"description": "Array of cards in the decklist."
+						},
+						"format": {
+							"type": "string",
+							"maxLength": 320,
+							"description": "Format of the deck (e.g., \"commander\", \"cube\", \"pauper\").",
+							"maxGraphemes": 32
+						},
+						"primer": {
+							"refs": [
+								"com.deckbelcher.richtext#document",
+								"#primerUri",
+								"#primerRef"
+							],
+							"type": "union",
+							"description": "Deck primer with strategy, combos, and card choices."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the decklist was created."
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the decklist was last updated."
+						}
+					}
+				},
+				"description": "A Magic: The Gathering decklist."
+			},
+			"section": {
+				"type": "string",
+				"maxLength": 640,
+				"description": "Which section of the deck this card belongs to. Extensible to support format-specific sections.",
+				"knownValues": [
+					"mainboard",
+					"sideboard",
+					"maybeboard",
+					"commander"
+				],
+				"maxGraphemes": 64
+			},
+			"primerRef": {
+				"type": "object",
+				"required": [
+					"ref"
+				],
+				"properties": {
+					"ref": {
+						"ref": "com.atproto.repo.strongRef",
+						"type": "ref"
+					}
+				},
+				"description": "Primer in a separate ATProto record. For use with any longform writing lexicon."
+			},
+			"primerUri": {
+				"type": "object",
+				"required": [
+					"uri"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"maxLength": 10000,
+						"maxGraphemes": 1000
+					}
+				},
+				"description": "External primer content. Typically a URL, but any valid URI scheme."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769213870289
+	},
+	"references": {
+		"card": [
+			"com.deckbelcher.defs"
+		],
+		"main": [
+			"com.atproto.repo.strongRef",
+			"com.deckbelcher.defs",
+			"com.deckbelcher.richtext",
+			"com.deckbelcher.richtext.facet"
+		],
+		"section": [],
+		"primerRef": [
+			"com.atproto.repo.strongRef"
+		],
+		"primerUri": []
+	}
+}

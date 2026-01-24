@@ -1,0 +1,36 @@
+{
+	"authority": "did:web:deckbelcher.com",
+	"schema": {
+		"id": "com.deckbelcher.defs",
+		"defs": {
+			"cardRef": {
+				"type": "object",
+				"required": [
+					"scryfallUri",
+					"oracleUri"
+				],
+				"properties": {
+					"oracleUri": {
+						"type": "string",
+						"format": "uri",
+						"description": "Oracle card URI (oracle:<uuid>) - for external indexing.\nDerived from scryfallUri; on conflict, scryfallUri takes precedence."
+					},
+					"scryfallUri": {
+						"type": "string",
+						"format": "uri",
+						"description": "Scryfall printing URI (scry:<uuid>) - authoritative identifier"
+					}
+				},
+				"description": "Reference to a Magic: The Gathering card with printing and oracle identifiers."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769213870289
+	},
+	"references": {
+		"cardRef": []
+	}
+}

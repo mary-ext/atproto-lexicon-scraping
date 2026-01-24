@@ -1,0 +1,228 @@
+{
+	"authority": "did:web:deckbelcher.com",
+	"schema": {
+		"id": "com.deckbelcher.richtext",
+		"defs": {
+			"main": {
+				"type": "object",
+				"properties": {
+					"text": {
+						"type": "string",
+						"maxLength": 500000,
+						"description": "The plain text content (no markdown symbols).",
+						"maxGraphemes": 50000
+					},
+					"facets": {
+						"type": "array",
+						"items": {
+							"ref": "com.deckbelcher.richtext.facet",
+							"type": "ref"
+						},
+						"description": "Annotations of text (mentions, URLs, hashtags, formatting, etc)."
+					}
+				},
+				"description": "A single paragraph of rich text with optional facet annotations.\nUsed for descriptions and other short formatted text."
+			},
+			"document": {
+				"type": "object",
+				"required": [
+					"content"
+				],
+				"properties": {
+					"content": {
+						"type": "array",
+						"items": {
+							"refs": [
+								"#paragraphBlock",
+								"#headingBlock",
+								"#codeBlock",
+								"#bulletListBlock",
+								"#orderedListBlock",
+								"#horizontalRuleBlock"
+							],
+							"type": "union"
+						},
+						"description": "Array of blocks (paragraphs, headings, etc)."
+					}
+				},
+				"description": "A multi-block rich text document.\nUsed for primers and other long-form content."
+			},
+			"listItem": {
+				"type": "object",
+				"properties": {
+					"text": {
+						"type": "string",
+						"maxLength": 100000,
+						"description": "The plain text content (no markdown symbols).",
+						"maxGraphemes": 10000
+					},
+					"facets": {
+						"type": "array",
+						"items": {
+							"ref": "com.deckbelcher.richtext.facet",
+							"type": "ref"
+						},
+						"description": "Annotations of text (formatting, mentions, links, etc)."
+					},
+					"sublist": {
+						"refs": [
+							"#bulletListBlock",
+							"#orderedListBlock"
+						],
+						"type": "union",
+						"description": "Optional nested sublist (bullet or ordered)."
+					}
+				},
+				"description": "A single list item with text, optional facets, and optional sublist."
+			},
+			"codeBlock": {
+				"type": "object",
+				"required": [
+					"text"
+				],
+				"properties": {
+					"text": {
+						"type": "string",
+						"maxLength": 100000,
+						"description": "The code content (plain text, no facets)."
+					},
+					"language": {
+						"type": "string",
+						"maxLength": 50,
+						"description": "Optional language identifier for syntax highlighting."
+					}
+				},
+				"description": "A code block with optional language hint."
+			},
+			"headingBlock": {
+				"type": "object",
+				"required": [
+					"level"
+				],
+				"properties": {
+					"text": {
+						"type": "string",
+						"maxLength": 10000,
+						"description": "The plain text content (no markdown symbols).",
+						"maxGraphemes": 1000
+					},
+					"level": {
+						"type": "integer",
+						"maximum": 6,
+						"minimum": 1,
+						"description": "Heading level (1-6)."
+					},
+					"facets": {
+						"type": "array",
+						"items": {
+							"ref": "com.deckbelcher.richtext.facet",
+							"type": "ref"
+						},
+						"description": "Annotations of text (formatting, mentions, links, etc)."
+					}
+				},
+				"description": "A heading block with level, text, and optional facets."
+			},
+			"paragraphBlock": {
+				"type": "object",
+				"properties": {
+					"text": {
+						"type": "string",
+						"maxLength": 500000,
+						"description": "The plain text content (no markdown symbols).",
+						"maxGraphemes": 50000
+					},
+					"facets": {
+						"type": "array",
+						"items": {
+							"ref": "com.deckbelcher.richtext.facet",
+							"type": "ref"
+						},
+						"description": "Annotations of text (formatting, mentions, links, etc)."
+					}
+				},
+				"description": "A paragraph block with text and optional facets."
+			},
+			"bulletListBlock": {
+				"type": "object",
+				"required": [
+					"items"
+				],
+				"properties": {
+					"items": {
+						"type": "array",
+						"items": {
+							"ref": "#listItem",
+							"type": "ref"
+						},
+						"description": "The list items."
+					}
+				},
+				"description": "An unordered (bullet) list."
+			},
+			"orderedListBlock": {
+				"type": "object",
+				"required": [
+					"items"
+				],
+				"properties": {
+					"items": {
+						"type": "array",
+						"items": {
+							"ref": "#listItem",
+							"type": "ref"
+						},
+						"description": "The list items."
+					},
+					"start": {
+						"type": "integer",
+						"description": "Starting number (default 1)."
+					}
+				},
+				"description": "An ordered (numbered) list."
+			},
+			"horizontalRuleBlock": {
+				"type": "object",
+				"properties": {},
+				"description": "A horizontal rule (thematic break)."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769213870289
+	},
+	"references": {
+		"main": [
+			"com.deckbelcher.defs",
+			"com.deckbelcher.richtext.facet"
+		],
+		"document": [
+			"com.deckbelcher.defs",
+			"com.deckbelcher.richtext.facet"
+		],
+		"listItem": [
+			"com.deckbelcher.defs",
+			"com.deckbelcher.richtext.facet"
+		],
+		"codeBlock": [],
+		"headingBlock": [
+			"com.deckbelcher.defs",
+			"com.deckbelcher.richtext.facet"
+		],
+		"paragraphBlock": [
+			"com.deckbelcher.defs",
+			"com.deckbelcher.richtext.facet"
+		],
+		"bulletListBlock": [
+			"com.deckbelcher.defs",
+			"com.deckbelcher.richtext.facet"
+		],
+		"orderedListBlock": [
+			"com.deckbelcher.defs",
+			"com.deckbelcher.richtext.facet"
+		],
+		"horizontalRuleBlock": []
+	}
+}

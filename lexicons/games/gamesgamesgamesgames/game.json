@@ -44,6 +44,11 @@
 							"type": "string",
 							"format": "datetime"
 						},
+						"publishedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When this record was marked ready for public viewing."
+						},
 						"releaseDates": {
 							"type": "array",
 							"items": {
@@ -71,7 +76,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768954709804
+		"indexedAt": 1769213870289
 	},
 	"references": {
 		"main": [

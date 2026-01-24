@@ -1,0 +1,114 @@
+{
+	"authority": "did:web:deckbelcher.com",
+	"schema": {
+		"id": "com.deckbelcher.collection.list",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"items",
+						"createdAt"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 1280,
+							"description": "Name of the list.",
+							"maxGraphemes": 128
+						},
+						"items": {
+							"type": "array",
+							"items": {
+								"refs": [
+									"#cardItem",
+									"#deckItem"
+								],
+								"type": "union"
+							},
+							"description": "Items in the list."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the list was created."
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the list was last updated."
+						},
+						"description": {
+							"ref": "com.deckbelcher.richtext#document",
+							"type": "ref",
+							"description": "Description of the list."
+						}
+					}
+				},
+				"description": "A curated list of cards and/or decks."
+			},
+			"cardItem": {
+				"type": "object",
+				"required": [
+					"ref",
+					"addedAt"
+				],
+				"properties": {
+					"ref": {
+						"ref": "com.deckbelcher.defs#cardRef",
+						"type": "ref",
+						"description": "Reference to the card (scryfall printing + oracle card)."
+					},
+					"addedAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": "Timestamp when this item was added to the list."
+					}
+				},
+				"description": "A card saved to the list."
+			},
+			"deckItem": {
+				"type": "object",
+				"required": [
+					"ref",
+					"addedAt"
+				],
+				"properties": {
+					"ref": {
+						"ref": "com.atproto.repo.strongRef",
+						"type": "ref",
+						"description": "Reference to the deck record."
+					},
+					"addedAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": "Timestamp when this item was added to the list."
+					}
+				},
+				"description": "A deck saved to the list."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769213870289
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef",
+			"com.deckbelcher.defs",
+			"com.deckbelcher.richtext",
+			"com.deckbelcher.richtext.facet"
+		],
+		"cardItem": [
+			"com.deckbelcher.defs"
+		],
+		"deckItem": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}
