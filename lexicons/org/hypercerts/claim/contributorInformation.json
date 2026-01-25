@@ -1,0 +1,53 @@
+{
+	"authority": "did:plc:s4puetfspot742ai7y4otuel",
+	"schema": {
+		"id": "org.hypercerts.claim.contributorInformation",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"createdAt"
+					],
+					"properties": {
+						"image": {
+							"refs": [
+								"org.hypercerts.defs#uri",
+								"org.hypercerts.defs#smallImage"
+							],
+							"type": "union",
+							"description": "The contributor visual representation as a URI or image blob."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Client-declared timestamp when this record was originally created."
+						},
+						"identifier": {
+							"type": "string",
+							"description": "DID or a URI to a social profile of the contributor."
+						},
+						"displayName": {
+							"type": "string",
+							"maxLength": 100,
+							"description": "Display name of the contributor."
+						}
+					}
+				},
+				"description": "Contributor information including identifier, display name, and image."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769300406741
+	},
+	"references": {
+		"main": [
+			"org.hypercerts.defs"
+		]
+	}
+}

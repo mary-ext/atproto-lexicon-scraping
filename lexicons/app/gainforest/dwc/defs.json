@@ -1,0 +1,177 @@
+{
+	"authority": "did:plc:qoti4acfmc5wg6zzmtix6hse",
+	"schema": {
+		"id": "app.gainforest.dwc.defs",
+		"defs": {
+			"sexEnum": {
+				"type": "string",
+				"description": "The sex of the biological individual(s) represented in the occurrence.",
+				"knownValues": [
+					"male",
+					"female",
+					"hermaphrodite"
+				],
+				"maxGraphemes": 64
+			},
+			"geolocation": {
+				"type": "object",
+				"required": [
+					"decimalLatitude",
+					"decimalLongitude"
+				],
+				"properties": {
+					"geodeticDatum": {
+						"type": "string",
+						"description": "The ellipsoid, geodetic datum, or spatial reference system. Recommended: 'EPSG:4326' (WGS84)",
+						"maxGraphemes": 64
+					},
+					"decimalLatitude": {
+						"type": "string",
+						"description": "Geographic latitude in decimal degrees (WGS84). Positive values north of the Equator, negative south. Range: -90 to 90.",
+						"maxGraphemes": 32
+					},
+					"decimalLongitude": {
+						"type": "string",
+						"description": "Geographic longitude in decimal degrees (WGS84). Positive values east of the Greenwich Meridian, negative west. Range: -180 to 180.",
+						"maxGraphemes": 32
+					},
+					"coordinateUncertaintyInMeters": {
+						"type": "integer",
+						"minimum": 1,
+						"description": "Horizontal distance from the coordinates describing the smallest circle containing the whole location. Zero is not valid."
+					}
+				},
+				"description": "A geographic point with uncertainty, following Darwin Core Location class"
+			},
+			"taxonRankEnum": {
+				"type": "string",
+				"description": "The taxonomic rank of the most specific name in the scientificName.",
+				"knownValues": [
+					"kingdom",
+					"phylum",
+					"class",
+					"order",
+					"family",
+					"subfamily",
+					"genus",
+					"subgenus",
+					"species",
+					"subspecies",
+					"variety",
+					"form"
+				],
+				"maxGraphemes": 64
+			},
+			"basisOfRecordEnum": {
+				"type": "string",
+				"description": "The specific nature of the data record. Controlled vocabulary per Darwin Core.",
+				"knownValues": [
+					"HumanObservation",
+					"MachineObservation",
+					"PreservedSpecimen",
+					"LivingSpecimen",
+					"FossilSpecimen",
+					"MaterialSample",
+					"MaterialEntity",
+					"MaterialCitation"
+				],
+				"maxGraphemes": 64
+			},
+			"dublinCoreTypeEnum": {
+				"type": "string",
+				"description": "Dublin Core type vocabulary for the nature of the resource.",
+				"knownValues": [
+					"PhysicalObject",
+					"StillImage",
+					"MovingImage",
+					"Sound",
+					"Text",
+					"Event",
+					"Dataset"
+				],
+				"maxGraphemes": 64
+			},
+			"taxonIdentification": {
+				"type": "object",
+				"required": [
+					"scientificName"
+				],
+				"properties": {
+					"gbifTaxonKey": {
+						"type": "string",
+						"description": "GBIF backbone taxonomy key for the identified taxon",
+						"maxGraphemes": 64
+					},
+					"identifiedBy": {
+						"type": "string",
+						"description": "Person(s) who made the identification (pipe-delimited for multiple)",
+						"maxGraphemes": 512
+					},
+					"dateIdentified": {
+						"type": "string",
+						"description": "Date the identification was made (ISO 8601)",
+						"maxGraphemes": 64
+					},
+					"identifiedByID": {
+						"type": "string",
+						"description": "ORCID or other persistent identifier for the person(s) who identified (pipe-delimited)",
+						"maxGraphemes": 512
+					},
+					"scientificName": {
+						"type": "string",
+						"description": "The full scientific name including authorship and date",
+						"maxGraphemes": 512
+					},
+					"identificationRemarks": {
+						"type": "string",
+						"description": "Notes or comments about the identification",
+						"maxGraphemes": 2048
+					},
+					"identificationQualifier": {
+						"type": "string",
+						"description": "Uncertainty qualifier applied to the taxon name (e.g., 'cf. agrestis', 'aff. agrestis')",
+						"maxGraphemes": 256
+					}
+				},
+				"description": "A taxonomic identification with provenance metadata"
+			},
+			"occurrenceStatusEnum": {
+				"type": "string",
+				"description": "Statement about the presence or absence of a taxon at a location.",
+				"knownValues": [
+					"present",
+					"absent"
+				],
+				"maxGraphemes": 64
+			},
+			"nomenclaturalCodeEnum": {
+				"type": "string",
+				"description": "The nomenclatural code under which the scientific name is constructed.",
+				"knownValues": [
+					"ICZN",
+					"ICN",
+					"ICNP",
+					"ICTV",
+					"BioCode"
+				],
+				"maxGraphemes": 64
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Shared type definitions for Darwin Core aligned biodiversity records"
+	},
+	"meta": {
+		"indexedAt": 1769300406741
+	},
+	"references": {
+		"sexEnum": [],
+		"geolocation": [],
+		"taxonRankEnum": [],
+		"basisOfRecordEnum": [],
+		"dublinCoreTypeEnum": [],
+		"taxonIdentification": [],
+		"occurrenceStatusEnum": [],
+		"nomenclaturalCodeEnum": []
+	}
+}

@@ -93,7 +93,7 @@
 						"description": "Localized descriptions for this definition."
 					}
 				},
-				"description": "Documentation for a specific definition within a lexicon."
+				"description": "Documentation for a definition within a lexicon."
 			},
 			"localizedString": {
 				"type": "object",
@@ -120,7 +120,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769213870289
+		"indexedAt": 1769300406741
 	},
 	"references": {
 		"main": [],

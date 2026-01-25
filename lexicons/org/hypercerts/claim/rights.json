@@ -1,0 +1,61 @@
+{
+	"authority": "did:plc:s4puetfspot742ai7y4otuel",
+	"schema": {
+		"id": "org.hypercerts.claim.rights",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"rightsName",
+						"rightsType",
+						"rightsDescription",
+						"createdAt"
+					],
+					"properties": {
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Client-declared timestamp when this record was originally created"
+						},
+						"attachment": {
+							"refs": [
+								"org.hypercerts.defs#uri",
+								"org.hypercerts.defs#smallBlob"
+							],
+							"type": "union",
+							"description": "An attachment to define the rights further, e.g. a legal document."
+						},
+						"rightsName": {
+							"type": "string",
+							"maxLength": 100,
+							"description": "Full name of the rights"
+						},
+						"rightsType": {
+							"type": "string",
+							"maxLength": 10,
+							"description": "Short rights identifier for easier search"
+						},
+						"rightsDescription": {
+							"type": "string",
+							"description": "Description of the rights of this hypercert"
+						}
+					}
+				},
+				"description": "Describes the rights that a contributor and/or an owner has, such as whether the hypercert can be sold, transferred, and under what conditions."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769300406741
+	},
+	"references": {
+		"main": [
+			"org.hypercerts.defs"
+		]
+	}
+}

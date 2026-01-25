@@ -1,0 +1,78 @@
+{
+	"authority": "did:plc:s4puetfspot742ai7y4otuel",
+	"schema": {
+		"id": "org.hypercerts.claim.evidence",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"content",
+						"title",
+						"createdAt"
+					],
+					"properties": {
+						"title": {
+							"type": "string",
+							"maxLength": 256,
+							"description": "Title to describe the nature of the evidence."
+						},
+						"content": {
+							"refs": [
+								"org.hypercerts.defs#uri",
+								"org.hypercerts.defs#smallBlob"
+							],
+							"type": "union",
+							"description": "A piece of evidence (URI or blob) related to the subject record; it may support, clarify, or challenge a hypercert claim."
+						},
+						"subject": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "A strong reference to the record this evidence relates to (e.g. an activity, project, claim, or evaluation)."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Client-declared timestamp when this record was originally created"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 30000,
+							"description": "Longer description describing the evidence in more detail.",
+							"maxGraphemes": 3000
+						},
+						"relationType": {
+							"type": "string",
+							"description": "How this evidence relates to the subject.",
+							"knownValues": [
+								"supports",
+								"challenges",
+								"clarifies"
+							]
+						},
+						"shortDescription": {
+							"type": "string",
+							"maxLength": 3000,
+							"description": "Short description explaining what this evidence shows.",
+							"maxGraphemes": 300
+						}
+					}
+				},
+				"description": "A piece of evidence related to a hypercert record (e.g. an activity, project, claim, or evaluation). Evidence may support, clarify, or challenge the referenced subject."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769300406741
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef",
+			"org.hypercerts.defs"
+		]
+	}
+}
