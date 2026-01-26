@@ -1,0 +1,45 @@
+{
+	"authority": "did:plc:2tpqeou2twn2lvronqe2ipoi",
+	"schema": {
+		"id": "fyi.questionable.richtext.website",
+		"defs": {
+			"main": {
+				"type": "object",
+				"required": [
+					"uri"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "uri"
+					},
+					"title": {
+						"type": "string",
+						"maxLength": 3000,
+						"maxGraphemes": 300
+					},
+					"description": {
+						"type": "string",
+						"maxLength": 3000,
+						"maxGraphemes": 3000
+					},
+					"previewImage": {
+						"type": "blob",
+						"accept": [
+							"image/*"
+						],
+						"maxSize": 1000000
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769386781977
+	},
+	"references": {
+		"main": []
+	}
+}

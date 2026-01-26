@@ -1,0 +1,52 @@
+{
+	"authority": "did:plc:rjqn3agdb74cszhqcpii4sne",
+	"schema": {
+		"id": "at.margin.profile",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"createdAt"
+					],
+					"properties": {
+						"bio": {
+							"type": "string",
+							"maxLength": 5000,
+							"description": "User biography or description."
+						},
+						"links": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 1000
+							},
+							"maxLength": 20,
+							"description": "List of other relevant links (e.g. GitHub, Bluesky, etc)."
+						},
+						"website": {
+							"type": "string",
+							"maxLength": 1000,
+							"description": "User website URL."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "A profile for a user on the Margin network."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769386781977
+	},
+	"references": {
+		"main": []
+	}
+}

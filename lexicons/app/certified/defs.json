@@ -1,0 +1,22 @@
+{
+	"authority": "did:plc:apun3uo5jqm34pxzqq6on754",
+	"schema": {
+		"id": "app.certified.defs",
+		"defs": {
+			"did": {
+				"type": "string",
+				"format": "did",
+				"description": "A Decentralized Identifier (DID) string."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Common type definitions used across certified protocols."
+	},
+	"meta": {
+		"indexedAt": 1769386781977
+	},
+	"references": {
+		"did": []
+	}
+}

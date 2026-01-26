@@ -10,16 +10,13 @@
 					"type": "object",
 					"required": [
 						"question",
-						"text",
+						"content",
 						"createdAt"
 					],
 					"properties": {
-						"text": {
-							"type": "string",
-							"maxLength": 10000,
-							"minLength": 1,
-							"description": "The full text of the answer",
-							"maxGraphemes": 10000
+						"content": {
+							"ref": "fyi.questionable.richtext.content",
+							"type": "ref"
 						},
 						"question": {
 							"ref": "com.atproto.repo.strongRef",
@@ -47,11 +44,23 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1766276313627
+		"indexedAt": 1769386781977
 	},
 	"references": {
 		"main": [
-			"com.atproto.repo.strongRef"
+			"com.atproto.repo.strongRef",
+			"fyi.questionable.richtext.blockquote",
+			"fyi.questionable.richtext.bskyPost",
+			"fyi.questionable.richtext.code",
+			"fyi.questionable.richtext.content",
+			"fyi.questionable.richtext.facet",
+			"fyi.questionable.richtext.header",
+			"fyi.questionable.richtext.horizontalRule",
+			"fyi.questionable.richtext.image",
+			"fyi.questionable.richtext.list",
+			"fyi.questionable.richtext.math",
+			"fyi.questionable.richtext.text",
+			"fyi.questionable.richtext.website"
 		]
 	}
 }

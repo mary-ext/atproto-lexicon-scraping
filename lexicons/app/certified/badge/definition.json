@@ -1,0 +1,70 @@
+{
+	"authority": "did:plc:apun3uo5jqm34pxzqq6on754",
+	"schema": {
+		"id": "app.certified.badge.definition",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"title",
+						"badgeType",
+						"icon",
+						"createdAt"
+					],
+					"properties": {
+						"icon": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg",
+								"image/webp",
+								"image/svg+xml"
+							],
+							"maxSize": 1048576,
+							"description": "Icon representing the badge, stored as a blob for compact visual display."
+						},
+						"title": {
+							"type": "string",
+							"description": "Human-readable title of the badge."
+						},
+						"badgeType": {
+							"type": "string",
+							"description": "Category of the badge (e.g. endorsement, participation, affiliation)."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Client-declared timestamp when this record was originally created"
+						},
+						"description": {
+							"type": "string",
+							"description": "Optional short statement describing what the badge represents."
+						},
+						"allowedIssuers": {
+							"type": "array",
+							"items": {
+								"ref": "app.certified.defs#did",
+								"type": "ref"
+							},
+							"description": "Optional allowlist of DIDs allowed to issue this badge. If omitted, anyone may issue it."
+						}
+					}
+				},
+				"description": "Defines a badge that can be awarded via badge award records to users, projects, or activity claims."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769386781977
+	},
+	"references": {
+		"main": [
+			"app.certified.defs"
+		]
+	}
+}

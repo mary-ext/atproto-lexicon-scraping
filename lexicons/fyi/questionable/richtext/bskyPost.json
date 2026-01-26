@@ -1,0 +1,30 @@
+{
+	"authority": "did:plc:2tpqeou2twn2lvronqe2ipoi",
+	"schema": {
+		"id": "fyi.questionable.richtext.bskyPost",
+		"defs": {
+			"main": {
+				"type": "object",
+				"required": [
+					"postRef"
+				],
+				"properties": {
+					"postRef": {
+						"ref": "com.atproto.repo.strongRef",
+						"type": "ref"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769386781977
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}

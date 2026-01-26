@@ -16,37 +16,75 @@
 					"properties": {
 						"lang": {
 							"type": "string",
-							"maxLength": 10
+							"maxLength": 10,
+							"description": "Language code of the original content (e.g., 'ja', 'en')."
 						},
 						"title": {
 							"type": "string",
 							"maxLength": 3000,
+							"description": "The title of the post.",
 							"maxGraphemes": 300
 						},
 						"content": {
 							"type": "string",
 							"maxLength": 1000000,
+							"description": "The content of the post (markdown).",
 							"maxGraphemes": 100000
 						},
 						"createdAt": {
 							"type": "string",
-							"format": "datetime"
+							"format": "datetime",
+							"description": "Client-declared timestamp when this post was originally created."
 						},
 						"translations": {
-							"type": "unknown"
+							"ref": "#translationMap",
+							"type": "ref",
+							"description": "Translations of the post in other languages."
 						}
 					}
 				},
 				"description": "Record containing a blog post."
+			},
+			"translation": {
+				"type": "object",
+				"properties": {
+					"title": {
+						"type": "string",
+						"maxLength": 3000,
+						"maxGraphemes": 300
+					},
+					"content": {
+						"type": "string",
+						"maxLength": 1000000,
+						"maxGraphemes": 100000
+					}
+				},
+				"description": "A translation of a post."
+			},
+			"translationMap": {
+				"type": "object",
+				"properties": {
+					"en": {
+						"ref": "#translation",
+						"type": "ref"
+					},
+					"ja": {
+						"ref": "#translation",
+						"type": "ref"
+					}
+				},
+				"description": "Map of language codes to translations."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768609022818
+		"indexedAt": 1769386781977
 	},
 	"references": {
-		"main": []
+		"main": [],
+		"translation": [],
+		"translationMap": []
 	}
 }

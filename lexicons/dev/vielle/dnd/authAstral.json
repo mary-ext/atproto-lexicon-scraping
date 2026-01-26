@@ -1,0 +1,35 @@
+{
+	"authority": "did:plc:4zht3z4caxwrw3dlsybodywc",
+	"schema": {
+		"id": "dev.vielle.dnd.authAstral",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Edit your astral powers",
+				"detail": "Edit the point total and power list",
+				"permissions": [
+					{
+						"type": "permission",
+						"action": [
+							"create",
+							"update"
+						],
+						"resource": "repo",
+						"collection": [
+							"dev.vielle.dnd.astral"
+						]
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Auth for dev.vielle.dnd.astral records"
+	},
+	"meta": {
+		"indexedAt": 1769386781977
+	},
+	"references": {
+		"main": []
+	}
+}

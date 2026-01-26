@@ -1,0 +1,27 @@
+{
+	"authority": "did:plc:2tpqeou2twn2lvronqe2ipoi",
+	"schema": {
+		"id": "fyi.questionable.richtext.math",
+		"defs": {
+			"main": {
+				"type": "object",
+				"required": [
+					"tex"
+				],
+				"properties": {
+					"tex": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769386781977
+	},
+	"references": {
+		"main": []
+	}
+}

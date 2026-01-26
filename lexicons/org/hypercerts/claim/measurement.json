@@ -9,36 +9,56 @@
 				"record": {
 					"type": "object",
 					"required": [
-						"measurers",
 						"metric",
+						"unit",
 						"value",
 						"createdAt"
 					],
 					"properties": {
+						"unit": {
+							"type": "string",
+							"maxLength": 50,
+							"description": "The unit of the measured value (e.g. kg CO₂e, hectares, %, index score)."
+						},
 						"value": {
 							"type": "string",
 							"maxLength": 500,
-							"description": "The measured value"
+							"description": "The measured numeric value."
 						},
 						"metric": {
 							"type": "string",
 							"maxLength": 500,
-							"description": "The metric being measured"
+							"description": "The metric being measured, e.g. forest area restored, number of users, etc."
+						},
+						"comment": {
+							"type": "string",
+							"maxLength": 3000,
+							"description": "Short comment of this measurement, suitable for previews and list views. Rich text annotations may be provided via `commentFacets`.",
+							"maxGraphemes": 300
+						},
+						"endDate": {
+							"type": "string",
+							"format": "datetime",
+							"description": "The end date and time when the measurement ended. If it was a one time measurement, the endDate should be equal to the startDate."
 						},
 						"subject": {
 							"ref": "com.atproto.repo.strongRef",
 							"type": "ref",
 							"description": "A strong reference to the record this measurement refers to (e.g. an activity, project, or claim)."
 						},
-						"location": {
-							"ref": "com.atproto.repo.strongRef",
-							"type": "ref",
-							"description": "A strong reference to the location where the measurement was taken. The record referenced must conform with the lexicon app.certified.location"
-						},
 						"createdAt": {
 							"type": "string",
 							"format": "datetime",
 							"description": "Client-declared timestamp when this record was originally created"
+						},
+						"locations": {
+							"type": "array",
+							"items": {
+								"ref": "com.atproto.repo.strongRef",
+								"type": "ref"
+							},
+							"maxLength": 100,
+							"description": "Optional geographic references related to where the measurement was taken. Each referenced record must conform with the app.certified.location lexicon."
 						},
 						"measurers": {
 							"type": "array",
@@ -54,6 +74,11 @@
 							"format": "uri",
 							"description": "URI to methodology documentation, standard protocol, or measurement procedure"
 						},
+						"startDate": {
+							"type": "string",
+							"format": "datetime",
+							"description": "The start date and time when the measurement began."
+						},
 						"methodType": {
 							"type": "string",
 							"maxLength": 30,
@@ -67,6 +92,14 @@
 							},
 							"maxLength": 50,
 							"description": "URIs to related evidence or underlying data (e.g. org.hypercerts.claim.evidence records or raw datasets)"
+						},
+						"commentFacets": {
+							"type": "array",
+							"items": {
+								"ref": "app.bsky.richtext.facet",
+								"type": "ref"
+							},
+							"description": "Rich text annotations for `comment` (mentions, URLs, hashtags, etc)."
 						}
 					}
 				},
@@ -77,10 +110,11 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769300406741
+		"indexedAt": 1769386781977
 	},
 	"references": {
 		"main": [
+			"app.bsky.richtext.facet",
 			"app.certified.defs",
 			"com.atproto.repo.strongRef"
 		]

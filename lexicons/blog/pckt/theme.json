@@ -24,6 +24,12 @@
 						"ref": "#palette",
 						"type": "ref",
 						"description": "Light mode color palette"
+					},
+					"transparency": {
+						"type": "integer",
+						"maximum": 100,
+						"minimum": 0,
+						"description": "Content background transparency percentage (optional)"
 					}
 				},
 				"description": "Theme configuration for a blog publication"
@@ -72,7 +78,7 @@
 		"description": "Theme record for blog publications with light and dark mode color schemes."
 	},
 	"meta": {
-		"indexedAt": 1762820167045,
+		"indexedAt": 1769386781977,
 		"errorAt": 1760659937196
 	},
 	"references": {

@@ -209,6 +209,11 @@
 							"description": "Person or organization owning or managing rights over the resource.",
 							"maxGraphemes": 256
 						},
+						"audioEvidence": {
+							"ref": "app.gainforest.common.defs#audio",
+							"type": "ref",
+							"description": "Audio evidence (bioacoustics, soundscape, species call, field recording, etc.)."
+						},
 						"basisOfRecord": {
 							"enum": [
 								"HumanObservation",
@@ -229,15 +234,20 @@
 							"description": "The spatial reference system for the coordinates. Recommended: 'EPSG:4326' (WGS84).",
 							"maxGraphemes": 64
 						},
-						"mediaEvidence": {
-							"ref": "app.gainforest.common.defs#smallImage",
+						"imageEvidence": {
+							"ref": "app.gainforest.common.defs#image",
 							"type": "ref",
-							"description": "Direct image evidence uploaded as ATProto blob (photo of organism, camera trap image, etc.)."
+							"description": "Image evidence (photo, camera trap, drone still, scanned specimen, etc.)."
 						},
 						"stateProvince": {
 							"type": "string",
 							"description": "The name of the next smaller administrative region than country.",
 							"maxGraphemes": 256
+						},
+						"videoEvidence": {
+							"ref": "app.gainforest.common.defs#video",
+							"type": "ref",
+							"description": "Video evidence (camera trap, drone footage, underwater video, behavioral observation, etc.)."
 						},
 						"collectionCode": {
 							"type": "string",
@@ -370,6 +380,11 @@
 							"description": "A description of what information is withheld from this record and why (e.g., 'coordinates generalized to protect endangered species').",
 							"maxGraphemes": 1024
 						},
+						"spectrogramEvidence": {
+							"ref": "app.gainforest.common.defs#spectrogram",
+							"type": "ref",
+							"description": "Spectrogram image showing frequency analysis of audio recording."
+						},
 						"associatedReferences": {
 							"type": "string",
 							"description": "Identifiers (URIs) of literature associated with the occurrence. Pipe-delimited for multiple.",
@@ -453,7 +468,7 @@
 		"description": "A single biodiversity occurrence record aligned with Simple Darwin Core (TDWG Standard 450, version 2023-09-13). Represents one organism or group of organisms at a particular place and time."
 	},
 	"meta": {
-		"indexedAt": 1769300406741
+		"indexedAt": 1769386781977
 	},
 	"references": {
 		"main": [

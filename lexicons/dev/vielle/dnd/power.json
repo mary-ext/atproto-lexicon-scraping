@@ -1,0 +1,89 @@
+{
+	"authority": "did:plc:4zht3z4caxwrw3dlsybodywc",
+	"schema": {
+		"id": "dev.vielle.dnd.power",
+		"defs": {
+			"bind": {
+				"type": "token"
+			},
+			"bond": {
+				"type": "token"
+			},
+			"claw": {
+				"type": "token"
+			},
+			"spray": {
+				"type": "token"
+			},
+			"instil": {
+				"type": "token"
+			},
+			"locked": {
+				"type": "token",
+				"description": "This power should not be obtainable as an astral power."
+			},
+			"acursed": {
+				"type": "token"
+			},
+			"invalid": {
+				"type": "token"
+			},
+			"whisper": {
+				"type": "token"
+			},
+			"faceless": {
+				"type": "token"
+			},
+			"darksight": {
+				"type": "token"
+			},
+			"regenerate": {
+				"type": "token"
+			},
+			"runeSeeker": {
+				"type": "token"
+			},
+			"fateScriber": {
+				"type": "token"
+			},
+			"eldritchVisage": {
+				"type": "token"
+			},
+			"eldritchAssault": {
+				"type": "token"
+			},
+			"eldritchEnchantment": {
+				"type": "token"
+			},
+			"eldritchAdaptability": {
+				"type": "token"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Tokens for all dev.vielle.dnd.astral powers"
+	},
+	"meta": {
+		"indexedAt": 1769386781977
+	},
+	"references": {
+		"bind": [],
+		"bond": [],
+		"claw": [],
+		"spray": [],
+		"instil": [],
+		"locked": [],
+		"acursed": [],
+		"invalid": [],
+		"whisper": [],
+		"faceless": [],
+		"darksight": [],
+		"regenerate": [],
+		"runeSeeker": [],
+		"fateScriber": [],
+		"eldritchVisage": [],
+		"eldritchAssault": [],
+		"eldritchEnchantment": [],
+		"eldritchAdaptability": []
+	}
+}
