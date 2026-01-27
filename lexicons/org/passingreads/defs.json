@@ -1,0 +1,87 @@
+{
+	"authority": "did:plc:oeipalbxet5jghoqe6b6ctu6",
+	"schema": {
+		"id": "org.passingreads.defs",
+		"defs": {
+			"actor": {
+				"type": "object",
+				"required": [
+					"did",
+					"handle"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did"
+					},
+					"handle": {
+						"type": "string",
+						"format": "handle"
+					},
+					"displayName": {
+						"type": "string",
+						"maxLength": 640
+					}
+				},
+				"description": "Basic actor information for embedding in responses"
+			},
+			"aspectRatio": {
+				"type": "object",
+				"required": [
+					"width",
+					"height"
+				],
+				"properties": {
+					"width": {
+						"type": "integer",
+						"minimum": 1
+					},
+					"height": {
+						"type": "integer",
+						"minimum": 1
+					}
+				},
+				"description": "width:height represents an aspect ratio. It may be approximate, and may not correspond to absolute dimensions in any unit."
+			},
+			"bookIdEntry": {
+				"type": "object",
+				"required": [
+					"id"
+				],
+				"properties": {
+					"id": {
+						"type": "string"
+					}
+				},
+				"description": "Book ID entry for SSG"
+			},
+			"locationEntry": {
+				"type": "object",
+				"required": [
+					"h3",
+					"bookCount"
+				],
+				"properties": {
+					"h3": {
+						"type": "string"
+					},
+					"bookCount": {
+						"type": "integer"
+					}
+				},
+				"description": "Location entry with book count for SSG"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769473176610
+	},
+	"references": {
+		"actor": [],
+		"aspectRatio": [],
+		"bookIdEntry": [],
+		"locationEntry": []
+	}
+}

@@ -15,8 +15,7 @@
 					"properties": {
 						"points": {
 							"type": "integer",
-							"default": 0,
-							"minimum": 0
+							"default": 0
 						},
 						"powers": {
 							"type": "array",
@@ -56,7 +55,7 @@
 		"description": "Schema for storing astral powers. Used for dnd.vielle.dev"
 	},
 	"meta": {
-		"indexedAt": 1769386781977
+		"indexedAt": 1769473176610
 	},
 	"references": {
 		"main": [],

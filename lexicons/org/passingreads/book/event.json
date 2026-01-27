@@ -1,0 +1,76 @@
+{
+	"authority": "did:plc:oeipalbxet5jghoqe6b6ctu6",
+	"schema": {
+		"id": "org.passingreads.book.event",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"did",
+						"book",
+						"occurredAt",
+						"location",
+						"bookPub",
+						"bookSig"
+					],
+					"properties": {
+						"did": {
+							"type": "string",
+							"format": "did",
+							"description": "The DID of the person who registered the book. Included here, so it's verifiable with the bookSig."
+						},
+						"book": {
+							"ref": "com.atproto.repo.strongRef#main",
+							"type": "ref",
+							"description": "The book that was dropped (a org.passingreads.book.registration)"
+						},
+						"event": {
+							"type": "string",
+							"description": "What event has occurred",
+							"knownValues": [
+								"org.passingreads.book.drop",
+								"org.passingreads.book.find"
+							]
+						},
+						"bookPub": {
+							"type": "bytes",
+							"description": "The multicodec public key of the book."
+						},
+						"bookSig": {
+							"type": "bytes",
+							"description": "The signature of this record, without this attribute, as created by the private key associated with the book"
+						},
+						"location": {
+							"refs": [
+								"com.atproto.repo.strongRef#main",
+								"community.lexicon.location.hthree#main"
+							],
+							"type": "union",
+							"description": "Where this event occurred (an h3 cell, or a link to an outpost — org.passingreads.outpost.registration)"
+						},
+						"occurredAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Client-declared timestamp of when the book was dropped"
+						}
+					}
+				},
+				"description": "The status of a book has changed."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769473176610
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef",
+			"community.lexicon.location.hthree"
+		]
+	}
+}

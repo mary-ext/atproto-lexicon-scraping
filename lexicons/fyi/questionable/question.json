@@ -18,10 +18,6 @@
 							"ref": "fyi.questionable.richtext.content",
 							"type": "ref"
 						},
-						"context": {
-							"type": "string",
-							"format": "at-uri"
-						},
 						"summary": {
 							"type": "string",
 							"maxLength": 3000,
@@ -41,6 +37,11 @@
 							},
 							"maxLength": 3,
 							"description": "Indicates human language of the primary text content."
+						},
+						"contextRef": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "Indicates the context in which this question was asked. Currently only fyi.questionable.actor.profile"
 						}
 					}
 				},
@@ -51,7 +52,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769386781977
+		"indexedAt": 1769473176610
 	},
 	"references": {
 		"main": [

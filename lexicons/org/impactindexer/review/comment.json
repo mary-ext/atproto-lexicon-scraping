@@ -1,0 +1,55 @@
+{
+	"authority": "did:plc:qoti4acfmc5wg6zzmtix6hse",
+	"schema": {
+		"id": "org.impactindexer.review.comment",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"subject",
+						"text",
+						"createdAt"
+					],
+					"properties": {
+						"text": {
+							"type": "string",
+							"maxLength": 20480,
+							"description": "The comment text.",
+							"maxGraphemes": 6000
+						},
+						"replyTo": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "Optional AT-URI of another comment this is replying to, enabling threaded discussions."
+						},
+						"subject": {
+							"ref": "org.impactindexer.review.defs#subjectRef",
+							"type": "ref",
+							"description": "The subject being commented on."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the comment was created."
+						}
+					}
+				},
+				"description": "A text comment on a subject."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A text comment on an AT-Proto entity. Users can comment on records, users, PDSes, or lexicons to provide feedback, ask questions, or share insights."
+	},
+	"meta": {
+		"indexedAt": 1769473176610
+	},
+	"references": {
+		"main": [
+			"org.impactindexer.review.defs"
+		]
+	}
+}

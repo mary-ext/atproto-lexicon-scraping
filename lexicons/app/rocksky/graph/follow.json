@@ -1,0 +1,44 @@
+{
+	"authority": "did:plc:vegqomyce4ssoqs7zwqvgqty",
+	"schema": {
+		"id": "app.rocksky.graph.follow",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"createdAt",
+						"subject"
+					],
+					"properties": {
+						"via": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref"
+						},
+						"subject": {
+							"type": "string",
+							"format": "did"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "Record declaring a social 'follow' relationship of another account."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769473176610
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}

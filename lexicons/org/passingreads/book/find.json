@@ -1,0 +1,20 @@
+{
+	"authority": "did:plc:oeipalbxet5jghoqe6b6ctu6",
+	"schema": {
+		"id": "org.passingreads.book.find",
+		"defs": {
+			"main": {
+				"type": "token",
+				"description": "Represents a book being found at a location."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769473176610
+	},
+	"references": {
+		"main": []
+	}
+}

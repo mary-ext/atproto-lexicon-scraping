@@ -35,7 +35,7 @@
 					"fnumber": {
 						"type": "string"
 					},
-					"focalLenth": {
+					"focalLength": {
 						"type": "string"
 					},
 					"exposureTime": {
@@ -76,7 +76,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1764807412994
+		"indexedAt": 1769473176610
 	},
 	"references": {
 		"tombstone": [],

@@ -1,0 +1,174 @@
+{
+	"authority": "did:plc:vegqomyce4ssoqs7zwqvgqty",
+	"schema": {
+		"id": "app.rocksky.scrobble",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"title",
+						"artist",
+						"album",
+						"albumArtist",
+						"duration",
+						"createdAt"
+					],
+					"properties": {
+						"mbid": {
+							"type": "string",
+							"description": "The MusicBrainz ID of the song."
+						},
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 256,
+								"minLength": 1
+							},
+							"description": "The tags of the song."
+						},
+						"wiki": {
+							"type": "string",
+							"maxLength": 10000,
+							"description": "Informations about the song"
+						},
+						"year": {
+							"type": "integer",
+							"description": "The year the song was released."
+						},
+						"album": {
+							"type": "string",
+							"maxLength": 256,
+							"minLength": 1,
+							"description": "The album of the song."
+						},
+						"genre": {
+							"type": "string",
+							"maxLength": 256,
+							"description": "The genre of the song."
+						},
+						"label": {
+							"type": "string",
+							"maxLength": 256,
+							"description": "The label of the song."
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 512,
+							"minLength": 1,
+							"description": "The title of the song."
+						},
+						"artist": {
+							"type": "string",
+							"maxLength": 256,
+							"minLength": 1,
+							"description": "The artist of the song."
+						},
+						"lyrics": {
+							"type": "string",
+							"maxLength": 10000,
+							"description": "The lyrics of the song."
+						},
+						"artists": {
+							"type": "array",
+							"items": {
+								"ref": "app.rocksky.artist.defs#artistMbid",
+								"type": "ref"
+							},
+							"description": "The artists of the song with MusicBrainz IDs."
+						},
+						"albumArt": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg"
+							],
+							"maxSize": 2000000,
+							"description": "The album art of the song."
+						},
+						"composer": {
+							"type": "string",
+							"maxLength": 256,
+							"description": "The composer of the song."
+						},
+						"duration": {
+							"type": "integer",
+							"minimum": 1,
+							"description": "The duration of the song in seconds."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "The date when the song was created."
+						},
+						"tidalLink": {
+							"type": "string",
+							"format": "uri",
+							"description": "The Tidal link of the song."
+						},
+						"discNumber": {
+							"type": "integer",
+							"minimum": 1,
+							"description": "The disc number of the song in the album."
+						},
+						"albumArtUrl": {
+							"type": "string",
+							"format": "uri",
+							"description": "The URL of the album art of the song."
+						},
+						"albumArtist": {
+							"type": "string",
+							"maxLength": 256,
+							"minLength": 1,
+							"description": "The album artist of the song."
+						},
+						"releaseDate": {
+							"type": "string",
+							"format": "datetime",
+							"description": "The release date of the song."
+						},
+						"spotifyLink": {
+							"type": "string",
+							"format": "uri",
+							"description": "The Spotify link of the song."
+						},
+						"trackNumber": {
+							"type": "integer",
+							"minimum": 1,
+							"description": "The track number of the song in the album."
+						},
+						"youtubeLink": {
+							"type": "string",
+							"format": "uri",
+							"description": "The YouTube link of the song."
+						},
+						"appleMusicLink": {
+							"type": "string",
+							"format": "uri",
+							"description": "The Apple Music link of the song."
+						},
+						"copyrightMessage": {
+							"type": "string",
+							"maxLength": 256,
+							"description": "The copyright message of the song."
+						}
+					}
+				},
+				"description": "A declaration of a scrobble."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769473176610
+	},
+	"references": {
+		"main": [
+			"app.rocksky.artist.defs"
+		]
+	}
+}

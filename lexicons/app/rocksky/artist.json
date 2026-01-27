@@ -1,0 +1,84 @@
+{
+	"authority": "did:plc:vegqomyce4ssoqs7zwqvgqty",
+	"schema": {
+		"id": "app.rocksky.artist",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"createdAt"
+					],
+					"properties": {
+						"bio": {
+							"type": "string",
+							"maxLength": 1000,
+							"description": "The biography of the artist."
+						},
+						"born": {
+							"type": "string",
+							"format": "datetime",
+							"description": "The birth date of the artist."
+						},
+						"died": {
+							"type": "string",
+							"format": "datetime",
+							"description": "The death date of the artist."
+						},
+						"name": {
+							"type": "string",
+							"maxLength": 512,
+							"minLength": 1,
+							"description": "The name of the artist."
+						},
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 256,
+								"minLength": 1
+							},
+							"description": "The tags of the artist."
+						},
+						"bornIn": {
+							"type": "string",
+							"maxLength": 256,
+							"description": "The birth place of the artist."
+						},
+						"picture": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg"
+							],
+							"maxSize": 2000000,
+							"description": "The picture of the artist."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "The date when the artist was created."
+						},
+						"pictureUrl": {
+							"type": "string",
+							"format": "uri",
+							"description": "The URL of the picture of the artist."
+						}
+					}
+				},
+				"description": "A declaration of an artist."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769473176610
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -1,0 +1,60 @@
+{
+	"authority": "did:plc:oeipalbxet5jghoqe6b6ctu6",
+	"schema": {
+		"id": "org.passingreads.actor.profile",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"properties": {
+						"avatar": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg"
+							],
+							"maxSize": 1500000,
+							"description": "Small image to be displayed next to posts from account. AKA, 'profile picture'"
+						},
+						"avatarAlt": {
+							"type": "string",
+							"maxLength": 2560,
+							"maxGraphemes": 256
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 2560,
+							"description": "Free-form profile description text.",
+							"maxGraphemes": 256
+						},
+						"displayName": {
+							"type": "string",
+							"maxLength": 640,
+							"maxGraphemes": 64
+						},
+						"descriptionFacets": {
+							"type": "array",
+							"items": {
+								"ref": "app.bsky.richtext.facet#main",
+								"type": "ref"
+							}
+						}
+					}
+				},
+				"description": "Profile information describing the entity behind the PassingReads account."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769473176610
+	},
+	"references": {
+		"main": [
+			"app.bsky.richtext.facet"
+		]
+	}
+}

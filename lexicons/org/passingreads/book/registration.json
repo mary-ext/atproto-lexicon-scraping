@@ -1,0 +1,91 @@
+{
+	"authority": "did:plc:oeipalbxet5jghoqe6b6ctu6",
+	"schema": {
+		"id": "org.passingreads.book.registration",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"did",
+						"bookId",
+						"title",
+						"authors",
+						"publicationId",
+						"occurredAt",
+						"bookSig"
+					],
+					"properties": {
+						"did": {
+							"type": "string",
+							"format": "did",
+							"description": "The DID of the person who registered the book. Included here, so it's verifiable with the bookSig."
+						},
+						"cover": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg"
+							],
+							"maxSize": 1000000,
+							"description": "Cover image of the book"
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 512,
+							"minLength": 1,
+							"description": "The title of the book"
+						},
+						"bookId": {
+							"type": "string",
+							"description": "The book's ID (as defined on its QR Code)"
+						},
+						"authors": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 512,
+								"minLength": 1
+							},
+							"description": "Authors of this book, in order of credit. An empty array implies a book of anonymous or unknown authorship."
+						},
+						"bookPub": {
+							"type": "bytes",
+							"description": "The MultiFormat public key of the book."
+						},
+						"bookSig": {
+							"type": "bytes",
+							"description": "The MultiFormat signature of this record, without this attribute, as created by the private key associated with the book."
+						},
+						"occurredAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"aspectRatio": {
+							"ref": "org.passingreads.defs#aspectRatio",
+							"type": "ref",
+							"description": "Aspect ratio of the cover image"
+						},
+						"publicationId": {
+							"type": "string",
+							"description": "The book's Open Library Edition ID"
+						}
+					}
+				},
+				"description": "A book that has been registered on PassingReads"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769473176610
+	},
+	"references": {
+		"main": [
+			"org.passingreads.defs"
+		]
+	}
+}

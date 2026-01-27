@@ -1,0 +1,58 @@
+{
+	"authority": "did:plc:oeipalbxet5jghoqe6b6ctu6",
+	"schema": {
+		"id": "org.passingreads.book.getLocationBooks",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"books"
+						],
+						"properties": {
+							"books": {
+								"type": "array",
+								"items": {
+									"ref": "org.passingreads.book.defs#statefulBook",
+									"type": "ref"
+								}
+							},
+							"locationName": {
+								"type": "string",
+								"description": "Human-readable name of the requested location"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"h3"
+					],
+					"properties": {
+						"h3": {
+							"type": "string",
+							"description": "H3 cell index"
+						}
+					}
+				},
+				"description": "Get books at a specific H3 location."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769473176610
+	},
+	"references": {
+		"main": [
+			"community.lexicon.location.hthree",
+			"org.passingreads.book.defs",
+			"org.passingreads.defs"
+		]
+	}
+}
