@@ -22,7 +22,8 @@
 							"pub.leaflet.comment",
 							"pub.leaflet.poll.definition",
 							"pub.leaflet.poll.vote",
-							"pub.leaflet.graph.subscription"
+							"pub.leaflet.graph.subscription",
+							"pub.leaflet.interactions.recommend"
 						]
 					}
 				]
@@ -32,7 +33,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1767140297210
+		"indexedAt": 1769559526518
 	},
 	"references": {
 		"main": []

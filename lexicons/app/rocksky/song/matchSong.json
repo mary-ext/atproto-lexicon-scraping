@@ -1,0 +1,46 @@
+{
+	"authority": "did:plc:vegqomyce4ssoqs7zwqvgqty",
+	"schema": {
+		"id": "app.rocksky.song.matchSong",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"ref": "app.rocksky.song.defs#songViewDetailed",
+						"type": "ref"
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"title",
+						"artist"
+					],
+					"properties": {
+						"title": {
+							"type": "string",
+							"description": "The title of the song to retrieve"
+						},
+						"artist": {
+							"type": "string",
+							"description": "The artist of the song to retrieve"
+						}
+					}
+				},
+				"description": "Matches a song against Rocksky’s music database and external metadata providers to resolve the best canonical track, artist, and album"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769559526518
+	},
+	"references": {
+		"main": [
+			"app.rocksky.song.defs"
+		]
+	}
+}

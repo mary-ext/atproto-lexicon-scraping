@@ -26,11 +26,11 @@
 						"tags": {
 							"type": "array",
 							"items": {
-								"type": "string",
-								"maxLength": 1280,
-								"maxGraphemes": 128
+								"type": "string"
 							},
-							"description": "Array of strings used to tag or categorize the document. Avoid prepending tags with hashtags."
+							"maxLength": 1280,
+							"description": "Array of strings used to tag or categorize the document. Avoid prepending tags with hashtags.",
+							"maxGraphemes": 128
 						},
 						"title": {
 							"type": "string",
@@ -86,7 +86,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768609022818
+		"indexedAt": 1769559526518
 	},
 	"references": {
 		"main": [

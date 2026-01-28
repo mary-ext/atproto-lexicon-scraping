@@ -1,0 +1,88 @@
+{
+	"authority": "did:plc:2xdx57nwdfr6pxfucv5cm6lv",
+	"schema": {
+		"id": "pub.quizzy.question",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"text",
+						"locale"
+					],
+					"properties": {
+						"text": {
+							"type": "string",
+							"maxLength": 10000,
+							"description": "The question text",
+							"maxGraphemes": 1000
+						},
+						"media": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg",
+								"image/gif",
+								"image/webp",
+								"video/mp4",
+								"video/webm",
+								"audio/mpeg",
+								"audio/ogg",
+								"audio/wav"
+							],
+							"maxSize": 50000000,
+							"description": "Optional image, video, or audio for the question"
+						},
+						"locale": {
+							"type": "string",
+							"format": "language",
+							"description": "The locale/language of the question"
+						},
+						"correctAnswers": {
+							"type": "array",
+							"items": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"maxLength": 1000,
+									"maxGraphemes": 100
+								},
+								"maxLength": 50,
+								"description": "List of automatically accepted answer strings (may be empty for manual marking)"
+							},
+							"maxLength": 10,
+							"minLength": 1,
+							"description": "Correct answers. Array length defines how many answers are expected."
+						},
+						"incorrectAnswers": {
+							"type": "array",
+							"items": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"maxLength": 1000,
+									"maxGraphemes": 100
+								},
+								"maxLength": 50,
+								"description": "List of automatically rejected answer strings"
+							},
+							"maxLength": 10,
+							"description": "Common incorrect answers to auto-mark as wrong. Array length should match correctAnswers."
+						}
+					}
+				},
+				"description": "A quiz question with expected answers"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769559526518
+	},
+	"references": {
+		"main": []
+	}
+}

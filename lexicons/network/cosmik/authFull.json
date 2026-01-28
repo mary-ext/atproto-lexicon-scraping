@@ -1,0 +1,40 @@
+{
+	"authority": "did:plc:b2p6rujcgpenbtcjposmjuc3",
+	"schema": {
+		"id": "network.cosmik.authFull",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Semble",
+				"detail": "Full access to Semble features.",
+				"permissions": [
+					{
+						"type": "permission",
+						"action": [
+							"create",
+							"update",
+							"delete"
+						],
+						"resource": "repo",
+						"collection": [
+							"network.cosmik.card",
+							"network.cosmik.collection",
+							"network.cosmik.collectionLink",
+							"network.cosmik.collectionLinkRemoval"
+						]
+					}
+				],
+				"title:langs": {},
+				"detail:langs": {}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769559526518
+	},
+	"references": {
+		"main": []
+	}
+}

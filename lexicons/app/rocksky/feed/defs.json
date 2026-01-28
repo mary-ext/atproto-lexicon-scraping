@@ -1,0 +1,209 @@
+{
+	"authority": "did:plc:vegqomyce4ssoqs7zwqvgqty",
+	"schema": {
+		"id": "app.rocksky.feed.defs",
+		"defs": {
+			"feedView": {
+				"type": "object",
+				"properties": {
+					"feed": {
+						"type": "array",
+						"items": {
+							"ref": "app.rocksky.feed.defs#feedItemView",
+							"type": "ref"
+						}
+					},
+					"cursor": {
+						"type": "string",
+						"description": "The pagination cursor for the next set of results."
+					}
+				}
+			},
+			"feedUriView": {
+				"type": "object",
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "The feed URI."
+					}
+				}
+			},
+			"feedItemView": {
+				"type": "object",
+				"properties": {
+					"scrobble": {
+						"ref": "app.rocksky.scrobble.defs#scrobbleViewBasic",
+						"type": "ref"
+					}
+				}
+			},
+			"nowPlayingView": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"did": {
+						"type": "string",
+						"format": "at-identifier"
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"album": {
+						"type": "string"
+					},
+					"title": {
+						"type": "string"
+					},
+					"artist": {
+						"type": "string"
+					},
+					"avatar": {
+						"type": "string",
+						"format": "uri"
+					},
+					"handle": {
+						"type": "string"
+					},
+					"trackId": {
+						"type": "string"
+					},
+					"albumArt": {
+						"type": "string",
+						"format": "uri"
+					},
+					"albumUri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"trackUri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"artistUri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"createdAt": {
+						"type": "string"
+					},
+					"albumArtist": {
+						"type": "string"
+					}
+				}
+			},
+			"nowPlayingsView": {
+				"type": "object",
+				"properties": {
+					"nowPlayings": {
+						"type": "array",
+						"items": {
+							"ref": "app.rocksky.feed.defs#nowPlayingView",
+							"type": "ref"
+						}
+					}
+				}
+			},
+			"feedGeneratorView": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"name": {
+						"type": "string"
+					},
+					"avatar": {
+						"type": "string",
+						"format": "uri"
+					},
+					"creator": {
+						"ref": "app.rocksky.actor.defs#profileViewBasic",
+						"type": "ref"
+					},
+					"description": {
+						"type": "string"
+					}
+				}
+			},
+			"searchResultsView": {
+				"type": "object",
+				"properties": {
+					"hits": {
+						"type": "array",
+						"items": {
+							"refs": [
+								"app.rocksky.song.defs#songViewBasic",
+								"app.rocksky.album.defs#albumViewBasic",
+								"app.rocksky.artist.defs#artistViewBasic",
+								"app.rocksky.playlist.defs#playlistViewBasic",
+								"app.rocksky.actor.defs#profileViewBasic"
+							],
+							"type": "union"
+						}
+					},
+					"limit": {
+						"type": "integer"
+					},
+					"offset": {
+						"type": "integer"
+					},
+					"processingTimeMs": {
+						"type": "integer"
+					},
+					"estimatedTotalHits": {
+						"type": "integer"
+					}
+				}
+			},
+			"feedGeneratorsView": {
+				"type": "object",
+				"properties": {
+					"feeds": {
+						"type": "array",
+						"items": {
+							"ref": "app.rocksky.feed.defs#feedGeneratorView",
+							"type": "ref"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769559526518
+	},
+	"references": {
+		"feedView": [
+			"app.rocksky.scrobble.defs"
+		],
+		"feedUriView": [],
+		"feedItemView": [
+			"app.rocksky.scrobble.defs"
+		],
+		"nowPlayingView": [],
+		"nowPlayingsView": [],
+		"feedGeneratorView": [
+			"app.rocksky.actor.defs"
+		],
+		"searchResultsView": [
+			"app.rocksky.actor.defs",
+			"app.rocksky.album.defs",
+			"app.rocksky.artist.defs",
+			"app.rocksky.playlist.defs",
+			"app.rocksky.song.defs"
+		],
+		"feedGeneratorsView": [
+			"app.rocksky.actor.defs"
+		]
+	}
+}

@@ -1,0 +1,49 @@
+{
+	"authority": "did:plc:b2p6rujcgpenbtcjposmjuc3",
+	"schema": {
+		"id": "network.cosmik.collectionLinkRemoval",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"collection",
+						"removedLink",
+						"removedAt"
+					],
+					"properties": {
+						"removedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the link was removed from the collection."
+						},
+						"collection": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "Strong reference to the collection record."
+						},
+						"removedLink": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "Strong reference to the collectionLink record that is being removed."
+						}
+					}
+				},
+				"description": "A record representing the removal of a collection link by a collection owner when they cannot delete the original link (which exists in another user's repository). The creator of this record (determined from the AT-URI) is the user who performed the removal."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A record indicating that a card was removed from a collection by the collection owner."
+	},
+	"meta": {
+		"indexedAt": 1769559526518
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}

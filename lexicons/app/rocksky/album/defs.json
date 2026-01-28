@@ -1,0 +1,140 @@
+{
+	"authority": "did:plc:vegqomyce4ssoqs7zwqvgqty",
+	"schema": {
+		"id": "app.rocksky.album.defs",
+		"defs": {
+			"albumViewBasic": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string",
+						"description": "The unique identifier of the album."
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "The URI of the album."
+					},
+					"year": {
+						"type": "integer",
+						"description": "The year the album was released."
+					},
+					"title": {
+						"type": "string",
+						"description": "The title of the album."
+					},
+					"artist": {
+						"type": "string",
+						"description": "The artist of the album."
+					},
+					"sha256": {
+						"type": "string",
+						"description": "The SHA256 hash of the album."
+					},
+					"albumArt": {
+						"type": "string",
+						"format": "uri",
+						"description": "The URL of the album art image."
+					},
+					"artistUri": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "The URI of the album's artist."
+					},
+					"playCount": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "The number of times the album has been played."
+					},
+					"releaseDate": {
+						"type": "string",
+						"description": "The release date of the album."
+					},
+					"uniqueListeners": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "The number of unique listeners who have played the album."
+					}
+				}
+			},
+			"albumViewDetailed": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string",
+						"description": "The unique identifier of the album."
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "The URI of the album."
+					},
+					"tags": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
+					"year": {
+						"type": "integer",
+						"description": "The year the album was released."
+					},
+					"title": {
+						"type": "string",
+						"description": "The title of the album."
+					},
+					"artist": {
+						"type": "string",
+						"description": "The artist of the album."
+					},
+					"sha256": {
+						"type": "string",
+						"description": "The SHA256 hash of the album."
+					},
+					"tracks": {
+						"type": "array",
+						"items": {
+							"ref": "app.rocksky.song.defs.songViewBasic",
+							"type": "ref"
+						}
+					},
+					"albumArt": {
+						"type": "string",
+						"format": "uri",
+						"description": "The URL of the album art image."
+					},
+					"artistUri": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "The URI of the album's artist."
+					},
+					"playCount": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "The number of times the album has been played."
+					},
+					"releaseDate": {
+						"type": "string",
+						"description": "The release date of the album."
+					},
+					"uniqueListeners": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "The number of unique listeners who have played the album."
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769559526518
+	},
+	"references": {
+		"albumViewBasic": [],
+		"albumViewDetailed": [
+			"app.rocksky.song.defs.songViewBasic"
+		]
+	}
+}

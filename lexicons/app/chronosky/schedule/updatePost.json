@@ -1,0 +1,136 @@
+{
+	"authority": "did:plc:bfjib7fy6dob3gyfssyfd4ry",
+	"schema": {
+		"id": "app.chronosky.schedule.updatePost",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"id"
+						],
+						"properties": {
+							"id": {
+								"type": "string",
+								"maxLength": 100,
+								"description": "Post ID to update."
+							},
+							"text": {
+								"type": "string",
+								"maxLength": 3000,
+								"description": "New post text content.",
+								"maxGraphemes": 300
+							},
+							"embed": {
+								"refs": [
+									"app.bsky.embed.images",
+									"app.bsky.embed.external",
+									"app.bsky.embed.record",
+									"app.bsky.embed.recordWithMedia"
+								],
+								"type": "union",
+								"description": "Embedded content (images, external links, etc.)."
+							},
+							"langs": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"format": "language"
+								},
+								"maxLength": 3,
+								"description": "Language codes (ISO 639-1)."
+							},
+							"facets": {
+								"type": "array",
+								"items": {
+									"ref": "app.bsky.richtext.facet",
+									"type": "ref"
+								},
+								"description": "Rich text facets (links, mentions, tags)."
+							},
+							"labels": {
+								"ref": "com.atproto.label.defs#selfLabels",
+								"type": "ref",
+								"description": "Self-applied content labels for content warnings (AT Protocol standard)."
+							},
+							"scheduledAt": {
+								"type": "string",
+								"format": "datetime",
+								"maxLength": 100,
+								"description": "New scheduled publication datetime (ISO 8601)."
+							},
+							"threadgateRules": {
+								"type": "array",
+								"items": {
+									"refs": [
+										"app.bsky.feed.threadgate#mentionRule",
+										"app.bsky.feed.threadgate#followerRule",
+										"app.bsky.feed.threadgate#followingRule",
+										"app.bsky.feed.threadgate#listRule"
+									],
+									"type": "union"
+								},
+								"maxLength": 5,
+								"description": "Thread gate rules to control who can reply"
+							},
+							"disableQuotePosts": {
+								"type": "boolean",
+								"description": "Whether to disable quote posts"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "PostNotFound"
+					},
+					{
+						"name": "PostNotPending"
+					},
+					{
+						"name": "NoFieldsProvided"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"post"
+						],
+						"properties": {
+							"post": {
+								"ref": "app.chronosky.schedule.listPosts#scheduledPost",
+								"type": "ref"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Update a scheduled post. Only PENDING posts can be updated."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769559526518
+	},
+	"references": {
+		"main": [
+			"app.bsky.embed.defs",
+			"app.bsky.embed.external",
+			"app.bsky.embed.images",
+			"app.bsky.embed.record",
+			"app.bsky.embed.recordWithMedia",
+			"app.bsky.embed.video",
+			"app.bsky.feed.threadgate",
+			"app.bsky.richtext.facet",
+			"app.chronosky.schedule.listPosts",
+			"com.atproto.label.defs",
+			"com.atproto.repo.strongRef"
+		]
+	}
+}

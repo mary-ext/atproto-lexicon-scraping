@@ -1,0 +1,39 @@
+{
+	"authority": "did:plc:vegqomyce4ssoqs7zwqvgqty",
+	"schema": {
+		"id": "app.rocksky.actor.getProfile",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"ref": "app.rocksky.actor.defs#profileViewDetailed",
+						"type": "ref"
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"properties": {
+						"did": {
+							"type": "string",
+							"format": "at-identifier",
+							"description": "The DID or handle of the actor"
+						}
+					}
+				},
+				"description": "Get the profile of an actor"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769559526518
+	},
+	"references": {
+		"main": [
+			"app.rocksky.actor.defs"
+		]
+	}
+}
