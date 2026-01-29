@@ -1,0 +1,66 @@
+{
+	"authority": "did:plc:py7scbwsfz53fg2lniwggdgd",
+	"schema": {
+		"id": "me.linkna.linkinbio",
+		"defs": {
+			"card": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string",
+						"description": "Unique identifier for the card."
+					},
+					"url": {
+						"type": "string",
+						"format": "uri",
+						"description": "URL the card links to."
+					},
+					"text": {
+						"type": "string",
+						"maxLength": 100,
+						"description": "Display text for the card."
+					},
+					"highlighted": {
+						"type": "boolean",
+						"description": "Whether the card is highlighted."
+					}
+				},
+				"description": "A single card/link on the page."
+			},
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"cards"
+					],
+					"properties": {
+						"cards": {
+							"type": "array",
+							"items": {
+								"ref": "#card",
+								"type": "ref"
+							},
+							"description": "Ordered list of cards on the page."
+						},
+						"theme": {
+							"type": "string",
+							"description": "Theme identifier for page styling."
+						}
+					}
+				},
+				"description": "A user's link-in-bio page containing cards."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769646054509
+	},
+	"references": {
+		"card": [],
+		"main": []
+	}
+}

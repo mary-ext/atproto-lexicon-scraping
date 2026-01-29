@@ -1,0 +1,32 @@
+{
+	"authority": "did:plc:vegqomyce4ssoqs7zwqvgqty",
+	"schema": {
+		"id": "app.rocksky.spotify.seek",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"parameters": {
+					"type": "params",
+					"required": [
+						"position"
+					],
+					"properties": {
+						"position": {
+							"type": "integer",
+							"description": "The position in seconds to seek to"
+						}
+					}
+				},
+				"description": "Seek to a specific position in the currently playing track"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769646054509
+	},
+	"references": {
+		"main": []
+	}
+}

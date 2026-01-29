@@ -1,0 +1,28 @@
+{
+	"authority": "did:plc:vegqomyce4ssoqs7zwqvgqty",
+	"schema": {
+		"id": "app.rocksky.player.next",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"parameters": {
+					"type": "params",
+					"properties": {
+						"playerId": {
+							"type": "string"
+						}
+					}
+				},
+				"description": "Play the next track in the queue"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769646054509
+	},
+	"references": {
+		"main": []
+	}
+}

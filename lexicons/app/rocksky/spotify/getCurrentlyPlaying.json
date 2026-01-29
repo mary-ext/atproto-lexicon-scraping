@@ -1,0 +1,39 @@
+{
+	"authority": "did:plc:vegqomyce4ssoqs7zwqvgqty",
+	"schema": {
+		"id": "app.rocksky.spotify.getCurrentlyPlaying",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"ref": "app.rocksky.player.defs#currentlyPlayingViewDetailed",
+						"type": "ref"
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"properties": {
+						"actor": {
+							"type": "string",
+							"format": "at-identifier",
+							"description": "Handle or DID of the actor to retrieve the currently playing track for. If not provided, defaults to the current user."
+						}
+					}
+				},
+				"description": "Get the currently playing track"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769646054509
+	},
+	"references": {
+		"main": [
+			"app.rocksky.player.defs"
+		]
+	}
+}
