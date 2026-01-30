@@ -38,8 +38,11 @@
 							"description": "When the LFG expires and is no longer visible."
 						},
 						"location": {
-							"ref": "community.lexicon.location#geo",
-							"type": "ref",
+							"refs": [
+								"community.lexicon.location#geo",
+								"community.lexicon.location#hthree"
+							],
+							"type": "union",
 							"description": "The geographic location for activity partner matching."
 						},
 						"startsAt": {
@@ -61,7 +64,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1767658691107
+		"indexedAt": 1769732453010
 	},
 	"references": {
 		"main": [
