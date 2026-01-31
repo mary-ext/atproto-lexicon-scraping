@@ -1,0 +1,111 @@
+{
+	"authority": "did:plc:qoti4acfmc5wg6zzmtix6hse",
+	"schema": {
+		"id": "org.impactindexer.link.attestation",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"address",
+						"chainId",
+						"signature",
+						"message",
+						"signatureType",
+						"createdAt"
+					],
+					"properties": {
+						"address": {
+							"type": "string",
+							"maxLength": 42,
+							"minLength": 42,
+							"description": "The EVM wallet address (checksummed or lowercase, 0x-prefixed)"
+						},
+						"chainId": {
+							"type": "integer",
+							"minimum": 1,
+							"description": "The EVM chain ID where the signature was created"
+						},
+						"message": {
+							"ref": "#eip712Message",
+							"type": "ref",
+							"description": "The EIP-712 typed data message that was signed"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the attestation was created"
+						},
+						"signature": {
+							"type": "string",
+							"maxLength": 1000,
+							"minLength": 132,
+							"description": "The EIP-712 signature in hex format (0x-prefixed, 65 bytes for ECDSA, longer for smart contract sigs)"
+						},
+						"signatureType": {
+							"type": "string",
+							"maxLength": 10,
+							"description": "The type of signature: eoa (EOA/ECDSA), erc1271 (smart contract), erc6492 (counterfactual)",
+							"knownValues": [
+								"eoa",
+								"erc1271",
+								"erc6492"
+							]
+						}
+					}
+				},
+				"description": "An attestation linking an ATProto DID to an EVM wallet address, signed with EIP-712."
+			},
+			"eip712Message": {
+				"type": "object",
+				"required": [
+					"did",
+					"evmAddress",
+					"chainId",
+					"timestamp",
+					"nonce"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"maxLength": 2048,
+						"description": "The ATProto DID being linked"
+					},
+					"nonce": {
+						"type": "string",
+						"maxLength": 78,
+						"description": "Replay protection nonce as a string (for bigint compatibility)"
+					},
+					"chainId": {
+						"type": "string",
+						"maxLength": 78,
+						"description": "The chain ID as a string (for bigint compatibility, max uint256)"
+					},
+					"timestamp": {
+						"type": "string",
+						"maxLength": 78,
+						"description": "Unix timestamp as a string (for bigint compatibility)"
+					},
+					"evmAddress": {
+						"type": "string",
+						"maxLength": 42,
+						"minLength": 42,
+						"description": "The EVM address being linked (0x-prefixed)"
+					}
+				},
+				"description": "The EIP-712 typed data message structure"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769818812846
+	},
+	"references": {
+		"main": [],
+		"eip712Message": []
+	}
+}
