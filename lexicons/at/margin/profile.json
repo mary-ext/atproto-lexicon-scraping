@@ -26,6 +26,15 @@
 							"maxLength": 20,
 							"description": "List of other relevant links (e.g. GitHub, Bluesky, etc)."
 						},
+						"avatar": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg"
+							],
+							"maxSize": 1000000,
+							"description": "User avatar image."
+						},
 						"website": {
 							"type": "string",
 							"maxLength": 1000,
@@ -34,6 +43,11 @@
 						"createdAt": {
 							"type": "string",
 							"format": "datetime"
+						},
+						"displayName": {
+							"type": "string",
+							"maxLength": 640,
+							"description": "Display name for the user."
 						}
 					}
 				},
@@ -44,7 +58,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769386781977
+		"indexedAt": 1769905461878
 	},
 	"references": {
 		"main": []

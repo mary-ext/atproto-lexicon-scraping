@@ -28,6 +28,16 @@
 						"minLength": 1,
 						"description": "Array of draft posts that compose this draft."
 					},
+					"deviceId": {
+						"type": "string",
+						"maxLength": 100,
+						"description": "UUIDv4 identifier of the device that created this draft."
+					},
+					"deviceName": {
+						"type": "string",
+						"maxLength": 100,
+						"description": "The device and/or platform on which the draft was created."
+					},
 					"threadgateAllow": {
 						"type": "array",
 						"items": {
@@ -260,7 +270,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768522694892
+		"indexedAt": 1769905461878
 	},
 	"references": {
 		"draft": [

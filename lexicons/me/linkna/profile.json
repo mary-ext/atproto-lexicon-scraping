@@ -1,0 +1,41 @@
+{
+	"authority": "did:plc:py7scbwsfz53fg2lniwggdgd",
+	"schema": {
+		"id": "me.linkna.profile",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"properties": {
+						"avatar": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg",
+								"image/webp",
+								"image/gif"
+							],
+							"maxSize": 1000000,
+							"description": "Custom profile picture for Linkname page."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "A user's custom profile for their Linkname page."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769905461878
+	},
+	"references": {
+		"main": []
+	}
+}

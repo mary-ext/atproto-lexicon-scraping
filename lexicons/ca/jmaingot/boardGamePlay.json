@@ -1,0 +1,45 @@
+{
+	"authority": "did:plc:obk7jrqn5lk2eh2khnrxfy7r",
+	"schema": {
+		"id": "ca.jmaingot.boardGamePlay",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"bggId",
+						"date"
+					],
+					"properties": {
+						"date": {
+							"type": "string",
+							"format": "datetime",
+							"description": "ISO 8601 date string"
+						},
+						"name": {
+							"type": "string",
+							"maxlength": 256
+						},
+						"bggId": {
+							"type": "string",
+							"maxlength": 32,
+							"description": "corresponds to https://boardgamegeek.com/boardgame/<bggId> for the game"
+						}
+					}
+				},
+				"description": "A single board game play"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769905461878
+	},
+	"references": {
+		"main": []
+	}
+}

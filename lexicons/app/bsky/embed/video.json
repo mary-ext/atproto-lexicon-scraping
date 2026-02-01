@@ -34,6 +34,14 @@
 					"aspectRatio": {
 						"ref": "app.bsky.embed.defs#aspectRatio",
 						"type": "ref"
+					},
+					"presentation": {
+						"type": "string",
+						"description": "A hint to the client about how to present the video.",
+						"knownValues": [
+							"default",
+							"gif"
+						]
 					}
 				}
 			},
@@ -64,6 +72,14 @@
 					"aspectRatio": {
 						"ref": "app.bsky.embed.defs#aspectRatio",
 						"type": "ref"
+					},
+					"presentation": {
+						"type": "string",
+						"description": "A hint to the client about how to present the video.",
+						"knownValues": [
+							"default",
+							"gif"
+						]
 					}
 				}
 			},
@@ -93,7 +109,7 @@
 		"description": "A video embedded in a Bluesky record (eg, a post)."
 	},
 	"meta": {
-		"indexedAt": 1760746336429,
+		"indexedAt": 1769905461878,
 		"errorAt": 1760659937196
 	},
 	"references": {
