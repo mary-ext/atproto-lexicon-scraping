@@ -38,21 +38,39 @@
 							"message": {
 								"type": "string"
 							},
+							"createdAt": {
+								"type": "string",
+								"format": "datetime"
+							},
+							"errorCode": {
+								"type": "string",
+								"description": "Error code for restricted content. e.g. AuthRequired, NotFollower, NotFollowing, NotMutual"
+							},
 							"additional": {
 								"type": "string"
+							},
+							"encryptCid": {
+								"type": "string"
+							},
+							"visibility": {
+								"type": "string"
+							},
+							"errorDescription": {
+								"type": "string",
+								"description": "Description of the error code."
 							}
 						}
 					},
 					"encoding": "application/json"
 				},
-				"description": "Get Skyblur post. If the specified post is password-protected, you can retrieve the unlocked content by providing the password."
+				"description": "Get Skyblur post. If the specified post is password-protected, you can retrieve the unlocked content by providing the password. Auth required for followers, following and mutual."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1769991725690,
 		"errorAt": 1760659937196
 	},
 	"references": {

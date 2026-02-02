@@ -1,0 +1,21 @@
+{
+	"authority": "did:plc:ilxxgyz7oz7mysber4omeqrg",
+	"schema": {
+		"id": "net.mimonelu.klearsky.updatedAt",
+		"defs": {
+			"main": {
+				"type": "string",
+				"format": "datetime",
+				"description": "Timestamp when the post was last edited. Used as an extension field in app.bsky.feed.post records to indicate post modification by Klearsky's edit feature."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769991725690
+	},
+	"references": {
+		"main": []
+	}
+}

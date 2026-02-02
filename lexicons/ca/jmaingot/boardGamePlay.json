@@ -11,14 +11,9 @@
 					"required": [
 						"name",
 						"bggId",
-						"date"
+						"playedAt"
 					],
 					"properties": {
-						"date": {
-							"type": "string",
-							"format": "datetime",
-							"description": "ISO 8601 date string"
-						},
 						"name": {
 							"type": "string",
 							"maxlength": 256
@@ -27,6 +22,11 @@
 							"type": "string",
 							"maxlength": 32,
 							"description": "corresponds to https://boardgamegeek.com/boardgame/<bggId> for the game"
+						},
+						"playedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "ISO 8601 date string"
 						}
 					}
 				},
@@ -37,7 +37,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769905461878
+		"indexedAt": 1769991725690
 	},
 	"references": {
 		"main": []

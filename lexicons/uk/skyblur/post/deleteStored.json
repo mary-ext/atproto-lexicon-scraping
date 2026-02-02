@@ -1,0 +1,46 @@
+{
+	"authority": "did:plc:4sm3vprfyl55ui3yhjd7w4po",
+	"schema": {
+		"id": "uk.skyblur.post.deleteStored",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uri"
+						],
+						"properties": {
+							"uri": {
+								"type": "string",
+								"description": "AT URI of the post to delete. The URI must include the logged-in user's DID in the format at://did..."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"type": "object",
+						"properties": {
+							"success": {
+								"type": "boolean"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Delete stored restricted post content from Skyblur AppView. Auth required."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1769991725690
+	},
+	"references": {
+		"main": []
+	}
+}
