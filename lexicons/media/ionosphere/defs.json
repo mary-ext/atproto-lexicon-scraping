@@ -1,0 +1,154 @@
+{
+	"authority": "did:plc:krl7x6q6rjc6qcoix5qu6fiv",
+	"schema": {
+		"id": "media.ionosphere.defs",
+		"defs": {
+			"genre": {
+				"type": "string",
+				"format": "uri",
+				"description": "TV-Anytime classification scheme URIs permitted by ETSI TS 102 818 section 5.3"
+			},
+			"bearer": {
+				"type": "string",
+				"format": "uri",
+				"description": "BearerURI as specified in ETSI TS 103 270"
+			},
+			"credit": {
+				"type": "object",
+				"required": [
+					"entity",
+					"role"
+				],
+				"properties": {
+					"role": {
+						"type": "string",
+						"maxLength": 128,
+						"description": "Self-explanatory, but beware that the expected values may change in future (possibly to match TV-Anytime role classification schema)",
+						"knownValues": [
+							"creator",
+							"contributor",
+							"guest"
+						]
+					},
+					"entity": {
+						"ref": "media.ionosphere.defs#entity",
+						"type": "ref"
+					}
+				}
+			},
+			"entity": {
+				"type": "object",
+				"required": [
+					"type",
+					"name"
+				],
+				"properties": {
+					"name": {
+						"type": "string",
+						"maxGraphemes": 128
+					},
+					"type": {
+						"enum": [
+							"organization",
+							"person"
+						],
+						"type": "string",
+						"maxLength": 128
+					}
+				}
+			},
+			"broadcast": {
+				"type": "object",
+				"required": [
+					"bearer"
+				],
+				"properties": {
+					"cost": {
+						"type": "integer",
+						"default": 0,
+						"description": "When used in a list, this can be used to sort the attempted connections or preferred methods"
+					},
+					"from": {
+						"type": "string",
+						"format": "datetime",
+						"description": "The datetime from which this method is available"
+					},
+					"until": {
+						"type": "string",
+						"format": "datetime",
+						"description": "The datetime where this method is no longer available"
+					},
+					"bearer": {
+						"ref": "media.ionosphere.defs#bearer",
+						"type": "ref"
+					},
+					"offset": {
+						"type": "integer",
+						"default": 0,
+						"description": "Offset in milliseconds compared to other bearers"
+					}
+				},
+				"description": "Represents the method of accessing a broadcast; i.e. live"
+			},
+			"recording": {
+				"type": "object",
+				"required": [
+					"bearer"
+				],
+				"properties": {
+					"cost": {
+						"type": "integer",
+						"default": 0,
+						"description": "When used in a list, this can be used to sort the attempted connections or preferred methods"
+					},
+					"from": {
+						"type": "string",
+						"format": "datetime",
+						"description": "The datetime from which this method is available"
+					},
+					"until": {
+						"type": "string",
+						"format": "datetime",
+						"description": "The datetime where this method is no longer available"
+					},
+					"bearer": {
+						"ref": "media.ionosphere.defs#bearer",
+						"type": "ref"
+					}
+				},
+				"description": "Represents the method of accessing a recording"
+			},
+			"geocoordinates": {
+				"type": "object",
+				"required": [
+					"latitude",
+					"longitude"
+				],
+				"properties": {
+					"latitude": {
+						"type": "string",
+						"maxLength": 128
+					},
+					"longitude": {
+						"type": "string",
+						"maxLength": 128
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770078164490
+	},
+	"references": {
+		"genre": [],
+		"bearer": [],
+		"credit": [],
+		"entity": [],
+		"broadcast": [],
+		"recording": [],
+		"geocoordinates": []
+	}
+}

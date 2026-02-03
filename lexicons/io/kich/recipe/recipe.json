@@ -1,0 +1,163 @@
+{
+	"authority": "did:plc:uxjwdy4wvuridijisalvxlxe",
+	"schema": {
+		"id": "io.kich.recipe.recipe",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"servings",
+						"createdAt"
+					],
+					"properties": {
+						"url": {
+							"type": "string",
+							"format": "uri",
+							"description": "Source URL of the recipe"
+						},
+						"name": {
+							"type": "string",
+							"description": "Recipe name"
+						},
+						"source": {
+							"type": "string",
+							"description": "Source name (book, magazine, blog)"
+						},
+						"imageUrl": {
+							"type": "string",
+							"format": "uri",
+							"description": "Image URL for the recipe"
+						},
+						"servings": {
+							"type": "integer",
+							"default": 1,
+							"description": "Number of servings this recipe makes"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When this recipe was created"
+						},
+						"createdBy": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "Reference to the user who created this recipe"
+						},
+						"isPrivate": {
+							"type": "boolean",
+							"default": false,
+							"description": "Whether this recipe is private (only visible to household members)"
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When this recipe was last updated"
+						},
+						"description": {
+							"type": "string",
+							"description": "Recipe description"
+						},
+						"ingredients": {
+							"type": "array",
+							"items": {
+								"ref": "#ingredient",
+								"type": "ref"
+							},
+							"description": "Recipe ingredients"
+						},
+						"instructions": {
+							"type": "array",
+							"items": {
+								"ref": "#instructionStep",
+								"type": "ref"
+							},
+							"description": "Cooking instructions as an array of steps"
+						},
+						"cookTimeMinutes": {
+							"type": "integer",
+							"description": "Cooking time in minutes"
+						},
+						"prepTimeMinutes": {
+							"type": "integer",
+							"description": "Preparation time in minutes"
+						}
+					}
+				}
+			},
+			"ingredient": {
+				"type": "object",
+				"required": [
+					"id",
+					"name",
+					"grams"
+				],
+				"properties": {
+					"id": {
+						"type": "string",
+						"description": "Unique identifier for this ingredient"
+					},
+					"name": {
+						"type": "string",
+						"description": "Ingredient name"
+					},
+					"grams": {
+						"type": "integer",
+						"description": "Amount needed in grams"
+					},
+					"group": {
+						"type": "string",
+						"description": "Optional group name for organizing ingredients (e.g., 'For the sauce:', 'For the pasta:')"
+					},
+					"notes": {
+						"type": "string",
+						"description": "Optional notes about this ingredient (e.g., original quantity)"
+					},
+					"isDetached": {
+						"type": "boolean",
+						"default": false,
+						"description": "Whether this ingredient is detached (doesn't count towards recipe completeness)"
+					},
+					"isOptional": {
+						"type": "boolean",
+						"default": false,
+						"description": "Whether this ingredient is optional"
+					}
+				}
+			},
+			"instructionStep": {
+				"type": "object",
+				"required": [
+					"id",
+					"value"
+				],
+				"properties": {
+					"id": {
+						"type": "string",
+						"description": "Unique identifier for this instruction step"
+					},
+					"value": {
+						"type": "string",
+						"description": "Instruction text"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A recipe record containing cooking instructions, ingredients, and metadata."
+	},
+	"meta": {
+		"indexedAt": 1770078164490
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		],
+		"ingredient": [],
+		"instructionStep": []
+	}
+}

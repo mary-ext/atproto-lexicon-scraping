@@ -1,0 +1,22 @@
+{
+	"authority": "did:plc:uxjwdy4wvuridijisalvxlxe",
+	"schema": {
+		"id": "io.kich.recipe.defs",
+		"defs": {
+			"main": {
+				"type": "object",
+				"properties": {},
+				"description": "Shared definitions for recipe-related lexicons"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Shared definitions for the recipe namespace."
+	},
+	"meta": {
+		"indexedAt": 1770078164490
+	},
+	"references": {
+		"main": []
+	}
+}

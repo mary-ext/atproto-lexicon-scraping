@@ -1,0 +1,89 @@
+{
+	"authority": "did:plc:krl7x6q6rjc6qcoix5qu6fiv",
+	"schema": {
+		"id": "media.ionosphere.service",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"ionosphere",
+						"name",
+						"language"
+					],
+					"properties": {
+						"icon": {
+							"type": "blob",
+							"accept": [
+								"image/*"
+							]
+						},
+						"name": {
+							"type": "string",
+							"maxGraphemes": 128
+						},
+						"genres": {
+							"type": "array",
+							"items": {
+								"ref": "media.ionosphere.defs#genre",
+								"type": "ref"
+							}
+						},
+						"keywords": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 128
+							}
+						},
+						"language": {
+							"type": "string",
+							"format": "language",
+							"description": "The language of the string values in this record. NOT the language of the content"
+						},
+						"broadcast": {
+							"type": "array",
+							"items": {
+								"ref": "media.ionosphere.defs#broadcast",
+								"type": "ref"
+							}
+						},
+						"ionosphere": {
+							"type": "string",
+							"maxLength": 128,
+							"description": "Version identifier"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 128
+						},
+						"geolocation": {
+							"refs": [
+								"media.ionosphere.defs#geocoordinates"
+							],
+							"type": "union"
+						},
+						"presentationLanguage": {
+							"type": "string",
+							"format": "language",
+							"description": "This is the language that the content is actually presented in. If multiple, choose to omit this."
+						}
+					}
+				},
+				"description": "Represents the service belonging to this PDS"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770078164490
+	},
+	"references": {
+		"main": [
+			"media.ionosphere.defs"
+		]
+	}
+}

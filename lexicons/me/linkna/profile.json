@@ -23,6 +23,11 @@
 						"createdAt": {
 							"type": "string",
 							"format": "datetime"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 256,
+							"description": "Custom profile description for Linkname page."
 						}
 					}
 				},
@@ -33,7 +38,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769905461878
+		"indexedAt": 1770078164490
 	},
 	"references": {
 		"main": []
