@@ -1,0 +1,58 @@
+{
+	"authority": "did:plc:fpruhuo22xkm5o7ttr2ktxdo",
+	"schema": {
+		"id": "org.atsui.Stack",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"properties": {
+							"gap": {
+								"type": "string",
+								"default": "medium",
+								"description": "Space between children.",
+								"knownValues": [
+									"small",
+									"medium",
+									"large"
+								]
+							},
+							"align": {
+								"type": "string",
+								"default": "stretch",
+								"description": "Cross-axis alignment of children.",
+								"knownValues": [
+									"start",
+									"center",
+									"end",
+									"stretch"
+								]
+							},
+							"children": {
+								"type": "array",
+								"items": {
+									"ref": "at.inlay.defs#element",
+									"type": "ref"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Arranges children vertically with consistent spacing."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770250962710
+	},
+	"references": {
+		"main": [
+			"at.inlay.defs"
+		]
+	}
+}

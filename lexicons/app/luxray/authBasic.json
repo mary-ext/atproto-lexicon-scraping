@@ -1,0 +1,54 @@
+{
+	"authority": "did:plc:wegjdnowkkws3uramhhgr6dg",
+	"schema": {
+		"id": "app.luxray.authBasic",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Luxray Core Features",
+				"detail": "Create and manage Luxray profile data and Luxray follows.",
+				"permissions": [
+					{
+						"type": "permission",
+						"resource": "repo",
+						"collection": [
+							"app.luxray.graph.follow"
+						]
+					},
+					{
+						"type": "permission",
+						"resource": "repo",
+						"collection": [
+							"app.luxray.profile.favoriteMovies"
+						]
+					},
+					{
+						"lxm": [
+							"app.luxray.dev.getReview",
+							"app.luxray.dev.getReviews",
+							"app.luxray.dev.getUserProfile",
+							"app.luxray.dev.getUserReviews",
+							"app.luxray.dev.getFollowers",
+							"app.luxray.dev.getFollowing",
+							"app.luxray.dev.getFriendsFeed",
+							"app.luxray.dev.getPopularWithFriends",
+							"app.luxray.dev.getRecentFeed",
+							"app.luxray.dev.getPopularMovies"
+						],
+						"type": "permission",
+						"resource": "rpc",
+						"inheritAud": true
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770250962710
+	},
+	"references": {
+		"main": []
+	}
+}

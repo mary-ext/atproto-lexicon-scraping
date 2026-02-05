@@ -1,0 +1,39 @@
+{
+	"authority": "did:plc:uxjwdy4wvuridijisalvxlxe",
+	"schema": {
+		"id": "io.kich.profile",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"createdAt"
+					],
+					"properties": {
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When this profile was created"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 500,
+							"description": "Optional description or bio for this Kitchen profile"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Profile record declaring that a repository uses the Kitchen app. This record acts as a declaration/signal for repository discovery."
+	},
+	"meta": {
+		"indexedAt": 1770250962710
+	},
+	"references": {
+		"main": []
+	}
+}

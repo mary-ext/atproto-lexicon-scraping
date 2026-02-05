@@ -1,0 +1,31 @@
+{
+	"authority": "did:plc:fpruhuo22xkm5o7ttr2ktxdo",
+	"schema": {
+		"id": "org.atsui.Title",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"properties": {
+							"children": {
+								"type": "string"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "The primary heading for a card or section."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770250962710
+	},
+	"references": {
+		"main": []
+	}
+}

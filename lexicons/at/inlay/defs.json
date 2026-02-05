@@ -1,0 +1,38 @@
+{
+	"authority": "did:plc:fpruhuo22xkm5o7ttr2ktxdo",
+	"schema": {
+		"id": "at.inlay.defs",
+		"defs": {
+			"element": {
+				"type": "object",
+				"required": [
+					"type"
+				],
+				"properties": {
+					"key": {
+						"type": "string",
+						"description": "Stable key that identifies the component among its siblings."
+					},
+					"type": {
+						"type": "string",
+						"format": "nsid",
+						"description": "NSID of the component to render."
+					},
+					"props": {
+						"type": "unknown",
+						"description": "Properties to pass to the component."
+					}
+				},
+				"description": "A renderable Inlay element."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770250962710
+	},
+	"references": {
+		"element": []
+	}
+}

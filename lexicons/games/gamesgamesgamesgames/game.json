@@ -4,7 +4,7 @@
 		"id": "games.gamesgamesgamesgames.game",
 		"defs": {
 			"main": {
-				"key": "literal:self",
+				"key": "tid",
 				"type": "record",
 				"record": {
 					"type": "object",
@@ -15,7 +15,7 @@
 						"media": {
 							"type": "array",
 							"items": {
-								"ref": "#mediaItem",
+								"ref": "games.gamesgamesgamesgames.defs#mediaItem",
 								"type": "ref"
 							},
 							"description": "Images associated with the game."
@@ -48,6 +48,13 @@
 						"summary": {
 							"type": "string"
 						},
+						"releases": {
+							"type": "array",
+							"items": {
+								"ref": "games.gamesgamesgamesgames.defs#release",
+								"type": "ref"
+							}
+						},
 						"createdAt": {
 							"type": "string",
 							"format": "datetime"
@@ -56,13 +63,6 @@
 							"type": "string",
 							"format": "datetime",
 							"description": "When this record was marked ready for public viewing."
-						},
-						"releaseDates": {
-							"type": "array",
-							"items": {
-								"ref": "games.gamesgamesgamesgames.defs#releaseDate",
-								"type": "ref"
-							}
 						},
 						"applicationType": {
 							"ref": "games.gamesgamesgamesgames.defs#applicationType",
@@ -78,77 +78,17 @@
 					}
 				},
 				"description": "A video game."
-			},
-			"mediaItem": {
-				"type": "object",
-				"properties": {
-					"blob": {
-						"type": "blob",
-						"accept": [
-							"image/*",
-							"video/*"
-						],
-						"maxSize": 500000
-					},
-					"title": {
-						"type": "string"
-					},
-					"width": {
-						"type": "integer"
-					},
-					"height": {
-						"type": "integer"
-					},
-					"locale": {
-						"type": "string"
-					},
-					"mediaType": {
-						"enum": [
-							"accoladesTrailer",
-							"announcementTrailer",
-							"artwork",
-							"cinematicTrailer",
-							"conceptArt",
-							"cover",
-							"coverAlt",
-							"coverHistorical",
-							"coverSquare",
-							"cutscene",
-							"devDiary",
-							"gameplayImage",
-							"gameplayTrailer",
-							"icon",
-							"infographic",
-							"intro",
-							"keyArt",
-							"keyArtLogo",
-							"launchTrailer",
-							"logoBlack",
-							"logoColor",
-							"logoWhite",
-							"releaseDateTrailer",
-							"screenshot",
-							"teaser",
-							"trailer"
-						],
-						"type": "string"
-					},
-					"description": {
-						"type": "string"
-					}
-				}
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770164361351
+		"indexedAt": 1770250962710
 	},
 	"references": {
 		"main": [
 			"games.gamesgamesgamesgames.defs"
-		],
-		"mediaItem": []
+		]
 	}
 }

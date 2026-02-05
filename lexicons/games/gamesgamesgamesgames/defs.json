@@ -56,21 +56,127 @@
 					"games.gamesgamesgamesgames.theme#warfare"
 				]
 			},
+			"release": {
+				"type": "object",
+				"properties": {
+					"platform": {
+						"type": "string"
+					},
+					"releaseDates": {
+						"type": "array",
+						"items": {
+							"ref": "games.gamesgamesgamesgames.defs#releaseDate",
+							"type": "ref"
+						}
+					}
+				}
+			},
+			"mediaItem": {
+				"type": "object",
+				"properties": {
+					"blob": {
+						"type": "blob",
+						"accept": [
+							"image/*",
+							"video/*"
+						],
+						"maxSize": 500000
+					},
+					"title": {
+						"type": "string"
+					},
+					"width": {
+						"type": "integer"
+					},
+					"height": {
+						"type": "integer"
+					},
+					"locale": {
+						"type": "string"
+					},
+					"mediaType": {
+						"enum": [
+							"accoladesTrailer",
+							"announcementTrailer",
+							"artwork",
+							"cinematicTrailer",
+							"conceptArt",
+							"cover",
+							"coverAlt",
+							"coverHistorical",
+							"coverSquare",
+							"cutscene",
+							"devDiary",
+							"gameplayImage",
+							"gameplayTrailer",
+							"icon",
+							"infographic",
+							"intro",
+							"keyArt",
+							"keyArtLogo",
+							"launchTrailer",
+							"logoBlack",
+							"logoColor",
+							"logoWhite",
+							"releaseDateTrailer",
+							"screenshot",
+							"teaser",
+							"trailer"
+						],
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					}
+				}
+			},
 			"releaseDate": {
 				"type": "object",
 				"properties": {
 					"region": {
-						"type": "string"
+						"type": "string",
+						"knownValues": [
+							"worldwide",
+							"europe",
+							"northAmerica",
+							"australia",
+							"newZealand",
+							"japan",
+							"china",
+							"asia",
+							"korea",
+							"brazil"
+						]
 					},
 					"status": {
-						"type": "string"
-					},
-					"platform": {
-						"type": "string"
+						"type": "string",
+						"knownValues": [
+							"advancedAccess",
+							"alpha",
+							"beta",
+							"cancelled",
+							"digitalCompatibilityRelease",
+							"earlyAccess",
+							"nextGenOptimizationRelease",
+							"offline",
+							"release"
+						]
 					},
 					"releasedAt": {
-						"type": "string",
-						"format": "datetime"
+						"type": "string"
+					},
+					"releasedAtFormat": {
+						"enum": [
+							"YYYY-MM-DD",
+							"YYYY-MM",
+							"YYYY-Q1",
+							"YYYY-Q2",
+							"YYYY-Q3",
+							"YYYY-Q4",
+							"YYYY",
+							"TBD"
+						],
+						"type": "string"
 					}
 				}
 			},
@@ -153,12 +259,14 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769213870289
+		"indexedAt": 1770250962710
 	},
 	"references": {
 		"mode": [],
 		"genre": [],
 		"theme": [],
+		"release": [],
+		"mediaItem": [],
 		"releaseDate": [],
 		"gameDetailView": [],
 		"applicationType": [],

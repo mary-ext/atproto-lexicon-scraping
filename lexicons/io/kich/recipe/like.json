@@ -1,0 +1,44 @@
+{
+	"authority": "did:plc:uxjwdy4wvuridijisalvxlxe",
+	"schema": {
+		"id": "io.kich.recipe.like",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"subject",
+						"createdAt"
+					],
+					"properties": {
+						"via": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref"
+						},
+						"subject": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Record declaring a 'like' (favorite) of a recipe."
+	},
+	"meta": {
+		"indexedAt": 1770250962710
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}

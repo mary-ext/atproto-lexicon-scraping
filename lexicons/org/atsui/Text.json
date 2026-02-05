@@ -1,0 +1,34 @@
+{
+	"authority": "did:plc:fpruhuo22xkm5o7ttr2ktxdo",
+	"schema": {
+		"id": "org.atsui.Text",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"children"
+						],
+						"properties": {
+							"children": {
+								"type": "string"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Body text."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770250962710
+	},
+	"references": {
+		"main": []
+	}
+}

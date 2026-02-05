@@ -1,0 +1,41 @@
+{
+	"authority": "did:plc:3zzkrrjtsmo7nnwnvhex3auj",
+	"schema": {
+		"id": "com.kipclip.tag",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"value",
+						"createdAt"
+					],
+					"properties": {
+						"value": {
+							"type": "string",
+							"maxLength": 64,
+							"description": "The tag text"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when tag was created"
+						}
+					}
+				},
+				"description": "A user-defined tag for organizing bookmarks"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A user-defined tag for organizing bookmarks"
+	},
+	"meta": {
+		"indexedAt": 1770250962710
+	},
+	"references": {
+		"main": []
+	}
+}

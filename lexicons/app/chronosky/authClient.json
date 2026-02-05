@@ -21,7 +21,6 @@
 				},
 				"permissions": [
 					{
-						"aud": "*",
 						"lxm": [
 							"app.chronosky.schedule.createPost",
 							"app.chronosky.schedule.deletePost",
@@ -33,7 +32,8 @@
 							"app.chronosky.media.uploadBlob"
 						],
 						"type": "permission",
-						"resource": "rpc"
+						"resource": "rpc",
+						"inheritAud": true
 					}
 				]
 			}
@@ -42,7 +42,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769559526518
+		"indexedAt": 1770250962710
 	},
 	"references": {
 		"main": []

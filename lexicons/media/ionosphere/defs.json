@@ -8,6 +8,31 @@
 				"format": "uri",
 				"description": "TV-Anytime classification scheme URIs permitted by ETSI TS 102 818 section 5.3"
 			},
+			"track": {
+				"type": "object",
+				"required": [
+					"title",
+					"artists"
+				],
+				"properties": {
+					"album": {
+						"type": "string",
+						"maxLength": 256
+					},
+					"title": {
+						"type": "string",
+						"maxLength": 256
+					},
+					"artists": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"maxLength": 256
+						},
+						"description": "Artists in order of importance to the track"
+					}
+				}
+			},
 			"bearer": {
 				"type": "string",
 				"format": "uri",
@@ -140,10 +165,11 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770078164490
+		"indexedAt": 1770250962710
 	},
 	"references": {
 		"genre": [],
+		"track": [],
 		"bearer": [],
 		"credit": [],
 		"entity": [],
