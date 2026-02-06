@@ -1,0 +1,52 @@
+{
+	"authority": "did:plc:e7lsxyaj7uuuwh7wtx5ewqp3",
+	"schema": {
+		"id": "st.snowpo.post",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"content",
+						"createdAt"
+					],
+					"properties": {
+						"content": {
+							"type": "blob",
+							"accept": [
+								"text/markdown"
+							],
+							"maxSize": 1000000
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Client-declared timestamp when this post was originally created."
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Client-declared timestamp when this post was last updated."
+						},
+						"previewText": {
+							"type": "string",
+							"maxLength": 300,
+							"description": "Display title"
+						}
+					}
+				},
+				"description": "Record linking to a Markdown file."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770337230544
+	},
+	"references": {
+		"main": []
+	}
+}

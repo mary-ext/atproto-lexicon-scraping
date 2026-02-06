@@ -288,7 +288,8 @@
 		"description": "WIP, A straitforward translation from OGC Features and Geometries Json (https://portal.ogc.org/files/107269#schema-geometry-objects) to ATProto lexicon, following the draft lexicon styleguide. The most distinct change is addition of a denominator property to higher level objects and using the name native ATProto $type instead of type"
 	},
 	"meta": {
-		"indexedAt": 1763888430441
+		"indexedAt": 1763888430441,
+		"errorAt": 1770337230544
 	},
 	"references": {
 		"point": [

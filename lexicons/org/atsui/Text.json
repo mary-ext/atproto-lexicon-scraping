@@ -1,5 +1,5 @@
 {
-	"authority": "did:plc:fpruhuo22xkm5o7ttr2ktxdo",
+	"authority": "did:plc:e4fjueijznwqm2yxvt7q4mba",
 	"schema": {
 		"id": "org.atsui.Text",
 		"defs": {
@@ -19,6 +19,14 @@
 					},
 					"encoding": "application/json"
 				},
+				"examples": [
+					{
+						"props": {
+							"children": "Hello, world"
+						},
+						"description": "Body text"
+					}
+				],
 				"description": "Body text."
 			}
 		},
@@ -26,7 +34,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770250962710
+		"indexedAt": 1770337230544
 	},
 	"references": {
 		"main": []

@@ -1,0 +1,20 @@
+{
+	"authority": "did:plc:q2kmuessge635fpcnyncsdlv",
+	"schema": {
+		"id": "com.alephcubed.starmark.review.tvshow",
+		"defs": {
+			"main": {
+				"type": "token",
+				"description": "A type of media that can be reviewed"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770337230544
+	},
+	"references": {
+		"main": []
+	}
+}

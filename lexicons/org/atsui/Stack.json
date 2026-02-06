@@ -1,5 +1,5 @@
 {
-	"authority": "did:plc:fpruhuo22xkm5o7ttr2ktxdo",
+	"authority": "did:plc:e4fjueijznwqm2yxvt7q4mba",
 	"schema": {
 		"id": "org.atsui.Stack",
 		"defs": {
@@ -8,6 +8,9 @@
 				"input": {
 					"schema": {
 						"type": "object",
+						"required": [
+							"children"
+						],
 						"properties": {
 							"gap": {
 								"type": "string",
@@ -48,7 +51,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770250962710
+		"indexedAt": 1770337230544
 	},
 	"references": {
 		"main": [
