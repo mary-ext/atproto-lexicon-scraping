@@ -13,20 +13,15 @@
 						],
 						"properties": {
 							"children": {
-								"type": "string"
+								"type": "array",
+								"items": {
+									"type": "unknown"
+								}
 							}
 						}
 					},
 					"encoding": "application/json"
 				},
-				"examples": [
-					{
-						"props": {
-							"children": "2 hours ago"
-						},
-						"description": "Metadata caption"
-					}
-				],
 				"description": "Secondary text for timestamps, metadata, or supplementary information."
 			}
 		},
@@ -34,7 +29,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770337230544
+		"indexedAt": 1770423704446
 	},
 	"references": {
 		"main": []

@@ -1,0 +1,43 @@
+{
+	"authority": "did:plc:vegqomyce4ssoqs7zwqvgqty",
+	"schema": {
+		"id": "app.rocksky.scrobble.getScrobble",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"ref": "app.rocksky.scrobble.defs#scrobbleViewDetailed",
+						"type": "ref"
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"uri"
+					],
+					"properties": {
+						"uri": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "The unique identifier of the scrobble"
+						}
+					}
+				},
+				"description": "Get a scrobble by its unique identifier"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770423704446
+	},
+	"references": {
+		"main": [
+			"app.rocksky.artist.defs",
+			"app.rocksky.scrobble.defs"
+		]
+	}
+}

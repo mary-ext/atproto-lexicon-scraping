@@ -13,7 +13,8 @@
 						"resource": "repo",
 						"collection": [
 							"blog.pckt.publication",
-							"blog.pckt.document"
+							"blog.pckt.document",
+							"blog.pckt.gallery"
 						]
 					}
 				]
@@ -23,7 +24,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769127534871
+		"indexedAt": 1770423704446
 	},
 	"references": {
 		"main": []

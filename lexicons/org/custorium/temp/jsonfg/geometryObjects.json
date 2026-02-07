@@ -17,37 +17,56 @@
 						"type": "union"
 					},
 					"coordRefSys": {
-						"ref": "org.custorium.temp.jsonfg.coordRefSys",
-						"type": "ref"
+						"refs": [
+							"org.custorium.temp.jsonfg.coordRefSys#singleRefSys",
+							"org.custorium.temp.jsonfg.coordRefSys#multiRefSys"
+						],
+						"type": "union"
 					},
 					"coordinates": {
 						"ref": "#position",
 						"type": "ref"
-					},
-					"denominator": {
-						"ref": "#denominator",
-						"type": "ref"
 					}
 				},
-				"description": "JsonFG Point with additional 'denominator' member"
+				"description": "JsonFG Point"
 			},
 			"bbox2d": {
-				"type": "array",
-				"items": {
-					"ref": "#numerator",
-					"type": "ref"
-				},
-				"maxLength": 4,
-				"minLength": 4
+				"type": "object",
+				"required": [
+					"bbox"
+				],
+				"properties": {
+					"bbox": {
+						"type": "array",
+						"items": {
+							"ref": "#float64",
+							"type": "ref"
+						},
+						"maxLength": 4,
+						"minLength": 4
+					}
+				}
 			},
 			"bbox3d": {
-				"type": "array",
-				"items": {
-					"ref": "#numerator",
-					"type": "ref"
-				},
-				"maxLength": 6,
-				"minLength": 6
+				"type": "object",
+				"required": [
+					"bbox"
+				],
+				"properties": {
+					"bbox": {
+						"type": "array",
+						"items": {
+							"ref": "#float64",
+							"type": "ref"
+						},
+						"maxLength": 6,
+						"minLength": 6
+					}
+				}
+			},
+			"float64": {
+				"type": "string",
+				"description": "A float64 represented as a string"
 			},
 			"polygon": {
 				"type": "object",
@@ -63,8 +82,11 @@
 						"type": "union"
 					},
 					"coordRefSys": {
-						"ref": "org.custorium.temp.jsonfg.coordRefSys",
-						"type": "ref"
+						"refs": [
+							"org.custorium.temp.jsonfg.coordRefSys#singleRefSys",
+							"org.custorium.temp.jsonfg.coordRefSys#multiRefSys"
+						],
+						"type": "union"
 					},
 					"coordinates": {
 						"type": "array",
@@ -76,26 +98,18 @@
 							},
 							"minLength": 4
 						}
-					},
-					"denominator": {
-						"ref": "#denominator",
-						"type": "ref"
 					}
 				},
-				"description": "JsonFG Polygon with additional 'denominator' member"
+				"description": "JsonFG Polygon"
 			},
 			"position": {
 				"type": "array",
 				"items": {
-					"ref": "#numerator",
+					"ref": "#float64",
 					"type": "ref"
 				},
 				"maxLength": 3,
 				"minLength": 2
-			},
-			"numerator": {
-				"type": "integer",
-				"description": "The numerator of a floating point value ( can be calculated by dividing this numerator with the nearest denominator)"
 			},
 			"lineString": {
 				"type": "object",
@@ -111,8 +125,11 @@
 						"type": "union"
 					},
 					"coordRefSys": {
-						"ref": "org.custorium.temp.jsonfg.coordRefSys",
-						"type": "ref"
+						"refs": [
+							"org.custorium.temp.jsonfg.coordRefSys#singleRefSys",
+							"org.custorium.temp.jsonfg.coordRefSys#multiRefSys"
+						],
+						"type": "union"
 					},
 					"coordinates": {
 						"type": "array",
@@ -120,13 +137,9 @@
 							"ref": "#position",
 							"type": "ref"
 						}
-					},
-					"denominator": {
-						"ref": "#denominator",
-						"type": "ref"
 					}
 				},
-				"description": "JsonFG LineString with additional 'denominator' member"
+				"description": "JsonFG LineString"
 			},
 			"multiPoint": {
 				"type": "object",
@@ -142,8 +155,11 @@
 						"type": "union"
 					},
 					"coordRefSys": {
-						"ref": "org.custorium.temp.jsonfg.coordRefSys",
-						"type": "ref"
+						"refs": [
+							"org.custorium.temp.jsonfg.coordRefSys#singleRefSys",
+							"org.custorium.temp.jsonfg.coordRefSys#multiRefSys"
+						],
+						"type": "union"
 					},
 					"coordinates": {
 						"type": "array",
@@ -151,13 +167,9 @@
 							"ref": "#position",
 							"type": "ref"
 						}
-					},
-					"denominator": {
-						"ref": "#denominator",
-						"type": "ref"
 					}
 				},
-				"description": "JsonFG MultiPoint with additional 'denominator' member"
+				"description": "JsonFG MultiPoint"
 			},
 			"position3d": {
 				"type": "array",
@@ -166,11 +178,6 @@
 				},
 				"maxLength": 3,
 				"minLength": 3
-			},
-			"denominator": {
-				"type": "integer",
-				"default": 0,
-				"description": "The denominator of the coordinates so a denominator value of 10 and a coordinate ( numerator ) value of 1 mean a float coordinate of 0.1"
 			},
 			"multiPolygon": {
 				"type": "object",
@@ -186,8 +193,11 @@
 						"type": "union"
 					},
 					"coordRefSys": {
-						"ref": "org.custorium.temp.jsonfg.coordRefSys",
-						"type": "ref"
+						"refs": [
+							"org.custorium.temp.jsonfg.coordRefSys#singleRefSys",
+							"org.custorium.temp.jsonfg.coordRefSys#multiRefSys"
+						],
+						"type": "union"
 					},
 					"coordinates": {
 						"type": "array",
@@ -202,13 +212,9 @@
 								"minLength": 4
 							}
 						}
-					},
-					"denominator": {
-						"ref": "#denominator",
-						"type": "ref"
 					}
 				},
-				"description": "JsonFG MultiPolygon with additional 'denominator' member"
+				"description": "JsonFG MultiPolygon"
 			},
 			"multiLineString": {
 				"type": "object",
@@ -224,8 +230,11 @@
 						"type": "union"
 					},
 					"coordRefSys": {
-						"ref": "org.custorium.temp.jsonfg.coordRefSys",
-						"type": "ref"
+						"refs": [
+							"org.custorium.temp.jsonfg.coordRefSys#singleRefSys",
+							"org.custorium.temp.jsonfg.coordRefSys#multiRefSys"
+						],
+						"type": "union"
 					},
 					"coordinates": {
 						"type": "array",
@@ -237,58 +246,17 @@
 							},
 							"minLength": 2
 						}
-					},
-					"denominator": {
-						"ref": "#denominator",
-						"type": "ref"
 					}
 				},
-				"description": "JsonFG MultiLineString with additional 'denominator' member"
-			},
-			"geometryCollection": {
-				"type": "object",
-				"required": [
-					"geometries"
-				],
-				"properties": {
-					"bbox": {
-						"refs": [
-							"#bbox2d",
-							"#bbox3d"
-						],
-						"type": "union"
-					},
-					"type": {
-						"enum": [
-							"GeometryCollection"
-						],
-						"type": "string"
-					},
-					"geometries": {
-						"refs": [
-							"#point",
-							"#lineString",
-							"#polygon",
-							"#multiPoint",
-							"#multiLineString",
-							"#multiPolygon"
-						],
-						"type": "union"
-					},
-					"coordRefSys": {
-						"ref": "org.custorium.temp.jsonfg.coordRefSys",
-						"type": "ref"
-					}
-				},
-				"description": "JsonFG GeometryCollection"
+				"description": "JsonFG MultiLineString"
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1,
-		"description": "WIP, A straitforward translation from OGC Features and Geometries Json (https://portal.ogc.org/files/107269#schema-geometry-objects) to ATProto lexicon, following the draft lexicon styleguide. The most distinct change is addition of a denominator property to higher level objects and using the name native ATProto $type instead of type"
+		"description": "WIP, A straitforward translation from OGC Features and Geometries Json (https://docs.ogc.org/DRAFTS/21-045.html) to ATProto lexicon, following the draft lexicon styleguide. The most distinct change is the representation of coordinates as strings and type renamed to Lexicon $type"
 	},
 	"meta": {
-		"indexedAt": 1763888430441,
+		"indexedAt": 1770423704446,
 		"errorAt": 1770337230544
 	},
 	"references": {
@@ -297,11 +265,11 @@
 		],
 		"bbox2d": [],
 		"bbox3d": [],
+		"float64": [],
 		"polygon": [
 			"org.custorium.temp.jsonfg.coordRefSys"
 		],
 		"position": [],
-		"numerator": [],
 		"lineString": [
 			"org.custorium.temp.jsonfg.coordRefSys"
 		],
@@ -309,14 +277,10 @@
 			"org.custorium.temp.jsonfg.coordRefSys"
 		],
 		"position3d": [],
-		"denominator": [],
 		"multiPolygon": [
 			"org.custorium.temp.jsonfg.coordRefSys"
 		],
 		"multiLineString": [
-			"org.custorium.temp.jsonfg.coordRefSys"
-		],
-		"geometryCollection": [
 			"org.custorium.temp.jsonfg.coordRefSys"
 		]
 	}

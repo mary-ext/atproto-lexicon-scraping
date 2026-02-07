@@ -1,0 +1,48 @@
+{
+	"authority": "did:plc:q3enoeuha5b2zx4p4atxtb7x",
+	"schema": {
+		"id": "org.custorium.temp.jsonfg.testRecord",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"geometry",
+						"text"
+					],
+					"properties": {
+						"text": {
+							"type": "string",
+							"maxLength": 1024
+						},
+						"geometry": {
+							"refs": [
+								"org.custorium.temp.jsonfg.geometryObjects#point",
+								"org.custorium.temp.jsonfg.geometryObjects#polygon",
+								"org.custorium.temp.jsonfg.geometryObjects#lineString",
+								"org.custorium.temp.jsonfg.geometryObjects#multiPoint",
+								"org.custorium.temp.jsonfg.geometryObjects#multiPolygon",
+								"org.custorium.temp.jsonfg.geometryObjects#multiLineString"
+							],
+							"type": "union"
+						}
+					}
+				},
+				"description": "A test record type for geometries"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770423704446
+	},
+	"references": {
+		"main": [
+			"org.custorium.temp.jsonfg.coordRefSys",
+			"org.custorium.temp.jsonfg.geometryObjects"
+		]
+	}
+}

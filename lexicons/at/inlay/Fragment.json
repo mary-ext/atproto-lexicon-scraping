@@ -1,7 +1,7 @@
 {
-	"authority": "did:plc:e4fjueijznwqm2yxvt7q4mba",
+	"authority": "did:plc:mdg3w2kpadcyxy33pizokzf3",
 	"schema": {
-		"id": "org.atsui.Heading",
+		"id": "at.inlay.Fragment",
 		"defs": {
 			"main": {
 				"type": "procedure",
@@ -15,14 +15,15 @@
 							"children": {
 								"type": "array",
 								"items": {
-									"type": "unknown"
+									"ref": "at.inlay.defs#element",
+									"type": "ref"
 								}
 							}
 						}
 					},
 					"encoding": "application/json"
 				},
-				"description": "A section label or secondary heading."
+				"description": "Renders children without a wrapper element."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
@@ -32,6 +33,8 @@
 		"indexedAt": 1770423704446
 	},
 	"references": {
-		"main": []
+		"main": [
+			"at.inlay.defs"
+		]
 	}
 }

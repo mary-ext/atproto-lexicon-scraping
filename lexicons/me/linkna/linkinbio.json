@@ -57,7 +57,8 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769646054509
+		"indexedAt": 1769646054509,
+		"errorAt": 1770423704446
 	},
 	"references": {
 		"card": [],

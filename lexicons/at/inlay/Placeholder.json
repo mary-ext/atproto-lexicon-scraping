@@ -1,7 +1,7 @@
 {
-	"authority": "did:plc:e4fjueijznwqm2yxvt7q4mba",
+	"authority": "did:plc:mdg3w2kpadcyxy33pizokzf3",
 	"schema": {
-		"id": "org.atsui.Heading",
+		"id": "at.inlay.Placeholder",
 		"defs": {
 			"main": {
 				"type": "procedure",
@@ -9,20 +9,26 @@
 					"schema": {
 						"type": "object",
 						"required": [
-							"children"
+							"children",
+							"fallback"
 						],
 						"properties": {
 							"children": {
 								"type": "array",
 								"items": {
-									"type": "unknown"
+									"ref": "at.inlay.defs#element",
+									"type": "ref"
 								}
+							},
+							"fallback": {
+								"ref": "at.inlay.defs#element",
+								"type": "ref"
 							}
 						}
 					},
 					"encoding": "application/json"
 				},
-				"description": "A section label or secondary heading."
+				"description": "Shows fallback content while children are loading."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
@@ -32,6 +38,8 @@
 		"indexedAt": 1770423704446
 	},
 	"references": {
-		"main": []
+		"main": [
+			"at.inlay.defs"
+		]
 	}
 }
