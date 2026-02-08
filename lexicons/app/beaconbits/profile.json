@@ -1,0 +1,117 @@
+{
+	"authority": "did:plc:j5ttxzdb5kwo4mcqkmzgvt33",
+	"schema": {
+		"id": "app.beaconbits.profile",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"updatedAt"
+					],
+					"properties": {
+						"language": {
+							"type": "string",
+							"default": "auto",
+							"description": "Preferred language setting",
+							"knownValues": [
+								"auto",
+								"en",
+								"es",
+								"fr",
+								"de",
+								"pt-BR",
+								"ja",
+								"zh-Hans",
+								"ko"
+							],
+							"maxGraphemes": 16
+						},
+						"allowTags": {
+							"type": "string",
+							"default": "all",
+							"description": "Who can tag this user in beacons",
+							"knownValues": [
+								"all",
+								"followers",
+								"mutuals",
+								"none"
+							],
+							"maxGraphemes": 32
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when settings were first created"
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when settings were last updated"
+						},
+						"markerColor": {
+							"type": "string",
+							"description": "Hex color code for map marker (e.g., #e24630)",
+							"maxGraphemes": 7
+						},
+						"distanceUnit": {
+							"type": "string",
+							"default": "km",
+							"description": "Preferred distance unit",
+							"knownValues": [
+								"km",
+								"miles"
+							],
+							"maxGraphemes": 16
+						},
+						"hidePastBeacons": {
+							"type": "boolean",
+							"default": false,
+							"description": "Whether to hide past beacons from public view"
+						},
+						"postBeaconLinks": {
+							"type": "boolean",
+							"default": true,
+							"description": "Whether to include beacon links in Bluesky posts"
+						},
+						"defaultVisibility": {
+							"type": "string",
+							"default": "public",
+							"description": "Default visibility for new beacons",
+							"knownValues": [
+								"public",
+								"followers",
+								"mutuals",
+								"hidden"
+							],
+							"maxGraphemes": 32
+						},
+						"defaultDelayedReveal": {
+							"type": "string",
+							"default": "none",
+							"description": "Default delayed reveal setting for new beacons",
+							"knownValues": [
+								"none",
+								"1h",
+								"1d",
+								"custom"
+							],
+							"maxGraphemes": 16
+						}
+					}
+				},
+				"description": "User preferences and settings for BeaconBits"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770510492185
+	},
+	"references": {
+		"main": []
+	}
+}

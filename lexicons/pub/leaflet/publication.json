@@ -113,6 +113,10 @@
 					"showInDiscover": {
 						"type": "boolean",
 						"default": true
+					},
+					"showRecommends": {
+						"type": "boolean",
+						"default": true
 					}
 				}
 			}
@@ -121,7 +125,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768522694892,
+		"indexedAt": 1770510492185,
 		"errorAt": 1760659937196
 	},
 	"references": {

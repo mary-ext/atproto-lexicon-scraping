@@ -1,0 +1,87 @@
+{
+	"authority": "did:plc:mla4fbm6mt3f25pehrsl3jum",
+	"schema": {
+		"id": "org.atpodcasting.episode",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"podcast",
+						"guid",
+						"title",
+						"media",
+						"publishedAt",
+						"duration"
+					],
+					"properties": {
+						"guid": {
+							"type": "string",
+							"maxLength": 2000,
+							"description": "Identifier matching the guid element in the RSS feed item."
+						},
+						"media": {
+							"type": "blob",
+							"accept": [
+								"audio/*",
+								"video/*"
+							],
+							"description": "The media file for the episode (audio or video)."
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 500,
+							"description": "The title of the episode."
+						},
+						"podcast": {
+							"ref": "#podcastRef",
+							"type": "ref",
+							"description": "Reference to the parent podcast."
+						},
+						"duration": {
+							"type": "integer",
+							"minimum": 0,
+							"description": "Duration of the episode in seconds."
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 10000,
+							"description": "A description or show notes for the episode."
+						},
+						"publishedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When the episode was published."
+						}
+					}
+				},
+				"description": "A podcast episode."
+			},
+			"podcastRef": {
+				"type": "object",
+				"required": [
+					"uri"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "AT URI of the podcast record."
+					}
+				},
+				"description": "Weak reference to a podcast (no CID, allows mutation)."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770510492185
+	},
+	"references": {
+		"main": [],
+		"podcastRef": []
+	}
+}

@@ -3,7 +3,49 @@
 	"schema": {
 		"id": "me.linkna.linkinbio",
 		"defs": {
-			"card": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"cards"
+					],
+					"properties": {
+						"cards": {
+							"type": "array",
+							"items": {
+								"refs": [
+									"#linkCard",
+									"#widgetGoodreads",
+									"#widgetGithub",
+									"#widgetTealfm"
+								],
+								"type": "union"
+							},
+							"description": "Ordered list of cards on the page. Each card is a union of linkCard, widgetGoodreads, widgetGithub, or widgetTealfm."
+						},
+						"theme": {
+							"type": "string",
+							"description": "Deprecated: use themeConfig instead."
+						},
+						"socialIcons": {
+							"type": "array",
+							"items": {
+								"ref": "#socialIcon",
+								"type": "ref"
+							},
+							"description": "Social media icons displayed on the profile."
+						},
+						"themeConfig": {
+							"ref": "#themeConfig",
+							"type": "ref"
+						}
+					}
+				},
+				"description": "A user's link-in-bio page containing cards, theme configuration, and social icons."
+			},
+			"linkCard": {
 				"type": "object",
 				"properties": {
 					"id": {
@@ -18,50 +60,440 @@
 					"text": {
 						"type": "string",
 						"maxLength": 100,
-						"description": "Display text for the card."
+						"description": "Display text for the card (falls back to URL domain if empty)."
+					},
+					"type": {
+						"type": "string",
+						"description": "Card type discriminator. Value: 'link' or absent for link cards."
+					},
+					"enabled": {
+						"type": "boolean",
+						"description": "Whether the card is visible on the public page. Defaults to true."
 					},
 					"highlighted": {
 						"type": "boolean",
-						"description": "Whether the card is highlighted."
+						"description": "Whether the card is visually highlighted."
 					}
 				},
-				"description": "A single card/link on the page."
+				"description": "A standard link card."
 			},
-			"main": {
-				"key": "literal:self",
-				"type": "record",
-				"record": {
-					"type": "object",
-					"required": [
-						"cards"
-					],
-					"properties": {
-						"cards": {
-							"type": "array",
-							"items": {
-								"ref": "#card",
-								"type": "ref"
-							},
-							"description": "Ordered list of cards on the page."
-						},
-						"theme": {
-							"type": "string",
-							"description": "Theme identifier for page styling."
-						}
+			"socialIcon": {
+				"type": "object",
+				"required": [
+					"id",
+					"platform",
+					"url"
+				],
+				"properties": {
+					"id": {
+						"type": "string",
+						"description": "Unique identifier for the icon."
+					},
+					"url": {
+						"type": "string",
+						"format": "uri",
+						"description": "URL to the user's profile on this platform."
+					},
+					"platform": {
+						"type": "string",
+						"description": "Platform identifier (e.g., 'bluesky', 'twitter', 'instagram')."
 					}
 				},
-				"description": "A user's link-in-bio page containing cards."
+				"description": "A social media icon link."
+			},
+			"tealfmPlay": {
+				"type": "object",
+				"required": [
+					"trackName",
+					"artistName"
+				],
+				"properties": {
+					"coverUrl": {
+						"type": "string",
+						"description": "URL to the album cover image (from Cover Art Archive)."
+					},
+					"originUrl": {
+						"type": "string",
+						"description": "URL to the track on the original music service."
+					},
+					"trackName": {
+						"type": "string",
+						"description": "Track/song name."
+					},
+					"artistName": {
+						"type": "string",
+						"description": "Artist name(s)."
+					},
+					"playedTime": {
+						"type": "string",
+						"format": "datetime",
+						"description": "When the track was played."
+					},
+					"releaseName": {
+						"type": "string",
+						"description": "Album/release name."
+					}
+				},
+				"description": "A recently played track from teal.fm."
+			},
+			"themeConfig": {
+				"type": "object",
+				"properties": {
+					"preset": {
+						"type": "string",
+						"description": "Theme preset ID."
+					},
+					"fontSize": {
+						"type": "string",
+						"description": "Font size. Default: md.",
+						"knownValues": [
+							"sm",
+							"md",
+							"lg"
+						]
+					},
+					"particles": {
+						"type": "string",
+						"description": "Background particle effect. Default: none.",
+						"knownValues": [
+							"none",
+							"white",
+							"blue"
+						]
+					},
+					"cardShadow": {
+						"type": "string",
+						"description": "Card/button shadow intensity.",
+						"knownValues": [
+							"none",
+							"sm",
+							"md",
+							"lg",
+							"xl"
+						]
+					},
+					"fontFamily": {
+						"type": "string",
+						"description": "Font family for the page."
+					},
+					"showBranding": {
+						"type": "boolean",
+						"description": "Whether Linkname branding is visible. Default: true."
+					},
+					"cardTextColor": {
+						"type": "string",
+						"description": "Card/button text color."
+					},
+					"cardHoverColor": {
+						"type": "string",
+						"description": "Card/button border color on hover."
+					},
+					"backgroundColor": {
+						"type": "string",
+						"description": "Page background color."
+					},
+					"buttonAlignment": {
+						"type": "string",
+						"description": "Button content alignment. Default: left.",
+						"knownValues": [
+							"left",
+							"right"
+						]
+					},
+					"buttonHoverGlow": {
+						"type": "boolean",
+						"description": "Whether buttons glow on hover. Default: false."
+					},
+					"cardBorderColor": {
+						"type": "string",
+						"description": "Card/button border color."
+					},
+					"cardBorderRadius": {
+						"type": "string",
+						"description": "Card/button border radius.",
+						"knownValues": [
+							"none",
+							"sm",
+							"md",
+							"lg",
+							"full"
+						]
+					},
+					"contentCardColor": {
+						"type": "string",
+						"description": "Card container background color."
+					},
+					"profileAlignment": {
+						"type": "string",
+						"description": "Profile section alignment. Default: center.",
+						"knownValues": [
+							"left",
+							"center",
+							"right"
+						]
+					},
+					"profileTextColor": {
+						"type": "string",
+						"description": "Profile section text color."
+					},
+					"socialIconsColor": {
+						"type": "string",
+						"description": "Social icons color."
+					},
+					"socialIconsShape": {
+						"type": "string",
+						"description": "Social icons container shape. Default: dock.",
+						"knownValues": [
+							"dock",
+							"sphere"
+						]
+					},
+					"backgroundGradient": {
+						"type": "string",
+						"description": "CSS gradient for the page background."
+					},
+					"profilePictureSize": {
+						"type": "string",
+						"description": "Profile picture size. Default: sm.",
+						"knownValues": [
+							"sm",
+							"md",
+							"lg"
+						]
+					},
+					"cardBackgroundColor": {
+						"type": "string",
+						"description": "Individual card/button background color."
+					},
+					"profilePictureShape": {
+						"type": "string",
+						"description": "Profile picture shape. Default: circle.",
+						"knownValues": [
+							"circle",
+							"rounded",
+							"square"
+						]
+					},
+					"buttonHoverGlowColor": {
+						"type": "string",
+						"description": "Color for the button hover glow effect."
+					},
+					"socialIconsShapeColor": {
+						"type": "string",
+						"description": "Background color for social icons dock/sphere."
+					},
+					"socialIconsBorderColor": {
+						"type": "string",
+						"description": "Border color for social icons dock/sphere."
+					}
+				},
+				"description": "Theme configuration for the page appearance."
+			},
+			"widgetGithub": {
+				"type": "object",
+				"required": [
+					"id",
+					"type",
+					"githubUsername",
+					"contributions"
+				],
+				"properties": {
+					"id": {
+						"type": "string",
+						"description": "Unique identifier for the card."
+					},
+					"type": {
+						"type": "string",
+						"const": "github",
+						"description": "Card type discriminator."
+					},
+					"enabled": {
+						"type": "boolean",
+						"description": "Whether the widget is visible on the public page. Defaults to true."
+					},
+					"lastSyncedAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": "When the contribution data was last fetched from GitHub."
+					},
+					"contributions": {
+						"type": "array",
+						"items": {
+							"ref": "#githubContributionDay",
+							"type": "ref"
+						},
+						"description": "Contribution data for the last year."
+					},
+					"githubUsername": {
+						"type": "string",
+						"description": "GitHub username."
+					},
+					"totalContributions": {
+						"type": "integer",
+						"description": "Total number of contributions in the last year."
+					}
+				},
+				"description": "A GitHub contributions graph widget card."
+			},
+			"widgetTealfm": {
+				"type": "object",
+				"required": [
+					"id",
+					"type",
+					"plays"
+				],
+				"properties": {
+					"id": {
+						"type": "string",
+						"description": "Unique identifier for the card."
+					},
+					"type": {
+						"type": "string",
+						"const": "tealfm",
+						"description": "Card type discriminator."
+					},
+					"plays": {
+						"type": "array",
+						"items": {
+							"ref": "#tealfmPlay",
+							"type": "ref"
+						},
+						"description": "Recently played tracks."
+					},
+					"enabled": {
+						"type": "boolean",
+						"description": "Whether the widget is visible on the public page. Defaults to true."
+					},
+					"lastSyncedAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": "When the play data was last fetched from the PDS."
+					}
+				},
+				"description": "A teal.fm recently played tracks widget card."
+			},
+			"goodreadsBook": {
+				"type": "object",
+				"required": [
+					"title",
+					"author"
+				],
+				"properties": {
+					"link": {
+						"type": "string",
+						"description": "URL to the book on Goodreads."
+					},
+					"title": {
+						"type": "string",
+						"description": "Book title."
+					},
+					"author": {
+						"type": "string",
+						"description": "Book author."
+					},
+					"rating": {
+						"type": "integer",
+						"maximum": 5,
+						"minimum": 0,
+						"description": "User's rating (1-5), or absent if unrated."
+					},
+					"coverUrl": {
+						"type": "string",
+						"description": "URL to the book cover image."
+					}
+				},
+				"description": "A book from a Goodreads shelf."
+			},
+			"widgetGoodreads": {
+				"type": "object",
+				"required": [
+					"id",
+					"type",
+					"goodreadsUserId",
+					"shelf",
+					"books"
+				],
+				"properties": {
+					"id": {
+						"type": "string",
+						"description": "Unique identifier for the card."
+					},
+					"type": {
+						"type": "string",
+						"const": "goodreads",
+						"description": "Card type discriminator."
+					},
+					"books": {
+						"type": "array",
+						"items": {
+							"ref": "#goodreadsBook",
+							"type": "ref"
+						},
+						"description": "Books on the shelf."
+					},
+					"shelf": {
+						"type": "string",
+						"description": "Shelf name (currently-reading, read, or to-read)."
+					},
+					"enabled": {
+						"type": "boolean",
+						"description": "Whether the widget is visible on the public page. Defaults to true."
+					},
+					"lastSyncedAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": "When the book data was last fetched from Goodreads."
+					},
+					"goodreadsUserId": {
+						"type": "string",
+						"description": "Goodreads numeric user ID."
+					}
+				},
+				"description": "A Goodreads bookshelf widget card."
+			},
+			"githubContributionDay": {
+				"type": "object",
+				"required": [
+					"date",
+					"count",
+					"level"
+				],
+				"properties": {
+					"date": {
+						"type": "string",
+						"description": "Date in YYYY-MM-DD format."
+					},
+					"count": {
+						"type": "integer",
+						"description": "Number of contributions on this day."
+					},
+					"level": {
+						"type": "integer",
+						"maximum": 4,
+						"minimum": 0,
+						"description": "Contribution intensity level (0=none, 4=highest)."
+					}
+				},
+				"description": "A single day's contribution data from GitHub."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769646054509,
+		"indexedAt": 1770510492185,
 		"errorAt": 1770423704446
 	},
 	"references": {
-		"card": [],
-		"main": []
+		"main": [],
+		"linkCard": [],
+		"socialIcon": [],
+		"tealfmPlay": [],
+		"themeConfig": [],
+		"widgetGithub": [],
+		"widgetTealfm": [],
+		"goodreadsBook": [],
+		"widgetGoodreads": [],
+		"githubContributionDay": []
 	}
 }

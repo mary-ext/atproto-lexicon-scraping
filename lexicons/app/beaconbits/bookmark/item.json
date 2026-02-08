@@ -1,0 +1,79 @@
+{
+	"authority": "did:plc:j5ttxzdb5kwo4mcqkmzgvt33",
+	"schema": {
+		"id": "app.beaconbits.bookmark.item",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"venueUri",
+						"venueName",
+						"createdAt"
+					],
+					"properties": {
+						"notes": {
+							"type": "string",
+							"description": "User notes about the bookmark",
+							"maxGraphemes": 280
+						},
+						"location": {
+							"ref": "community.lexicon.location.geo",
+							"type": "ref",
+							"description": "Structured location using community lexicon"
+						},
+						"venueUri": {
+							"type": "string",
+							"description": "URI identifier for the venue (typically OSM URI)",
+							"maxGraphemes": 512
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the bookmark was created"
+						},
+						"folderUri": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "Reference to a bookmark folder"
+						},
+						"venueName": {
+							"type": "string",
+							"description": "Display name of the venue",
+							"maxGraphemes": 128
+						},
+						"venueAddress": {
+							"type": "string",
+							"description": "Human-readable address",
+							"maxGraphemes": 256
+						},
+						"venueCategory": {
+							"type": "string",
+							"description": "Category classification",
+							"maxGraphemes": 64
+						},
+						"addressDetails": {
+							"ref": "community.lexicon.location.address",
+							"type": "ref",
+							"description": "Structured address using community lexicon"
+						}
+					}
+				},
+				"description": "A saved venue bookmark"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770510492185
+	},
+	"references": {
+		"main": [
+			"community.lexicon.location.address",
+			"community.lexicon.location.geo"
+		]
+	}
+}

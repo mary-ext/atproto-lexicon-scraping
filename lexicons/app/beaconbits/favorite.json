@@ -1,7 +1,7 @@
 {
-	"authority": "did:plc:inxsxwx7iglbgqsv2mu2xudu",
+	"authority": "did:plc:j5ttxzdb5kwo4mcqkmzgvt33",
 	"schema": {
-		"id": "food.sampler.like",
+		"id": "app.beaconbits.favorite",
 		"defs": {
 			"main": {
 				"key": "tid",
@@ -9,30 +9,30 @@
 				"record": {
 					"type": "object",
 					"required": [
-						"place",
+						"subject",
 						"createdAt"
 					],
 					"properties": {
-						"place": {
+						"subject": {
 							"type": "string",
-							"format": "at-uri",
-							"description": "Reference to a food.sampler.place record"
+							"format": "did",
+							"description": "DID of the user being favorited"
 						},
 						"createdAt": {
 							"type": "string",
-							"format": "datetime"
+							"format": "datetime",
+							"description": "Timestamp when the favorite was created"
 						}
 					}
 				},
-				"description": "A 'heart' for a place. Independent of rating - you can rate something 3 stars but still love it."
+				"description": "A favorite relationship to another user"
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769041149152,
-		"errorAt": 1769213870289
+		"indexedAt": 1770510492185
 	},
 	"references": {
 		"main": []

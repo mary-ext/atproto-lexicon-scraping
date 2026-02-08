@@ -1,0 +1,44 @@
+{
+	"authority": "did:plc:j5ttxzdb5kwo4mcqkmzgvt33",
+	"schema": {
+		"id": "app.beaconbits.favorites",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"dids",
+						"updatedAt"
+					],
+					"properties": {
+						"dids": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "did"
+							},
+							"maxLength": 500,
+							"description": "List of favorited user DIDs"
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the favorites list was last updated"
+						}
+					}
+				},
+				"description": "A list of favorited user DIDs (legacy singleton record)."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770510492185
+	},
+	"references": {
+		"main": []
+	}
+}

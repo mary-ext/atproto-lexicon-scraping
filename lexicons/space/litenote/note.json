@@ -1,7 +1,7 @@
 {
-	"authority": "did:plc:inxsxwx7iglbgqsv2mu2xudu",
+	"authority": "did:plc:4m3kouplb7s7xozjd3whinvl",
 	"schema": {
-		"id": "food.sampler.collection",
+		"id": "space.litenote.note",
 		"defs": {
 			"main": {
 				"key": "tid",
@@ -9,40 +9,37 @@
 				"record": {
 					"type": "object",
 					"required": [
-						"name",
-						"createdAt"
+						"title",
+						"content"
 					],
 					"properties": {
-						"icon": {
+						"title": {
 							"type": "string",
-							"maxLength": 50,
-							"description": "Emoji or icon identifier"
+							"maxLength": 1000
 						},
-						"name": {
+						"content": {
 							"type": "string",
-							"maxLength": 100,
-							"description": "Collection name"
+							"maxLength": 10000,
+							"description": "Markdown content of the blog post"
 						},
 						"createdAt": {
 							"type": "string",
 							"format": "datetime"
 						},
-						"description": {
+						"publishedAt": {
 							"type": "string",
-							"maxLength": 1000,
-							"description": "Optional description"
+							"format": "datetime"
 						}
 					}
 				},
-				"description": "A named list of places."
+				"description": "A markdown blog post with LaTeX, GitHub notes, Mermaid, YouTube and Bluesky extensions."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769041149152,
-		"errorAt": 1769213870289
+		"indexedAt": 1770510492185
 	},
 	"references": {
 		"main": []
