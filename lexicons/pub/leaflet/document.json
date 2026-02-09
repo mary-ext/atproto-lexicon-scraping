@@ -62,6 +62,10 @@
 							"maxLength": 30000,
 							"maxGraphemes": 3000
 						},
+						"preferences": {
+							"ref": "pub.leaflet.publication#preferences",
+							"type": "ref"
+						},
 						"publication": {
 							"type": "string",
 							"format": "at-uri"
@@ -81,7 +85,7 @@
 		"description": "A lexicon for long form rich media documents"
 	},
 	"meta": {
-		"indexedAt": 1769041149152,
+		"indexedAt": 1770596599657,
 		"errorAt": 1760659937196
 	},
 	"references": {

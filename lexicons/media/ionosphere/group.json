@@ -20,6 +20,20 @@
 								"image/*"
 							]
 						},
+						"kind": {
+							"type": "string",
+							"maxLength": 128,
+							"description": "Type of group, see Table 30 of DAB SPI for idea",
+							"knownValues": [
+								"series",
+								"show",
+								"concept",
+								"magazine",
+								"topic",
+								"otherCollection",
+								"otherChoice"
+							]
+						},
 						"name": {
 							"type": "string",
 							"maxGraphemes": 128
@@ -46,8 +60,8 @@
 						"memberOf": {
 							"type": "array",
 							"items": {
-								"type": "string",
-								"format": "at-uri"
+								"ref": "media.ionosphere.defs#membership",
+								"type": "ref"
 							},
 							"description": "A list of groups this record is a member of"
 						},
@@ -69,7 +83,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770078164490
+		"indexedAt": 1770596599657
 	},
 	"references": {
 		"main": [

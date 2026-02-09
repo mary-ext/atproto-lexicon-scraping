@@ -17,10 +17,19 @@
 							"type": "string",
 							"maxLength": 1000
 						},
+						"images": {
+							"type": "array",
+							"items": {
+								"ref": "#image",
+								"type": "ref"
+							},
+							"maxLength": 20,
+							"description": "Blob references for images embedded in the markdown content."
+						},
 						"content": {
 							"type": "string",
 							"maxLength": 10000,
-							"description": "Markdown content of the blog post"
+							"description": "Markdown content. Local image paths are replaced with blob CIDs at publish time."
 						},
 						"createdAt": {
 							"type": "string",
@@ -33,15 +42,37 @@
 					}
 				},
 				"description": "A markdown blog post with LaTeX, GitHub notes, Mermaid, YouTube and Bluesky extensions."
+			},
+			"image": {
+				"type": "object",
+				"required": [
+					"image"
+				],
+				"properties": {
+					"alt": {
+						"type": "string",
+						"maxLength": 2000,
+						"description": "Alt text for the image."
+					},
+					"image": {
+						"type": "blob",
+						"accept": [
+							"image/*"
+						],
+						"maxSize": 2000000
+					}
+				},
+				"descriptions": "Images from the markdown content, separately uploaded and link in markdown content with blob CID."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770510492185
+		"indexedAt": 1770596599657
 	},
 	"references": {
-		"main": []
+		"main": [],
+		"image": []
 	}
 }

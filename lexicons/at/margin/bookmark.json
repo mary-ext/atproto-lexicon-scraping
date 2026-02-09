@@ -57,7 +57,8 @@
 		"description": "A bookmark record - save URL for later"
 	},
 	"meta": {
-		"indexedAt": 1768954709804
+		"indexedAt": 1768954709804,
+		"errorAt": 1770596599657
 	},
 	"references": {
 		"main": []

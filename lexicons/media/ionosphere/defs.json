@@ -143,6 +143,22 @@
 				},
 				"description": "Represents the method of accessing a recording"
 			},
+			"membership": {
+				"type": "object",
+				"required": [
+					"group"
+				],
+				"properties": {
+					"group": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"index": {
+						"type": "integer"
+					}
+				},
+				"description": "Represents membership to a group, optionally with an index"
+			},
 			"geocoordinates": {
 				"type": "object",
 				"required": [
@@ -165,7 +181,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770250962710
+		"indexedAt": 1770596599657
 	},
 	"references": {
 		"genre": [],
@@ -175,6 +191,7 @@
 		"entity": [],
 		"broadcast": [],
 		"recording": [],
+		"membership": [],
 		"geocoordinates": []
 	}
 }

@@ -1,7 +1,7 @@
 {
-	"authority": "did:plc:2hcnfmbfr4ucfbjpnvjqvt3e",
+	"authority": "did:plc:25z6ogppprfvijcnqo2fsfce",
 	"schema": {
-		"id": "cat.vt3e.gallery.group",
+		"id": "store.88x31.like",
 		"defs": {
 			"main": {
 				"key": "tid",
@@ -9,34 +9,32 @@
 				"record": {
 					"type": "object",
 					"required": [
+						"subject",
 						"createdAt"
 					],
 					"properties": {
-						"title": {
-							"type": "string",
-							"maxLength": 300
+						"subject": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref"
 						},
 						"createdAt": {
 							"type": "string",
 							"format": "datetime"
-						},
-						"description": {
-							"type": "string",
-							"maxLength": 1000
 						}
 					}
 				},
-				"description": "defines a group of images in the gallery"
+				"description": "Record declaring a 'like' of a piece of an 88x31 button."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1767658691107,
-		"errorAt": 1769300406741
+		"indexedAt": 1770596599657
 	},
 	"references": {
-		"main": []
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
 	}
 }

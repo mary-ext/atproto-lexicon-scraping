@@ -1,0 +1,124 @@
+{
+	"authority": "did:plc:mdg3w2kpadcyxy33pizokzf3",
+	"schema": {
+		"id": "at.inlay.component",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"type"
+					],
+					"properties": {
+						"via": {
+							"refs": [
+								"at.inlay.defs#viaValtown"
+							],
+							"type": "union",
+							"description": "Platform-managed deployment metadata"
+						},
+						"body": {
+							"refs": [
+								"#external",
+								"#template"
+							],
+							"type": "union",
+							"description": "How this component is rendered. Omit for primitives rendered by the host."
+						},
+						"type": {
+							"type": "string",
+							"format": "nsid",
+							"description": "NSID this component implements (also the XRPC procedure)"
+						},
+						"imports": {
+							"type": "array",
+							"items": {
+								"ref": "#import",
+								"type": "ref"
+							},
+							"description": "Where to resolve types from"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"collection": {
+							"type": "string",
+							"description": "Collection type this component renders. An NSID for specific collections, or '*' for universal components (e.g. JSON viewers). Omit for generic components like layout primitives.",
+							"knownValues": [
+								"*"
+							]
+						},
+						"description": {
+							"type": "string"
+						},
+						"displayName": {
+							"type": "string"
+						}
+					}
+				},
+				"description": "Component record - declares an implementation of a type"
+			},
+			"import": {
+				"type": "object",
+				"required": [
+					"types",
+					"pack"
+				],
+				"properties": {
+					"pack": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "Pack to resolve from"
+					},
+					"types": {
+						"type": "string",
+						"description": "Type pattern to match (glob like com.alice.* or concrete like com.alice.Avatar)"
+					}
+				}
+			},
+			"external": {
+				"type": "object",
+				"required": [
+					"did"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did",
+						"description": "DID of the service hosting this component"
+					}
+				},
+				"description": "Component rendered by calling a remote XRPC endpoint"
+			},
+			"template": {
+				"type": "object",
+				"required": [
+					"node"
+				],
+				"properties": {
+					"node": {
+						"type": "unknown",
+						"description": "Serialized element tree with bindings"
+					}
+				},
+				"description": "Component rendered by the host from a serialized element tree"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770596599657
+	},
+	"references": {
+		"main": [
+			"at.inlay.defs"
+		],
+		"import": [],
+		"external": [],
+		"template": []
+	}
+}

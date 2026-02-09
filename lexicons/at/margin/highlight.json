@@ -47,7 +47,8 @@
 		"description": "A lightweight highlight record - annotation without body text"
 	},
 	"meta": {
-		"indexedAt": 1768954709804
+		"indexedAt": 1768954709804,
+		"errorAt": 1770596599657
 	},
 	"references": {
 		"main": [

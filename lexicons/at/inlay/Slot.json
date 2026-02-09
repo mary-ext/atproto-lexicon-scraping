@@ -1,0 +1,35 @@
+{
+	"authority": "did:plc:mdg3w2kpadcyxy33pizokzf3",
+	"schema": {
+		"id": "at.inlay.Slot",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"id"
+						],
+						"properties": {
+							"id": {
+								"type": "string",
+								"description": "Key into the host's stash map"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Opaque reference to a stashed element during XRPC calls."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770596599657
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -46,10 +46,11 @@
 						"location": {
 							"refs": [
 								"com.atproto.repo.strongRef#main",
-								"community.lexicon.location.hthree#main"
+								"community.lexicon.location.hthree#main",
+								"#osmLocation"
 							],
 							"type": "union",
-							"description": "Where this event occurred (an h3 cell, or a link to an outpost — org.passingreads.outpost.registration)"
+							"description": "Where this event occurred (an h3 cell, an OSM place, or a link to an outpost — org.passingreads.outpost.registration)"
 						},
 						"occurredAt": {
 							"type": "string",
@@ -59,18 +60,46 @@
 					}
 				},
 				"description": "The status of a book has changed."
+			},
+			"osmLocation": {
+				"type": "object",
+				"required": [
+					"osmId",
+					"name",
+					"value"
+				],
+				"properties": {
+					"name": {
+						"type": "string",
+						"description": "The name of the place from OpenStreetMap."
+					},
+					"osmId": {
+						"type": "string",
+						"description": "The OpenStreetMap element ID in interoperable format: N (node), W (way), or R (relation) prefix followed by numeric ID. Example: N123456789"
+					},
+					"value": {
+						"type": "string",
+						"description": "The H3 cell index for proximity queries."
+					},
+					"category": {
+						"type": "string",
+						"description": "The type of place (e.g., cafe, library, park)."
+					}
+				},
+				"description": "A physical location from OpenStreetMap."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769473176610
+		"indexedAt": 1770596599657
 	},
 	"references": {
 		"main": [
 			"com.atproto.repo.strongRef",
 			"community.lexicon.location.hthree"
-		]
+		],
+		"osmLocation": []
 	}
 }

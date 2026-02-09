@@ -24,7 +24,9 @@
 							"at.margin.like",
 							"at.margin.collection",
 							"at.margin.collectionItem",
-							"at.margin.profile"
+							"at.margin.profile",
+							"at.margin.apikey",
+							"at.margin.preferences"
 						]
 					}
 				],
@@ -36,7 +38,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769386781977
+		"indexedAt": 1770596599657
 	},
 	"references": {
 		"main": []
