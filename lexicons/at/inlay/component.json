@@ -21,8 +21,8 @@
 						},
 						"body": {
 							"refs": [
-								"#external",
-								"#template"
+								"#bodyExternal",
+								"#bodyTemplate"
 							],
 							"type": "union",
 							"description": "How this component is rendered. Omit for primitives rendered by the host."
@@ -31,6 +31,26 @@
 							"type": "string",
 							"format": "nsid",
 							"description": "NSID this component implements (also the XRPC procedure)"
+						},
+						"view": {
+							"type": "array",
+							"items": {
+								"refs": [
+									"#viewRecord",
+									"#viewCollection",
+									"#viewIdentity"
+								],
+								"type": "union"
+							},
+							"description": "What kinds of pages this component is a view for"
+						},
+						"accepts": {
+							"type": "array",
+							"items": {
+								"ref": "#acceptsEntry",
+								"type": "ref"
+							},
+							"description": "Data types this component can render. Used for data-driven discovery."
 						},
 						"imports": {
 							"type": "array",
@@ -44,17 +64,7 @@
 							"type": "string",
 							"format": "datetime"
 						},
-						"collection": {
-							"type": "string",
-							"description": "Collection type this component renders. An NSID for specific collections, or '*' for universal components (e.g. JSON viewers). Omit for generic components like layout primitives.",
-							"knownValues": [
-								"*"
-							]
-						},
 						"description": {
-							"type": "string"
-						},
-						"displayName": {
 							"type": "string"
 						}
 					}
@@ -79,7 +89,48 @@
 					}
 				}
 			},
-			"external": {
+			"viewRecord": {
+				"type": "object",
+				"properties": {
+					"collection": {
+						"type": "string",
+						"format": "nsid",
+						"description": "The collection this component views. Omit for any-collection."
+					}
+				},
+				"description": "Component is a view for individual records of a collection. Omit collection for a generic record view."
+			},
+			"acceptsEntry": {
+				"type": "object",
+				"required": [
+					"format",
+					"prop"
+				],
+				"properties": {
+					"prop": {
+						"type": "string",
+						"description": "Prop to bind matched data to"
+					},
+					"format": {
+						"type": "string",
+						"description": "Data format this entry matches",
+						"knownValues": [
+							"at-uri",
+							"did",
+							"blob",
+							"datetime",
+							"uri"
+						]
+					},
+					"collection": {
+						"type": "string",
+						"format": "nsid",
+						"description": "For at-uri format: restrict to this collection"
+					}
+				},
+				"description": "A data type this component can render via a specific prop"
+			},
+			"bodyExternal": {
 				"type": "object",
 				"required": [
 					"did"
@@ -93,7 +144,7 @@
 				},
 				"description": "Component rendered by calling a remote XRPC endpoint"
 			},
-			"template": {
+			"bodyTemplate": {
 				"type": "object",
 				"required": [
 					"node"
@@ -105,20 +156,40 @@
 					}
 				},
 				"description": "Component rendered by the host from a serialized element tree"
+			},
+			"viewIdentity": {
+				"type": "object",
+				"properties": {},
+				"description": "Component is a view for an identity (person/DID)."
+			},
+			"viewCollection": {
+				"type": "object",
+				"properties": {
+					"collection": {
+						"type": "string",
+						"format": "nsid",
+						"description": "The collection this component lists. Omit for any-collection."
+					}
+				},
+				"description": "Component is a view for a collection listing. Omit collection for a generic collection view."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770596599657
+		"indexedAt": 1770683260056
 	},
 	"references": {
 		"main": [
 			"at.inlay.defs"
 		],
 		"import": [],
-		"external": [],
-		"template": []
+		"viewRecord": [],
+		"acceptsEntry": [],
+		"bodyExternal": [],
+		"bodyTemplate": [],
+		"viewIdentity": [],
+		"viewCollection": []
 	}
 }

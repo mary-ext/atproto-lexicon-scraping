@@ -64,6 +64,7 @@
 						"minLength": 1,
 						"description": "The policy of who can message the account, this value is included in the keyPackage, but is duplicated here to allow applications to decide if they should show a 'Message on Germ' button to the viewer.",
 						"knownValues": [
+							"none",
 							"usersIFollow",
 							"everyone"
 						]
@@ -75,7 +76,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769213870289
+		"indexedAt": 1770683260056
 	},
 	"references": {
 		"main": [],

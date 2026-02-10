@@ -26,9 +26,10 @@
 						"type": "string",
 						"description": "The current state of the book, derived from the latest event",
 						"knownValues": [
-							"org.passingreads.book.registration",
+							"org.passingreads.book.checkin",
 							"org.passingreads.book.drop",
-							"org.passingreads.book.find"
+							"org.passingreads.book.find",
+							"org.passingreads.book.registration"
 						]
 					},
 					"events": {
@@ -91,6 +92,7 @@
 						"type": "string",
 						"description": "What event occurred",
 						"knownValues": [
+							"org.passingreads.book.checkin",
 							"org.passingreads.book.drop",
 							"org.passingreads.book.find"
 						]
@@ -165,7 +167,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770510492185
+		"indexedAt": 1770683260056
 	},
 	"references": {
 		"statefulBook": [

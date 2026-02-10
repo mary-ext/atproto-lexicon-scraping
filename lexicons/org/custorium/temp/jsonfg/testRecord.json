@@ -19,12 +19,12 @@
 						},
 						"geometry": {
 							"refs": [
-								"org.custorium.temp.jsonfg.geometryObjects#point",
-								"org.custorium.temp.jsonfg.geometryObjects#polygon",
-								"org.custorium.temp.jsonfg.geometryObjects#lineString",
-								"org.custorium.temp.jsonfg.geometryObjects#multiPoint",
-								"org.custorium.temp.jsonfg.geometryObjects#multiPolygon",
-								"org.custorium.temp.jsonfg.geometryObjects#multiLineString"
+								"org.custorium.temp.jsonfg.geometryObject#point",
+								"org.custorium.temp.jsonfg.geometryObject#polygon",
+								"org.custorium.temp.jsonfg.geometryObject#lineString",
+								"org.custorium.temp.jsonfg.geometryObject#multiPoint",
+								"org.custorium.temp.jsonfg.geometryObject#multiPolygon",
+								"org.custorium.temp.jsonfg.geometryObject#multiLineString"
 							],
 							"type": "union"
 						}
@@ -37,12 +37,12 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770423704446
+		"indexedAt": 1770683260056
 	},
 	"references": {
 		"main": [
 			"org.custorium.temp.jsonfg.coordRefSys",
-			"org.custorium.temp.jsonfg.geometryObjects"
+			"org.custorium.temp.jsonfg.geometryObject"
 		]
 	}
 }

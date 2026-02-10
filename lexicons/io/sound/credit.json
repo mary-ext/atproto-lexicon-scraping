@@ -1,0 +1,53 @@
+{
+	"authority": "did:plc:zry6onckwxsva7flwccrj5pi",
+	"schema": {
+		"id": "io.sound.credit",
+		"defs": {
+			"main": {
+				"type": "object",
+				"required": [
+					"name",
+					"role"
+				],
+				"properties": {
+					"url": {
+						"type": "string",
+						"format": "uri",
+						"description": "URL to credited person's profile or website"
+					},
+					"name": {
+						"type": "string",
+						"maxLength": 640,
+						"description": "Name of the credited person",
+						"maxGraphemes": 320
+					},
+					"role": {
+						"type": "string",
+						"maxLength": 64,
+						"description": "Role: composer, lyricist, arranger, etc",
+						"knownValues": [
+							"composer",
+							"arranger",
+							"lyricist",
+							"transcriber",
+							"orchestrator",
+							"adapter",
+							"artist",
+							"producer"
+						],
+						"maxGraphemes": 32
+					}
+				},
+				"description": "Attribution for a creative work"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770683260056
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -4,7 +4,7 @@
 		"id": "org.atpodcasting.podcast",
 		"defs": {
 			"main": {
-				"key": "tid",
+				"key": "any",
 				"type": "record",
 				"record": {
 					"type": "object",
@@ -14,7 +14,6 @@
 						"artwork",
 						"language",
 						"feedUrl",
-						"feedGuid",
 						"categories"
 					],
 					"properties": {
@@ -30,7 +29,7 @@
 								"image/jpeg"
 							],
 							"maxSize": 5000000,
-							"description": "Cover artwork for the podcast. Recommended: 1400x1400 to 3000x3000 pixels, square."
+							"description": "Cover artwork for the podcast. Recommended: 1400x1400 to 3000x3000 pixels, square, no alpha channel."
 						},
 						"feedUrl": {
 							"type": "string",
@@ -40,11 +39,6 @@
 						"explicit": {
 							"type": "boolean",
 							"description": "Whether the podcast contains explicit content. Defaults to false."
-						},
-						"feedGuid": {
-							"type": "string",
-							"maxLength": 36,
-							"description": "Podcasting 2.0 GUID (UUIDv5) as defined by the podcast:guid RSS tag. Provides a persistent identity across the open RSS ecosystem."
 						},
 						"language": {
 							"type": "string",
@@ -67,7 +61,7 @@
 						}
 					}
 				},
-				"description": "A podcast feed/show."
+				"description": "A podcast feed/show. Record key is the podcast's Podcasting 2.0 UUIDv5 GUID, enabling direct lookup from RSS feed metadata."
 			},
 			"category": {
 				"type": "string",
@@ -190,7 +184,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770596599657
+		"indexedAt": 1770683260056
 	},
 	"references": {
 		"main": [],

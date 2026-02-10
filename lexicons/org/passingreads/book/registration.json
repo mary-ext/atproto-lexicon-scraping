@@ -15,6 +15,7 @@
 						"authors",
 						"publicationId",
 						"occurredAt",
+						"bookPub",
 						"bookSig"
 					],
 					"properties": {
@@ -81,7 +82,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769473176610
+		"indexedAt": 1770683260056
 	},
 	"references": {
 		"main": [

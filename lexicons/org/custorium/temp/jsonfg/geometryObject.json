@@ -1,0 +1,286 @@
+{
+	"authority": "did:plc:q3enoeuha5b2zx4p4atxtb7x",
+	"schema": {
+		"id": "org.custorium.temp.jsonfg.geometryObject",
+		"defs": {
+			"point": {
+				"type": "object",
+				"required": [
+					"coordinates"
+				],
+				"properties": {
+					"bbox": {
+						"refs": [
+							"#bbox2d",
+							"#bbox3d"
+						],
+						"type": "union"
+					},
+					"coordRefSys": {
+						"refs": [
+							"org.custorium.temp.jsonfg.coordRefSys#singleRefSys",
+							"org.custorium.temp.jsonfg.coordRefSys#multiRefSys"
+						],
+						"type": "union"
+					},
+					"coordinates": {
+						"ref": "#position",
+						"type": "ref"
+					}
+				},
+				"description": "JsonFG Point"
+			},
+			"bbox2d": {
+				"type": "object",
+				"required": [
+					"bbox"
+				],
+				"properties": {
+					"bbox": {
+						"type": "array",
+						"items": {
+							"ref": "#float64",
+							"type": "ref"
+						},
+						"maxLength": 4,
+						"minLength": 4
+					}
+				}
+			},
+			"bbox3d": {
+				"type": "object",
+				"required": [
+					"bbox"
+				],
+				"properties": {
+					"bbox": {
+						"type": "array",
+						"items": {
+							"ref": "#float64",
+							"type": "ref"
+						},
+						"maxLength": 6,
+						"minLength": 6
+					}
+				}
+			},
+			"float64": {
+				"type": "string",
+				"description": "A float64 represented as a string"
+			},
+			"polygon": {
+				"type": "object",
+				"required": [
+					"coordinates"
+				],
+				"properties": {
+					"bbox": {
+						"refs": [
+							"#bbox2d",
+							"#bbox3d"
+						],
+						"type": "union"
+					},
+					"coordRefSys": {
+						"refs": [
+							"org.custorium.temp.jsonfg.coordRefSys#singleRefSys",
+							"org.custorium.temp.jsonfg.coordRefSys#multiRefSys"
+						],
+						"type": "union"
+					},
+					"coordinates": {
+						"type": "array",
+						"items": {
+							"type": "array",
+							"items": {
+								"ref": "#position",
+								"type": "ref"
+							},
+							"minLength": 4
+						}
+					}
+				},
+				"description": "JsonFG Polygon"
+			},
+			"position": {
+				"type": "array",
+				"items": {
+					"ref": "#float64",
+					"type": "ref"
+				},
+				"maxLength": 3,
+				"minLength": 2
+			},
+			"lineString": {
+				"type": "object",
+				"required": [
+					"coordinates"
+				],
+				"properties": {
+					"bbox": {
+						"refs": [
+							"#bbox2d",
+							"#bbox3d"
+						],
+						"type": "union"
+					},
+					"coordRefSys": {
+						"refs": [
+							"org.custorium.temp.jsonfg.coordRefSys#singleRefSys",
+							"org.custorium.temp.jsonfg.coordRefSys#multiRefSys"
+						],
+						"type": "union"
+					},
+					"coordinates": {
+						"type": "array",
+						"items": {
+							"ref": "#position",
+							"type": "ref"
+						}
+					}
+				},
+				"description": "JsonFG LineString"
+			},
+			"multiPoint": {
+				"type": "object",
+				"required": [
+					"coordinates"
+				],
+				"properties": {
+					"bbox": {
+						"refs": [
+							"#bbox2d",
+							"#bbox3d"
+						],
+						"type": "union"
+					},
+					"coordRefSys": {
+						"refs": [
+							"org.custorium.temp.jsonfg.coordRefSys#singleRefSys",
+							"org.custorium.temp.jsonfg.coordRefSys#multiRefSys"
+						],
+						"type": "union"
+					},
+					"coordinates": {
+						"type": "array",
+						"items": {
+							"ref": "#position",
+							"type": "ref"
+						}
+					}
+				},
+				"description": "JsonFG MultiPoint"
+			},
+			"position3d": {
+				"type": "array",
+				"items": {
+					"type": "integer"
+				},
+				"maxLength": 3,
+				"minLength": 3
+			},
+			"multiPolygon": {
+				"type": "object",
+				"required": [
+					"coordinates"
+				],
+				"properties": {
+					"bbox": {
+						"refs": [
+							"#bbox2d",
+							"#bbox3d"
+						],
+						"type": "union"
+					},
+					"coordRefSys": {
+						"refs": [
+							"org.custorium.temp.jsonfg.coordRefSys#singleRefSys",
+							"org.custorium.temp.jsonfg.coordRefSys#multiRefSys"
+						],
+						"type": "union"
+					},
+					"coordinates": {
+						"type": "array",
+						"items": {
+							"type": "array",
+							"items": {
+								"type": "array",
+								"items": {
+									"ref": "#position",
+									"type": "ref"
+								},
+								"minLength": 4
+							}
+						}
+					}
+				},
+				"description": "JsonFG MultiPolygon"
+			},
+			"multiLineString": {
+				"type": "object",
+				"required": [
+					"coordinates"
+				],
+				"properties": {
+					"bbox": {
+						"refs": [
+							"#bbox2d",
+							"#bbox3d"
+						],
+						"type": "union"
+					},
+					"coordRefSys": {
+						"refs": [
+							"org.custorium.temp.jsonfg.coordRefSys#singleRefSys",
+							"org.custorium.temp.jsonfg.coordRefSys#multiRefSys"
+						],
+						"type": "union"
+					},
+					"coordinates": {
+						"type": "array",
+						"items": {
+							"type": "array",
+							"items": {
+								"ref": "#position",
+								"type": "ref"
+							},
+							"minLength": 2
+						}
+					}
+				},
+				"description": "JsonFG MultiLineString"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "WIP, A straitforward translation from OGC Features and Geometries Json (https://docs.ogc.org/DRAFTS/21-045.html) to ATProto lexicon, following the draft lexicon styleguide. The most distinct change is the representation of coordinates as strings and type renamed to Lexicon $type"
+	},
+	"meta": {
+		"indexedAt": 1770683260056
+	},
+	"references": {
+		"point": [
+			"org.custorium.temp.jsonfg.coordRefSys"
+		],
+		"bbox2d": [],
+		"bbox3d": [],
+		"float64": [],
+		"polygon": [
+			"org.custorium.temp.jsonfg.coordRefSys"
+		],
+		"position": [],
+		"lineString": [
+			"org.custorium.temp.jsonfg.coordRefSys"
+		],
+		"multiPoint": [
+			"org.custorium.temp.jsonfg.coordRefSys"
+		],
+		"position3d": [],
+		"multiPolygon": [
+			"org.custorium.temp.jsonfg.coordRefSys"
+		],
+		"multiLineString": [
+			"org.custorium.temp.jsonfg.coordRefSys"
+		]
+	}
+}

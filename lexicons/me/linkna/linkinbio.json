@@ -40,6 +40,10 @@
 						"themeConfig": {
 							"ref": "#themeConfig",
 							"type": "ref"
+						},
+						"connectedServices": {
+							"ref": "#connectedServices",
+							"type": "ref"
 						}
 					}
 				},
@@ -302,6 +306,15 @@
 						"type": "string",
 						"description": "Unique identifier for the card."
 					},
+					"size": {
+						"type": "string",
+						"description": "Widget display size. Default: 1x1.",
+						"knownValues": [
+							"1x1",
+							"1x2",
+							"2x2"
+						]
+					},
 					"type": {
 						"type": "string",
 						"const": "github",
@@ -346,6 +359,15 @@
 					"id": {
 						"type": "string",
 						"description": "Unique identifier for the card."
+					},
+					"size": {
+						"type": "string",
+						"description": "Widget display size. Default: 1x1.",
+						"knownValues": [
+							"1x1",
+							"1x2",
+							"2x2"
+						]
 					},
 					"type": {
 						"type": "string",
@@ -418,6 +440,15 @@
 						"type": "string",
 						"description": "Unique identifier for the card."
 					},
+					"size": {
+						"type": "string",
+						"description": "Widget display size. Default: 1x1.",
+						"knownValues": [
+							"1x1",
+							"1x2",
+							"2x2"
+						]
+					},
 					"type": {
 						"type": "string",
 						"const": "goodreads",
@@ -429,7 +460,7 @@
 							"ref": "#goodreadsBook",
 							"type": "ref"
 						},
-						"description": "Books on the shelf."
+						"description": "Books on the currently-reading shelf."
 					},
 					"shelf": {
 						"type": "string",
@@ -438,6 +469,14 @@
 					"enabled": {
 						"type": "boolean",
 						"description": "Whether the widget is visible on the public page. Defaults to true."
+					},
+					"readBooks": {
+						"type": "array",
+						"items": {
+							"ref": "#goodreadsBook",
+							"type": "ref"
+						},
+						"description": "Books on the read shelf (used by 1x2 size)."
 					},
 					"lastSyncedAt": {
 						"type": "string",
@@ -450,6 +489,20 @@
 					}
 				},
 				"description": "A Goodreads bookshelf widget card."
+			},
+			"connectedServices": {
+				"type": "object",
+				"properties": {
+					"githubUsername": {
+						"type": "string",
+						"description": "GitHub username."
+					},
+					"goodreadsUserId": {
+						"type": "string",
+						"description": "Goodreads numeric user ID."
+					}
+				},
+				"description": "Saved service credentials/identifiers for pre-filling widget forms."
 			},
 			"githubContributionDay": {
 				"type": "object",
@@ -481,7 +534,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770510492185,
+		"indexedAt": 1770683260056,
 		"errorAt": 1770423704446
 	},
 	"references": {
@@ -494,6 +547,7 @@
 		"widgetTealfm": [],
 		"goodreadsBook": [],
 		"widgetGoodreads": [],
+		"connectedServices": [],
 		"githubContributionDay": []
 	}
 }

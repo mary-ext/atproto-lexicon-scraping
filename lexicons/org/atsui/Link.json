@@ -1,0 +1,41 @@
+{
+	"authority": "did:plc:e4fjueijznwqm2yxvt7q4mba",
+	"schema": {
+		"id": "org.atsui.Link",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uri"
+						],
+						"properties": {
+							"uri": {
+								"type": "string",
+								"format": "uri"
+							},
+							"children": {
+								"type": "array",
+								"items": {
+									"type": "unknown"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "A hyperlink."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770683260056
+	},
+	"references": {
+		"main": []
+	}
+}
