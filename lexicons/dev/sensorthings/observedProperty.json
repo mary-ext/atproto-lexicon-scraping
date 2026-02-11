@@ -1,0 +1,48 @@
+{
+	"authority": "did:plc:gqcmwsromoknyigx2afqcvqk",
+	"schema": {
+		"id": "dev.sensorthings.observedProperty",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"definition",
+						"createdAt"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 256
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"definition": {
+							"type": "string",
+							"format": "uri",
+							"description": "URI identifying the property from a controlled vocabulary (CF Standard Names, QUDT quantity kinds, etc.)"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 2048
+						}
+					}
+				},
+				"description": "The phenomenon being observed (e.g. air temperature, PM2.5 concentration)."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770769626457
+	},
+	"references": {
+		"main": []
+	}
+}

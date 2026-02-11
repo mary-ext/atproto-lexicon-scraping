@@ -1,0 +1,136 @@
+{
+	"authority": "did:plc:gqcmwsromoknyigx2afqcvqk",
+	"schema": {
+		"id": "dev.sensorthings.multiObservation",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"thing",
+						"sensor",
+						"phenomenonTime",
+						"entries"
+					],
+					"properties": {
+						"thing": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT-URI of the dev.sensorthings.thing record"
+						},
+						"sensor": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT-URI of the dev.sensorthings.sensor record (the instrument or process that co-produced these results)"
+						},
+						"entries": {
+							"type": "array",
+							"items": {
+								"ref": "#multiObservationEntry",
+								"type": "ref"
+							},
+							"maxLength": 32,
+							"description": "Array of co-produced result entries"
+						},
+						"resultTime": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Time the results became available"
+						},
+						"derivedFrom": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "at-uri"
+							},
+							"maxLength": 16,
+							"description": "AT-URIs of source observations or datastreams"
+						},
+						"resultQuality": {
+							"type": "string",
+							"maxLength": 64,
+							"description": "Quality flag applying to the composite observation as a whole",
+							"knownValues": [
+								"dev.sensorthings.quality#good",
+								"dev.sensorthings.quality#suspect",
+								"dev.sensorthings.quality#missing"
+							]
+						},
+						"phenomenonTime": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Time the phenomenon was observed. Start of interval if phenomenonTimeEnd is present."
+						},
+						"phenomenonTimeEnd": {
+							"type": "string",
+							"format": "datetime",
+							"description": "End of observation interval. For wave statistics, this is the end of the burst window."
+						}
+					}
+				},
+				"description": "A composite observation bundling multiple co-produced results from a single act of sensing. Each entry carries its own ObservedProperty, unit, and scale metadata. Use this instead of separate Observations when the results are genuinely co-produced (e.g. wave statistics from spectral processing) and have no independent existence."
+			},
+			"multiObservationEntry": {
+				"type": "object",
+				"required": [
+					"observedProperty",
+					"unitOfMeasurement",
+					"result"
+				],
+				"properties": {
+					"result": {
+						"refs": [
+							"dev.sensorthings.observation#numericResult",
+							"dev.sensorthings.observation#categoryResult",
+							"dev.sensorthings.observation#booleanResult",
+							"dev.sensorthings.observation#arrayResult",
+							"dev.sensorthings.observation#geoPointResult"
+						],
+						"type": "union"
+					},
+					"resultQuality": {
+						"type": "string",
+						"maxLength": 64,
+						"description": "Quality flag for this specific entry, if different from the composite quality",
+						"knownValues": [
+							"dev.sensorthings.quality#good",
+							"dev.sensorthings.quality#suspect",
+							"dev.sensorthings.quality#missing"
+						]
+					},
+					"observedProperty": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "AT-URI of the dev.sensorthings.observedProperty record"
+					},
+					"resultScaleFactor": {
+						"type": "integer",
+						"description": "Scale factor for this entry's numeric result. Default 0."
+					},
+					"unitOfMeasurement": {
+						"ref": "dev.sensorthings.datastream#unitOfMeasurement",
+						"type": "ref"
+					}
+				},
+				"description": "A single result within a composite observation, fully self-describing."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770769626457
+	},
+	"references": {
+		"main": [
+			"dev.sensorthings.datastream",
+			"dev.sensorthings.observation"
+		],
+		"multiObservationEntry": [
+			"dev.sensorthings.datastream",
+			"dev.sensorthings.observation"
+		]
+	}
+}

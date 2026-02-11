@@ -1,7 +1,7 @@
 {
 	"authority": "did:plc:apun3uo5jqm34pxzqq6on754",
 	"schema": {
-		"id": "app.certified.profile",
+		"id": "app.certified.actor.profile",
 		"defs": {
 			"main": {
 				"key": "literal:self",
@@ -59,8 +59,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770423704446,
-		"errorAt": 1770769626457
+		"indexedAt": 1770769626457
 	},
 	"references": {
 		"main": [

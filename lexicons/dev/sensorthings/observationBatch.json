@@ -1,0 +1,91 @@
+{
+	"authority": "did:plc:gqcmwsromoknyigx2afqcvqk",
+	"schema": {
+		"id": "dev.sensorthings.observationBatch",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"datastream",
+						"windowStart",
+						"windowEnd",
+						"observations"
+					],
+					"properties": {
+						"windowEnd": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"datastream": {
+							"type": "string",
+							"format": "at-uri"
+						},
+						"windowStart": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"observations": {
+							"type": "array",
+							"items": {
+								"ref": "#batchEntry",
+								"type": "ref"
+							},
+							"maxLength": 1440,
+							"description": "Array of observations in chronological order"
+						}
+					}
+				},
+				"description": "A batch of observations for a single Datastream, covering a contiguous time window. Trades individual addressability for reduced commit overhead."
+			},
+			"batchEntry": {
+				"type": "object",
+				"required": [
+					"t",
+					"result"
+				],
+				"properties": {
+					"q": {
+						"type": "string",
+						"knownValues": [
+							"dev.sensorthings.quality#good",
+							"dev.sensorthings.quality#suspect",
+							"dev.sensorthings.quality#missing"
+						]
+					},
+					"t": {
+						"type": "string",
+						"format": "datetime",
+						"description": "phenomenonTime"
+					},
+					"result": {
+						"refs": [
+							"dev.sensorthings.observation#numericResult",
+							"dev.sensorthings.observation#categoryResult",
+							"dev.sensorthings.observation#booleanResult",
+							"dev.sensorthings.observation#arrayResult",
+							"dev.sensorthings.observation#geoPointResult"
+						],
+						"type": "union",
+						"description": "Observation result, same union as dev.sensorthings.observation"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1770769626457
+	},
+	"references": {
+		"main": [
+			"dev.sensorthings.observation"
+		],
+		"batchEntry": [
+			"dev.sensorthings.observation"
+		]
+	}
+}

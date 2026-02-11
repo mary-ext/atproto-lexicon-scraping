@@ -54,6 +54,16 @@
 							"maxLength": 10,
 							"description": "Tags for categorization"
 						},
+						"labels": {
+							"ref": "com.atproto.label.defs#selfLabels",
+							"type": "ref",
+							"description": "Self-applied content labels for this annotation"
+						},
+						"rights": {
+							"type": "string",
+							"format": "uri",
+							"description": "License URI (e.g., https://creativecommons.org/licenses/by/4.0/)"
+						},
 						"target": {
 							"ref": "#target",
 							"type": "ref",
@@ -62,6 +72,11 @@
 						"createdAt": {
 							"type": "string",
 							"format": "datetime"
+						},
+						"generator": {
+							"ref": "#generator",
+							"type": "ref",
+							"description": "The client/agent that created this record"
 						},
 						"motivation": {
 							"type": "string",
@@ -122,6 +137,23 @@
 					}
 				},
 				"description": "W3C SpecificResource - the target with optional selector"
+			},
+			"generator": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string",
+						"format": "uri"
+					},
+					"name": {
+						"type": "string"
+					},
+					"homepage": {
+						"type": "string",
+						"format": "uri"
+					}
+				},
+				"description": "The client/agent that created this record"
 			},
 			"timeState": {
 				"type": "object",
@@ -294,13 +326,16 @@
 		"description": "W3C Web Annotation Data Model compliant annotation record for ATProto"
 	},
 	"meta": {
-		"indexedAt": 1768954709804,
+		"indexedAt": 1770769626457,
 		"errorAt": 1770596599657
 	},
 	"references": {
 		"body": [],
-		"main": [],
+		"main": [
+			"com.atproto.label.defs"
+		],
 		"target": [],
+		"generator": [],
 		"timeState": [],
 		"cssSelector": [],
 		"rangeSelector": [],

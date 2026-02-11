@@ -36,6 +36,11 @@
 							"format": "uri",
 							"description": "URL of the podcast's RSS feed."
 						},
+						"movedTo": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT URI of the new canonical podcast record after an ownership transfer. When set, consumers should follow this reference to the current record."
+						},
 						"explicit": {
 							"type": "boolean",
 							"description": "Whether the podcast contains explicit content. Defaults to false."
@@ -184,7 +189,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770683260056
+		"indexedAt": 1770769626457
 	},
 	"references": {
 		"main": [],
