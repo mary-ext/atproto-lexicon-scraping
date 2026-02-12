@@ -14,7 +14,8 @@
 						"artwork",
 						"language",
 						"feedUrl",
-						"categories"
+						"categories",
+						"createdAt"
 					],
 					"properties": {
 						"title": {
@@ -49,6 +50,11 @@
 							"type": "string",
 							"format": "language",
 							"description": "Primary language of the podcast (ISO 639-1 two-letter code, e.g. 'en', 'es', 'pt')."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When the podcast record was created."
 						},
 						"categories": {
 							"type": "array",
@@ -189,7 +195,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770769626457
+		"indexedAt": 1770855719351
 	},
 	"references": {
 		"main": [],

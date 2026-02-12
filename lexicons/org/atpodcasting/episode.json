@@ -14,7 +14,8 @@
 						"media",
 						"publishedAt",
 						"duration",
-						"feedItemGuid"
+						"feedItemGuid",
+						"updatedAt"
 					],
 					"properties": {
 						"media": {
@@ -46,10 +47,19 @@
 							"minimum": 0,
 							"description": "Duration of the episode in seconds."
 						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When the episode record was last updated."
+						},
 						"transcript": {
-							"ref": "#transcriptRef",
-							"type": "ref",
-							"description": "Reference to an externally hosted transcript file (e.g. VTT, SRT, JSON)."
+							"type": "array",
+							"items": {
+								"ref": "#transcriptRef",
+								"type": "ref"
+							},
+							"maxLength": 10,
+							"description": "References to externally hosted transcript files (e.g. VTT, SRT, JSON). Multiple entries allow providing transcripts in different formats."
 						},
 						"description": {
 							"type": "string",
@@ -143,6 +153,11 @@
 						"format": "uri",
 						"description": "URL of the transcript file."
 					},
+					"language": {
+						"type": "string",
+						"format": "language",
+						"description": "Language of the transcript (ISO 639-1 two-letter code, e.g. 'en', 'es', 'pt')."
+					},
 					"mimeType": {
 						"type": "string",
 						"description": "MIME type of the transcript file (e.g. text/vtt, application/srt, application/json)."
@@ -155,7 +170,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770683260056,
+		"indexedAt": 1770855719351,
 		"errorAt": 1770596599657
 	},
 	"references": {
