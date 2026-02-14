@@ -27,7 +27,8 @@
 		"description": "Auth for dev.vielle.dnd.astral records"
 	},
 	"meta": {
-		"indexedAt": 1769386781977
+		"indexedAt": 1769386781977,
+		"errorAt": 1771028540876
 	},
 	"references": {
 		"main": []

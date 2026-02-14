@@ -26,7 +26,8 @@
 		"description": "Permission to create a new signature for a guestbook"
 	},
 	"meta": {
-		"indexedAt": 1767485983471
+		"indexedAt": 1767485983471,
+		"errorAt": 1771028540876
 	},
 	"references": {
 		"main": []

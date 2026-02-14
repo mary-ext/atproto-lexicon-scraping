@@ -55,7 +55,8 @@
 		"description": "Schema for storing astral powers. Used for dnd.vielle.dev"
 	},
 	"meta": {
-		"indexedAt": 1769473176610
+		"indexedAt": 1769473176610,
+		"errorAt": 1771028540876
 	},
 	"references": {
 		"main": [],

@@ -69,7 +69,8 @@
 		"description": "Categories for releases and content."
 	},
 	"meta": {
-		"indexedAt": 1768954709804
+		"indexedAt": 1768954709804,
+		"errorAt": 1771028540876
 	},
 	"references": {
 		"dlc": [],

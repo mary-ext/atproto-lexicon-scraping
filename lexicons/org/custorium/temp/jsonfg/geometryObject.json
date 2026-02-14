@@ -256,7 +256,8 @@
 		"description": "WIP, A straitforward translation from OGC Features and Geometries Json (https://docs.ogc.org/DRAFTS/21-045.html) to ATProto lexicon, following the draft lexicon styleguide. The most distinct change is the representation of coordinates as strings and type renamed to Lexicon $type"
 	},
 	"meta": {
-		"indexedAt": 1770683260056
+		"indexedAt": 1770683260056,
+		"errorAt": 1771028540876
 	},
 	"references": {
 		"point": [

@@ -45,7 +45,8 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1764202535809
+		"indexedAt": 1764202535809,
+		"errorAt": 1771028540876
 	},
 	"references": {
 		"profileViewBasic": []

@@ -13,6 +13,14 @@
 						"content"
 					],
 					"properties": {
+						"theme": {
+							"type": "string",
+							"description": "Display theme for the note.",
+							"knownValues": [
+								"light",
+								"dark"
+							]
+						},
 						"title": {
 							"type": "string",
 							"maxLength": 1000
@@ -31,9 +39,18 @@
 							"maxLength": 10000,
 							"description": "Markdown content. Local image paths are replaced with blob CIDs at publish time."
 						},
+						"fontSize": {
+							"type": "integer",
+							"description": "Font size in points. Recommended range: 9–21, but clients may allow larger sizes for accessibility."
+						},
 						"createdAt": {
 							"type": "string",
 							"format": "datetime"
+						},
+						"fontFamily": {
+							"type": "string",
+							"maxLength": 200,
+							"description": "Font family name available from Coollabs."
 						},
 						"publishedAt": {
 							"type": "string",
@@ -69,7 +86,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770596599657
+		"indexedAt": 1771028540876
 	},
 	"references": {
 		"main": [],

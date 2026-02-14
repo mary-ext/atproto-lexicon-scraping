@@ -141,16 +141,10 @@
 	"references": {
 		"main": [
 			"app.bsky.actor.defs",
-			"app.bsky.embed.external",
-			"app.bsky.graph.defs",
-			"app.bsky.notification.defs",
 			"com.atproto.label.defs"
 		],
 		"notification": [
 			"app.bsky.actor.defs",
-			"app.bsky.embed.external",
-			"app.bsky.graph.defs",
-			"app.bsky.notification.defs",
 			"com.atproto.label.defs"
 		]
 	}

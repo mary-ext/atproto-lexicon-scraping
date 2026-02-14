@@ -1,0 +1,44 @@
+{
+	"authority": "did:plc:mdg3w2kpadcyxy33pizokzf3",
+	"schema": {
+		"id": "at.inlay.Maybe",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"children"
+						],
+						"properties": {
+							"children": {
+								"type": "array",
+								"items": {
+									"ref": "at.inlay.defs#element",
+									"type": "ref"
+								}
+							},
+							"fallback": {
+								"ref": "at.inlay.defs#element",
+								"type": "ref"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Renders children if all bindings resolve; otherwise renders fallback."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771028540876
+	},
+	"references": {
+		"main": [
+			"at.inlay.defs"
+		]
+	}
+}

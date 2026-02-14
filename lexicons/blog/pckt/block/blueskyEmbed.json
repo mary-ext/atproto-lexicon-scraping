@@ -22,7 +22,8 @@
 		"description": "Embedded Bluesky social media post. References a Bluesky post via AT Protocol strongRef."
 	},
 	"meta": {
-		"indexedAt": 1763424966943
+		"indexedAt": 1763424966943,
+		"errorAt": 1771028540876
 	},
 	"references": {
 		"main": [

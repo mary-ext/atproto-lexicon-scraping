@@ -75,7 +75,6 @@
 			"app.bsky.feed.defs",
 			"app.bsky.graph.defs",
 			"app.bsky.labeler.defs",
-			"app.bsky.notification.defs",
 			"app.bsky.richtext.facet",
 			"com.atproto.label.defs"
 		]

@@ -22,7 +22,8 @@
 		"description": "An embeddable gallery block that references a standalone gallery."
 	},
 	"meta": {
-		"indexedAt": 1770423704446
+		"indexedAt": 1770423704446,
+		"errorAt": 1771028540876
 	},
 	"references": {
 		"main": []

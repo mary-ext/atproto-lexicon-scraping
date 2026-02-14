@@ -120,7 +120,8 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769732453010
+		"indexedAt": 1769732453010,
+		"errorAt": 1771028540876
 	},
 	"references": {
 		"main": [],

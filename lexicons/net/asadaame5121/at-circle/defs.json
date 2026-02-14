@@ -28,7 +28,8 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1767053832516
+		"indexedAt": 1767053832516,
+		"errorAt": 1771028540876
 	},
 	"references": {
 		"ringRef": []

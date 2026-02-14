@@ -369,47 +369,28 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768004244235
+		"indexedAt": 1768004244235,
+		"errorAt": 1771028540876
 	},
 	"references": {
 		"postView": [
 			"app.bsky.actor.defs",
-			"app.bsky.embed.external",
-			"app.bsky.graph.defs",
-			"app.bsky.notification.defs",
-			"com.atproto.label.defs",
 			"com.atproto.repo.strongRef"
 		],
 		"replyView": [
-			"app.bsky.actor.defs",
-			"app.bsky.embed.external",
-			"app.bsky.graph.defs",
-			"app.bsky.notification.defs",
-			"com.atproto.label.defs"
+			"app.bsky.actor.defs"
 		],
 		"aspectRatio": [],
 		"requestView": [
-			"app.bsky.actor.defs",
-			"app.bsky.embed.external",
-			"app.bsky.graph.defs",
-			"app.bsky.notification.defs",
-			"com.atproto.label.defs"
+			"app.bsky.actor.defs"
 		],
 		"reactionType": [],
 		"collectionView": [
-			"app.bsky.actor.defs",
-			"app.bsky.embed.external",
-			"app.bsky.graph.defs",
-			"app.bsky.notification.defs",
-			"com.atproto.label.defs"
+			"app.bsky.actor.defs"
 		],
 		"reactionCounts": [],
 		"requestResponseView": [
 			"app.bsky.actor.defs",
-			"app.bsky.embed.external",
-			"app.bsky.graph.defs",
-			"app.bsky.notification.defs",
-			"com.atproto.label.defs",
 			"com.atproto.repo.strongRef"
 		]
 	}

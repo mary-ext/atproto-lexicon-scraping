@@ -79,12 +79,10 @@
 	"references": {
 		"main": [
 			"com.atproto.admin.defs",
-			"com.atproto.server.defs",
 			"tools.ozone.signature.defs"
 		],
 		"relatedAccount": [
 			"com.atproto.admin.defs",
-			"com.atproto.server.defs",
 			"tools.ozone.signature.defs"
 		]
 	}

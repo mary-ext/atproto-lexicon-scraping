@@ -77,7 +77,8 @@
 		"description": "WIP, A straitforward translation from OGC Features and Geometries Json (https://portal.ogc.org/files/107269#schema-coordrefsys) to ATProto lexicon, following the draft lexicon styleguide. The most distinct change is addition of a decimals property to higher level objects"
 	},
 	"meta": {
-		"indexedAt": 1770423704446
+		"indexedAt": 1770423704446,
+		"errorAt": 1771028540876
 	},
 	"references": {
 		"multiRefSys": [],

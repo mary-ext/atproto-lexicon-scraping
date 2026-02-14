@@ -32,9 +32,7 @@
 	},
 	"references": {
 		"main": [
-			"app.bsky.actor.defs",
-			"app.bsky.feed.postgate",
-			"app.bsky.feed.threadgate"
+			"app.bsky.actor.defs"
 		]
 	}
 }

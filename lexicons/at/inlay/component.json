@@ -103,32 +103,50 @@
 			"acceptsEntry": {
 				"type": "object",
 				"required": [
-					"format",
+					"type",
 					"prop"
 				],
 				"properties": {
 					"prop": {
 						"type": "string",
-						"description": "Prop to bind matched data to"
+						"description": "Prop to bind matched data to."
+					},
+					"type": {
+						"type": "string",
+						"description": "Lexicon field type.",
+						"knownValues": [
+							"string",
+							"integer",
+							"boolean",
+							"blob",
+							"cid-link",
+							"bytes"
+						]
 					},
 					"format": {
 						"type": "string",
-						"description": "Data format this entry matches",
+						"description": "String format constraint. Only applies when type is 'string'.",
 						"knownValues": [
 							"at-uri",
 							"did",
-							"blob",
 							"datetime",
-							"uri"
+							"uri",
+							"handle",
+							"at-identifier",
+							"nsid",
+							"cid",
+							"language",
+							"record-key",
+							"tid"
 						]
 					},
 					"collection": {
 						"type": "string",
 						"format": "nsid",
-						"description": "For at-uri format: restrict to this collection"
+						"description": "For at-uri strings, restricts to this collection."
 					}
 				},
-				"description": "A data type this component can render via a specific prop"
+				"description": "Declares a data type this component can handle, routed to a specific prop."
 			},
 			"bodyExternal": {
 				"type": "object",
@@ -178,7 +196,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770683260056
+		"indexedAt": 1771028540876
 	},
 	"references": {
 		"main": [
