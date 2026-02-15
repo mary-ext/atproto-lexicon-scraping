@@ -1,0 +1,38 @@
+{
+	"authority": "did:plc:tas6hj2xjrqben5653v5kohk",
+	"schema": {
+		"id": "net.mmatt.my.accounts",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"accounts"
+					],
+					"properties": {
+						"accounts": {
+							"type": "array",
+							"items": {
+								"ref": "com.atproto.repo.strongRef",
+								"type": "ref"
+							}
+						}
+					}
+				},
+				"description": "Record declaring a list of account references."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771115017564
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}

@@ -20,6 +20,13 @@
 					},
 					"encoding": "application/json"
 				},
+				"output": {
+					"schema": {
+						"ref": "at.inlay.defs#response",
+						"type": "ref"
+					},
+					"encoding": "application/json"
+				},
 				"description": "Opaque reference to a stashed element during XRPC calls."
 			}
 		},
@@ -27,9 +34,11 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770596599657
+		"indexedAt": 1771115017564
 	},
 	"references": {
-		"main": []
+		"main": [
+			"at.inlay.defs"
+		]
 	}
 }

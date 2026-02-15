@@ -64,6 +64,11 @@
 							"type": "string",
 							"format": "datetime"
 						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Last update timestamp. Set by the publish flow to bust cached responses."
+						},
 						"description": {
 							"type": "string"
 						}
@@ -196,7 +201,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771028540876
+		"indexedAt": 1771115017564
 	},
 	"references": {
 		"main": [

@@ -559,6 +559,7 @@
 			"app.bsky.embed.video",
 			"app.bsky.graph.defs",
 			"app.bsky.labeler.defs",
+			"app.bsky.notification.defs",
 			"app.bsky.richtext.facet",
 			"com.atproto.label.defs"
 		],
@@ -572,12 +573,17 @@
 			"app.bsky.embed.video",
 			"app.bsky.graph.defs",
 			"app.bsky.labeler.defs",
+			"app.bsky.notification.defs",
 			"app.bsky.richtext.facet",
 			"com.atproto.label.defs"
 		],
 		"reasonPin": [],
 		"blockedPost": [
-			"app.bsky.actor.defs"
+			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
+			"app.bsky.graph.defs",
+			"app.bsky.notification.defs",
+			"com.atproto.label.defs"
 		],
 		"interaction": [],
 		"requestLess": [],
@@ -593,18 +599,30 @@
 			"app.bsky.embed.video",
 			"app.bsky.graph.defs",
 			"app.bsky.labeler.defs",
+			"app.bsky.notification.defs",
 			"app.bsky.richtext.facet",
 			"com.atproto.label.defs"
 		],
 		"notFoundPost": [],
 		"reasonRepost": [
-			"app.bsky.actor.defs"
+			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
+			"app.bsky.graph.defs",
+			"app.bsky.notification.defs",
+			"com.atproto.label.defs"
 		],
 		"blockedAuthor": [
-			"app.bsky.actor.defs"
+			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
+			"app.bsky.graph.defs",
+			"app.bsky.notification.defs",
+			"com.atproto.label.defs"
 		],
 		"generatorView": [
 			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
+			"app.bsky.graph.defs",
+			"app.bsky.notification.defs",
 			"app.bsky.richtext.facet",
 			"com.atproto.label.defs"
 		],
@@ -619,6 +637,7 @@
 			"app.bsky.embed.video",
 			"app.bsky.graph.defs",
 			"app.bsky.labeler.defs",
+			"app.bsky.notification.defs",
 			"app.bsky.richtext.facet",
 			"com.atproto.label.defs"
 		],

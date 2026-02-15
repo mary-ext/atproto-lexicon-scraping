@@ -361,13 +361,18 @@
 		"modlist": [],
 		"listView": [
 			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
+			"app.bsky.notification.defs",
 			"app.bsky.richtext.facet",
 			"com.atproto.label.defs"
 		],
 		"curatelist": [],
 		"listPurpose": [],
 		"listItemView": [
-			"app.bsky.actor.defs"
+			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
+			"app.bsky.notification.defs",
+			"com.atproto.label.defs"
 		],
 		"relationship": [],
 		"listViewBasic": [
@@ -378,12 +383,16 @@
 		"listViewerState": [],
 		"starterPackView": [
 			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
 			"app.bsky.feed.defs",
+			"app.bsky.notification.defs",
 			"app.bsky.richtext.facet",
 			"com.atproto.label.defs"
 		],
 		"starterPackViewBasic": [
 			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
+			"app.bsky.notification.defs",
 			"com.atproto.label.defs"
 		]
 	}

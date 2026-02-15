@@ -55,7 +55,8 @@
 	},
 	"references": {
 		"main": [
-			"com.atproto.admin.defs"
+			"com.atproto.admin.defs",
+			"com.atproto.server.defs"
 		]
 	}
 }

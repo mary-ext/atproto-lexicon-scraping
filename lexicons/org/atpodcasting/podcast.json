@@ -15,9 +15,20 @@
 						"language",
 						"feedUrl",
 						"categories",
+						"guid",
 						"createdAt"
 					],
 					"properties": {
+						"guid": {
+							"type": "string",
+							"maxLength": 36,
+							"description": "Podcasting 2.0 UUIDv5 GUID of the podcast. Must match the record key."
+						},
+						"link": {
+							"type": "string",
+							"format": "uri",
+							"description": "URL of the podcast's homepage or companion website."
+						},
 						"title": {
 							"type": "string",
 							"maxLength": 500,
@@ -59,11 +70,13 @@
 						"categories": {
 							"type": "array",
 							"items": {
-								"ref": "#category",
-								"type": "ref"
+								"refs": [
+									"org.atpodcasting.defs#appleCategory"
+								],
+								"type": "union"
 							},
 							"maxLength": 3,
-							"description": "Podcast categories using Apple Podcasts taxonomy (max 3)."
+							"description": "Podcast categories (max 3)."
 						},
 						"description": {
 							"type": "string",
@@ -73,133 +86,18 @@
 					}
 				},
 				"description": "A podcast feed/show. Record key is the podcast's Podcasting 2.0 UUIDv5 GUID, enabling direct lookup from RSS feed metadata."
-			},
-			"category": {
-				"type": "string",
-				"description": "A podcast category following Apple Podcasts taxonomy. Subcategories use format 'Category > Subcategory'.",
-				"knownValues": [
-					"Arts",
-					"Arts > Books",
-					"Arts > Design",
-					"Arts > Fashion & Beauty",
-					"Arts > Food",
-					"Arts > Performing Arts",
-					"Arts > Visual Arts",
-					"Business",
-					"Business > Careers",
-					"Business > Entrepreneurship",
-					"Business > Investing",
-					"Business > Management",
-					"Business > Marketing",
-					"Business > Non-Profit",
-					"Comedy",
-					"Comedy > Comedy Interviews",
-					"Comedy > Improv",
-					"Comedy > Stand-Up",
-					"Education",
-					"Education > Courses",
-					"Education > How To",
-					"Education > Language Learning",
-					"Education > Self-Improvement",
-					"Fiction",
-					"Fiction > Comedy Fiction",
-					"Fiction > Drama",
-					"Fiction > Science Fiction",
-					"Government",
-					"Health & Fitness",
-					"Health & Fitness > Alternative Health",
-					"Health & Fitness > Fitness",
-					"Health & Fitness > Medicine",
-					"Health & Fitness > Mental Health",
-					"Health & Fitness > Nutrition",
-					"Health & Fitness > Sexuality",
-					"History",
-					"Kids & Family",
-					"Kids & Family > Education for Kids",
-					"Kids & Family > Parenting",
-					"Kids & Family > Pets & Animals",
-					"Kids & Family > Stories for Kids",
-					"Leisure",
-					"Leisure > Animation & Manga",
-					"Leisure > Automotive",
-					"Leisure > Aviation",
-					"Leisure > Crafts",
-					"Leisure > Games",
-					"Leisure > Hobbies",
-					"Leisure > Home & Garden",
-					"Leisure > Video Games",
-					"Music",
-					"Music > Music Commentary",
-					"Music > Music History",
-					"Music > Music Interviews",
-					"News",
-					"News > Business News",
-					"News > Daily News",
-					"News > Entertainment News",
-					"News > News Commentary",
-					"News > Politics",
-					"News > Sports News",
-					"News > Tech News",
-					"Religion & Spirituality",
-					"Religion & Spirituality > Buddhism",
-					"Religion & Spirituality > Christianity",
-					"Religion & Spirituality > Hinduism",
-					"Religion & Spirituality > Islam",
-					"Religion & Spirituality > Judaism",
-					"Religion & Spirituality > Religion",
-					"Religion & Spirituality > Spirituality",
-					"Science",
-					"Science > Astronomy",
-					"Science > Chemistry",
-					"Science > Earth Sciences",
-					"Science > Life Sciences",
-					"Science > Mathematics",
-					"Science > Natural Sciences",
-					"Science > Nature",
-					"Science > Physics",
-					"Science > Social Sciences",
-					"Society & Culture",
-					"Society & Culture > Documentary",
-					"Society & Culture > Personal Journals",
-					"Society & Culture > Philosophy",
-					"Society & Culture > Places & Travel",
-					"Society & Culture > Relationships",
-					"Sports",
-					"Sports > Baseball",
-					"Sports > Basketball",
-					"Sports > Cricket",
-					"Sports > Fantasy Sports",
-					"Sports > Football",
-					"Sports > Golf",
-					"Sports > Hockey",
-					"Sports > Rugby",
-					"Sports > Running",
-					"Sports > Soccer",
-					"Sports > Swimming",
-					"Sports > Tennis",
-					"Sports > Volleyball",
-					"Sports > Wilderness",
-					"Sports > Wrestling",
-					"Technology",
-					"True Crime",
-					"TV & Film",
-					"TV & Film > After Shows",
-					"TV & Film > Film History",
-					"TV & Film > Film Interviews",
-					"TV & Film > Film Reviews",
-					"TV & Film > TV Reviews"
-				]
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770855719351,
+		"indexedAt": 1771115017564,
 		"errorAt": 1771028540876
 	},
 	"references": {
-		"main": [],
-		"category": []
+		"main": [
+			"org.atpodcasting.defs"
+		]
 	}
 }

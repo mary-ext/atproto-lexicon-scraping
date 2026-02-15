@@ -53,14 +53,14 @@
 						}
 					}
 				},
-				"description": "Find books matching the search criteria. Requires authentication."
+				"description": "Find books matching the search criteria. Does not require authentication."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1771115017564,
 		"errorAt": 1760659937196
 	},
 	"references": {

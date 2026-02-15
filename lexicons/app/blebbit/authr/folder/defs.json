@@ -1,0 +1,44 @@
+{
+	"authority": "did:plc:veavz5io7eocwh7dbrhr2thi",
+	"schema": {
+		"id": "app.blebbit.authr.folder.defs",
+		"defs": {
+			"folderForm": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"public": {
+						"type": "boolean"
+					}
+				}
+			},
+			"folderView": {
+				"type": "object",
+				"properties": {
+					"cuid": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"public": {
+						"type": "boolean"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"revision": 1,
+		"description": "Common folder defs for the Authr Example"
+	},
+	"meta": {
+		"indexedAt": 1771115017564
+	},
+	"references": {
+		"folderForm": [],
+		"folderView": []
+	}
+}

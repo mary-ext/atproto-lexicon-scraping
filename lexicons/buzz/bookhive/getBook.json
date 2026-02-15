@@ -98,24 +98,33 @@
 				},
 				"parameters": {
 					"type": "params",
-					"required": [
-						"id"
-					],
 					"properties": {
 						"id": {
 							"type": "string",
 							"description": "The book's hive ID"
+						},
+						"isbn": {
+							"type": "string",
+							"description": "The book ISBN identifier"
+						},
+						"isbn13": {
+							"type": "string",
+							"description": "The book ISBN-13 identifier"
+						},
+						"goodreadsId": {
+							"type": "string",
+							"description": "The Goodreads identifier for the book"
 						}
 					}
 				},
-				"description": "Get a book's info. Requires authentication."
+				"description": "Get a book's info. Does not require authentication."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1765844234444,
+		"indexedAt": 1771115017564,
 		"errorAt": 1760659937196
 	},
 	"references": {

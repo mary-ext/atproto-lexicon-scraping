@@ -1,0 +1,37 @@
+{
+	"authority": "did:plc:fs3xpvrweneqrjgr7v2oow62",
+	"schema": {
+		"id": "dev.regnault.webfishing.savefile",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"uri"
+					],
+					"properties": {
+						"uri": {
+							"type": "string",
+							"format": "at-uri"
+						},
+						"name": {
+							"type": "string"
+						}
+					}
+				},
+				"description": "Record declaring a savefile of Webfishing."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771115017564
+	},
+	"references": {
+		"main": []
+	}
+}

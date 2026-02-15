@@ -1,0 +1,47 @@
+{
+	"authority": "did:plc:zylhqsjug3f76uqxguhviqka",
+	"schema": {
+		"id": "blue.2048.player.profile",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"soloPlay",
+						"syncStatus",
+						"createdAt"
+					],
+					"properties": {
+						"soloPlay": {
+							"type": "boolean",
+							"default": false,
+							"description": "Does not want to show up anywhere. Keep stats to your PDS."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"syncStatus": {
+							"ref": "blue.2048.defs#syncStatus",
+							"type": "ref",
+							"description": "The sync status of this record with the users AT Protocol repo."
+						}
+					}
+				},
+				"description": "A declaration of a at://2048 player's profile"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771115017564
+	},
+	"references": {
+		"main": [
+			"blue.2048.defs"
+		]
+	}
+}

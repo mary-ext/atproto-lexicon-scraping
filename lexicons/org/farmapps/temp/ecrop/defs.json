@@ -1,0 +1,36 @@
+{
+	"authority": "did:plc:nx3sjjz4dgur3lroujerlh3r",
+	"schema": {
+		"id": "org.farmapps.temp.ecrop.defs",
+		"defs": {
+			"codeType": {
+				"type": "object",
+				"required": [
+					"listId",
+					"code"
+				],
+				"properties": {
+					"code": {
+						"type": "string",
+						"format": "record-key"
+					},
+					"listId": {
+						"type": "string",
+						"format": "nsid",
+						"description": "Identifier of the standard code list that contains the allowed codes."
+					}
+				},
+				"description": "Generic class to represent the code list and code that is used"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Generic eCrop definitions"
+	},
+	"meta": {
+		"indexedAt": 1771115017564
+	},
+	"references": {
+		"codeType": []
+	}
+}

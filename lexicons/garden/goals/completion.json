@@ -1,0 +1,83 @@
+{
+	"authority": "did:plc:r4suwlt5zl7sexnfgmi3jctw",
+	"schema": {
+		"id": "garden.goals.completion",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"goalId",
+						"year",
+						"month",
+						"day",
+						"completedAt"
+					],
+					"properties": {
+						"day": {
+							"type": "integer",
+							"maximum": 31,
+							"minimum": 1,
+							"description": "Day of the completion (1-31)"
+						},
+						"year": {
+							"type": "integer",
+							"minimum": 1970,
+							"description": "Year of the completion"
+						},
+						"month": {
+							"type": "integer",
+							"maximum": 12,
+							"minimum": 1,
+							"description": "Month of the completion (1-12)"
+						},
+						"notes": {
+							"type": "string",
+							"maxLength": 99,
+							"description": "Optional notes for this completion"
+						},
+						"goalId": {
+							"type": "string",
+							"maxLength": 64,
+							"description": "UUID of the goal this completion belongs to"
+						},
+						"goalUri": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT Protocol URI reference to the goal record"
+						},
+						"photoBlob": {
+							"type": "blob",
+							"accept": [
+								"image/*"
+							],
+							"maxSize": 1000000,
+							"description": "Optional photo for this completion"
+						},
+						"completedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the completion was recorded"
+						},
+						"sequenceNum": {
+							"type": "integer",
+							"minimum": 1,
+							"description": "Sequence number for countable goals"
+						}
+					}
+				},
+				"description": "A record of completing a goal on a specific day."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771115017564
+	},
+	"references": {
+		"main": []
+	}
+}

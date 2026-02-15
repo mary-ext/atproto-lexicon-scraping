@@ -6,14 +6,15 @@
 			"main": {
 				"type": "permission-set",
 				"title": "Linkname",
-				"detail": "Create, update, and delete your Linkname page and profile picture",
+				"detail": "Create, update, and delete your Linkname page, profile picture, and music play records",
 				"permissions": [
 					{
 						"type": "permission",
 						"resource": "repo",
 						"collection": [
 							"me.linkna.linkinbio",
-							"me.linkna.profile"
+							"me.linkna.profile",
+							"fm.teal.thirdparty.feed.play"
 						]
 					}
 				]
@@ -23,7 +24,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769905461878
+		"indexedAt": 1771115017564
 	},
 	"references": {
 		"main": []

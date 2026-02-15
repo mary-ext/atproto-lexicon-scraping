@@ -1,0 +1,64 @@
+{
+	"authority": "did:plc:zylhqsjug3f76uqxguhviqka",
+	"schema": {
+		"id": "blue.2048.game",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"currentScore",
+						"won",
+						"completed",
+						"seededRecording",
+						"syncStatus",
+						"createdAt"
+					],
+					"properties": {
+						"won": {
+							"type": "boolean",
+							"default": false,
+							"description": "The player has found a 2048 tile (they have won)"
+						},
+						"completed": {
+							"type": "boolean",
+							"default": false,
+							"description": "The player no longer has any moves left"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"syncStatus": {
+							"ref": "blue.2048.defs#syncStatus",
+							"type": "ref",
+							"description": "The sync status of this record with the users AT Protocol repo."
+						},
+						"currentScore": {
+							"type": "integer",
+							"default": 0,
+							"description": "The game's current score"
+						},
+						"seededRecording": {
+							"type": "string",
+							"description": "This is the recording of the game. Like chess notation, but for 2048"
+						}
+					}
+				},
+				"description": "A declaration of an instance of a at://2048 game"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771115017564
+	},
+	"references": {
+		"main": [
+			"blue.2048.defs"
+		]
+	}
+}

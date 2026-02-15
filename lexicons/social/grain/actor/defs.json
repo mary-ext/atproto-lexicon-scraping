@@ -1,0 +1,60 @@
+{
+	"authority": "did:plc:e7rftrdyz5e2rw4y6ocszew2",
+	"schema": {
+		"id": "social.grain.actor.defs",
+		"defs": {
+			"profileView": {
+				"type": "object",
+				"required": [
+					"did",
+					"handle"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did"
+					},
+					"avatar": {
+						"type": "string",
+						"format": "uri"
+					},
+					"handle": {
+						"type": "string",
+						"format": "handle"
+					},
+					"labels": {
+						"type": "array",
+						"items": {
+							"ref": "com.atproto.label.defs#label",
+							"type": "ref"
+						}
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime"
+					},
+					"description": {
+						"type": "string",
+						"maxLength": 2560,
+						"maxGraphemes": 256
+					},
+					"displayName": {
+						"type": "string",
+						"maxLength": 640,
+						"maxGraphemes": 64
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771115017564
+	},
+	"references": {
+		"profileView": [
+			"com.atproto.label.defs"
+		]
+	}
+}

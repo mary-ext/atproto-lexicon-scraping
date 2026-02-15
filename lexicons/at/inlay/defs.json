@@ -25,6 +25,59 @@
 				},
 				"description": "A renderable Inlay element."
 			},
+			"tagLink": {
+				"type": "object",
+				"required": [
+					"subject"
+				],
+				"properties": {
+					"from": {
+						"type": "string",
+						"format": "nsid",
+						"description": "Collection NSID of the linking records. Omit for any collection."
+					},
+					"subject": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "Subject AT URI that is linked to"
+					}
+				},
+				"description": "Cache tag: depend on backlink relationships to a subject."
+			},
+			"response": {
+				"type": "object",
+				"required": [
+					"node",
+					"cache"
+				],
+				"properties": {
+					"node": {
+						"ref": "#element",
+						"type": "ref",
+						"description": "Rendered element tree"
+					},
+					"cache": {
+						"ref": "#cachePolicy",
+						"type": "ref",
+						"description": "Cache lifetime and invalidation tags"
+					}
+				},
+				"description": "Standard response from a component render call."
+			},
+			"tagRecord": {
+				"type": "object",
+				"required": [
+					"uri"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "AT URI at record, collection, or identity granularity"
+					}
+				},
+				"description": "Cache tag: depend on a specific record, collection, or identity."
+			},
 			"viaValtown": {
 				"type": "object",
 				"required": [
@@ -36,16 +89,47 @@
 						"description": "Val Town val UUID"
 					}
 				}
+			},
+			"cachePolicy": {
+				"type": "object",
+				"properties": {
+					"life": {
+						"type": "string",
+						"description": "How frequently the underlying data changes",
+						"knownValues": [
+							"seconds",
+							"minutes",
+							"hours",
+							"max"
+						]
+					},
+					"tags": {
+						"type": "array",
+						"items": {
+							"refs": [
+								"#tagRecord",
+								"#tagLink"
+							],
+							"type": "union"
+						},
+						"description": "Data dependencies for cache invalidation"
+					}
+				},
+				"description": "Cache lifetime and invalidation tags returned by XRPC components."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770596599657
+		"indexedAt": 1771115017564
 	},
 	"references": {
 		"element": [],
-		"viaValtown": []
+		"tagLink": [],
+		"response": [],
+		"tagRecord": [],
+		"viaValtown": [],
+		"cachePolicy": []
 	}
 }

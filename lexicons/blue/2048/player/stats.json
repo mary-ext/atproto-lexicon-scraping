@@ -1,0 +1,83 @@
+{
+	"authority": "did:plc:zylhqsjug3f76uqxguhviqka",
+	"schema": {
+		"id": "blue.2048.player.stats",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"highestScore",
+						"gamesPlayed",
+						"totalScore",
+						"highestNumberBlock",
+						"timesTwentyFortyEightBeenFound",
+						"leastMovesToFindTwentyFortyEight",
+						"averageScore",
+						"syncStatus",
+						"createdAt"
+					],
+					"properties": {
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"syncStatus": {
+							"ref": "blue.2048.defs#syncStatus",
+							"type": "ref",
+							"description": "The sync status of this record with the users AT Protocol repo."
+						},
+						"totalScore": {
+							"type": "integer",
+							"default": 0,
+							"description": "Total score across all games"
+						},
+						"gamesPlayed": {
+							"type": "integer",
+							"default": 0,
+							"description": "Total numbers of games the user has played"
+						},
+						"averageScore": {
+							"type": "integer",
+							"default": 0,
+							"description": "Average score across all games"
+						},
+						"highestScore": {
+							"type": "integer",
+							"default": 0,
+							"description": "The highest score the user has gotten in a game"
+						},
+						"highestNumberBlock": {
+							"type": "integer",
+							"default": 0,
+							"description": "The highest number block the player has fround. example 128, 256, etc"
+						},
+						"timesTwentyFortyEightBeenFound": {
+							"type": "integer",
+							"default": 0,
+							"description": "Times the 2048 block has been found also count as wins"
+						},
+						"leastMovesToFindTwentyFortyEight": {
+							"type": "integer",
+							"default": 0,
+							"description": "The smallest number of moves to get the 2048 block"
+						}
+					}
+				},
+				"description": "A declaration of a at://2048 player's stats over the course of their playtime"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771115017564
+	},
+	"references": {
+		"main": [
+			"blue.2048.defs"
+		]
+	}
+}

@@ -307,13 +307,35 @@
 					}
 				},
 				"description": "Reading progress tracking data"
+			},
+			"bookIdentifiers": {
+				"type": "object",
+				"properties": {
+					"hiveId": {
+						"type": "string",
+						"description": "BookHive's internal ID"
+					},
+					"isbn10": {
+						"type": "string",
+						"description": "10-digit ISBN"
+					},
+					"isbn13": {
+						"type": "string",
+						"description": "13-digit ISBN"
+					},
+					"goodreadsId": {
+						"type": "string",
+						"description": "Goodreads book ID"
+					}
+				},
+				"description": "External identifiers for a book"
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1765844234444,
+		"indexedAt": 1771115017564,
 		"errorAt": 1760659937196
 	},
 	"references": {
@@ -329,6 +351,7 @@
 		"userBook": [],
 		"abandoned": [],
 		"wantToRead": [],
-		"bookProgress": []
+		"bookProgress": [],
+		"bookIdentifiers": []
 	}
 }

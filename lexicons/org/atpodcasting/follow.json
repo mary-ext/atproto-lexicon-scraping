@@ -14,9 +14,9 @@
 					],
 					"properties": {
 						"subject": {
-							"type": "string",
-							"format": "at-uri",
-							"description": "AT URI of the podcast record being followed."
+							"ref": "org.atpodcasting.defs#podcastRef",
+							"type": "ref",
+							"description": "The podcast being followed."
 						},
 						"createdAt": {
 							"type": "string",
@@ -32,10 +32,12 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770683260056,
+		"indexedAt": 1771115017564,
 		"errorAt": 1771028540876
 	},
 	"references": {
-		"main": []
+		"main": [
+			"org.atpodcasting.defs"
+		]
 	}
 }

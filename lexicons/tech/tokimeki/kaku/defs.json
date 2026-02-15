@@ -375,22 +375,42 @@
 	"references": {
 		"postView": [
 			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
+			"app.bsky.graph.defs",
+			"app.bsky.notification.defs",
+			"com.atproto.label.defs",
 			"com.atproto.repo.strongRef"
 		],
 		"replyView": [
-			"app.bsky.actor.defs"
+			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
+			"app.bsky.graph.defs",
+			"app.bsky.notification.defs",
+			"com.atproto.label.defs"
 		],
 		"aspectRatio": [],
 		"requestView": [
-			"app.bsky.actor.defs"
+			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
+			"app.bsky.graph.defs",
+			"app.bsky.notification.defs",
+			"com.atproto.label.defs"
 		],
 		"reactionType": [],
 		"collectionView": [
-			"app.bsky.actor.defs"
+			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
+			"app.bsky.graph.defs",
+			"app.bsky.notification.defs",
+			"com.atproto.label.defs"
 		],
 		"reactionCounts": [],
 		"requestResponseView": [
 			"app.bsky.actor.defs",
+			"app.bsky.embed.external",
+			"app.bsky.graph.defs",
+			"app.bsky.notification.defs",
+			"com.atproto.label.defs",
 			"com.atproto.repo.strongRef"
 		]
 	}

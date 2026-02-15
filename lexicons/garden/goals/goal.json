@@ -1,0 +1,116 @@
+{
+	"authority": "did:plc:r4suwlt5zl7sexnfgmi3jctw",
+	"schema": {
+		"id": "garden.goals.goal",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"goalId",
+						"name",
+						"year",
+						"createdAt"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 100,
+							"description": "Display name of the goal"
+						},
+						"year": {
+							"type": "integer",
+							"minimum": 1970,
+							"description": "Year this goal is tracked for"
+						},
+						"piece": {
+							"type": "string",
+							"maxLength": 100,
+							"description": "Shape name or emoji for incomplete state"
+						},
+						"goalId": {
+							"type": "string",
+							"maxLength": 64,
+							"description": "Unique identifier for the goal (UUID)"
+						},
+						"pieceUrl": {
+							"type": "string",
+							"format": "uri",
+							"description": "Favicon URL for incomplete state"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the goal was created"
+						},
+						"pieceBlob": {
+							"type": "blob",
+							"accept": [
+								"image/*"
+							],
+							"maxSize": 1000000,
+							"description": "Uploaded image for incomplete state"
+						},
+						"categories": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 64
+							},
+							"description": "Array of category UUIDs this goal belongs to"
+						},
+						"accentColor": {
+							"type": "string",
+							"maxLength": 50,
+							"description": "Preset name or hex color for incomplete state"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 500,
+							"description": "Optional description of the goal"
+						},
+						"targetCount": {
+							"type": "integer",
+							"minimum": 1,
+							"description": "Target count for countable goals"
+						},
+						"completedPiece": {
+							"type": "string",
+							"maxLength": 100,
+							"description": "Shape name or emoji for complete state"
+						},
+						"completedPieceUrl": {
+							"type": "string",
+							"format": "uri",
+							"description": "Favicon URL for complete state"
+						},
+						"completedPieceBlob": {
+							"type": "blob",
+							"accept": [
+								"image/*"
+							],
+							"maxSize": 1000000,
+							"description": "Uploaded image for complete state"
+						},
+						"completedAccentColor": {
+							"type": "string",
+							"maxLength": 50,
+							"description": "Preset name or hex color for complete state"
+						}
+					}
+				},
+				"description": "A goal to track daily completions for a year."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771115017564
+	},
+	"references": {
+		"main": []
+	}
+}
