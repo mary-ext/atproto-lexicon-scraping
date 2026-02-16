@@ -15,7 +15,8 @@
 							"path": {
 								"type": "array",
 								"items": {
-									"type": "string"
+									"type": "string",
+									"maxLength": 256
 								},
 								"description": "Path segments to resolve against scope"
 							}
@@ -37,7 +38,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771115017564,
+		"indexedAt": 1771201380164,
 		"errorAt": 1771028540876
 	},
 	"references": {

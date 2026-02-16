@@ -55,10 +55,10 @@
 						"imports": {
 							"type": "array",
 							"items": {
-								"ref": "#import",
-								"type": "ref"
+								"type": "string",
+								"format": "at-uri"
 							},
-							"description": "Where to resolve types from"
+							"description": "Ordered list of pack URIs (import stack). First pack that exports an NSID wins."
 						},
 						"createdAt": {
 							"type": "string",
@@ -70,29 +70,13 @@
 							"description": "Last update timestamp. Set by the publish flow to bust cached responses."
 						},
 						"description": {
-							"type": "string"
+							"type": "string",
+							"maxLength": 10000,
+							"maxGraphemes": 1000
 						}
 					}
 				},
 				"description": "Component record - declares an implementation of a type"
-			},
-			"import": {
-				"type": "object",
-				"required": [
-					"types",
-					"pack"
-				],
-				"properties": {
-					"pack": {
-						"type": "string",
-						"format": "at-uri",
-						"description": "Pack to resolve from"
-					},
-					"types": {
-						"type": "string",
-						"description": "Type pattern to match (glob like com.alice.* or concrete like com.alice.Avatar)"
-					}
-				}
 			},
 			"viewRecord": {
 				"type": "object",
@@ -114,10 +98,12 @@
 				"properties": {
 					"prop": {
 						"type": "string",
+						"maxLength": 256,
 						"description": "Prop to bind matched data to."
 					},
 					"type": {
 						"type": "string",
+						"maxLength": 128,
 						"description": "Lexicon field type.",
 						"knownValues": [
 							"string",
@@ -130,6 +116,7 @@
 					},
 					"format": {
 						"type": "string",
+						"maxLength": 64,
 						"description": "String format constraint. Only applies when type is 'string'.",
 						"knownValues": [
 							"at-uri",
@@ -201,13 +188,12 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771115017564
+		"indexedAt": 1771201380164
 	},
 	"references": {
 		"main": [
 			"at.inlay.defs"
 		],
-		"import": [],
 		"viewRecord": [],
 		"acceptsEntry": [],
 		"bodyExternal": [],

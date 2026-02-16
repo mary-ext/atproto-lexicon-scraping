@@ -27,12 +27,7 @@
 						"aud": "*",
 						"lxm": [
 							"blue.rito.preference.getPreference",
-							"blue.rito.preference.putPreference",
-							"blue.rito.feed.putBookmark",
-							"blue.rito.feed.deleteBookmark",
-							"blue.rito.feed.getActorBookmarks",
-							"blue.rito.feed.getBookmark",
-							"blue.rito.feed.getBookmarkBySubject"
+							"blue.rito.preference.putPreference"
 						],
 						"type": "permission",
 						"resource": "rpc"
@@ -44,7 +39,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771115017564
+		"indexedAt": 1771201380164
 	},
 	"references": {
 		"main": []
