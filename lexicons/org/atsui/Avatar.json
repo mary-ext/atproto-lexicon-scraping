@@ -24,6 +24,7 @@
 							"size": {
 								"type": "string",
 								"default": "medium",
+								"maxLength": 32,
 								"description": "Size token.",
 								"knownValues": [
 									"xsmall",
@@ -50,7 +51,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771115017564,
+		"indexedAt": 1771287815868,
 		"errorAt": 1771201380164
 	},
 	"references": {

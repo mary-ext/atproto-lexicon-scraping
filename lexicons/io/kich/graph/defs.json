@@ -1,0 +1,22 @@
+{
+	"authority": "did:plc:uxjwdy4wvuridijisalvxlxe",
+	"schema": {
+		"id": "io.kich.graph.defs",
+		"defs": {
+			"main": {
+				"type": "object",
+				"properties": {},
+				"description": "Shared definitions for graph-related lexicons"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Shared definitions for the graph namespace (follows, etc.)."
+	},
+	"meta": {
+		"indexedAt": 1771287815868
+	},
+	"references": {
+		"main": []
+	}
+}

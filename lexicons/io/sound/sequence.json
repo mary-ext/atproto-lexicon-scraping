@@ -20,7 +20,7 @@
 						"url": {
 							"type": "string",
 							"format": "uri",
-							"description": "Canonical location of this sequence. May be an at:// URI or an https:// URL to a JSON endpoint."
+							"description": "Canonical location of this sequence. May be an `at://` URI or an `https://` URL to a JSON endpoint."
 						},
 						"name": {
 							"type": "string",
@@ -40,7 +40,7 @@
 						"events": {
 							"type": "bytes",
 							"maxLength": 524288,
-							"description": "Array of events serialised and binary encoded."
+							"description": "Serialised and binary encoded array of events of the form `[beat, type, data...]`, where `data` parameters depend on `type` and the byte layout of the serialised data conforms to the Sequence spec at https://github.com/soundio/sequence."
 						},
 						"credits": {
 							"type": "array",
@@ -87,7 +87,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771115017564,
+		"indexedAt": 1771287815868,
 		"errorAt": 1771028540876
 	},
 	"references": {
