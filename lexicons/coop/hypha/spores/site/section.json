@@ -1,0 +1,108 @@
+{
+	"authority": "did:plc:rxduhzsfgfpl2glle7vagcwl",
+	"schema": {
+		"id": "coop.hypha.spores.site.section",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"type"
+					],
+					"properties": {
+						"ref": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT-URI of the referenced record (for content/profile sections)"
+						},
+						"rkey": {
+							"type": "string",
+							"description": "Record key within the collection to display (e.g. 'self' for profile)"
+						},
+						"type": {
+							"type": "string",
+							"description": "Section type",
+							"knownValues": [
+								"collection",
+								"records",
+								"content",
+								"block",
+								"profile",
+								"share-to-bluesky",
+								"collected-flowers"
+							]
+						},
+						"limit": {
+							"type": "integer",
+							"maximum": 100,
+							"minimum": 1,
+							"description": "Maximum records to display"
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 2000,
+							"description": "Section title",
+							"maxGraphemes": 200
+						},
+						"format": {
+							"type": "string",
+							"description": "Content format",
+							"knownValues": [
+								"markdown",
+								"html",
+								"text"
+							]
+						},
+						"layout": {
+							"type": "string",
+							"description": "Layout to use for rendering",
+							"knownValues": [
+								"post",
+								"card",
+								"image",
+								"link",
+								"links",
+								"list",
+								"profile",
+								"raw"
+							]
+						},
+						"content": {
+							"type": "string",
+							"maxLength": 500000,
+							"description": "Content for block sections",
+							"maxGraphemes": 50000
+						},
+						"records": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "at-uri"
+							},
+							"description": "Specific record URIs to display (for type=records)"
+						},
+						"collection": {
+							"type": "string",
+							"description": "Collection NSID to display (for type=collection)"
+						},
+						"hideHeader": {
+							"type": "boolean",
+							"description": "If true, hides the section header in display mode"
+						}
+					}
+				},
+				"description": "A single site section for spores.garden. Each section is a record in a collection."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771374195771
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -15,7 +15,7 @@
 							"books": {
 								"type": "array",
 								"items": {
-									"ref": "buzz.bookhive.hiveBook#record",
+									"ref": "buzz.bookhive.hiveBook#main",
 									"type": "ref"
 								}
 							},
@@ -29,9 +29,7 @@
 				},
 				"parameters": {
 					"type": "params",
-					"required": [
-						"q"
-					],
+					"required": [],
 					"properties": {
 						"q": {
 							"type": "string",
@@ -40,6 +38,10 @@
 						"id": {
 							"type": "string",
 							"description": "The ID of the book within the hive."
+						},
+						"genre": {
+							"type": "string",
+							"description": "Filter by genre. Returns books in that genre. Can be used with or without q."
 						},
 						"limit": {
 							"type": "integer",
@@ -60,11 +62,12 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771115017564,
+		"indexedAt": 1771374195771,
 		"errorAt": 1760659937196
 	},
 	"references": {
 		"main": [
+			"buzz.bookhive.defs",
 			"buzz.bookhive.hiveBook"
 		]
 	}

@@ -1,0 +1,57 @@
+{
+	"authority": "did:plc:rxduhzsfgfpl2glle7vagcwl",
+	"schema": {
+		"id": "coop.hypha.spores.content.text",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"content",
+						"createdAt"
+					],
+					"properties": {
+						"title": {
+							"type": "string",
+							"maxLength": 2000,
+							"description": "Block title",
+							"maxGraphemes": 200
+						},
+						"format": {
+							"type": "string",
+							"default": "markdown",
+							"description": "Content format",
+							"knownValues": [
+								"markdown",
+								"html",
+								"text"
+							]
+						},
+						"content": {
+							"type": "string",
+							"maxLength": 500000,
+							"description": "Block content",
+							"maxGraphemes": 50000
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Creation timestamp"
+						}
+					}
+				},
+				"description": "Custom content block for spores.garden sites"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771374195771
+	},
+	"references": {
+		"main": []
+	}
+}

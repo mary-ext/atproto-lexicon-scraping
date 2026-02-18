@@ -125,13 +125,14 @@
 					"embed": {
 						"refs": [
 							"app.bsky.embed.images",
+							"app.bsky.embed.images#view",
 							"app.bsky.embed.external",
 							"app.bsky.embed.record",
 							"app.bsky.embed.video",
 							"app.bsky.embed.recordWithMedia"
 						],
 						"type": "union",
-						"description": "Embedded content such as images, external links, or quoted posts (app.bsky.embed.*)."
+						"description": "Embedded content such as images, external links, or quoted posts (app.bsky.embed.*). For image embeds, may be returned as app.bsky.embed.images#view with thumb/fullsize URLs."
 					},
 					"langs": {
 						"type": "array",
@@ -280,7 +281,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769559526518
+		"indexedAt": 1771374195771
 	},
 	"references": {
 		"main": [

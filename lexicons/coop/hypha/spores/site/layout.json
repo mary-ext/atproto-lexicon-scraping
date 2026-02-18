@@ -1,0 +1,38 @@
+{
+	"authority": "did:plc:rxduhzsfgfpl2glle7vagcwl",
+	"schema": {
+		"id": "coop.hypha.spores.site.layout",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"sections"
+					],
+					"properties": {
+						"sections": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "at-uri",
+								"description": "AT-URI of a coop.hypha.spores.site.section record"
+							},
+							"description": "Ordered list of section AT-URIs to display"
+						}
+					}
+				},
+				"description": "Site layout for spores.garden, defining the order of sections."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771374195771
+	},
+	"references": {
+		"main": []
+	}
+}

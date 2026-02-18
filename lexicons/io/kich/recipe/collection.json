@@ -1,0 +1,51 @@
+{
+	"authority": "did:plc:uxjwdy4wvuridijisalvxlxe",
+	"schema": {
+		"id": "io.kich.recipe.collection",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"createdAt"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 64,
+							"minLength": 1,
+							"description": "Display name for the collection"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When this collection was created"
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When this collection was last updated"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 3000,
+							"description": "Optional description of the collection"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Record representing a public list of recipes. If it's on ATProto, it's public."
+	},
+	"meta": {
+		"indexedAt": 1771374195771
+	},
+	"references": {
+		"main": []
+	}
+}

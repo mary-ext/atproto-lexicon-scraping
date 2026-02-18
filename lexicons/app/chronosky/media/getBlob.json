@@ -1,0 +1,46 @@
+{
+	"authority": "did:plc:bfjib7fy6dob3gyfssyfd4ry",
+	"schema": {
+		"id": "app.chronosky.media.getBlob",
+		"defs": {
+			"main": {
+				"type": "query",
+				"errors": [
+					{
+						"name": "BlobNotFound",
+						"description": "The requested blob was not found."
+					},
+					{
+						"name": "InvalidRequest",
+						"description": "Invalid CID format or missing parameters."
+					}
+				],
+				"output": {
+					"encoding": "*/*"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"cid"
+					],
+					"properties": {
+						"cid": {
+							"type": "string",
+							"maxLength": 200,
+							"description": "Content Identifier (CID) of the blob to retrieve."
+						}
+					}
+				},
+				"description": "Get a blob by its CID from temporary R2 storage. Returns the raw binary content. The authenticated user's temporary blob is retrieved using their DID and the provided CID."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771374195771
+	},
+	"references": {
+		"main": []
+	}
+}
