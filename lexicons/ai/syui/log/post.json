@@ -9,32 +9,94 @@
 				"record": {
 					"type": "object",
 					"required": [
+						"site",
 						"title",
-						"content",
-						"createdAt"
+						"publishedAt"
 					],
 					"properties": {
-						"lang": {
+						"path": {
 							"type": "string",
-							"maxLength": 10,
-							"description": "Language code of the original content (e.g., 'ja', 'en')."
+							"description": "Combine with site URL to construct a canonical URL to the post."
+						},
+						"root": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT-URI of the root message in a thread."
+						},
+						"site": {
+							"type": "string",
+							"format": "uri",
+							"description": "Points to a publication record (at://) or a publication URL (https://)."
+						},
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 1280,
+								"maxGraphemes": 128
+							},
+							"description": "Tags to categorize the post."
+						},
+						"langs": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "language"
+							},
+							"maxLength": 3,
+							"description": "Indicates human language of post content."
 						},
 						"title": {
 							"type": "string",
-							"maxLength": 3000,
-							"description": "The title of the post.",
-							"maxGraphemes": 300
+							"maxLength": 5000,
+							"description": "Title of the post.",
+							"maxGraphemes": 500
+						},
+						"parent": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT-URI of the parent message being replied to."
 						},
 						"content": {
-							"type": "string",
-							"maxLength": 1000000,
-							"description": "The content of the post (markdown).",
-							"maxGraphemes": 100000
+							"refs": [
+								"#markdown"
+							],
+							"type": "union",
+							"closed": false,
+							"description": "Open union for content. Supports markdown and other formats via $type."
 						},
-						"createdAt": {
+						"updatedAt": {
 							"type": "string",
 							"format": "datetime",
-							"description": "Client-declared timestamp when this post was originally created."
+							"description": "Timestamp of the post's last edit."
+						},
+						"coverImage": {
+							"type": "blob",
+							"accept": [
+								"image/*"
+							],
+							"maxSize": 1000000,
+							"description": "Cover image. Less than 1MB."
+						},
+						"bskyPostRef": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "Strong reference to a Bluesky post."
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 30000,
+							"description": "A brief description or excerpt from the post.",
+							"maxGraphemes": 3000
+						},
+						"publishedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp of the post's publish time."
+						},
+						"textContent": {
+							"type": "string",
+							"description": "Plaintext representation of the post content. Should not contain markdown or other formatting."
 						},
 						"translations": {
 							"ref": "#translationMap",
@@ -43,15 +105,30 @@
 						}
 					}
 				},
-				"description": "Record containing a blog post."
+				"description": "Record containing a blog post. Compatible with site.standard.document."
+			},
+			"markdown": {
+				"type": "object",
+				"required": [
+					"text"
+				],
+				"properties": {
+					"text": {
+						"type": "string",
+						"maxLength": 1000000,
+						"description": "Markdown text content.",
+						"maxGraphemes": 100000
+					}
+				},
+				"description": "Markdown content format."
 			},
 			"translation": {
 				"type": "object",
 				"properties": {
 					"title": {
 						"type": "string",
-						"maxLength": 3000,
-						"maxGraphemes": 300
+						"maxLength": 5000,
+						"maxGraphemes": 500
 					},
 					"content": {
 						"type": "string",
@@ -80,10 +157,13 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769386781977
+		"indexedAt": 1771460616704
 	},
 	"references": {
-		"main": [],
+		"main": [
+			"com.atproto.repo.strongRef"
+		],
+		"markdown": [],
 		"translation": [],
 		"translationMap": []
 	}

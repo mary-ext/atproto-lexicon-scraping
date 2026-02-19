@@ -9,25 +9,48 @@
 				"record": {
 					"type": "object",
 					"required": [
-						"content",
-						"author",
-						"createdAt"
+						"site",
+						"title",
+						"publishedAt"
 					],
 					"properties": {
-						"lang": {
+						"path": {
 							"type": "string",
-							"maxLength": 10,
-							"description": "Language code of the original content (e.g., 'ja', 'en')."
+							"description": "Combine with site URL to construct a canonical URL to the message."
 						},
 						"root": {
 							"type": "string",
 							"format": "at-uri",
-							"description": "AT-URI of the root message in the thread."
+							"description": "AT-URI of the root message in a thread."
 						},
-						"author": {
+						"site": {
 							"type": "string",
-							"format": "did",
-							"description": "DID of the message author."
+							"format": "uri",
+							"description": "Points to a publication record (at://) or a publication URL (https://)."
+						},
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 1280,
+								"maxGraphemes": 128
+							},
+							"description": "Tags to categorize the message."
+						},
+						"langs": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "language"
+							},
+							"maxLength": 3,
+							"description": "Indicates human language of message content."
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 5000,
+							"description": "Title of the message or thread topic.",
+							"maxGraphemes": 500
 						},
 						"parent": {
 							"type": "string",
@@ -35,15 +58,45 @@
 							"description": "AT-URI of the parent message being replied to."
 						},
 						"content": {
-							"type": "string",
-							"maxLength": 100000,
-							"description": "The content of the message.",
-							"maxGraphemes": 10000
+							"refs": [
+								"#markdown"
+							],
+							"type": "union",
+							"closed": false,
+							"description": "Open union for content. Supports markdown and other formats via $type."
 						},
-						"createdAt": {
+						"updatedAt": {
 							"type": "string",
 							"format": "datetime",
-							"description": "Client-declared timestamp when this message was created."
+							"description": "Timestamp of the message's last edit."
+						},
+						"coverImage": {
+							"type": "blob",
+							"accept": [
+								"image/*"
+							],
+							"maxSize": 1000000,
+							"description": "Cover image. Less than 1MB."
+						},
+						"bskyPostRef": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "Strong reference to a Bluesky post."
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 30000,
+							"description": "A brief description or excerpt from the message.",
+							"maxGraphemes": 3000
+						},
+						"publishedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp of the message's publish time."
+						},
+						"textContent": {
+							"type": "string",
+							"description": "Plaintext representation of the message content. Should not contain markdown or other formatting."
 						},
 						"translations": {
 							"ref": "#translationMap",
@@ -52,15 +105,35 @@
 						}
 					}
 				},
-				"description": "Record containing a chat message in a conversation."
+				"description": "Record containing a chat message. Compatible with site.standard.document."
+			},
+			"markdown": {
+				"type": "object",
+				"required": [
+					"text"
+				],
+				"properties": {
+					"text": {
+						"type": "string",
+						"maxLength": 1000000,
+						"description": "Markdown text content.",
+						"maxGraphemes": 100000
+					}
+				},
+				"description": "Markdown content format."
 			},
 			"translation": {
 				"type": "object",
 				"properties": {
+					"title": {
+						"type": "string",
+						"maxLength": 5000,
+						"maxGraphemes": 500
+					},
 					"content": {
 						"type": "string",
-						"maxLength": 100000,
-						"maxGraphemes": 10000
+						"maxLength": 1000000,
+						"maxGraphemes": 100000
 					}
 				},
 				"description": "A translation of a chat message."
@@ -84,10 +157,13 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768954709804
+		"indexedAt": 1771460616704
 	},
 	"references": {
-		"main": [],
+		"main": [
+			"com.atproto.repo.strongRef"
+		],
+		"markdown": [],
 		"translation": [],
 		"translationMap": []
 	}

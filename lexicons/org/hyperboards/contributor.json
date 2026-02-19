@@ -1,0 +1,66 @@
+{
+	"authority": "did:plc:ndshualwvbeqns3sthtkhx2y",
+	"schema": {
+		"id": "org.hyperboards.contributor",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"contributorRef",
+						"createdAt"
+					],
+					"properties": {
+						"url": {
+							"type": "string",
+							"format": "uri",
+							"description": "Link URL for this contributor"
+						},
+						"videoUrl": {
+							"type": "string",
+							"format": "uri",
+							"description": "Direct video or Instagram URL"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the contributor record was created"
+						},
+						"circularImage": {
+							"type": "boolean",
+							"description": "Whether to render the contributor image as circular (default true)"
+						},
+						"hoverImageUrl": {
+							"type": "string",
+							"format": "uri",
+							"description": "Image overlay shown on hover"
+						},
+						"contributorRef": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "StrongRef to the contributorInformation record"
+						},
+						"hoverIframeUrl": {
+							"type": "string",
+							"format": "uri",
+							"description": "Iframe shown on hover"
+						}
+					}
+				},
+				"description": "Per-contributor presentation defaults, reusable across boards."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771460616704
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}

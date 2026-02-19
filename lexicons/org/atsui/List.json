@@ -9,27 +9,13 @@
 					"schema": {
 						"type": "object",
 						"required": [
-							"uris",
-							"item"
+							"getItems"
 						],
 						"properties": {
-							"item": {
-								"type": "string",
-								"format": "nsid",
-								"description": "Component NSID to render each item through."
-							},
-							"uris": {
-								"type": "array",
-								"items": {
-									"type": "string",
-									"format": "uri"
-								},
-								"description": "URIs to render (AT URIs or DID URIs)."
-							},
-							"loadMore": {
-								"ref": "#loadMoreAction",
+							"getItems": {
+								"ref": "#boundProcedure",
 								"type": "ref",
-								"description": "Descriptor for fetching the next page."
+								"description": "Bound procedure that returns pages of items."
 							}
 						}
 					},
@@ -42,42 +28,44 @@
 					},
 					"encoding": "application/json"
 				},
-				"description": "Scrollable vertical list with infinite loading."
+				"description": "Scrollable vertical list with paginated data source."
 			},
-			"loadMoreAction": {
+			"page": {
 				"type": "object",
 				"required": [
-					"procedure",
-					"input"
+					"items"
+				],
+				"properties": {
+					"items": {
+						"type": "array",
+						"items": {
+							"ref": "at.inlay.defs#element",
+							"type": "ref"
+						},
+						"description": "Elements to render as list rows."
+					},
+					"cursor": {
+						"type": "string",
+						"maxLength": 512,
+						"description": "Opaque pagination token. Absent means no more items."
+					}
+				},
+				"description": "Response shape from a List data source procedure."
+			},
+			"boundProcedure": {
+				"type": "object",
+				"required": [
+					"procedure"
 				],
 				"properties": {
 					"input": {
 						"type": "unknown",
-						"description": "Input to pass to the procedure."
+						"description": "Bound input to pass to the procedure."
 					},
 					"procedure": {
 						"type": "string",
 						"format": "nsid",
-						"description": "XRPC procedure to call for more items."
-					}
-				}
-			},
-			"loadMoreResponse": {
-				"type": "object",
-				"required": [
-					"uris"
-				],
-				"properties": {
-					"uris": {
-						"type": "array",
-						"items": {
-							"type": "string",
-							"format": "uri"
-						}
-					},
-					"loadMore": {
-						"ref": "#loadMoreAction",
-						"type": "ref"
+						"description": "XRPC procedure to call."
 					}
 				}
 			}
@@ -86,13 +74,15 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771374195771
+		"indexedAt": 1771460616704
 	},
 	"references": {
 		"main": [
 			"at.inlay.defs"
 		],
-		"loadMoreAction": [],
-		"loadMoreResponse": []
+		"page": [
+			"at.inlay.defs"
+		],
+		"boundProcedure": []
 	}
 }
