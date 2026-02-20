@@ -25,10 +25,20 @@
 							"minimum": 1,
 							"description": "Mid-Wear: Trail left behind (1-5)"
 						},
+						"uvIndex": {
+							"type": "integer",
+							"maximum": 11,
+							"minimum": 0,
+							"description": "Daily maximum UV index (0-11+)"
+						},
 						"createdAt": {
 							"type": "string",
 							"format": "datetime",
 							"description": "Timestamp when the review was created"
+						},
+						"elevation": {
+							"type": "integer",
+							"description": "Elevation in meters above sea level"
 						},
 						"endRating": {
 							"type": "integer",
@@ -52,6 +62,22 @@
 							"maximum": 5,
 							"minimum": 1,
 							"description": "Final: Depth and evolution (1-5)"
+						},
+						"stage1Temp": {
+							"type": "integer",
+							"description": "Temperature in Celsius at Stage 1 * 10 (e.g. 225 = 22.5°C)"
+						},
+						"stage2Temp": {
+							"type": "integer",
+							"description": "Temperature in Celsius at Stage 2 * 10 (e.g. 225 = 22.5°C)"
+						},
+						"stage3Temp": {
+							"type": "integer",
+							"description": "Temperature in Celsius at Stage 3 * 10 (e.g. 225 = 22.5°C)"
+						},
+						"weatherOptIn": {
+							"type": "boolean",
+							"description": "User opted in to weather data collection"
 						},
 						"drydownRating": {
 							"type": "integer",
@@ -86,6 +112,11 @@
 							"maximum": 5,
 							"minimum": 1,
 							"description": "First Impression: Immediate scent bubble radius (1-5)"
+						},
+						"stage2CompletedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when Stage 2 was completed (for accurate temperature)"
 						}
 					}
 				},
@@ -96,7 +127,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768349916633
+		"indexedAt": 1771547044058
 	},
 	"references": {
 		"main": []

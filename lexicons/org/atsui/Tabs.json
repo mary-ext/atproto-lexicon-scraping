@@ -1,0 +1,76 @@
+{
+	"authority": "did:plc:e4fjueijznwqm2yxvt7q4mba",
+	"schema": {
+		"id": "org.atsui.Tabs",
+		"defs": {
+			"tab": {
+				"type": "object",
+				"required": [
+					"key",
+					"label",
+					"content"
+				],
+				"properties": {
+					"key": {
+						"type": "string",
+						"maxLength": 64,
+						"description": "Stable key that identifies the tab among its siblings."
+					},
+					"label": {
+						"type": "string",
+						"maxLength": 128,
+						"description": "Display label for the tab."
+					},
+					"content": {
+						"ref": "at.inlay.defs#element",
+						"type": "ref",
+						"description": "Element to render as tab content."
+					}
+				}
+			},
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"items"
+						],
+						"properties": {
+							"items": {
+								"type": "array",
+								"items": {
+									"ref": "#tab",
+									"type": "ref"
+								},
+								"description": "Tabs to display."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"ref": "at.inlay.defs#response",
+						"type": "ref"
+					},
+					"encoding": "application/json"
+				},
+				"description": "Tabbed content with instant client-side switching."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771547044058
+	},
+	"references": {
+		"tab": [
+			"at.inlay.defs"
+		],
+		"main": [
+			"at.inlay.defs"
+		]
+	}
+}

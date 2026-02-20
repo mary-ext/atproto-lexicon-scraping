@@ -4,7 +4,7 @@
 		"id": "app.nblr.feed.collection",
 		"defs": {
 			"main": {
-				"key": "any",
+				"key": "tid",
 				"type": "record",
 				"record": {
 					"type": "object",
@@ -32,7 +32,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771028540876
+		"indexedAt": 1771547044058
 	},
 	"references": {
 		"main": []

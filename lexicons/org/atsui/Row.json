@@ -47,6 +47,18 @@
 								"type": "boolean",
 								"description": "Whether the container sticks to the top of the scroll area."
 							},
+							"justify": {
+								"type": "string",
+								"default": "start",
+								"maxLength": 32,
+								"description": "Main-axis distribution of children.",
+								"knownValues": [
+									"start",
+									"center",
+									"end",
+									"between"
+								]
+							},
 							"children": {
 								"type": "array",
 								"items": {
@@ -72,7 +84,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771460616704
+		"indexedAt": 1771547044058
 	},
 	"references": {
 		"main": [
