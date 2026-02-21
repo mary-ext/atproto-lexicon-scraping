@@ -9,13 +9,23 @@
 					"schema": {
 						"type": "object",
 						"required": [
-							"getItems"
+							"query",
+							"did"
 						],
 						"properties": {
-							"getItems": {
-								"ref": "#boundProcedure",
-								"type": "ref",
-								"description": "Bound procedure that returns pages of items."
+							"did": {
+								"type": "string",
+								"format": "did",
+								"description": "DID of the service that implements the query."
+							},
+							"input": {
+								"type": "unknown",
+								"description": "Parameters to pass to the query."
+							},
+							"query": {
+								"type": "string",
+								"format": "nsid",
+								"description": "XRPC query to call for pages of items."
 							}
 						}
 					},
@@ -50,31 +60,14 @@
 						"description": "Opaque pagination token. Absent means no more items."
 					}
 				},
-				"description": "Response shape from a List data source procedure."
-			},
-			"boundProcedure": {
-				"type": "object",
-				"required": [
-					"procedure"
-				],
-				"properties": {
-					"input": {
-						"type": "unknown",
-						"description": "Bound input to pass to the procedure."
-					},
-					"procedure": {
-						"type": "string",
-						"format": "nsid",
-						"description": "XRPC procedure to call."
-					}
-				}
+				"description": "Response shape from a List data source query."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771460616704
+		"indexedAt": 1771633345512
 	},
 	"references": {
 		"main": [
@@ -82,7 +75,6 @@
 		],
 		"page": [
 			"at.inlay.defs"
-		],
-		"boundProcedure": []
+		]
 	}
 }

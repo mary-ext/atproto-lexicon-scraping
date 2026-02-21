@@ -1,0 +1,86 @@
+{
+	"authority": "did:plc:ezyi5vr2kuq7l5nnv53nb56m",
+	"schema": {
+		"id": "diy.razorgirl.winter.wikiEntry",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"title",
+						"slug",
+						"content",
+						"createdAt",
+						"lastUpdated"
+					],
+					"properties": {
+						"slug": {
+							"type": "string",
+							"maxLength": 128,
+							"description": "URL-safe identifier for [[slug]] linking"
+						},
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							},
+							"maxLength": 20
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 256
+						},
+						"status": {
+							"type": "string",
+							"default": "stable",
+							"knownValues": [
+								"draft",
+								"stable",
+								"deprecated"
+							]
+						},
+						"aliases": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							},
+							"maxLength": 20,
+							"description": "Alternative names for [[alias]] resolution"
+						},
+						"content": {
+							"type": "string",
+							"maxLength": 100000
+						},
+						"summary": {
+							"type": "string",
+							"maxLength": 512
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"supersedes": {
+							"type": "string",
+							"format": "at-uri"
+						},
+						"lastUpdated": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Semantic wiki page with slug-based linking, version tracking, and cross-PDS [[wiki-link]] syntax."
+	},
+	"meta": {
+		"indexedAt": 1771633345512
+	},
+	"references": {
+		"main": []
+	}
+}

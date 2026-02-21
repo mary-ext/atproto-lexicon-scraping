@@ -21,6 +21,10 @@
 								"type": "unknown",
 								"description": "Blob ref for the image."
 							},
+							"lift": {
+								"type": "boolean",
+								"description": "Pull the avatar up by half its own height, overlapping the element above."
+							},
 							"size": {
 								"type": "string",
 								"default": "medium",
@@ -51,7 +55,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771287815868,
+		"indexedAt": 1771633345512,
 		"errorAt": 1771201380164
 	},
 	"references": {

@@ -14,7 +14,7 @@
 						"collection": [
 							"me.linkna.linkinbio",
 							"me.linkna.profile",
-							"fm.teal.thirdparty.feed.play"
+							"me.linkna.lastfm"
 						]
 					}
 				]
@@ -24,7 +24,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771115017564
+		"indexedAt": 1771633345512
 	},
 	"references": {
 		"main": []

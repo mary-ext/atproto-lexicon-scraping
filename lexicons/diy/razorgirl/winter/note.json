@@ -1,0 +1,67 @@
+{
+	"authority": "did:plc:ezyi5vr2kuq7l5nnv53nb56m",
+	"schema": {
+		"id": "diy.razorgirl.winter.note",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"title",
+						"content",
+						"createdAt",
+						"lastUpdated"
+					],
+					"properties": {
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							},
+							"maxLength": 20
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 256
+						},
+						"content": {
+							"type": "string",
+							"maxLength": 50000
+						},
+						"category": {
+							"type": "string",
+							"maxLength": 64
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"lastUpdated": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"relatedFacts": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "at-uri"
+							},
+							"description": "AT URIs of related facts"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Structured note for drafts, investigations, and summaries."
+	},
+	"meta": {
+		"indexedAt": 1771633345512
+	},
+	"references": {
+		"main": []
+	}
+}
