@@ -60,6 +60,24 @@
 				},
 				"description": "List scheduled posts for the authenticated user with pagination and filtering."
 			},
+			"imageView": {
+				"type": "object",
+				"required": [
+					"images"
+				],
+				"properties": {
+					"images": {
+						"type": "array",
+						"items": {
+							"ref": "#imageViewImage",
+							"type": "ref"
+						},
+						"maxLength": 4,
+						"description": "List of image views with CID references."
+					}
+				},
+				"description": "Image embed view with CID references. Similar to app.bsky.embed.images#view but includes cid on each image."
+			},
 			"pagination": {
 				"type": "object",
 				"required": [
@@ -125,14 +143,14 @@
 					"embed": {
 						"refs": [
 							"app.bsky.embed.images",
-							"app.bsky.embed.images#view",
+							"#imageView",
 							"app.bsky.embed.external",
 							"app.bsky.embed.record",
 							"app.bsky.embed.video",
 							"app.bsky.embed.recordWithMedia"
 						],
 						"type": "union",
-						"description": "Embedded content such as images, external links, or quoted posts (app.bsky.embed.*). For image embeds, may be returned as app.bsky.embed.images#view with thumb/fullsize URLs."
+						"description": "Embedded content such as images, external links, or quoted posts. For image embeds, returned as #imageView with thumb/fullsize URLs and CID references."
 					},
 					"langs": {
 						"type": "array",
@@ -275,13 +293,41 @@
 					}
 				},
 				"description": "Scheduled post object with AT Protocol standard fields."
+			},
+			"imageViewImage": {
+				"type": "object",
+				"required": [
+					"thumb",
+					"fullsize",
+					"alt"
+				],
+				"properties": {
+					"alt": {
+						"type": "string",
+						"description": "Alt text for the image."
+					},
+					"cid": {
+						"type": "string",
+						"maxLength": 200,
+						"description": "CID of the image blob. Use this value with updatePost#imagesEmbed to reference this image without re-uploading."
+					},
+					"thumb": {
+						"type": "string",
+						"description": "Thumbnail URL for the image."
+					},
+					"fullsize": {
+						"type": "string",
+						"description": "Full-size URL for the image."
+					}
+				},
+				"description": "Image view with CID for referencing in updatePost. Extends app.bsky.embed.images#viewImage with cid field."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771374195771
+		"indexedAt": 1771719719013
 	},
 	"references": {
 		"main": [
@@ -296,6 +342,7 @@
 			"com.atproto.label.defs",
 			"com.atproto.repo.strongRef"
 		],
+		"imageView": [],
 		"pagination": [],
 		"scheduledPost": [
 			"app.bsky.embed.defs",
@@ -308,6 +355,7 @@
 			"app.bsky.richtext.facet",
 			"com.atproto.label.defs",
 			"com.atproto.repo.strongRef"
-		]
+		],
+		"imageViewImage": []
 	}
 }

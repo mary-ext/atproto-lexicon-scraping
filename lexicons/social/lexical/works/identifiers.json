@@ -1,0 +1,89 @@
+{
+	"authority": "did:plc:k6xccphpraz5nylacjrdby3s",
+	"schema": {
+		"id": "social.lexical.works.identifiers",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"work",
+						"identifiers"
+					],
+					"properties": {
+						"work": {
+							"type": "string",
+							"format": "at-uri",
+							"nullable": false,
+							"required": true,
+							"description": ""
+						},
+						"identifiers": {
+							"type": "array",
+							"items": {
+								"refs": [
+									"#identifier"
+								],
+								"type": "union",
+								"closed": false,
+								"nullable": false,
+								"required": true,
+								"description": ""
+							},
+							"nullable": false,
+							"required": true,
+							"minLength": 1
+						}
+					}
+				}
+			},
+			"identifier": {
+				"type": "object",
+				"nullable": [
+					"url"
+				],
+				"required": [
+					"provider",
+					"providerId"
+				],
+				"properties": {
+					"url": {
+						"type": "string",
+						"format": "uri",
+						"nullable": true,
+						"required": false,
+						"description": ""
+					},
+					"provider": {
+						"type": "string",
+						"nullable": false,
+						"required": true,
+						"description": "",
+						"knownValues": [
+							"tmdb",
+							"imdb",
+							"wikidata"
+						]
+					},
+					"providerId": {
+						"type": "string",
+						"nullable": false,
+						"required": true,
+						"description": ""
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771719719013
+	},
+	"references": {
+		"main": [],
+		"identifier": []
+	}
+}

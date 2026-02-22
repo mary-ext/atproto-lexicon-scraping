@@ -127,7 +127,7 @@
 					"cid": {
 						"type": "string",
 						"maxLength": 200,
-						"description": "CID of an existing image blob (to reference without re-uploading)."
+						"description": "CID of an image blob. Can reference an existing image in the post or a newly uploaded image via media.uploadBlob."
 					},
 					"image": {
 						"type": "blob",
@@ -165,7 +165,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771633345512
+		"indexedAt": 1771719719013
 	},
 	"references": {
 		"main": [

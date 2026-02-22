@@ -66,6 +66,10 @@
 									"ref": "at.inlay.defs#element",
 									"type": "ref"
 								}
+							},
+							"separator": {
+								"type": "boolean",
+								"description": "Whether to show a visual separator between children."
 							}
 						}
 					},
@@ -85,7 +89,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771633345512
+		"indexedAt": 1771719719013
 	},
 	"references": {
 		"main": [

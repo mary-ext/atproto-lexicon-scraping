@@ -162,7 +162,8 @@
 						"knownValues": [
 							"none",
 							"white",
-							"blue"
+							"blue",
+							"leaves"
 						]
 					},
 					"cardShadow": {
@@ -180,6 +181,14 @@
 						"type": "string",
 						"description": "Font family for the page."
 					},
+					"cursorStyle": {
+						"type": "string",
+						"description": "Custom cursor style. Default: default.",
+						"knownValues": [
+							"default",
+							"hello-kitty"
+						]
+					},
 					"showBranding": {
 						"type": "boolean",
 						"description": "Whether Linkname branding is visible. Default: true."
@@ -192,9 +201,23 @@
 						"type": "string",
 						"description": "Card/button border color on hover."
 					},
+					"cursorSparkles": {
+						"type": "boolean",
+						"description": "Whether cursor has sparkle trail. Default: false."
+					},
 					"backgroundColor": {
 						"type": "string",
 						"description": "Page background color."
+					},
+					"backgroundImage": {
+						"type": "blob",
+						"accept": [
+							"image/png",
+							"image/jpeg",
+							"image/webp"
+						],
+						"maxSize": 10000000,
+						"description": "Background wallpaper image blob."
 					},
 					"buttonAlignment": {
 						"type": "string",
@@ -281,6 +304,11 @@
 					"buttonHoverGlowColor": {
 						"type": "string",
 						"description": "Color for the button hover glow effect."
+					},
+					"backgroundImageCredit": {
+						"type": "string",
+						"format": "uri",
+						"description": "Optional credit URL for the wallpaper image artist. Stored for attribution purposes only, not displayed on the public page."
 					},
 					"socialIconsShapeColor": {
 						"type": "string",
@@ -538,7 +566,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771374195771,
+		"indexedAt": 1771719719013,
 		"errorAt": 1770423704446
 	},
 	"references": {

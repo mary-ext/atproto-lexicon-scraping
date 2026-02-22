@@ -18,6 +18,15 @@
 								"format": "did",
 								"description": "DID of the blob owner. Used to resolve blob URLs."
 							},
+							"fit": {
+								"enum": [
+									"cover",
+									"contain"
+								],
+								"type": "string",
+								"maxLength": 32,
+								"description": "When set, Blob fills its container height. 'cover' crops to fill; 'contain' letterboxes."
+							},
 							"src": {
 								"type": "unknown",
 								"description": "Blob ref for the image."
@@ -62,7 +71,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771633345512
+		"indexedAt": 1771719719013
 	},
 	"references": {
 		"main": [
