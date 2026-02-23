@@ -1,0 +1,146 @@
+{
+	"authority": "did:plc:tr7zlhacx3fete5s7cx5tyjd",
+	"schema": {
+		"id": "app.fitsky.trend",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"widgetType",
+						"metric",
+						"period",
+						"summary",
+						"createdAt"
+					],
+					"properties": {
+						"image": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg"
+							],
+							"maxSize": 1000000
+						},
+						"metric": {
+							"type": "string",
+							"maxLength": 64,
+							"knownValues": [
+								"distance",
+								"duration",
+								"pace",
+								"steps",
+								"calories",
+								"heartRate",
+								"workoutCount"
+							]
+						},
+						"period": {
+							"type": "string",
+							"maxLength": 64,
+							"knownValues": [
+								"1d",
+								"7d",
+								"30d",
+								"90d",
+								"1y"
+							]
+						},
+						"caption": {
+							"type": "string",
+							"maxLength": 512
+						},
+						"summary": {
+							"ref": "#trendSummary",
+							"type": "ref"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"chartStyle": {
+							"type": "string",
+							"maxLength": 64,
+							"knownValues": [
+								"line",
+								"bar"
+							]
+						},
+						"dataPoints": {
+							"type": "array",
+							"items": {
+								"ref": "#dataPoint",
+								"type": "ref"
+							}
+						},
+						"widgetType": {
+							"type": "string",
+							"maxLength": 64,
+							"knownValues": [
+								"today-summary",
+								"weekly-progress",
+								"goal-progress",
+								"recent-workouts",
+								"custom-trend"
+							]
+						}
+					}
+				},
+				"description": "A shared fitness trend or dashboard snapshot"
+			},
+			"dataPoint": {
+				"type": "object",
+				"required": [
+					"date",
+					"value"
+				],
+				"properties": {
+					"date": {
+						"type": "string",
+						"format": "datetime"
+					},
+					"value": {
+						"type": "integer",
+						"description": "Value in base units (meters, seconds, calories, count, bpm)"
+					}
+				}
+			},
+			"trendSummary": {
+				"type": "object",
+				"properties": {
+					"best": {
+						"type": "integer",
+						"description": "Best value in base units"
+					},
+					"count": {
+						"type": "integer"
+					},
+					"total": {
+						"type": "integer",
+						"description": "Total value in base units"
+					},
+					"worst": {
+						"type": "integer",
+						"description": "Worst value in base units"
+					},
+					"average": {
+						"type": "integer",
+						"description": "Average value in base units"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771806161917
+	},
+	"references": {
+		"main": [],
+		"dataPoint": [],
+		"trendSummary": []
+	}
+}

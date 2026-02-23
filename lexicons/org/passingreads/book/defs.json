@@ -72,21 +72,21 @@
 				"type": "object",
 				"required": [
 					"uri",
-					"did",
+					"actor",
 					"event",
 					"location",
 					"occurredAt"
 				],
 				"properties": {
-					"did": {
-						"type": "string",
-						"format": "did",
-						"description": "The DID of the person who performed this event"
-					},
 					"uri": {
 						"type": "string",
 						"format": "at-uri",
 						"description": "The AT URI of this event record"
+					},
+					"actor": {
+						"ref": "org.passingreads.defs#actor",
+						"type": "ref",
+						"description": "The person who performed this event"
 					},
 					"event": {
 						"type": "string",
@@ -96,11 +96,6 @@
 							"org.passingreads.book.drop",
 							"org.passingreads.book.find"
 						]
-					},
-					"handle": {
-						"type": "string",
-						"format": "handle",
-						"description": "The handle of the person who performed this event"
 					},
 					"location": {
 						"ref": "community.lexicon.location.hthree#main",
@@ -118,18 +113,13 @@
 			"registrationView": {
 				"type": "object",
 				"required": [
-					"did",
+					"registeredBy",
 					"bookId",
 					"title",
 					"authors",
 					"occurredAt"
 				],
 				"properties": {
-					"did": {
-						"type": "string",
-						"format": "did",
-						"description": "The DID of the person who registered the book"
-					},
 					"title": {
 						"type": "string",
 						"description": "The title of the book"
@@ -137,11 +127,6 @@
 					"bookId": {
 						"type": "string",
 						"description": "The book's ID (as defined on its QR Code)"
-					},
-					"handle": {
-						"type": "string",
-						"format": "handle",
-						"description": "The handle of the person who registered the book"
 					},
 					"authors": {
 						"type": "array",
@@ -155,6 +140,11 @@
 						"format": "datetime",
 						"description": "When the book was registered"
 					},
+					"registeredBy": {
+						"ref": "org.passingreads.defs#actor",
+						"type": "ref",
+						"description": "The person who registered the book"
+					},
 					"publicationId": {
 						"type": "string",
 						"description": "The book's Open Library Edition ID"
@@ -167,7 +157,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770683260056
+		"indexedAt": 1771806161917
 	},
 	"references": {
 		"statefulBook": [
@@ -175,8 +165,11 @@
 			"org.passingreads.defs"
 		],
 		"confirmedEvent": [
-			"community.lexicon.location.hthree"
+			"community.lexicon.location.hthree",
+			"org.passingreads.defs"
 		],
-		"registrationView": []
+		"registrationView": [
+			"org.passingreads.defs"
+		]
 	}
 }

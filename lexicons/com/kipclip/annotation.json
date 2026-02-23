@@ -1,0 +1,61 @@
+{
+	"authority": "did:plc:3zzkrrjtsmo7nnwnvhex3auj",
+	"schema": {
+		"id": "com.kipclip.annotation",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"subject",
+						"createdAt"
+					],
+					"properties": {
+						"note": {
+							"type": "string",
+							"maxLength": 10000,
+							"description": "User note for this bookmark"
+						},
+						"image": {
+							"type": "string",
+							"format": "uri"
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 1000
+						},
+						"favicon": {
+							"type": "string",
+							"format": "uri"
+						},
+						"subject": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT URI of the bookmark this annotates"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 10000
+						}
+					}
+				},
+				"description": "Enrichment data and optional user note for a bookmark"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Kipclip-specific metadata and notes for a bookmark"
+	},
+	"meta": {
+		"indexedAt": 1771806161917
+	},
+	"references": {
+		"main": []
+	}
+}

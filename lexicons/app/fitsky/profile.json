@@ -1,0 +1,55 @@
+{
+	"authority": "did:plc:tr7zlhacx3fete5s7cx5tyjd",
+	"schema": {
+		"id": "app.fitsky.profile",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"properties": {
+						"bio": {
+							"type": "string",
+							"maxLength": 2560,
+							"description": "FitSky-specific bio text",
+							"maxGraphemes": 256
+						},
+						"banner": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg",
+								"image/webp"
+							],
+							"maxSize": 1000000,
+							"description": "Custom FitSky banner image. Falls back to Bluesky banner if not set."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"unitSystem": {
+							"type": "string",
+							"maxLength": 64,
+							"description": "User's preferred unit system",
+							"knownValues": [
+								"metric",
+								"imperial"
+							]
+						}
+					}
+				},
+				"description": "A FitSky-specific user profile with custom banner and bio"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771806161917
+	},
+	"references": {
+		"main": []
+	}
+}

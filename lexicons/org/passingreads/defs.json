@@ -6,8 +6,7 @@
 			"actor": {
 				"type": "object",
 				"required": [
-					"did",
-					"handle"
+					"did"
 				],
 				"properties": {
 					"did": {
@@ -76,7 +75,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769473176610
+		"indexedAt": 1771806161917
 	},
 	"references": {
 		"actor": [],
