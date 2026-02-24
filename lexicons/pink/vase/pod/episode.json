@@ -1,0 +1,88 @@
+{
+	"authority": "did:plc:4q6zynbo2nbapzxwsrswankx",
+	"schema": {
+		"id": "pink.vase.pod.episode",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"show",
+						"title",
+						"audioUrl",
+						"createdAt"
+					],
+					"properties": {
+						"show": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "The show this episode belongs to."
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 300
+						},
+						"audioUrl": {
+							"type": "string",
+							"format": "uri",
+							"description": "URL to the audio file. Can be any host the creator controls."
+						},
+						"coverArt": {
+							"type": "blob",
+							"accept": [
+								"image/jpeg",
+								"image/png",
+								"image/webp"
+							],
+							"maxSize": 1000000,
+							"description": "Optional per-episode cover art, overrides show art."
+						},
+						"explicit": {
+							"type": "boolean"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 5000
+						},
+						"episodeType": {
+							"type": "string",
+							"description": "Follows podcast RSS spec episode types.",
+							"knownValues": [
+								"full",
+								"trailer",
+								"bonus"
+							]
+						},
+						"seasonNumber": {
+							"type": "integer"
+						},
+						"episodeNumber": {
+							"type": "integer"
+						},
+						"durationSeconds": {
+							"type": "integer",
+							"description": "Episode duration in seconds."
+						}
+					}
+				},
+				"description": "A podcast episode belonging to a show."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771892560063
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}

@@ -1,0 +1,63 @@
+{
+	"authority": "did:plc:4q6zynbo2nbapzxwsrswankx",
+	"schema": {
+		"id": "pink.vase.pod.playlist",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"items",
+						"createdAt"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 200,
+							"description": "Display name of the playlist."
+						},
+						"items": {
+							"type": "array",
+							"items": {
+								"ref": "com.atproto.repo.strongRef",
+								"type": "ref"
+							},
+							"maxLength": 500,
+							"description": "Ordered list of episodes. Must reference pink.vase.pod.episode records."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"visibility": {
+							"type": "string",
+							"description": "Whether the playlist is visible to others. Your AppView enforces private.",
+							"knownValues": [
+								"public",
+								"private"
+							]
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 1000
+						}
+					}
+				},
+				"description": "A user-curated ordered list of podcast episodes."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771892560063
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}

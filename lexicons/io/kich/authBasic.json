@@ -1,0 +1,44 @@
+{
+	"authority": "did:plc:uxjwdy4wvuridijisalvxlxe",
+	"schema": {
+		"id": "io.kich.authBasic",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Full kich.io Access",
+				"detail": "Provides full access to all kich.io features including publication and document references.",
+				"permissions": [
+					{
+						"type": "permission",
+						"action": [
+							"create",
+							"update",
+							"delete"
+						],
+						"resource": "repo",
+						"collection": [
+							"io.kich.recipe.recipe",
+							"io.kich.recipe.like",
+							"io.kich.recipe.review",
+							"io.kich.recipe.collection",
+							"io.kich.recipe.collectionfollow",
+							"io.kich.recipe.collectionitem",
+							"io.kich.profile",
+							"io.kich.graph.follow",
+							"io.kich.accomplishment"
+						]
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Permission set for kich.io write access."
+	},
+	"meta": {
+		"indexedAt": 1771892560063
+	},
+	"references": {
+		"main": []
+	}
+}
