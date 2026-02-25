@@ -4,7 +4,7 @@
 		"id": "games.gamesgamesgamesgames.game",
 		"defs": {
 			"main": {
-				"key": "tid",
+				"key": "any",
 				"type": "record",
 				"record": {
 					"type": "object",
@@ -45,8 +45,28 @@
 								"type": "ref"
 							}
 						},
+						"videos": {
+							"type": "array",
+							"items": {
+								"ref": "games.gamesgamesgamesgames.defs#externalVideo",
+								"type": "ref"
+							}
+						},
+						"engines": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "at-uri"
+							}
+						},
 						"summary": {
 							"type": "string"
+						},
+						"keywords": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
 						},
 						"releases": {
 							"type": "array",
@@ -55,9 +75,37 @@
 								"type": "ref"
 							}
 						},
+						"websites": {
+							"type": "array",
+							"items": {
+								"ref": "games.gamesgamesgamesgames.defs#website",
+								"type": "ref"
+							}
+						},
 						"createdAt": {
 							"type": "string",
 							"format": "datetime"
+						},
+						"storyline": {
+							"type": "string"
+						},
+						"ageRatings": {
+							"type": "array",
+							"items": {
+								"ref": "games.gamesgamesgamesgames.defs#ageRating",
+								"type": "ref"
+							}
+						},
+						"timeToBeat": {
+							"ref": "games.gamesgamesgamesgames.defs#timeToBeat",
+							"type": "ref"
+						},
+						"collections": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "at-uri"
+							}
 						},
 						"publishedAt": {
 							"type": "string",
@@ -67,6 +115,27 @@
 						"applicationType": {
 							"ref": "games.gamesgamesgamesgames.defs#applicationType",
 							"type": "ref"
+						},
+						"alternativeNames": {
+							"type": "array",
+							"items": {
+								"ref": "games.gamesgamesgamesgames.defs#alternativeName",
+								"type": "ref"
+							}
+						},
+						"languageSupports": {
+							"type": "array",
+							"items": {
+								"ref": "games.gamesgamesgamesgames.defs#languageSupport",
+								"type": "ref"
+							}
+						},
+						"multiplayerModes": {
+							"type": "array",
+							"items": {
+								"ref": "games.gamesgamesgamesgames.defs#multiplayerMode",
+								"type": "ref"
+							}
 						},
 						"playerPerspectives": {
 							"type": "array",
@@ -84,7 +153,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770250962710
+		"indexedAt": 1771979064790
 	},
 	"references": {
 		"main": [

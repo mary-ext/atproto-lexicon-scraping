@@ -96,7 +96,8 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768954709804
+		"indexedAt": 1768954709804,
+		"errorAt": 1771979064790
 	},
 	"references": {
 		"kids": [],

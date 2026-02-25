@@ -1,0 +1,55 @@
+{
+	"authority": "did:plc:il7eua5zbt4s2ly2jskjfz2t",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.actor.credit",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"game",
+						"credits"
+					],
+					"properties": {
+						"game": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "The game to which this profile is being credited."
+						},
+						"actor": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref"
+						},
+						"credits": {
+							"type": "array",
+							"items": {
+								"ref": "games.gamesgamesgamesgames.defs#creditEntry",
+								"type": "ref"
+							},
+							"description": "The roles this profile played in the creation of the game."
+						},
+						"displayName": {
+							"type": "string",
+							"maxLength": 640,
+							"description": "The name to be used if there is no profile associated with this credit, or the profile is inaccessible."
+						}
+					}
+				},
+				"description": "A relationship between a game and a profile."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771979064790
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef",
+			"games.gamesgamesgamesgames.defs"
+		]
+	}
+}

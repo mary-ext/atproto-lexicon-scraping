@@ -25,6 +25,11 @@
 							"maxSize": 1000000,
 							"description": "Custom FitSky banner image. Falls back to Bluesky banner if not set."
 						},
+						"heightCm": {
+							"type": "integer",
+							"minimum": 0,
+							"description": "Height in centimeters"
+						},
 						"createdAt": {
 							"type": "string",
 							"format": "datetime"
@@ -37,6 +42,16 @@
 								"metric",
 								"imperial"
 							]
+						},
+						"dateOfBirth": {
+							"type": "string",
+							"format": "datetime",
+							"description": "User's date of birth (ISO 8601). Used for max HR calculation."
+						},
+						"weightGrams": {
+							"type": "integer",
+							"minimum": 0,
+							"description": "Weight in grams"
 						}
 					}
 				},
@@ -47,7 +62,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771806161917
+		"indexedAt": 1771979064790
 	},
 	"references": {
 		"main": []

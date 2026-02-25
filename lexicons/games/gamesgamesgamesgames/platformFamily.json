@@ -1,0 +1,39 @@
+{
+	"authority": "did:plc:il7eua5zbt4s2ly2jskjfz2t",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.platformFamily",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name"
+					],
+					"properties": {
+						"name": {
+							"type": "string"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"description": {
+							"type": "string"
+						}
+					}
+				},
+				"description": "A family of related platforms."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771979064790
+	},
+	"references": {
+		"main": []
+	}
+}

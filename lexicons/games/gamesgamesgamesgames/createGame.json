@@ -1,7 +1,7 @@
 {
 	"authority": "did:plc:il7eua5zbt4s2ly2jskjfz2t",
 	"schema": {
-		"id": "games.gamesgamesgamesgames.putGame",
+		"id": "games.gamesgamesgamesgames.createGame",
 		"defs": {
 			"main": {
 				"type": "procedure",
@@ -9,14 +9,9 @@
 					"schema": {
 						"type": "object",
 						"required": [
-							"uri",
 							"name"
 						],
 						"properties": {
-							"uri": {
-								"type": "string",
-								"format": "at-uri"
-							},
 							"name": {
 								"type": "string"
 							},
@@ -88,10 +83,6 @@
 									"ref": "games.gamesgamesgamesgames.defs#website",
 									"type": "ref"
 								}
-							},
-							"createdAt": {
-								"type": "string",
-								"format": "datetime"
 							},
 							"storyline": {
 								"type": "string"
@@ -172,7 +163,7 @@
 					},
 					"encoding": "application/json"
 				},
-				"description": "Update an existing game record in the authenticated user's repository."
+				"description": "Create a new game record in the authenticated user's repository."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",

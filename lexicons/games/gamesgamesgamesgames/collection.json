@@ -1,0 +1,67 @@
+{
+	"authority": "did:plc:il7eua5zbt4s2ly2jskjfz2t",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.collection",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name"
+					],
+					"properties": {
+						"name": {
+							"type": "string"
+						},
+						"type": {
+							"type": "string",
+							"knownValues": [
+								"franchise",
+								"series",
+								"curated"
+							]
+						},
+						"media": {
+							"type": "array",
+							"items": {
+								"ref": "games.gamesgamesgamesgames.defs#mediaItem",
+								"type": "ref"
+							}
+						},
+						"parent": {
+							"type": "string",
+							"format": "at-uri"
+						},
+						"websites": {
+							"type": "array",
+							"items": {
+								"ref": "games.gamesgamesgamesgames.defs#website",
+								"type": "ref"
+							}
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"description": {
+							"type": "string"
+						}
+					}
+				},
+				"description": "A grouping of games — franchise, series, or curated list."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771979064790
+	},
+	"references": {
+		"main": [
+			"games.gamesgamesgamesgames.defs"
+		]
+	}
+}

@@ -40,7 +40,8 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769213870289
+		"indexedAt": 1769213870289,
+		"errorAt": 1771979064790
 	},
 	"references": {
 		"vr": [],

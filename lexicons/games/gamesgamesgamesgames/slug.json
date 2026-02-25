@@ -1,0 +1,40 @@
+{
+	"authority": "did:plc:il7eua5zbt4s2ly2jskjfz2t",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.slug",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"type",
+						"key"
+					],
+					"properties": {
+						"key": {
+							"type": "string",
+							"format": "record-key",
+							"description": "The key of the record this slug points to."
+						},
+						"type": {
+							"type": "string",
+							"format": "nsid",
+							"description": "The type of the record this slug points to."
+						}
+					}
+				},
+				"description": "A human-readable/writable slug pointing to a separate record by the slug's creator."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1771979064790
+	},
+	"references": {
+		"main": []
+	}
+}
