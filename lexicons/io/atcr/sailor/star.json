@@ -14,9 +14,9 @@
 					],
 					"properties": {
 						"subject": {
-							"ref": "#subject",
-							"type": "ref",
-							"description": "The repository being starred"
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT URI of the repository page being starred (e.g., at://did:plc:abc/io.atcr.repo.page/myapp)"
 						},
 						"createdAt": {
 							"type": "string",
@@ -25,37 +25,16 @@
 						}
 					}
 				},
-				"description": "A star (like) on a container image repository. Stored in the starrer's PDS, similar to Bluesky likes."
-			},
-			"subject": {
-				"type": "object",
-				"required": [
-					"did",
-					"repository"
-				],
-				"properties": {
-					"did": {
-						"type": "string",
-						"format": "did",
-						"description": "DID of the repository owner"
-					},
-					"repository": {
-						"type": "string",
-						"maxLength": 255,
-						"description": "Repository name (e.g., 'myapp')"
-					}
-				},
-				"description": "Reference to a repository owned by a user"
+				"description": "A star (like) on a container image repository. Stored in the starrer's PDS, similar to Bluesky likes. Subject is an AT URI pointing to the repo page record being starred."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1766276313627
+		"indexedAt": 1772065235505
 	},
 	"references": {
-		"main": [],
-		"subject": []
+		"main": []
 	}
 }

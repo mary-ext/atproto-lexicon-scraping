@@ -1,0 +1,138 @@
+{
+	"authority": "did:web:alt.science",
+	"schema": {
+		"id": "science.alt.dataset.lens",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"sourceSchema",
+						"targetSchema",
+						"getterCode",
+						"putterCode",
+						"createdAt"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 100,
+							"description": "Human-readable lens name"
+						},
+						"language": {
+							"type": "string",
+							"maxLength": 50,
+							"description": "(Deprecated: use codeReference.language instead.) Programming language of the lens implementation (e.g., 'python', 'typescript')"
+						},
+						"metadata": {
+							"ref": "#lensMetadata",
+							"type": "ref",
+							"description": "Arbitrary metadata (author, performance notes, etc.)"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when this lens was created"
+						},
+						"getterCode": {
+							"ref": "#codeReference",
+							"type": "ref",
+							"description": "Code reference for getter function (Source -> Target)"
+						},
+						"putterCode": {
+							"ref": "#codeReference",
+							"type": "ref",
+							"description": "Code reference for putter function (Target, Source -> Source)"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 1000,
+							"description": "What this transformation does"
+						},
+						"sourceSchema": {
+							"type": "string",
+							"format": "at-uri",
+							"maxLength": 500,
+							"description": "AT-URI reference to source schema"
+						},
+						"targetSchema": {
+							"type": "string",
+							"format": "at-uri",
+							"maxLength": 500,
+							"description": "AT-URI reference to target schema"
+						},
+						"sourceSchemaVersion": {
+							"type": "string",
+							"maxLength": 100,
+							"description": "Semver version or range for source schema compatibility (e.g., '1.0.0', '>=1.0.0 <2.0.0')"
+						},
+						"targetSchemaVersion": {
+							"type": "string",
+							"maxLength": 100,
+							"description": "Semver version or range for target schema compatibility (e.g., '1.0.0', '>=1.0.0 <2.0.0')"
+						}
+					}
+				},
+				"description": "Bidirectional transformation (Lens) between two sample types, with code stored in external repositories"
+			},
+			"lensMetadata": {
+				"type": "object",
+				"properties": {},
+				"description": "Open metadata object for lens records. Applications may extend with additional fields (author, performance notes, etc.)."
+			},
+			"codeReference": {
+				"type": "object",
+				"required": [
+					"repository",
+					"commit",
+					"path"
+				],
+				"properties": {
+					"path": {
+						"type": "string",
+						"maxLength": 500,
+						"description": "Path to function within repository (e.g., 'lenses/vision.py:rgb_to_grayscale')"
+					},
+					"branch": {
+						"type": "string",
+						"maxLength": 100,
+						"description": "Optional branch name (for reference, commit hash is authoritative)"
+					},
+					"commit": {
+						"type": "string",
+						"maxLength": 40,
+						"description": "Git commit hash (ensures immutability)"
+					},
+					"language": {
+						"ref": "science.alt.dataset.programmingLanguage",
+						"type": "ref",
+						"description": "Programming language of the code at this reference. Prefer this over the top-level language field for per-function granularity."
+					},
+					"repository": {
+						"type": "string",
+						"maxLength": 500,
+						"description": "Repository URL (e.g., 'https://github.com/user/repo' or 'at://did/tangled.repo/...')"
+					}
+				},
+				"description": "Reference to code in an external repository (GitHub, tangled.org, etc.)"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772065235505
+	},
+	"references": {
+		"main": [
+			"science.alt.dataset.programmingLanguage"
+		],
+		"lensMetadata": [],
+		"codeReference": [
+			"science.alt.dataset.programmingLanguage"
+		]
+	}
+}

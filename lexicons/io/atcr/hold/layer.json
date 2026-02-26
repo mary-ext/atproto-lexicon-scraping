@@ -12,9 +12,8 @@
 						"digest",
 						"size",
 						"mediaType",
-						"repository",
+						"manifest",
 						"userDid",
-						"userHandle",
 						"createdAt"
 					],
 					"properties": {
@@ -32,6 +31,11 @@
 							"format": "did",
 							"description": "DID of user who uploaded this layer"
 						},
+						"manifest": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT-URI of the manifest that included this layer (e.g., at://did:plc:xyz/io.atcr.manifest/abc123)"
+						},
 						"createdAt": {
 							"type": "string",
 							"format": "datetime",
@@ -41,16 +45,6 @@
 							"type": "string",
 							"maxLength": 128,
 							"description": "Media type (e.g., application/vnd.oci.image.layer.v1.tar+gzip)"
-						},
-						"repository": {
-							"type": "string",
-							"maxLength": 255,
-							"description": "Repository this layer belongs to"
-						},
-						"userHandle": {
-							"type": "string",
-							"format": "handle",
-							"description": "Handle of user (for display purposes)"
 						}
 					}
 				},
@@ -61,7 +55,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1766794619045
+		"indexedAt": 1772065235505
 	},
 	"references": {
 		"main": []

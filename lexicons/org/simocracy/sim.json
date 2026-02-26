@@ -1,0 +1,57 @@
+{
+	"authority": "did:plc:qoti4acfmc5wg6zzmtix6hse",
+	"schema": {
+		"id": "org.simocracy.sim",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"settings",
+						"createdAt"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 64,
+							"description": "Display name of the sim"
+						},
+						"image": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg",
+								"image/webp"
+							],
+							"description": "Rendered avatar PNG thumbnail for quick display"
+						},
+						"settings": {
+							"ref": "org.simocracy.defs#spriteSettings",
+							"type": "ref",
+							"description": "Sprite appearance settings"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the sim was created"
+						}
+					}
+				},
+				"description": "An avatar/sim record. One user can have multiple sims."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772065235505
+	},
+	"references": {
+		"main": [
+			"org.simocracy.defs"
+		]
+	}
+}

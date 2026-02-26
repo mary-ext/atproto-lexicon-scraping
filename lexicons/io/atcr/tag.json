@@ -10,8 +10,7 @@
 					"type": "object",
 					"required": [
 						"repository",
-						"tag",
-						"createdAt"
+						"tag"
 					],
 					"properties": {
 						"tag": {
@@ -24,10 +23,10 @@
 							"format": "at-uri",
 							"description": "AT-URI of the manifest this tag points to (e.g., 'at://did:plc:xyz/io.atcr.manifest/abc123'). Preferred over manifestDigest for new records."
 						},
-						"createdAt": {
+						"updatedAt": {
 							"type": "string",
 							"format": "datetime",
-							"description": "Tag creation timestamp"
+							"description": "Timestamp of last tag update"
 						},
 						"repository": {
 							"type": "string",
@@ -48,7 +47,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1766794619045
+		"indexedAt": 1772065235505
 	},
 	"references": {
 		"main": []

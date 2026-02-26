@@ -1,0 +1,57 @@
+{
+	"authority": "did:web:alt.science",
+	"schema": {
+		"id": "science.alt.dataset.label",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"datasetUri",
+						"createdAt"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 200,
+							"description": "User-facing label name, e.g. 'mnist'"
+						},
+						"version": {
+							"type": "string",
+							"maxLength": 50,
+							"description": "Semver or free-form version string, e.g. '1.0.1'. When omitted, the label is unversioned."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when this label was created"
+						},
+						"datasetUri": {
+							"type": "string",
+							"format": "at-uri",
+							"maxLength": 500,
+							"description": "AT-URI pointing to the dataset entry this label refers to"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 5000,
+							"description": "Optional description of this labeled version"
+						}
+					}
+				},
+				"description": "Named label pointing to a dataset entry. Multiple labels with the same name but different versions can coexist, enabling versioned references to immutable dataset entries."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772065235505
+	},
+	"references": {
+		"main": []
+	}
+}

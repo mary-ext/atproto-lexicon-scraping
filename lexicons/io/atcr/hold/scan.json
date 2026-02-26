@@ -1,0 +1,102 @@
+{
+	"authority": "did:plc:wfj5kyialpmcv2fzk6uqwsln",
+	"schema": {
+		"id": "io.atcr.hold.scan",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"manifest",
+						"repository",
+						"userDid",
+						"critical",
+						"high",
+						"medium",
+						"low",
+						"total",
+						"scannerVersion",
+						"scannedAt"
+					],
+					"properties": {
+						"low": {
+							"type": "integer",
+							"minimum": 0,
+							"description": "Count of low severity vulnerabilities"
+						},
+						"high": {
+							"type": "integer",
+							"minimum": 0,
+							"description": "Count of high severity vulnerabilities"
+						},
+						"total": {
+							"type": "integer",
+							"minimum": 0,
+							"description": "Total vulnerability count"
+						},
+						"medium": {
+							"type": "integer",
+							"minimum": 0,
+							"description": "Count of medium severity vulnerabilities"
+						},
+						"userDid": {
+							"type": "string",
+							"format": "did",
+							"description": "DID of the image owner"
+						},
+						"critical": {
+							"type": "integer",
+							"minimum": 0,
+							"description": "Count of critical severity vulnerabilities"
+						},
+						"manifest": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT-URI of the scanned manifest (e.g., at://did:plc:xyz/io.atcr.manifest/abc123...)"
+						},
+						"sbomBlob": {
+							"type": "blob",
+							"accept": [
+								"application/spdx+json"
+							],
+							"description": "SBOM blob (SPDX JSON format) uploaded to the hold's blob storage"
+						},
+						"scannedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "RFC3339 timestamp of when the scan completed"
+						},
+						"repository": {
+							"type": "string",
+							"maxLength": 256,
+							"description": "Repository name (e.g., myapp)"
+						},
+						"scannerVersion": {
+							"type": "string",
+							"maxLength": 64,
+							"description": "Version of the scanner that produced this result (e.g., atcr-scanner-v1.0.0)"
+						},
+						"vulnReportBlob": {
+							"type": "blob",
+							"accept": [
+								"application/vnd.atcr.vulnerabilities+json"
+							],
+							"description": "Grype vulnerability report blob (JSON) with full CVE details"
+						}
+					}
+				},
+				"description": "Vulnerability scan results for a container manifest. Stored in the hold's embedded PDS. Record key is deterministic: the manifest digest hex without the 'sha256:' prefix, so re-scans upsert the existing record."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772065235505
+	},
+	"references": {
+		"main": []
+	}
+}

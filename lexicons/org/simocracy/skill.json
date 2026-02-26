@@ -1,0 +1,85 @@
+{
+	"authority": "did:plc:qoti4acfmc5wg6zzmtix6hse",
+	"schema": {
+		"id": "org.simocracy.skill",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"sim",
+						"name",
+						"createdAt"
+					],
+					"properties": {
+						"sim": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "Reference to the sim record this skill belongs to"
+						},
+						"name": {
+							"type": "string",
+							"maxLength": 128,
+							"description": "Name of the skill"
+						},
+						"triggers": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							},
+							"maxLength": 10,
+							"description": "Conditions or phrases that trigger this skill"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the skill was created"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 3000,
+							"description": "Short description of what this skill does. Rich text annotations may be provided via descriptionFacets.",
+							"maxGraphemes": 300
+						},
+						"instructions": {
+							"type": "string",
+							"maxLength": 30000,
+							"description": "Detailed step-by-step instructions for executing this skill. Rich text annotations may be provided via instructionsFacets.",
+							"maxGraphemes": 3000
+						},
+						"descriptionFacets": {
+							"type": "array",
+							"items": {
+								"ref": "app.bsky.richtext.facet",
+								"type": "ref"
+							},
+							"description": "Rich text annotations for description."
+						},
+						"instructionsFacets": {
+							"type": "array",
+							"items": {
+								"ref": "app.bsky.richtext.facet",
+								"type": "ref"
+							},
+							"description": "Rich text annotations for instructions."
+						}
+					}
+				},
+				"description": "A skill the sim possesses. A sim can have many skills."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772065235505
+	},
+	"references": {
+		"main": [
+			"app.bsky.richtext.facet",
+			"com.atproto.repo.strongRef"
+		]
+	}
+}

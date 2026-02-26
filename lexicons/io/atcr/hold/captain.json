@@ -30,10 +30,10 @@
 							"maxLength": 64,
 							"description": "S3 region where blobs are stored"
 						},
-						"provider": {
+						"successor": {
 							"type": "string",
-							"maxLength": 64,
-							"description": "Deployment provider (e.g., fly.io, aws, etc.)"
+							"format": "did",
+							"description": "DID of successor hold for migration redirect"
 						},
 						"deployedAt": {
 							"type": "string",
@@ -47,6 +47,14 @@
 						"enableBlueskyPosts": {
 							"type": "boolean",
 							"description": "Enable Bluesky posts when manifests are pushed"
+						},
+						"supporterBadgeTiers": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 64
+							},
+							"description": "Tier names that earn a supporter badge on user profiles"
 						}
 					}
 				},
@@ -57,7 +65,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1766794619045,
+		"indexedAt": 1772065235505,
 		"errorAt": 1771892560063
 	},
 	"references": {

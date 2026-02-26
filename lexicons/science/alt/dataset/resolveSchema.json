@@ -1,0 +1,78 @@
+{
+	"authority": "did:web:alt.science",
+	"schema": {
+		"id": "science.alt.dataset.resolveSchema",
+		"defs": {
+			"main": {
+				"type": "query",
+				"errors": [
+					{
+						"name": "SchemaNotFound",
+						"description": "No schema found with the given NSID"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uri",
+							"cid",
+							"record"
+						],
+						"properties": {
+							"cid": {
+								"type": "string",
+								"description": "CID of the resolved schema record"
+							},
+							"uri": {
+								"type": "string",
+								"format": "at-uri",
+								"description": "AT-URI of the resolved schema record"
+							},
+							"record": {
+								"ref": "science.alt.dataset.schema",
+								"type": "ref",
+								"description": "The full schema record"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"handle",
+						"schemaId"
+					],
+					"properties": {
+						"handle": {
+							"type": "string",
+							"description": "DID or handle of the schema owner"
+						},
+						"version": {
+							"type": "string",
+							"maxLength": 20,
+							"description": "Specific version to resolve. If omitted, resolves to latest."
+						},
+						"schemaId": {
+							"type": "string",
+							"maxLength": 500,
+							"description": "The permanent NSID identifier for the schema (the {NSID} part of the rkey {NSID}@{semver})"
+						}
+					}
+				},
+				"description": "Resolve a schema by its permanent NSID identifier. When version is omitted, resolves to the most recently created schema with the given NSID."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772065235505
+	},
+	"references": {
+		"main": [
+			"science.alt.dataset.schema"
+		]
+	}
+}

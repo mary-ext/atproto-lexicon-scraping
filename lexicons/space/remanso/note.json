@@ -55,6 +55,10 @@
 						"publishedAt": {
 							"type": "string",
 							"format": "datetime"
+						},
+						"discoverable": {
+							"type": "boolean",
+							"description": "Whether the note can be discovered by others in public listings. Defaults to true."
 						}
 					}
 				},
@@ -86,7 +90,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771115017564
+		"indexedAt": 1772065235505
 	},
 	"references": {
 		"main": [],

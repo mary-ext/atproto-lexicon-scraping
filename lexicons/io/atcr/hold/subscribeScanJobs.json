@@ -1,0 +1,190 @@
+{
+	"authority": "did:plc:wfj5kyialpmcv2fzk6uqwsln",
+	"schema": {
+		"id": "io.atcr.hold.subscribeScanJobs",
+		"defs": {
+			"main": {
+				"type": "subscription",
+				"errors": [
+					{
+						"name": "InvalidSecret",
+						"description": "Scanner shared secret is invalid"
+					}
+				],
+				"message": {
+					"schema": {
+						"refs": [
+							"#scanJob",
+							"#scanResult"
+						],
+						"type": "union"
+					}
+				},
+				"parameters": {
+					"type": "params",
+					"properties": {
+						"cursor": {
+							"type": "integer",
+							"description": "Sequence number to resume from. If omitted, starts from latest. Use -1 to receive only new jobs."
+						}
+					}
+				},
+				"description": "Subscribe to vulnerability scan jobs via WebSocket. Scanners connect to receive pending scan jobs and send back results. Authenticated via shared secret (query parameter or X-Scanner-Secret header)."
+			},
+			"scanJob": {
+				"type": "object",
+				"required": [
+					"type",
+					"seq",
+					"digest",
+					"repository",
+					"userDid",
+					"holdDid",
+					"holdEndpoint"
+				],
+				"properties": {
+					"seq": {
+						"type": "integer",
+						"description": "Monotonic sequence number for cursor-based resumption"
+					},
+					"tag": {
+						"type": "string",
+						"maxLength": 256,
+						"description": "Optional tag that triggered the scan"
+					},
+					"type": {
+						"type": "string",
+						"const": "scan_job",
+						"maxLength": 32,
+						"description": "Message type discriminator"
+					},
+					"digest": {
+						"type": "string",
+						"maxLength": 128,
+						"description": "Manifest digest (e.g., sha256:abc123...)"
+					},
+					"holdDid": {
+						"type": "string",
+						"format": "did",
+						"description": "DID of the hold where the image is stored"
+					},
+					"userDid": {
+						"type": "string",
+						"format": "did",
+						"description": "DID of the image owner"
+					},
+					"priority": {
+						"type": "integer",
+						"description": "Scan priority (lower = higher priority). Tier-based scheduling."
+					},
+					"repository": {
+						"type": "string",
+						"maxLength": 256,
+						"description": "Repository name (e.g., myapp)"
+					},
+					"holdEndpoint": {
+						"type": "string",
+						"format": "uri",
+						"description": "HTTP endpoint of the hold for blob downloads"
+					}
+				},
+				"description": "A scan job dispatched from hold to scanner. Sent as a JSON WebSocket message."
+			},
+			"scanResult": {
+				"type": "object",
+				"required": [
+					"type",
+					"digest",
+					"summary"
+				],
+				"properties": {
+					"sbom": {
+						"type": "bytes",
+						"maxLength": 104857600,
+						"description": "SBOM blob (SPDX JSON format, max 100MB)"
+					},
+					"type": {
+						"type": "string",
+						"const": "scan_result",
+						"maxLength": 32,
+						"description": "Message type discriminator"
+					},
+					"error": {
+						"type": "string",
+						"maxLength": 1024,
+						"description": "Error message if scan failed"
+					},
+					"digest": {
+						"type": "string",
+						"maxLength": 128,
+						"description": "Manifest digest that was scanned"
+					},
+					"summary": {
+						"ref": "#vulnSummary",
+						"type": "ref",
+						"description": "Vulnerability count summary"
+					},
+					"vulnReport": {
+						"type": "bytes",
+						"maxLength": 104857600,
+						"description": "Grype vulnerability report blob (JSON, max 100MB)"
+					},
+					"scannerVersion": {
+						"type": "string",
+						"maxLength": 64,
+						"description": "Scanner version string"
+					}
+				},
+				"description": "A scan result sent from scanner back to hold. Sent as a JSON WebSocket message."
+			},
+			"vulnSummary": {
+				"type": "object",
+				"required": [
+					"critical",
+					"high",
+					"medium",
+					"low",
+					"total"
+				],
+				"properties": {
+					"low": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Count of low severity vulnerabilities"
+					},
+					"high": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Count of high severity vulnerabilities"
+					},
+					"total": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Total vulnerability count"
+					},
+					"medium": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Count of medium severity vulnerabilities"
+					},
+					"critical": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Count of critical severity vulnerabilities"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772065235505
+	},
+	"references": {
+		"main": [],
+		"scanJob": [],
+		"scanResult": [],
+		"vulnSummary": []
+	}
+}
