@@ -1,7 +1,7 @@
 {
 	"authority": "did:plc:btxrwcaeyodrap5mnjw2fvmz",
 	"schema": {
-		"id": "pub.leaflet.blocks.unorderedList",
+		"id": "pub.leaflet.blocks.orderedList",
 		"defs": {
 			"main": {
 				"type": "object",
@@ -15,6 +15,10 @@
 							"ref": "#listItem",
 							"type": "ref"
 						}
+					},
+					"startIndex": {
+						"type": "integer",
+						"description": "The starting number for this ordered list. Defaults to 1 if not specified."
 					}
 				}
 			},
@@ -38,12 +42,12 @@
 							"ref": "#listItem",
 							"type": "ref"
 						},
-						"description": "Nested unordered list items. Mutually exclusive with orderedListChildren; if both are present, children takes precedence."
+						"description": "Nested ordered list items. Mutually exclusive with unorderedListChildren; if both are present, children takes precedence."
 					},
-					"orderedListChildren": {
-						"ref": "pub.leaflet.blocks.orderedList",
+					"unorderedListChildren": {
+						"ref": "pub.leaflet.blocks.unorderedList",
 						"type": "ref",
-						"description": "Nested ordered list items. Mutually exclusive with children; if both are present, children takes precedence."
+						"description": "A nested unordered list. Mutually exclusive with children; if both are present, children takes precedence."
 					}
 				}
 			}
@@ -52,22 +56,21 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1772151818114,
-		"errorAt": 1760659937196
+		"indexedAt": 1772151818114
 	},
 	"references": {
 		"main": [
 			"pub.leaflet.blocks.header",
 			"pub.leaflet.blocks.image",
-			"pub.leaflet.blocks.orderedList",
 			"pub.leaflet.blocks.text",
+			"pub.leaflet.blocks.unorderedList",
 			"pub.leaflet.richtext.facet"
 		],
 		"listItem": [
 			"pub.leaflet.blocks.header",
 			"pub.leaflet.blocks.image",
-			"pub.leaflet.blocks.orderedList",
 			"pub.leaflet.blocks.text",
+			"pub.leaflet.blocks.unorderedList",
 			"pub.leaflet.richtext.facet"
 		]
 	}

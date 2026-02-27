@@ -100,6 +100,7 @@
 			"pub.leaflet.blocks.iframe",
 			"pub.leaflet.blocks.image",
 			"pub.leaflet.blocks.math",
+			"pub.leaflet.blocks.orderedList",
 			"pub.leaflet.blocks.page",
 			"pub.leaflet.blocks.poll",
 			"pub.leaflet.blocks.text",

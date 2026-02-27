@@ -1,7 +1,7 @@
 {
 	"authority": "did:plc:mdg3w2kpadcyxy33pizokzf3",
 	"schema": {
-		"id": "at.inlay.Placeholder",
+		"id": "at.inlay.Throw",
 		"defs": {
 			"main": {
 				"type": "procedure",
@@ -9,20 +9,18 @@
 					"schema": {
 						"type": "object",
 						"required": [
-							"children",
-							"fallback"
+							"message"
 						],
 						"properties": {
-							"children": {
-								"type": "array",
-								"items": {
-									"ref": "at.inlay.defs#element",
-									"type": "ref"
-								}
+							"stack": {
+								"type": "string",
+								"maxLength": 10000,
+								"description": "Stack trace, if available"
 							},
-							"fallback": {
-								"ref": "at.inlay.defs#element",
-								"type": "ref"
+							"message": {
+								"type": "string",
+								"maxLength": 10000,
+								"description": "Human-readable error message"
 							}
 						}
 					},
@@ -35,15 +33,14 @@
 					},
 					"encoding": "application/json"
 				},
-				"description": "Shows fallback content while children are loading."
+				"description": "Error node produced when component resolution fails. The host decides how to render it."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771115017564,
-		"errorAt": 1772151818114
+		"indexedAt": 1772151818114
 	},
 	"references": {
 		"main": [

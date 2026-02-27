@@ -655,13 +655,243 @@
 					"topDown",
 					"vr"
 				]
+			},
+			"profileSummaryView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"did",
+					"profileType"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did"
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"slug": {
+						"type": "string"
+					},
+					"avatar": {
+						"type": "blob",
+						"accept": [
+							"image/png",
+							"image/jpeg"
+						],
+						"maxSize": 10000000
+					},
+					"displayName": {
+						"type": "string",
+						"maxLength": 640
+					},
+					"profileType": {
+						"type": "string",
+						"knownValues": [
+							"actor",
+							"org"
+						]
+					}
+				}
+			},
+			"orgProfileDetailView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"did"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did"
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"slug": {
+						"type": "string"
+					},
+					"media": {
+						"type": "array",
+						"items": {
+							"ref": "games.gamesgamesgamesgames.defs#mediaItem",
+							"type": "ref"
+						}
+					},
+					"avatar": {
+						"type": "blob",
+						"accept": [
+							"image/png",
+							"image/jpeg"
+						],
+						"maxSize": 10000000
+					},
+					"parent": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"status": {
+						"type": "string",
+						"knownValues": [
+							"active",
+							"inactive",
+							"merged",
+							"acquired",
+							"defunct"
+						]
+					},
+					"country": {
+						"type": "string"
+					},
+					"websites": {
+						"type": "array",
+						"items": {
+							"ref": "games.gamesgamesgamesgames.defs#website",
+							"type": "ref"
+						}
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime"
+					},
+					"foundedAt": {
+						"type": "string",
+						"format": "datetime"
+					},
+					"description": {
+						"type": "string",
+						"maxLength": 3000
+					},
+					"displayName": {
+						"type": "string",
+						"maxLength": 640
+					}
+				}
+			},
+			"orgProfileSummaryView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"did"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did"
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"slug": {
+						"type": "string"
+					},
+					"avatar": {
+						"type": "blob",
+						"accept": [
+							"image/png",
+							"image/jpeg"
+						],
+						"maxSize": 10000000
+					},
+					"displayName": {
+						"type": "string",
+						"maxLength": 640
+					}
+				}
+			},
+			"actorProfileDetailView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"did"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did"
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"slug": {
+						"type": "string"
+					},
+					"avatar": {
+						"type": "blob",
+						"accept": [
+							"image/png",
+							"image/jpeg"
+						],
+						"maxSize": 10000000
+					},
+					"pronouns": {
+						"type": "string",
+						"maxLength": 200
+					},
+					"websites": {
+						"type": "array",
+						"items": {
+							"ref": "games.gamesgamesgamesgames.defs#website",
+							"type": "ref"
+						}
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime"
+					},
+					"description": {
+						"type": "string",
+						"maxLength": 3000
+					},
+					"displayName": {
+						"type": "string",
+						"maxLength": 640
+					}
+				}
+			},
+			"actorProfileSummaryView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"did"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did"
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"slug": {
+						"type": "string"
+					},
+					"avatar": {
+						"type": "blob",
+						"accept": [
+							"image/png",
+							"image/jpeg"
+						],
+						"maxSize": 10000000
+					},
+					"displayName": {
+						"type": "string",
+						"maxLength": 640
+					}
+				}
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771979064790
+		"indexedAt": 1772151818114
 	},
 	"references": {
 		"mode": [],
@@ -685,6 +915,11 @@
 		"multiplayerMode": [],
 		"platformVersion": [],
 		"platformCategory": [],
-		"playerPerspective": []
+		"playerPerspective": [],
+		"profileSummaryView": [],
+		"orgProfileDetailView": [],
+		"orgProfileSummaryView": [],
+		"actorProfileDetailView": [],
+		"actorProfileSummaryView": []
 	}
 }

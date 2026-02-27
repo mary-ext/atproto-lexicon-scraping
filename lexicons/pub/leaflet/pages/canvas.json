@@ -44,6 +44,7 @@
 							"pub.leaflet.blocks.header",
 							"pub.leaflet.blocks.image",
 							"pub.leaflet.blocks.unorderedList",
+							"pub.leaflet.blocks.orderedList",
 							"pub.leaflet.blocks.website",
 							"pub.leaflet.blocks.math",
 							"pub.leaflet.blocks.code",
@@ -116,7 +117,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1761869743793
+		"indexedAt": 1772151818114
 	},
 	"references": {
 		"main": [
@@ -130,6 +131,7 @@
 			"pub.leaflet.blocks.iframe",
 			"pub.leaflet.blocks.image",
 			"pub.leaflet.blocks.math",
+			"pub.leaflet.blocks.orderedList",
 			"pub.leaflet.blocks.page",
 			"pub.leaflet.blocks.poll",
 			"pub.leaflet.blocks.text",
@@ -148,6 +150,7 @@
 			"pub.leaflet.blocks.iframe",
 			"pub.leaflet.blocks.image",
 			"pub.leaflet.blocks.math",
+			"pub.leaflet.blocks.orderedList",
 			"pub.leaflet.blocks.page",
 			"pub.leaflet.blocks.poll",
 			"pub.leaflet.blocks.text",

@@ -1,0 +1,59 @@
+{
+	"authority": "did:plc:il7eua5zbt4s2ly2jskjfz2t",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.searchProfilesTypeahead",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"profiles"
+						],
+						"properties": {
+							"profiles": {
+								"type": "array",
+								"items": {
+									"ref": "games.gamesgamesgamesgames.defs#profileSummaryView",
+									"type": "ref"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"q"
+					],
+					"properties": {
+						"q": {
+							"type": "string",
+							"maxLength": 100,
+							"minLength": 1
+						},
+						"limit": {
+							"type": "integer",
+							"default": 10,
+							"maximum": 25,
+							"minimum": 1
+						}
+					}
+				},
+				"description": "Search for actor and org profiles by display name. Intended for typeahead/autocomplete."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772151818114
+	},
+	"references": {
+		"main": [
+			"games.gamesgamesgamesgames.defs"
+		]
+	}
+}
