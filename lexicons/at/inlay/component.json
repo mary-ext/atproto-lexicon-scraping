@@ -33,24 +33,9 @@
 							"description": "NSID this component implements (also the XRPC procedure)"
 						},
 						"view": {
-							"type": "array",
-							"items": {
-								"refs": [
-									"#viewRecord",
-									"#viewCollection",
-									"#viewIdentity"
-								],
-								"type": "union"
-							},
-							"description": "What kinds of pages this component is a view for"
-						},
-						"accepts": {
-							"type": "array",
-							"items": {
-								"ref": "#acceptsEntry",
-								"type": "ref"
-							},
-							"description": "Data types this component can render. Used for data-driven discovery."
+							"ref": "#view",
+							"type": "ref",
+							"description": "What data this component views and which prop receives it"
 						},
 						"imports": {
 							"type": "array",
@@ -78,67 +63,48 @@
 				},
 				"description": "Component record - declares an implementation of a type"
 			},
+			"view": {
+				"type": "object",
+				"required": [
+					"prop",
+					"accepts"
+				],
+				"properties": {
+					"prop": {
+						"type": "string",
+						"maxLength": 256,
+						"description": "Which component prop receives the view data."
+					},
+					"accepts": {
+						"type": "array",
+						"items": {
+							"refs": [
+								"#viewRecord",
+								"#viewPrimitive"
+							],
+							"type": "union"
+						},
+						"minLength": 1,
+						"description": "Data types this view accepts."
+					}
+				},
+				"description": "Declares what data this component views and which prop receives it."
+			},
 			"viewRecord": {
 				"type": "object",
 				"properties": {
+					"rkey": {
+						"type": "string",
+						"maxLength": 512,
+						"description": "The record key, baked from the collection's lexicon at authoring time. Presence enables DID expansion and identity page routing."
+					},
 					"collection": {
 						"type": "string",
 						"format": "nsid",
 						"description": "The collection this component views. Omit for any-collection."
 					}
 				},
-				"description": "Component is a view for individual records of a collection. Omit collection for a generic record view."
-			},
-			"acceptsEntry": {
-				"type": "object",
-				"required": [
-					"type",
-					"prop"
-				],
-				"properties": {
-					"prop": {
-						"type": "string",
-						"maxLength": 256,
-						"description": "Prop to bind matched data to."
-					},
-					"type": {
-						"type": "string",
-						"maxLength": 128,
-						"description": "Lexicon field type.",
-						"knownValues": [
-							"string",
-							"integer",
-							"boolean",
-							"blob",
-							"cid-link",
-							"bytes"
-						]
-					},
-					"format": {
-						"type": "string",
-						"maxLength": 64,
-						"description": "String format constraint. Only applies when type is 'string'.",
-						"knownValues": [
-							"at-uri",
-							"did",
-							"datetime",
-							"uri",
-							"handle",
-							"at-identifier",
-							"nsid",
-							"cid",
-							"language",
-							"record-key",
-							"tid"
-						]
-					},
-					"collection": {
-						"type": "string",
-						"format": "nsid",
-						"description": "For at-uri strings, restricts to this collection."
-					}
-				},
-				"description": "Declares a data type this component can handle, routed to a specific prop."
+				"description": "View accepts individual records of a collection. Omit collection for a generic record view. When rkey is present, the component accepts bare DIDs (expanded to full AT URIs) and appears on identity pages."
 			},
 			"bodyExternal": {
 				"type": "object",
@@ -167,38 +133,61 @@
 				},
 				"description": "Component rendered by the host from a serialized element tree"
 			},
-			"viewIdentity": {
+			"viewPrimitive": {
 				"type": "object",
-				"properties": {},
-				"description": "Component is a view for an identity (person/DID)."
-			},
-			"viewCollection": {
-				"type": "object",
+				"required": [
+					"type"
+				],
 				"properties": {
-					"collection": {
+					"type": {
 						"type": "string",
-						"format": "nsid",
-						"description": "The collection this component lists. Omit for any-collection."
+						"maxLength": 128,
+						"description": "Lexicon primitive type.",
+						"knownValues": [
+							"string",
+							"integer",
+							"boolean",
+							"blob",
+							"cid-link",
+							"bytes"
+						]
+					},
+					"format": {
+						"type": "string",
+						"maxLength": 64,
+						"description": "String format constraint. Only applies when type is 'string'.",
+						"knownValues": [
+							"at-uri",
+							"did",
+							"datetime",
+							"uri",
+							"handle",
+							"at-identifier",
+							"nsid",
+							"cid",
+							"language",
+							"record-key",
+							"tid"
+						]
 					}
 				},
-				"description": "Component is a view for a collection listing. Omit collection for a generic collection view."
+				"description": "View accepts a primitive value type."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771201380164
+		"indexedAt": 1772237992973
 	},
 	"references": {
 		"main": [
 			"at.inlay.defs"
 		],
+		"view": [],
 		"viewRecord": [],
-		"acceptsEntry": [],
 		"bodyExternal": [],
 		"bodyTemplate": [],
-		"viewIdentity": [],
-		"viewCollection": []
+		"viewPrimitive": []
 	}
 }

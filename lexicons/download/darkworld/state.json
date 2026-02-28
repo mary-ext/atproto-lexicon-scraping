@@ -1,0 +1,53 @@
+{
+	"authority": "did:plc:s7cesz7cr6ybltaryy4meb6y",
+	"schema": {
+		"id": "download.darkworld.state",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"gender",
+						"pronouns"
+					],
+					"properties": {
+						"gender": {
+							"refs": [
+								"download.darkworld.defs#genderMale",
+								"download.darkworld.defs#genderFemale",
+								"download.darkworld.defs#genderNonBinary",
+								"download.darkworld.defs#genderQuestioning",
+								"download.darkworld.defs#genderOther"
+							],
+							"type": "union"
+						},
+						"pronouns": {
+							"refs": [
+								"download.darkworld.defs#pronounsHeHim",
+								"download.darkworld.defs#pronounsSheHer",
+								"download.darkworld.defs#pronounsTheyThem",
+								"download.darkworld.defs#pronounsHeThey",
+								"download.darkworld.defs#pronounsSheThey",
+								"download.darkworld.defs#pronounsAny"
+							],
+							"type": "union"
+						}
+					}
+				},
+				"description": "The main and only record used by darkworld.download to determine site content."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772237992973
+	},
+	"references": {
+		"main": [
+			"download.darkworld.defs"
+		]
+	}
+}

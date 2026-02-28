@@ -52,6 +52,10 @@
 							"type": "integer",
 							"minimum": 0,
 							"description": "Weight in grams"
+						},
+						"publicProfile": {
+							"type": "boolean",
+							"description": "Whether workout detail pages are publicly viewable without authentication"
 						}
 					}
 				},
@@ -62,7 +66,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771979064790
+		"indexedAt": 1772237992973
 	},
 	"references": {
 		"main": []
