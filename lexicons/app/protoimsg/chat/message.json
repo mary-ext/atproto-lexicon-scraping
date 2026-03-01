@@ -1,0 +1,366 @@
+{
+	"authority": "did:plc:xk3xpcauatfephlieonmluh4",
+	"schema": {
+		"id": "app.protoimsg.chat.message",
+		"defs": {
+			"tag": {
+				"type": "object",
+				"required": [
+					"tag"
+				],
+				"properties": {
+					"tag": {
+						"type": "string",
+						"maxLength": 640,
+						"maxGraphemes": 64
+					}
+				},
+				"description": "Facet feature for a hashtag. The text usually includes a '#' prefix, but the facet reference should not."
+			},
+			"bold": {
+				"type": "object",
+				"properties": {},
+				"description": "Facet feature for bold text."
+			},
+			"link": {
+				"type": "object",
+				"required": [
+					"uri"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "uri"
+					}
+				},
+				"description": "Facet feature for a URL. The text URL may have been simplified or truncated, but the facet reference should be a complete URL."
+			},
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"channel",
+						"text",
+						"createdAt"
+					],
+					"properties": {
+						"text": {
+							"type": "string",
+							"maxLength": 3000,
+							"description": "Message text content.",
+							"maxGraphemes": 1000
+						},
+						"embed": {
+							"refs": [
+								"#imageEmbed",
+								"#videoEmbed",
+								"#externalEmbed"
+							],
+							"type": "union",
+							"description": "Embedded media or link card."
+						},
+						"reply": {
+							"ref": "#replyRef",
+							"type": "ref",
+							"description": "Structured reply reference for threading."
+						},
+						"facets": {
+							"type": "array",
+							"items": {
+								"ref": "#richTextFacet",
+								"type": "ref"
+							},
+							"description": "Rich text annotations (mentions, links, tags, formatting). Extends the Bluesky facet convention with additional formatting features."
+						},
+						"channel": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT-URI of the channel record this message belongs to."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp of message creation."
+						}
+					}
+				},
+				"description": "A chat message. Lives in the sender's repo, points to a channel."
+			},
+			"italic": {
+				"type": "object",
+				"properties": {},
+				"description": "Facet feature for italic text."
+			},
+			"mention": {
+				"type": "object",
+				"required": [
+					"did"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did"
+					}
+				},
+				"description": "Facet feature for mention of another account. The text is usually a handle, including a '@' prefix, but the facet reference is a DID."
+			},
+			"replyRef": {
+				"type": "object",
+				"required": [
+					"root",
+					"parent"
+				],
+				"properties": {
+					"root": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "AT-URI of the root message in the thread."
+					},
+					"parent": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "AT-URI of the direct parent message being replied to."
+					}
+				},
+				"description": "Thread reply reference with root and parent for efficient deep thread traversal."
+			},
+			"byteSlice": {
+				"type": "object",
+				"required": [
+					"byteStart",
+					"byteEnd"
+				],
+				"properties": {
+					"byteEnd": {
+						"type": "integer",
+						"minimum": 0
+					},
+					"byteStart": {
+						"type": "integer",
+						"minimum": 0
+					}
+				},
+				"description": "Specifies the sub-string range a facet feature applies to. Start index is inclusive, end index is exclusive. Indices are zero-indexed, counting bytes of the UTF-8 encoded text."
+			},
+			"codeBlock": {
+				"type": "object",
+				"properties": {
+					"lang": {
+						"type": "string",
+						"maxLength": 50,
+						"description": "Programming language for syntax highlighting."
+					}
+				},
+				"description": "Facet feature for a code block. The text contains the code content."
+			},
+			"imageItem": {
+				"type": "object",
+				"required": [
+					"image",
+					"alt"
+				],
+				"properties": {
+					"alt": {
+						"type": "string",
+						"maxLength": 2000,
+						"description": "Alt text for accessibility."
+					},
+					"image": {
+						"type": "blob",
+						"accept": [
+							"image/png",
+							"image/jpeg",
+							"image/gif",
+							"image/webp"
+						],
+						"maxSize": 1000000,
+						"description": "Image blob reference."
+					},
+					"aspectRatio": {
+						"ref": "#aspectRatio",
+						"type": "ref"
+					}
+				},
+				"description": "A single embedded image."
+			},
+			"blockquote": {
+				"type": "object",
+				"properties": {},
+				"description": "Facet feature for a block quotation."
+			},
+			"codeInline": {
+				"type": "object",
+				"properties": {},
+				"description": "Facet feature for inline code."
+			},
+			"imageEmbed": {
+				"type": "object",
+				"required": [
+					"images"
+				],
+				"properties": {
+					"images": {
+						"type": "array",
+						"items": {
+							"ref": "#imageItem",
+							"type": "ref"
+						},
+						"maxLength": 4
+					}
+				},
+				"description": "Embedded images."
+			},
+			"videoEmbed": {
+				"type": "object",
+				"required": [
+					"video"
+				],
+				"properties": {
+					"alt": {
+						"type": "string",
+						"maxLength": 2000,
+						"description": "Alt text for accessibility."
+					},
+					"video": {
+						"type": "blob",
+						"accept": [
+							"video/mp4",
+							"video/webm"
+						],
+						"maxSize": 50000000,
+						"description": "Video blob reference."
+					},
+					"thumbnail": {
+						"type": "blob",
+						"accept": [
+							"image/png",
+							"image/jpeg"
+						],
+						"maxSize": 1000000,
+						"description": "Video thumbnail image."
+					},
+					"aspectRatio": {
+						"ref": "#aspectRatio",
+						"type": "ref"
+					}
+				},
+				"description": "Embedded video."
+			},
+			"aspectRatio": {
+				"type": "object",
+				"required": [
+					"width",
+					"height"
+				],
+				"properties": {
+					"width": {
+						"type": "integer",
+						"minimum": 1
+					},
+					"height": {
+						"type": "integer",
+						"minimum": 1
+					}
+				},
+				"description": "Width and height for layout before media loads."
+			},
+			"externalEmbed": {
+				"type": "object",
+				"required": [
+					"uri",
+					"title"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "uri",
+						"description": "URL of the external content."
+					},
+					"thumb": {
+						"type": "blob",
+						"accept": [
+							"image/png",
+							"image/jpeg"
+						],
+						"maxSize": 1000000,
+						"description": "Thumbnail image for the link card."
+					},
+					"title": {
+						"type": "string",
+						"maxLength": 300,
+						"description": "Title of the external content."
+					},
+					"description": {
+						"type": "string",
+						"maxLength": 1000,
+						"description": "Description or summary."
+					}
+				},
+				"description": "External link card."
+			},
+			"richTextFacet": {
+				"type": "object",
+				"required": [
+					"index",
+					"features"
+				],
+				"properties": {
+					"index": {
+						"ref": "#byteSlice",
+						"type": "ref"
+					},
+					"features": {
+						"type": "array",
+						"items": {
+							"refs": [
+								"#mention",
+								"#link",
+								"#tag",
+								"#bold",
+								"#italic",
+								"#strikethrough",
+								"#codeInline",
+								"#codeBlock",
+								"#blockquote"
+							],
+							"type": "union"
+						}
+					}
+				},
+				"description": "Annotation of a sub-string within rich text."
+			},
+			"strikethrough": {
+				"type": "object",
+				"properties": {},
+				"description": "Facet feature for strikethrough text."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772324639847
+	},
+	"references": {
+		"tag": [],
+		"bold": [],
+		"link": [],
+		"main": [],
+		"italic": [],
+		"mention": [],
+		"replyRef": [],
+		"byteSlice": [],
+		"codeBlock": [],
+		"imageItem": [],
+		"blockquote": [],
+		"codeInline": [],
+		"imageEmbed": [],
+		"videoEmbed": [],
+		"aspectRatio": [],
+		"externalEmbed": [],
+		"richTextFacet": [],
+		"strikethrough": []
+	}
+}

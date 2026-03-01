@@ -34,6 +34,11 @@
 							"maxLength": 10,
 							"description": "Profile tags for discovery (max 10)"
 						},
+						"theme": {
+							"type": "string",
+							"maxLength": 64,
+							"description": "Profile theme preset name"
+						},
 						"avatar": {
 							"type": "blob",
 							"accept": [
@@ -87,6 +92,11 @@
 							"type": "string",
 							"format": "datetime"
 						},
+						"accentColor": {
+							"type": "string",
+							"maxLength": 7,
+							"description": "Custom accent color hex code (e.g. #2e4a6e)"
+						},
 						"displayName": {
 							"type": "string",
 							"maxLength": 64,
@@ -111,7 +121,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768695565789
+		"indexedAt": 1772324639847
 	},
 	"references": {
 		"main": [

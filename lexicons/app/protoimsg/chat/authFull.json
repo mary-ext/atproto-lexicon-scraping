@@ -1,0 +1,42 @@
+{
+	"authority": "did:plc:xk3xpcauatfephlieonmluh4",
+	"schema": {
+		"id": "app.protoimsg.chat.authFull",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Full proto instant messenger access",
+				"detail": "Create and join chat rooms, send messages, manage buddy lists, video calls, polls, and moderation.",
+				"title:lang": {},
+				"detail:lang": {},
+				"permissions": [
+					{
+						"type": "permission",
+						"resource": "repo",
+						"collection": [
+							"app.protoimsg.chat.room",
+							"app.protoimsg.chat.channel",
+							"app.protoimsg.chat.message",
+							"app.protoimsg.chat.community",
+							"app.protoimsg.chat.presence",
+							"app.protoimsg.chat.poll",
+							"app.protoimsg.chat.vote",
+							"app.protoimsg.chat.ban",
+							"app.protoimsg.chat.role",
+							"app.protoimsg.chat.allowlist",
+							"app.protoimsg.chat.authVerify"
+						]
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772324639847
+	},
+	"references": {
+		"main": []
+	}
+}

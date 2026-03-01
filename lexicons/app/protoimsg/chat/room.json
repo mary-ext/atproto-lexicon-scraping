@@ -1,0 +1,105 @@
+{
+	"authority": "did:plc:xk3xpcauatfephlieonmluh4",
+	"schema": {
+		"id": "app.protoimsg.chat.room",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"topic",
+						"purpose",
+						"createdAt"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 100,
+							"description": "Display name for the room."
+						},
+						"topic": {
+							"type": "string",
+							"maxLength": 200,
+							"description": "Room topic for sorting, filtering, and discovery."
+						},
+						"purpose": {
+							"type": "string",
+							"description": "Room purpose categorization.",
+							"knownValues": [
+								"discussion",
+								"event",
+								"community",
+								"support"
+							]
+						},
+						"category": {
+							"type": "string",
+							"maxLength": 50,
+							"description": "Broad category for room discovery (e.g., music, tech, gaming). Lowercased."
+						},
+						"settings": {
+							"ref": "#roomSettings",
+							"type": "ref"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp of room creation."
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 500,
+							"description": "What the room is about."
+						}
+					}
+				},
+				"description": "Declares a chat room. Created by whoever starts the room."
+			},
+			"roomSettings": {
+				"type": "object",
+				"properties": {
+					"visibility": {
+						"type": "string",
+						"default": "public",
+						"description": "Room discoverability. public = listed in directory, unlisted = link only, private = invite only.",
+						"knownValues": [
+							"public",
+							"unlisted",
+							"private"
+						]
+					},
+					"slowModeSeconds": {
+						"type": "integer",
+						"default": 0,
+						"minimum": 0,
+						"description": "Minimum seconds between messages per user. 0 = disabled."
+					},
+					"allowlistEnabled": {
+						"type": "boolean",
+						"default": false,
+						"description": "When true, only users on the room allowlist can send messages."
+					},
+					"minAccountAgeDays": {
+						"type": "integer",
+						"default": 0,
+						"minimum": 0,
+						"description": "Minimum atproto account age in days to participate."
+					}
+				},
+				"description": "Configurable room settings."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772324639847
+	},
+	"references": {
+		"main": [],
+		"roomSettings": []
+	}
+}
