@@ -1,0 +1,47 @@
+{
+	"authority": "did:plc:7gis4mztcfyc6lw4dujlhju6",
+	"schema": {
+		"id": "bond.biblio.stamp",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"list",
+						"book",
+						"createdAt"
+					],
+					"properties": {
+						"book": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT-URI of the reader's book record. Lexicon-agnostic: works with bond.biblio.book, buzz.bookhive.book, or any future book lexicon."
+						},
+						"list": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT-URI of the reading list this stamp is for"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When this stamp was issued"
+						}
+					}
+				},
+				"description": "A completion attestation issued by a librarian"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A librarian's cryptographic attestation that a reader completed a book for a reading list. The stamp lives in the librarian's repository, proving authority."
+	},
+	"meta": {
+		"indexedAt": 1772410899705
+	},
+	"references": {
+		"main": []
+	}
+}

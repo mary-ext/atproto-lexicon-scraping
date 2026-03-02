@@ -1,0 +1,76 @@
+{
+	"authority": "did:plc:7gis4mztcfyc6lw4dujlhju6",
+	"schema": {
+		"id": "bond.biblio.list",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"title",
+						"librarians",
+						"books",
+						"duedate",
+						"createdAt"
+					],
+					"properties": {
+						"books": {
+							"type": "array",
+							"items": {
+								"refs": [
+									"bond.biblio.defs#bookRequirement"
+								],
+								"type": "union"
+							},
+							"description": "Required books for this reading challenge"
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 200,
+							"description": "Display name for the reading list",
+							"maxGraphemes": 100
+						},
+						"duedate": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Deadline for completing the reading challenge"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When this list was created"
+						},
+						"librarians": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "did"
+							},
+							"description": "DIDs of users who can issue stamps for this list"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 2000,
+							"description": "Description of the reading challenge",
+							"maxGraphemes": 1000
+						}
+					}
+				},
+				"description": "A reading list curated by a librarian"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A curated reading challenge. Librarians define book requirements with a deadline; readers apply books; librarians issue stamps for verified completion."
+	},
+	"meta": {
+		"indexedAt": 1772410899705
+	},
+	"references": {
+		"main": [
+			"bond.biblio.defs"
+		]
+	}
+}

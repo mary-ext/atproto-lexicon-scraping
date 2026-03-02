@@ -1,0 +1,38 @@
+{
+	"authority": "did:plc:7gis4mztcfyc6lw4dujlhju6",
+	"schema": {
+		"id": "bond.biblio.defs",
+		"defs": {
+			"bookRequirement": {
+				"type": "object",
+				"required": [
+					"title",
+					"authors"
+				],
+				"properties": {
+					"title": {
+						"type": "string",
+						"maxLength": 500,
+						"maxGraphemes": 200
+					},
+					"authors": {
+						"type": "string",
+						"maxLength": 500,
+						"description": "Author name(s), tab-separated for multiple",
+						"maxGraphemes": 200
+					}
+				},
+				"description": "A required book for a reading list, specified by title and authors for fuzzy matching"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Shared definitions for the biblio.bond reading attestation system"
+	},
+	"meta": {
+		"indexedAt": 1772410899705
+	},
+	"references": {
+		"bookRequirement": []
+	}
+}

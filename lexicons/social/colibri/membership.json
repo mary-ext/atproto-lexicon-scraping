@@ -1,0 +1,39 @@
+{
+	"authority": "did:plc:mprdjqjluoswa7awzggaggj3",
+	"schema": {
+		"id": "social.colibri.membership",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"community",
+						"createdAt"
+					],
+					"properties": {
+						"community": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT-URI of the social.colibri.community record being joined"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A declaration that a user would like to be part of a certain community."
+	},
+	"meta": {
+		"indexedAt": 1772410899705
+	},
+	"references": {
+		"main": []
+	}
+}

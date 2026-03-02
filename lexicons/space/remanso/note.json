@@ -43,6 +43,63 @@
 							"type": "integer",
 							"description": "Font size in points. Recommended range: 9–21, but clients may allow larger sizes for accessibility."
 						},
+						"language": {
+							"type": "string",
+							"maxLength": 10,
+							"description": "Most used language in the note. In ISO 639-3 code.",
+							"knownValues": [
+								"afr",
+								"ara",
+								"aze",
+								"bel",
+								"ben",
+								"bul",
+								"cat",
+								"ces",
+								"ckb",
+								"cmn",
+								"dan",
+								"deu",
+								"ell",
+								"eng",
+								"est",
+								"eus",
+								"fin",
+								"fra",
+								"hau",
+								"heb",
+								"hin",
+								"hrv",
+								"hun",
+								"hye",
+								"ind",
+								"isl",
+								"ita",
+								"jpn",
+								"kat",
+								"kaz",
+								"kor",
+								"lit",
+								"mar",
+								"mkd",
+								"nld",
+								"nob",
+								"pes",
+								"pol",
+								"por",
+								"ron",
+								"run",
+								"rus",
+								"slk",
+								"spa",
+								"srp",
+								"swe",
+								"tgl",
+								"tur",
+								"ukr",
+								"vie"
+							]
+						},
 						"createdAt": {
 							"type": "string",
 							"format": "datetime"
@@ -90,7 +147,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1772065235505
+		"indexedAt": 1772410899705
 	},
 	"references": {
 		"main": [],
