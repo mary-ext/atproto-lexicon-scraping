@@ -1,0 +1,46 @@
+{
+	"authority": "did:plc:trxedfug5xlbw64ydrkv7cr2",
+	"schema": {
+		"id": "at.unthread.document.getDraft",
+		"defs": {
+			"main": {
+				"type": "query",
+				"errors": [
+					{
+						"name": "DraftNotFound"
+					}
+				],
+				"output": {
+					"schema": {
+						"ref": "at.unthread.document.putDraft#draftView",
+						"type": "ref"
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"tid"
+					],
+					"properties": {
+						"tid": {
+							"type": "string",
+							"description": "TID of the draft to retrieve."
+						}
+					}
+				},
+				"description": "Get a single draft document by TID."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772497374565
+	},
+	"references": {
+		"main": [
+			"at.unthread.document.putDraft"
+		]
+	}
+}

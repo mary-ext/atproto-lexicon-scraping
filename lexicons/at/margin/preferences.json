@@ -95,7 +95,8 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770855719351
+		"indexedAt": 1770855719351,
+		"errorAt": 1772497374565
 	},
 	"references": {
 		"main": [],

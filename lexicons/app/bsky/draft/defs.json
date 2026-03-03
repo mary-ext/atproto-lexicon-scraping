@@ -74,9 +74,9 @@
 				"properties": {
 					"text": {
 						"type": "string",
-						"maxLength": 3000,
-						"description": "The primary post content.",
-						"maxGraphemes": 300
+						"maxLength": 10000,
+						"description": "The primary post content. It has a higher limit than post contents to allow storing a larger text that can later be refined into smaller posts.",
+						"maxGraphemes": 1000
 					},
 					"labels": {
 						"refs": [
@@ -270,7 +270,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769905461878
+		"indexedAt": 1772497374565
 	},
 	"references": {
 		"draft": [

@@ -19,10 +19,8 @@
 						"books": {
 							"type": "array",
 							"items": {
-								"refs": [
-									"bond.biblio.defs#bookRequirement"
-								],
-								"type": "union"
+								"ref": "bond.biblio.defs#bookRequirement",
+								"type": "ref"
 							},
 							"description": "Required books for this reading challenge"
 						},
@@ -66,7 +64,7 @@
 		"description": "A curated reading challenge. Librarians define book requirements with a deadline; readers apply books; librarians issue stamps for verified completion."
 	},
 	"meta": {
-		"indexedAt": 1772410899705
+		"indexedAt": 1772497374565
 	},
 	"references": {
 		"main": [

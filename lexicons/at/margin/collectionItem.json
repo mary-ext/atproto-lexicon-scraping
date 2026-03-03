@@ -43,7 +43,8 @@
 		"description": "An item in a collection (links annotation to collection)"
 	},
 	"meta": {
-		"indexedAt": 1768954709804
+		"indexedAt": 1768954709804,
+		"errorAt": 1772497374565
 	},
 	"references": {
 		"main": []

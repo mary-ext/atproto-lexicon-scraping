@@ -69,7 +69,8 @@
 		"description": "A reply to an annotation or another reply"
 	},
 	"meta": {
-		"indexedAt": 1768954709804
+		"indexedAt": 1768954709804,
+		"errorAt": 1772497374565
 	},
 	"references": {
 		"main": [],

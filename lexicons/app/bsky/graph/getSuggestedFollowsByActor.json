@@ -14,6 +14,10 @@
 						"properties": {
 							"recId": {
 								"type": "integer",
+								"description": "DEPRECATED: use recIdStr instead."
+							},
+							"recIdStr": {
+								"type": "string",
 								"description": "Snowflake for this recommendation, use when submitting recommendation events."
 							},
 							"isFallback": {
@@ -51,7 +55,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1772497374565,
 		"errorAt": 1760659937196
 	},
 	"references": {

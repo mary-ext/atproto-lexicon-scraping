@@ -1,0 +1,54 @@
+{
+	"authority": "did:plc:trxedfug5xlbw64ydrkv7cr2",
+	"schema": {
+		"id": "at.unthread.document.deleteDraft",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"tid"
+						],
+						"properties": {
+							"tid": {
+								"type": "string",
+								"description": "TID of the draft to delete."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "DraftNotFound"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"success"
+						],
+						"properties": {
+							"success": {
+								"type": "boolean"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Delete a draft document."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772497374565
+	},
+	"references": {
+		"main": []
+	}
+}
