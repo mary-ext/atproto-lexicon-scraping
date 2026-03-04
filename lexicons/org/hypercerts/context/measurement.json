@@ -1,7 +1,7 @@
 {
 	"authority": "did:plc:s4puetfspot742ai7y4otuel",
 	"schema": {
-		"id": "org.hypercerts.claim.measurement",
+		"id": "org.hypercerts.context.measurement",
 		"defs": {
 			"main": {
 				"key": "tid",
@@ -23,7 +23,7 @@
 						"value": {
 							"type": "string",
 							"maxLength": 500,
-							"description": "The measured numeric value."
+							"description": "The measured value as a numeric string (e.g. '1234.56')"
 						},
 						"metric": {
 							"type": "string",
@@ -39,12 +39,16 @@
 						"endDate": {
 							"type": "string",
 							"format": "datetime",
-							"description": "The end date and time when the measurement ended. If it was a one time measurement, the endDate should be equal to the startDate."
+							"description": "The end date and time when the measurement ended. For one-time measurements, this should equal the start date."
 						},
-						"subject": {
-							"ref": "com.atproto.repo.strongRef",
-							"type": "ref",
-							"description": "A strong reference to the record this measurement refers to (e.g. an activity, project, or claim)."
+						"subjects": {
+							"type": "array",
+							"items": {
+								"ref": "com.atproto.repo.strongRef",
+								"type": "ref"
+							},
+							"maxLength": 100,
+							"description": "Strong references to the records this measurement refers to (e.g. activities, projects, or claims)."
 						},
 						"createdAt": {
 							"type": "string",
@@ -67,7 +71,7 @@
 								"type": "ref"
 							},
 							"maxLength": 100,
-							"description": "DIDs of the entity (or entities) that measured this data"
+							"description": "DIDs of the entities that performed this measurement"
 						},
 						"methodURI": {
 							"type": "string",
@@ -103,15 +107,14 @@
 						}
 					}
 				},
-				"description": "Measurement data related to a hypercert record (e.g. an activity and its impact)."
+				"description": "Measurement data related to one or more records (e.g. activities, projects, etc.)."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769386781977,
-		"errorAt": 1771028540876
+		"indexedAt": 1772583734350
 	},
 	"references": {
 		"main": [

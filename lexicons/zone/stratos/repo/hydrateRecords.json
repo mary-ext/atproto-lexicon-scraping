@@ -1,0 +1,99 @@
+{
+	"authority": "did:plc:6uxgo3ypovauub7nblwylqyv",
+	"schema": {
+		"id": "zone.stratos.repo.hydrateRecords",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uris"
+						],
+						"properties": {
+							"uris": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"format": "at-uri"
+								},
+								"maxLength": 100,
+								"description": "Array of AT-URIs to hydrate (max 100)"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"records",
+							"notFound",
+							"blocked"
+						],
+						"properties": {
+							"blocked": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"format": "at-uri"
+								},
+								"description": "URIs blocked due to boundary restrictions"
+							},
+							"records": {
+								"type": "array",
+								"items": {
+									"ref": "#recordView",
+									"type": "ref"
+								},
+								"description": "Successfully hydrated records"
+							},
+							"notFound": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"format": "at-uri"
+								},
+								"description": "URIs that were not found"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Hydrate multiple records by URI. Returns records filtered by viewer's boundary access."
+			},
+			"recordView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"cid",
+					"value"
+				],
+				"properties": {
+					"cid": {
+						"type": "string",
+						"format": "cid"
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"value": {
+						"type": "unknown"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772583734350
+	},
+	"references": {
+		"main": [],
+		"recordView": []
+	}
+}

@@ -27,12 +27,13 @@
 						},
 						"identifier": {
 							"type": "string",
-							"description": "DID or a URI to a social profile of the contributor."
+							"maxLength": 2048,
+							"description": "DID (did:plc:...) or URI to a social profile of the contributor."
 						},
 						"displayName": {
 							"type": "string",
 							"maxLength": 100,
-							"description": "Display name of the contributor."
+							"description": "Human-readable name for the contributor as it should appear in UI."
 						}
 					}
 				},
@@ -43,7 +44,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769300406741,
+		"indexedAt": 1772583734350,
 		"errorAt": 1771028540876
 	},
 	"references": {

@@ -1,7 +1,7 @@
 {
 	"authority": "did:plc:s4puetfspot742ai7y4otuel",
 	"schema": {
-		"id": "org.hypercerts.claim.contributionDetails",
+		"id": "org.hypercerts.claim.contribution",
 		"defs": {
 			"main": {
 				"key": "tid",
@@ -20,7 +20,7 @@
 						"endDate": {
 							"type": "string",
 							"format": "datetime",
-							"description": "When this contribution finished. This should be a subset of the hypercert timeframe."
+							"description": "When this contribution finished. Should fall within the parent hypercert's timeframe."
 						},
 						"createdAt": {
 							"type": "string",
@@ -30,12 +30,12 @@
 						"startDate": {
 							"type": "string",
 							"format": "datetime",
-							"description": "When this contribution started. This should be a subset of the hypercert timeframe."
+							"description": "When this contribution started. Should fall within the parent hypercert's timeframe."
 						},
 						"contributionDescription": {
 							"type": "string",
 							"maxLength": 10000,
-							"description": "What the contribution concretely was.",
+							"description": "Description of what the contribution concretely involved.",
 							"maxGraphemes": 1000
 						}
 					}
@@ -47,8 +47,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769300406741,
-		"errorAt": 1771028540876
+		"indexedAt": 1772583734350
 	},
 	"references": {
 		"main": []

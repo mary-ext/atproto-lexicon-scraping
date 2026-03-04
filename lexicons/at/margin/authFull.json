@@ -1,0 +1,46 @@
+{
+	"authority": "did:plc:rjqn3agdb74cszhqcpii4sne",
+	"schema": {
+		"id": "at.margin.authFull",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Margin",
+				"detail": "Full access to Margin features including annotations, highlights, bookmarks, and collections.",
+				"permissions": [
+					{
+						"type": "permission",
+						"action": [
+							"create",
+							"update",
+							"delete"
+						],
+						"resource": "repo",
+						"collection": [
+							"at.margin.annotation",
+							"at.margin.highlight",
+							"at.margin.bookmark",
+							"at.margin.reply",
+							"at.margin.like",
+							"at.margin.collection",
+							"at.margin.collectionItem",
+							"at.margin.profile",
+							"at.margin.apikey",
+							"at.margin.preferences"
+						]
+					}
+				],
+				"title:langs": {},
+				"detail:langs": {}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772583734350
+	},
+	"references": {
+		"main": []
+	}
+}

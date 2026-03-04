@@ -14,8 +14,15 @@
 						"createdAt"
 					],
 					"properties": {
+						"url": {
+							"type": "string",
+							"format": "uri",
+							"maxLength": 2048,
+							"description": "Optional URL the badge award links to."
+						},
 						"note": {
 							"type": "string",
+							"maxLength": 500,
 							"description": "Optional statement explaining the reason for this badge award."
 						},
 						"badge": {
@@ -45,7 +52,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769386781977
+		"indexedAt": 1772583734350
 	},
 	"references": {
 		"main": [

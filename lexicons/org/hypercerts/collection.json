@@ -1,7 +1,7 @@
 {
 	"authority": "did:plc:s4puetfspot742ai7y4otuel",
 	"schema": {
-		"id": "org.hypercerts.claim.collection",
+		"id": "org.hypercerts.collection",
 		"defs": {
 			"item": {
 				"type": "object",
@@ -11,12 +11,13 @@
 				"properties": {
 					"itemWeight": {
 						"type": "string",
+						"maxLength": 100,
 						"description": "Optional weight for this item (positive numeric value stored as string). Weights do not need to sum to a specific total; normalization can be performed by the consuming application as needed."
 					},
 					"itemIdentifier": {
 						"ref": "com.atproto.repo.strongRef",
 						"type": "ref",
-						"description": "Strong reference to an item in this collection. Items can be activities (org.hypercerts.claim.activity) and/or other collections (org.hypercerts.claim.collection)."
+						"description": "Strong reference to an item in this collection. Items can be activities (org.hypercerts.claim.activity) and/or other collections (org.hypercerts.collection)."
 					}
 				}
 			},
@@ -27,12 +28,12 @@
 					"type": "object",
 					"required": [
 						"title",
-						"items",
 						"createdAt"
 					],
 					"properties": {
 						"type": {
 							"type": "string",
+							"maxLength": 64,
 							"description": "The type of this collection. Possible fields can be 'favorites', 'project', or any other type of collection."
 						},
 						"items": {
@@ -41,12 +42,13 @@
 								"ref": "#item",
 								"type": "ref"
 							},
+							"maxLength": 1000,
 							"description": "Array of items in this collection with optional weights."
 						},
 						"title": {
 							"type": "string",
 							"maxLength": 800,
-							"description": "The title of this collection",
+							"description": "Display name for this collection (e.g. 'Q1 2025 Impact Projects')",
 							"maxGraphemes": 80
 						},
 						"avatar": {
@@ -95,8 +97,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769300406741,
-		"errorAt": 1771028540876
+		"indexedAt": 1772583734350
 	},
 	"references": {
 		"item": [

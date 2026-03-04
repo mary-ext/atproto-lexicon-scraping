@@ -8,6 +8,9 @@
 				"type": "record",
 				"record": {
 					"type": "object",
+					"required": [
+						"createdAt"
+					],
 					"properties": {
 						"avatar": {
 							"refs": [
@@ -27,7 +30,8 @@
 						},
 						"website": {
 							"type": "string",
-							"format": "uri"
+							"format": "uri",
+							"description": "Account website URL"
 						},
 						"pronouns": {
 							"type": "string",
@@ -37,7 +41,8 @@
 						},
 						"createdAt": {
 							"type": "string",
-							"format": "datetime"
+							"format": "datetime",
+							"description": "Client-declared timestamp when this record was originally created"
 						},
 						"description": {
 							"type": "string",
@@ -48,18 +53,19 @@
 						"displayName": {
 							"type": "string",
 							"maxLength": 640,
+							"description": "Display name for the account",
 							"maxGraphemes": 64
 						}
 					}
 				},
-				"description": "A declaration of a Hypercert account profile."
+				"description": "A declaration of a Certified account profile."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770769626457,
+		"indexedAt": 1772583734350,
 		"errorAt": 1771028540876
 	},
 	"references": {

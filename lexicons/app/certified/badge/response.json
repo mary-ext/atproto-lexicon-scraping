@@ -16,15 +16,16 @@
 					"properties": {
 						"weight": {
 							"type": "string",
+							"maxLength": 50,
 							"description": "Optional relative weight for accepted badges, assigned by the recipient."
 						},
 						"response": {
-							"enum": [
+							"type": "string",
+							"description": "The recipient’s response for the badge (accepted or rejected).",
+							"knownValues": [
 								"accepted",
 								"rejected"
-							],
-							"type": "string",
-							"description": "The recipient’s response for the badge (accepted or rejected)."
+							]
 						},
 						"createdAt": {
 							"type": "string",
@@ -45,7 +46,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769386781977
+		"indexedAt": 1772583734350
 	},
 	"references": {
 		"main": [

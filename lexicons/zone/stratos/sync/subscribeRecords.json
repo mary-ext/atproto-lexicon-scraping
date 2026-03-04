@@ -1,0 +1,159 @@
+{
+	"authority": "did:plc:6uxgo3ypovauub7nblwylqyv",
+	"schema": {
+		"id": "zone.stratos.sync.subscribeRecords",
+		"defs": {
+			"info": {
+				"type": "object",
+				"required": [
+					"name"
+				],
+				"properties": {
+					"name": {
+						"type": "string",
+						"maxLength": 128,
+						"description": "The type of info message.",
+						"knownValues": [
+							"OutdatedCursor"
+						]
+					},
+					"message": {
+						"type": "string",
+						"maxLength": 1024,
+						"description": "Additional details about the info message."
+					}
+				},
+				"description": "An informational message about the subscription state."
+			},
+			"main": {
+				"type": "subscription",
+				"errors": [
+					{
+						"name": "FutureCursor",
+						"description": "Cursor is in the future."
+					},
+					{
+						"name": "AuthRequired",
+						"description": "Authentication is required."
+					}
+				],
+				"message": {
+					"schema": {
+						"refs": [
+							"#commit",
+							"#info"
+						],
+						"type": "union"
+					}
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"did"
+					],
+					"properties": {
+						"did": {
+							"type": "string",
+							"format": "did",
+							"description": "The DID of the account to subscribe to."
+						},
+						"cursor": {
+							"type": "integer",
+							"description": "The last known event sequence number to resume from."
+						},
+						"domain": {
+							"type": "string",
+							"maxLength": 253,
+							"description": "Optional domain filter. Only events for records with this domain in their boundary will be emitted."
+						}
+					}
+				},
+				"description": "Subscribe to stratos record updates for a specific account. Requires service auth or owner authentication."
+			},
+			"commit": {
+				"type": "object",
+				"required": [
+					"seq",
+					"did",
+					"time",
+					"rev",
+					"ops"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did",
+						"description": "The DID of the account."
+					},
+					"ops": {
+						"type": "array",
+						"items": {
+							"ref": "#recordOp",
+							"type": "ref"
+						},
+						"description": "List of record operations in this commit."
+					},
+					"rev": {
+						"type": "string",
+						"format": "tid",
+						"description": "The repo revision."
+					},
+					"seq": {
+						"type": "integer",
+						"description": "The sequence number of this event."
+					},
+					"time": {
+						"type": "string",
+						"format": "datetime",
+						"description": "Timestamp of when the event was sequenced."
+					}
+				},
+				"description": "A commit event containing record operations."
+			},
+			"recordOp": {
+				"type": "object",
+				"required": [
+					"action",
+					"path"
+				],
+				"properties": {
+					"cid": {
+						"type": "cid-link",
+						"description": "The CID of the record. Present for create and update operations."
+					},
+					"path": {
+						"type": "string",
+						"maxLength": 512,
+						"description": "The record path (collection/rkey)."
+					},
+					"action": {
+						"type": "string",
+						"maxLength": 32,
+						"description": "The type of operation.",
+						"knownValues": [
+							"create",
+							"update",
+							"delete"
+						]
+					},
+					"record": {
+						"type": "unknown",
+						"description": "The record content. Present for create and update operations."
+					}
+				},
+				"description": "A single record operation within a commit."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772583734350
+	},
+	"references": {
+		"info": [],
+		"main": [],
+		"commit": [],
+		"recordOp": []
+	}
+}

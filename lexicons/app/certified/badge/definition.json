@@ -28,10 +28,12 @@
 						},
 						"title": {
 							"type": "string",
+							"maxLength": 256,
 							"description": "Human-readable title of the badge."
 						},
 						"badgeType": {
 							"type": "string",
+							"maxLength": 100,
 							"description": "Category of the badge (e.g. endorsement, participation, affiliation)."
 						},
 						"createdAt": {
@@ -41,7 +43,9 @@
 						},
 						"description": {
 							"type": "string",
-							"description": "Optional short statement describing what the badge represents."
+							"maxLength": 5000,
+							"description": "Optional short statement describing what the badge represents.",
+							"maxGraphemes": 500
 						},
 						"allowedIssuers": {
 							"type": "array",
@@ -49,6 +53,7 @@
 								"ref": "app.certified.defs#did",
 								"type": "ref"
 							},
+							"maxLength": 100,
 							"description": "Optional allowlist of DIDs allowed to issue this badge. If omitted, anyone may issue it."
 						}
 					}
@@ -60,7 +65,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769386781977
+		"indexedAt": 1772583734350
 	},
 	"references": {
 		"main": [

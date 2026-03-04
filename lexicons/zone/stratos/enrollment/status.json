@@ -1,0 +1,69 @@
+{
+	"authority": "did:plc:6uxgo3ypovauub7nblwylqyv",
+	"schema": {
+		"id": "zone.stratos.enrollment.status",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"did",
+							"enrolled"
+						],
+						"properties": {
+							"did": {
+								"type": "string",
+								"format": "did",
+								"description": "The DID that was checked."
+							},
+							"enrolled": {
+								"type": "boolean",
+								"description": "Whether the DID is enrolled in this Stratos service."
+							},
+							"boundaries": {
+								"type": "array",
+								"items": {
+									"ref": "app.stratos.boundary.defs#Domain",
+									"type": "ref"
+								},
+								"description": "Authoritative boundaries assigned. Only included when request is authenticated."
+							},
+							"enrolledAt": {
+								"type": "string",
+								"format": "datetime",
+								"description": "When the DID was enrolled, if enrolled."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"did"
+					],
+					"properties": {
+						"did": {
+							"type": "string",
+							"format": "did",
+							"description": "The DID to check enrollment for."
+						}
+					}
+				},
+				"description": "Check enrollment status for a DID in this Stratos service."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772583734350
+	},
+	"references": {
+		"main": [
+			"app.stratos.boundary.defs"
+		]
+	}
+}

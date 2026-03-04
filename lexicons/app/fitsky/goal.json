@@ -23,7 +23,7 @@
 								"distance",
 								"workouts",
 								"duration",
-								"calories"
+								"pace"
 							]
 						},
 						"period": {
@@ -50,7 +50,7 @@
 						"targetValue": {
 							"type": "integer",
 							"minimum": 0,
-							"description": "Target value in base units (meters for distance, seconds for duration, calories for calories, count for workouts)"
+							"description": "Target value in base units (meters for distance, seconds for duration, seconds-per-km for pace, count for workouts)"
 						}
 					}
 				},
@@ -61,7 +61,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771806161917
+		"indexedAt": 1772583734350
 	},
 	"references": {
 		"main": []

@@ -4,8 +4,18 @@
 		"id": "app.certified.defs",
 		"defs": {
 			"did": {
-				"type": "string",
-				"format": "did",
+				"type": "object",
+				"required": [
+					"did"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did",
+						"maxLength": 256,
+						"description": "The DID string value."
+					}
+				},
 				"description": "A Decentralized Identifier (DID) string."
 			}
 		},
@@ -14,7 +24,7 @@
 		"description": "Common type definitions used across certified protocols."
 	},
 	"meta": {
-		"indexedAt": 1769386781977
+		"indexedAt": 1772583734350
 	},
 	"references": {
 		"did": []

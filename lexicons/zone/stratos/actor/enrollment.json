@@ -1,0 +1,51 @@
+{
+	"authority": "did:plc:6uxgo3ypovauub7nblwylqyv",
+	"schema": {
+		"id": "zone.stratos.actor.enrollment",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"service",
+						"createdAt"
+					],
+					"properties": {
+						"service": {
+							"type": "string",
+							"format": "uri",
+							"description": "The Stratos service endpoint URL where this user's private data is stored."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the enrollment was created."
+						},
+						"boundaries": {
+							"type": "array",
+							"items": {
+								"ref": "zone.stratos.boundary.defs#Domain",
+								"type": "ref"
+							},
+							"maxLength": 50,
+							"description": "List of boundaries the user has access to on this Stratos service."
+						}
+					}
+				},
+				"description": "A profile record indicating the user is enrolled in a Stratos service. Published to the user's PDS during OAuth enrollment for endpoint discovery by AppViews."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772583734350
+	},
+	"references": {
+		"main": [
+			"zone.stratos.boundary.defs"
+		]
+	}
+}

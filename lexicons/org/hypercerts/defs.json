@@ -12,8 +12,7 @@
 					"uri": {
 						"type": "string",
 						"format": "uri",
-						"description": "URI to external data",
-						"maxGraphemes": 1024
+						"description": "URI to external data"
 					}
 				},
 				"description": "Object containing a URI to external data"
@@ -91,19 +90,39 @@
 					}
 				},
 				"description": "Object containing a small image"
+			},
+			"smallVideo": {
+				"type": "object",
+				"required": [
+					"video"
+				],
+				"properties": {
+					"video": {
+						"type": "blob",
+						"accept": [
+							"video/mp4",
+							"video/webm"
+						],
+						"maxSize": 20971520,
+						"description": "Video (up to 20MB)"
+					}
+				},
+				"description": "Object containing a small video"
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
-		"lexicon": 1
+		"lexicon": 1,
+		"description": "Common type definitions used across all Hypercerts protocols."
 	},
 	"meta": {
-		"indexedAt": 1769300406741
+		"indexedAt": 1772583734350
 	},
 	"references": {
 		"uri": [],
 		"largeBlob": [],
 		"smallBlob": [],
 		"largeImage": [],
-		"smallImage": []
+		"smallImage": [],
+		"smallVideo": []
 	}
 }

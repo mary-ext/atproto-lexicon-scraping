@@ -25,16 +25,17 @@
 						"name": {
 							"type": "string",
 							"maxLength": 1000,
-							"description": "Optional name for this location",
+							"description": "Human-readable name for this location (e.g. 'Golden Gate Park', 'San Francisco Bay Area')",
 							"maxGraphemes": 100
 						},
 						"location": {
 							"refs": [
 								"org.hypercerts.defs#uri",
-								"org.hypercerts.defs#smallBlob"
+								"org.hypercerts.defs#smallBlob",
+								"#string"
 							],
 							"type": "union",
-							"description": "The location of where the work was performed as a URI or blob."
+							"description": "The location of where the work was performed as a URI, blob, or inline string."
 						},
 						"createdAt": {
 							"type": "string",
@@ -49,32 +50,54 @@
 						"description": {
 							"type": "string",
 							"maxLength": 2000,
-							"description": "Optional description for this location",
+							"description": "Additional context about this location, such as its significance to the work or specific boundaries",
 							"maxGraphemes": 500
 						},
 						"locationType": {
 							"type": "string",
 							"maxLength": 20,
-							"description": "An identifier for the format of the location data (e.g., coordinate-decimal, geojson-point)",
+							"description": "An identifier for the format of the location data (e.g., coordinate-decimal, geojson-point). See the Location Protocol spec for the full registry: https://spec.decentralizedgeo.org/specification/location-types/#location-type-registry",
 							"knownValues": [
 								"coordinate-decimal",
-								"geojson-point"
+								"geojson-point",
+								"geojson",
+								"h3",
+								"geohash",
+								"wkt",
+								"address",
+								"scaledCoordinates"
 							]
 						}
 					}
 				},
 				"description": "A location reference"
+			},
+			"string": {
+				"type": "object",
+				"required": [
+					"string"
+				],
+				"properties": {
+					"string": {
+						"type": "string",
+						"maxLength": 10000,
+						"description": "The location string value",
+						"maxGraphemes": 1000
+					}
+				},
+				"description": "A location represented as a string, e.g. coordinates or a small GeoJSON string."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769386781977
+		"indexedAt": 1772583734350
 	},
 	"references": {
 		"main": [
 			"org.hypercerts.defs"
-		]
+		],
+		"string": []
 	}
 }
