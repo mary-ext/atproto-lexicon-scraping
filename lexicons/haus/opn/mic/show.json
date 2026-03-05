@@ -1,0 +1,66 @@
+{
+	"authority": "did:plc:bhy6jyqdo23nlsxdpsaebl3x",
+	"schema": {
+		"id": "haus.opn.mic.show",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"title",
+						"artist",
+						"schedule",
+						"createdAt"
+					],
+					"properties": {
+						"title": {
+							"type": "string",
+							"maxLength": 100
+						},
+						"artist": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "The AT-URI of the haus.opn.mic.artist record."
+						},
+						"coverArt": {
+							"type": "blob",
+							"accept": [
+								"image/*"
+							],
+							"maxSize": 1000000
+						},
+						"schedule": {
+							"type": "string",
+							"knownValues": [
+								"daily",
+								"weekly",
+								"biweekly",
+								"monthly",
+								"irregular"
+							]
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 3000
+						}
+					}
+				},
+				"description": "A recurring open mic show series."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772670174648
+	},
+	"references": {
+		"main": []
+	}
+}

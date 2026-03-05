@@ -1,7 +1,7 @@
 {
-	"authority": "did:plc:il7eua5zbt4s2ly2jskjfz2t",
+	"authority": "did:plc:bhy6jyqdo23nlsxdpsaebl3x",
 	"schema": {
-		"id": "games.gamesgamesgamesgames.platformFamily",
+		"id": "haus.opn.mic.show.favorite",
 		"defs": {
 			"main": {
 				"key": "tid",
@@ -9,30 +9,29 @@
 				"record": {
 					"type": "object",
 					"required": [
-						"name"
+						"subject",
+						"createdAt"
 					],
 					"properties": {
-						"name": {
-							"type": "string"
+						"subject": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "The AT-URI of the haus.opn.mic.show record."
 						},
 						"createdAt": {
 							"type": "string",
 							"format": "datetime"
-						},
-						"description": {
-							"type": "string"
 						}
 					}
 				},
-				"description": "A family of related platforms."
+				"description": "An entry marking a show as a favorite."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771979064790,
-		"errorAt": 1772670174648
+		"indexedAt": 1772670174648
 	},
 	"references": {
 		"main": []

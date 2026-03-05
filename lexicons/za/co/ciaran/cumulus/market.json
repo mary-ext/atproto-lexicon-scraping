@@ -1,0 +1,53 @@
+{
+	"authority": "did:plc:ssntylce6aeeazwb64ol6nsj",
+	"schema": {
+		"id": "za.co.ciaran.cumulus.market",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"question",
+						"liquidity",
+						"closesAt",
+						"createdAt"
+					],
+					"properties": {
+						"closesAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"question": {
+							"type": "string",
+							"maxLength": 140
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"liquidity": {
+							"enum": [
+								10,
+								50,
+								200
+							],
+							"type": "integer"
+						}
+					}
+				},
+				"description": "The record containing a Cumulus Market"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "The record containing a Cumulus Market"
+	},
+	"meta": {
+		"indexedAt": 1772670174648
+	},
+	"references": {
+		"main": []
+	}
+}

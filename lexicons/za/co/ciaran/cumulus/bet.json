@@ -1,0 +1,52 @@
+{
+	"authority": "did:plc:ssntylce6aeeazwb64ol6nsj",
+	"schema": {
+		"id": "za.co.ciaran.cumulus.bet",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"market",
+						"position",
+						"createdAt"
+					],
+					"properties": {
+						"market": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "The record containing the Cumulus Market for this Bet"
+						},
+						"position": {
+							"enum": [
+								"yes",
+								"no"
+							],
+							"type": "string",
+							"maxLength": 3,
+							"minLength": 2
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "The record containing a Bet placed on a Cumulus Market"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "The record containing a Bet placed on a Cumulus Market"
+	},
+	"meta": {
+		"indexedAt": 1772670174648
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}
