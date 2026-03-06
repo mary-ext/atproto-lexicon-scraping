@@ -14,7 +14,7 @@
 						"properties": {
 							"recId": {
 								"type": "integer",
-								"description": "Snowflake for this recommendation, use when submitting recommendation events."
+								"description": "DEPRECATED: use recIdStr instead."
 							},
 							"actors": {
 								"type": "array",
@@ -25,6 +25,10 @@
 							},
 							"cursor": {
 								"type": "string"
+							},
+							"recIdStr": {
+								"type": "string",
+								"description": "Snowflake for this recommendation, use when submitting recommendation events."
 							}
 						}
 					},
@@ -51,7 +55,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1772756818901,
 		"errorAt": 1760659937196
 	},
 	"references": {

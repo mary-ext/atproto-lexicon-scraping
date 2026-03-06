@@ -12,6 +12,10 @@
 							"interactions"
 						],
 						"properties": {
+							"feed": {
+								"type": "string",
+								"format": "at-uri"
+							},
 							"interactions": {
 								"type": "array",
 								"items": {
@@ -37,7 +41,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760078004263,
+		"indexedAt": 1772756818901,
 		"errorAt": 1760659937196
 	},
 	"references": {

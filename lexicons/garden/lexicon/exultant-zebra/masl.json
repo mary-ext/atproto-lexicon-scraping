@@ -31,19 +31,15 @@
 				],
 				"properties": {
 					"src": {
-						"type": "cid-link",
+						"type": "blob",
 						"description": "The content identifier for this resource."
 					},
 					"path": {
 						"type": "string",
 						"description": "Optional path for this resource (e.g. '/index.html')."
 					},
-					"srcHints": {
-						"type": "array",
-						"items": {
-							"type": "string"
-						},
-						"description": "Optional hints associated with this resource."
+					"contentType": {
+						"type": "string"
 					}
 				},
 				"description": "A single resource identified by a CID."
@@ -54,7 +50,7 @@
 		"description": "MASL types for DASL, notably for Web Tiles. This variant uses a typed resources array."
 	},
 	"meta": {
-		"indexedAt": 1771892560063
+		"indexedAt": 1772756818901
 	},
 	"references": {
 		"main": [],

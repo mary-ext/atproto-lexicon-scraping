@@ -1,0 +1,33 @@
+{
+	"authority": "did:plc:lcmrbur2pydmpelfcs7fjbdx",
+	"schema": {
+		"id": "ch.indiemusi.alpha.actor.masterOwner",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 255
+						}
+					}
+				},
+				"description": "The entity (person or company) that owns the master recording rights"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772756818901
+	},
+	"references": {
+		"main": []
+	}
+}

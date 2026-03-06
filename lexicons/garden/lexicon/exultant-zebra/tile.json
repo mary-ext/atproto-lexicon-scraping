@@ -1,0 +1,168 @@
+{
+	"authority": "did:plc:cbkjy5n7bk3ax2wplmtjofq2",
+	"schema": {
+		"id": "garden.lexicon.exultant-zebra.tile",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"content"
+					],
+					"properties": {
+						"icon": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg"
+							],
+							"maxSize": 1048576,
+							"description": "Optional icon image for the tile."
+						},
+						"name": {
+							"type": "string",
+							"description": "The name of the tile."
+						},
+						"facets": {
+							"type": "array",
+							"items": {
+								"ref": "app.bsky.richtext.facet",
+								"type": "ref"
+							},
+							"description": "Rich text facets for the description (links, mentions, hashtags)."
+						},
+						"params": {
+							"type": "array",
+							"items": {
+								"ref": "#param",
+								"type": "ref"
+							},
+							"description": "Input parameters this tile accepts. When present, the tile runtime shows a configuration form for required parameters without defaults before loading the tile."
+						},
+						"content": {
+							"refs": [
+								"garden.lexicon.exultant-zebra.masl#resource",
+								"garden.lexicon.exultant-zebra.masl#main"
+							],
+							"type": "union",
+							"description": "The tile content, either a single resource or a bundle."
+						},
+						"aspectRatio": {
+							"type": "string",
+							"description": "Declared aspect ratio for tile rendering.",
+							"knownValues": [
+								"1:1",
+								"2:1",
+								"3:1",
+								"1:2",
+								"1:3"
+							]
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 3000,
+							"description": "Optional rich text description of the tile."
+						},
+						"interactions": {
+							"ref": "#interactions",
+							"type": "ref",
+							"description": "Declaration of the XRPC methods, collections, and services this tile interacts with."
+						},
+						"loadingImage": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg"
+							],
+							"maxSize": 1048576,
+							"description": "Optional loading screen image for the tile."
+						}
+					}
+				},
+				"description": "A tile with a name and associated resource or bundle."
+			},
+			"param": {
+				"type": "object",
+				"required": [
+					"name",
+					"type"
+				],
+				"properties": {
+					"name": {
+						"type": "string",
+						"maxLength": 64,
+						"description": "Parameter name, used as a URL search param key. Must not start with an underscore."
+					},
+					"type": {
+						"type": "string",
+						"description": "Parameter value type.",
+						"knownValues": [
+							"string",
+							"integer",
+							"boolean"
+						]
+					},
+					"default": {
+						"type": "string",
+						"description": "Default value for this parameter, encoded as a string."
+					},
+					"required": {
+						"type": "boolean",
+						"description": "Whether this parameter must be provided before loading the tile."
+					},
+					"description": {
+						"type": "string",
+						"maxLength": 1000,
+						"description": "Human-readable description of this parameter."
+					}
+				},
+				"description": "Declares an input parameter for a tile, similar to XRPC query parameters."
+			},
+			"interactions": {
+				"type": "object",
+				"properties": {
+					"methods": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"description": "XRPC method NSIDs this tile may call. When present, the tile runtime restricts XRPC calls to only these methods. When absent, all server-allowed methods may be called (with user consent)."
+					},
+					"services": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"description": "AT Protocol service proxy targets this tile interacts with, identified by DID and service endpoint fragment."
+					},
+					"collections": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"format": "nsid"
+						},
+						"description": "Repository collection NSIDs this tile reads from or writes to."
+					}
+				},
+				"description": "Declares the AT Protocol interactions a tile performs. Methods listed here gate which XRPC calls the tile is allowed to attempt (the user must still grant per-method consent). Collections and services are informational metadata for display and auditing."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A Web Tile record for DASL."
+	},
+	"meta": {
+		"indexedAt": 1772756818901
+	},
+	"references": {
+		"main": [
+			"app.bsky.richtext.facet",
+			"garden.lexicon.exultant-zebra.masl"
+		],
+		"param": [],
+		"interactions": []
+	}
+}
