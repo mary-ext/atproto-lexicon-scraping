@@ -52,6 +52,10 @@
 						],
 						"type": "union"
 					},
+					"bodyFont": {
+						"type": "string",
+						"maxLength": 100
+					},
 					"pageWidth": {
 						"type": "integer",
 						"maximum": 1600,
@@ -63,6 +67,10 @@
 							"pub.leaflet.theme.color#rgb"
 						],
 						"type": "union"
+					},
+					"headingFont": {
+						"type": "string",
+						"maxLength": 100
 					},
 					"pageBackground": {
 						"refs": [
@@ -125,7 +133,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1770510492185,
+		"indexedAt": 1772842922290,
 		"errorAt": 1760659937196
 	},
 	"references": {

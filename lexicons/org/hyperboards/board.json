@@ -13,87 +13,50 @@
 						"createdAt"
 					],
 					"properties": {
-						"items": {
-							"type": "array",
-							"items": {
-								"ref": "#boardItem",
-								"type": "ref"
-							},
-							"description": "Per-item presentation overrides"
-						},
 						"config": {
 							"ref": "#boardConfig",
 							"type": "ref",
-							"description": "Board-level visual configuration"
+							"description": "Board-level visual configuration (background, colors, aspect ratio)."
 						},
 						"subject": {
 							"ref": "com.atproto.repo.strongRef",
 							"type": "ref",
-							"description": "StrongRef to the org.hypercerts.claim.activity or collection this board visualizes"
+							"description": "Reference to the org.hypercerts.claim.activity or org.hypercerts.claim.collection this board visualizes."
 						},
 						"createdAt": {
 							"type": "string",
 							"format": "datetime",
-							"description": "Timestamp when the board record was created"
+							"description": "Client-declared timestamp when this record was originally created."
+						},
+						"contributorConfigs": {
+							"type": "array",
+							"items": {
+								"ref": "#contributorConfig",
+								"type": "ref"
+							},
+							"maxLength": 1000,
+							"description": "Per-contributor configuration entries for this board."
 						}
 					}
 				},
-				"description": "A hyperboard record — visual presentation wrapper for a hypercert activity or collection."
-			},
-			"boardItem": {
-				"type": "object",
-				"required": [
-					"itemRef"
-				],
-				"properties": {
-					"url": {
-						"type": "string",
-						"format": "uri",
-						"description": "Link URL for this item"
-					},
-					"itemRef": {
-						"ref": "com.atproto.repo.strongRef",
-						"type": "ref",
-						"description": "StrongRef to the contributor or activity being styled"
-					},
-					"videoUrl": {
-						"type": "string",
-						"format": "uri",
-						"description": "Direct video or Instagram URL"
-					},
-					"displayName": {
-						"type": "string",
-						"maxLength": 640,
-						"description": "Display name override for this item"
-					},
-					"isBlueprint": {
-						"type": "boolean",
-						"description": "Whether this item is a blueprint entry"
-					},
-					"circularImage": {
-						"type": "boolean",
-						"description": "Whether to render the contributor image as circular (default true)"
-					},
-					"hoverImageUrl": {
-						"type": "string",
-						"format": "uri",
-						"description": "Image overlay shown on hover"
-					},
-					"hoverIframeUrl": {
-						"type": "string",
-						"format": "uri",
-						"description": "Iframe shown on hover"
-					}
-				},
-				"description": "Per-item presentation overrides for a contributor or activity within the board"
+				"description": "Configuration record for a hyperboard, wrapping an underlying activity or collection with visual presentation settings. Stored in the creator's PDS."
 			},
 			"boardConfig": {
 				"type": "object",
 				"properties": {
+					"imageShape": {
+						"type": "string",
+						"maxLength": 20,
+						"description": "Shape used to crop contributor images on this board.",
+						"knownValues": [
+							"circular",
+							"square"
+						]
+					},
 					"aspectRatio": {
 						"type": "string",
 						"maxLength": 10,
-						"description": "Board aspect ratio (default '16:9')",
+						"description": "Display aspect ratio of the board.",
 						"knownValues": [
 							"16:9",
 							"4:3",
@@ -102,13 +65,13 @@
 					},
 					"borderColor": {
 						"type": "string",
-						"maxLength": 9,
-						"description": "Border hex color (e.g. '#000000')"
+						"maxLength": 20,
+						"description": "Border color as a hex string (e.g. '#000000')."
 					},
 					"backgroundType": {
 						"type": "string",
 						"maxLength": 10,
-						"description": "The type of background to display",
+						"description": "Type of background content.",
 						"knownValues": [
 							"image",
 							"iframe"
@@ -116,49 +79,123 @@
 					},
 					"backgroundColor": {
 						"type": "string",
-						"maxLength": 9,
-						"description": "Background hex color (e.g. '#ffffff')"
+						"maxLength": 20,
+						"description": "Background color as a hex string (e.g. '#ffffff')."
 					},
 					"backgroundImage": {
-						"type": "string",
-						"format": "uri",
-						"description": "URI of the background image"
+						"refs": [
+							"org.hypercerts.defs#uri",
+							"org.hypercerts.defs#smallImage"
+						],
+						"type": "union",
+						"description": "Background image as a URI or image blob."
 					},
 					"grayscaleImages": {
 						"type": "boolean",
-						"description": "Whether to render contributor images in grayscale (default false)"
+						"description": "Whether contributor images are rendered in grayscale. Default: false."
 					},
 					"backgroundOpacity": {
-						"type": "string",
-						"maxLength": 20,
-						"description": "Background opacity as a string from '0' to '1' (string for precision)"
+						"type": "integer",
+						"maximum": 100,
+						"minimum": 0,
+						"description": "Background opacity as a percentage (0–100)."
 					},
 					"backgroundGrayscale": {
 						"type": "boolean",
-						"description": "Whether to render the background in grayscale (default true)"
+						"description": "Whether the background is rendered in grayscale. Default: true."
 					},
 					"backgroundIframeUrl": {
 						"type": "string",
 						"format": "uri",
-						"description": "URI of the background iframe"
+						"maxLength": 2048,
+						"description": "URI of the background iframe."
 					}
 				},
-				"description": "Board-level visual configuration options"
+				"description": "Visual configuration for a hyperboard's background, colors, and layout."
+			},
+			"contributorConfig": {
+				"type": "object",
+				"required": [
+					"contributor"
+				],
+				"properties": {
+					"url": {
+						"type": "string",
+						"format": "uri",
+						"maxLength": 2048,
+						"description": "Click-through link URL for this contributor."
+					},
+					"image": {
+						"refs": [
+							"org.hypercerts.defs#uri",
+							"org.hypercerts.defs#smallImage"
+						],
+						"type": "union",
+						"description": "Avatar or face image for this contributor on this board, as a URI or image blob."
+					},
+					"video": {
+						"refs": [
+							"org.hypercerts.defs#uri",
+							"org.hypercerts.defs#smallVideo"
+						],
+						"type": "union",
+						"description": "Video for this contributor, as a URI (embed/direct link) or uploaded video blob."
+					},
+					"override": {
+						"type": "boolean",
+						"description": "When true, these values take precedence over the contributor's own profile and display settings. When false or omitted, they are only used as fallbacks if the contributor has not set their own settings."
+					},
+					"hoverImage": {
+						"refs": [
+							"org.hypercerts.defs#uri",
+							"org.hypercerts.defs#smallImage"
+						],
+						"type": "union",
+						"description": "Image overlay shown when hovering over this contributor, as a URI or image blob."
+					},
+					"contributor": {
+						"refs": [
+							"com.atproto.repo.strongRef",
+							"org.hypercerts.claim.activity#contributorIdentity"
+						],
+						"type": "union",
+						"description": "Identifies the contributor being styled. A strong reference to an org.hypercerts.claim.contributorInformation record, or a contributorIdentity (DID or identifier string) for contributors without a dedicated record."
+					},
+					"displayName": {
+						"type": "string",
+						"maxLength": 640,
+						"description": "Display name for this contributor on this board.",
+						"maxGraphemes": 64
+					},
+					"hoverIframeUrl": {
+						"type": "string",
+						"format": "uri",
+						"maxLength": 2048,
+						"description": "Iframe overlay shown when hovering over this contributor."
+					}
+				},
+				"description": "Configuration for a specific contributor within a board. Values serve as fallbacks when the contributor has not defined them on their profile. It can also be used to override contributor settings on this board without changing their global profile."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771460616704
+		"indexedAt": 1772842922290
 	},
 	"references": {
 		"main": [
-			"com.atproto.repo.strongRef"
+			"com.atproto.repo.strongRef",
+			"org.hypercerts.claim.activity",
+			"org.hypercerts.defs"
 		],
-		"boardItem": [
-			"com.atproto.repo.strongRef"
+		"boardConfig": [
+			"org.hypercerts.defs"
 		],
-		"boardConfig": []
+		"contributorConfig": [
+			"com.atproto.repo.strongRef",
+			"org.hypercerts.claim.activity",
+			"org.hypercerts.defs"
+		]
 	}
 }

@@ -9,45 +9,100 @@
 				"record": {
 					"type": "object",
 					"required": [
-						"gender",
-						"pronouns"
+						"site",
+						"favorite"
 					],
 					"properties": {
-						"gender": {
+						"site": {
 							"refs": [
-								"download.darkworld.defs#genderMale",
-								"download.darkworld.defs#genderFemale",
-								"download.darkworld.defs#genderNonBinary",
-								"download.darkworld.defs#genderQuestioning",
-								"download.darkworld.defs#genderOther"
+								"#site"
 							],
-							"type": "union"
+							"type": "union",
+							"closed": true
 						},
-						"pronouns": {
+						"favorite": {
 							"refs": [
-								"download.darkworld.defs#pronounsHeHim",
-								"download.darkworld.defs#pronounsSheHer",
-								"download.darkworld.defs#pronounsTheyThem",
-								"download.darkworld.defs#pronounsHeThey",
-								"download.darkworld.defs#pronounsSheThey",
-								"download.darkworld.defs#pronounsAny"
+								"#favorite"
 							],
-							"type": "union"
+							"type": "union",
+							"closed": true
 						}
 					}
 				},
-				"description": "The main and only record used by darkworld.download to determine site content."
+				"description": "The record used by darkworld.download to determine the website's content. Heavily dependant on who the user is."
+			},
+			"site": {
+				"type": "object",
+				"required": [
+					"susieProphecy"
+				],
+				"properties": {
+					"titleColors": {
+						"refs": [
+							"#titleColorsEnby",
+							"#titleColorsTrans"
+						],
+						"type": "union"
+					},
+					"susieProphecy": {
+						"type": "boolean"
+					}
+				}
+			},
+			"favorite": {
+				"type": "object",
+				"required": [
+					"game",
+					"artist",
+					"album"
+				],
+				"properties": {
+					"game": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
+					"album": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
+					"artist": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
+					"deltaruneCharacter": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"titleColorsEnby": {
+				"type": "object",
+				"properties": {}
+			},
+			"titleColorsTrans": {
+				"type": "object",
+				"properties": {}
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1772237992973
+		"indexedAt": 1772842922290
 	},
 	"references": {
-		"main": [
-			"download.darkworld.defs"
-		]
+		"main": [],
+		"site": [],
+		"favorite": [],
+		"titleColorsEnby": [],
+		"titleColorsTrans": []
 	}
 }

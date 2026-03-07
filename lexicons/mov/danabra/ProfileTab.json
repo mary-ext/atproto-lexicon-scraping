@@ -13,11 +13,20 @@
 						],
 						"properties": {
 							"tab": {
-								"type": "string"
+								"type": "string",
+								"default": "posts_and_author_threads",
+								"knownValues": [
+									"posts_and_author_threads",
+									"posts_and_replies"
+								]
 							},
 							"uri": {
 								"type": "string",
 								"format": "at-uri"
+							},
+							"limit": {
+								"type": "integer",
+								"default": 10
 							}
 						}
 					},
@@ -25,7 +34,7 @@
 				},
 				"output": {
 					"schema": {
-						"ref": "at.inlay.defs#response",
+						"ref": "lex:at.inlay.defs#response",
 						"type": "ref"
 					},
 					"encoding": "application/json"
@@ -36,11 +45,11 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1772670174648
+		"indexedAt": 1772842922290
 	},
 	"references": {
 		"main": [
-			"at.inlay.defs"
+			"lex:at.inlay.defs"
 		]
 	}
 }

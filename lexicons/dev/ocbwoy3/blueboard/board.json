@@ -43,7 +43,8 @@
 		"description": "This record defines a board on Blue Board (e.g. /at/, /pic/, etc.)"
 	},
 	"meta": {
-		"indexedAt": 1771115017564
+		"indexedAt": 1771115017564,
+		"errorAt": 1772842922290
 	},
 	"references": {
 		"main": []

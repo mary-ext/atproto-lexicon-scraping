@@ -61,7 +61,8 @@
 								"#strikethrough",
 								"#id",
 								"#bold",
-								"#italic"
+								"#italic",
+								"#footnote"
 							],
 							"type": "union"
 						}
@@ -74,6 +75,29 @@
 				"required": [],
 				"properties": {},
 				"description": "Facet feature for italic text"
+			},
+			"footnote": {
+				"type": "object",
+				"required": [
+					"footnoteId",
+					"contentPlaintext"
+				],
+				"properties": {
+					"footnoteId": {
+						"type": "string"
+					},
+					"contentFacets": {
+						"type": "array",
+						"items": {
+							"ref": "#main",
+							"type": "ref"
+						}
+					},
+					"contentPlaintext": {
+						"type": "string"
+					}
+				},
+				"description": "Facet feature for a footnote reference"
 			},
 			"atMention": {
 				"type": "object",
@@ -142,7 +166,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1764980149164,
+		"indexedAt": 1772842922290,
 		"errorAt": 1760659937196
 	},
 	"references": {
@@ -152,6 +176,7 @@
 		"link": [],
 		"main": [],
 		"italic": [],
+		"footnote": [],
 		"atMention": [],
 		"byteSlice": [],
 		"highlight": [],

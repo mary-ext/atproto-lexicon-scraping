@@ -1,0 +1,103 @@
+{
+	"authority": "did:plc:s7cesz7cr6ybltaryy4meb6y",
+	"schema": {
+		"id": "download.darkworld.deltarune",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"time"
+					],
+					"properties": {
+						"time": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"tool": {
+							"refs": [
+								"#toolPen",
+								"#toolPencil",
+								"#toolMarker",
+								"#toolFinger",
+								"#toolOther"
+							],
+							"type": "union"
+						},
+						"where": {
+							"refs": [
+								"#locationSchool",
+								"#locationHome",
+								"#locationMathTextbook",
+								"#locationOnSkin",
+								"#locationElsewhere"
+							],
+							"type": "union"
+						}
+					}
+				},
+				"description": "Describes an instance of the user drawing the Delta Rune symbol from Undertale/Deltarune."
+			},
+			"toolPen": {
+				"type": "object",
+				"properties": {}
+			},
+			"toolOther": {
+				"type": "object",
+				"properties": {}
+			},
+			"toolFinger": {
+				"type": "object",
+				"properties": {}
+			},
+			"toolMarker": {
+				"type": "object",
+				"properties": {}
+			},
+			"toolPencil": {
+				"type": "object",
+				"properties": {}
+			},
+			"locationHome": {
+				"type": "object",
+				"properties": {}
+			},
+			"locationOnSkin": {
+				"type": "object",
+				"properties": {}
+			},
+			"locationSchool": {
+				"type": "object",
+				"properties": {}
+			},
+			"locationElsewhere": {
+				"type": "object",
+				"properties": {}
+			},
+			"locationMathTextbook": {
+				"type": "object",
+				"properties": {}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1772842922290
+	},
+	"references": {
+		"main": [],
+		"toolPen": [],
+		"toolOther": [],
+		"toolFinger": [],
+		"toolMarker": [],
+		"toolPencil": [],
+		"locationHome": [],
+		"locationOnSkin": [],
+		"locationSchool": [],
+		"locationElsewhere": [],
+		"locationMathTextbook": []
+	}
+}
