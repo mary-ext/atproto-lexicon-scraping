@@ -48,8 +48,6 @@
 		"indexedAt": 1772842922290
 	},
 	"references": {
-		"main": [
-			"lex:at.inlay.defs"
-		]
+		"main": []
 	}
 }
