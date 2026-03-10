@@ -1,21 +1,9 @@
 import { glob } from 'node:fs/promises';
 
-import { findExternalReferences, lexiconDoc } from '@atcute/lexicon-doc';
-import { Nsid } from '@atcute/lexicons';
-import { isNsid } from '@atcute/lexicons/syntax';
+import { findExternalReferences, lexiconDoc, parseLexiconRef } from '@atcute/lexicon-doc';
+import type { Nsid } from '@atcute/lexicons';
 
 import { type ScrapedEntry, scrapedEntrySchema } from '../types.ts';
-
-const parseRef = (ref: string): { nsid: Nsid; defId: string } => {
-	const hashIndex = ref.indexOf('#');
-	if (hashIndex === -1) {
-		return { nsid: ref as Nsid, defId: 'main' };
-	}
-	return {
-		nsid: ref.slice(0, hashIndex) as Nsid,
-		defId: ref.slice(hashIndex + 1),
-	};
-};
 
 const entries = await Array.fromAsync(glob('**/*.json', { cwd: 'lexicons/' }));
 const sortedEntries = entries.toSorted();
@@ -49,11 +37,7 @@ for await (const relname of sortedEntries) {
 	const refs = findExternalReferences(schema);
 
 	for (const ref of refs) {
-		const { nsid } = parseRef(ref);
-
-		if (!isNsid(nsid)) {
-			continue;
-		}
+		const { nsid } = parseLexiconRef(ref);
 
 		if (foundNsids.has(nsid)) {
 			continue;

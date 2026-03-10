@@ -2,25 +2,13 @@ import { glob } from 'node:fs/promises';
 
 import { dequal } from 'dequal';
 
-import { findExternalReferences, lexiconDoc } from '@atcute/lexicon-doc';
+import { findExternalReferences, lexiconDoc, parseLexiconRef } from '@atcute/lexicon-doc';
 
 import { type ScrapedEntry, scrapedEntrySchema } from '../types.ts';
 
 /** Convert NSID to file path */
 const nsidToPath = (nsid: string): string => {
 	return `lexicons/${nsid.replaceAll('.', '/')}.json`;
-};
-
-/** Parse a ref string into NSID and defId (defaults to 'main' if no hash) */
-const parseRef = (ref: string): { nsid: string; defId: string } => {
-	const hashIndex = ref.indexOf('#');
-	if (hashIndex === -1) {
-		return { nsid: ref, defId: 'main' };
-	}
-	return {
-		nsid: ref.slice(0, hashIndex),
-		defId: ref.slice(hashIndex + 1),
-	};
 };
 
 /** Recursively crawl all transitive dependencies for a given reference */
@@ -41,7 +29,7 @@ async function* crawlReferences(
 	visited.add(ref);
 	yield ref;
 
-	const { nsid, defId } = parseRef(ref);
+	const { nsid, defId } = parseLexiconRef(ref);
 	const path = nsidToPath(nsid);
 
 	// Try to load the referenced schema
@@ -119,7 +107,7 @@ for await (const relname of sortedEntries) {
 		for (const directRef of directRefs) {
 			for await (const ref of crawlReferences(directRef, visited)) {
 				// Filter out internal references (same document)
-				const { nsid } = parseRef(ref);
+				const { nsid } = parseLexiconRef(ref);
 				if (nsid !== schema.id) {
 					allRefs.add(nsid);
 				}
