@@ -1,5 +1,5 @@
 {
-	"authority": "did:plc:il7eua5zbt4s2ly2jskjfz2t",
+	"authority": "did:web:gamesgamesgamesgames.games",
 	"schema": {
 		"id": "games.gamesgamesgamesgames.slug",
 		"defs": {
@@ -9,19 +9,20 @@
 				"record": {
 					"type": "object",
 					"required": [
-						"type",
-						"key"
+						"slug",
+						"ref"
 					],
 					"properties": {
-						"key": {
+						"ref": {
 							"type": "string",
-							"format": "record-key",
-							"description": "The key of the record this slug points to."
+							"format": "at-uri",
+							"description": "AT URI of the record this slug points to."
 						},
-						"type": {
+						"slug": {
 							"type": "string",
-							"format": "nsid",
-							"description": "The type of the record this slug points to."
+							"maxLength": 64,
+							"minLength": 1,
+							"description": "The human-readable slug value used in URLs."
 						}
 					}
 				},
@@ -32,7 +33,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771979064790,
+		"indexedAt": 1773107271805,
 		"errorAt": 1772670174648
 	},
 	"references": {

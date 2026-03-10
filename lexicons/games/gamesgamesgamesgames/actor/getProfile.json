@@ -1,5 +1,5 @@
 {
-	"authority": "did:plc:il7eua5zbt4s2ly2jskjfz2t",
+	"authority": "did:web:gamesgamesgamesgames.games",
 	"schema": {
 		"id": "games.gamesgamesgamesgames.actor.getProfile",
 		"defs": {
@@ -29,6 +29,7 @@
 	},
 	"references": {
 		"main": [
+			"app.bsky.richtext.facet",
 			"games.gamesgamesgamesgames.defs"
 		]
 	}

@@ -36,7 +36,7 @@
 						},
 						"content": {
 							"type": "string",
-							"maxLength": 10000,
+							"maxLength": 30000,
 							"description": "Markdown content. Local image paths are replaced with blob CIDs at publish time."
 						},
 						"fontSize": {
@@ -147,7 +147,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1772410899705
+		"indexedAt": 1773107271805
 	},
 	"references": {
 		"main": [],

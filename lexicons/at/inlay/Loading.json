@@ -14,11 +14,7 @@
 						],
 						"properties": {
 							"children": {
-								"type": "array",
-								"items": {
-									"ref": "at.inlay.defs#element",
-									"type": "ref"
-								}
+								"type": "unknown"
 							},
 							"fallback": {
 								"ref": "at.inlay.defs#element",
@@ -42,7 +38,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1772151818114
+		"indexedAt": 1773107271805
 	},
 	"references": {
 		"main": [

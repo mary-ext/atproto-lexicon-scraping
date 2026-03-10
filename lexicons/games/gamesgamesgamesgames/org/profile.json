@@ -1,5 +1,5 @@
 {
-	"authority": "did:plc:il7eua5zbt4s2ly2jskjfz2t",
+	"authority": "did:web:gamesgamesgamesgames.games",
 	"schema": {
 		"id": "games.gamesgamesgamesgames.org.profile",
 		"defs": {
@@ -8,6 +8,10 @@
 				"type": "record",
 				"record": {
 					"type": "object",
+					"required": [
+						"displayName",
+						"createdAt"
+					],
 					"properties": {
 						"media": {
 							"type": "array",
@@ -65,6 +69,14 @@
 						"displayName": {
 							"type": "string",
 							"maxLength": 640
+						},
+						"descriptionFacets": {
+							"type": "array",
+							"items": {
+								"ref": "app.bsky.richtext.facet",
+								"type": "ref"
+							},
+							"description": "Annotations of text (mentions, URLs, hashtags, etc)"
 						}
 					}
 				},
@@ -75,11 +87,12 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1772151818114,
+		"indexedAt": 1773107271805,
 		"errorAt": 1772670174648
 	},
 	"references": {
 		"main": [
+			"app.bsky.richtext.facet",
 			"games.gamesgamesgamesgames.defs"
 		]
 	}

@@ -23,11 +23,7 @@
 								"description": "Minimum box proportions (shortest allowed shape). E.g. {width:1, height:1} means at least as tall as wide."
 							},
 							"children": {
-								"type": "array",
-								"items": {
-									"ref": "at.inlay.defs#element",
-									"type": "ref"
-								}
+								"type": "unknown"
 							}
 						}
 					},
@@ -64,7 +60,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771633345512
+		"indexedAt": 1773107271805
 	},
 	"references": {
 		"main": [

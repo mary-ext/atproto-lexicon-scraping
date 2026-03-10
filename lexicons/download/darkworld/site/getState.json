@@ -1,0 +1,80 @@
+{
+	"authority": "did:plc:s7cesz7cr6ybltaryy4meb6y",
+	"schema": {
+		"id": "download.darkworld.site.getState",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"ref": "#output",
+						"type": "ref"
+					},
+					"encoding": "application/json"
+				},
+				"description": "Return the normalized website state used by darkworld.download clients."
+			},
+			"output": {
+				"type": "object",
+				"required": [
+					"useSusieProphecy",
+					"titleColors",
+					"favoriteGames",
+					"favoriteArtists",
+					"favoriteAlbums",
+					"favoriteDeltaruneCharacters"
+				],
+				"properties": {
+					"titleColors": {
+						"type": "string",
+						"description": "Named title color mode for the site.",
+						"knownValues": [
+							"none",
+							"enby",
+							"trans",
+							"pan",
+							"latvia"
+						]
+					},
+					"favoriteGames": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
+					"favoriteAlbums": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
+					"favoriteArtists": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
+					"useSusieProphecy": {
+						"type": "boolean",
+						"description": "Whether to show Susie instead of Kris in prophecy content."
+					},
+					"favoriteDeltaruneCharacters": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773107271805
+	},
+	"references": {
+		"main": [],
+		"output": []
+	}
+}

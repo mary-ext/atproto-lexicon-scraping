@@ -1,7 +1,7 @@
 {
 	"authority": "did:web:gamesgamesgamesgames.games",
 	"schema": {
-		"id": "games.gamesgamesgamesgames.platformFamily",
+		"id": "games.gamesgamesgamesgames.graph.like",
 		"defs": {
 			"main": {
 				"key": "tid",
@@ -9,31 +9,29 @@
 				"record": {
 					"type": "object",
 					"required": [
-						"name",
+						"subject",
 						"createdAt"
 					],
 					"properties": {
-						"name": {
-							"type": "string"
+						"subject": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT URI of the game record being liked."
 						},
 						"createdAt": {
 							"type": "string",
 							"format": "datetime"
-						},
-						"description": {
-							"type": "string"
 						}
 					}
 				},
-				"description": "A family of related platforms."
+				"description": "Record representing a user's like of a game."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1773107271805,
-		"errorAt": 1772670174648
+		"indexedAt": 1773107271805
 	},
 	"references": {
 		"main": []

@@ -1,0 +1,122 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.getReviews",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"reviews"
+						],
+						"properties": {
+							"cursor": {
+								"type": "string"
+							},
+							"reviews": {
+								"type": "array",
+								"items": {
+									"refs": [
+										"#popfeedReview"
+									],
+									"type": "union"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"uri"
+					],
+					"properties": {
+						"uri": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT URI of the game record."
+						},
+						"limit": {
+							"type": "integer",
+							"default": 20,
+							"maximum": 100,
+							"minimum": 1,
+							"description": "Maximum number of reviews to return."
+						},
+						"cursor": {
+							"type": "string",
+							"description": "Pagination cursor (offset)."
+						}
+					}
+				},
+				"description": "Get Popfeed reviews for a game, matched by IGDB ID."
+			},
+			"popfeedReview": {
+				"type": "object",
+				"required": [
+					"uri",
+					"did",
+					"rating",
+					"createdAt"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did"
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"tags": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
+					"text": {
+						"type": "string"
+					},
+					"title": {
+						"type": "string"
+					},
+					"facets": {
+						"type": "array",
+						"items": {
+							"ref": "social.popfeed.richtext.facet",
+							"type": "ref"
+						}
+					},
+					"rating": {
+						"type": "integer",
+						"maximum": 10,
+						"minimum": 0
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime"
+					},
+					"containsSpoilers": {
+						"type": "boolean"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773107271805
+	},
+	"references": {
+		"main": [
+			"social.popfeed.richtext.facet"
+		],
+		"popfeedReview": [
+			"social.popfeed.richtext.facet"
+		]
+	}
+}

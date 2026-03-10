@@ -1,0 +1,53 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.graph.getLikes",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"count",
+							"liked"
+						],
+						"properties": {
+							"count": {
+								"type": "integer",
+								"description": "Total number of likes on this game."
+							},
+							"liked": {
+								"type": "boolean",
+								"description": "Whether the authenticated user has liked this game."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"uri"
+					],
+					"properties": {
+						"uri": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT URI of the game record."
+						}
+					}
+				},
+				"description": "Get the like count for a game and whether the authenticated user has liked it."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773107271805
+	},
+	"references": {
+		"main": []
+	}
+}

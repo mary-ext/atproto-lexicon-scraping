@@ -1,7 +1,7 @@
 {
-	"authority": "did:plc:e4fjueijznwqm2yxvt7q4mba",
+	"authority": "did:plc:fpruhuo22xkm5o7ttr2ktxdo",
 	"schema": {
-		"id": "org.atsui.Fill",
+		"id": "mov.danabra.Post",
 		"defs": {
 			"main": {
 				"type": "procedure",
@@ -9,11 +9,19 @@
 					"schema": {
 						"type": "object",
 						"required": [
-							"children"
+							"uri"
 						],
 						"properties": {
-							"children": {
-								"type": "unknown"
+							"foo": {
+								"type": "string",
+								"knownValues": [
+									"bar",
+									"baz"
+								]
+							},
+							"uri": {
+								"type": "string",
+								"format": "at-uri"
 							}
 						}
 					},
@@ -25,8 +33,7 @@
 						"type": "ref"
 					},
 					"encoding": "application/json"
-				},
-				"description": "Takes remaining space on the parent's main axis."
+				}
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",

@@ -1,5 +1,5 @@
 {
-	"authority": "did:plc:il7eua5zbt4s2ly2jskjfz2t",
+	"authority": "did:web:gamesgamesgamesgames.games",
 	"schema": {
 		"id": "games.gamesgamesgamesgames.listGames",
 		"defs": {
@@ -33,6 +33,11 @@
 							"type": "string",
 							"format": "did"
 						},
+						"sort": {
+							"type": "string",
+							"default": "indexed_at",
+							"description": "Field to sort by (e.g. name, createdAt, indexed_at)."
+						},
 						"limit": {
 							"type": "integer",
 							"default": 20,
@@ -41,6 +46,15 @@
 						},
 						"cursor": {
 							"type": "string"
+						},
+						"sortDirection": {
+							"enum": [
+								"asc",
+								"desc"
+							],
+							"type": "string",
+							"default": "desc",
+							"description": "Sort direction."
 						}
 					}
 				},
@@ -51,7 +65,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771979064790,
+		"indexedAt": 1773107271805,
 		"errorAt": 1772670174648
 	},
 	"references": {

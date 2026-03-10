@@ -1,0 +1,109 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.search",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"results"
+						],
+						"properties": {
+							"cursor": {
+								"type": "string"
+							},
+							"results": {
+								"type": "array",
+								"items": {
+									"refs": [
+										"games.gamesgamesgamesgames.defs#gameSummaryView",
+										"games.gamesgamesgamesgames.defs#profileSummaryView",
+										"games.gamesgamesgamesgames.defs#platformSummaryView",
+										"games.gamesgamesgamesgames.defs#collectionSummaryView",
+										"games.gamesgamesgamesgames.defs#engineSummaryView"
+									],
+									"type": "union"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"q"
+					],
+					"properties": {
+						"q": {
+							"type": "string",
+							"maxLength": 200,
+							"minLength": 1
+						},
+						"limit": {
+							"type": "integer",
+							"default": 20,
+							"maximum": 100,
+							"minimum": 1
+						},
+						"types": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"knownValues": [
+									"game",
+									"profile",
+									"platform",
+									"collection",
+									"engine"
+								]
+							}
+						},
+						"cursor": {
+							"type": "string"
+						},
+						"applicationTypes": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"knownValues": [
+									"addon",
+									"bundle",
+									"dlc",
+									"episode",
+									"expandedGame",
+									"expansion",
+									"fork",
+									"game",
+									"mod",
+									"pack",
+									"port",
+									"remake",
+									"remaster",
+									"season",
+									"standaloneExpansion",
+									"update"
+								]
+							},
+							"description": "Filter game results by application type (e.g. game, dlc, bundle). Only applies when types includes game."
+						}
+					}
+				},
+				"description": "Search across all entity types (games, profiles, platforms, collections, engines)."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773107271805
+	},
+	"references": {
+		"main": [
+			"games.gamesgamesgamesgames.defs"
+		]
+	}
+}

@@ -1,5 +1,5 @@
 {
-	"authority": "did:plc:il7eua5zbt4s2ly2jskjfz2t",
+	"authority": "did:web:gamesgamesgamesgames.games",
 	"schema": {
 		"id": "games.gamesgamesgamesgames.platform",
 		"defs": {
@@ -8,6 +8,10 @@
 				"type": "record",
 				"record": {
 					"type": "object",
+					"required": [
+						"name",
+						"createdAt"
+					],
 					"properties": {
 						"name": {
 							"type": "string"
@@ -66,7 +70,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771979064790,
+		"indexedAt": 1773107271805,
 		"errorAt": 1772670174648
 	},
 	"references": {

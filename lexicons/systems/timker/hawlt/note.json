@@ -1,0 +1,101 @@
+{
+	"authority": "did:plc:bazrmgio5a7x53v3pwpqnfds",
+	"schema": {
+		"id": "systems.timker.hawlt.note",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"content",
+						"createdAt"
+					],
+					"properties": {
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 1280,
+								"description": "Tag to categorize the note. Max 128 graphemes, 1280 bytes",
+								"maxGraphemes": 128
+							},
+							"maxLength": 10,
+							"description": "Array of string used to tags or categorize the note. Avoid prepending with hashtags."
+						},
+						"langs": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "language"
+							},
+							"maxLength": 3,
+							"description": "Indicates human language of note primary text content."
+						},
+						"content": {
+							"type": "string",
+							"maxLength": 30000,
+							"description": "The primary note content. Max 3000 graphemes, 30000 bytes\nNote: large string limit is intentional for diary-style entries.",
+							"maxGraphemes": 3000
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Client-declared timestamp when this note was originally created."
+						},
+						"attachments": {
+							"type": "array",
+							"items": {
+								"ref": "#attachment",
+								"type": "ref"
+							},
+							"maxLength": 4,
+							"description": "Images attached to the note. Max 4 attachments, 5MB each"
+						},
+						"contentWarning": {
+							"type": "string",
+							"maxLength": 1000,
+							"description": "Content warning label. When present, note content should be hidden by default. Max 100 graphemes, 1000 bytes",
+							"maxGraphemes": 100
+						}
+					}
+				},
+				"description": "Record containing a Hawlt note."
+			},
+			"attachment": {
+				"type": "object",
+				"required": [
+					"image",
+					"alt"
+				],
+				"properties": {
+					"alt": {
+						"type": "string",
+						"maxLength": 10000,
+						"description": "Alt text for the image. Required for accessibility.",
+						"maxGraphemes": 1000
+					},
+					"image": {
+						"type": "blob",
+						"accept": [
+							"image/*"
+						],
+						"maxSize": 5000000,
+						"description": "The image blob. Max 5MB."
+					}
+				},
+				"description": "An image attachment with alt text."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773107271805
+	},
+	"references": {
+		"main": [],
+		"attachment": []
+	}
+}
