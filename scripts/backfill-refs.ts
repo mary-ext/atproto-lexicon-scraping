@@ -2,6 +2,7 @@ import { glob } from 'node:fs/promises';
 
 import { findExternalReferences, lexiconDoc } from '@atcute/lexicon-doc';
 import { Nsid } from '@atcute/lexicons';
+import { isNsid } from '@atcute/lexicons/syntax';
 
 import { type ScrapedEntry, scrapedEntrySchema } from '../types.ts';
 
@@ -49,6 +50,10 @@ for await (const relname of sortedEntries) {
 
 	for (const ref of refs) {
 		const { nsid } = parseRef(ref);
+
+		if (!isNsid(nsid)) {
+			continue;
+		}
 
 		if (foundNsids.has(nsid)) {
 			continue;
