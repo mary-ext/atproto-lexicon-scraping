@@ -1,0 +1,21 @@
+{
+	"authority": "did:web:bsky.ooo",
+	"schema": {
+		"id": "ooo.bsky.authfetch.destroyRepo",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"description": "Permanently deletes the entire associated hidden repository for your account, including all records. Requires auth."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"revision": 1
+	},
+	"meta": {
+		"indexedAt": 1773188393026
+	},
+	"references": {
+		"main": []
+	}
+}

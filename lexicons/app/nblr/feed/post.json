@@ -1,0 +1,82 @@
+{
+	"authority": "did:plc:kgrcstzon7oaiy5myjfgiou6",
+	"schema": {
+		"id": "app.nblr.feed.post",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"createdAt"
+					],
+					"properties": {
+						"uri": {
+							"type": "string",
+							"format": "uri",
+							"description": "The URI of the linked resource; a web URL or AT URI"
+						},
+						"image": {
+							"type": "blob",
+							"accept": [
+								"image/*"
+							],
+							"maxSize": 1000000,
+							"description": "Optional image for the post"
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 640,
+							"description": "Optional title for the post",
+							"maxGraphemes": 64
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"aspectRatio": {
+							"ref": "#aspectRatio",
+							"type": "ref",
+							"description": "Approximate aspect ratio of the image (width:height)."
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 2560,
+							"description": "Optional description for the post",
+							"maxGraphemes": 256
+						}
+					}
+				},
+				"description": "Record containing a nblr post."
+			},
+			"aspectRatio": {
+				"type": "object",
+				"required": [
+					"width",
+					"height"
+				],
+				"properties": {
+					"width": {
+						"type": "integer",
+						"minimum": 1
+					},
+					"height": {
+						"type": "integer",
+						"minimum": 1
+					}
+				},
+				"description": "width:height represents an aspect ratio. It may be approximate, and may not correspond to absolute dimensions in any given unit."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773188393026
+	},
+	"references": {
+		"main": [],
+		"aspectRatio": []
+	}
+}

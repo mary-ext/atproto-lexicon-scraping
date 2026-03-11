@@ -1,0 +1,99 @@
+{
+	"authority": "did:web:bsky.ooo",
+	"schema": {
+		"id": "ooo.bsky.authfetch.listRecords",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"records"
+						],
+						"properties": {
+							"cursor": {
+								"type": "string"
+							},
+							"records": {
+								"type": "array",
+								"items": {
+									"ref": "#record",
+									"type": "ref"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"collection"
+					],
+					"properties": {
+						"limit": {
+							"type": "integer",
+							"default": 50,
+							"maximum": 100,
+							"minimum": 1,
+							"description": "The number of records to return."
+						},
+						"cursor": {
+							"type": "string"
+						},
+						"reverse": {
+							"type": "boolean",
+							"description": "Flag to reverse the order of the returned records."
+						},
+						"collection": {
+							"type": "string",
+							"format": "nsid",
+							"description": "The NSID of the record collection."
+						}
+					}
+				},
+				"description": "Lists a range of private records in a hidden repository that match a specific collection. Requires auth."
+			},
+			"record": {
+				"type": "object",
+				"required": [
+					"uri",
+					"strategy",
+					"value"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "The AT URI of the record."
+					},
+					"value": {
+						"type": "unknown",
+						"description": "The stored private record value."
+					},
+					"strategy": {
+						"ref": "ooo.bsky.authfetch.strategy",
+						"type": "ref",
+						"description": "The strategy used to authenticate fetch requests for this record."
+					}
+				},
+				"description": "A record in the hidden repository."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"revision": 1
+	},
+	"meta": {
+		"indexedAt": 1773188393026
+	},
+	"references": {
+		"main": [
+			"ooo.bsky.authfetch.strategy"
+		],
+		"record": [
+			"ooo.bsky.authfetch.strategy"
+		]
+	}
+}

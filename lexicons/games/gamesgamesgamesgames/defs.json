@@ -218,6 +218,36 @@
 					}
 				}
 			},
+			"systemSpec": {
+				"type": "object",
+				"properties": {
+					"os": {
+						"type": "string"
+					},
+					"memory": {
+						"type": "string"
+					},
+					"directx": {
+						"type": "string"
+					},
+					"storage": {
+						"type": "string"
+					},
+					"graphics": {
+						"type": "string"
+					},
+					"processor": {
+						"type": "string"
+					},
+					"soundCard": {
+						"type": "string"
+					},
+					"additionalNotes": {
+						"type": "string"
+					}
+				},
+				"description": "Hardware/software specification for a platform."
+			},
 			"timeToBeat": {
 				"type": "object",
 				"properties": {
@@ -718,6 +748,63 @@
 					"operatingSystem"
 				]
 			},
+			"platformFeatures": {
+				"type": "object",
+				"required": [
+					"platform",
+					"features"
+				],
+				"properties": {
+					"features": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"knownValues": [
+								"achievements",
+								"cloudSaves",
+								"controllerSupport",
+								"controllerSupportFull",
+								"coop",
+								"coopLan",
+								"coopOnline",
+								"crossPlatformMultiplayer",
+								"familySharing",
+								"inAppPurchases",
+								"leaderboards",
+								"levelEditor",
+								"moddingSupport",
+								"multiPlayer",
+								"multiPlayerLan",
+								"multiPlayerOnline",
+								"pvp",
+								"pvpLan",
+								"pvpOnline",
+								"remotePlayPhone",
+								"remotePlayTablet",
+								"remotePlayTV",
+								"remotePlayTogether",
+								"singlePlayer",
+								"steamTradingCards",
+								"steamWorkshop",
+								"trackingAndManagement",
+								"vrSupport"
+							]
+						}
+					},
+					"platform": {
+						"type": "string",
+						"knownValues": [
+							"steam",
+							"gog",
+							"epicGames",
+							"playStation",
+							"xbox",
+							"nintendoEshop"
+						]
+					}
+				},
+				"description": "Features supported by a game on a specific storefront/platform."
+			},
 			"engineSummaryView": {
 				"type": "object",
 				"required": [
@@ -766,9 +853,6 @@
 						"type": "string",
 						"format": "at-uri"
 					},
-					"slug": {
-						"type": "string"
-					},
 					"avatar": {
 						"type": "blob",
 						"accept": [
@@ -789,6 +873,31 @@
 						]
 					}
 				}
+			},
+			"systemRequirements": {
+				"type": "object",
+				"required": [
+					"platform"
+				],
+				"properties": {
+					"minimum": {
+						"ref": "#systemSpec",
+						"type": "ref"
+					},
+					"platform": {
+						"type": "string",
+						"knownValues": [
+							"windows",
+							"mac",
+							"linux"
+						]
+					},
+					"recommended": {
+						"ref": "#systemSpec",
+						"type": "ref"
+					}
+				},
+				"description": "System requirements for a game on a specific platform."
 			},
 			"platformSummaryView": {
 				"type": "object",
@@ -830,9 +939,6 @@
 					"uri": {
 						"type": "string",
 						"format": "at-uri"
-					},
-					"slug": {
-						"type": "string"
 					},
 					"media": {
 						"type": "array",
@@ -940,9 +1046,6 @@
 						"type": "string",
 						"format": "at-uri"
 					},
-					"slug": {
-						"type": "string"
-					},
 					"avatar": {
 						"type": "blob",
 						"accept": [
@@ -971,9 +1074,6 @@
 					"uri": {
 						"type": "string",
 						"format": "at-uri"
-					},
-					"slug": {
-						"type": "string"
 					},
 					"avatar": {
 						"type": "blob",
@@ -1030,9 +1130,6 @@
 						"type": "string",
 						"format": "at-uri"
 					},
-					"slug": {
-						"type": "string"
-					},
 					"avatar": {
 						"type": "blob",
 						"accept": [
@@ -1052,7 +1149,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1773107271805,
+		"indexedAt": 1773188393026,
 		"errorAt": 1772670174648
 	},
 	"references": {
@@ -1064,6 +1161,7 @@
 		"itchIoId": [],
 		"ageRating": [],
 		"mediaItem": [],
+		"systemSpec": [],
 		"timeToBeat": [],
 		"companyRole": [],
 		"creditEntry": [],
@@ -1079,9 +1177,11 @@
 		"multiplayerMode": [],
 		"platformVersion": [],
 		"platformCategory": [],
+		"platformFeatures": [],
 		"engineSummaryView": [],
 		"playerPerspective": [],
 		"profileSummaryView": [],
+		"systemRequirements": [],
 		"platformSummaryView": [],
 		"orgProfileDetailView": [
 			"app.bsky.richtext.facet"

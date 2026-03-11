@@ -1,0 +1,45 @@
+{
+	"authority": "did:plc:kgrcstzon7oaiy5myjfgiou6",
+	"schema": {
+		"id": "app.nblr.feed.link",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"uri",
+						"collection",
+						"createdAt"
+					],
+					"properties": {
+						"uri": {
+							"type": "string",
+							"format": "uri",
+							"description": "The URI of the linked resource; a web URL or AT URI"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"collection": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "The AT URI of the collection being linked to"
+						}
+					}
+				},
+				"description": "Record linking a resource to a collection."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773188393026
+	},
+	"references": {
+		"main": []
+	}
+}
