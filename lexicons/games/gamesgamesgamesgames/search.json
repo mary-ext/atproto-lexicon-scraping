@@ -27,6 +27,10 @@
 									],
 									"type": "union"
 								}
+							},
+							"totalResults": {
+								"type": "integer",
+								"description": "Total number of results matching the query above the relevance threshold."
 							}
 						}
 					},
@@ -43,11 +47,26 @@
 							"maxLength": 200,
 							"minLength": 1
 						},
+						"sort": {
+							"type": "string",
+							"knownValues": [
+								"name_asc",
+								"name_desc",
+								"published_asc",
+								"published_desc"
+							]
+						},
 						"limit": {
 							"type": "integer",
 							"default": 20,
 							"maximum": 100,
 							"minimum": 1
+						},
+						"modes": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
 						},
 						"types": {
 							"type": "array",
@@ -64,6 +83,30 @@
 						},
 						"cursor": {
 							"type": "string"
+						},
+						"genres": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						},
+						"themes": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						},
+						"ageRatings": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							},
+							"description": "Filter game results by age rating in 'organization:rating' format (e.g. esrb:M, pegi:Eighteen)."
+						},
+						"includeUnrated": {
+							"type": "boolean",
+							"default": false,
+							"description": "When age rating filters are active, also include games with no age ratings."
 						},
 						"applicationTypes": {
 							"type": "array",
@@ -89,6 +132,16 @@
 								]
 							},
 							"description": "Filter game results by application type (e.g. game, dlc, bundle). Only applies when types includes game."
+						},
+						"includeCancelled": {
+							"type": "boolean",
+							"default": false
+						},
+						"playerPerspectives": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
 						}
 					}
 				},
@@ -99,7 +152,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1773107271805
+		"indexedAt": 1773274815134
 	},
 	"references": {
 		"main": [

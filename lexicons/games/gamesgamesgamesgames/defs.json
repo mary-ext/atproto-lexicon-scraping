@@ -635,6 +635,14 @@
 					},
 					"summary": {
 						"type": "string"
+					},
+					"applicationType": {
+						"ref": "games.gamesgamesgamesgames.defs#applicationType",
+						"type": "ref"
+					},
+					"firstReleaseDate": {
+						"type": "integer",
+						"description": "Earliest release date as YYYYMMDD integer."
 					}
 				}
 			},
@@ -1149,7 +1157,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1773188393026,
+		"indexedAt": 1773274815134,
 		"errorAt": 1772670174648
 	},
 	"references": {

@@ -105,13 +105,6 @@
 							"ref": "games.gamesgamesgamesgames.defs#timeToBeat",
 							"type": "ref"
 						},
-						"collections": {
-							"type": "array",
-							"items": {
-								"type": "string",
-								"format": "at-uri"
-							}
-						},
 						"description": {
 							"type": "string",
 							"description": "Detailed game description in plain text, with formatting expressed via descriptionFacets."
@@ -190,7 +183,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1773188393026,
+		"indexedAt": 1773274815134,
 		"errorAt": 1772670174648
 	},
 	"references": {

@@ -1,0 +1,77 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.feed.getSimilarGamesFeed",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"games"
+						],
+						"properties": {
+							"games": {
+								"type": "array",
+								"items": {
+									"ref": "#similarGameItem",
+									"type": "ref"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"uri"
+					],
+					"properties": {
+						"uri": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT URI of the game record to find similar games for."
+						},
+						"limit": {
+							"type": "integer",
+							"default": 5,
+							"maximum": 10,
+							"minimum": 1,
+							"description": "Maximum number of similar games to return."
+						}
+					}
+				},
+				"description": "Get games similar to a given game, based on shared genres, themes, and other attributes."
+			},
+			"similarGameItem": {
+				"type": "object",
+				"required": [
+					"uri",
+					"game"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "AT URI of the similar game record."
+					},
+					"game": {
+						"type": "unknown",
+						"description": "The game record."
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773274815134
+	},
+	"references": {
+		"main": [],
+		"similarGameItem": []
+	}
+}

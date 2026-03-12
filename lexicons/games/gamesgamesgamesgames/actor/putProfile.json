@@ -1,0 +1,89 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.actor.putProfile",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"properties": {
+							"avatar": {
+								"type": "blob",
+								"accept": [
+									"image/png",
+									"image/jpeg"
+								],
+								"maxSize": 10000000
+							},
+							"pronouns": {
+								"type": "string",
+								"maxLength": 200
+							},
+							"websites": {
+								"type": "array",
+								"items": {
+									"ref": "games.gamesgamesgamesgames.defs#website",
+									"type": "ref"
+								}
+							},
+							"createdAt": {
+								"type": "string",
+								"format": "datetime"
+							},
+							"description": {
+								"type": "string",
+								"maxLength": 3000
+							},
+							"displayName": {
+								"type": "string",
+								"maxLength": 640
+							},
+							"descriptionFacets": {
+								"type": "array",
+								"items": {
+									"ref": "app.bsky.richtext.facet",
+									"type": "ref"
+								},
+								"description": "Annotations of text (mentions, URLs, hashtags, etc)"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uri",
+							"cid"
+						],
+						"properties": {
+							"cid": {
+								"type": "string"
+							},
+							"uri": {
+								"type": "string",
+								"format": "at-uri"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Create or update the authenticated user's actor profile."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773274815134
+	},
+	"references": {
+		"main": [
+			"app.bsky.richtext.facet",
+			"games.gamesgamesgamesgames.defs"
+		]
+	}
+}

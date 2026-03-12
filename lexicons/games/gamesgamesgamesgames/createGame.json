@@ -103,13 +103,6 @@
 								"ref": "games.gamesgamesgamesgames.defs#timeToBeat",
 								"type": "ref"
 							},
-							"collections": {
-								"type": "array",
-								"items": {
-									"type": "string",
-									"format": "at-uri"
-								}
-							},
 							"shouldPublish": {
 								"type": "boolean"
 							},
@@ -175,7 +168,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1773107271805,
+		"indexedAt": 1773274815134,
 		"errorAt": 1772670174648
 	},
 	"references": {
