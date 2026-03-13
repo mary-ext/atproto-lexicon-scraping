@@ -1,0 +1,31 @@
+{
+	"authority": "did:plc:z46zh55ljmgogiammxofkrqz",
+	"schema": {
+		"id": "net.botwatch.authBasic",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Botwatch Access",
+				"detail": "Read/Write your public records of trust and humanity in others.",
+				"permissions": [
+					{
+						"type": "permission",
+						"resource": "repo",
+						"collection": [
+							"net.botwatch.humanity",
+							"net.botwatch.trust"
+						]
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773361376504
+	},
+	"references": {
+		"main": []
+	}
+}

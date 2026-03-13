@@ -1,0 +1,34 @@
+{
+	"authority": "did:plc:lcmrbur2pydmpelfcs7fjbdx",
+	"schema": {
+		"id": "ch.indiemusi.social.join",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"song"
+					],
+					"properties": {
+						"song": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "Link to the song that the user wants to listen to together with others"
+						}
+					}
+				},
+				"description": "Sign that you want to join a social listing experience of a specific song"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773361376504
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -1,0 +1,60 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.feed.generator",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"did",
+						"displayName",
+						"createdAt"
+					],
+					"properties": {
+						"did": {
+							"type": "string",
+							"format": "did"
+						},
+						"avatar": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg"
+							],
+							"maxSize": 1000000
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 3000,
+							"maxGraphemes": 300
+						},
+						"displayName": {
+							"type": "string",
+							"maxLength": 640,
+							"maxGraphemes": 64
+						},
+						"acceptsInteractions": {
+							"type": "boolean"
+						}
+					}
+				},
+				"description": "Record declaring a game feed generator. Can exist in any repository."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773361376504
+	},
+	"references": {
+		"main": []
+	}
+}

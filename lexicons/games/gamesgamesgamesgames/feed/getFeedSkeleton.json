@@ -1,10 +1,15 @@
 {
 	"authority": "did:web:gamesgamesgamesgames.games",
 	"schema": {
-		"id": "games.gamesgamesgamesgames.feed.getSimilarGamesFeed",
+		"id": "games.gamesgamesgamesgames.feed.getFeedSkeleton",
 		"defs": {
 			"main": {
 				"type": "query",
+				"errors": [
+					{
+						"name": "UnknownFeed"
+					}
+				],
 				"output": {
 					"schema": {
 						"type": "object",
@@ -15,9 +20,12 @@
 							"feed": {
 								"type": "array",
 								"items": {
-									"ref": "games.gamesgamesgamesgames.defs#gameFeedViewItem",
+									"ref": "games.gamesgamesgamesgames.defs#skeletonGameFeedItem",
 									"type": "ref"
 								}
+							},
+							"cursor": {
+								"type": "string"
 							}
 						}
 					},
@@ -26,22 +34,25 @@
 				"parameters": {
 					"type": "params",
 					"required": [
-						"uri"
+						"feed"
 					],
 					"properties": {
-						"uri": {
+						"feed": {
 							"type": "string",
 							"format": "at-uri"
 						},
 						"limit": {
 							"type": "integer",
-							"default": 5,
-							"maximum": 10,
+							"default": 50,
+							"maximum": 100,
 							"minimum": 1
+						},
+						"cursor": {
+							"type": "string"
 						}
 					}
 				},
-				"description": "Get games similar to a given game, based on shared genres, themes, and other attributes. Deprecated: use getGameFeed with the 'similar' feed URI instead."
+				"description": "Get a skeleton of a game feed. Auth is optional. Implemented by Feed Generator services."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",

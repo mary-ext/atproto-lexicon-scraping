@@ -1,0 +1,66 @@
+{
+	"authority": "did:plc:jbaidutg6wkd5ckqqwlhrnej",
+	"schema": {
+		"id": "at.pasteb.paste",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"content",
+						"createdAt"
+					],
+					"properties": {
+						"lang": {
+							"type": "string",
+							"maxLength": 32,
+							"description": "Language/syntax identifier for highlighting"
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 256
+						},
+						"content": {
+							"type": "blob",
+							"accept": [
+								"*/*"
+							]
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"thumbnail": {
+							"type": "blob",
+							"accept": [
+								"image/webp"
+							],
+							"maxSize": 102400
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 2048,
+							"description": "Optional description of the paste",
+							"maxGraphemes": 1024
+						}
+					}
+				},
+				"description": "A paste"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773361376504
+	},
+	"references": {
+		"main": []
+	}
+}

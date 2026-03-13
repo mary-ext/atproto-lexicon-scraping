@@ -114,6 +114,69 @@
 					}
 				}
 			},
+			"gameView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"name",
+					"applicationType"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"name": {
+						"type": "string"
+					},
+					"slug": {
+						"type": "string"
+					},
+					"media": {
+						"type": "array",
+						"items": {
+							"ref": "games.gamesgamesgamesgames.defs#mediaItem",
+							"type": "ref"
+						}
+					},
+					"genres": {
+						"type": "array",
+						"items": {
+							"ref": "games.gamesgamesgamesgames.defs#genre",
+							"type": "ref"
+						}
+					},
+					"themes": {
+						"type": "array",
+						"items": {
+							"ref": "games.gamesgamesgamesgames.defs#theme",
+							"type": "ref"
+						}
+					},
+					"viewer": {
+						"ref": "games.gamesgamesgamesgames.defs#viewerState",
+						"type": "ref"
+					},
+					"summary": {
+						"type": "string"
+					},
+					"releases": {
+						"type": "array",
+						"items": {
+							"ref": "games.gamesgamesgamesgames.defs#release",
+							"type": "ref"
+						}
+					},
+					"likeCount": {
+						"type": "integer",
+						"minimum": 0
+					},
+					"applicationType": {
+						"ref": "games.gamesgamesgamesgames.defs#applicationType",
+						"type": "ref"
+					}
+				}
+			},
 			"itchIoId": {
 				"type": "object",
 				"required": [
@@ -373,6 +436,15 @@
 							"TBD"
 						],
 						"type": "string"
+					}
+				}
+			},
+			"viewerState": {
+				"type": "object",
+				"properties": {
+					"like": {
+						"type": "string",
+						"format": "at-uri"
 					}
 				}
 			},
@@ -746,6 +818,22 @@
 					}
 				}
 			},
+			"gameFeedViewItem": {
+				"type": "object",
+				"required": [
+					"game"
+				],
+				"properties": {
+					"game": {
+						"ref": "games.gamesgamesgamesgames.defs#gameView",
+						"type": "ref"
+					},
+					"feedContext": {
+						"type": "string",
+						"maxLength": 2000
+					}
+				}
+			},
 			"platformCategory": {
 				"type": "string",
 				"knownValues": [
@@ -1012,6 +1100,22 @@
 					}
 				}
 			},
+			"skeletonGameFeedItem": {
+				"type": "object",
+				"required": [
+					"game"
+				],
+				"properties": {
+					"game": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"feedContext": {
+						"type": "string",
+						"maxLength": 2000
+					}
+				}
+			},
 			"collectionSummaryView": {
 				"type": "object",
 				"required": [
@@ -1157,7 +1261,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1773274815134,
+		"indexedAt": 1773361376504,
 		"errorAt": 1772670174648
 	},
 	"references": {
@@ -1166,6 +1270,7 @@
 		"theme": [],
 		"release": [],
 		"website": [],
+		"gameView": [],
 		"itchIoId": [],
 		"ageRating": [],
 		"mediaItem": [],
@@ -1175,6 +1280,7 @@
 		"creditEntry": [],
 		"externalIds": [],
 		"releaseDate": [],
+		"viewerState": [],
 		"externalVideo": [],
 		"gameDetailView": [],
 		"individualRole": [],
@@ -1184,6 +1290,7 @@
 		"languageSupport": [],
 		"multiplayerMode": [],
 		"platformVersion": [],
+		"gameFeedViewItem": [],
 		"platformCategory": [],
 		"platformFeatures": [],
 		"engineSummaryView": [],
@@ -1194,6 +1301,7 @@
 		"orgProfileDetailView": [
 			"app.bsky.richtext.facet"
 		],
+		"skeletonGameFeedItem": [],
 		"collectionSummaryView": [],
 		"orgProfileSummaryView": [],
 		"actorProfileDetailView": [

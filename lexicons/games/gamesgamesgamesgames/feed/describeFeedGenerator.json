@@ -1,0 +1,72 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.feed.describeFeedGenerator",
+		"defs": {
+			"feed": {
+				"type": "object",
+				"required": [
+					"uri"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					}
+				}
+			},
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"did",
+							"feeds"
+						],
+						"properties": {
+							"did": {
+								"type": "string",
+								"format": "did"
+							},
+							"feeds": {
+								"type": "array",
+								"items": {
+									"ref": "#feed",
+									"type": "ref"
+								}
+							},
+							"links": {
+								"ref": "#links",
+								"type": "ref"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Get information about a game feed generator, including offered feed URIs. Implemented by Feed Generator services."
+			},
+			"links": {
+				"type": "object",
+				"properties": {
+					"privacyPolicy": {
+						"type": "string"
+					},
+					"termsOfService": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773361376504
+	},
+	"references": {
+		"feed": [],
+		"main": [],
+		"links": []
+	}
+}
