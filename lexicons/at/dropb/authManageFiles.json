@@ -1,19 +1,25 @@
 {
-	"authority": "did:plc:z46zh55ljmgogiammxofkrqz",
+	"authority": "did:plc:jbaidutg6wkd5ckqqwlhrnej",
 	"schema": {
-		"id": "net.botwatch.authBasic",
+		"id": "at.dropb.authManageFiles",
 		"defs": {
 			"main": {
 				"type": "permission-set",
-				"title": "Botwatch Access",
-				"detail": "Read/Write your public records of bot suspicions and trust.",
+				"title": "dropb.at",
+				"detail": "Create and manage files",
+				"title:lang": {},
+				"detail:lang": {},
 				"permissions": [
 					{
 						"type": "permission",
+						"action": [
+							"create",
+							"update",
+							"delete"
+						],
 						"resource": "repo",
 						"collection": [
-							"net.botwatch.bot",
-							"net.botwatch.trust"
+							"at.dropb.file"
 						]
 					}
 				]

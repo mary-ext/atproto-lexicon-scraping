@@ -1,0 +1,54 @@
+{
+	"authority": "did:plc:jbaidutg6wkd5ckqqwlhrnej",
+	"schema": {
+		"id": "at.dropb.file",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"blob"
+					],
+					"properties": {
+						"blob": {
+							"type": "blob",
+							"accept": [
+								"*/*"
+							]
+						},
+						"name": {
+							"type": "string",
+							"maxLength": 255
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"thumbnail": {
+							"type": "blob",
+							"accept": [
+								"image/*"
+							],
+							"maxSize": 102400
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "A file"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773447687768
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -24,9 +24,17 @@
 							"format": "uri",
 							"description": "URL to the track on Last.fm."
 						},
+						"trackMbId": {
+							"type": "string",
+							"description": "MusicBrainz ID for the track."
+						},
 						"trackName": {
 							"type": "string",
 							"description": "Track/song name."
+						},
+						"artistMbId": {
+							"type": "string",
+							"description": "MusicBrainz ID for the artist."
 						},
 						"playedTime": {
 							"type": "string",
@@ -44,6 +52,10 @@
 							"type": "string",
 							"description": "URL to the album cover art."
 						},
+						"releaseMbId": {
+							"type": "string",
+							"description": "MusicBrainz ID for the release/album."
+						},
 						"releaseName": {
 							"type": "string",
 							"description": "Album/release name."
@@ -57,7 +69,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771633345512
+		"indexedAt": 1773447687768
 	},
 	"references": {
 		"main": []
