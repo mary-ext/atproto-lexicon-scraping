@@ -69,6 +69,14 @@
 						"nintendoEshopId": {
 							"type": "string",
 							"description": "Look up a game by its Nintendo eShop external ID."
+						},
+						"includeOrgCredits": {
+							"type": "boolean",
+							"description": "Include organization credits for this game."
+						},
+						"includeActorCredits": {
+							"type": "boolean",
+							"description": "Include individual actor credits for this game."
 						}
 					}
 				},
@@ -79,7 +87,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1773447687768,
+		"indexedAt": 1773534344342,
 		"errorAt": 1772670174648
 	},
 	"references": {

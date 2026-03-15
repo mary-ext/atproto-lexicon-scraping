@@ -1,7 +1,7 @@
 {
 	"authority": "did:web:gamesgamesgamesgames.games",
 	"schema": {
-		"id": "games.gamesgamesgamesgames.feed.getSimilarGamesFeed",
+		"id": "games.gamesgamesgamesgames.feed.getHotGamesFeed",
 		"defs": {
 			"main": {
 				"type": "query",
@@ -18,6 +18,9 @@
 									"ref": "games.gamesgamesgamesgames.defs#gameFeedViewItem",
 									"type": "ref"
 								}
+							},
+							"cursor": {
+								"type": "string"
 							}
 						}
 					},
@@ -25,23 +28,19 @@
 				},
 				"parameters": {
 					"type": "params",
-					"required": [
-						"uri"
-					],
 					"properties": {
-						"uri": {
-							"type": "string",
-							"format": "at-uri"
-						},
 						"limit": {
 							"type": "integer",
-							"default": 5,
-							"maximum": 10,
+							"default": 50,
+							"maximum": 100,
 							"minimum": 1
+						},
+						"cursor": {
+							"type": "string"
 						}
 					}
 				},
-				"description": "Get games similar to a given game using vector similarity."
+				"description": "Get games trending this week, ranked by recent like count."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",

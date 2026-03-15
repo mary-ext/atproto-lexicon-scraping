@@ -1,0 +1,44 @@
+{
+	"authority": "did:web:chavatar.app",
+	"schema": {
+		"id": "app.chavatar.avatar",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"avatar",
+						"createdAt"
+					],
+					"properties": {
+						"avatar": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg",
+								"image/webp"
+							],
+							"maxSize": 1000000
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "An individual avatar image record."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "An image used for automatic avatar rotation."
+	},
+	"meta": {
+		"indexedAt": 1773534344342
+	},
+	"references": {
+		"main": []
+	}
+}

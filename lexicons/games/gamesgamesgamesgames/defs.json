@@ -471,6 +471,34 @@
 					}
 				}
 			},
+			"orgCreditView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"roles"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"roles": {
+						"type": "array",
+						"items": {
+							"ref": "games.gamesgamesgamesgames.defs#companyRole",
+							"type": "ref"
+						}
+					},
+					"orgUri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"displayName": {
+						"type": "string",
+						"maxLength": 640
+					}
+				}
+			},
 			"gameDetailView": {
 				"type": "object",
 				"required": [
@@ -572,6 +600,13 @@
 							"type": "ref"
 						}
 					},
+					"orgCredits": {
+						"type": "array",
+						"items": {
+							"ref": "games.gamesgamesgamesgames.defs#orgCreditView",
+							"type": "ref"
+						}
+					},
 					"timeToBeat": {
 						"ref": "games.gamesgamesgamesgames.defs#timeToBeat",
 						"type": "ref"
@@ -590,6 +625,13 @@
 					"publishedAt": {
 						"type": "string",
 						"format": "datetime"
+					},
+					"actorCredits": {
+						"type": "array",
+						"items": {
+							"ref": "games.gamesgamesgamesgames.defs#actorCreditView",
+							"type": "ref"
+						}
 					},
 					"applicationType": {
 						"ref": "games.gamesgamesgamesgames.defs#applicationType",
@@ -643,6 +685,34 @@
 					"communityManager",
 					"marketing"
 				]
+			},
+			"actorCreditView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"credits"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"credits": {
+						"type": "array",
+						"items": {
+							"ref": "games.gamesgamesgamesgames.defs#creditEntry",
+							"type": "ref"
+						}
+					},
+					"actorUri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"displayName": {
+						"type": "string",
+						"maxLength": 640
+					}
+				}
 			},
 			"alternativeName": {
 				"type": "object",
@@ -1261,7 +1331,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1773361376504,
+		"indexedAt": 1773534344342,
 		"errorAt": 1772670174648
 	},
 	"references": {
@@ -1282,8 +1352,10 @@
 		"releaseDate": [],
 		"viewerState": [],
 		"externalVideo": [],
+		"orgCreditView": [],
 		"gameDetailView": [],
 		"individualRole": [],
+		"actorCreditView": [],
 		"alternativeName": [],
 		"applicationType": [],
 		"gameSummaryView": [],
