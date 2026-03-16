@@ -1,0 +1,54 @@
+{
+	"authority": "did:plc:3u26lcxyhiyq3ygsfyrc7xx2",
+	"schema": {
+		"id": "com.chrisvanderloo.project",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"title",
+						"description",
+						"repo",
+						"language"
+					],
+					"properties": {
+						"link": {
+							"type": "string",
+							"format": "uri",
+							"maxLength": 2048
+						},
+						"repo": {
+							"type": "string",
+							"format": "uri",
+							"maxLength": 2048
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 120
+						},
+						"language": {
+							"type": "string",
+							"maxLength": 64
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 2048
+						}
+					}
+				},
+				"description": "A project for display on my website."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773620769759
+	},
+	"references": {
+		"main": []
+	}
+}

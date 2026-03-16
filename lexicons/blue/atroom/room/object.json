@@ -1,0 +1,77 @@
+{
+	"authority": "did:plc:lb3nbcc4n3s3wzjtcong6nzu",
+	"schema": {
+		"id": "blue.atroom.room.object",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"model",
+						"scale",
+						"createdAt"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 100
+						},
+						"model": {
+							"type": "blob",
+							"accept": [
+								"model/gltf-binary"
+							],
+							"maxSize": 10485760
+						},
+						"scale": {
+							"type": "integer",
+							"maximum": 1000,
+							"minimum": 1
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"nameLangs": {
+							"type": "array",
+							"items": {
+								"ref": "#localizedName",
+								"type": "ref"
+							}
+						}
+					}
+				},
+				"description": "A 3D object that can be placed in a room."
+			},
+			"localizedName": {
+				"type": "object",
+				"required": [
+					"lang",
+					"value"
+				],
+				"properties": {
+					"lang": {
+						"type": "string",
+						"maxLength": 16
+					},
+					"value": {
+						"type": "string",
+						"maxLength": 100
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773620769759
+	},
+	"references": {
+		"main": [],
+		"localizedName": []
+	}
+}

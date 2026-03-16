@@ -369,6 +369,9 @@
 						"ref": "games.gamesgamesgamesgames.defs#itchIoId",
 						"type": "ref"
 					},
+					"twitch": {
+						"type": "string"
+					},
 					"epicGames": {
 						"type": "string"
 					},
@@ -1331,7 +1334,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1773534344342,
+		"indexedAt": 1773620769759,
 		"errorAt": 1772670174648
 	},
 	"references": {
