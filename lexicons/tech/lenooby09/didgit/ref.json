@@ -1,0 +1,40 @@
+{
+	"authority": "did:plc:xocoka6dmx74ciqskczoh6ci",
+	"schema": {
+		"id": "tech.lenooby09.didgit.ref",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"refName",
+						"objectId"
+					],
+					"properties": {
+						"refName": {
+							"type": "string",
+							"maxLength": 512,
+							"description": "The full ref name, e.g. refs/heads/main."
+						},
+						"objectId": {
+							"type": "string",
+							"maxLength": 64,
+							"description": "The hex SHA-256 object ID this ref points to."
+						}
+					}
+				},
+				"description": "A did-git ref stored in an AT Protocol repository. Each record maps a ref name (e.g. refs/heads/main) to the hex SHA-256 object ID it points to. The record key is the ref name with slashes replaced by underscores."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773707032903
+	},
+	"references": {
+		"main": []
+	}
+}
