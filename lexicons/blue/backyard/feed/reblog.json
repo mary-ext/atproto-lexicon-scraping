@@ -1,0 +1,67 @@
+{
+	"authority": "did:plc:achxuyl54r4cfkkkycp46yhg",
+	"schema": {
+		"id": "blue.backyard.feed.reblog",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"subject",
+						"createdAt"
+					],
+					"properties": {
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 640,
+								"maxGraphemes": 64
+							},
+							"maxLength": 8,
+							"description": "Tags added by the reblogger for categorization."
+						},
+						"content": {
+							"type": "array",
+							"items": {
+								"refs": [
+									"blue.backyard.feed.post#textBlock",
+									"blue.backyard.feed.post#imageBlock",
+									"blue.backyard.feed.post#embedBlock"
+								],
+								"type": "union"
+							},
+							"maxLength": 20,
+							"description": "Optional additional content blocks (text, images, embeds) added by the reblogger."
+						},
+						"subject": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "The post or reblog being reblogged."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "A reblog of a Backyard post with optional additions."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A reblog of a post to the user's own feed, optionally with additional commentary and tags. Equivalent to a Tumblr reblog — the reblog appears in the reblogger's feed and carries the original post forward."
+	},
+	"meta": {
+		"indexedAt": 1773793466057
+	},
+	"references": {
+		"main": [
+			"blue.backyard.feed.post",
+			"blue.backyard.richtext.facet",
+			"com.atproto.repo.strongRef"
+		]
+	}
+}

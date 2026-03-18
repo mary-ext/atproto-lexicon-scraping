@@ -1,0 +1,40 @@
+{
+	"authority": "did:plc:achxuyl54r4cfkkkycp46yhg",
+	"schema": {
+		"id": "blue.backyard.graph.block",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"subject",
+						"createdAt"
+					],
+					"properties": {
+						"subject": {
+							"type": "string",
+							"format": "did",
+							"description": "DID of the account being blocked."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "Record declaring a block of another account."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Record declaring a 'block' relationship on Backyard."
+	},
+	"meta": {
+		"indexedAt": 1773793466057
+	},
+	"references": {
+		"main": []
+	}
+}

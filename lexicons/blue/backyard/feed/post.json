@@ -1,0 +1,169 @@
+{
+	"authority": "did:plc:achxuyl54r4cfkkkycp46yhg",
+	"schema": {
+		"id": "blue.backyard.feed.post",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"content",
+						"createdAt"
+					],
+					"properties": {
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 640,
+								"maxGraphemes": 64
+							},
+							"maxLength": 8,
+							"description": "Additional non-inline tags for categorization."
+						},
+						"langs": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "language"
+							},
+							"maxLength": 3,
+							"description": "BCP-47 language tags of the post text."
+						},
+						"content": {
+							"type": "array",
+							"items": {
+								"refs": [
+									"#textBlock",
+									"#imageBlock",
+									"#embedBlock"
+								],
+								"type": "union"
+							},
+							"maxLength": 20,
+							"minLength": 1,
+							"description": "Ordered array of content blocks. Each block is a text block, image block, or embed block."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "An original post in a user's Backyard feed."
+			},
+			"textBlock": {
+				"type": "object",
+				"required": [
+					"text"
+				],
+				"properties": {
+					"text": {
+						"type": "string",
+						"maxLength": 30000,
+						"description": "The text content of this block.",
+						"maxGraphemes": 3000
+					},
+					"facets": {
+						"type": "array",
+						"items": {
+							"ref": "blue.backyard.richtext.facet",
+							"type": "ref"
+						},
+						"description": "Annotations of text (mentions, URLs, hashtags, formatting)."
+					}
+				},
+				"description": "A block of rich text content."
+			},
+			"embedBlock": {
+				"type": "object",
+				"required": [
+					"url"
+				],
+				"properties": {
+					"url": {
+						"type": "string",
+						"format": "uri",
+						"description": "The URL to embed as a link preview."
+					}
+				},
+				"description": "An inline URL embed (link preview)."
+			},
+			"imageBlock": {
+				"type": "object",
+				"required": [
+					"blob",
+					"mimeType"
+				],
+				"properties": {
+					"alt": {
+						"type": "string",
+						"maxLength": 10000,
+						"description": "Alt text description for accessibility.",
+						"maxGraphemes": 1000
+					},
+					"blob": {
+						"type": "blob",
+						"accept": [
+							"image/png",
+							"image/jpeg",
+							"image/gif",
+							"image/webp",
+							"image/avif",
+							"video/mp4",
+							"video/webm"
+						],
+						"maxSize": 50000000
+					},
+					"mimeType": {
+						"type": "string",
+						"maxLength": 255,
+						"description": "MIME type of the media (e.g. image/jpeg, video/mp4). Duplicated from the blob ref for convenience."
+					},
+					"aspectRatio": {
+						"ref": "#aspectRatio",
+						"type": "ref"
+					}
+				},
+				"description": "An inline image or video."
+			},
+			"aspectRatio": {
+				"type": "object",
+				"required": [
+					"width",
+					"height"
+				],
+				"properties": {
+					"width": {
+						"type": "integer",
+						"minimum": 1
+					},
+					"height": {
+						"type": "integer",
+						"minimum": 1
+					}
+				},
+				"description": "Width and height of the media, used for layout before the blob is loaded."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "An original post in a user's Backyard feed. Content is structured as an ordered array of blocks (text, images, embeds) to support inline media."
+	},
+	"meta": {
+		"indexedAt": 1773793466057
+	},
+	"references": {
+		"main": [
+			"blue.backyard.richtext.facet"
+		],
+		"textBlock": [
+			"blue.backyard.richtext.facet"
+		],
+		"embedBlock": [],
+		"imageBlock": [],
+		"aspectRatio": []
+	}
+}

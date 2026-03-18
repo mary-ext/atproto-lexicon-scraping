@@ -1,0 +1,68 @@
+{
+	"authority": "did:plc:achxuyl54r4cfkkkycp46yhg",
+	"schema": {
+		"id": "blue.backyard.actor.profile",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"properties": {
+						"avatar": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg"
+							],
+							"maxSize": 1000000,
+							"description": "Small avatar image for the user."
+						},
+						"banner": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg"
+							],
+							"maxSize": 1000000,
+							"description": "Larger horizontal banner image."
+						},
+						"pronouns": {
+							"type": "string",
+							"maxLength": 640,
+							"description": "User's preferred pronouns.",
+							"maxGraphemes": 64
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When the profile was initially created."
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 2560,
+							"description": "Free-form profile description text (bio).",
+							"maxGraphemes": 256
+						},
+						"displayName": {
+							"type": "string",
+							"maxLength": 640,
+							"description": "Display name for the user.",
+							"maxGraphemes": 64
+						}
+					}
+				},
+				"description": "A declaration of a Backyard account profile."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A declaration of a Backyard account profile."
+	},
+	"meta": {
+		"indexedAt": 1773793466057
+	},
+	"references": {
+		"main": []
+	}
+}

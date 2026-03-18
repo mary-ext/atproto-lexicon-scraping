@@ -1,0 +1,133 @@
+{
+	"authority": "did:plc:achxuyl54r4cfkkkycp46yhg",
+	"schema": {
+		"id": "blue.backyard.richtext.facet",
+		"defs": {
+			"tag": {
+				"type": "object",
+				"required": [
+					"tag"
+				],
+				"properties": {
+					"tag": {
+						"type": "string",
+						"maxLength": 640,
+						"maxGraphemes": 64
+					}
+				},
+				"description": "Facet feature for a hashtag."
+			},
+			"bold": {
+				"type": "object",
+				"properties": {},
+				"description": "Facet feature for bold text formatting. Spec candidate per Paul Frazee."
+			},
+			"link": {
+				"type": "object",
+				"required": [
+					"uri"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "uri"
+					}
+				},
+				"description": "Facet feature for a URL link."
+			},
+			"main": {
+				"type": "object",
+				"required": [
+					"index",
+					"features"
+				],
+				"properties": {
+					"index": {
+						"ref": "#byteSlice",
+						"type": "ref"
+					},
+					"features": {
+						"type": "array",
+						"items": {
+							"refs": [
+								"#mention",
+								"#link",
+								"#tag",
+								"#bold",
+								"#italic",
+								"#underline",
+								"#strikethrough"
+							],
+							"type": "union"
+						},
+						"description": "The feature types applied to this text range (e.g. link, mention, formatting)."
+					}
+				},
+				"description": "Annotation of a sub-string within rich text."
+			},
+			"italic": {
+				"type": "object",
+				"properties": {},
+				"description": "Facet feature for italic text formatting. Spec candidate per Paul Frazee."
+			},
+			"mention": {
+				"type": "object",
+				"required": [
+					"did"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did"
+					}
+				},
+				"description": "Facet feature for mention of another account."
+			},
+			"byteSlice": {
+				"type": "object",
+				"required": [
+					"byteStart",
+					"byteEnd"
+				],
+				"properties": {
+					"byteEnd": {
+						"type": "integer",
+						"minimum": 0
+					},
+					"byteStart": {
+						"type": "integer",
+						"minimum": 0
+					}
+				},
+				"description": "Specifies a sub-string in a utf-8 string by byte index."
+			},
+			"underline": {
+				"type": "object",
+				"properties": {},
+				"description": "Facet feature for underline text formatting. Spec candidate per Paul Frazee."
+			},
+			"strikethrough": {
+				"type": "object",
+				"properties": {},
+				"description": "Facet feature for strikethrough text formatting. Spec candidate per Paul Frazee."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Annotation of a sub-string within rich text."
+	},
+	"meta": {
+		"indexedAt": 1773793466057
+	},
+	"references": {
+		"tag": [],
+		"bold": [],
+		"link": [],
+		"main": [],
+		"italic": [],
+		"mention": [],
+		"byteSlice": [],
+		"underline": [],
+		"strikethrough": []
+	}
+}
