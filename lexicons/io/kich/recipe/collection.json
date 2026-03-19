@@ -19,6 +19,13 @@
 							"minLength": 1,
 							"description": "Display name for the collection"
 						},
+						"image": {
+							"type": "blob",
+							"accept": [
+								"image/*"
+							],
+							"description": "Cover image for the collection"
+						},
 						"createdAt": {
 							"type": "string",
 							"format": "datetime",
@@ -43,7 +50,7 @@
 		"description": "Record representing a public list of recipes. If it's on ATProto, it's public."
 	},
 	"meta": {
-		"indexedAt": 1771374195771
+		"indexedAt": 1773879908262
 	},
 	"references": {
 		"main": []

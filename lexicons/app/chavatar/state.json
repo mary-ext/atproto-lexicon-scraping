@@ -1,0 +1,41 @@
+{
+	"authority": "did:web:chavatar.app",
+	"schema": {
+		"id": "app.chavatar.state",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"cursor",
+						"lastUpdated"
+					],
+					"properties": {
+						"cursor": {
+							"type": "string",
+							"maxLength": 13,
+							"description": "TID (ID) of the currently active avatar in the settings array."
+						},
+						"lastUpdated": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When the avatar was last rotated."
+						}
+					}
+				},
+				"description": "Current execution state of rotation."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Execution state for avatar rotation."
+	},
+	"meta": {
+		"indexedAt": 1773879908262
+	},
+	"references": {
+		"main": []
+	}
+}

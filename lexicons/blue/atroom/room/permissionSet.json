@@ -1,0 +1,35 @@
+{
+	"authority": "did:plc:lb3nbcc4n3s3wzjtcong6nzu",
+	"schema": {
+		"id": "blue.atroom.room.permissionSet",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "atroom",
+				"detail": "Create and manage room layouts and 3D objects",
+				"detail:lang": {
+					"en": "Create and manage room layouts and 3D objects",
+					"ja-JP": "ルームレイアウトと3Dオブジェクトの作成・管理"
+				},
+				"permissions": [
+					{
+						"type": "permission",
+						"resource": "repo",
+						"collection": [
+							"blue.atroom.room.object",
+							"blue.atroom.room.layout"
+						]
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773879908262
+	},
+	"references": {
+		"main": []
+	}
+}

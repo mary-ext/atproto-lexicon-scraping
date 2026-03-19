@@ -3,6 +3,23 @@
 	"schema": {
 		"id": "io.kich.recipe.recipe",
 		"defs": {
+			"tag": {
+				"type": "object",
+				"required": [
+					"id",
+					"name"
+				],
+				"properties": {
+					"id": {
+						"type": "string",
+						"description": "Tag identifier"
+					},
+					"name": {
+						"type": "string",
+						"description": "Tag display name"
+					}
+				}
+			},
 			"main": {
 				"key": "tid",
 				"type": "record",
@@ -23,6 +40,25 @@
 							"type": "string",
 							"description": "Recipe name"
 						},
+						"tags": {
+							"type": "array",
+							"items": {
+								"ref": "#tag",
+								"type": "ref"
+							},
+							"description": "Tags for categorizing the recipe"
+						},
+						"images": {
+							"type": "array",
+							"items": {
+								"type": "blob",
+								"accept": [
+									"image/*"
+								]
+							},
+							"maxLength": 10,
+							"description": "Recipe images as blobs (hero first; preferred over imageUrl)"
+						},
 						"source": {
 							"type": "string",
 							"description": "Source name (book, magazine, blog)"
@@ -30,7 +66,7 @@
 						"imageUrl": {
 							"type": "string",
 							"format": "uri",
-							"description": "Image URL for the recipe"
+							"description": "[Deprecated] Image URL for the recipe. Use images blob array instead. Kept for legacy fallback."
 						},
 						"servings": {
 							"type": "integer",
@@ -46,6 +82,10 @@
 							"ref": "com.atproto.repo.strongRef",
 							"type": "ref",
 							"description": "Reference to the user who created this recipe"
+						},
+						"embedding": {
+							"type": "string",
+							"description": "Vector embedding for semantic similarity search (1024 dimensions, stored as JSON array of numbers)"
 						},
 						"isPrivate": {
 							"type": "boolean",
@@ -68,6 +108,11 @@
 								"type": "ref"
 							},
 							"description": "Recipe ingredients"
+						},
+						"variationOf": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "Optional reference to the original recipe this is a variation of (for attribution and variation discovery)"
 						},
 						"instructions": {
 							"type": "array",
@@ -92,8 +137,7 @@
 				"type": "object",
 				"required": [
 					"id",
-					"name",
-					"grams"
+					"name"
 				],
 				"properties": {
 					"id": {
@@ -106,7 +150,7 @@
 					},
 					"grams": {
 						"type": "integer",
-						"description": "Amount needed in grams"
+						"description": "[Deprecated] Amount needed in grams. Use measuredAmount/measuredUnit instead."
 					},
 					"group": {
 						"type": "string",
@@ -125,6 +169,22 @@
 						"type": "boolean",
 						"default": false,
 						"description": "Whether this ingredient is optional"
+					},
+					"measuredUnit": {
+						"type": "string",
+						"description": "Measured unit (g, kg, oz, lb, ml)"
+					},
+					"heuristicUnit": {
+						"type": "string",
+						"description": "Heuristic unit from parsed ingredient text (e.g., cup, cookies)"
+					},
+					"measuredAmount": {
+						"type": "integer",
+						"description": "Measured amount needed (e.g., 250, 1.5)"
+					},
+					"heuristicAmount": {
+						"type": "integer",
+						"description": "Heuristic amount from parsed ingredient text (e.g., 2 in \"2 cups\")"
 					}
 				}
 			},
@@ -151,9 +211,10 @@
 		"description": "A recipe record containing cooking instructions, ingredients, and metadata."
 	},
 	"meta": {
-		"indexedAt": 1770078164490
+		"indexedAt": 1773879908262
 	},
 	"references": {
+		"tag": [],
 		"main": [
 			"com.atproto.repo.strongRef"
 		],

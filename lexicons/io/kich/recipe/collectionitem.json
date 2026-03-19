@@ -14,6 +14,10 @@
 						"createdAt"
 					],
 					"properties": {
+						"group": {
+							"type": "string",
+							"description": "Optional group/section name for organizing recipes within the collection"
+						},
 						"subject": {
 							"ref": "com.atproto.repo.strongRef",
 							"type": "ref",
@@ -42,7 +46,7 @@
 		"description": "Record representing a recipe's inclusion in a specific collection. One record per recipe per collection."
 	},
 	"meta": {
-		"indexedAt": 1771374195771
+		"indexedAt": 1773879908262
 	},
 	"references": {
 		"main": [

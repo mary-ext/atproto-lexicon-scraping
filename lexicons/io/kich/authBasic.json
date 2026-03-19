@@ -6,7 +6,7 @@
 			"main": {
 				"type": "permission-set",
 				"title": "Full kich.io Access",
-				"detail": "Provides full access to all kich.io features including publication and document references.",
+				"detail": "Provides full access to all kich.io features including recipe sharing, social, and accomplishment tracking.",
 				"permissions": [
 					{
 						"type": "permission",
@@ -25,7 +25,9 @@
 							"io.kich.recipe.collectionitem",
 							"io.kich.profile",
 							"io.kich.graph.follow",
-							"io.kich.accomplishment"
+							"io.kich.accomplishment",
+							"io.kich.cookinglog",
+							"io.kich.recipe.save"
 						]
 					}
 				]
@@ -36,7 +38,7 @@
 		"description": "Permission set for kich.io write access."
 	},
 	"meta": {
-		"indexedAt": 1771892560063
+		"indexedAt": 1773879908262
 	},
 	"references": {
 		"main": []

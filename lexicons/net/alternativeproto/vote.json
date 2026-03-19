@@ -1,0 +1,51 @@
+{
+	"authority": "did:plc:zj3ek5g7p4gxvg6mcnxazar5",
+	"schema": {
+		"id": "net.alternativeproto.vote",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"subject",
+						"direction",
+						"createdAt"
+					],
+					"properties": {
+						"subject": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "Strong reference (AT URI + CID) to the submission record being voted on"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the vote was cast"
+						},
+						"direction": {
+							"type": "string",
+							"description": "Vote direction: 'up' for positive/quality, 'down' for negative/irrelevant",
+							"knownValues": [
+								"up",
+								"down"
+							]
+						}
+					}
+				},
+				"description": "A user vote on a submission to AlternativeProto. Each user may cast one vote per submission."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773879908262
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}

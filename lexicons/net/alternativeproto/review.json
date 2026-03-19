@@ -1,0 +1,53 @@
+{
+	"authority": "did:plc:zj3ek5g7p4gxvg6mcnxazar5",
+	"schema": {
+		"id": "net.alternativeproto.review",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"projectId",
+						"rating",
+						"text",
+						"createdAt"
+					],
+					"properties": {
+						"text": {
+							"type": "string",
+							"maxLength": 3000,
+							"description": "The review text describing thoughts on the project",
+							"maxGraphemes": 1000
+						},
+						"rating": {
+							"type": "integer",
+							"maximum": 5,
+							"minimum": 1,
+							"description": "Rating value from 1-5 stars"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the review was created"
+						},
+						"projectId": {
+							"type": "string",
+							"description": "The project ID being reviewed (matches id field from project data)"
+						}
+					}
+				},
+				"description": "A user review of an AlternativeProto project"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773879908262
+	},
+	"references": {
+		"main": []
+	}
+}
