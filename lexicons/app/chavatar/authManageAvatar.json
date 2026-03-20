@@ -10,6 +10,11 @@
 				"permissions": [
 					{
 						"type": "permission",
+						"action": [
+							"create",
+							"delete",
+							"update"
+						],
 						"resource": "repo",
 						"collection": [
 							"app.chavatar.avatar",
@@ -32,7 +37,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1773879908262
+		"indexedAt": 1773966225006
 	},
 	"references": {
 		"main": []

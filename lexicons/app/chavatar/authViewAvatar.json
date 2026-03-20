@@ -1,0 +1,38 @@
+{
+	"authority": "did:web:chavatar.app",
+	"schema": {
+		"id": "app.chavatar.authViewAvatar",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Avatar display.",
+				"detail": "Allows the display of avatars stored in the repository.",
+				"permissions": [
+					{
+						"type": "permission",
+						"resource": "repo",
+						"collection": [
+							"app.chavatar.avatar"
+						]
+					}
+				],
+				"title:langs": {
+					"ja": "アバターの表示",
+					"pt-BR": "Exibição de avatar"
+				},
+				"detail:langs": {
+					"ja": "リポジトリ内に保存しているアバターの表示を許可します",
+					"pt-BR": "Permite a exibição de avatares armazenados no repositório."
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1773966225006
+	},
+	"references": {
+		"main": []
+	}
+}
