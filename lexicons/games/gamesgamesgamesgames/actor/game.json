@@ -1,0 +1,88 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.actor.game",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"game",
+						"platform",
+						"createdAt"
+					],
+					"properties": {
+						"game": {
+							"ref": "#gameRef",
+							"type": "ref",
+							"description": "Reference to the game record."
+						},
+						"platform": {
+							"type": "string",
+							"description": "The platform where ownership was verified.",
+							"knownValues": [
+								"steam",
+								"gog",
+								"epic",
+								"playstation",
+								"xbox",
+								"nintendo",
+								"itchio",
+								"humble"
+							]
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"signatures": {
+							"type": "array",
+							"items": {
+								"refs": [
+									"games.gamesgamesgamesgames.defs#signature",
+									"com.atproto.repo.strongRef"
+								],
+								"type": "union"
+							},
+							"description": "Attestation signatures proving ownership was verified. Can be inline signatures or strongRefs to remote proof records."
+						}
+					}
+				},
+				"description": "A record indicating the actor owns a game on a specific platform. May include attestation signatures proving ownership was verified by an external service."
+			},
+			"gameRef": {
+				"type": "object",
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "AT URI of the game record."
+					},
+					"platform": {
+						"type": "string",
+						"description": "External platform for ID lookup."
+					},
+					"externalId": {
+						"type": "string",
+						"description": "External platform's ID for the game."
+					}
+				},
+				"description": "Reference to a game, either by AT URI or external platform ID."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1774052530009
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef",
+			"games.gamesgamesgamesgames.defs"
+		],
+		"gameRef": []
+	}
+}
