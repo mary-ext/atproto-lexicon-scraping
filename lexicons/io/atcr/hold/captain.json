@@ -47,14 +47,6 @@
 						"enableBlueskyPosts": {
 							"type": "boolean",
 							"description": "Enable Bluesky posts when manifests are pushed"
-						},
-						"supporterBadgeTiers": {
-							"type": "array",
-							"items": {
-								"type": "string",
-								"maxLength": 64
-							},
-							"description": "Tier names that earn a supporter badge on user profiles"
 						}
 					}
 				},
@@ -65,7 +57,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1772065235505,
+		"indexedAt": 1774139054940,
 		"errorAt": 1771892560063
 	},
 	"references": {
