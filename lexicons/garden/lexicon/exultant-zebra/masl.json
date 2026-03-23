@@ -50,7 +50,8 @@
 		"description": "MASL types for DASL, notably for Web Tiles. This variant uses a typed resources array."
 	},
 	"meta": {
-		"indexedAt": 1772756818901
+		"indexedAt": 1772756818901,
+		"errorAt": 1774225566836
 	},
 	"references": {
 		"main": [],

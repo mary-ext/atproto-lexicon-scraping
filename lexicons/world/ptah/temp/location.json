@@ -1,0 +1,131 @@
+{
+	"authority": "did:plc:l45z35sxxjuobp5q65a5vu22",
+	"schema": {
+		"id": "world.ptah.temp.location",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"creatorDID",
+						"worldReference",
+						"createdAt"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 640,
+							"description": "What this place is called.",
+							"maxGraphemes": 64
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp of location creation."
+						},
+						"creatorDID": {
+							"type": "string",
+							"format": "did",
+							"description": "Who named and defined this place."
+						},
+						"depthIndex": {
+							"type": "integer",
+							"minimum": 0,
+							"description": "How deep in the geographic hierarchy this location sits. World-level is 0, continent is 1, country is 2, city is 3, and so on. Any rendering layer can read this single number and decide how much geographic context it needs without traversing the full parent chain."
+						},
+						"properties": {
+							"ref": "#locationProperties",
+							"type": "ref",
+							"description": "Flexible fields — climate, population, controlling faction, notable history. Whatever the world requires."
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 10240,
+							"description": "What kind of place this is, in plain language.",
+							"maxGraphemes": 1024
+						},
+						"locationType": {
+							"type": "string",
+							"maxLength": 640,
+							"description": "The geographic or spatial classification. Open-ended so any kind of world geography works.",
+							"knownValues": [
+								"city",
+								"region",
+								"building",
+								"territory",
+								"landmark",
+								"vessel",
+								"abstractSpace"
+							],
+							"maxGraphemes": 64
+						},
+						"parentLocation": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "If this location exists inside a larger location — a tavern inside a city, a room inside a building. Lets geography nest infinitely. Places come into existence as people need them."
+						},
+						"worldReference": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "The AT URI of the world this location exists in."
+						},
+						"canonicalStatus": {
+							"type": "string",
+							"description": "The canonical standing of this location within its world.",
+							"knownValues": [
+								"world.ptah.temp.defs#canonicalStatusOfficial",
+								"world.ptah.temp.defs#canonicalStatusCommunity",
+								"world.ptah.temp.defs#canonicalStatusApocryphal"
+							]
+						},
+						"authorshipRecord": {
+							"type": "string",
+							"format": "did",
+							"description": "Permanent link to the creator. Provenance travels."
+						}
+					}
+				},
+				"description": "A pin dropped on a map that does not exist yet. The pin creates the place. Hwt-ka-Ptah — the House of the Ka of Ptah — gave Egypt its name. A place becomes so significant that it names everything around it."
+			},
+			"locationProperties": {
+				"type": "object",
+				"properties": {
+					"climate": {
+						"type": "string",
+						"maxLength": 2560,
+						"maxGraphemes": 256
+					},
+					"population": {
+						"type": "string",
+						"maxLength": 2560,
+						"maxGraphemes": 256
+					},
+					"notableHistory": {
+						"type": "string",
+						"maxLength": 10240,
+						"maxGraphemes": 1024
+					},
+					"controllingFaction": {
+						"type": "string",
+						"maxLength": 2560,
+						"maxGraphemes": 256
+					}
+				},
+				"description": "Flexible properties for any kind of world geography. All fields optional — worlds define what matters."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A location record in The Ptah Protocol. A place inside a world — what gives events and actions an address. Without it, things happen in the world but they happen nowhere specific. With it, history accumulates in places and places develop gravity over time."
+	},
+	"meta": {
+		"indexedAt": 1774225566836
+	},
+	"references": {
+		"main": [],
+		"locationProperties": []
+	}
+}

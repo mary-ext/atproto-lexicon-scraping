@@ -1,0 +1,39 @@
+{
+	"authority": "did:plc:p73ep7av7xeaeou4awrmy45q",
+	"schema": {
+		"id": "to.atpr.link",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"url",
+						"updatedAt"
+					],
+					"properties": {
+						"url": {
+							"type": "string",
+							"format": "uri",
+							"maxLength": 2048
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "A shortened URL mapping"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1774225566836
+	},
+	"references": {
+		"main": []
+	}
+}

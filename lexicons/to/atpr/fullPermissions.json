@@ -1,0 +1,30 @@
+{
+	"authority": "did:plc:p73ep7av7xeaeou4awrmy45q",
+	"schema": {
+		"id": "to.atpr.fullPermissions",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Full atpr.to permissions",
+				"detail": "Create, edit, and delete your atpr.to short links",
+				"permissions": [
+					{
+						"type": "permission",
+						"resource": "repo",
+						"collection": [
+							"to.atpr.link"
+						]
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1774225566836
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -23,7 +23,8 @@
 		"description": "An embed type for including a Web Tile in a Bluesky post."
 	},
 	"meta": {
-		"indexedAt": 1772756818901
+		"indexedAt": 1772756818901,
+		"errorAt": 1774225566836
 	},
 	"references": {
 		"main": [

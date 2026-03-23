@@ -1,0 +1,135 @@
+{
+	"authority": "did:plc:l45z35sxxjuobp5q65a5vu22",
+	"schema": {
+		"id": "world.ptah.temp.event",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"creatorDID",
+						"worldReference",
+						"createdAt"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 640,
+							"description": "What this event is called.",
+							"maxGraphemes": 64
+						},
+						"format": {
+							"type": "string",
+							"maxLength": 640,
+							"description": "The competitive or structural format of the event.",
+							"knownValues": [
+								"bracket",
+								"roundRobin",
+								"openChallenge",
+								"singleElimination"
+							],
+							"maxGraphemes": 64
+						},
+						"result": {
+							"type": "string",
+							"maxLength": 10240,
+							"description": "The outcome. Populated when status moves to completed.",
+							"maxGraphemes": 1024
+						},
+						"stakes": {
+							"type": "string",
+							"maxLength": 10240,
+							"description": "What is at risk or being contested.",
+							"maxGraphemes": 1024
+						},
+						"status": {
+							"type": "string",
+							"description": "The current phase of the event.",
+							"knownValues": [
+								"upcoming",
+								"active",
+								"completed"
+							]
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp of event creation."
+						},
+						"eventType": {
+							"type": "string",
+							"maxLength": 640,
+							"description": "What kind of event. Open-ended.",
+							"knownValues": [
+								"tournament",
+								"battle",
+								"gathering",
+								"contest",
+								"ritual"
+							],
+							"maxGraphemes": 64
+						},
+						"witnesses": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "at-uri"
+							},
+							"description": "AT URIs of individual witness action records. Each witness action is a real record created by a real DID at a real timestamp. Witnessing is a verifiable technical contribution, not just a tally."
+						},
+						"creatorDID": {
+							"type": "string",
+							"format": "did",
+							"description": "Who organized this event."
+						},
+						"loreStatus": {
+							"type": "string",
+							"description": "The narrative standing of this event in the world's timeline.",
+							"knownValues": [
+								"world.ptah.temp.defs#canonicalStatusOfficial",
+								"world.ptah.temp.defs#canonicalStatusCommunity",
+								"pending"
+							]
+						},
+						"completedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp of when the event concluded."
+						},
+						"participants": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "at-uri"
+							},
+							"description": "AT URIs of the character records participating. Not people — characters."
+						},
+						"worldReference": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "The AT URI of the world this event occurred in."
+						},
+						"locationReference": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "The AT URI of the location where this event happened."
+						}
+					}
+				},
+				"description": "A boxing match program combined with a history book entry. Before the fight it is a schedule. After the fight it is a permanent record. Ptah-Seker-Osiris — creation, shadow, rebirth. The event holds all three phases simultaneously."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "An event record in The Ptah Protocol. Where competition becomes history. A tournament, battle, gathering, or any occasion where people compete or convene inside a world."
+	},
+	"meta": {
+		"indexedAt": 1774225566836
+	},
+	"references": {
+		"main": []
+	}
+}

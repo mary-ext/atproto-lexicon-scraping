@@ -1,0 +1,123 @@
+{
+	"authority": "did:plc:l45z35sxxjuobp5q65a5vu22",
+	"schema": {
+		"id": "world.ptah.temp.world",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"creatorDID",
+						"createdAt"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 640,
+							"description": "What the world is called.",
+							"maxGraphemes": 64
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp of world creation."
+						},
+						"creatorDID": {
+							"type": "string",
+							"format": "did",
+							"description": "The permanent identity of whoever seeded this world. This never changes."
+						},
+						"sourceType": {
+							"type": "string",
+							"description": "The intellectual property origin of this world.",
+							"knownValues": [
+								"world.ptah.temp.defs#sourceTypeOriginalIP",
+								"world.ptah.temp.defs#sourceTypePublicDomain",
+								"world.ptah.temp.defs#sourceTypeCollaborativeCommons"
+							]
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 10240,
+							"description": "What kind of world this is, in plain language.",
+							"maxGraphemes": 1024
+						},
+						"governanceMode": {
+							"type": "string",
+							"description": "The constitutional posture of the world. Signals how contributions and canon are governed before anyone contributes.",
+							"knownValues": [
+								"sandbox",
+								"governed",
+								"constitutional"
+							]
+						},
+						"renderingHints": {
+							"ref": "#renderingHints",
+							"type": "ref",
+							"description": "Loose metadata telling visual rendering layers what kind of world this is — tone, era, genre, aesthetic."
+						},
+						"canonicalStatus": {
+							"type": "string",
+							"description": "Whether this world is open for contribution, controlled by the originator, or governed by community consensus.",
+							"knownValues": [
+								"world.ptah.temp.defs#canonicalStatusOfficial",
+								"world.ptah.temp.defs#canonicalStatusCommunity",
+								"world.ptah.temp.defs#canonicalStatusApocryphal"
+							]
+						},
+						"sourceReference": {
+							"type": "string",
+							"maxLength": 10240,
+							"description": "If sourceType is publicDomain, the specific source material this world is derived from.",
+							"maxGraphemes": 1024
+						}
+					}
+				},
+				"description": "The deed. Establishes that a world exists, who created it, and what its basic properties are. Ptah conceives the world in his heart — this record is that conception made permanent."
+			},
+			"renderingHints": {
+				"type": "object",
+				"properties": {
+					"era": {
+						"type": "string",
+						"maxLength": 2560,
+						"description": "The temporal setting or period.",
+						"maxGraphemes": 256
+					},
+					"tone": {
+						"type": "string",
+						"maxLength": 2560,
+						"description": "The emotional register of the world.",
+						"maxGraphemes": 256
+					},
+					"genre": {
+						"type": "string",
+						"maxLength": 2560,
+						"description": "The narrative genre.",
+						"maxGraphemes": 256
+					},
+					"aesthetic": {
+						"type": "string",
+						"maxLength": 2560,
+						"description": "Visual texture, materials, atmosphere.",
+						"maxGraphemes": 256
+					}
+				},
+				"description": "Visual and tonal metadata for rendering layers. The world has to feel like something before anything has happened in it yet."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A world record in The Ptah Protocol. The foundational record — everything else references it. A world must exist before characters, events, or lore can exist inside it."
+	},
+	"meta": {
+		"indexedAt": 1774225566836
+	},
+	"references": {
+		"main": [],
+		"renderingHints": []
+	}
+}
