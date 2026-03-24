@@ -1,32 +1,28 @@
 {
-	"authority": "did:plc:fpruhuo22xkm5o7ttr2ktxdo",
+	"authority": "did:web:gamesgamesgamesgames.games",
 	"schema": {
-		"id": "mov.danabra.PostEmbed",
+		"id": "games.gamesgamesgamesgames.refreshCaches",
 		"defs": {
 			"main": {
 				"type": "procedure",
-				"input": {
+				"output": {
 					"schema": {
 						"type": "object",
 						"required": [
-							"uri"
+							"refreshed"
 						],
 						"properties": {
-							"uri": {
-								"type": "string",
-								"format": "at-uri"
+							"refreshed": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
 							}
 						}
 					},
 					"encoding": "application/json"
 				},
-				"output": {
-					"schema": {
-						"ref": "at.inlay.defs#response",
-						"type": "ref"
-					},
-					"encoding": "application/json"
-				}
+				"description": "Refresh precomputed cache tables (stats, genre counts). Requires admin auth."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
@@ -36,8 +32,6 @@
 		"indexedAt": 1774311685896
 	},
 	"references": {
-		"main": [
-			"at.inlay.defs"
-		]
+		"main": []
 	}
 }

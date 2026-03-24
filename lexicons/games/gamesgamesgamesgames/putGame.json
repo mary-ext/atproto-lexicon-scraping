@@ -9,8 +9,7 @@
 					"schema": {
 						"type": "object",
 						"required": [
-							"uri",
-							"name"
+							"uri"
 						],
 						"properties": {
 							"uri": {
@@ -18,6 +17,9 @@
 								"format": "at-uri"
 							},
 							"name": {
+								"type": "string"
+							},
+							"slug": {
 								"type": "string"
 							},
 							"media": {
@@ -172,7 +174,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1773274815134,
+		"indexedAt": 1774311685896,
 		"errorAt": 1772670174648
 	},
 	"references": {

@@ -1,0 +1,41 @@
+{
+	"authority": "did:plc:pfyyashnoatlhgwwfq7ut64l",
+	"schema": {
+		"id": "farm.lore.invited",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"world",
+						"createdAt"
+					],
+					"properties": {
+						"world": {
+							"type": "string",
+							"maxLength": 253,
+							"description": "The world domain the user is accepting an invitation to."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp of the invitation acceptance."
+						}
+					}
+				},
+				"description": "Acceptance of an invitation to join a world. Written by the invited user to confirm their participation."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "Acceptance of an invitation to join a world."
+	},
+	"meta": {
+		"indexedAt": 1774311685896
+	},
+	"references": {
+		"main": []
+	}
+}

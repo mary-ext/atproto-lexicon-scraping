@@ -1,5 +1,5 @@
 {
-	"authority": "did:plc:ps54mz3jlmxpiqw2xqvn66oc",
+	"authority": "did:plc:kwgllf365cwmxbnxitx4pjdj",
 	"schema": {
 		"id": "actor.rpg.sprite",
 		"defs": {
@@ -34,11 +34,10 @@
 						},
 						"engine": {
 							"type": "string",
+							"maxLength": 50,
 							"description": "The game engine format this sprite is designed for. Determines animation interpretation.",
 							"knownValues": [
 								"rmmz",
-								"rmmv",
-								"rpgmaker2003",
 								"custom"
 							]
 						},
@@ -104,11 +103,10 @@
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1,
-		"revision": 1,
-		"description": "A sprite sheet for an RPG character avatar. Contains the image blob and metadata for animating the character in various game engines."
+		"description": "A sprite sheet for an RPG character avatar."
 	},
 	"meta": {
-		"indexedAt": 1772497374565
+		"indexedAt": 1774311685896
 	},
 	"references": {
 		"main": []

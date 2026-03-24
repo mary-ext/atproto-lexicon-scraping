@@ -25,7 +25,7 @@
 							"boundaries": {
 								"type": "array",
 								"items": {
-									"ref": "app.stratos.boundary.defs#Domain",
+									"ref": "zone.stratos.boundary.defs#Domain",
 									"type": "ref"
 								},
 								"description": "Authoritative boundaries assigned. Only included when request is authenticated."
@@ -59,11 +59,11 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1772583734350
+		"indexedAt": 1774311685896
 	},
 	"references": {
 		"main": [
-			"app.stratos.boundary.defs"
+			"zone.stratos.boundary.defs"
 		]
 	}
 }

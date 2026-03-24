@@ -281,6 +281,24 @@
 					}
 				}
 			},
+			"signature": {
+				"type": "object",
+				"required": [
+					"key",
+					"signature"
+				],
+				"properties": {
+					"key": {
+						"type": "string",
+						"description": "DID key reference (e.g., did:web:example.com#signing1)."
+					},
+					"signature": {
+						"type": "bytes",
+						"description": "The signature bytes."
+					}
+				},
+				"description": "An inline attestation signature."
+			},
 			"systemSpec": {
 				"type": "object",
 				"properties": {
@@ -1334,7 +1352,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1773620769759,
+		"indexedAt": 1774311685896,
 		"errorAt": 1772670174648
 	},
 	"references": {
@@ -1347,6 +1365,7 @@
 		"itchIoId": [],
 		"ageRating": [],
 		"mediaItem": [],
+		"signature": [],
 		"systemSpec": [],
 		"timeToBeat": [],
 		"companyRole": [],

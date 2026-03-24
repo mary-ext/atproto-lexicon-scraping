@@ -1,5 +1,5 @@
 {
-	"authority": "did:plc:ps54mz3jlmxpiqw2xqvn66oc",
+	"authority": "did:plc:kwgllf365cwmxbnxitx4pjdj",
 	"schema": {
 		"id": "actor.rpg.stats",
 		"defs": {
@@ -62,6 +62,11 @@
 							"type": "string",
 							"format": "datetime",
 							"description": "Timestamp when this record was created"
+						},
+						"playtopia": {
+							"ref": "#playtopiaStats",
+							"type": "ref",
+							"description": "Playtopia Quest character sheet"
 						},
 						"updatedAt": {
 							"type": "string",
@@ -1488,6 +1493,7 @@
 				"properties": {
 					"octant": {
 						"type": "string",
+						"maxLength": 50,
 						"description": "Philosophical octant",
 						"knownValues": [
 							"adaptive",
@@ -1729,15 +1735,82 @@
 					}
 				},
 				"description": "A wizard spell with mercurial magic effect"
+			},
+			"playtopiaStats": {
+				"type": "object",
+				"properties": {
+					"class": {
+						"type": "string",
+						"maxLength": 50,
+						"description": "Character class",
+						"knownValues": [
+							"Artist",
+							"Coder",
+							"Gamer",
+							"Suit",
+							"Weirdo"
+						]
+					},
+					"level": {
+						"type": "integer",
+						"minimum": 1,
+						"description": "Character level"
+					},
+					"health": {
+						"type": "integer",
+						"maximum": 3,
+						"minimum": 0,
+						"description": "Health (0-3 hearts)"
+					},
+					"traits": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"maxLength": 50
+						},
+						"maxLength": 16,
+						"description": "Personal trait names (e.g. Empathic, Courageous, …)"
+					},
+					"alignment": {
+						"type": "string",
+						"maxLength": 20,
+						"description": "Character alignment",
+						"knownValues": [
+							"Ordered",
+							"Neutral",
+							"Chaotic"
+						]
+					},
+					"bestFriend": {
+						"type": "string",
+						"maxLength": 253,
+						"description": "Best friend (Bluesky handle)"
+					},
+					"faveColour": {
+						"type": "string",
+						"maxLength": 7,
+						"description": "Favourite colour hex code"
+					},
+					"worstEnemy": {
+						"type": "string",
+						"maxLength": 253,
+						"description": "Worst enemy (Bluesky handle)"
+					},
+					"catchphrase": {
+						"type": "string",
+						"maxLength": 200,
+						"description": "Character catchphrase"
+					}
+				},
+				"description": "Playtopia Quest character sheet"
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1,
-		"revision": 4,
-		"description": "RPG character statistics for multiple game systems. Revision 4: Added Dungeon Crawl Classics (DCC) RPG support with Zocchi dice, funnel characters, deed die, spellburn, mercurial magic, corruption, and disapproval systems."
+		"description": "RPG character statistics for multiple game systems."
 	},
 	"meta": {
-		"indexedAt": 1772497374565
+		"indexedAt": 1774311685896
 	},
 	"references": {
 		"hp": [],
@@ -1781,6 +1854,7 @@
 		"dccCorruption": [],
 		"dccClericSpell": [],
 		"dccThiefSkills": [],
-		"dccWizardSpell": []
+		"dccWizardSpell": [],
+		"playtopiaStats": []
 	}
 }

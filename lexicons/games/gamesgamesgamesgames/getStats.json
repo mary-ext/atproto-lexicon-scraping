@@ -1,0 +1,42 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.getStats",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"totalGames",
+							"totalStudios",
+							"totalReviews"
+						],
+						"properties": {
+							"totalGames": {
+								"type": "integer"
+							},
+							"totalReviews": {
+								"type": "integer"
+							},
+							"totalStudios": {
+								"type": "integer"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Get platform-wide statistics: total games, studios, and reviews."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1774311685896
+	},
+	"references": {
+		"main": []
+	}
+}

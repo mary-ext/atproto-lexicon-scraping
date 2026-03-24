@@ -1,0 +1,81 @@
+{
+	"authority": "did:plc:tgudj2fjm77pzkuawquqhsxm",
+	"schema": {
+		"id": "tools.smokesignal.blahg.content.post",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"properties": {
+						"langs": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "language"
+							},
+							"maxLength": 3,
+							"description": "Indicates human language of text content."
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 2000,
+							"maxGraphemes": 200
+						},
+						"content": {
+							"type": "blob",
+							"accept": [
+								"text/plain",
+								"text/html",
+								"text/markdown"
+							],
+							"maxSize": 1000000,
+							"description": "The content of the post"
+						},
+						"attachments": {
+							"type": "array",
+							"items": {
+								"ref": "#attachment",
+								"type": "ref"
+							}
+						},
+						"publishedAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "A blagh post"
+			},
+			"attachment": {
+				"type": "object",
+				"required": [
+					"content"
+				],
+				"properties": {
+					"alt": {
+						"type": "string",
+						"description": "Alt text description of the content, for accessibility."
+					},
+					"content": {
+						"type": "blob",
+						"accept": [
+							"image/*"
+						],
+						"maxSize": 3000000
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1774311685896
+	},
+	"references": {
+		"main": [],
+		"attachment": []
+	}
+}
