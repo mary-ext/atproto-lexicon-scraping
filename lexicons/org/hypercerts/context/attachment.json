@@ -82,30 +82,15 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1772583734350
+		"indexedAt": 1772583734350,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [
 			"app.bsky.richtext.facet",
 			"com.atproto.repo.strongRef",
 			"org.hypercerts.defs",
-			"pub.leaflet.blocks.blockquote",
-			"pub.leaflet.blocks.bskyPost",
-			"pub.leaflet.blocks.button",
-			"pub.leaflet.blocks.code",
-			"pub.leaflet.blocks.header",
-			"pub.leaflet.blocks.horizontalRule",
-			"pub.leaflet.blocks.iframe",
-			"pub.leaflet.blocks.image",
-			"pub.leaflet.blocks.math",
-			"pub.leaflet.blocks.orderedList",
-			"pub.leaflet.blocks.page",
-			"pub.leaflet.blocks.poll",
-			"pub.leaflet.blocks.text",
-			"pub.leaflet.blocks.unorderedList",
-			"pub.leaflet.blocks.website",
-			"pub.leaflet.pages.linearDocument",
-			"pub.leaflet.richtext.facet"
+			"pub.leaflet.pages.linearDocument"
 		]
 	}
 }

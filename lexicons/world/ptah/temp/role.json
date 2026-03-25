@@ -103,7 +103,8 @@
 		"description": "A role record in The Ptah Protocol. The template that sits between the World and the Character. A shared identity that multiple Character instances can embody. Hamlet is a Role — each performance of Hamlet is a Character instance."
 	},
 	"meta": {
-		"indexedAt": 1774225566836
+		"indexedAt": 1774225566836,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

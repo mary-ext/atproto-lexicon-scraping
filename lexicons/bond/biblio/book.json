@@ -48,7 +48,8 @@
 		"description": "A minimal book record for reading attestation. For rich metadata (ratings, reviews, covers), see buzz.bookhive.book."
 	},
 	"meta": {
-		"indexedAt": 1772410899705
+		"indexedAt": 1772410899705,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

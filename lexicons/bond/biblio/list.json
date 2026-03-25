@@ -64,7 +64,8 @@
 		"description": "A curated reading challenge. Librarians define book requirements with a deadline; readers apply books; librarians issue stamps for verified completion."
 	},
 	"meta": {
-		"indexedAt": 1772497374565
+		"indexedAt": 1772497374565,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [

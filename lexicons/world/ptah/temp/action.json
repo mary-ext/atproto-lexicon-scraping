@@ -87,7 +87,8 @@
 		"description": "An action record in The Ptah Protocol. The heartbeat of the protocol — every time someone acts inside a world, they create one of these. It is what makes the world alive rather than static."
 	},
 	"meta": {
-		"indexedAt": 1774225566836
+		"indexedAt": 1774225566836,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

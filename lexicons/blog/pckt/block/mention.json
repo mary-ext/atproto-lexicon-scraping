@@ -29,7 +29,8 @@
 		"description": "An inline mention node that references an ATProto user, following the app.bsky.richtext.facet#mention structure. Mentions create interactive references to Bluesky users within text content."
 	},
 	"meta": {
-		"indexedAt": 1765412216695
+		"indexedAt": 1765412216695,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

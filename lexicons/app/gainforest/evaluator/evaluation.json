@@ -83,7 +83,8 @@
 		"description": "An evaluation record published by an evaluator in their own repo. Contains structured, typed results about a target record (or batch of records). Discovered by AppViews via the atproto-accept-evaluators HTTP header pattern."
 	},
 	"meta": {
-		"indexedAt": 1769300406741
+		"indexedAt": 1769300406741,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [

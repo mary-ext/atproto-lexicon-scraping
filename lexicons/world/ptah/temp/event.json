@@ -127,7 +127,8 @@
 		"description": "An event record in The Ptah Protocol. Where competition becomes history. A tournament, battle, gathering, or any occasion where people compete or convene inside a world."
 	},
 	"meta": {
-		"indexedAt": 1774225566836
+		"indexedAt": 1774225566836,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

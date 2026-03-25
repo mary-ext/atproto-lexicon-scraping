@@ -63,11 +63,11 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1768781944885
+		"indexedAt": 1768781944885,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [
-			"com.atproto.repo.strongRef",
 			"community.lexicon.calendar.rsvp"
 		]
 	}

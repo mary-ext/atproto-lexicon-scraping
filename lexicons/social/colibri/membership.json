@@ -31,7 +31,8 @@
 		"description": "A declaration that a user would like to be part of a certain community."
 	},
 	"meta": {
-		"indexedAt": 1772410899705
+		"indexedAt": 1772410899705,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

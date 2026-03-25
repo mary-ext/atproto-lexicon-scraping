@@ -43,7 +43,8 @@
 		"description": "Generic blocks of web content for my personal blog (https://polhem.us)"
 	},
 	"meta": {
-		"indexedAt": 1771115017564
+		"indexedAt": 1771115017564,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [

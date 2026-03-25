@@ -31,7 +31,8 @@
 		"description": "Definitions related to difficulty slots in games hosting leaderboards via Tsunagite."
 	},
 	"meta": {
-		"indexedAt": 1767744959621
+		"indexedAt": 1767744959621,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [

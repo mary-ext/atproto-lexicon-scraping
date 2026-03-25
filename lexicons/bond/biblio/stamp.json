@@ -39,7 +39,8 @@
 		"description": "A librarian's cryptographic attestation that a reader completed a book for a reading list. The stamp lives in the librarian's repository, proving authority."
 	},
 	"meta": {
-		"indexedAt": 1772410899705
+		"indexedAt": 1772410899705,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

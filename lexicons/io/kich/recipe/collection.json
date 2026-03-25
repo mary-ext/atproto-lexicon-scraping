@@ -50,7 +50,8 @@
 		"description": "Record representing a public list of recipes. If it's on ATProto, it's public."
 	},
 	"meta": {
-		"indexedAt": 1773879908262
+		"indexedAt": 1773879908262,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

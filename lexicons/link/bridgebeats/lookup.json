@@ -97,7 +97,8 @@
 		"description": "Unified BridgeBeats lookup result aggregating links across music service providers."
 	},
 	"meta": {
-		"indexedAt": 1773447687768
+		"indexedAt": 1773447687768,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [],

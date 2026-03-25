@@ -63,24 +63,14 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760748771506
+		"indexedAt": 1760748771506,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [
-			"app.bsky.actor.defs",
-			"app.bsky.embed.defs",
-			"app.bsky.embed.external",
-			"app.bsky.embed.images",
 			"app.bsky.embed.record",
-			"app.bsky.embed.recordWithMedia",
-			"app.bsky.embed.video",
-			"app.bsky.feed.defs",
-			"app.bsky.graph.defs",
-			"app.bsky.labeler.defs",
-			"app.bsky.notification.defs",
 			"app.bsky.richtext.facet",
-			"chat.bsky.convo.defs",
-			"com.atproto.label.defs"
+			"chat.bsky.convo.defs"
 		]
 	}
 }

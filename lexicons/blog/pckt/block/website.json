@@ -35,7 +35,8 @@
 		"description": "A website link preview with title, description, and optional preview image"
 	},
 	"meta": {
-		"indexedAt": 1763770519308
+		"indexedAt": 1763770519308,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

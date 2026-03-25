@@ -211,7 +211,8 @@
 		"description": "A recipe record containing cooking instructions, ingredients, and metadata."
 	},
 	"meta": {
-		"indexedAt": 1773879908262
+		"indexedAt": 1773879908262,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"tag": [],

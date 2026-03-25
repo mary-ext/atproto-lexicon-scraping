@@ -122,7 +122,8 @@
 		"description": "A location record in The Ptah Protocol. A place inside a world — what gives events and actions an address. Without it, things happen in the world but they happen nowhere specific. With it, history accumulates in places and places develop gravity over time."
 	},
 	"meta": {
-		"indexedAt": 1774225566836
+		"indexedAt": 1774225566836,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [],

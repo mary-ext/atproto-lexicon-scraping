@@ -71,7 +71,8 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1772151818114
+		"indexedAt": 1772151818114,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

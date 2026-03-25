@@ -32,7 +32,8 @@
 		"description": "A social follow. Record declaring that the repository owner follows another user."
 	},
 	"meta": {
-		"indexedAt": 1771287815868
+		"indexedAt": 1771287815868,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

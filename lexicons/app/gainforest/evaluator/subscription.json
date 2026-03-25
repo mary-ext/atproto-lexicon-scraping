@@ -51,7 +51,8 @@
 		"description": "A subscription record published by a user in their own repo to request evaluations from a specific evaluator service. The evaluator detects subscriptions via Jetstream and processes matching records. Deleting this record unsubscribes."
 	},
 	"meta": {
-		"indexedAt": 1769300406741
+		"indexedAt": 1769300406741,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

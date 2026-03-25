@@ -90,7 +90,8 @@
 		"description": "An image block for displaying visual content. Supports both external URLs and AT Protocol blob storage with automatic aspect ratio preservation."
 	},
 	"meta": {
-		"indexedAt": 1762820167045
+		"indexedAt": 1762820167045,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [],

@@ -42,7 +42,8 @@
 		"description": "The record containing the Resolution for a Cumulus Market"
 	},
 	"meta": {
-		"indexedAt": 1772670174648
+		"indexedAt": 1772670174648,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [

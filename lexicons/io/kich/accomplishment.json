@@ -34,7 +34,8 @@
 		"description": "Record declaring that the user has earned an accomplishment (badge/milestone). One record per accomplishment type per user."
 	},
 	"meta": {
-		"indexedAt": 1771287815868
+		"indexedAt": 1771287815868,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

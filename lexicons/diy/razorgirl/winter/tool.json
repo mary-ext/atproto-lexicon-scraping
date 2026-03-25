@@ -78,7 +78,8 @@
 		"description": "Custom JavaScript/TypeScript tool with sandboxing and operator approval workflow."
 	},
 	"meta": {
-		"indexedAt": 1771633345512
+		"indexedAt": 1771633345512,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

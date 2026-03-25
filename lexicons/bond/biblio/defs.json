@@ -30,7 +30,8 @@
 		"description": "Shared definitions for the biblio.bond reading attestation system"
 	},
 	"meta": {
-		"indexedAt": 1772410899705
+		"indexedAt": 1772410899705,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"bookRequirement": []

@@ -138,7 +138,8 @@
 		"description": "Declaration record published at rkey 'self' to register an account as an evaluator service. Analogous to app.bsky.labeler.service for labelers."
 	},
 	"meta": {
-		"indexedAt": 1769300406741
+		"indexedAt": 1769300406741,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [

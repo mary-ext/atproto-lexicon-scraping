@@ -98,7 +98,8 @@
 		"description": "Scheduled task with natural-language instructions. Supports one-time and recurring schedules."
 	},
 	"meta": {
-		"indexedAt": 1771633345512
+		"indexedAt": 1771633345512,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [],

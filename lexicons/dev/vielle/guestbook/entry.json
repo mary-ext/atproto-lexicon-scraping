@@ -29,7 +29,8 @@
 		"description": "Signature for a guestbook. This references the dev.vielle.guestbook.book record for the given website. The rkey should be nsid (reverse dns) for the domain this is a signature for"
 	},
 	"meta": {
-		"indexedAt": 1772410899705
+		"indexedAt": 1772410899705,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

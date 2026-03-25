@@ -37,7 +37,8 @@
 		"description": "Shared definitions for The Ptah Protocol — reusable types referenced across record schemas."
 	},
 	"meta": {
-		"indexedAt": 1774225566836
+		"indexedAt": 1774225566836,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"sourceType": [],

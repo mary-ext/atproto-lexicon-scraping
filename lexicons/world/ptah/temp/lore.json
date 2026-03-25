@@ -96,7 +96,8 @@
 		"description": "A lore record in The Ptah Protocol. The world's history book — the accumulated narrative of what has happened. This is what separates the protocol from a game or a social feed. Games have scores. Social feeds have posts. A world has history."
 	},
 	"meta": {
-		"indexedAt": 1774225566836
+		"indexedAt": 1774225566836,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

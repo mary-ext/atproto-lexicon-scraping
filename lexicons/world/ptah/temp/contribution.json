@@ -88,7 +88,8 @@
 		"description": "A contribution record in The Ptah Protocol. The permission and attribution layer — governs how someone who did not create a world adds something to it, and ensures that addition is attributed, traceable, and governed by whatever rules the world originator set."
 	},
 	"meta": {
-		"indexedAt": 1774225566836
+		"indexedAt": 1774225566836,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

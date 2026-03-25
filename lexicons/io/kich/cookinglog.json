@@ -41,7 +41,8 @@
 		"description": "Record declaring that the user cooked a public recipe."
 	},
 	"meta": {
-		"indexedAt": 1773879908262
+		"indexedAt": 1773879908262,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [

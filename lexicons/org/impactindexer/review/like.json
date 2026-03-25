@@ -33,7 +33,8 @@
 		"description": "A like on an AT-Proto entity. Users can like records, users, PDSes, or lexicons. One like per subject per user - delete the record to remove the like."
 	},
 	"meta": {
-		"indexedAt": 1769473176610
+		"indexedAt": 1769473176610,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [

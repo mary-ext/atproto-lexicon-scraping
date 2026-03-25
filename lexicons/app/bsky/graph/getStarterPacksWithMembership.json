@@ -72,26 +72,15 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760748771506
+		"indexedAt": 1760748771506,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [
-			"app.bsky.actor.defs",
-			"app.bsky.embed.external",
-			"app.bsky.feed.defs",
-			"app.bsky.graph.defs",
-			"app.bsky.notification.defs",
-			"app.bsky.richtext.facet",
-			"com.atproto.label.defs"
+			"app.bsky.graph.defs"
 		],
 		"starterPackWithMembership": [
-			"app.bsky.actor.defs",
-			"app.bsky.embed.external",
-			"app.bsky.feed.defs",
-			"app.bsky.graph.defs",
-			"app.bsky.notification.defs",
-			"app.bsky.richtext.facet",
-			"com.atproto.label.defs"
+			"app.bsky.graph.defs"
 		]
 	}
 }

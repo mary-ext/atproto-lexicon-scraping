@@ -327,11 +327,11 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1771719719013
+		"indexedAt": 1771719719013,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [
-			"app.bsky.embed.defs",
 			"app.bsky.embed.external",
 			"app.bsky.embed.images",
 			"app.bsky.embed.record",
@@ -339,13 +339,11 @@
 			"app.bsky.embed.video",
 			"app.bsky.feed.threadgate",
 			"app.bsky.richtext.facet",
-			"com.atproto.label.defs",
-			"com.atproto.repo.strongRef"
+			"com.atproto.label.defs"
 		],
 		"imageView": [],
 		"pagination": [],
 		"scheduledPost": [
-			"app.bsky.embed.defs",
 			"app.bsky.embed.external",
 			"app.bsky.embed.images",
 			"app.bsky.embed.record",
@@ -353,8 +351,7 @@
 			"app.bsky.embed.video",
 			"app.bsky.feed.threadgate",
 			"app.bsky.richtext.facet",
-			"com.atproto.label.defs",
-			"com.atproto.repo.strongRef"
+			"com.atproto.label.defs"
 		],
 		"imageViewImage": []
 	}

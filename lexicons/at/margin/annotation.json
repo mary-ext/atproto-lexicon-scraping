@@ -326,7 +326,8 @@
 		"description": "W3C Web Annotation Data Model compliant annotation record for ATProto"
 	},
 	"meta": {
-		"indexedAt": 1772583734350
+		"indexedAt": 1772583734350,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"body": [],

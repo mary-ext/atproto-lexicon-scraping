@@ -39,7 +39,8 @@
 		"description": "A signaling record indicating that an account is participating in The Ptah Protocol. One per account, fixed record key. The AppView uses this record to discover and enumerate participating accounts across the network."
 	},
 	"meta": {
-		"indexedAt": 1774225566836
+		"indexedAt": 1774225566836,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

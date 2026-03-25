@@ -146,7 +146,8 @@
 		"description": "A single record type for all cards."
 	},
 	"meta": {
-		"indexedAt": 1769559526518
+		"indexedAt": 1769559526518,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [

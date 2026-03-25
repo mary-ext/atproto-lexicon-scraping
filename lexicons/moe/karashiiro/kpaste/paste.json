@@ -53,7 +53,8 @@
 		"description": "Record representing a code/text paste"
 	},
 	"meta": {
-		"indexedAt": 1771115017564
+		"indexedAt": 1771115017564,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

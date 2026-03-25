@@ -312,7 +312,8 @@
 		"description": "Shared type definitions for decentralized evaluator services. Evaluators attach structured, typed evaluation data to records (a more sophisticated evolution of the labeler pattern)."
 	},
 	"meta": {
-		"indexedAt": 1769300406741
+		"indexedAt": 1769300406741,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"methodInfo": [],

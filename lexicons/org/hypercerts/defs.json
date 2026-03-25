@@ -115,7 +115,8 @@
 		"description": "Common type definitions used across all Hypercerts protocols."
 	},
 	"meta": {
-		"indexedAt": 1772583734350
+		"indexedAt": 1772583734350,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"uri": [],

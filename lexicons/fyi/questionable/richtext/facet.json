@@ -118,7 +118,8 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1769386781977
+		"indexedAt": 1769386781977,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"bold": [],

@@ -446,20 +446,15 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1760748771506
+		"indexedAt": 1760748771506,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"convoView": [
 			"app.bsky.actor.defs",
-			"app.bsky.embed.defs",
 			"app.bsky.embed.external",
-			"app.bsky.embed.images",
 			"app.bsky.embed.record",
-			"app.bsky.embed.recordWithMedia",
-			"app.bsky.embed.video",
-			"app.bsky.feed.defs",
 			"app.bsky.graph.defs",
-			"app.bsky.labeler.defs",
 			"app.bsky.notification.defs",
 			"app.bsky.richtext.facet",
 			"chat.bsky.actor.defs",
@@ -467,123 +462,45 @@
 		],
 		"messageRef": [],
 		"messageView": [
-			"app.bsky.actor.defs",
-			"app.bsky.embed.defs",
-			"app.bsky.embed.external",
-			"app.bsky.embed.images",
 			"app.bsky.embed.record",
-			"app.bsky.embed.recordWithMedia",
-			"app.bsky.embed.video",
-			"app.bsky.feed.defs",
-			"app.bsky.graph.defs",
-			"app.bsky.labeler.defs",
-			"app.bsky.notification.defs",
-			"app.bsky.richtext.facet",
-			"com.atproto.label.defs"
+			"app.bsky.richtext.facet"
 		],
 		"logMuteConvo": [],
 		"messageInput": [
 			"app.bsky.embed.record",
-			"app.bsky.richtext.facet",
-			"com.atproto.repo.strongRef"
+			"app.bsky.richtext.facet"
 		],
 		"reactionView": [],
 		"logBeginConvo": [],
 		"logLeaveConvo": [],
 		"logAcceptConvo": [],
 		"logAddReaction": [
-			"app.bsky.actor.defs",
-			"app.bsky.embed.defs",
-			"app.bsky.embed.external",
-			"app.bsky.embed.images",
 			"app.bsky.embed.record",
-			"app.bsky.embed.recordWithMedia",
-			"app.bsky.embed.video",
-			"app.bsky.feed.defs",
-			"app.bsky.graph.defs",
-			"app.bsky.labeler.defs",
-			"app.bsky.notification.defs",
-			"app.bsky.richtext.facet",
-			"com.atproto.label.defs"
+			"app.bsky.richtext.facet"
 		],
 		"logReadMessage": [
-			"app.bsky.actor.defs",
-			"app.bsky.embed.defs",
-			"app.bsky.embed.external",
-			"app.bsky.embed.images",
 			"app.bsky.embed.record",
-			"app.bsky.embed.recordWithMedia",
-			"app.bsky.embed.video",
-			"app.bsky.feed.defs",
-			"app.bsky.graph.defs",
-			"app.bsky.labeler.defs",
-			"app.bsky.notification.defs",
-			"app.bsky.richtext.facet",
-			"com.atproto.label.defs"
+			"app.bsky.richtext.facet"
 		],
 		"logUnmuteConvo": [],
 		"logCreateMessage": [
-			"app.bsky.actor.defs",
-			"app.bsky.embed.defs",
-			"app.bsky.embed.external",
-			"app.bsky.embed.images",
 			"app.bsky.embed.record",
-			"app.bsky.embed.recordWithMedia",
-			"app.bsky.embed.video",
-			"app.bsky.feed.defs",
-			"app.bsky.graph.defs",
-			"app.bsky.labeler.defs",
-			"app.bsky.notification.defs",
-			"app.bsky.richtext.facet",
-			"com.atproto.label.defs"
+			"app.bsky.richtext.facet"
 		],
 		"logDeleteMessage": [
-			"app.bsky.actor.defs",
-			"app.bsky.embed.defs",
-			"app.bsky.embed.external",
-			"app.bsky.embed.images",
 			"app.bsky.embed.record",
-			"app.bsky.embed.recordWithMedia",
-			"app.bsky.embed.video",
-			"app.bsky.feed.defs",
-			"app.bsky.graph.defs",
-			"app.bsky.labeler.defs",
-			"app.bsky.notification.defs",
-			"app.bsky.richtext.facet",
-			"com.atproto.label.defs"
+			"app.bsky.richtext.facet"
 		],
 		"logRemoveReaction": [
-			"app.bsky.actor.defs",
-			"app.bsky.embed.defs",
-			"app.bsky.embed.external",
-			"app.bsky.embed.images",
 			"app.bsky.embed.record",
-			"app.bsky.embed.recordWithMedia",
-			"app.bsky.embed.video",
-			"app.bsky.feed.defs",
-			"app.bsky.graph.defs",
-			"app.bsky.labeler.defs",
-			"app.bsky.notification.defs",
-			"app.bsky.richtext.facet",
-			"com.atproto.label.defs"
+			"app.bsky.richtext.facet"
 		],
 		"messageViewSender": [],
 		"deletedMessageView": [],
 		"reactionViewSender": [],
 		"messageAndReactionView": [
-			"app.bsky.actor.defs",
-			"app.bsky.embed.defs",
-			"app.bsky.embed.external",
-			"app.bsky.embed.images",
 			"app.bsky.embed.record",
-			"app.bsky.embed.recordWithMedia",
-			"app.bsky.embed.video",
-			"app.bsky.feed.defs",
-			"app.bsky.graph.defs",
-			"app.bsky.labeler.defs",
-			"app.bsky.notification.defs",
-			"app.bsky.richtext.facet",
-			"com.atproto.label.defs"
+			"app.bsky.richtext.facet"
 		]
 	}
 }

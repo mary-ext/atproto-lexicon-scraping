@@ -106,7 +106,8 @@
 		"description": "A sprite sheet for an RPG character avatar."
 	},
 	"meta": {
-		"indexedAt": 1774311685896
+		"indexedAt": 1774311685896,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

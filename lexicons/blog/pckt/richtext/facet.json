@@ -129,7 +129,8 @@
 		"description": "Annotation of a sub-string within rich text."
 	},
 	"meta": {
-		"indexedAt": 1765412216695
+		"indexedAt": 1765412216695,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"id": [],

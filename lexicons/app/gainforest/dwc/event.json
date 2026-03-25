@@ -158,7 +158,8 @@
 		"description": "A sampling event record aligned with Darwin Core Event class. Enables star-schema pattern where multiple occurrences reference a shared event context (location, protocol, effort)."
 	},
 	"meta": {
-		"indexedAt": 1769300406741
+		"indexedAt": 1769300406741,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

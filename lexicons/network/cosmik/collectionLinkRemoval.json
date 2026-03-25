@@ -39,7 +39,8 @@
 		"description": "A record indicating that a card was removed from a collection by the collection owner."
 	},
 	"meta": {
-		"indexedAt": 1769559526518
+		"indexedAt": 1769559526518,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [

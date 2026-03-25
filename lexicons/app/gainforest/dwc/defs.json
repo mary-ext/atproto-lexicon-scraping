@@ -162,7 +162,8 @@
 		"description": "Shared type definitions for Darwin Core aligned biodiversity records"
 	},
 	"meta": {
-		"indexedAt": 1769300406741
+		"indexedAt": 1769300406741,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"sexEnum": [],

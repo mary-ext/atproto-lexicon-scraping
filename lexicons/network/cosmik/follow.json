@@ -32,7 +32,8 @@
 		"description": "A record representing a follow relationship."
 	},
 	"meta": {
-		"indexedAt": 1773274815134
+		"indexedAt": 1773274815134,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

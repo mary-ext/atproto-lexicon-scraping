@@ -114,7 +114,8 @@
 		"description": "A world record in The Ptah Protocol. The foundational record — everything else references it. A world must exist before characters, events, or lore can exist inside it."
 	},
 	"meta": {
-		"indexedAt": 1774225566836
+		"indexedAt": 1774225566836,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [],

@@ -72,7 +72,8 @@
 		"description": "Definitions related to charts included in games hosting leaderboards via Tsunagite."
 	},
 	"meta": {
-		"indexedAt": 1768177130347
+		"indexedAt": 1768177130347,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [

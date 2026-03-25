@@ -50,7 +50,8 @@
 		"description": "Record declaring a review (rating and optional comment) of a recipe. One review per user per recipe."
 	},
 	"meta": {
-		"indexedAt": 1770769626457
+		"indexedAt": 1770769626457,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [

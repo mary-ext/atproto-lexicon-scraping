@@ -35,7 +35,8 @@
 		"description": "A heading block with hierarchical levels (1-6) for document structure."
 	},
 	"meta": {
-		"indexedAt": 1765412216695
+		"indexedAt": 1765412216695,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [

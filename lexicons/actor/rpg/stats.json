@@ -1810,7 +1810,8 @@
 		"description": "RPG character statistics for multiple game systems."
 	},
 	"meta": {
-		"indexedAt": 1774311685896
+		"indexedAt": 1774311685896,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"hp": [],

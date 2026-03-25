@@ -47,7 +47,8 @@
 		"description": "A standalone image gallery that can be embedded in posts or other content."
 	},
 	"meta": {
-		"indexedAt": 1770423704446
+		"indexedAt": 1770423704446,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [

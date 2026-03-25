@@ -32,7 +32,8 @@
 		"description": "Record declaring a 'block' relationship on Backyard."
 	},
 	"meta": {
-		"indexedAt": 1773793466057
+		"indexedAt": 1773793466057,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

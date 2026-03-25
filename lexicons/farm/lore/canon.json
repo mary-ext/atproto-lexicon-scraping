@@ -39,7 +39,8 @@
 		"description": "Lore promoted to canon status in a world."
 	},
 	"meta": {
-		"indexedAt": 1774311685896
+		"indexedAt": 1774311685896,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [

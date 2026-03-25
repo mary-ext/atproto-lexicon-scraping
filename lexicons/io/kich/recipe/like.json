@@ -34,7 +34,8 @@
 		"description": "Record declaring a 'like' (favorite) of a recipe."
 	},
 	"meta": {
-		"indexedAt": 1770250962710
+		"indexedAt": 1770250962710,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [

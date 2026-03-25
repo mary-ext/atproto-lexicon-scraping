@@ -58,7 +58,8 @@
 		"description": "Stream of consciousness entry. Thoughts are the raw trace of agent cognition — insights, questions, plans, reflections, errors."
 	},
 	"meta": {
-		"indexedAt": 1771633345512
+		"indexedAt": 1771633345512,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

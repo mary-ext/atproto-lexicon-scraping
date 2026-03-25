@@ -14,7 +14,8 @@
 		"description": "Shared definitions for the graph namespace (follows, etc.)."
 	},
 	"meta": {
-		"indexedAt": 1771287815868
+		"indexedAt": 1771287815868,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

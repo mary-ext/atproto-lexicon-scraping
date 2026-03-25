@@ -31,7 +31,8 @@
 		"description": "Profile record declaring that a repository uses the Kitchen app. This record acts as a declaration/signal for repository discovery."
 	},
 	"meta": {
-		"indexedAt": 1770250962710
+		"indexedAt": 1770250962710,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

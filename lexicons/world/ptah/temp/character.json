@@ -133,7 +133,8 @@
 		"description": "A character record in The Ptah Protocol. A person, creature, or entity that exists inside a specific world. The character is not the user — the character is the world's inhabitant."
 	},
 	"meta": {
-		"indexedAt": 1774225566836
+		"indexedAt": 1774225566836,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [],

@@ -38,7 +38,8 @@
 		"description": "Permission set for kich.io write access."
 	},
 	"meta": {
-		"indexedAt": 1773879908262
+		"indexedAt": 1773879908262,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

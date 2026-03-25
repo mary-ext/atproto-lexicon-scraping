@@ -14,7 +14,8 @@
 		"description": "Shared definitions for the recipe namespace."
 	},
 	"meta": {
-		"indexedAt": 1770078164490
+		"indexedAt": 1770078164490,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

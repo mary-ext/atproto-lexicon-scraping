@@ -50,7 +50,8 @@
 		"description": "Reusable types for an at://2048 authority to provide public did:keys and signatures for verification"
 	},
 	"meta": {
-		"indexedAt": 1771115017564
+		"indexedAt": 1771115017564,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"key": [],

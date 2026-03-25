@@ -61,7 +61,8 @@
 		"description": "Atomic knowledge unit. A predicate applied to arguments, optionally with confidence, expiration, source tracking, tags, and supersession."
 	},
 	"meta": {
-		"indexedAt": 1771633345512
+		"indexedAt": 1771633345512,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

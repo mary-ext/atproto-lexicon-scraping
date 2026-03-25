@@ -60,7 +60,8 @@
 		"description": "A declaration of a Backyard account profile."
 	},
 	"meta": {
-		"indexedAt": 1773793466057
+		"indexedAt": 1773793466057,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

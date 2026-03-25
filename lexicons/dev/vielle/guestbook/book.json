@@ -28,7 +28,8 @@
 		"description": "Book for guesbook signing. dev.vielle.guestbook.entry records will refer to this. The rkey should be nsid (reverse dns) for the domain this is a guestbook for"
 	},
 	"meta": {
-		"indexedAt": 1772410899705
+		"indexedAt": 1772410899705,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []

@@ -52,7 +52,8 @@
 		"description": "Assistant data types for Tsunagite lexicons."
 	},
 	"meta": {
-		"indexedAt": 1767744959621
+		"indexedAt": 1767744959621,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"typedRef": [],

@@ -35,7 +35,8 @@
 		"description": "Common folder defs for the Authr Example"
 	},
 	"meta": {
-		"indexedAt": 1771115017564
+		"indexedAt": 1771115017564,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"folderForm": [],

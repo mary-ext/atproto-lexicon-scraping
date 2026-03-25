@@ -64,7 +64,8 @@
 		"description": "Tokens for all dev.vielle.dnd.astral powers"
 	},
 	"meta": {
-		"indexedAt": 1772410899705
+		"indexedAt": 1772410899705,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"bind": [],

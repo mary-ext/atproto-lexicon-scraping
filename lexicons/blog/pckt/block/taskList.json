@@ -25,7 +25,8 @@
 		"description": "Interactive task list with checkable items. Each item displays a checkbox that can be toggled between checked and unchecked states."
 	},
 	"meta": {
-		"indexedAt": 1762647435070
+		"indexedAt": 1762647435070,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [

@@ -45,7 +45,8 @@
 		"description": "A text comment on an AT-Proto entity. Users can comment on records, users, PDSes, or lexicons to provide feedback, ask questions, or share insights."
 	},
 	"meta": {
-		"indexedAt": 1769473176610
+		"indexedAt": 1769473176610,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [

@@ -45,7 +45,8 @@
 		"description": "Shared definitions for the Impact Indexer review system."
 	},
 	"meta": {
-		"indexedAt": 1769473176610
+		"indexedAt": 1769473176610,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"subjectRef": [],

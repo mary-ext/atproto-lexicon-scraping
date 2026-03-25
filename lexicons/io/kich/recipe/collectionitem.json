@@ -46,7 +46,8 @@
 		"description": "Record representing a recipe's inclusion in a specific collection. One record per recipe per collection."
 	},
 	"meta": {
-		"indexedAt": 1773879908262
+		"indexedAt": 1773879908262,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [

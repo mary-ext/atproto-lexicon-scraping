@@ -29,7 +29,8 @@
 		"description": "A lexicon for long form rich media documents"
 	},
 	"meta": {
-		"indexedAt": 1769041149152
+		"indexedAt": 1769041149152,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": [

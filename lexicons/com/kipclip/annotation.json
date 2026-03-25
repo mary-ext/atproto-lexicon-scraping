@@ -53,7 +53,8 @@
 		"description": "Kipclip-specific metadata and notes for a bookmark"
 	},
 	"meta": {
-		"indexedAt": 1771806161917
+		"indexedAt": 1771806161917,
+		"errorAt": 1774398197955
 	},
 	"references": {
 		"main": []
