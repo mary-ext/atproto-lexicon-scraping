@@ -24,10 +24,12 @@
 					}
 				],
 				"title:langs": {
+					"fr": "Gère vos avatars.",
 					"ja": "アバターを管理します",
 					"pt-BR": "Gerencie seu avatar."
 				},
 				"detail:langs": {
+					"fr": "Permet de télécharger, de supprimer et de faire pivoter les avatars.",
 					"ja": "アバターのアップロード、削除、ローテーション設定を許可します",
 					"pt-BR": "Permite carregar, excluir e girar avatares."
 				}
@@ -37,7 +39,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1773966225006
+		"indexedAt": 1774484700280
 	},
 	"references": {
 		"main": []

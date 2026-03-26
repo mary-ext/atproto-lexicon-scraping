@@ -35,7 +35,7 @@
 						},
 						"interval": {
 							"type": "string",
-							"maxLength": 10,
+							"maxLength": 6,
 							"knownValues": [
 								"1h",
 								"3h",
@@ -73,7 +73,7 @@
 		"description": "User settings for avatar rotation."
 	},
 	"meta": {
-		"indexedAt": 1773879908262
+		"indexedAt": 1774484700280
 	},
 	"references": {
 		"main": [
