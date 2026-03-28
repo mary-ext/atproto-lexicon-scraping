@@ -33,6 +33,12 @@
 						"enabled": {
 							"type": "boolean"
 						},
+						"executor": {
+							"type": "string",
+							"format": "uri",
+							"maxLength": 2048,
+							"description": "OAuth client_id of the provider currently authorized to execute rotation. If absent or null, any provider may execute."
+						},
 						"interval": {
 							"type": "string",
 							"maxLength": 6,
@@ -73,7 +79,7 @@
 		"description": "User settings for avatar rotation."
 	},
 	"meta": {
-		"indexedAt": 1774484700280
+		"indexedAt": 1774657357625
 	},
 	"references": {
 		"main": [
