@@ -20,11 +20,13 @@
 								"image/jpeg",
 								"image/webp"
 							],
-							"maxSize": 1000000
+							"maxSize": 1000000,
+							"description": "The image data for the avatar."
 						},
 						"createdAt": {
 							"type": "string",
-							"format": "datetime"
+							"format": "datetime",
+							"description": "The timestamp when the avatar was created."
 						}
 					}
 				},
@@ -36,7 +38,7 @@
 		"description": "An image used for automatic avatar rotation."
 	},
 	"meta": {
-		"indexedAt": 1773534344342
+		"indexedAt": 1774830349298
 	},
 	"references": {
 		"main": []

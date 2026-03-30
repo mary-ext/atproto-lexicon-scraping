@@ -18,6 +18,7 @@
 						"mode": {
 							"type": "string",
 							"maxLength": 20,
+							"description": "The rotation mode to use for avatar selection.",
 							"knownValues": [
 								"sequential",
 								"random"
@@ -28,10 +29,12 @@
 							"items": {
 								"ref": "#avatarItem",
 								"type": "ref"
-							}
+							},
+							"description": "List of avatar items to rotate through."
 						},
 						"enabled": {
-							"type": "boolean"
+							"type": "boolean",
+							"description": "Whether avatar rotation feature is enabled."
 						},
 						"executor": {
 							"type": "string",
@@ -42,6 +45,7 @@
 						"interval": {
 							"type": "string",
 							"maxLength": 6,
+							"description": "The interval at which avatar rotation should occur.",
 							"knownValues": [
 								"1h",
 								"3h",
@@ -79,7 +83,7 @@
 		"description": "User settings for avatar rotation."
 	},
 	"meta": {
-		"indexedAt": 1774657357625
+		"indexedAt": 1774830349298
 	},
 	"references": {
 		"main": [
