@@ -36,12 +36,6 @@
 							"type": "boolean",
 							"description": "Whether avatar rotation feature is enabled."
 						},
-						"executor": {
-							"type": "string",
-							"format": "uri",
-							"maxLength": 2048,
-							"description": "OAuth client_id of the provider currently authorized to execute rotation. If absent or null, any provider may execute."
-						},
 						"interval": {
 							"type": "string",
 							"maxLength": 6,
@@ -83,7 +77,7 @@
 		"description": "User settings for avatar rotation."
 	},
 	"meta": {
-		"indexedAt": 1774830349298
+		"indexedAt": 1775003248938
 	},
 	"references": {
 		"main": [

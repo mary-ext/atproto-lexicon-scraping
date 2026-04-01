@@ -19,6 +19,7 @@
 						"collection": [
 							"app.chavatar.avatar",
 							"app.chavatar.settings",
+							"app.chavatar.settings.executor",
 							"app.chavatar.state"
 						]
 					}
@@ -39,7 +40,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1774484700280
+		"indexedAt": 1775003248938
 	},
 	"references": {
 		"main": []

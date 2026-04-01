@@ -26,6 +26,17 @@
 						"collection": [
 							"app.chavatar.state"
 						]
+					},
+					{
+						"type": "permission",
+						"action": [
+							"create",
+							"update"
+						],
+						"resource": "repo",
+						"collection": [
+							"app.chavatar.settings.executor"
+						]
 					}
 				],
 				"title:langs": {
@@ -44,7 +55,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1774484700280
+		"indexedAt": 1775003248938
 	},
 	"references": {
 		"main": []
