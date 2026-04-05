@@ -1,0 +1,73 @@
+{
+	"authority": "did:web:bsky.ooo",
+	"schema": {
+		"id": "ooo.bsky.hds.server.describeServer",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"did"
+						],
+						"properties": {
+							"did": {
+								"type": "string",
+								"format": "did"
+							},
+							"links": {
+								"ref": "#links",
+								"type": "ref"
+							},
+							"contact": {
+								"ref": "#contact",
+								"type": "ref"
+							},
+							"description": {
+								"type": "string"
+							}
+						}
+					},
+					"encoding": "application/json"
+				}
+			},
+			"links": {
+				"type": "object",
+				"properties": {
+					"privacyPolicy": {
+						"type": "string",
+						"format": "uri"
+					},
+					"termsOfService": {
+						"type": "string",
+						"format": "uri"
+					}
+				}
+			},
+			"contact": {
+				"type": "object",
+				"properties": {
+					"url": {
+						"type": "string",
+						"format": "uri"
+					},
+					"email": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"revision": 1
+	},
+	"meta": {
+		"indexedAt": 1775348766997
+	},
+	"references": {
+		"main": [],
+		"links": [],
+		"contact": []
+	}
+}

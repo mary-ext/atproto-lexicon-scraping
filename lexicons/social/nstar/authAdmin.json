@@ -1,0 +1,39 @@
+{
+	"authority": "did:web:nstar.social",
+	"schema": {
+		"id": "social.nstar.authAdmin",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "NorthStar Social Admin",
+				"detail": "Administer NorthStar Social services, features and data",
+				"title:lang": {},
+				"detail:lang": {},
+				"permissions": [
+					{
+						"aud": "*",
+						"lxm": [
+							"social.nstar.epds.admin.getUserStats",
+							"social.nstar.epds.admin.listAccounts",
+							"social.nstar.epds.admin.listInviteCodes",
+							"social.nstar.epds.repo.getStatus",
+							"social.nstar.network.getLogs",
+							"social.nstar.network.getRequests",
+							"social.nstar.network.getResponses"
+						],
+						"type": "permission",
+						"resource": "rpc"
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1775348766997
+	},
+	"references": {
+		"main": []
+	}
+}

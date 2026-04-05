@@ -1,0 +1,23 @@
+{
+	"authority": "did:web:bsky.ooo",
+	"schema": {
+		"id": "ooo.bsky.hds.importAccount",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"encoding": "application/vnd.ipld.car"
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"revision": 1
+	},
+	"meta": {
+		"indexedAt": 1775348766997
+	},
+	"references": {
+		"main": []
+	}
+}

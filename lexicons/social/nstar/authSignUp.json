@@ -1,30 +1,21 @@
 {
 	"authority": "did:web:nstar.social",
 	"schema": {
-		"id": "social.nstar.authFull",
+		"id": "social.nstar.authSignUp",
 		"defs": {
 			"main": {
 				"type": "permission-set",
 				"title": "NorthStar Social",
-				"detail": "Manage your connections, posts, devices, and private data.",
+				"detail": "New account registration and device setup.",
 				"title:lang": {},
 				"detail:lang": {},
 				"permissions": [
 					{
 						"aud": "*",
 						"lxm": [
-							"social.nstar.epds.repo.getInfo",
-							"social.nstar.epds.repo.getStatus",
 							"social.nstar.epds.repo.registerDevice",
-							"social.nstar.epds.server.createInviteCode",
-							"social.nstar.epds.server.getActorInviteCode",
 							"social.nstar.epds.server.getInviteToken",
-							"social.nstar.epds.server.getRepoAccessToken",
 							"social.nstar.epds.server.registerActor",
-							"social.nstar.relay.connect.getRequests",
-							"social.nstar.relay.connect.revokeRequest",
-							"social.nstar.relay.connect.sendRequests",
-							"social.nstar.relay.mailbox.sendMessages",
 							"social.nstar.relay.server.registerActor",
 							"social.nstar.relay.server.unregisterActor"
 						],

@@ -1,0 +1,118 @@
+{
+	"authority": "did:web:bsky.ooo",
+	"schema": {
+		"id": "ooo.bsky.hidden.gate",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"allow",
+						"createdAt"
+					],
+					"properties": {
+						"allow": {
+							"type": "array",
+							"items": {
+								"refs": [
+									"#everyoneRule",
+									"#authorFollowsRule",
+									"#followingAuthorRule",
+									"#mutualsRule",
+									"#listRule",
+									"#actorRule",
+									"#pdsRule",
+									"#customRule"
+								],
+								"type": "union"
+							},
+							"maxLength": 5
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				}
+			},
+			"pdsRule": {
+				"type": "object",
+				"required": [
+					"pds"
+				],
+				"properties": {
+					"pds": {
+						"type": "string",
+						"format": "uri"
+					}
+				}
+			},
+			"listRule": {
+				"type": "object",
+				"required": [
+					"list"
+				],
+				"properties": {
+					"list": {
+						"type": "string",
+						"format": "at-uri"
+					}
+				}
+			},
+			"actorRule": {
+				"type": "object",
+				"required": [
+					"actor"
+				],
+				"properties": {
+					"actor": {
+						"type": "string",
+						"format": "at-identifier"
+					}
+				}
+			},
+			"customRule": {
+				"type": "object",
+				"required": [
+					"rule"
+				],
+				"properties": {
+					"rule": {
+						"type": "unknown"
+					}
+				}
+			},
+			"mutualsRule": {
+				"type": "object"
+			},
+			"everyoneRule": {
+				"type": "object"
+			},
+			"authorFollowsRule": {
+				"type": "object"
+			},
+			"followingAuthorRule": {
+				"type": "object"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"revision": 1
+	},
+	"meta": {
+		"indexedAt": 1775348766997
+	},
+	"references": {
+		"main": [],
+		"pdsRule": [],
+		"listRule": [],
+		"actorRule": [],
+		"customRule": [],
+		"mutualsRule": [],
+		"everyoneRule": [],
+		"authorFollowsRule": [],
+		"followingAuthorRule": []
+	}
+}

@@ -1,0 +1,55 @@
+{
+	"authority": "did:web:bsky.ooo",
+	"schema": {
+		"id": "ooo.bsky.hds.describeAccount",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"did",
+							"collections"
+						],
+						"properties": {
+							"did": {
+								"type": "string",
+								"format": "did"
+							},
+							"collections": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"format": "nsid"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"repo"
+					],
+					"properties": {
+						"repo": {
+							"type": "string",
+							"format": "at-identifier"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"revision": 1
+	},
+	"meta": {
+		"indexedAt": 1775348766997
+	},
+	"references": {
+		"main": []
+	}
+}

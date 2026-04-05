@@ -1,0 +1,31 @@
+{
+	"authority": "did:web:bsky.ooo",
+	"schema": {
+		"id": "ooo.bsky.hidden.encryptedBlobs",
+		"defs": {
+			"main": {
+				"type": "object",
+				"required": [
+					"blobs"
+				],
+				"properties": {
+					"blobs": {
+						"type": "array",
+						"items": {
+							"type": "blob"
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"revision": 1
+	},
+	"meta": {
+		"indexedAt": 1775348766997
+	},
+	"references": {
+		"main": []
+	}
+}

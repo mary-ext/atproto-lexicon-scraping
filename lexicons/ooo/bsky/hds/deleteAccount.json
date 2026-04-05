@@ -1,0 +1,35 @@
+{
+	"authority": "did:web:bsky.ooo",
+	"schema": {
+		"id": "ooo.bsky.hds.deleteAccount",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"repo"
+						],
+						"properties": {
+							"repo": {
+								"type": "string",
+								"format": "at-identifier"
+							}
+						}
+					},
+					"encoding": "application/json"
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"revision": 1
+	},
+	"meta": {
+		"indexedAt": 1775348766997
+	},
+	"references": {
+		"main": []
+	}
+}
