@@ -1,0 +1,71 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.contribution",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"contributionType",
+						"changes",
+						"createdAt"
+					],
+					"properties": {
+						"changes": {
+							"type": "unknown",
+							"description": "A partial object matching the target record schema. Only changed fields are present."
+						},
+						"message": {
+							"type": "string",
+							"description": "Explanation of what is being changed and why.",
+							"maxGraphemes": 3000
+						},
+						"subject": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "The entity being modified. Required for corrections and additions, absent for new game submissions."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"signatures": {
+							"type": "array",
+							"items": {
+								"refs": [
+									"games.gamesgamesgamesgames.defs#signature",
+									"com.atproto.repo.strongRef"
+								],
+								"type": "union"
+							},
+							"description": "Inline attestation signatures from the AppView that created this contribution."
+						},
+						"contributionType": {
+							"type": "string",
+							"knownValues": [
+								"correction",
+								"addition",
+								"newGame"
+							]
+						}
+					}
+				},
+				"description": "A community contribution proposing changes to a game or submitting a new game."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1775694139346
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef",
+			"games.gamesgamesgamesgames.defs"
+		]
+	}
+}

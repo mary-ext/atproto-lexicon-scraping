@@ -1,0 +1,52 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.acceptContribution",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"contributionPatch"
+						],
+						"properties": {
+							"contributionPatch": {
+								"type": "string",
+								"format": "at-uri",
+								"description": "URI of the contributionPatch record to accept."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uri"
+						],
+						"properties": {
+							"uri": {
+								"type": "string",
+								"format": "at-uri",
+								"description": "URI of the updated entity record."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Accept a mod-approved contribution patch, merging changes into the entity record."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1775694139346
+	},
+	"references": {
+		"main": []
+	}
+}

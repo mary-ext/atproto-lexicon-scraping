@@ -1,0 +1,204 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.getContribution",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"contribution"
+						],
+						"properties": {
+							"contribution": {
+								"ref": "#contributionView",
+								"type": "ref"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"uri"
+					],
+					"properties": {
+						"uri": {
+							"type": "string",
+							"format": "at-uri"
+						}
+					}
+				},
+				"description": "Get details of a community contribution."
+			},
+			"patchView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"subject",
+					"changes",
+					"createdAt"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"changes": {
+						"type": "unknown"
+					},
+					"subject": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime"
+					}
+				}
+			},
+			"reviewView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"status",
+					"reviewedBy",
+					"createdAt"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"reason": {
+						"type": "string"
+					},
+					"status": {
+						"type": "string",
+						"knownValues": [
+							"approved",
+							"denied",
+							"needsRevision"
+						]
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime"
+					},
+					"reviewedBy": {
+						"type": "string",
+						"format": "did"
+					}
+				}
+			},
+			"contributionView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"cid",
+					"contributorDid",
+					"contributionType",
+					"changes",
+					"createdAt"
+				],
+				"properties": {
+					"cid": {
+						"type": "string"
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"patch": {
+						"ref": "#patchView",
+						"type": "ref"
+					},
+					"review": {
+						"ref": "#reviewView",
+						"type": "ref"
+					},
+					"changes": {
+						"type": "unknown"
+					},
+					"message": {
+						"type": "string"
+					},
+					"subject": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime"
+					},
+					"subjectName": {
+						"type": "string",
+						"description": "Resolved name of the subject entity for display."
+					},
+					"verification": {
+						"ref": "#verificationView",
+						"type": "ref"
+					},
+					"contributorDid": {
+						"type": "string",
+						"format": "did"
+					},
+					"contributionType": {
+						"type": "string",
+						"knownValues": [
+							"correction",
+							"addition",
+							"newGame"
+						]
+					}
+				}
+			},
+			"verificationView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"contributor",
+					"acceptedBy",
+					"createdAt"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime"
+					},
+					"acceptedBy": {
+						"type": "string",
+						"knownValues": [
+							"mod",
+							"owner",
+							"both"
+						]
+					},
+					"contributor": {
+						"type": "string",
+						"format": "did"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1775694139346
+	},
+	"references": {
+		"main": [],
+		"patchView": [],
+		"reviewView": [],
+		"contributionView": [],
+		"verificationView": []
+	}
+}

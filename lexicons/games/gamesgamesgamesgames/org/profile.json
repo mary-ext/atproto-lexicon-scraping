@@ -4,7 +4,7 @@
 		"id": "games.gamesgamesgamesgames.org.profile",
 		"defs": {
 			"main": {
-				"key": "literal:self",
+				"key": "any",
 				"type": "record",
 				"record": {
 					"type": "object",
@@ -70,6 +70,10 @@
 							"type": "string",
 							"maxLength": 640
 						},
+						"externalIds": {
+							"ref": "games.gamesgamesgamesgames.defs#externalIds",
+							"type": "ref"
+						},
 						"descriptionFacets": {
 							"type": "array",
 							"items": {
@@ -87,7 +91,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1773107271805,
+		"indexedAt": 1775694139346,
 		"errorAt": 1772670174648
 	},
 	"references": {
