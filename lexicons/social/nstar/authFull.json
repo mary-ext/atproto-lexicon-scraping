@@ -40,7 +40,8 @@
 						],
 						"resource": "repo",
 						"collection": [
-							"social.nstar.actor.declaration"
+							"social.nstar.public.declaration",
+							"social.nstar.public.profile"
 						]
 					}
 				]
@@ -50,7 +51,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1775348766997
+		"indexedAt": 1775867083967
 	},
 	"references": {
 		"main": []
