@@ -1,0 +1,45 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.authAdmin",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Cartridge Admin",
+				"detail": "Review claims and contributions, manage redirects, and refresh caches.",
+				"permissions": [
+					{
+						"type": "permission",
+						"resource": "repo",
+						"collection": [
+							"games.gamesgamesgamesgames.claimReview",
+							"games.gamesgamesgamesgames.contributionPatch",
+							"games.gamesgamesgamesgames.contributionReview",
+							"games.gamesgamesgamesgames.contributionVerification",
+							"games.gamesgamesgamesgames.redirect"
+						]
+					},
+					{
+						"lxm": [
+							"games.gamesgamesgamesgames.putPopularity",
+							"games.gamesgamesgamesgames.refreshCaches",
+							"games.gamesgamesgamesgames.reviewClaim",
+							"games.gamesgamesgamesgames.reviewContribution"
+						],
+						"type": "permission",
+						"resource": "rpc",
+						"inheritAud": true
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1775953651034
+	},
+	"references": {
+		"main": []
+	}
+}

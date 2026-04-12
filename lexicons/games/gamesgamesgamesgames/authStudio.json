@@ -1,0 +1,49 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.authStudio",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Cartridge Studio",
+				"detail": "Manage studio profiles, create and edit games, and handle ownership claims and contributions.",
+				"permissions": [
+					{
+						"type": "permission",
+						"resource": "repo",
+						"collection": [
+							"games.gamesgamesgamesgames.engine",
+							"games.gamesgamesgamesgames.game",
+							"games.gamesgamesgamesgames.org.credit",
+							"games.gamesgamesgamesgames.org.profile",
+							"games.gamesgamesgamesgames.platform",
+							"games.gamesgamesgamesgames.platformFamily"
+						]
+					},
+					{
+						"lxm": [
+							"games.gamesgamesgamesgames.acceptContribution",
+							"games.gamesgamesgamesgames.createGame",
+							"games.gamesgamesgamesgames.migrateClaim",
+							"games.gamesgamesgamesgames.org.createProfile",
+							"games.gamesgamesgamesgames.org.getProfile",
+							"games.gamesgamesgamesgames.org.putProfile",
+							"games.gamesgamesgamesgames.putGame"
+						],
+						"type": "permission",
+						"resource": "rpc",
+						"inheritAud": true
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1775953651034
+	},
+	"references": {
+		"main": []
+	}
+}
