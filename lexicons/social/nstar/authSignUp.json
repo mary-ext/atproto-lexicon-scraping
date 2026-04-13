@@ -14,11 +14,13 @@
 						"aud": "*",
 						"lxm": [
 							"social.nstar.epds.repo.getStatus",
-							"social.nstar.epds.repo.registerDevice",
 							"social.nstar.epds.server.getInviteToken",
 							"social.nstar.epds.server.registerActor",
 							"social.nstar.relay.server.registerActor",
-							"social.nstar.relay.server.unregisterActor"
+							"social.nstar.relay.server.unregisterActor",
+							"social.nstar.epds.repo.getInfo",
+							"social.nstar.epds.repo.registerDevice",
+							"social.nstar.relay.connect.sendRequests"
 						],
 						"type": "permission",
 						"resource": "rpc"
@@ -43,7 +45,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1775867083967
+		"indexedAt": 1776040126213
 	},
 	"references": {
 		"main": []
