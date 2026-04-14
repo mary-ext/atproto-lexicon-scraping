@@ -17,10 +17,7 @@
 							"social.nstar.epds.server.getInviteToken",
 							"social.nstar.epds.server.registerActor",
 							"social.nstar.relay.server.registerActor",
-							"social.nstar.relay.server.unregisterActor",
-							"social.nstar.epds.repo.getInfo",
-							"social.nstar.epds.repo.registerDevice",
-							"social.nstar.relay.connect.sendRequests"
+							"social.nstar.relay.server.unregisterActor"
 						],
 						"type": "permission",
 						"resource": "rpc"
@@ -45,7 +42,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1776040126213
+		"indexedAt": 1776126648394
 	},
 	"references": {
 		"main": []
