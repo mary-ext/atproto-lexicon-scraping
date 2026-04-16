@@ -13,6 +13,7 @@
 					{
 						"aud": "*",
 						"lxm": [
+							"social.nstar.epds.repo.getInfo",
 							"social.nstar.epds.repo.getStatus",
 							"social.nstar.epds.server.getInviteToken",
 							"social.nstar.epds.server.registerActor",
@@ -42,7 +43,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1776126648394
+		"indexedAt": 1776299490660
 	},
 	"references": {
 		"main": []
