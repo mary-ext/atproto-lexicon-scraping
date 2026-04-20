@@ -40,7 +40,8 @@
 		"description": "A chat message sent via whoossh IRC-over-SSH."
 	},
 	"meta": {
-		"indexedAt": 1771806161917
+		"indexedAt": 1771806161917,
+		"errorAt": 1776644935497
 	},
 	"references": {
 		"main": []
