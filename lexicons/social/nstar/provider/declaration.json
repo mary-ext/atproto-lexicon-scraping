@@ -1,0 +1,164 @@
+{
+	"authority": "did:web:nstar.social",
+	"schema": {
+		"id": "social.nstar.provider.declaration",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"did",
+						"legalName",
+						"displayName",
+						"description",
+						"services",
+						"theme",
+						"links",
+						"contact"
+					],
+					"properties": {
+						"did": {
+							"type": "string",
+							"format": "uri",
+							"description": "Provider's DID document containing 1 or more of following services: #atproto_pds, #appview_bsky, #appview_notif"
+						},
+						"links": {
+							"ref": "#links",
+							"type": "ref",
+							"description": "URLs of the providers website and service policy documents."
+						},
+						"theme": {
+							"ref": "#theme",
+							"type": "ref",
+							"description": "URLs of the providers website and service policy documents."
+						},
+						"contact": {
+							"ref": "#contact",
+							"type": "ref",
+							"description": "Provider's contact information"
+						},
+						"services": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"knownValues": [
+									"atproto_pds",
+									"bsky_appview",
+									"bsky_notif"
+								]
+							},
+							"description": "The services offered by the provider as listed in the provider's DID document."
+						},
+						"legalName": {
+							"type": "string",
+							"maxLength": 64,
+							"description": "Provider's full legal name",
+							"maxGraphemes": 640
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 256,
+							"description": "Description of the services distinguish and are offered by provider.",
+							"maxGraphemes": 2560
+						},
+						"displayName": {
+							"type": "string",
+							"maxLength": 15,
+							"description": "Abbreviated name for displaying in limited UI space presentations (e.g. button label).",
+							"maxGraphemes": 150
+						}
+					}
+				},
+				"description": "A declaration of an Atmosphere service provider."
+			},
+			"links": {
+				"type": "object",
+				"required": [
+					"website",
+					"privacyPolicy",
+					"termsOfService"
+				],
+				"properties": {
+					"website": {
+						"type": "string",
+						"format": "uri",
+						"description": "Provider's website reference."
+					},
+					"privacyPolicy": {
+						"type": "string",
+						"format": "uri",
+						"description": "Link reference to the provider's privacy policy."
+					},
+					"termsOfService": {
+						"type": "string",
+						"format": "uri",
+						"description": "Link reference to the provider's terms of service."
+					}
+				}
+			},
+			"theme": {
+				"type": "object",
+				"properties": {
+					"logoPNG": {
+						"type": "string",
+						"maxLength": 4096,
+						"description": "Providers branded logo in PNG format (base64 encoded). Optional.",
+						"maxGraphemes": 40960
+					},
+					"logoSVG": {
+						"type": "string",
+						"maxLength": 4096,
+						"description": "Providers branded template logo in SVG format. Optional.",
+						"maxGraphemes": 40960
+					},
+					"colorDark": {
+						"type": "string",
+						"maxLength": 7,
+						"description": "HEX color code to use in dark mode presentations. Optional.",
+						"maxGraphemes": 70
+					},
+					"colorLight": {
+						"type": "string",
+						"maxLength": 7,
+						"description": "HEX color code to use in light mode presentations. Optional.",
+						"maxGraphemes": 70
+					}
+				}
+			},
+			"contact": {
+				"type": "object",
+				"required": [
+					"email"
+				],
+				"properties": {
+					"email": {
+						"type": "string",
+						"description": "Provider's support email address."
+					},
+					"phone": {
+						"type": "string",
+						"description": "Provider's support phone number."
+					}
+				}
+			},
+			"service": {
+				"type": "object"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"createdAt": "2026-04-19T22:58:04.496Z"
+	},
+	"meta": {
+		"indexedAt": 1777941261299
+	},
+	"references": {
+		"main": [],
+		"links": [],
+		"theme": [],
+		"contact": [],
+		"service": []
+	}
+}
