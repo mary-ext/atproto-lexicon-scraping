@@ -1,0 +1,47 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.graph.getLikeCount",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"count"
+						],
+						"properties": {
+							"count": {
+								"type": "integer",
+								"description": "Total number of likes this user has given."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"did"
+					],
+					"properties": {
+						"did": {
+							"type": "string",
+							"description": "The DID of the user whose like count to retrieve."
+						}
+					}
+				},
+				"description": "Get the total number of likes a user has given."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1778114106851
+	},
+	"references": {
+		"main": []
+	}
+}
