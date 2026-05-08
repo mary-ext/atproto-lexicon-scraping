@@ -1,7 +1,7 @@
 {
 	"authority": "did:web:chavatar.app",
 	"schema": {
-		"id": "app.chavatar.avatarsets",
+		"id": "app.chavatar.schedules",
 		"defs": {
 			"main": {
 				"key": "literal:self",
@@ -9,17 +9,17 @@
 				"record": {
 					"type": "object",
 					"required": [
-						"sets",
+						"schedules",
 						"updatedAt"
 					],
 					"properties": {
-						"sets": {
+						"schedules": {
 							"type": "array",
 							"items": {
-								"ref": "app.chavatar.settings#avatarSet",
+								"ref": "app.chavatar.settings#rotationSchedule",
 								"type": "ref"
 							},
-							"description": "Ordered list of avatar sets. Selection priority is determined by each set's 'priority' field."
+							"description": "Ordered list of rotation schedules. Active schedule is selected by kind specificity: timed(2) > period(1) > default(0). Ties broken lexicographically by id."
 						},
 						"updatedAt": {
 							"type": "string",
@@ -28,16 +28,15 @@
 						}
 					}
 				},
-				"description": "The collection of avatar sets defined by a user."
+				"description": "The collection of rotation schedules defined by a user."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1,
-		"description": "Named avatar sets with optional activation schedules, stored separately from rotation settings."
+		"description": "Rotation schedules with optional activation timing, stored separately from rotation settings."
 	},
 	"meta": {
-		"indexedAt": 1777768514051,
-		"errorAt": 1778200506274
+		"indexedAt": 1778200506274
 	},
 	"references": {
 		"main": [

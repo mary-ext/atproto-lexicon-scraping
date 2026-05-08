@@ -1,0 +1,70 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.toggleListItem",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"listUri",
+							"gameUri"
+						],
+						"properties": {
+							"gameUri": {
+								"type": "string",
+								"format": "at-uri",
+								"description": "AT URI of the game record."
+							},
+							"listUri": {
+								"type": "string",
+								"format": "at-uri",
+								"description": "AT URI of the list."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"action"
+						],
+						"properties": {
+							"cid": {
+								"type": "string",
+								"description": "CID of the created listItem record. Present when action is 'added'."
+							},
+							"uri": {
+								"type": "string",
+								"format": "at-uri",
+								"description": "AT URI of the created listItem record. Present when action is 'added'."
+							},
+							"action": {
+								"type": "string",
+								"description": "Whether the game was added to or removed from the list.",
+								"knownValues": [
+									"added",
+									"removed"
+								]
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Add or remove a game from a list. Creates a listItem if none exists, deletes it if one does."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1778200506274
+	},
+	"references": {
+		"main": []
+	}
+}

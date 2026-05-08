@@ -1,0 +1,60 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.createList",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"name"
+						],
+						"properties": {
+							"name": {
+								"type": "string",
+								"maxLength": 100,
+								"description": "The name of the list."
+							},
+							"description": {
+								"type": "string",
+								"maxLength": 500,
+								"description": "Optional description of the list."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uri",
+							"cid"
+						],
+						"properties": {
+							"cid": {
+								"type": "string"
+							},
+							"uri": {
+								"type": "string",
+								"format": "at-uri"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Create a new list for the authenticated user."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1778200506274
+	},
+	"references": {
+		"main": []
+	}
+}

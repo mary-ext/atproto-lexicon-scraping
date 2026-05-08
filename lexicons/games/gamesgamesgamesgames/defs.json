@@ -913,8 +913,7 @@
 				"type": "object",
 				"required": [
 					"type",
-					"createdAt",
-					"game"
+					"createdAt"
 				],
 				"properties": {
 					"game": {
@@ -922,12 +921,19 @@
 						"type": "ref",
 						"description": "The game associated with this activity."
 					},
+					"list": {
+						"ref": "games.gamesgamesgamesgames.defs#activityListView",
+						"type": "ref",
+						"description": "List data, present when type is 'listCreate' or 'listAddGame'."
+					},
 					"type": {
 						"type": "string",
 						"description": "The type of activity.",
 						"knownValues": [
 							"like",
-							"review"
+							"review",
+							"listCreate",
+							"listAddGame"
 						]
 					},
 					"review": {
@@ -939,6 +945,27 @@
 						"type": "string",
 						"format": "datetime",
 						"description": "When the activity occurred."
+					}
+				}
+			},
+			"activityListView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"name",
+					"createdAt"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"name": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime"
 					}
 				}
 			},
@@ -1423,7 +1450,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1778114106851,
+		"indexedAt": 1778200506274,
 		"errorAt": 1772670174648
 	},
 	"references": {
@@ -1456,6 +1483,7 @@
 		"multiplayerMode": [],
 		"platformVersion": [],
 		"activityFeedItem": [],
+		"activityListView": [],
 		"gameFeedViewItem": [],
 		"platformCategory": [],
 		"platformFeatures": [],
