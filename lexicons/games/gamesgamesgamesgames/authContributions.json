@@ -1,0 +1,41 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.authContributions",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Contributions",
+				"detail": "Submit and view game data contributions.",
+				"permissions": [
+					{
+						"type": "permission",
+						"resource": "repo",
+						"collection": [
+							"games.gamesgamesgamesgames.contribution"
+						]
+					},
+					{
+						"lxm": [
+							"games.gamesgamesgamesgames.createContribution",
+							"games.gamesgamesgamesgames.getContribution",
+							"games.gamesgamesgamesgames.getContributionStats",
+							"games.gamesgamesgamesgames.listContributions"
+						],
+						"type": "permission",
+						"resource": "rpc",
+						"inheritAud": true
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1779324137609
+	},
+	"references": {
+		"main": []
+	}
+}

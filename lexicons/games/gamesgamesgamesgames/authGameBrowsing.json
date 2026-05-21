@@ -1,0 +1,37 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.authGameBrowsing",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Game Browsing",
+				"detail": "View and search game data.",
+				"permissions": [
+					{
+						"lxm": [
+							"games.gamesgamesgamesgames.getGame",
+							"games.gamesgamesgamesgames.getGenreCounts",
+							"games.gamesgamesgamesgames.getPopularGames",
+							"games.gamesgamesgamesgames.getReviews",
+							"games.gamesgamesgamesgames.listGames",
+							"games.gamesgamesgamesgames.listOrgGames",
+							"games.gamesgamesgamesgames.search"
+						],
+						"type": "permission",
+						"resource": "rpc",
+						"inheritAud": true
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1779324137609
+	},
+	"references": {
+		"main": []
+	}
+}

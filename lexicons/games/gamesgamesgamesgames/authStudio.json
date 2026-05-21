@@ -5,13 +5,14 @@
 		"defs": {
 			"main": {
 				"type": "permission-set",
-				"title": "Cartridge Studio",
+				"title": "Studio",
 				"detail": "Manage studio profiles, create and edit games, and handle ownership claims and contributions.",
 				"permissions": [
 					{
 						"type": "permission",
 						"resource": "repo",
 						"collection": [
+							"games.gamesgamesgamesgames.claim",
 							"games.gamesgamesgamesgames.engine",
 							"games.gamesgamesgamesgames.game",
 							"games.gamesgamesgamesgames.org.credit",
@@ -23,7 +24,10 @@
 					{
 						"lxm": [
 							"games.gamesgamesgamesgames.acceptContribution",
+							"games.gamesgamesgamesgames.createClaim",
 							"games.gamesgamesgamesgames.createGame",
+							"games.gamesgamesgamesgames.getClaim",
+							"games.gamesgamesgamesgames.listClaims",
 							"games.gamesgamesgamesgames.migrateClaim",
 							"games.gamesgamesgamesgames.org.createProfile",
 							"games.gamesgamesgamesgames.org.getProfile",
@@ -41,7 +45,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1775953651034
+		"indexedAt": 1779324137609
 	},
 	"references": {
 		"main": []

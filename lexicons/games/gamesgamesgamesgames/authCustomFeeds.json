@@ -1,0 +1,40 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.authCustomFeeds",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Custom Game Feeds",
+				"detail": "Create and manage custom feed generators.",
+				"permissions": [
+					{
+						"type": "permission",
+						"resource": "repo",
+						"collection": [
+							"games.gamesgamesgamesgames.feed.generator"
+						]
+					},
+					{
+						"lxm": [
+							"games.gamesgamesgamesgames.feed.describeFeedGenerator",
+							"games.gamesgamesgamesgames.feed.getFeedSkeleton",
+							"games.gamesgamesgamesgames.feed.getGameFeed"
+						],
+						"type": "permission",
+						"resource": "rpc",
+						"inheritAud": true
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1779324137609
+	},
+	"references": {
+		"main": []
+	}
+}
