@@ -38,7 +38,8 @@
 		"description": "An image used for automatic avatar rotation."
 	},
 	"meta": {
-		"indexedAt": 1776385803195
+		"indexedAt": 1776385803195,
+		"errorAt": 1780188195828
 	},
 	"references": {
 		"main": []

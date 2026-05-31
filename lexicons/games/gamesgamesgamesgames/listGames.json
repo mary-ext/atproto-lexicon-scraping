@@ -44,8 +44,33 @@
 							"maximum": 100,
 							"minimum": 1
 						},
+						"modes": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						},
 						"cursor": {
 							"type": "string"
+						},
+						"genres": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						},
+						"themes": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						},
+						"ageRatings": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							},
+							"description": "Filter by age rating in 'organization:rating' format (e.g. esrb:M, pegi:Eighteen)."
 						},
 						"sortDirection": {
 							"enum": [
@@ -55,6 +80,46 @@
 							"type": "string",
 							"default": "desc",
 							"description": "Sort direction."
+						},
+						"includeUnrated": {
+							"type": "boolean",
+							"default": false,
+							"description": "When age rating filters are active, also include games with no age ratings."
+						},
+						"applicationTypes": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"knownValues": [
+									"addon",
+									"bundle",
+									"dlc",
+									"episode",
+									"expandedGame",
+									"expansion",
+									"fork",
+									"game",
+									"mod",
+									"pack",
+									"port",
+									"remake",
+									"remaster",
+									"season",
+									"standaloneExpansion",
+									"update"
+								]
+							},
+							"description": "Filter by application type (e.g. game, dlc, bundle)."
+						},
+						"includeCancelled": {
+							"type": "boolean",
+							"default": false
+						},
+						"playerPerspectives": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
 						}
 					}
 				},
@@ -65,7 +130,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1773107271805,
+		"indexedAt": 1780188195828,
 		"errorAt": 1772670174648
 	},
 	"references": {

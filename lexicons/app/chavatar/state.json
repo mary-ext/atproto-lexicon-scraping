@@ -33,7 +33,8 @@
 		"description": "Execution state for avatar rotation."
 	},
 	"meta": {
-		"indexedAt": 1773879908262
+		"indexedAt": 1773879908262,
+		"errorAt": 1780188195828
 	},
 	"references": {
 		"main": []

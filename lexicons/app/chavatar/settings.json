@@ -77,7 +77,8 @@
 		"description": "User settings for avatar rotation."
 	},
 	"meta": {
-		"indexedAt": 1775003248938
+		"indexedAt": 1775003248938,
+		"errorAt": 1780188195828
 	},
 	"references": {
 		"main": [

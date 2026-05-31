@@ -36,7 +36,8 @@
 		"description": "Rotation schedules with optional activation timing, stored separately from rotation settings."
 	},
 	"meta": {
-		"indexedAt": 1778200506274
+		"indexedAt": 1778200506274,
+		"errorAt": 1780188195828
 	},
 	"references": {
 		"main": [
