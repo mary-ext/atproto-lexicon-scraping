@@ -41,7 +41,8 @@
 	},
 	"references": {
 		"main": [
-			"app.chavatar.settings"
+			"app.chavatar.settings",
+			"com.atproto.repo.strongRef"
 		]
 	}
 }

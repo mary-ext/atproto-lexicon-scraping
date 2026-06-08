@@ -16,7 +16,12 @@
 						"cursor": {
 							"type": "string",
 							"maxLength": 13,
-							"description": "TID (ID) of the currently active avatar in the settings array."
+							"description": "TID (ID) of the currently active avatar within the active set."
+						},
+						"activeSetId": {
+							"type": "string",
+							"maxLength": 13,
+							"description": "TID of the currently active avatarSet from settings.avatarSets. Undefined when in fallback state or when avatarSets is not configured."
 						},
 						"lastUpdated": {
 							"type": "string",
@@ -33,7 +38,7 @@
 		"description": "Execution state for avatar rotation."
 	},
 	"meta": {
-		"indexedAt": 1773879908262,
+		"indexedAt": 1780879568479,
 		"errorAt": 1780188195828
 	},
 	"references": {

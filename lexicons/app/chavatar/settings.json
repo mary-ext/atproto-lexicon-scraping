@@ -18,7 +18,7 @@
 						"mode": {
 							"type": "string",
 							"maxLength": 20,
-							"description": "The rotation mode to use for avatar selection.",
+							"description": "The default rotation mode used when a schedule does not specify its own mode.",
 							"knownValues": [
 								"sequential",
 								"random"
@@ -30,7 +30,7 @@
 								"ref": "#avatarItem",
 								"type": "ref"
 							},
-							"description": "List of avatar items to rotate through."
+							"description": "Backward-compatible flat list of avatar items. Used as an always-active default when schedules is absent."
 						},
 						"enabled": {
 							"type": "boolean",
@@ -49,10 +49,86 @@
 								"1w",
 								"1mo"
 							]
+						},
+						"geoContext": {
+							"ref": "#geoContext",
+							"type": "ref",
+							"description": "Geographic and timezone context for schedule evaluation. Required when any schedule uses time-based or solar schedules."
+						},
+						"fallbackAvatarId": {
+							"type": "string",
+							"maxLength": 13,
+							"description": "TID of the avatar to display when no schedule matches the current time. Omit to skip rotation when no schedule is active."
 						}
 					}
 				},
 				"description": "Rotation configuration for a user."
+			},
+			"timing": {
+				"type": "object",
+				"properties": {
+					"ttlSec": {
+						"type": "integer",
+						"description": "Seconds after dateRange.endAt before automatically reverting to the next active schedule."
+					},
+					"dateRange": {
+						"ref": "#dateRange",
+						"type": "ref",
+						"description": "Date range condition."
+					},
+					"daysOfWeek": {
+						"type": "array",
+						"items": {
+							"type": "integer",
+							"description": "Day of week (0=Sunday, 6=Saturday)."
+						},
+						"description": "Active days of week. Omit to match all days."
+					}
+				},
+				"description": "Activation timing for a period schedule. All fields are optional; specified conditions are evaluated with AND semantics."
+			},
+			"dateRange": {
+				"type": "object",
+				"required": [
+					"type"
+				],
+				"properties": {
+					"type": {
+						"type": "string",
+						"description": "Kind of date range. 'annual' recurs every year; 'absolute' is a one-time range.",
+						"knownValues": [
+							"annual",
+							"absolute"
+						]
+					},
+					"endAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": "Absolute end datetime (ISO 8601). Omit for open-ended. Applies when type='absolute'."
+					},
+					"endDay": {
+						"type": "integer",
+						"description": "End day of month (1-31). Required when type='annual'."
+					},
+					"startAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": "Absolute start datetime (ISO 8601). Required when type='absolute'."
+					},
+					"endMonth": {
+						"type": "integer",
+						"description": "End month (1=Jan, 12=Dec). Required when type='annual'."
+					},
+					"startDay": {
+						"type": "integer",
+						"description": "Start day of month (1-31). Required when type='annual'."
+					},
+					"startMonth": {
+						"type": "integer",
+						"description": "Start month (1=Jan, 12=Dec). Required when type='annual'."
+					}
+				},
+				"description": "A date range condition. The 'type' field is the discriminator."
 			},
 			"avatarItem": {
 				"type": "object",
@@ -70,6 +146,161 @@
 						"type": "ref"
 					}
 				}
+			},
+			"geoContext": {
+				"type": "object",
+				"properties": {
+					"location": {
+						"ref": "community.lexicon.location.geo#main",
+						"type": "ref",
+						"description": "WGS84 geographic location. Required for sunrise/sunset/solar-noon time references."
+					},
+					"timezone": {
+						"type": "string",
+						"description": "IANA timezone identifier (e.g. 'Asia/Tokyo'). Required for timeWindow and daysOfWeek schedule evaluation."
+					}
+				},
+				"description": "Geographic and timezone context used for schedule evaluation and solar event calculation."
+			},
+			"timeWindow": {
+				"type": "object",
+				"required": [
+					"start",
+					"list"
+				],
+				"properties": {
+					"end": {
+						"ref": "#timeReference",
+						"type": "ref",
+						"description": "Window end time reference. Omit for open-ended windows."
+					},
+					"list": {
+						"ref": "#rotationList",
+						"type": "ref",
+						"description": "Avatar list for this window."
+					},
+					"start": {
+						"ref": "#timeReference",
+						"type": "ref",
+						"description": "Window start time reference."
+					}
+				},
+				"description": "A time window defined by start and end time references, with its own avatar list."
+			},
+			"rotationList": {
+				"type": "object",
+				"required": [
+					"avatars"
+				],
+				"properties": {
+					"mode": {
+						"type": "string",
+						"maxLength": 20,
+						"description": "Rotation mode override. Falls back to the top-level settings.mode when absent.",
+						"knownValues": [
+							"sequential",
+							"random"
+						]
+					},
+					"avatars": {
+						"type": "array",
+						"items": {
+							"ref": "#avatarItem",
+							"type": "ref"
+						},
+						"description": "Ordered list of avatar items."
+					},
+					"interval": {
+						"type": "string",
+						"maxLength": 6,
+						"description": "Rotation interval override for this list. Falls back to the top-level settings.interval when absent. Not applicable to TimeWindow lists (which use one-shot execution at window boundaries).",
+						"knownValues": [
+							"1h",
+							"3h",
+							"6h",
+							"12h",
+							"1d",
+							"1w",
+							"1mo"
+						]
+					}
+				},
+				"description": "An ordered list of avatar items with optional rotation mode and interval overrides."
+			},
+			"timeReference": {
+				"type": "object",
+				"required": [
+					"type"
+				],
+				"properties": {
+					"time": {
+						"type": "string",
+						"description": "Wall-clock time in 'HH:MM' format interpreted in geoContext.timezone. Required when type='fixed'."
+					},
+					"type": {
+						"type": "string",
+						"description": "Kind of time reference. 'fixed' requires the 'time' field; solar types use geoContext.location.",
+						"knownValues": [
+							"fixed",
+							"sunrise",
+							"sunset",
+							"solar-noon"
+						]
+					},
+					"offsetMin": {
+						"type": "integer",
+						"description": "Offset in minutes from the solar event. Negative values are before the event. Applies to sunrise/sunset/solar-noon."
+					}
+				},
+				"description": "A time reference for schedule boundaries. The 'type' field is the discriminator."
+			},
+			"rotationSchedule": {
+				"type": "object",
+				"required": [
+					"id",
+					"kind"
+				],
+				"properties": {
+					"id": {
+						"type": "string",
+						"maxLength": 13,
+						"description": "TID-format unique identifier for this schedule."
+					},
+					"kind": {
+						"type": "string",
+						"maxLength": 16,
+						"description": "Schedule kind. 'default' is always active. 'period' uses date/day-of-week timing. 'timed' uses time-of-day windows.",
+						"knownValues": [
+							"default",
+							"period",
+							"timed"
+						]
+					},
+					"list": {
+						"ref": "#rotationList",
+						"type": "ref",
+						"description": "Avatar list for 'default' and 'period' kinds."
+					},
+					"name": {
+						"type": "string",
+						"maxLength": 64,
+						"description": "Display name for this schedule."
+					},
+					"timing": {
+						"ref": "#timing",
+						"type": "ref",
+						"description": "Activation timing for 'period' kind. Omit to make always active within the period kind."
+					},
+					"windows": {
+						"type": "array",
+						"items": {
+							"ref": "#timeWindow",
+							"type": "ref"
+						},
+						"description": "Time-of-day windows for 'timed' kind. The schedule is active when the current time falls within any window."
+					}
+				},
+				"description": "A named rotation schedule with an optional activation condition."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
@@ -77,14 +308,30 @@
 		"description": "User settings for avatar rotation."
 	},
 	"meta": {
-		"indexedAt": 1775003248938,
+		"indexedAt": 1780879568479,
 		"errorAt": 1780188195828
 	},
 	"references": {
 		"main": [
+			"com.atproto.repo.strongRef",
+			"community.lexicon.location.geo"
+		],
+		"timing": [],
+		"dateRange": [],
+		"avatarItem": [
 			"com.atproto.repo.strongRef"
 		],
-		"avatarItem": [
+		"geoContext": [
+			"community.lexicon.location.geo"
+		],
+		"timeWindow": [
+			"com.atproto.repo.strongRef"
+		],
+		"rotationList": [
+			"com.atproto.repo.strongRef"
+		],
+		"timeReference": [],
+		"rotationSchedule": [
 			"com.atproto.repo.strongRef"
 		]
 	}
