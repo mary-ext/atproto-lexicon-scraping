@@ -1,0 +1,85 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.feed.getListItems",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"items"
+						],
+						"properties": {
+							"items": {
+								"type": "array",
+								"items": {
+									"ref": "#listItemView",
+									"type": "ref"
+								}
+							},
+							"cursor": {
+								"type": "string"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"listUri"
+					],
+					"properties": {
+						"limit": {
+							"type": "integer",
+							"default": 30,
+							"maximum": 100,
+							"minimum": 1
+						},
+						"cursor": {
+							"type": "string"
+						},
+						"listUri": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "The AT-URI of the list."
+						}
+					}
+				},
+				"description": "Get paginated game items from a list."
+			},
+			"listItemView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"addedAt",
+					"game"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"game": {
+						"type": "unknown"
+					},
+					"addedAt": {
+						"type": "string",
+						"format": "datetime"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1780965622482
+	},
+	"references": {
+		"main": [],
+		"listItemView": []
+	}
+}

@@ -1,0 +1,92 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.actor.getTasteProfile",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"genres",
+							"favorites"
+						],
+						"properties": {
+							"genres": {
+								"type": "array",
+								"items": {
+									"ref": "#genrePreference",
+									"type": "ref"
+								}
+							},
+							"favorites": {
+								"type": "array",
+								"items": {
+									"ref": "games.gamesgamesgamesgames.defs#gameView",
+									"type": "ref"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"did"
+					],
+					"properties": {
+						"did": {
+							"type": "string",
+							"description": "The DID of the user whose taste profile to retrieve."
+						},
+						"genreLimit": {
+							"type": "integer",
+							"default": 5,
+							"maximum": 20,
+							"minimum": 1
+						},
+						"favoriteLimit": {
+							"type": "integer",
+							"default": 6,
+							"maximum": 12,
+							"minimum": 1
+						}
+					}
+				},
+				"description": "Get a user's taste profile: top genres computed from likes and reviews, plus auto-selected favorite games."
+			},
+			"genrePreference": {
+				"type": "object",
+				"required": [
+					"genre",
+					"count",
+					"percentage"
+				],
+				"properties": {
+					"count": {
+						"type": "integer"
+					},
+					"genre": {
+						"type": "string"
+					},
+					"percentage": {
+						"type": "integer"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1780965622482
+	},
+	"references": {
+		"main": [
+			"games.gamesgamesgamesgames.defs"
+		],
+		"genrePreference": []
+	}
+}

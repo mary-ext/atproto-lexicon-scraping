@@ -82,6 +82,36 @@
 					},
 					"description": {
 						"type": "string"
+					},
+					"previewItems": {
+						"type": "array",
+						"items": {
+							"ref": "#listPreviewItem",
+							"type": "ref"
+						},
+						"maxLength": 4
+					}
+				}
+			},
+			"listPreviewItem": {
+				"type": "object",
+				"required": [
+					"uri",
+					"name"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"name": {
+						"type": "string"
+					},
+					"slug": {
+						"type": "string"
+					},
+					"media": {
+						"type": "unknown"
 					}
 				}
 			}
@@ -90,10 +120,11 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1778200506274
+		"indexedAt": 1780965622482
 	},
 	"references": {
 		"main": [],
-		"userListView": []
+		"userListView": [],
+		"listPreviewItem": []
 	}
 }

@@ -13,9 +13,9 @@
 						"resource": "repo",
 						"collection": [
 							"games.gamesgamesgamesgames.collection",
-							"games.gamesgamesgamesgames.graph.like",
-							"social.popfeed.feed.list",
-							"social.popfeed.feed.listItem"
+							"games.gamesgamesgamesgames.feed.list",
+							"games.gamesgamesgamesgames.feed.listItem",
+							"games.gamesgamesgamesgames.graph.like"
 						]
 					},
 					{
@@ -37,7 +37,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1779324137609
+		"indexedAt": 1780965622482
 	},
 	"references": {
 		"main": []

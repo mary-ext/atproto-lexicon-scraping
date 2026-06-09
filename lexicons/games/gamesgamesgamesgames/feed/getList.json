@@ -1,0 +1,105 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.feed.getList",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"list"
+						],
+						"properties": {
+							"list": {
+								"ref": "#listDetailView",
+								"type": "ref"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"uri"
+					],
+					"properties": {
+						"uri": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "The AT-URI of the list record."
+						}
+					}
+				},
+				"description": "Get a single list by its AT-URI, including creator profile info."
+			},
+			"creatorView": {
+				"type": "object",
+				"required": [
+					"did",
+					"handle"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did"
+					},
+					"avatar": {
+						"type": "unknown"
+					},
+					"handle": {
+						"type": "string"
+					},
+					"displayName": {
+						"type": "string"
+					}
+				}
+			},
+			"listDetailView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"name",
+					"itemCount",
+					"createdAt",
+					"creator"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"name": {
+						"type": "string"
+					},
+					"creator": {
+						"ref": "#creatorView",
+						"type": "ref"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime"
+					},
+					"itemCount": {
+						"type": "integer"
+					},
+					"description": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1780965622482
+	},
+	"references": {
+		"main": [],
+		"creatorView": [],
+		"listDetailView": []
+	}
+}
