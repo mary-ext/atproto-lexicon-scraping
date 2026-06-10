@@ -1,0 +1,57 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.feed.getCommunityFeed",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"feed"
+						],
+						"properties": {
+							"feed": {
+								"type": "array",
+								"items": {
+									"ref": "games.gamesgamesgamesgames.defs#communityFeedItem",
+									"type": "ref"
+								}
+							},
+							"cursor": {
+								"type": "string"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"properties": {
+						"limit": {
+							"type": "integer",
+							"default": 20,
+							"maximum": 100,
+							"minimum": 1
+						},
+						"cursor": {
+							"type": "string"
+						}
+					}
+				},
+				"description": "Get recent community activity across all users, including likes, reviews, and list additions."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1781052401338
+	},
+	"references": {
+		"main": [
+			"games.gamesgamesgamesgames.defs"
+		]
+	}
+}

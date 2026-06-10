@@ -1052,6 +1052,52 @@
 				},
 				"description": "Features supported by a game on a specific storefront/platform."
 			},
+			"communityFeedItem": {
+				"type": "object",
+				"required": [
+					"type",
+					"createdAt",
+					"actor"
+				],
+				"properties": {
+					"game": {
+						"ref": "games.gamesgamesgamesgames.defs#gameView",
+						"type": "ref",
+						"description": "The game associated with this activity."
+					},
+					"list": {
+						"ref": "games.gamesgamesgamesgames.defs#activityListView",
+						"type": "ref",
+						"description": "List data, present when type is 'listCreate' or 'listAddGame'."
+					},
+					"type": {
+						"type": "string",
+						"description": "The type of activity.",
+						"knownValues": [
+							"like",
+							"review",
+							"listCreate",
+							"listAddGame"
+						]
+					},
+					"actor": {
+						"ref": "games.gamesgamesgamesgames.defs#communityFeedActorView",
+						"type": "ref",
+						"description": "The user who performed this activity."
+					},
+					"review": {
+						"ref": "games.gamesgamesgamesgames.defs#activityReviewView",
+						"type": "ref",
+						"description": "Review data, present when type is 'review'."
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": "When the activity occurred."
+					}
+				},
+				"description": "A community activity item with actor information."
+			},
 			"engineSummaryView": {
 				"type": "object",
 				"required": [
@@ -1416,6 +1462,26 @@
 					}
 				}
 			},
+			"communityFeedActorView": {
+				"type": "object",
+				"required": [
+					"did"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did"
+					},
+					"handle": {
+						"type": "string"
+					},
+					"displayName": {
+						"type": "string",
+						"maxLength": 640
+					}
+				},
+				"description": "Lightweight actor view for community feed items."
+			},
 			"actorProfileSummaryView": {
 				"type": "object",
 				"required": [
@@ -1450,7 +1516,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1778200506274,
+		"indexedAt": 1781052401338,
 		"errorAt": 1772670174648
 	},
 	"references": {
@@ -1487,6 +1553,7 @@
 		"gameFeedViewItem": [],
 		"platformCategory": [],
 		"platformFeatures": [],
+		"communityFeedItem": [],
 		"engineSummaryView": [],
 		"playerPerspective": [],
 		"activityReviewView": [],
@@ -1502,6 +1569,7 @@
 		"actorProfileDetailView": [
 			"app.bsky.richtext.facet"
 		],
+		"communityFeedActorView": [],
 		"actorProfileSummaryView": []
 	}
 }
