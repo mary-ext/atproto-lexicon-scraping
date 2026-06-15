@@ -1,0 +1,48 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.authGamesCatalog",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Game Catalog",
+				"detail": "Create and edit games, submit ownership claims, and accept community contributions.",
+				"permissions": [
+					{
+						"type": "permission",
+						"resource": "repo",
+						"collection": [
+							"games.gamesgamesgamesgames.claim",
+							"games.gamesgamesgamesgames.engine",
+							"games.gamesgamesgamesgames.game",
+							"games.gamesgamesgamesgames.platform",
+							"games.gamesgamesgamesgames.platformFamily"
+						]
+					},
+					{
+						"lxm": [
+							"games.gamesgamesgamesgames.acceptContribution",
+							"games.gamesgamesgamesgames.createClaim",
+							"games.gamesgamesgamesgames.createGame",
+							"games.gamesgamesgamesgames.getClaim",
+							"games.gamesgamesgamesgames.listClaims",
+							"games.gamesgamesgamesgames.migrateClaim",
+							"games.gamesgamesgamesgames.putGame"
+						],
+						"type": "permission",
+						"resource": "rpc",
+						"inheritAud": true
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1781484528318
+	},
+	"references": {
+		"main": []
+	}
+}

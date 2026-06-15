@@ -1,0 +1,41 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.authGamesOrg",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Organization Management",
+				"detail": "Create and edit organization profiles and manage game credits.",
+				"permissions": [
+					{
+						"type": "permission",
+						"resource": "repo",
+						"collection": [
+							"games.gamesgamesgamesgames.org.credit",
+							"games.gamesgamesgamesgames.org.profile"
+						]
+					},
+					{
+						"lxm": [
+							"games.gamesgamesgamesgames.org.createProfile",
+							"games.gamesgamesgamesgames.org.getProfile",
+							"games.gamesgamesgamesgames.org.putProfile"
+						],
+						"type": "permission",
+						"resource": "rpc",
+						"inheritAud": true
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1781484528318
+	},
+	"references": {
+		"main": []
+	}
+}
