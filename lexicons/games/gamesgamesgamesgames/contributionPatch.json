@@ -11,7 +11,6 @@
 					"required": [
 						"contribution",
 						"contributionReview",
-						"subject",
 						"changes",
 						"createdAt"
 					],
@@ -23,7 +22,7 @@
 						"subject": {
 							"type": "string",
 							"format": "at-uri",
-							"description": "The entity these changes apply to."
+							"description": "The entity these changes apply to. Absent for newGame contributions."
 						},
 						"createdAt": {
 							"type": "string",
@@ -46,7 +45,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1775694139346
+		"indexedAt": 1781743727807
 	},
 	"references": {
 		"main": [

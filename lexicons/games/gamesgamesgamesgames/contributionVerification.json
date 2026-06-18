@@ -11,7 +11,6 @@
 					"required": [
 						"contribution",
 						"contributor",
-						"subject",
 						"contributionType",
 						"acceptedBy",
 						"createdAt"
@@ -58,7 +57,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1775694139346
+		"indexedAt": 1781743727807
 	},
 	"references": {
 		"main": [
