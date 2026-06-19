@@ -13,6 +13,10 @@
 							"changes"
 						],
 						"properties": {
+							"rkey": {
+								"type": "string",
+								"description": "Optional record key. When provided, the contribution is created with this rkey instead of an auto-generated one."
+							},
 							"changes": {
 								"type": "unknown",
 								"description": "A partial object with only changed fields."
@@ -60,7 +64,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1775694139346
+		"indexedAt": 1781830386449
 	},
 	"references": {
 		"main": []
