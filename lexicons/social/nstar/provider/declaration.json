@@ -152,7 +152,8 @@
 		"createdAt": "2026-04-19T22:58:04.496Z"
 	},
 	"meta": {
-		"indexedAt": 1777941261299
+		"indexedAt": 1777941261299,
+		"errorAt": 1781916261451
 	},
 	"references": {
 		"main": [],

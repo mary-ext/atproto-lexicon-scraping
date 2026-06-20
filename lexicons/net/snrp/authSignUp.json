@@ -1,26 +1,26 @@
 {
 	"authority": "did:web:nstar.social",
 	"schema": {
-		"id": "social.nstar.authSignUp",
+		"id": "net.snrp.authSignUp",
 		"defs": {
 			"main": {
 				"type": "permission-set",
 				"title": "NorthStar Social",
-				"detail": "New account registration and device setup.",
+				"detail": "Account registration and device setup.",
 				"title:lang": {},
 				"detail:lang": {},
 				"permissions": [
 					{
 						"aud": "*",
 						"lxm": [
-							"social.nstar.epds.repo.getInfo",
-							"social.nstar.epds.repo.getStatus",
-							"social.nstar.epds.server.getInviteToken",
-							"social.nstar.epds.server.registerActor",
-							"social.nstar.relay.server.registerActor",
-							"social.nstar.relay.server.unregisterActor",
-							"social.nstar.epds.repo.registerDevice",
-							"social.nstar.relay.connect.sendRequests"
+							"net.snrp.epds.repo.getInfo",
+							"net.snrp.epds.repo.getStatus",
+							"net.snrp.epds.repo.registerDevice",
+							"net.snrp.epds.server.getInviteToken",
+							"net.snrp.epds.server.registerActor",
+							"net.snrp.relay.server.registerActor",
+							"net.snrp.relay.server.unregisterActor",
+							"net.snrp.relay.connect.sendRequests"
 						],
 						"type": "permission",
 						"resource": "rpc"
@@ -34,8 +34,8 @@
 						],
 						"resource": "repo",
 						"collection": [
-							"social.nstar.public.declaration",
-							"social.nstar.public.profile"
+							"net.snrp.public.declaration",
+							"net.snrp.public.profile"
 						]
 					}
 				]
@@ -45,8 +45,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1776644935497,
-		"errorAt": 1781916261451
+		"indexedAt": 1781916261451
 	},
 	"references": {
 		"main": []
