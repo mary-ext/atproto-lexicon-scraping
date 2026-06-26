@@ -45,6 +45,11 @@
 						},
 						"maxLength": 128,
 						"description": "Images referenced in the body with ![alt](imageRef)"
+					},
+					"spoilerWarning": {
+						"type": "string",
+						"maxLength": 512,
+						"description": "big red warning such as DELTARUNE CHAPTER 5 SPOILERS the user will have to click trough to view the content"
 					}
 				},
 				"description": "markdown for rendering in darkworld.download/blog"
@@ -54,7 +59,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1780188195828
+		"indexedAt": 1782434693269
 	},
 	"references": {
 		"imageRef": [],
