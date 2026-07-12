@@ -1,0 +1,78 @@
+{
+	"authority": "did:web:clippr.social",
+	"schema": {
+		"id": "social.clippr.feed.getProfileClips",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"feed"
+						],
+						"properties": {
+							"feed": {
+								"type": "array",
+								"items": {
+									"ref": "social.clippr.feed.defs#clipView",
+									"type": "ref"
+								}
+							},
+							"cursor": {
+								"type": "string"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"actor"
+					],
+					"properties": {
+						"actor": {
+							"type": "string",
+							"format": "at-identifier",
+							"description": "An actor to get feed data from"
+						},
+						"limit": {
+							"type": "integer",
+							"default": 50,
+							"maximum": 100,
+							"minimum": 1,
+							"description": "How many results to return with the query"
+						},
+						"cursor": {
+							"type": "string",
+							"description": "A parameter to paginate results"
+						},
+						"filter": {
+							"type": "string",
+							"default": "all_clips",
+							"description": "What types to include in response",
+							"knownValues": [
+								"all_clips",
+								"tagged_clips",
+								"untagged_clips"
+							]
+						}
+					}
+				},
+				"description": "Get a view of a profile's reverse-chronological clips feed. Does not require auth."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1783822417517
+	},
+	"references": {
+		"main": [
+			"social.clippr.actor.defs",
+			"social.clippr.feed.defs"
+		]
+	}
+}
