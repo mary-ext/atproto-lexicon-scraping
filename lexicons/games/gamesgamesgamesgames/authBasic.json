@@ -16,7 +16,6 @@
 							"games.gamesgamesgamesgames.actor.game",
 							"games.gamesgamesgamesgames.actor.profile",
 							"games.gamesgamesgamesgames.actor.stats",
-							"games.gamesgamesgamesgames.claim",
 							"games.gamesgamesgamesgames.collection",
 							"games.gamesgamesgamesgames.contribution",
 							"games.gamesgamesgamesgames.feed.generator",
@@ -28,7 +27,6 @@
 							"games.gamesgamesgamesgames.actor.createProfile",
 							"games.gamesgamesgamesgames.actor.getProfile",
 							"games.gamesgamesgamesgames.actor.putProfile",
-							"games.gamesgamesgamesgames.createClaim",
 							"games.gamesgamesgamesgames.createContribution",
 							"games.gamesgamesgamesgames.feed.describeFeedGenerator",
 							"games.gamesgamesgamesgames.feed.getFeedSkeleton",
@@ -42,7 +40,6 @@
 							"games.gamesgamesgamesgames.feed.getRecentlyUpdatedFeed",
 							"games.gamesgamesgamesgames.feed.getSimilarGamesFeed",
 							"games.gamesgamesgamesgames.feed.getUpcomingReleasesFeed",
-							"games.gamesgamesgamesgames.getClaim",
 							"games.gamesgamesgamesgames.getContribution",
 							"games.gamesgamesgamesgames.getContributionStats",
 							"games.gamesgamesgamesgames.getGame",
@@ -53,7 +50,6 @@
 							"games.gamesgamesgamesgames.getStats",
 							"games.gamesgamesgamesgames.graph.getLikes",
 							"games.gamesgamesgamesgames.graph.toggleLike",
-							"games.gamesgamesgamesgames.listClaims",
 							"games.gamesgamesgamesgames.listContributions",
 							"games.gamesgamesgamesgames.listGames",
 							"games.gamesgamesgamesgames.listOrgGames",
@@ -71,7 +67,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1775953651034
+		"indexedAt": 1784167664177
 	},
 	"references": {
 		"main": []
