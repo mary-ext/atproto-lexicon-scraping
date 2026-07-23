@@ -1,0 +1,50 @@
+{
+	"authority": "did:web:stream.place",
+	"schema": {
+		"id": "place.stream.live.viewerCount",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"streamer",
+						"server",
+						"count"
+					],
+					"properties": {
+						"count": {
+							"type": "integer",
+							"description": "The current view count for the livestream."
+						},
+						"server": {
+							"type": "string",
+							"format": "did",
+							"description": "The DID of the server to get the view count for."
+						},
+						"streamer": {
+							"type": "string",
+							"format": "did",
+							"description": "The DID of the streamer to teleport to."
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "The time the view count was last updated."
+						}
+					}
+				},
+				"description": "Current viewer count for a livestream on a particular server. Record keys are streamer_did::server_did by convention."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784772920157
+	},
+	"references": {
+		"main": []
+	}
+}

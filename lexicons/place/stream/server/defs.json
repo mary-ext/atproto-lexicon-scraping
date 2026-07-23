@@ -1,0 +1,151 @@
+{
+	"authority": "did:web:stream.place",
+	"schema": {
+		"id": "place.stream.server.defs",
+		"defs": {
+			"storage": {
+				"type": "object",
+				"required": [
+					"url",
+					"isActive"
+				],
+				"properties": {
+					"url": {
+						"type": "string",
+						"description": "S3 storage URL with masked secret key in format: s3+https://ACCESS_KEY:***@endpoint/bucket"
+					},
+					"isActive": {
+						"type": "boolean",
+						"description": "Whether backup storage is currently active."
+					}
+				},
+				"description": "S3 storage configuration for backups."
+			},
+			"webhook": {
+				"type": "object",
+				"required": [
+					"id",
+					"url",
+					"events",
+					"active",
+					"createdAt"
+				],
+				"properties": {
+					"id": {
+						"type": "string",
+						"description": "Unique identifier for this webhook."
+					},
+					"url": {
+						"type": "string",
+						"format": "uri",
+						"description": "The webhook URL where events will be sent."
+					},
+					"name": {
+						"type": "string",
+						"maxLength": 100,
+						"description": "A user-friendly name for this webhook."
+					},
+					"active": {
+						"type": "boolean",
+						"description": "Whether this webhook is currently active."
+					},
+					"events": {
+						"type": "array",
+						"items": {
+							"enum": [
+								"chat",
+								"livestream",
+								"follow",
+								"mention",
+								"stream.received"
+							],
+							"type": "string"
+						},
+						"description": "The types of events this webhook should receive."
+					},
+					"prefix": {
+						"type": "string",
+						"maxLength": 100,
+						"description": "Text to prepend to webhook messages."
+					},
+					"suffix": {
+						"type": "string",
+						"maxLength": 100,
+						"description": "Text to append to webhook messages."
+					},
+					"rewrite": {
+						"type": "array",
+						"items": {
+							"ref": "#rewriteRule",
+							"type": "ref"
+						},
+						"description": "Text replacement rules for webhook messages."
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": "When this webhook was created."
+					},
+					"muteWords": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"maxLength": 100
+						},
+						"description": "Words to filter out from chat messages. Messages containing any of these words will not be forwarded."
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": "When this webhook was last updated."
+					},
+					"errorCount": {
+						"type": "integer",
+						"description": "Number of consecutive errors for this webhook."
+					},
+					"description": {
+						"type": "string",
+						"maxLength": 500,
+						"description": "A description of what this webhook is used for."
+					},
+					"lastTriggered": {
+						"type": "string",
+						"format": "datetime",
+						"description": "When this webhook was last triggered."
+					}
+				},
+				"description": "A webhook configuration for receiving Streamplace events."
+			},
+			"rewriteRule": {
+				"type": "object",
+				"required": [
+					"from",
+					"to"
+				],
+				"properties": {
+					"to": {
+						"type": "string",
+						"maxLength": 100,
+						"description": "Text to replace with."
+					},
+					"from": {
+						"type": "string",
+						"maxLength": 100,
+						"minLength": 1,
+						"description": "Text to search for and replace."
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784772920157
+	},
+	"references": {
+		"storage": [],
+		"webhook": [],
+		"rewriteRule": []
+	}
+}

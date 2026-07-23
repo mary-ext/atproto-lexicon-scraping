@@ -1,0 +1,60 @@
+{
+	"authority": "did:web:stream.place",
+	"schema": {
+		"id": "place.stream.live.getSegments",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"properties": {
+							"segments": {
+								"type": "array",
+								"items": {
+									"ref": "place.stream.segment#segmentView",
+									"type": "ref"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"userDID"
+					],
+					"properties": {
+						"limit": {
+							"type": "integer",
+							"default": 50,
+							"maximum": 100,
+							"minimum": 1
+						},
+						"before": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"userDID": {
+							"type": "string",
+							"format": "did",
+							"description": "The DID of the potentially-following user"
+						}
+					}
+				},
+				"description": "Get a list of livestream segments for a user"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784772920157
+	},
+	"references": {
+		"main": [
+			"place.stream.segment"
+		]
+	}
+}

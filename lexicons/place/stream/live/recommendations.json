@@ -1,0 +1,45 @@
+{
+	"authority": "did:web:stream.place",
+	"schema": {
+		"id": "place.stream.live.recommendations",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"streamers",
+						"createdAt"
+					],
+					"properties": {
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Client-declared timestamp when this list was created."
+						},
+						"streamers": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "did"
+							},
+							"maxLength": 8,
+							"minLength": 0,
+							"description": "Ordered list of recommended streamer DIDs"
+						}
+					}
+				},
+				"description": "A list of recommended streamers, in order of preference"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784772920157
+	},
+	"references": {
+		"main": []
+	}
+}

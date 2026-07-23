@@ -1,0 +1,44 @@
+{
+	"authority": "did:web:stream.place",
+	"schema": {
+		"id": "place.stream.broadcast.defs",
+		"defs": {
+			"broadcastOriginView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"cid",
+					"author",
+					"record"
+				],
+				"properties": {
+					"cid": {
+						"type": "string",
+						"format": "cid"
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"author": {
+						"ref": "app.bsky.actor.defs#profileViewBasic",
+						"type": "ref"
+					},
+					"record": {
+						"type": "unknown"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784772920157
+	},
+	"references": {
+		"broadcastOriginView": [
+			"app.bsky.actor.defs"
+		]
+	}
+}

@@ -1,0 +1,53 @@
+{
+	"authority": "did:web:stream.place",
+	"schema": {
+		"id": "place.stream.graph.getFollowingUser",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"properties": {
+							"follow": {
+								"ref": "com.atproto.repo.strongRef",
+								"type": "ref"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"userDID",
+						"subjectDID"
+					],
+					"properties": {
+						"userDID": {
+							"type": "string",
+							"format": "did",
+							"description": "The DID of the potentially-following user"
+						},
+						"subjectDID": {
+							"type": "string",
+							"format": "did",
+							"description": "The DID of the user potentially being followed"
+						}
+					}
+				},
+				"description": "Get whether or not user A is following user B."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784772920157
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}
