@@ -1,0 +1,123 @@
+{
+	"authority": "did:web:coves.social",
+	"schema": {
+		"id": "social.coves.community.getMembers",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"members"
+						],
+						"properties": {
+							"cursor": {
+								"type": "string",
+								"maxLength": 500
+							},
+							"members": {
+								"type": "array",
+								"items": {
+									"ref": "#memberView",
+									"type": "ref"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"community"
+					],
+					"properties": {
+						"sort": {
+							"type": "string",
+							"default": "reputation",
+							"maxLength": 64,
+							"knownValues": [
+								"reputation",
+								"recent",
+								"alphabetical"
+							]
+						},
+						"limit": {
+							"type": "integer",
+							"default": 50,
+							"maximum": 100,
+							"minimum": 1
+						},
+						"cursor": {
+							"type": "string",
+							"maxLength": 500
+						},
+						"community": {
+							"type": "string",
+							"format": "at-identifier",
+							"description": "DID or handle of the community"
+						}
+					}
+				},
+				"description": "Get list of users with membership status in a community"
+			},
+			"memberView": {
+				"type": "object",
+				"required": [
+					"did",
+					"memberSince"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did"
+					},
+					"avatar": {
+						"type": "string",
+						"format": "uri"
+					},
+					"handle": {
+						"type": "string",
+						"format": "handle"
+					},
+					"postCount": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Number of posts in this community"
+					},
+					"reputation": {
+						"type": "integer",
+						"minimum": 0
+					},
+					"displayName": {
+						"type": "string",
+						"maxLength": 1280,
+						"maxGraphemes": 128
+					},
+					"isModerator": {
+						"type": "boolean"
+					},
+					"memberSince": {
+						"type": "string",
+						"format": "datetime"
+					},
+					"commentCount": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Number of comments in this community"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784945468305
+	},
+	"references": {
+		"main": [],
+		"memberView": []
+	}
+}

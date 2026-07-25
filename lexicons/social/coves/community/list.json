@@ -1,0 +1,96 @@
+{
+	"authority": "did:web:coves.social",
+	"schema": {
+		"id": "social.coves.community.list",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"communities"
+						],
+						"properties": {
+							"cursor": {
+								"type": "string",
+								"maxLength": 500
+							},
+							"communities": {
+								"type": "array",
+								"items": {
+									"ref": "social.coves.community.defs#communityView",
+									"type": "ref"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"properties": {
+						"sort": {
+							"type": "string",
+							"default": "popular",
+							"maxLength": 64,
+							"description": "Sorting method",
+							"knownValues": [
+								"popular",
+								"active",
+								"new",
+								"alphabetical"
+							]
+						},
+						"limit": {
+							"type": "integer",
+							"default": 50,
+							"maximum": 100,
+							"minimum": 1
+						},
+						"cursor": {
+							"type": "string",
+							"maxLength": 500,
+							"description": "Pagination cursor"
+						},
+						"category": {
+							"type": "string",
+							"maxLength": 50,
+							"description": "Filter by category"
+						},
+						"language": {
+							"type": "string",
+							"format": "language",
+							"description": "Filter by language"
+						},
+						"subscribed": {
+							"type": "boolean",
+							"description": "If true, only return communities the viewer is subscribed to. Requires authentication."
+						},
+						"visibility": {
+							"type": "string",
+							"maxLength": 64,
+							"description": "Filter communities by visibility level",
+							"knownValues": [
+								"public",
+								"unlisted",
+								"private"
+							]
+						}
+					}
+				},
+				"description": "List communities with various sorting options. Authentication optional; viewer state will be included if authenticated."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784945468305
+	},
+	"references": {
+		"main": [
+			"social.coves.community.defs"
+		]
+	}
+}

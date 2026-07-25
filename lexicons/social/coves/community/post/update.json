@@ -1,0 +1,145 @@
+{
+	"authority": "did:web:coves.social",
+	"schema": {
+		"id": "social.coves.community.post.update",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uri"
+						],
+						"properties": {
+							"uri": {
+								"type": "string",
+								"format": "at-uri",
+								"description": "AT-URI of the post to update"
+							},
+							"tags": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"maxLength": 640,
+									"maxGraphemes": 64
+								},
+								"maxLength": 8,
+								"description": "Updated topic tags"
+							},
+							"embed": {
+								"refs": [
+									"social.coves.embed.images",
+									"social.coves.embed.video",
+									"social.coves.embed.external",
+									"social.coves.embed.post"
+								],
+								"type": "union",
+								"description": "Updated embedded content (note: changing embed type may be restricted)"
+							},
+							"langs": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"format": "language"
+								},
+								"maxLength": 3,
+								"description": "Updated languages (ISO 639-1)"
+							},
+							"title": {
+								"type": "string",
+								"maxLength": 3000,
+								"description": "Updated title",
+								"maxGraphemes": 300
+							},
+							"facets": {
+								"type": "array",
+								"items": {
+									"ref": "social.coves.richtext.facet",
+									"type": "ref"
+								},
+								"maxLength": 200,
+								"description": "Updated annotations for rich text (mentions, links, formatting, block structure)"
+							},
+							"labels": {
+								"ref": "com.atproto.label.defs#selfLabels",
+								"type": "ref",
+								"description": "Updated self-applied content labels"
+							},
+							"content": {
+								"type": "string",
+								"maxLength": 100000,
+								"description": "Updated content - main text for text posts, description for media, etc.",
+								"maxGraphemes": 10000
+							},
+							"editNote": {
+								"type": "string",
+								"maxLength": 3000,
+								"description": "Optional note explaining the edit",
+								"maxGraphemes": 300
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "PostNotFound",
+						"description": "Post not found"
+					},
+					{
+						"name": "NotAuthorized",
+						"description": "User is not authorized to edit this post"
+					},
+					{
+						"name": "EditWindowExpired",
+						"description": "Edit window has expired (posts can only be edited within 24 hours)"
+					},
+					{
+						"name": "InvalidUpdate",
+						"description": "Invalid update operation (e.g., changing post type)"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uri",
+							"cid"
+						],
+						"properties": {
+							"cid": {
+								"type": "string",
+								"format": "cid",
+								"description": "New CID of the updated post"
+							},
+							"uri": {
+								"type": "string",
+								"format": "at-uri",
+								"description": "AT-URI of the updated post"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Update an existing post"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784945468305
+	},
+	"references": {
+		"main": [
+			"com.atproto.label.defs",
+			"com.atproto.repo.strongRef",
+			"social.coves.embed.external",
+			"social.coves.embed.images",
+			"social.coves.embed.post",
+			"social.coves.embed.video",
+			"social.coves.richtext.facet"
+		]
+	}
+}

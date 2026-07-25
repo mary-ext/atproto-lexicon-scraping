@@ -1,0 +1,123 @@
+{
+	"authority": "did:web:coves.social",
+	"schema": {
+		"id": "social.coves.community.profile",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"createdAt"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"maxLength": 63,
+							"description": "Short community name (local part of handle). Must be a valid DNS label: ASCII letters, digits, and hyphens only."
+						},
+						"avatar": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg",
+								"image/webp"
+							],
+							"maxSize": 1000000
+						},
+						"banner": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/jpeg",
+								"image/webp"
+							],
+							"maxSize": 2000000
+						},
+						"hostedBy": {
+							"type": "string",
+							"format": "did",
+							"description": "DID of the instance hosting this community"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"createdBy": {
+							"type": "string",
+							"format": "did",
+							"description": "DID of the user who created this community"
+						},
+						"visibility": {
+							"type": "string",
+							"default": "public",
+							"maxLength": 64,
+							"description": "Community visibility level",
+							"knownValues": [
+								"public",
+								"unlisted",
+								"private"
+							]
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 10000,
+							"description": "Community description with rich text support",
+							"maxGraphemes": 1000
+						},
+						"displayName": {
+							"type": "string",
+							"maxLength": 1280,
+							"description": "Display name for the community",
+							"maxGraphemes": 128
+						},
+						"moderationType": {
+							"type": "string",
+							"default": "moderator",
+							"maxLength": 64,
+							"description": "Type of moderation system (moderator=traditional moderator team, sortition=community tribunal)",
+							"knownValues": [
+								"moderator",
+								"sortition"
+							]
+						},
+						"contentWarnings": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 32,
+								"knownValues": [
+									"nsfw",
+									"violence",
+									"spoilers"
+								]
+							},
+							"description": "Required content warnings for this community"
+						},
+						"descriptionFacets": {
+							"type": "array",
+							"items": {
+								"ref": "social.coves.richtext.facet",
+								"type": "ref"
+							},
+							"description": "Rich text annotations for description"
+						}
+					}
+				},
+				"description": "A community's profile information (V2: stored in community's own repository)"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784945468305
+	},
+	"references": {
+		"main": [
+			"social.coves.richtext.facet"
+		]
+	}
+}

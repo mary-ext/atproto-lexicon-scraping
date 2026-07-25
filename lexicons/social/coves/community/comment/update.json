@@ -1,0 +1,124 @@
+{
+	"authority": "did:web:coves.social",
+	"schema": {
+		"id": "social.coves.community.comment.update",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uri",
+							"content"
+						],
+						"properties": {
+							"uri": {
+								"type": "string",
+								"format": "at-uri",
+								"description": "AT-URI of the comment to update"
+							},
+							"embed": {
+								"refs": [
+									"social.coves.embed.images",
+									"social.coves.embed.post"
+								],
+								"type": "union",
+								"description": "Updated embedded media or quoted posts"
+							},
+							"langs": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"format": "language"
+								},
+								"maxLength": 3,
+								"description": "Updated languages used in the comment content (ISO 639-1)"
+							},
+							"facets": {
+								"type": "array",
+								"items": {
+									"ref": "social.coves.richtext.facet",
+									"type": "ref"
+								},
+								"maxLength": 200,
+								"description": "Updated annotations for rich text (mentions, links, formatting, block structure)"
+							},
+							"labels": {
+								"ref": "com.atproto.label.defs#selfLabels",
+								"type": "ref",
+								"description": "Updated self-applied content labels"
+							},
+							"content": {
+								"type": "string",
+								"maxLength": 100000,
+								"description": "Updated comment text content",
+								"maxGraphemes": 10000
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "CommentNotFound",
+						"description": "Comment with the specified URI does not exist"
+					},
+					{
+						"name": "ContentTooLong",
+						"description": "Updated comment content exceeds maximum length constraints"
+					},
+					{
+						"name": "ContentEmpty",
+						"description": "Updated comment content is empty or contains only whitespace"
+					},
+					{
+						"name": "NotAuthorized",
+						"description": "User is not authorized to update this comment (not the author)"
+					},
+					{
+						"name": "InvalidFacets",
+						"description": "Rich text facets are malformed, exceed limits, or reference byte ranges outside the content"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uri",
+							"cid"
+						],
+						"properties": {
+							"cid": {
+								"type": "string",
+								"format": "cid",
+								"description": "New CID of the updated comment record"
+							},
+							"uri": {
+								"type": "string",
+								"format": "at-uri",
+								"description": "AT-URI of the updated comment (unchanged from input)"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Update an existing comment's content, facets, embed, languages, or labels. Threading references (reply.root and reply.parent) are immutable and cannot be changed."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784945468305
+	},
+	"references": {
+		"main": [
+			"com.atproto.label.defs",
+			"com.atproto.repo.strongRef",
+			"social.coves.embed.images",
+			"social.coves.embed.post",
+			"social.coves.richtext.facet"
+		]
+	}
+}

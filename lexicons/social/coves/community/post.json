@@ -1,0 +1,155 @@
+{
+	"authority": "did:web:coves.social",
+	"schema": {
+		"id": "social.coves.community.post",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"community",
+						"author",
+						"createdAt"
+					],
+					"properties": {
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 640,
+								"maxGraphemes": 64
+							},
+							"maxLength": 8,
+							"description": "User-applied topic tags"
+						},
+						"embed": {
+							"refs": [
+								"social.coves.embed.images",
+								"social.coves.embed.video",
+								"social.coves.embed.external",
+								"social.coves.embed.post"
+							],
+							"type": "union",
+							"description": "Embedded media, external links, or quoted posts"
+						},
+						"langs": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "language"
+							},
+							"maxLength": 3,
+							"description": "Languages used in the post content (ISO 639-1)"
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 3000,
+							"description": "Post title (optional for media-only posts)",
+							"maxGraphemes": 300
+						},
+						"author": {
+							"type": "string",
+							"format": "did",
+							"description": "DID of the user who created this post"
+						},
+						"facets": {
+							"type": "array",
+							"items": {
+								"ref": "social.coves.richtext.facet",
+								"type": "ref"
+							},
+							"maxLength": 200,
+							"description": "Annotations for rich text (mentions, links, formatting, block structure)"
+						},
+						"labels": {
+							"ref": "com.atproto.label.defs#selfLabels",
+							"type": "ref",
+							"description": "Self-applied content labels (NSFW, spoilers, etc.)"
+						},
+						"content": {
+							"type": "string",
+							"maxLength": 100000,
+							"description": "Post content - supports rich text via facets",
+							"maxGraphemes": 10000
+						},
+						"community": {
+							"type": "string",
+							"format": "did",
+							"description": "DID of the community this was posted to"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp of post creation"
+						},
+						"crosspostOf": {
+							"ref": "com.atproto.repo.strongRef",
+							"type": "ref",
+							"description": "If this is a crosspost, strong reference to the immediate parent post"
+						},
+						"bridgedStats": {
+							"ref": "#bridgedStats",
+							"type": "ref",
+							"description": "Bridge-asserted aggregate of origin-platform votes for federated/bridged content. Set by the bridge that materialized this record; absent for natively-authored posts."
+						},
+						"crosspostChain": {
+							"type": "array",
+							"items": {
+								"ref": "com.atproto.repo.strongRef",
+								"type": "ref"
+							},
+							"maxLength": 25,
+							"description": "Full chain of crossposts with version pinning. First element is original, last is immediate parent."
+						}
+					}
+				},
+				"description": "A post in a Coves community. Posts live in community repositories and persist independently of the author."
+			},
+			"bridgedStats": {
+				"type": "object",
+				"required": [
+					"upvotes",
+					"downvotes",
+					"asOf"
+				],
+				"properties": {
+					"asOf": {
+						"type": "string",
+						"format": "datetime",
+						"description": "Timestamp the origin-platform counts were sampled; used to discard stale updates"
+					},
+					"upvotes": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Number of upvotes on the origin platform as of asOf"
+					},
+					"downvotes": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Number of downvotes on the origin platform as of asOf"
+					}
+				},
+				"description": "Aggregate vote counts asserted by the bridge for content federated from an origin platform (e.g. Lemmy). These supplement, and are kept separate from, native atproto votes."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784945468305
+	},
+	"references": {
+		"main": [
+			"com.atproto.label.defs",
+			"com.atproto.repo.strongRef",
+			"social.coves.embed.external",
+			"social.coves.embed.images",
+			"social.coves.embed.post",
+			"social.coves.embed.video",
+			"social.coves.richtext.facet"
+		],
+		"bridgedStats": []
+	}
+}

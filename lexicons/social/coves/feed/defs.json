@@ -1,0 +1,123 @@
+{
+	"authority": "did:web:coves.social",
+	"schema": {
+		"id": "social.coves.feed.defs",
+		"defs": {
+			"postRef": {
+				"type": "object",
+				"required": [
+					"uri",
+					"cid"
+				],
+				"properties": {
+					"cid": {
+						"type": "string",
+						"format": "cid"
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					}
+				},
+				"description": "Minimal reference to a post"
+			},
+			"replyRef": {
+				"type": "object",
+				"required": [
+					"root",
+					"parent"
+				],
+				"properties": {
+					"root": {
+						"ref": "#postRef",
+						"type": "ref"
+					},
+					"parent": {
+						"ref": "#postRef",
+						"type": "ref"
+					}
+				},
+				"description": "Reference to parent and root posts in a reply thread"
+			},
+			"reasonPin": {
+				"type": "object",
+				"required": [
+					"community"
+				],
+				"properties": {
+					"community": {
+						"ref": "social.coves.community.post.defs#communityRef",
+						"type": "ref"
+					}
+				},
+				"description": "Indicates this post is pinned in a community"
+			},
+			"feedViewPost": {
+				"type": "object",
+				"required": [
+					"post"
+				],
+				"properties": {
+					"post": {
+						"ref": "social.coves.community.post.defs#postView",
+						"type": "ref"
+					},
+					"reply": {
+						"ref": "#replyRef",
+						"type": "ref"
+					},
+					"reason": {
+						"refs": [
+							"#reasonRepost",
+							"#reasonPin"
+						],
+						"type": "union",
+						"description": "Additional context for why this post is in the feed"
+					}
+				},
+				"description": "A post with optional context about why it appears in a feed"
+			},
+			"reasonRepost": {
+				"type": "object",
+				"required": [
+					"by",
+					"indexedAt"
+				],
+				"properties": {
+					"by": {
+						"ref": "social.coves.community.post.defs#authorView",
+						"type": "ref"
+					},
+					"indexedAt": {
+						"type": "string",
+						"format": "datetime"
+					}
+				},
+				"description": "Indicates this post was reposted"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784945468305
+	},
+	"references": {
+		"postRef": [],
+		"replyRef": [],
+		"reasonPin": [
+			"social.coves.community.post.defs"
+		],
+		"feedViewPost": [
+			"com.atproto.repo.strongRef",
+			"social.coves.community.post.defs",
+			"social.coves.embed.external",
+			"social.coves.embed.images",
+			"social.coves.embed.post",
+			"social.coves.embed.video"
+		],
+		"reasonRepost": [
+			"social.coves.community.post.defs"
+		]
+	}
+}

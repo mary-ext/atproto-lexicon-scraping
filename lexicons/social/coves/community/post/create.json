@@ -1,0 +1,143 @@
+{
+	"authority": "did:web:coves.social",
+	"schema": {
+		"id": "social.coves.community.post.create",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"community"
+						],
+						"properties": {
+							"tags": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"maxLength": 640,
+									"maxGraphemes": 64
+								},
+								"maxLength": 8,
+								"description": "User-applied topic tags"
+							},
+							"embed": {
+								"refs": [
+									"social.coves.embed.images",
+									"social.coves.embed.video",
+									"social.coves.embed.external",
+									"social.coves.embed.post"
+								],
+								"type": "union",
+								"description": "Embedded media, external links, or quoted posts"
+							},
+							"langs": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"format": "language"
+								},
+								"maxLength": 3,
+								"description": "Languages used in the post content (ISO 639-1)"
+							},
+							"title": {
+								"type": "string",
+								"maxLength": 3000,
+								"description": "Post title (optional for media-only posts)",
+								"maxGraphemes": 300
+							},
+							"facets": {
+								"type": "array",
+								"items": {
+									"ref": "social.coves.richtext.facet",
+									"type": "ref"
+								},
+								"maxLength": 200,
+								"description": "Annotations for rich text (mentions, links, formatting, block structure)"
+							},
+							"labels": {
+								"ref": "com.atproto.label.defs#selfLabels",
+								"type": "ref",
+								"description": "Self-applied content labels (NSFW, spoilers, etc.)"
+							},
+							"content": {
+								"type": "string",
+								"maxLength": 100000,
+								"description": "Post content - supports rich text via facets",
+								"maxGraphemes": 10000
+							},
+							"community": {
+								"type": "string",
+								"format": "at-identifier",
+								"description": "DID or handle of the community to post in"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "CommunityNotFound",
+						"description": "Community not found"
+					},
+					{
+						"name": "NotAuthorized",
+						"description": "User is not authorized to post in this community"
+					},
+					{
+						"name": "Banned",
+						"description": "User is banned from this community"
+					},
+					{
+						"name": "InvalidContent",
+						"description": "Post content violates community rules"
+					},
+					{
+						"name": "ContentRuleViolation",
+						"description": "Post violates community content rules (e.g., embeds not allowed, text too short)"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uri",
+							"cid"
+						],
+						"properties": {
+							"cid": {
+								"type": "string",
+								"format": "cid",
+								"description": "CID of the created post"
+							},
+							"uri": {
+								"type": "string",
+								"format": "at-uri",
+								"description": "AT-URI of the created post"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Create a new post in a community"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784945468305
+	},
+	"references": {
+		"main": [
+			"com.atproto.label.defs",
+			"com.atproto.repo.strongRef",
+			"social.coves.embed.external",
+			"social.coves.embed.images",
+			"social.coves.embed.post",
+			"social.coves.embed.video",
+			"social.coves.richtext.facet"
+		]
+	}
+}

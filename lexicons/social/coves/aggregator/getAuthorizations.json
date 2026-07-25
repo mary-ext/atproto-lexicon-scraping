@@ -1,0 +1,82 @@
+{
+	"authority": "did:web:coves.social",
+	"schema": {
+		"id": "social.coves.aggregator.getAuthorizations",
+		"defs": {
+			"main": {
+				"type": "query",
+				"errors": [
+					{
+						"name": "AggregatorNotFound",
+						"description": "Aggregator DID does not exist or has no service declaration"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"authorizations"
+						],
+						"properties": {
+							"cursor": {
+								"type": "string",
+								"maxLength": 500,
+								"description": "Pagination cursor for next page"
+							},
+							"authorizations": {
+								"type": "array",
+								"items": {
+									"ref": "social.coves.aggregator.defs#communityAuthView",
+									"type": "ref"
+								},
+								"description": "Array of community authorizations for this aggregator"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"aggregatorDid"
+					],
+					"properties": {
+						"limit": {
+							"type": "integer",
+							"default": 50,
+							"maximum": 100,
+							"minimum": 1,
+							"description": "Maximum number of authorizations to return"
+						},
+						"cursor": {
+							"type": "string",
+							"maxLength": 500,
+							"description": "Pagination cursor"
+						},
+						"enabledOnly": {
+							"type": "boolean",
+							"default": true,
+							"description": "Only return enabled authorizations"
+						},
+						"aggregatorDid": {
+							"type": "string",
+							"format": "did",
+							"description": "DID of the aggregator"
+						}
+					}
+				},
+				"description": "Get list of communities that have authorized a specific aggregator. Used by aggregators to query which communities they can post to. Authentication optional."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784945468305
+	},
+	"references": {
+		"main": [
+			"social.coves.aggregator.defs"
+		]
+	}
+}

@@ -1,0 +1,160 @@
+{
+	"authority": "did:web:coves.social",
+	"schema": {
+		"id": "social.coves.community.create",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"name",
+							"description"
+						],
+						"properties": {
+							"name": {
+								"type": "string",
+								"maxLength": 63,
+								"description": "Short community name used as the local part of the handle (e.g., 'gaming'). Must be a valid DNS label: ASCII letters, digits, and hyphens only."
+							},
+							"rules": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"maxLength": 2000,
+									"maxGraphemes": 200
+								},
+								"maxLength": 10,
+								"description": "Community rules"
+							},
+							"language": {
+								"type": "string",
+								"format": "language",
+								"description": "Primary language of the community"
+							},
+							"avatarBlob": {
+								"type": "string",
+								"maxLength": 1400000,
+								"description": "Base64-encoded avatar image data (png, jpeg, or webp)"
+							},
+							"bannerBlob": {
+								"type": "string",
+								"maxLength": 2800000,
+								"description": "Base64-encoded banner image data (png, jpeg, or webp)"
+							},
+							"categories": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"maxLength": 50
+								},
+								"maxLength": 3,
+								"description": "Community categories for discovery"
+							},
+							"visibility": {
+								"type": "string",
+								"default": "public",
+								"maxLength": 64,
+								"description": "Community visibility level",
+								"knownValues": [
+									"public",
+									"unlisted",
+									"private"
+								]
+							},
+							"description": {
+								"type": "string",
+								"maxLength": 10000,
+								"description": "Community description",
+								"maxGraphemes": 1000
+							},
+							"displayName": {
+								"type": "string",
+								"maxLength": 1280,
+								"description": "Display name for the community",
+								"maxGraphemes": 128
+							},
+							"avatarMimeType": {
+								"type": "string",
+								"maxLength": 128,
+								"description": "MIME type of the avatar image (image/png, image/jpeg, image/webp)"
+							},
+							"bannerMimeType": {
+								"type": "string",
+								"maxLength": 128,
+								"description": "MIME type of the banner image (image/png, image/jpeg, image/webp)"
+							},
+							"membershipThreshold": {
+								"type": "integer",
+								"default": 100,
+								"maximum": 10000,
+								"minimum": 0,
+								"description": "Reputation threshold required for membership"
+							},
+							"allowExternalDiscovery": {
+								"type": "boolean",
+								"default": true,
+								"description": "Whether other Coves instances can index and discover this community"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "NameTaken",
+						"description": "Community name is already taken"
+					},
+					{
+						"name": "TooManyCommunities",
+						"description": "User has reached the maximum number of communities they can create"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uri",
+							"cid",
+							"did",
+							"handle"
+						],
+						"properties": {
+							"cid": {
+								"type": "string",
+								"format": "cid",
+								"description": "CID of the created community profile"
+							},
+							"did": {
+								"type": "string",
+								"format": "did",
+								"description": "DID of the created community"
+							},
+							"uri": {
+								"type": "string",
+								"format": "at-uri",
+								"description": "AT-URI of the created community profile"
+							},
+							"handle": {
+								"type": "string",
+								"maxLength": 512,
+								"description": "Scoped handle of the created community (~name@instance)"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Create a new community. Requires authentication."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784945468305
+	},
+	"references": {
+		"main": []
+	}
+}

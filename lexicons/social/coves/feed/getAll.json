@@ -1,0 +1,117 @@
+{
+	"authority": "did:web:coves.social",
+	"schema": {
+		"id": "social.coves.feed.getAll",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"feed"
+						],
+						"properties": {
+							"feed": {
+								"type": "array",
+								"items": {
+									"ref": "social.coves.feed.defs#feedViewPost",
+									"type": "ref"
+								}
+							},
+							"cursor": {
+								"type": "string",
+								"maxLength": 500
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"properties": {
+						"sort": {
+							"type": "string",
+							"default": "hot",
+							"maxLength": 64,
+							"description": "Sort order for global feed",
+							"knownValues": [
+								"hot",
+								"top",
+								"new"
+							]
+						},
+						"limit": {
+							"type": "integer",
+							"default": 15,
+							"maximum": 50,
+							"minimum": 1
+						},
+						"cursor": {
+							"type": "string",
+							"maxLength": 500
+						},
+						"postType": {
+							"type": "string",
+							"maxLength": 64,
+							"description": "Filter by a single post type (computed from embed structure)",
+							"knownValues": [
+								"text",
+								"article",
+								"image",
+								"video",
+								"microblog"
+							]
+						},
+						"postTypes": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 64,
+								"knownValues": [
+									"text",
+									"article",
+									"image",
+									"video",
+									"microblog"
+								]
+							},
+							"description": "Filter by multiple post types (computed from embed structure)"
+						},
+						"timeframe": {
+							"type": "string",
+							"default": "day",
+							"maxLength": 64,
+							"description": "Timeframe for top sorting (only applies when sort=top)",
+							"knownValues": [
+								"hour",
+								"day",
+								"week",
+								"month",
+								"year",
+								"all"
+							]
+						}
+					}
+				},
+				"description": "Get a global feed of all posts across communities"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784945468305
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef",
+			"social.coves.community.post.defs",
+			"social.coves.embed.external",
+			"social.coves.embed.images",
+			"social.coves.embed.post",
+			"social.coves.embed.video",
+			"social.coves.feed.defs"
+		]
+	}
+}

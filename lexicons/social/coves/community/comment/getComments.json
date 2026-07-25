@@ -1,0 +1,133 @@
+{
+	"authority": "did:web:coves.social",
+	"schema": {
+		"id": "social.coves.community.comment.getComments",
+		"defs": {
+			"main": {
+				"type": "query",
+				"errors": [
+					{
+						"name": "NotFound",
+						"description": "Post not found"
+					},
+					{
+						"name": "ParentNotFound",
+						"description": "No comment with the given parentRkey exists within the post"
+					},
+					{
+						"name": "InvalidRequest",
+						"description": "Invalid parameters (malformed URI, invalid sort/timeframe combination, etc.)"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"comments",
+							"post"
+						],
+						"properties": {
+							"post": {
+								"ref": "social.coves.community.post.defs#postView",
+								"type": "ref",
+								"description": "The post these comments belong to"
+							},
+							"cursor": {
+								"type": "string",
+								"maxLength": 500,
+								"description": "Pagination cursor for fetching next page of top-level comments"
+							},
+							"comments": {
+								"type": "array",
+								"items": {
+									"ref": "social.coves.community.comment.defs#threadViewComment",
+									"type": "ref"
+								},
+								"description": "Top-level comments with nested replies up to requested depth"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"post"
+					],
+					"properties": {
+						"post": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT-URI of the post to get comments for"
+						},
+						"sort": {
+							"type": "string",
+							"default": "hot",
+							"maxLength": 64,
+							"description": "Sort order: hot (trending), top (highest score), new (most recent)",
+							"knownValues": [
+								"hot",
+								"top",
+								"new"
+							]
+						},
+						"depth": {
+							"type": "integer",
+							"default": 10,
+							"maximum": 100,
+							"minimum": 0,
+							"description": "Maximum reply nesting depth to return. 0 returns only top-level comments."
+						},
+						"limit": {
+							"type": "integer",
+							"default": 50,
+							"maximum": 100,
+							"minimum": 1,
+							"description": "Maximum number of top-level comments to return per page"
+						},
+						"cursor": {
+							"type": "string",
+							"maxLength": 500,
+							"description": "Pagination cursor from previous response"
+						},
+						"timeframe": {
+							"type": "string",
+							"maxLength": 64,
+							"description": "Timeframe for 'top' sort. Ignored for other sort types.",
+							"knownValues": [
+								"hour",
+								"day",
+								"week",
+								"month",
+								"year",
+								"all"
+							]
+						},
+						"parentRkey": {
+							"type": "string",
+							"format": "record-key",
+							"description": "Record key of a comment within the post. When provided, the response contains only the subtree rooted at that comment: the comment itself as the sole top-level entry, with its descendants nested beneath it. depth is relative to this comment (0 returns only the comment itself), and limit/cursor paginate its direct replies."
+						}
+					}
+				},
+				"description": "Get comments for a post with threading and sorting support. Supports hot/top/new sorting, configurable nesting depth, and pagination."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784945468305
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef",
+			"social.coves.community.comment.defs",
+			"social.coves.community.post.defs",
+			"social.coves.embed.external",
+			"social.coves.embed.images",
+			"social.coves.embed.post",
+			"social.coves.embed.video"
+		]
+	}
+}

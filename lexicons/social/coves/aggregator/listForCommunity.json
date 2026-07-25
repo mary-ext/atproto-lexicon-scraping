@@ -1,0 +1,82 @@
+{
+	"authority": "did:web:coves.social",
+	"schema": {
+		"id": "social.coves.aggregator.listForCommunity",
+		"defs": {
+			"main": {
+				"type": "query",
+				"errors": [
+					{
+						"name": "CommunityNotFound",
+						"description": "Community not found"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"aggregators"
+						],
+						"properties": {
+							"cursor": {
+								"type": "string",
+								"maxLength": 500,
+								"description": "Pagination cursor for next page"
+							},
+							"aggregators": {
+								"type": "array",
+								"items": {
+									"ref": "social.coves.aggregator.defs#authorizationView",
+									"type": "ref"
+								},
+								"description": "Array of aggregator authorizations for this community"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"community"
+					],
+					"properties": {
+						"limit": {
+							"type": "integer",
+							"default": 50,
+							"maximum": 100,
+							"minimum": 1,
+							"description": "Maximum number of aggregators to return"
+						},
+						"cursor": {
+							"type": "string",
+							"maxLength": 500,
+							"description": "Pagination cursor"
+						},
+						"community": {
+							"type": "string",
+							"format": "at-identifier",
+							"description": "DID or handle of the community"
+						},
+						"enabledOnly": {
+							"type": "boolean",
+							"default": false,
+							"description": "Only return enabled aggregators"
+						}
+					}
+				},
+				"description": "List all aggregators authorized for a specific community. Used by community settings UI to show enabled/disabled aggregators. Authentication optional."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784945468305
+	},
+	"references": {
+		"main": [
+			"social.coves.aggregator.defs"
+		]
+	}
+}

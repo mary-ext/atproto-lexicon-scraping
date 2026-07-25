@@ -1,0 +1,55 @@
+{
+	"authority": "did:web:coves.social",
+	"schema": {
+		"id": "social.coves.feed.vote.delete",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"subject"
+						],
+						"properties": {
+							"subject": {
+								"ref": "com.atproto.repo.strongRef",
+								"type": "ref",
+								"description": "Strong reference to the post or comment to remove the vote from"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "VoteNotFound",
+						"description": "No vote found for this subject"
+					},
+					{
+						"name": "NotAuthorized",
+						"description": "User is not authorized to delete this vote"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"properties": {}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Delete a vote on a post or comment"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784945468305
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}

@@ -1,0 +1,281 @@
+{
+	"authority": "did:web:coves.social",
+	"schema": {
+		"id": "social.coves.aggregator.defs",
+		"defs": {
+			"apiKeyView": {
+				"type": "object",
+				"required": [
+					"prefix",
+					"createdAt",
+					"isRevoked"
+				],
+				"properties": {
+					"prefix": {
+						"type": "string",
+						"maxLength": 64,
+						"description": "First 12 characters of the key (e.g., 'ckapi_ab12cd') for identification in logs and UI"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": "When the key was created"
+					},
+					"isRevoked": {
+						"type": "boolean",
+						"description": "Whether the key has been revoked"
+					},
+					"revokedAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": "When the key was revoked"
+					},
+					"lastUsedAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": "When the key was last used for authentication"
+					}
+				},
+				"description": "View of an API key's metadata. The actual key value is never returned after initial creation."
+			},
+			"aggregatorView": {
+				"type": "object",
+				"required": [
+					"did",
+					"displayName",
+					"createdAt"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did",
+						"description": "DID of the aggregator service"
+					},
+					"avatar": {
+						"type": "string",
+						"format": "uri",
+						"description": "URL to avatar image"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime"
+					},
+					"recordUri": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "AT-URI of the service declaration record"
+					},
+					"sourceUrl": {
+						"type": "string",
+						"format": "uri",
+						"description": "URL to aggregator's source code (for transparency)"
+					},
+					"maintainer": {
+						"type": "string",
+						"format": "did",
+						"description": "DID of person/organization maintaining this aggregator"
+					},
+					"description": {
+						"type": "string",
+						"maxLength": 3000,
+						"description": "Description of what this aggregator does",
+						"maxGraphemes": 300
+					},
+					"displayName": {
+						"type": "string",
+						"maxLength": 640,
+						"description": "Human-readable name (e.g., 'RSS News Aggregator')",
+						"maxGraphemes": 64
+					},
+					"configSchema": {
+						"type": "unknown",
+						"description": "JSON Schema describing config options for this aggregator"
+					}
+				},
+				"description": "Detailed view of an aggregator service"
+			},
+			"aggregatorStats": {
+				"type": "object",
+				"required": [
+					"communitiesUsing",
+					"postsCreated"
+				],
+				"properties": {
+					"postsCreated": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Total number of posts created by this aggregator"
+					},
+					"communitiesUsing": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Number of communities that have authorized this aggregator"
+					}
+				},
+				"description": "Statistics about an aggregator's usage"
+			},
+			"authorizationView": {
+				"type": "object",
+				"required": [
+					"aggregatorDid",
+					"communityDid",
+					"enabled",
+					"createdAt"
+				],
+				"properties": {
+					"config": {
+						"type": "unknown",
+						"description": "Aggregator-specific configuration"
+					},
+					"enabled": {
+						"type": "boolean",
+						"description": "Whether this aggregator is currently active"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime"
+					},
+					"createdBy": {
+						"type": "string",
+						"format": "did",
+						"description": "DID of moderator who authorized this aggregator"
+					},
+					"recordUri": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "AT-URI of the authorization record"
+					},
+					"disabledAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": "When this authorization was disabled (if enabled=false)"
+					},
+					"disabledBy": {
+						"type": "string",
+						"format": "did",
+						"description": "DID of moderator who disabled this aggregator"
+					},
+					"communityDid": {
+						"type": "string",
+						"format": "did",
+						"description": "DID of the community"
+					},
+					"aggregatorDid": {
+						"type": "string",
+						"format": "did",
+						"description": "DID of the authorized aggregator"
+					},
+					"communityName": {
+						"type": "string",
+						"maxLength": 1280,
+						"description": "Display name of the community"
+					},
+					"communityHandle": {
+						"type": "string",
+						"format": "handle",
+						"description": "Handle of the community"
+					}
+				},
+				"description": "View of an aggregator authorization for a community"
+			},
+			"communityAuthView": {
+				"type": "object",
+				"required": [
+					"aggregator",
+					"enabled",
+					"createdAt"
+				],
+				"properties": {
+					"config": {
+						"type": "unknown",
+						"description": "Community-specific configuration for this aggregator"
+					},
+					"enabled": {
+						"type": "boolean",
+						"description": "Whether this authorization is currently active"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime"
+					},
+					"recordUri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"aggregator": {
+						"ref": "#aggregatorView",
+						"type": "ref",
+						"description": "The aggregator service details"
+					}
+				},
+				"description": "Aggregator's view of authorization for a community (used by aggregators querying their authorizations)"
+			},
+			"aggregatorViewDetailed": {
+				"type": "object",
+				"required": [
+					"did",
+					"displayName",
+					"createdAt",
+					"stats"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did"
+					},
+					"stats": {
+						"ref": "#aggregatorStats",
+						"type": "ref"
+					},
+					"avatar": {
+						"type": "string",
+						"format": "uri"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime"
+					},
+					"recordUri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"sourceUrl": {
+						"type": "string",
+						"format": "uri"
+					},
+					"maintainer": {
+						"type": "string",
+						"format": "did"
+					},
+					"description": {
+						"type": "string",
+						"maxLength": 3000,
+						"maxGraphemes": 300
+					},
+					"displayName": {
+						"type": "string",
+						"maxLength": 640,
+						"maxGraphemes": 64
+					},
+					"configSchema": {
+						"type": "unknown"
+					}
+				},
+				"description": "Detailed view of an aggregator with stats"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784945468305
+	},
+	"references": {
+		"apiKeyView": [],
+		"aggregatorView": [],
+		"aggregatorStats": [],
+		"authorizationView": [],
+		"communityAuthView": [],
+		"aggregatorViewDetailed": []
+	}
+}

@@ -1,0 +1,88 @@
+{
+	"authority": "did:web:coves.social",
+	"schema": {
+		"id": "social.coves.embed.images",
+		"defs": {
+			"main": {
+				"type": "object",
+				"required": [
+					"images"
+				],
+				"properties": {
+					"images": {
+						"type": "array",
+						"items": {
+							"ref": "#image",
+							"type": "ref"
+						},
+						"maxLength": 8,
+						"minLength": 1,
+						"description": "Set of images in the post"
+					}
+				},
+				"description": "Image set embed supporting multiple images (max 8)"
+			},
+			"image": {
+				"type": "object",
+				"required": [
+					"image"
+				],
+				"properties": {
+					"alt": {
+						"type": "string",
+						"maxLength": 10000,
+						"description": "Alt text for accessibility",
+						"maxGraphemes": 1000
+					},
+					"image": {
+						"type": "blob",
+						"accept": [
+							"image/png",
+							"image/jpeg",
+							"image/webp",
+							"image/gif"
+						],
+						"maxSize": 10000000,
+						"description": "Image blob reference"
+					},
+					"aspectRatio": {
+						"ref": "#aspectRatio",
+						"type": "ref",
+						"description": "Aspect ratio for client-side rendering optimization"
+					}
+				},
+				"description": "Individual image with metadata"
+			},
+			"aspectRatio": {
+				"type": "object",
+				"required": [
+					"width",
+					"height"
+				],
+				"properties": {
+					"width": {
+						"type": "integer",
+						"minimum": 1,
+						"description": "Width component of aspect ratio"
+					},
+					"height": {
+						"type": "integer",
+						"minimum": 1,
+						"description": "Height component of aspect ratio"
+					}
+				},
+				"description": "Image aspect ratio for client display"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784945468305
+	},
+	"references": {
+		"main": [],
+		"image": [],
+		"aspectRatio": []
+	}
+}

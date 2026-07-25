@@ -1,0 +1,77 @@
+{
+	"authority": "did:web:coves.social",
+	"schema": {
+		"id": "social.coves.community.search",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"communities"
+						],
+						"properties": {
+							"cursor": {
+								"type": "string",
+								"maxLength": 500
+							},
+							"communities": {
+								"type": "array",
+								"items": {
+									"ref": "social.coves.community.defs#communityView",
+									"type": "ref"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"q"
+					],
+					"properties": {
+						"q": {
+							"type": "string",
+							"maxLength": 500,
+							"description": "Search query"
+						},
+						"limit": {
+							"type": "integer",
+							"default": 50,
+							"maximum": 100,
+							"minimum": 1
+						},
+						"cursor": {
+							"type": "string",
+							"maxLength": 500
+						},
+						"category": {
+							"type": "string",
+							"maxLength": 50,
+							"description": "Filter by category"
+						},
+						"language": {
+							"type": "string",
+							"format": "language",
+							"description": "Filter by language"
+						}
+					}
+				},
+				"description": "Search for communities by name or description"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1784945468305
+	},
+	"references": {
+		"main": [
+			"social.coves.community.defs"
+		]
+	}
+}
