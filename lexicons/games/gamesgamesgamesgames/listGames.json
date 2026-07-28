@@ -20,7 +20,8 @@
 								}
 							},
 							"cursor": {
-								"type": "string"
+								"type": "string",
+								"maxLength": 256
 							}
 						}
 					},
@@ -31,12 +32,19 @@
 					"properties": {
 						"did": {
 							"type": "string",
-							"format": "did"
+							"format": "did",
+							"description": "Restrict results to games in this DID's repo. Omitting it returns games from every repo — it does NOT default to the authenticated caller. Owner-facing surfaces must pass it explicitly."
 						},
 						"sort": {
+							"enum": [
+								"indexed_at",
+								"createdAt",
+								"name"
+							],
 							"type": "string",
 							"default": "indexed_at",
-							"description": "Field to sort by (e.g. name, createdAt, indexed_at)."
+							"maxLength": 64,
+							"description": "Field to sort by. Constrained because the value reaches an ORDER BY clause, which cannot be parameterised."
 						},
 						"limit": {
 							"type": "integer",
@@ -47,28 +55,33 @@
 						"modes": {
 							"type": "array",
 							"items": {
-								"type": "string"
+								"type": "string",
+								"maxLength": 64
 							}
 						},
 						"cursor": {
-							"type": "string"
+							"type": "string",
+							"maxLength": 256
 						},
 						"genres": {
 							"type": "array",
 							"items": {
-								"type": "string"
+								"type": "string",
+								"maxLength": 64
 							}
 						},
 						"themes": {
 							"type": "array",
 							"items": {
-								"type": "string"
+								"type": "string",
+								"maxLength": 64
 							}
 						},
 						"ageRatings": {
 							"type": "array",
 							"items": {
-								"type": "string"
+								"type": "string",
+								"maxLength": 64
 							},
 							"description": "Filter by age rating in 'organization:rating' format (e.g. esrb:M, pegi:Eighteen)."
 						},
@@ -79,6 +92,7 @@
 							],
 							"type": "string",
 							"default": "desc",
+							"maxLength": 64,
 							"description": "Sort direction."
 						},
 						"includeUnrated": {
@@ -90,6 +104,7 @@
 							"type": "array",
 							"items": {
 								"type": "string",
+								"maxLength": 64,
 								"knownValues": [
 									"addon",
 									"bundle",
@@ -115,10 +130,16 @@
 							"type": "boolean",
 							"default": false
 						},
+						"includeUnpublished": {
+							"type": "boolean",
+							"default": false,
+							"description": "Include the caller's own unpublished drafts. Requires authentication and `did` set to the caller's own DID; the request is rejected otherwise."
+						},
 						"playerPerspectives": {
 							"type": "array",
 							"items": {
-								"type": "string"
+								"type": "string",
+								"maxLength": 64
 							}
 						}
 					}
@@ -130,7 +151,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1780188195828,
+		"indexedAt": 1785204245749,
 		"errorAt": 1772670174648
 	},
 	"references": {
