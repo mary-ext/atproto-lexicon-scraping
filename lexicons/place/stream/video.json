@@ -1,0 +1,135 @@
+{
+	"authority": "did:web:stream.place",
+	"schema": {
+		"id": "place.stream.video",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"title",
+						"source",
+						"durationMs",
+						"createdAt"
+					],
+					"properties": {
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 640,
+								"maxGraphemes": 64
+							},
+							"maxLength": 10,
+							"description": "Freeform tags for this stream. Each tag must be alphanumeric (a-z, A-Z, 0-9) plus colon. Tags with colons indicate a specific tag group (e.g. 'lang:en' indicates the stream's primary language)."
+						},
+						"thumb": {
+							"type": "blob",
+							"accept": [
+								"image/*"
+							],
+							"maxSize": 1000000,
+							"description": "Thumbnail image for the video."
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 1400,
+							"description": "Title of the video referenced by this record",
+							"maxGraphemes": 140
+						},
+						"source": {
+							"refs": [
+								"place.stream.media.defs#sourceTracks",
+								"place.stream.media.defs#sourceClip"
+							],
+							"type": "union",
+							"description": "What is the source of this video?"
+						},
+						"activity": {
+							"refs": [
+								"place.stream.defs#activityGame",
+								"place.stream.defs#activityLabel"
+							],
+							"type": "union",
+							"description": "The game or activity in the video."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when this video record was created. Populated server-side at publication time by place.stream.media.publishVideo."
+						},
+						"durationMs": {
+							"type": "integer",
+							"description": "Duration of the video in milliseconds"
+						},
+						"connections": {
+							"type": "array",
+							"items": {
+								"refs": [
+									"#connection"
+								],
+								"type": "union"
+							},
+							"description": "Free-form list of atproto records related in some way to this video"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 50000,
+							"description": "Description of this video",
+							"maxGraphemes": 5000
+						},
+						"contentRights": {
+							"ref": "place.stream.metadata.contentRights",
+							"type": "ref",
+							"description": "copyright and licensing information for this VOD"
+						},
+						"contentWarnings": {
+							"ref": "place.stream.metadata.contentWarnings",
+							"type": "ref",
+							"description": "content warning data for this VOD"
+						},
+						"descriptionFacets": {
+							"type": "array",
+							"items": {
+								"ref": "place.stream.richtext.videoFacet",
+								"type": "ref"
+							},
+							"description": "Annotations of text (mentions, URLs, etc)"
+						}
+					}
+				},
+				"description": "Some audiovisual content."
+			},
+			"connection": {
+				"type": "object",
+				"properties": {
+					"ref": {
+						"ref": "com.atproto.repo.strongRef",
+						"type": "ref"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1785290863790
+	},
+	"references": {
+		"main": [
+			"app.bsky.richtext.facet",
+			"com.atproto.repo.strongRef",
+			"place.stream.defs",
+			"place.stream.media.defs",
+			"place.stream.metadata.contentRights",
+			"place.stream.metadata.contentWarnings",
+			"place.stream.richtext.videoFacet"
+		],
+		"connection": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}

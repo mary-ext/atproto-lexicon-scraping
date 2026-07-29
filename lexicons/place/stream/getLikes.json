@@ -1,0 +1,111 @@
+{
+	"authority": "did:web:stream.place",
+	"schema": {
+		"id": "place.stream.getLikes",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"subject",
+							"count"
+						],
+						"properties": {
+							"count": {
+								"type": "integer",
+								"minimum": 0,
+								"description": "Total number of likes for this subject."
+							},
+							"likes": {
+								"type": "array",
+								"items": {
+									"ref": "#likeView",
+									"type": "ref"
+								}
+							},
+							"cursor": {
+								"type": "string"
+							},
+							"subject": {
+								"type": "string",
+								"format": "at-uri"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"subject"
+					],
+					"properties": {
+						"limit": {
+							"type": "integer",
+							"default": 50,
+							"maximum": 100,
+							"minimum": 1,
+							"description": "Maximum number of likes to return."
+						},
+						"cursor": {
+							"type": "string",
+							"description": "Optional pagination cursor."
+						},
+						"subject": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT-URI of the subject (video or comment)."
+						}
+					}
+				},
+				"description": "Get likes for a subject (video or comment)."
+			},
+			"likeView": {
+				"type": "object",
+				"required": [
+					"uri",
+					"cid",
+					"author",
+					"record",
+					"indexedAt"
+				],
+				"properties": {
+					"cid": {
+						"type": "string",
+						"format": "cid"
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"author": {
+						"ref": "app.bsky.actor.defs#profileViewBasic",
+						"type": "ref"
+					},
+					"record": {
+						"type": "unknown"
+					},
+					"indexedAt": {
+						"type": "string",
+						"format": "datetime"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1785290863790
+	},
+	"references": {
+		"main": [
+			"app.bsky.actor.defs"
+		],
+		"likeView": [
+			"app.bsky.actor.defs"
+		]
+	}
+}
