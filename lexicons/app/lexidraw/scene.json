@@ -1,0 +1,61 @@
+{
+	"authority": "did:web:lexidraw.app",
+	"schema": {
+		"id": "app.lexidraw.scene",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"scene",
+						"createdAt",
+						"updatedAt"
+					],
+					"properties": {
+						"name": {
+							"type": "string",
+							"description": "Human-readable drawing name.",
+							"maxGraphemes": 200
+						},
+						"scene": {
+							"type": "blob",
+							"accept": [
+								"application/gzip"
+							],
+							"maxSize": 50000000,
+							"description": "Gzipped Excalidraw scene JSON (serializeAsJSON output, gzip level 6)."
+						},
+						"thumb": {
+							"type": "blob",
+							"accept": [
+								"image/webp"
+							],
+							"maxSize": 2000000,
+							"description": "WebP preview of the scene (max 1024px on the longest side)."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "An Excalidraw drawing. The full scene (elements, appState and embedded image files as dataURLs) is stored as a gzipped JSON blob"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1785723792404
+	},
+	"references": {
+		"main": []
+	}
+}
