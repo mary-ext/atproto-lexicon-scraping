@@ -1,0 +1,66 @@
+{
+	"authority": "did:web:lexicon.atcr.io",
+	"schema": {
+		"id": "io.atcr.sailor.profile",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"createdAt"
+					],
+					"properties": {
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Profile creation timestamp"
+						},
+						"ociClient": {
+							"type": "string",
+							"maxLength": 32,
+							"description": "Preferred client for pull commands (docker, podman, buildah, nerdctl, crane). 'none' shows the image reference only. Defaults to docker if empty.",
+							"knownValues": [
+								"docker",
+								"podman",
+								"buildah",
+								"nerdctl",
+								"crane",
+								"none"
+							]
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Profile last updated timestamp"
+						},
+						"defaultHold": {
+							"type": "string",
+							"format": "did",
+							"description": "Default hold DID for blob storage. If null, user has opted out of defaults."
+						},
+						"registryDomain": {
+							"type": "string",
+							"maxLength": 255,
+							"description": "Preferred registry domain for UI display. Must be one of the appview's configured registry domains. Empty means the primary (first configured) domain."
+						},
+						"autoRemoveUntagged": {
+							"type": "boolean",
+							"description": "Automatically delete manifest records that become untagged after a tag overwrite. Layers are cleaned up by hold garbage collection."
+						}
+					}
+				},
+				"description": "User profile for ATCR registry. Stores preferences like default hold for blob storage."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1785809013839
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -1,0 +1,85 @@
+{
+	"authority": "did:web:lexicon.atcr.io",
+	"schema": {
+		"id": "io.atcr.hold.requestCrew",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"properties": {
+							"role": {
+								"type": "string",
+								"default": "member",
+								"maxLength": 32,
+								"description": "Requested role (default: 'member')"
+							},
+							"permissions": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"maxLength": 64
+								},
+								"description": "Requested permissions (default: ['blob:read', 'blob:write'])"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "AuthRequired"
+					},
+					{
+						"name": "RegistrationDisabled"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"status"
+						],
+						"properties": {
+							"cid": {
+								"type": "string",
+								"format": "cid",
+								"description": "CID of the crew record"
+							},
+							"uri": {
+								"type": "string",
+								"format": "at-uri",
+								"description": "AT-URI of the crew record (if created or already exists)"
+							},
+							"status": {
+								"type": "string",
+								"maxLength": 32,
+								"description": "Result status",
+								"knownValues": [
+									"created",
+									"already_member"
+								]
+							},
+							"message": {
+								"type": "string",
+								"maxLength": 256,
+								"description": "Human-readable status message"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Request crew membership for the hold. Authorization depends on the captain record: if allowAllCrew is true, any authenticated user can join; otherwise, only the owner can join."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1785809013839
+	},
+	"references": {
+		"main": []
+	}
+}

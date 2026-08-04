@@ -1,0 +1,40 @@
+{
+	"authority": "did:web:lexicon.atcr.io",
+	"schema": {
+		"id": "io.atcr.sailor.star",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"subject",
+						"createdAt"
+					],
+					"properties": {
+						"subject": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT URI of the repository page being starred (e.g., at://did:plc:abc/io.atcr.repo.page/myapp)"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Star creation timestamp"
+						}
+					}
+				},
+				"description": "A star (like) on a container image repository. Stored in the starrer's PDS, similar to Bluesky likes. Subject is an AT URI pointing to the repo page record being starred."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1785809013839
+	},
+	"references": {
+		"main": []
+	}
+}

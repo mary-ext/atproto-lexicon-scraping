@@ -1,0 +1,76 @@
+{
+	"authority": "did:web:lexicon.atcr.io",
+	"schema": {
+		"id": "io.atcr.hold.getPartUploadUrl",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uploadId",
+							"partNumber"
+						],
+						"properties": {
+							"uploadId": {
+								"type": "string",
+								"maxLength": 256,
+								"description": "Upload session ID from initiateUpload"
+							},
+							"partNumber": {
+								"type": "integer",
+								"minimum": 1,
+								"description": "Part sequence number (1-indexed)"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "InvalidUploadId"
+					},
+					{
+						"name": "InvalidPartNumber"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"url"
+						],
+						"properties": {
+							"url": {
+								"type": "string",
+								"format": "uri",
+								"description": "URL to PUT the part data to"
+							},
+							"method": {
+								"type": "string",
+								"default": "PUT",
+								"maxLength": 16,
+								"description": "HTTP method to use (usually PUT)"
+							},
+							"headers": {
+								"type": "unknown",
+								"description": "Additional headers required for the request (e.g., content-type)"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Get a presigned URL or endpoint info for uploading a specific part of a multipart upload."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1785809013839
+	},
+	"references": {
+		"main": []
+	}
+}

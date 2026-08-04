@@ -1,0 +1,109 @@
+{
+	"authority": "did:web:lexicon.atcr.io",
+	"schema": {
+		"id": "io.atcr.hold.completeUpload",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uploadId",
+							"digest",
+							"parts"
+						],
+						"properties": {
+							"parts": {
+								"type": "array",
+								"items": {
+									"ref": "#partInfo",
+									"type": "ref"
+								},
+								"description": "List of uploaded parts with their ETags"
+							},
+							"digest": {
+								"type": "string",
+								"maxLength": 128,
+								"description": "Final blob digest (e.g., sha256:abc123...)"
+							},
+							"uploadId": {
+								"type": "string",
+								"maxLength": 256,
+								"description": "Upload session ID from initiateUpload"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "InvalidUploadId"
+					},
+					{
+						"name": "InvalidDigest"
+					},
+					{
+						"name": "MissingParts"
+					},
+					{
+						"name": "CompletionFailed"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"status",
+							"digest"
+						],
+						"properties": {
+							"digest": {
+								"type": "string",
+								"maxLength": 128,
+								"description": "The digest of the completed blob"
+							},
+							"status": {
+								"type": "string",
+								"const": "completed",
+								"maxLength": 16,
+								"description": "Always 'completed' on success"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Finalize a multipart upload and move the assembled blob to its final location."
+			},
+			"partInfo": {
+				"type": "object",
+				"required": [
+					"partNumber",
+					"etag"
+				],
+				"properties": {
+					"etag": {
+						"type": "string",
+						"maxLength": 256,
+						"description": "ETag returned when the part was uploaded"
+					},
+					"partNumber": {
+						"type": "integer",
+						"minimum": 1,
+						"description": "Part sequence number (1-indexed)"
+					}
+				},
+				"description": "Information about a completed upload part"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1785809013839
+	},
+	"references": {
+		"main": [],
+		"partInfo": []
+	}
+}

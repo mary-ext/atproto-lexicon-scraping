@@ -1,0 +1,63 @@
+{
+	"authority": "did:web:lexicon.atcr.io",
+	"schema": {
+		"id": "io.atcr.hold.layer",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"digest",
+						"size",
+						"mediaType",
+						"manifest",
+						"userDid",
+						"createdAt"
+					],
+					"properties": {
+						"size": {
+							"type": "integer",
+							"description": "Size in bytes"
+						},
+						"digest": {
+							"type": "string",
+							"maxLength": 128,
+							"description": "Layer digest (e.g., sha256:abc123...)"
+						},
+						"userDid": {
+							"type": "string",
+							"format": "did",
+							"description": "DID of user who uploaded this layer"
+						},
+						"manifest": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT-URI of the manifest that included this layer (e.g., at://did:plc:xyz/io.atcr.manifest/abc123)"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "RFC3339 timestamp of when the layer was uploaded"
+						},
+						"mediaType": {
+							"type": "string",
+							"maxLength": 128,
+							"description": "Media type (e.g., application/vnd.oci.image.layer.v1.tar+gzip)"
+						}
+					}
+				},
+				"description": "Represents metadata about a container layer stored in the hold. Stored in the hold's embedded PDS for tracking and analytics."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1785809013839
+	},
+	"references": {
+		"main": []
+	}
+}

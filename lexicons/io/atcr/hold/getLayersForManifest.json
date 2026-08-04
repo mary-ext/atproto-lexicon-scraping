@@ -1,0 +1,53 @@
+{
+	"authority": "did:web:lexicon.atcr.io",
+	"schema": {
+		"id": "io.atcr.hold.getLayersForManifest",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"layers"
+						],
+						"properties": {
+							"layers": {
+								"type": "array",
+								"items": {
+									"ref": "io.atcr.hold.layer",
+									"type": "ref"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"manifest"
+					],
+					"properties": {
+						"manifest": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT-URI of the manifest to get layers for"
+						}
+					}
+				},
+				"description": "Returns layer records for a specific manifest AT-URI."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1785809013839
+	},
+	"references": {
+		"main": [
+			"io.atcr.hold.layer"
+		]
+	}
+}

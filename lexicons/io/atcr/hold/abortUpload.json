@@ -1,0 +1,61 @@
+{
+	"authority": "did:web:lexicon.atcr.io",
+	"schema": {
+		"id": "io.atcr.hold.abortUpload",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uploadId"
+						],
+						"properties": {
+							"uploadId": {
+								"type": "string",
+								"maxLength": 256,
+								"description": "Upload session ID from initiateUpload"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "InvalidUploadId"
+					},
+					{
+						"name": "AbortFailed"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"status"
+						],
+						"properties": {
+							"status": {
+								"type": "string",
+								"const": "aborted",
+								"maxLength": 16,
+								"description": "Always 'aborted' on success"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Cancel a multipart upload and cleanup any temporary data."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1785809013839
+	},
+	"references": {
+		"main": []
+	}
+}
