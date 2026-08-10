@@ -1,0 +1,109 @@
+{
+	"authority": "did:web:atfs.dev",
+	"schema": {
+		"id": "dev.atfs.repo.pinFile",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"file"
+						],
+						"properties": {
+							"file": {
+								"ref": "dev.atfs.file",
+								"type": "ref",
+								"description": "The file to pin, exactly as it would be embedded in a record. Wrapped in an object rather than being the request body itself so later additions to the call have somewhere to live."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "PinningUnavailable",
+						"description": "This instance is running without its IPFS node, so it has no way to fetch anything. Uploads and retrieval are unaffected."
+					},
+					{
+						"name": "BlobTooLarge",
+						"description": "The reference's declared size exceeds this instance's maximum blob size — checked before any fetch is attempted, the same limit dev.atfs.repo.uploadFile enforces on bytes it receives directly."
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"state"
+						],
+						"properties": {
+							"state": {
+								"type": "string",
+								"description": "seeking: the node is looking for a source, or waiting out the backoff before looking again. fetching: bytes are actually arriving; seeking and fetching can bounce back and forth as sources come and go. pinned: the bytes are stored, served and announced, and the caller holds a claim on them — this is read from ground truth (content in the store, caller in its pin set), not from anything the pin request recorded. failed: the node has stopped trying (see lastError); the request rests until it is either re-triggered by another pinFile call or released by every account waiting on it. A failure the node could not prove — no providers found yet, an origin that wouldn't answer, a transfer cut short — is never reported as failed on the spot: provider records on the DHT routinely take hours to propagate, so those are retried on a backoff doubling from a minute to an hour, for roughly 48 hours of the instance's uptime (uptime, not wall time: a box that spends a day powered off spends none of it), and the state stays seeking throughout. Only a failure the node could prove — bytes that don't hash to the cid, a source holding more than the declared size, a root that isn't a readable UnixFS file, a size over this instance's limit — fails immediately, since no retry could change it.",
+								"knownValues": [
+									"seeking",
+									"fetching",
+									"pinned",
+									"failed"
+								]
+							},
+							"attempts": {
+								"type": "integer",
+								"description": "How many fetch attempts this pin has cost so far. Reset to zero when a failed pin is re-triggered."
+							},
+							"ipfsRoot": {
+								"type": "cid-link",
+								"description": "Present only when state is pinned: the CID this instance now serves the file's DAG under, and deliberately the same field name as dev.atfs.repo.uploadFile's, since it means exactly the same thing. Usually this is the reference's own ipfsRoot, fetched and kept verbatim. It differs when the instance had already committed a root for these bytes — from an earlier upload, or an earlier pin naming a different DAG shape — because that root has already been handed out in responses, embedded in dev.atfs.file records and announced to the DHT: first root wins, the pin still succeeds (recording the claim is what a pin means), and this field reports what is really being served so the caller can tell its requester the file is here but reachable under a different root than their reference names."
+							},
+							"progress": {
+								"ref": "#progress",
+								"type": "ref",
+								"description": "Present only while state is fetching."
+							},
+							"lastError": {
+								"type": "string",
+								"description": "Why the most recent attempt failed, for a human. Present alongside seeking (a failure being retried), failed (the one that ended it), and the first response after a failed pin is re-triggered."
+							},
+							"nextAttemptIn": {
+								"type": "integer",
+								"description": "Seconds until the next attempt starts. Deliberately relative rather than an absolute timestamp: an atfs appliance can boot with its clock reading 1970 and no network to correct it, so any absolute time it quoted would be a lie. Absent when nothing is scheduled — an attempt is running now, the pin has finished, or it has failed."
+							}
+						},
+						"description": "Where the pin stands right now. Call again with the same file to check on it: a repeat call is idempotent — it joins the existing intent (several accounts asking for the same cid share one intent and one fetch) and reports its current state rather than starting anything new. The one exception is a call naming a cid whose intent has failed, which re-triggers it: attempts start over from a clean slate and the response carries the previous run's lastError so the caller learns what had gone wrong. To stop waiting for a pin, call dev.atfs.repo.deleteFile with the same cid — an intent is a claim before the fact, so deleteFile is its inverse there too, and (exactly as for stored content) the pin is only abandoned once the last account waiting on it has released it."
+					},
+					"encoding": "application/json"
+				},
+				"description": "Pin a file that already exists on the IPFS network, as if the caller had uploaded it to this instance: the bytes are fetched, verified against the reference's blessed cid, stored, served, and announced, and the caller ends up holding an ordinary claim on them (see dev.atfs.repo.deleteFile). A dev.atfs.file reference is the whole request — it already names the cid the fetched bytes must hash to (which is what makes the fetch trustless whatever the source), the ipfsRoot to fetch, the size to refuse before fetching a byte, the mimeType (underivable from IPFS bytes), and any provider origins to try over HTTP before the IPFS network. Requires auth (a caller's own inter-service auth JWT, signed by its account's signing key) and — like uploadFile, and unlike deleteFile — is restricted to the instance's configured account allowlist: pinning adds content to the instance, so it is an upload by another name. Returns immediately, always: the content is usually not here yet, and the retry lifecycle below is the node's own business, not the caller's."
+			},
+			"progress": {
+				"type": "object",
+				"required": [
+					"bytesFetched",
+					"size"
+				],
+				"properties": {
+					"size": {
+						"type": "integer",
+						"description": "The file's total size, as the reference declares it — repeated here so a progress bar needs only this object."
+					},
+					"bytesFetched": {
+						"type": "integer",
+						"description": "Bytes of the file verified into the store so far by the attempt currently running. It restarts from zero on each attempt: a fetch that was cut short leaves nothing behind, so the next one starts from the beginning."
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1786324773034
+	},
+	"references": {
+		"main": [
+			"dev.atfs.file"
+		],
+		"progress": []
+	}
+}

@@ -1,0 +1,53 @@
+{
+	"authority": "did:web:atfs.dev",
+	"schema": {
+		"id": "dev.atfs.file",
+		"defs": {
+			"main": {
+				"type": "object",
+				"required": [
+					"cid",
+					"ipfsRoot",
+					"size",
+					"mimeType"
+				],
+				"properties": {
+					"cid": {
+						"type": "cid-link",
+						"description": "The blessed CID of the file's bytes (CIDv1, raw multicodec, sha-256 multihash) — the canonical identity. This is what dev.atfs.repo.uploadFile (and its com.atproto.repo.uploadBlob alias) returns, what equality/dedup use, what atfs's own HTTP surfaces serve at any size, and the only DASL-compatible form. Never a DAG root."
+					},
+					"size": {
+						"type": "integer",
+						"description": "Size of the file, in bytes."
+					},
+					"ipfsRoot": {
+						"type": "cid-link",
+						"description": "The CID to fetch this file over the IPFS network: the UnixFS root for chunked (large) files, or exactly equal to `cid` when the file fits a single block. Always present, even when equal to `cid`, so consumers never need conditional logic — fetch `ipfsRoot`, then verify the bytes against `cid`. Chunker-dependent: this is *a* valid way to fetch the bytes, not a second identity — re-adding the same bytes elsewhere with different chunk settings would yield a different, equally valid root."
+					},
+					"mimeType": {
+						"type": "string",
+						"description": "The IANA media type of the file's bytes, exactly as recorded at upload time (see dev.atfs.repo.uploadFile). Defaults to application/octet-stream when the uploader supplied no Content-Type."
+					},
+					"providers": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"format": "uri"
+						},
+						"minLength": 1,
+						"description": "Advisory HTTPS origins (not full URLs — each is expected to answer both /ipfs/<cid> and a dev.atfs.repo.getFile-style XRPC, with the rest supplied by the author's DID), ordered by preference with the uploader's own instance first. Never required for correctness: a full IPFS client can always fall back to DHT routing."
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "An embeddable reference to a file hosted on an atfs instance and addressed by IPFS content-addressing. Deliberately not the native `blob` lexicon type: a PDS scans records for blob refs and rejects any whose blob isn't in its own blob store, which an atfs-hosted file structurally isn't. Embed this object in place of a blob field instead; field names (mimeType, size) are kept identical to blob refs for familiarity."
+	},
+	"meta": {
+		"indexedAt": 1786324773034
+	},
+	"references": {
+		"main": []
+	}
+}

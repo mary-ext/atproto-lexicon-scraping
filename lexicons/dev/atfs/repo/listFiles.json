@@ -1,0 +1,60 @@
+{
+	"authority": "did:web:atfs.dev",
+	"schema": {
+		"id": "dev.atfs.repo.listFiles",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"files"
+						],
+						"properties": {
+							"files": {
+								"type": "array",
+								"items": {
+									"ref": "dev.atfs.file",
+									"type": "ref"
+								}
+							},
+							"cursor": {
+								"type": "string",
+								"description": "Present only when this page filled up to the requested limit, meaning more files may follow. Its absence marks the final page."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"properties": {
+						"limit": {
+							"type": "integer",
+							"default": 500,
+							"maximum": 1000,
+							"minimum": 1,
+							"description": "Maximum number of files to return in this page."
+						},
+						"cursor": {
+							"type": "string",
+							"description": "Opaque resume token from a previous call's response. Omit to start from the beginning."
+						}
+					}
+				},
+				"description": "Enumerate every file this instance directly claims — the whole instance, not scoped to any one account, since atfs has no per-repo notion to scope by. This exists so another atfs instance can replicate pins: a follower walks every page, diffs the resulting cid set against its own mirror of this instance, dev.atfs.repo.pinFile whatever's new, and releases whatever's vanished. It's a poll rather than a subscription deliberately — the store keeps no event log, so there's nothing for a websocket-style firehose to replay, and a plain set-diff over current state already yields both pins and unpins with no history needed. Public and unauthenticated, unlike uploadFile/pinFile/deleteFile: every cid this instance pins is already announced to the IPFS DHT as a provider record and served at /ipfs/<cid>, so nothing here is secret, and an instance that has disabled uploads (no serviceDid configured) must still be enumerable. Only DIRECTLY claimed content is listed: a file must have been uploaded here or pinned here by one of this instance's accounts. Content this instance merely mirrors from an instance it follows is deliberately absent, so a mirror never re-exports what it mirrors — which is what makes an A-follows-B-follows-A pair converge instead of echoing, lets an origin's deletions propagate outward, and keeps mirroring non-transitive (follow each origin you actually want). The instance still serves mirrored content at /ipfs/<cid> and announces it to the DHT; it just doesn't advertise it here. A file mid-GC (its pin list has emptied but the bytes haven't been swept yet) or not yet indexed (a large blob whose UnixFS DAG hasn't finished building) is omitted from every page too — both are transient states that can appear or disappear between one poll and the next, so a follower should expect the set it sees to shift slightly poll to poll even with no new uploads, and should never treat a single absence as a deletion."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1786324773034
+	},
+	"references": {
+		"main": [
+			"dev.atfs.file"
+		]
+	}
+}
