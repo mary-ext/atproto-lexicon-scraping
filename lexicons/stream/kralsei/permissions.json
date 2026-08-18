@@ -1,0 +1,41 @@
+{
+	"authority": "did:web:vessel.darkworld.download",
+	"schema": {
+		"id": "stream.kralsei.permissions",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "kralsei.stream",
+				"detail": "Interactions you make with the characters, etc.",
+				"permissions": [
+					{
+						"type": "permission",
+						"resource": "repo",
+						"collection": [
+							"stream.kralsei.boop",
+							"stream.kralsei.hug"
+						]
+					},
+					{
+						"lxm": [
+							"stream.kralsei.pushInteraction"
+						],
+						"type": "permission",
+						"resource": "rpc",
+						"inheritAud": true
+					}
+				],
+				"title:langs": {},
+				"detail:langs": {}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1787014629929
+	},
+	"references": {
+		"main": []
+	}
+}

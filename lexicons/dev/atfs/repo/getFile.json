@@ -8,7 +8,11 @@
 				"errors": [
 					{
 						"name": "BlobNotFound",
-						"description": "No file is stored under this cid, or — when did is supplied — that account holds no claim on it; the two are reported identically, matching com.atproto.sync.getBlob's own behavior."
+						"description": "No file is stored under this cid, or — when did is supplied — that account holds no claim on it; the two are reported identically, matching com.atproto.sync.getBlob's own behavior. Also reported, indistinguishably, when this instance once tried to fetch this cid and gave up: a failed fetch stays impossible to tell apart from a cid that was never asked for."
+					},
+					{
+						"name": "ContentPending",
+						"description": "This instance doesn't have the file yet but is actively trying to fetch it (see dev.atfs.repo.pinFile). Served over HTTP 503 with a Retry-After header naming how long to wait before asking again; retrying is the status check."
 					}
 				],
 				"output": {
@@ -39,7 +43,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1786324773034
+		"indexedAt": 1787014629929
 	},
 	"references": {
 		"main": []

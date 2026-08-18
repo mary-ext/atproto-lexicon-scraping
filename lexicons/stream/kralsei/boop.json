@@ -1,0 +1,43 @@
+{
+	"authority": "did:web:vessel.darkworld.download",
+	"schema": {
+		"id": "stream.kralsei.boop",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"character",
+						"createdAt"
+					],
+					"properties": {
+						"character": {
+							"type": "string",
+							"description": "Character that got booped",
+							"knownValues": [
+								"kris",
+								"ralsei"
+							]
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Time of interaction"
+						}
+					}
+				},
+				"description": "A boop interaction"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1787014629929
+	},
+	"references": {
+		"main": []
+	}
+}

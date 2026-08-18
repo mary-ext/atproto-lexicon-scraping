@@ -34,8 +34,9 @@
 							"type": "string",
 							"format": "uri"
 						},
+						"maxLength": 16,
 						"minLength": 1,
-						"description": "Advisory HTTPS origins (not full URLs — each is expected to answer both /ipfs/<cid> and a dev.atfs.repo.getFile-style XRPC, with the rest supplied by the author's DID), ordered by preference with the uploader's own instance first. Never required for correctness: a full IPFS client can always fall back to DHT routing."
+						"description": "Advisory HTTPS origins (not full URLs — each is expected to answer both /ipfs/<cid> and a dev.atfs.repo.getFile-style XRPC, with the rest supplied by the author's DID), ordered by preference with the uploader's own instance first. Never required for correctness: a full IPFS client can always fall back to DHT routing. HTTPS is meant literally — an atfs instance asked to pin this file skips any origin naming another scheme, and any origin resolving to an address that isn't routable on the public internet, since a providers list is a stranger's instruction about where to make connections."
 					}
 				}
 			}
@@ -45,7 +46,7 @@
 		"description": "An embeddable reference to a file hosted on an atfs instance and addressed by IPFS content-addressing. Deliberately not the native `blob` lexicon type: a PDS scans records for blob refs and rejects any whose blob isn't in its own blob store, which an atfs-hosted file structurally isn't. Embed this object in place of a blob field instead; field names (mimeType, size) are kept identical to blob refs for familiarity."
 	},
 	"meta": {
-		"indexedAt": 1786324773034
+		"indexedAt": 1787014629929
 	},
 	"references": {
 		"main": []

@@ -29,6 +29,10 @@
 					{
 						"name": "BlobTooLarge",
 						"description": "The reference's declared size exceeds this instance's maximum blob size — checked before any fetch is attempted, the same limit dev.atfs.repo.uploadFile enforces on bytes it receives directly."
+					},
+					{
+						"name": "InsufficientStorage",
+						"description": "This instance has no room to take on another pin: its data volume has reached the free space it keeps in reserve, or it is already holding as many pin requests at once as it will. No intent was registered, and pins already registered carry on. The same named error dev.atfs.repo.uploadFile answers with, for the same reason — a pin is an upload by another name — and releasing content with dev.atfs.repo.deleteFile is what makes room again."
 					}
 				],
 				"output": {
@@ -63,7 +67,16 @@
 							},
 							"lastError": {
 								"type": "string",
-								"description": "Why the most recent attempt failed, for a human. Present alongside seeking (a failure being retried), failed (the one that ended it), and the first response after a failed pin is re-triggered."
+								"description": "Why the most recent attempt failed, as one of a closed set of reasons rather than an error message. Present alongside seeking (a failure being retried), failed (the one that ended it), and the first response after a failed pin is re-triggered. no-source-responded: nothing served the content — the default, and deliberately no more specific, since which origin failed and how is a fact about the instance's own network rather than an answer to the caller. content-mismatch: a source served bytes that provably aren't the reference's. transfer-incomplete: a transfer ended before the declared size. size-exceeded: the reference is over this instance's limit, or a source streamed more than it declares. not-a-unixfs-file: the ipfsRoot isn't a readable UnixFS file. invalid-reference: the reference couldn't describe a pinnable file at all. storage-unavailable: this instance couldn't store bytes it did fetch. The full error text stays in the instance's own logs.",
+								"knownValues": [
+									"no-source-responded",
+									"content-mismatch",
+									"transfer-incomplete",
+									"size-exceeded",
+									"not-a-unixfs-file",
+									"invalid-reference",
+									"storage-unavailable"
+								]
 							},
 							"nextAttemptIn": {
 								"type": "integer",
@@ -98,7 +111,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1786324773034
+		"indexedAt": 1787014629929
 	},
 	"references": {
 		"main": [
