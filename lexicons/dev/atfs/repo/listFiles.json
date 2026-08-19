@@ -17,7 +17,8 @@
 								"items": {
 									"ref": "dev.atfs.file",
 									"type": "ref"
-								}
+								},
+								"description": "Each entry's tags field (see dev.atfs.file) is a flat union: every tag borne by ANY of that file's claims, account-class and mirrored-server alike, with no indication of which claimant applied which — listFiles never discloses who pinned or tagged anything. Pass the `did` parameter above to scope both this listing and each entry's tags to one claimant's own claims instead."
 							},
 							"cursor": {
 								"type": "string",
@@ -30,6 +31,23 @@
 				"parameters": {
 					"type": "params",
 					"properties": {
+						"did": {
+							"type": "string",
+							"format": "did",
+							"minLength": 1,
+							"description": "Restrict the listing to files where this DID holds at least one claim (account-class or mirrored-server), and scope both the reported `tags` and the `tag` filter below to just that DID's own claims, instead of the union across every claimant — this is how to ask the question the output otherwise never answers, since listFiles never says on its own which claimant applied a tag. `?did=X&tag=index` therefore means: files X claims, where X itself applied the tag index. Must look like a DID; anything else is `InvalidRequest`. Listing eligibility is unchanged — a file still needs an account-class claim from ANY claimant to appear at all, so naming a followed server's DID here returns only that server's files that ALSO carry a local account-class claim; content held only as a mirror stays unlisted regardless of `did`. Omit for the unscoped, all-claimants view. The cursor does NOT encode this parameter, so a paginated walk must resend the same `did` on every page, exactly as it must keep `limit` and `tag` stable."
+						},
+						"tag": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 128,
+								"minLength": 1,
+								"maxGraphemes": 128
+							},
+							"maxLength": 16,
+							"description": "Restrict the listing to files carrying every named tag — `?tag=index&tag=v0.1.0` lists only files tagged with both, ANDed rather than ORed. Plain strings. Without `did` above, a file matches when each named tag appears on at least one of its claims — any claimant, any class — so filtering deliberately doesn't ask who applied a tag, only whether it was applied; this is deliberate, not an oversight. With `did`, matching narrows to that one DID's own claims, so the two parameters together ask a single-claimant question. Omit `tag` for no filtering. The cursor does NOT encode which tags (or which did) produced it — it's a plain lexical cid comparison applied before any filtering, the same as it's applied before the account-claim check — so changing either between calls silently changes what the rest of the walk returns rather than erroring, and a caller paginating a filtered listing must resend the identical tag set (and did) on every page, exactly as it must keep limit stable. This is the same discipline an unfiltered walk already needs; filtering doesn't relax it. Bounded at 16 like a claim's own tag list, since no file can carry more than that and a longer filter could only ever match nothing."
+						},
 						"limit": {
 							"type": "integer",
 							"default": 500,
@@ -50,7 +68,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1786324773034
+		"indexedAt": 1787101037584
 	},
 	"references": {
 		"main": [

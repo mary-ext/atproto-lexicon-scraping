@@ -15,7 +15,7 @@
 							"file": {
 								"ref": "dev.atfs.file",
 								"type": "ref",
-								"description": "The file to pin, exactly as it would be embedded in a record. Wrapped in an object rather than being the request body itself so later additions to the call have somewhere to live."
+								"description": "The file to pin, exactly as it would be embedded in a record. Wrapped in an object rather than being the request body itself so later additions to the call have somewhere to live. Its tags field (see dev.atfs.file), if present, is adopted: the tags on the reference become the caller's own on the resulting claim, as if the caller had supplied them itself. A reference with no tags simply yields a pin with no tags — this is the only current way to seed tags on a pin, since pinFile takes no separate tag parameter of its own."
 							}
 						}
 					},
@@ -111,7 +111,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1787014629929
+		"indexedAt": 1787101037584
 	},
 	"references": {
 		"main": [

@@ -37,6 +37,21 @@
 					},
 					"encoding": "application/json"
 				},
+				"parameters": {
+					"type": "params",
+					"properties": {
+						"tag": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 128,
+								"minLength": 1,
+								"maxGraphemes": 128
+							},
+							"description": "Free-form labels to attach to the uploaded content — `?tag=board-x&tag=v1.2.3&tag=atfs` — belonging to this call's claim (this account, upload) rather than to the blob itself: see dev.atfs.file's tags field for what that means for a reader. Absent means no tags, never an error, the same spirit as an absent Content-Type defaulting rather than failing. Repeat claims union tags in rather than replacing them, so re-uploading identical bytes under a new tag leaves the blob carrying the old ones too — that's what content addressing implies: one blob, one pin set. Tags only ever accumulate this way — nothing removes or replaces one once set, short of releasing the whole claim (dev.atfs.repo.deleteFile) and re-uploading. Bounded the same way dev.atfs.file's tags array documents — at most 16 tags, each 1-128 bytes, no control characters — and a violation is rejected with InvalidRequest rather than silently truncated or dropped, so a scripted upload that mistypes a tag fails loudly instead of publishing unlabelled. This parameter exists only on dev.atfs.repo.uploadFile's own path: the com.atproto.repo.uploadBlob alias stays wire-identical on purpose, so it carries no `tag` parameter of its own and an ordinary uploadBlob client simply never sends one — mounting the same handler under both NSIDs means the parameter is accepted whichever path a caller used, but no uploadBlob-speaking client has any reason to know it exists."
+						}
+					}
+				},
 				"description": "Upload a file to be served by this atfs instance over IPFS and plain HTTP. Intentionally fully wire-compatible with com.atproto.repo.uploadBlob — same binary request body, same inter-service auth mechanism, same response shape — so any uploadBlob client works against this endpoint unchanged, by switching only the NSID in the request path and the `lxm` claim of its auth token. This method is also mounted, unmodified, as com.atproto.repo.uploadBlob itself, for callers that have no reason to know atfs has its own name for it; a token minted for one NSID is rejected on the other's path. Requires auth (a caller's own inter-service auth JWT, signed by its account's signing key); restricted to the instance's configured account allowlist (see dev.atfs.server's accounts field)."
 			}
 		},
@@ -44,7 +59,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1787014629929
+		"indexedAt": 1787101037584
 	},
 	"references": {
 		"main": []

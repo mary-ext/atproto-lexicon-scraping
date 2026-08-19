@@ -20,6 +20,19 @@
 						"type": "integer",
 						"description": "Size of the file, in bytes."
 					},
+					"tags": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"maxLength": 128,
+							"minLength": 1,
+							"description": "A single free-form tag: 1-128 bytes, no control characters. maxGraphemes is the same 128 rather than a smaller, byte-aware figure, because the bound atfs actually enforces is bytes, not graphemes — a tighter maxGraphemes here would advertise a stricter limit than the server applies.",
+							"maxGraphemes": 128
+						},
+						"maxLength": 16,
+						"minLength": 1,
+						"description": "Free-form labels attached to this content, deduplicated and sorted. Advisory and instance-local, in the same register as `providers`: never part of the file's identity (two identical uploads to two different instances, or under two different accounts, can carry entirely different tags for the same cid), never required for correctness, and not something a `dev.atfs.file` reference's recipient should trust as a global fact about the content — only as a note from whoever produced this reference. In dev.atfs.repo.listFiles output this is a union: every tag borne by ANY of that file's claims here — account-class and mirrored-server claims alike — with no indication of which claimant applied which; listFiles never discloses who pinned or tagged anything (pass listFiles' `did` parameter to scope this to one claimant's own tags instead). dev.atfs.repo.pinFile reads this field on input and adopts it verbatim under the calling instance's own claim (see dev.atfs.repo.pinFile)."
+					},
 					"ipfsRoot": {
 						"type": "cid-link",
 						"description": "The CID to fetch this file over the IPFS network: the UnixFS root for chunked (large) files, or exactly equal to `cid` when the file fits a single block. Always present, even when equal to `cid`, so consumers never need conditional logic — fetch `ipfsRoot`, then verify the bytes against `cid`. Chunker-dependent: this is *a* valid way to fetch the bytes, not a second identity — re-adding the same bytes elsewhere with different chunk settings would yield a different, equally valid root."
@@ -46,7 +59,7 @@
 		"description": "An embeddable reference to a file hosted on an atfs instance and addressed by IPFS content-addressing. Deliberately not the native `blob` lexicon type: a PDS scans records for blob refs and rejects any whose blob isn't in its own blob store, which an atfs-hosted file structurally isn't. Embed this object in place of a blob field instead; field names (mimeType, size) are kept identical to blob refs for familiarity."
 	},
 	"meta": {
-		"indexedAt": 1787014629929
+		"indexedAt": 1787101037584
 	},
 	"references": {
 		"main": []
