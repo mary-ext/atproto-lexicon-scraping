@@ -1,7 +1,7 @@
 {
 	"authority": "did:web:vessel.darkworld.download",
 	"schema": {
-		"id": "stream.kralsei.pushInteraction",
+		"id": "stream.kralsei.score.sendBoop",
 		"defs": {
 			"main": {
 				"type": "procedure",
@@ -9,24 +9,16 @@
 					"schema": {
 						"type": "object",
 						"character": [
-							"subject",
-							"interaction"
+							"subject"
 						],
 						"properties": {
 							"character": {
 								"type": "string",
-								"description": "The character the interaction with is",
+								"maxLength": 32,
+								"description": "The character getting booped",
 								"knownValues": [
 									"kris",
 									"ralsei"
-								]
-							},
-							"interaction": {
-								"type": "string",
-								"description": "Type of interaction",
-								"knownValues": [
-									"boop",
-									"hug"
 								]
 							}
 						}
@@ -47,15 +39,14 @@
 					},
 					"encoding": "application/json"
 				},
-				"description": "Send an interaction to the server"
+				"description": "API request to boop a character in the nose"
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1787014629929,
-		"errorAt": 1787187410216
+		"indexedAt": 1787187410216
 	},
 	"references": {
 		"main": []

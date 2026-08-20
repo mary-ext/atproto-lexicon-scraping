@@ -1,23 +1,25 @@
 {
 	"authority": "did:web:vessel.darkworld.download",
 	"schema": {
-		"id": "stream.kralsei.permissions",
+		"id": "stream.kralsei.rpgactor.permissions",
 		"defs": {
 			"main": {
 				"type": "permission-set",
-				"title": "Base kralsei.stream permissions",
-				"detail": "Boop characters to end up on the scoreboard!",
+				"title": "The Kralsei game",
+				"detail": "Are you serious?",
 				"permissions": [
 					{
 						"type": "permission",
 						"resource": "repo",
 						"collection": [
-							"stream.kralsei.score.boop"
+							"actor.rpg.stats",
+							"equipment.rpg.item"
 						]
 					},
 					{
 						"lxm": [
-							"stream.kralsei.score.sendBoop"
+							"stream.kralsei.rpgactor.pushGameScores",
+							"stream.kralsei.rpgactor.checkPermissions"
 						],
 						"type": "permission",
 						"resource": "rpc",
