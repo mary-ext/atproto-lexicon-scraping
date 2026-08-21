@@ -33,6 +33,11 @@
 							"type": "string",
 							"format": "did",
 							"description": "This instance's own identity and address. It's the `aud` uploaders must address in their inter-service auth JWTs, and — only when it's a bare-domain did:web (exactly one segment after `did:web:`, so no path and no port suffix: `did:web:atfs.example.com`, never `did:web:atfs.example.com:user:alice` or an encoded-port form) — it also doubles as this instance's single HTTPS base URL, and atfs serves its own DID document at that domain's /.well-known/did.json. Uploads stay disabled until this is a bare-domain did:web and accounts names at least one account."
+						},
+						"requestBodyCap": {
+							"type": "integer",
+							"minimum": 1,
+							"description": "An operator-declared ceiling on the request bodies this instance's ingress will actually let through, in bytes. atfs cannot discover this on its own — it never sees its own ingress, only what a fronting proxy or tunnel lets past — so this is one of three sources describeServer combines with the lowest winning, alongside the ATFS_MAX_REQUEST_BODY env var and headers sniffed off arriving requests (e.g. Cloudflare's CF-Ray, read as at least its Free/Pro plan figure). Set this when those under- or over-report — for example a Cloudflare zone on a paid plan above the Free/Pro figure sniffing assumes."
 						}
 					}
 				}
@@ -43,7 +48,7 @@
 		"description": "An atfs instance's own configuration, read at boot — and re-read whenever it changes, the instance having subscribed to the owner's repo — by the instance whose libp2p peer ID is the record key (rkey) — at://{owner-did}/dev.atfs.server/{peer-id}. One owner repo can configure many instances this way. Changes to accounts, serviceDid and follows apply without a restart; the did:web document atfs serves for a bare-domain serviceDid is bound at startup and needs one to pick up a change. Unknown fields are tolerated and ignored, so a running instance is never broken by a schema field it predates. An absent record is not an error — the instance runs with defaults, and uploads stay disabled until accounts and serviceDid are both set."
 	},
 	"meta": {
-		"indexedAt": 1786497947670
+		"indexedAt": 1787274047156
 	},
 	"references": {
 		"main": []

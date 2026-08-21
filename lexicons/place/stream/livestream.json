@@ -1,5 +1,5 @@
 {
-	"authority": "did:web:stream.place",
+	"authority": "did:plc:gqtagsooi75obldmytuow57q",
 	"schema": {
 		"id": "place.stream.livestream",
 		"defs": {
@@ -231,7 +231,8 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1785290863790
+		"indexedAt": 1785290863790,
+		"errorAt": 1787274047156
 	},
 	"references": {
 		"main": [
