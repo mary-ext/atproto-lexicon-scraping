@@ -1,0 +1,48 @@
+{
+	"authority": "did:web:vessel.darkworld.download",
+	"schema": {
+		"id": "party.tenna.private.post",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"text",
+						"createdAt"
+					],
+					"properties": {
+						"text": {
+							"type": "string",
+							"maxLength": 3000,
+							"maxGraphemes": 300
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"descriptionFacets": {
+							"type": "array",
+							"items": {
+								"ref": "app.bsky.richtext.facet",
+								"type": "ref"
+							}
+						}
+					}
+				},
+				"description": "A gated private post"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1787446898611
+	},
+	"references": {
+		"main": [
+			"app.bsky.richtext.facet"
+		]
+	}
+}

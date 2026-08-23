@@ -1,0 +1,37 @@
+{
+	"authority": "did:web:vessel.darkworld.download",
+	"schema": {
+		"id": "party.tenna.private.embed",
+		"defs": {
+			"main": {
+				"type": "object",
+				"record": {
+					"type": "object",
+					"required": [
+						"uri",
+						"cid"
+					],
+					"properties": {
+						"cid": {
+							"type": "string",
+							"format": "cid"
+						},
+						"uri": {
+							"type": "string",
+							"format": "at-uri"
+						}
+					}
+				},
+				"description": "A representation of a tenna.party private post embedded in a Bluesky post record."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1787446898611
+	},
+	"references": {
+		"main": []
+	}
+}
