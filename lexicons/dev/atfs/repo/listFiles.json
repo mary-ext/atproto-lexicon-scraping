@@ -3,6 +3,52 @@
 	"schema": {
 		"id": "dev.atfs.repo.listFiles",
 		"defs": {
+			"file": {
+				"type": "object",
+				"required": [
+					"cid",
+					"ipfsRoot",
+					"size",
+					"mimeType"
+				],
+				"properties": {
+					"cid": {
+						"type": "cid-link",
+						"description": "The blessed CID of the file's bytes (CIDv1, raw multicodec, sha-256 multihash) — the canonical identity. This is what dev.atfs.repo.uploadFile (and its com.atproto.repo.uploadBlob alias) returns, what equality/dedup use, what atfs's own HTTP surfaces serve at any size, and the only DASL-compatible form. Never a DAG root."
+					},
+					"size": {
+						"type": "integer",
+						"description": "Size of the file, in bytes."
+					},
+					"tags": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"maxLength": 128,
+							"minLength": 1,
+							"description": "A single free-form tag: 1-128 bytes, no control characters. maxGraphemes is the same 128 rather than a smaller, byte-aware figure, because the bound atfs actually enforces is bytes, not graphemes — a tighter maxGraphemes here would advertise a stricter limit than the server applies.",
+							"maxGraphemes": 128
+						},
+						"maxLength": 16,
+						"minLength": 1,
+						"description": "Free-form labels attached to this content, deduplicated and sorted. Advisory and instance-local, in the same register as `providers`: never part of the file's identity (two identical uploads to two different instances, or under two different accounts, can carry entirely different tags for the same cid), never required for correctness, and not something a `dev.atfs.file` reference's recipient should trust as a global fact about the content — only as a note from whoever produced this reference. In dev.atfs.repo.listFiles output this is a union: every tag borne by ANY of that file's claims here — account-class and mirrored-server claims alike — with no indication of which claimant applied which; listFiles never discloses who pinned or tagged anything (pass listFiles' `did` parameter to scope this to one claimant's own tags instead). dev.atfs.repo.pinFile reads this field on input and adopts it verbatim under the calling instance's own claim (see dev.atfs.repo.pinFile)."
+					},
+					"ipfsRoot": {
+						"type": "cid-link",
+						"description": "The CID to fetch this file over the IPFS network: the UnixFS root for chunked (large) files, or exactly equal to `cid` when the file fits a single block. Always present, even when equal to `cid`, so consumers never need conditional logic — fetch `ipfsRoot`, then verify the bytes against `cid`. Chunker-dependent: this is *a* valid way to fetch the bytes, not a second identity — re-adding the same bytes elsewhere with different chunk settings would yield a different, equally valid root."
+					},
+					"mimeType": {
+						"type": "string",
+						"description": "The IANA media type of the file's bytes, exactly as recorded at upload time (see dev.atfs.repo.uploadFile). Defaults to application/octet-stream when the uploader supplied no Content-Type."
+					},
+					"firstSeen": {
+						"type": "string",
+						"format": "datetime",
+						"description": "When this instance first held these bytes. It is this instance's own observation, never the content's age and never adopted from anywhere: a reference handed to dev.atfs.repo.pinFile carries no such field, and an instance mirroring a followed origin records when IT first held the bytes, not when the origin did. Nothing can set or change it. It survives claims arriving and being released — re-uploading identical bytes, or another account pinning them, leaves it exactly where it was, since content addressing means those are the same bytes either way. The one thing that resets it is the content actually leaving: once the last claim is released and the bytes are deleted, a later upload or pin of the same cid starts it again. Absent when this instance has no trustworthy reading to report — an appliance accepts uploads before its clock is set, and reporting nothing is deliberate, since a 1970 timestamp would be indistinguishable from a real one. Those files are stamped once the clock is set, so an absent firstSeen is not necessarily permanent."
+					}
+				},
+				"description": "One listed file. Structurally dev.atfs.file plus firstSeen, so an entry can be handed straight back to dev.atfs.repo.pinFile — which ignores the extra field — but deliberately a def of its own rather than a ref to dev.atfs.file, because firstSeen is this instance's observation about its own copy and has no meaning inside a portable reference. providers is absent for the reason it always was: listFiles has never emitted it, and the ref this def replaces advertised a field that never appeared."
+			},
 			"main": {
 				"type": "query",
 				"output": {
@@ -15,10 +61,10 @@
 							"files": {
 								"type": "array",
 								"items": {
-									"ref": "dev.atfs.file",
+									"ref": "#file",
 									"type": "ref"
 								},
-								"description": "Each entry's tags field (see dev.atfs.file) is a flat union: every tag borne by ANY of that file's claims, account-class and mirrored-server alike, with no indication of which claimant applied which — listFiles never discloses who pinned or tagged anything. Pass the `did` parameter above to scope both this listing and each entry's tags to one claimant's own claims instead."
+								"description": "Each entry's tags field (see #file) is a flat union: every tag borne by ANY of that file's claims, account-class and mirrored-server alike, with no indication of which claimant applied which — listFiles never discloses who pinned or tagged anything. Pass the `did` parameter above to scope both this listing and each entry's tags to one claimant's own claims instead."
 							},
 							"cursor": {
 								"type": "string",
@@ -68,11 +114,10 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1787101037584
+		"indexedAt": 1787533192080
 	},
 	"references": {
-		"main": [
-			"dev.atfs.file"
-		]
+		"file": [],
+		"main": []
 	}
 }
