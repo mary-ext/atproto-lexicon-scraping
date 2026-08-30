@@ -1,0 +1,63 @@
+{
+	"authority": "did:web:chavatar.app",
+	"schema": {
+		"id": "app.chavatar.authExecuteRotation",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Permission to perform avatar rotation",
+				"detail": "Allows reading avatars and rotation settings, and writing their status.",
+				"permissions": [
+					{
+						"type": "permission",
+						"resource": "repo",
+						"collection": [
+							"app.chavatar.avatar",
+							"app.chavatar.settings"
+						]
+					},
+					{
+						"type": "permission",
+						"action": [
+							"create",
+							"update"
+						],
+						"resource": "repo",
+						"collection": [
+							"app.chavatar.state"
+						]
+					},
+					{
+						"type": "permission",
+						"action": [
+							"create",
+							"update"
+						],
+						"resource": "repo",
+						"collection": [
+							"app.chavatar.settings.executor"
+						]
+					}
+				],
+				"title:langs": {
+					"fr": "Permission pour effectuer la rotation d'avatar.",
+					"ja": "アバターローテーションの実行権限",
+					"pt-BR": "Permissão para realizar a rotação do avatar"
+				},
+				"detail:langs": {
+					"fr": "Permet de lire les avatars et les paramètres de rotation, ainsi que d'enregistrer leur état.",
+					"ja": "アバターとローテーション設定の読込、状態の書き込みを許可します。",
+					"pt-BR": "Permite ler avatares e configurações de rotação, além de registrar seus status."
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1788059627170
+	},
+	"references": {
+		"main": []
+	}
+}
