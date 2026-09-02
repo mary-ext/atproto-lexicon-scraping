@@ -1,0 +1,41 @@
+{
+	"authority": "did:web:vessel.darkworld.download",
+	"schema": {
+		"id": "party.tenna.private.getModStatus",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"isBanned"
+						],
+						"properties": {
+							"reason": {
+								"type": "string"
+							},
+							"isBanned": {
+								"type": "boolean"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"properties": {}
+				},
+				"description": "Gets the currently authorized user's moderation status."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1788316307305
+	},
+	"references": {
+		"main": []
+	}
+}
