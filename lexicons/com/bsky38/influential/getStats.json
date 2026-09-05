@@ -1,0 +1,55 @@
+{
+	"authority": "did:web:bsky38.com",
+	"schema": {
+		"id": "com.bsky38.influential.getStats",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"voters",
+							"nominees",
+							"closed"
+						],
+						"properties": {
+							"closed": {
+								"type": "boolean"
+							},
+							"voters": {
+								"type": "integer",
+								"minimum": 0,
+								"description": "Distinct accounts with at least one counted vote."
+							},
+							"closesAt": {
+								"type": "string",
+								"format": "datetime"
+							},
+							"nominees": {
+								"type": "integer",
+								"minimum": 0,
+								"description": "Size of the ranked pool — the rows getLeaderboard pages over."
+							},
+							"lastActivityAt": {
+								"type": "string",
+								"format": "datetime",
+								"description": "createdAt of the most recent counted vote; absent when there are none."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Site-wide participation totals and the state of the voting window."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1788575837807
+	},
+	"references": {
+		"main": []
+	}
+}

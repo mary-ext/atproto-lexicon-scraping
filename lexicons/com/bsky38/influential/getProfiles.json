@@ -1,0 +1,58 @@
+{
+	"authority": "did:web:bsky38.com",
+	"schema": {
+		"id": "com.bsky38.influential.getProfiles",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"profiles"
+						],
+						"properties": {
+							"profiles": {
+								"type": "array",
+								"items": {
+									"ref": "com.bsky38.influential.defs#nomineeProfile",
+									"type": "ref"
+								},
+								"description": "One entry per requested did, in the order they were asked for."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"dids"
+					],
+					"properties": {
+						"dids": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "did"
+							},
+							"maxLength": 25,
+							"minLength": 1
+						}
+					}
+				},
+				"description": "Several nominees' tallies, cached Bluesky profiles, and campaign profiles, in one pass over the ranking."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1788575837807
+	},
+	"references": {
+		"main": [
+			"com.bsky38.influential.defs"
+		]
+	}
+}

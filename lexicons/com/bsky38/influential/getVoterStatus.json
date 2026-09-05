@@ -1,0 +1,73 @@
+{
+	"authority": "did:web:bsky38.com",
+	"schema": {
+		"id": "com.bsky38.influential.getVoterStatus",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"did",
+							"votes",
+							"votesRemaining",
+							"maxVotes",
+							"closed"
+						],
+						"properties": {
+							"did": {
+								"type": "string",
+								"format": "did"
+							},
+							"votes": {
+								"type": "array",
+								"items": {
+									"ref": "com.bsky38.influential.defs#recordStatus",
+									"type": "ref"
+								}
+							},
+							"closed": {
+								"type": "boolean"
+							},
+							"closesAt": {
+								"type": "string",
+								"format": "datetime"
+							},
+							"maxVotes": {
+								"type": "integer"
+							},
+							"votesRemaining": {
+								"type": "integer"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"did"
+					],
+					"properties": {
+						"did": {
+							"type": "string",
+							"format": "did"
+						}
+					}
+				},
+				"description": "A voter's votes as indexed by the server, with remaining allowance."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1788575837807
+	},
+	"references": {
+		"main": [
+			"com.bsky38.influential.defs"
+		]
+	}
+}

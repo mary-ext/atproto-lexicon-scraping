@@ -1,0 +1,39 @@
+{
+	"authority": "did:web:bsky38.com",
+	"schema": {
+		"id": "com.bsky38.influential.vote",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"subject",
+						"createdAt"
+					],
+					"properties": {
+						"subject": {
+							"type": "string",
+							"format": "did",
+							"description": "DID of the account being voted for."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "Vote for an account. The record key MUST equal the subject DID."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1788575837807
+	},
+	"references": {
+		"main": []
+	}
+}

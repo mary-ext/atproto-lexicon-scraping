@@ -1,0 +1,64 @@
+{
+	"authority": "did:web:bsky38.com",
+	"schema": {
+		"id": "com.bsky38.influential.setOptOut",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"optedOut"
+						],
+						"properties": {
+							"optedOut": {
+								"type": "boolean",
+								"description": "True to leave the event, false to rejoin (while voting is open)."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "Closed",
+						"description": "Voting has closed; participation can no longer change."
+					},
+					{
+						"name": "AdminLocked",
+						"description": "The removal was placed by an operator and cannot be undone by the account."
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"did",
+							"optedOut"
+						],
+						"properties": {
+							"did": {
+								"type": "string",
+								"format": "did"
+							},
+							"optedOut": {
+								"type": "boolean"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Opt the authenticated account out of (or back into) the 38 Most Influential Bluesky Posters of 2026. Requests must carry a service-auth token bound to this method; the account is taken from the token's issuer. An admin-placed removal cannot be undone from here."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1788575837807
+	},
+	"references": {
+		"main": []
+	}
+}

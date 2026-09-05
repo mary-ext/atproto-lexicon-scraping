@@ -1,0 +1,134 @@
+{
+	"authority": "did:web:bsky38.com",
+	"schema": {
+		"id": "com.bsky38.influential.getTopPosts",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"did",
+							"since",
+							"until",
+							"status",
+							"posts"
+						],
+						"properties": {
+							"did": {
+								"type": "string",
+								"format": "did"
+							},
+							"posts": {
+								"type": "array",
+								"items": {
+									"ref": "#topPost",
+									"type": "ref"
+								}
+							},
+							"since": {
+								"type": "string",
+								"format": "datetime",
+								"description": "Start of the window posts are drawn from (inclusive)."
+							},
+							"until": {
+								"type": "string",
+								"format": "datetime",
+								"description": "End of the window (exclusive)."
+							},
+							"status": {
+								"type": "string",
+								"description": "disabled: the feature is off. pending: no pull has finished yet (queued, retrying, or not in the pool). done: posts are final. unavailable: the repo could not be read. too_large: the export passed the size cap.",
+								"knownValues": [
+									"disabled",
+									"pending",
+									"done",
+									"unavailable",
+									"too_large"
+								]
+							},
+							"countedAt": {
+								"type": "string",
+								"format": "datetime",
+								"description": "When the counts were taken; only with status done."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"did"
+					],
+					"properties": {
+						"did": {
+							"type": "string",
+							"format": "did"
+						},
+						"limit": {
+							"type": "integer",
+							"default": 5,
+							"maximum": 5,
+							"minimum": 1
+						}
+					}
+				},
+				"description": "A nominee's most-liked top-level Bluesky posts of the year, counted once when they joined the pool."
+			},
+			"topPost": {
+				"type": "object",
+				"required": [
+					"uri",
+					"cid",
+					"createdAt",
+					"likeCount",
+					"repostCount",
+					"quoteCount",
+					"replyCount"
+				],
+				"properties": {
+					"cid": {
+						"type": "string",
+						"format": "cid"
+					},
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"text": {
+						"type": "string",
+						"description": "The post text as stored in the repo; omitted when empty."
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": "Decoded from the record key's TID, not the record's own createdAt."
+					},
+					"likeCount": {
+						"type": "integer"
+					},
+					"quoteCount": {
+						"type": "integer"
+					},
+					"replyCount": {
+						"type": "integer"
+					},
+					"repostCount": {
+						"type": "integer"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1788575837807
+	},
+	"references": {
+		"main": [],
+		"topPost": []
+	}
+}

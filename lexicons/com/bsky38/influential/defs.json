@@ -1,0 +1,148 @@
+{
+	"authority": "did:web:bsky38.com",
+	"schema": {
+		"id": "com.bsky38.influential.defs",
+		"defs": {
+			"nominee": {
+				"type": "object",
+				"required": [
+					"did",
+					"rank",
+					"voteCount"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did"
+					},
+					"rank": {
+						"type": "integer"
+					},
+					"avatar": {
+						"type": "string",
+						"format": "uri"
+					},
+					"handle": {
+						"type": "string",
+						"format": "handle"
+					},
+					"voteCount": {
+						"type": "integer"
+					},
+					"displayName": {
+						"type": "string"
+					}
+				}
+			},
+			"recordStatus": {
+				"type": "object",
+				"required": [
+					"uri",
+					"subject",
+					"createdAt",
+					"status"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"status": {
+						"type": "string",
+						"knownValues": [
+							"counted",
+							"over_limit",
+							"self",
+							"invalid"
+						]
+					},
+					"subject": {
+						"type": "string",
+						"format": "did"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime"
+					}
+				}
+			},
+			"nomineeProfile": {
+				"type": "object",
+				"required": [
+					"did",
+					"inPool"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did"
+					},
+					"rank": {
+						"type": "integer"
+					},
+					"avatar": {
+						"type": "string",
+						"format": "uri"
+					},
+					"handle": {
+						"type": "string",
+						"format": "handle"
+					},
+					"inPool": {
+						"type": "boolean",
+						"description": "Whether the subject currently has a counted vote."
+					},
+					"profile": {
+						"ref": "com.bsky38.influential.defs#campaignProfile",
+						"type": "ref",
+						"description": "The nominee's campaign profile, when one is indexed and not hidden."
+					},
+					"optedOut": {
+						"type": "boolean",
+						"description": "Whether the subject has opted out of the event. Subjects who opted out are not pool members, so this only appears on their profile reads."
+					},
+					"voteCount": {
+						"type": "integer"
+					},
+					"description": {
+						"type": "string",
+						"description": "The campaign description when one is set, else the account's Bluesky bio."
+					},
+					"displayName": {
+						"type": "string"
+					}
+				},
+				"description": "One subject's tallies, cached Bluesky profile, and campaign profile."
+			},
+			"campaignProfile": {
+				"type": "object",
+				"required": [],
+				"properties": {
+					"avatarUrl": {
+						"type": "string",
+						"format": "uri",
+						"description": "Absolute URL serving the campaign avatar blob."
+					},
+					"pinnedPost": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"description": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1788575837807
+	},
+	"references": {
+		"nominee": [],
+		"recordStatus": [],
+		"nomineeProfile": [],
+		"campaignProfile": []
+	}
+}

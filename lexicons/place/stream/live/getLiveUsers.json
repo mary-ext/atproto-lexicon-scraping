@@ -46,7 +46,6 @@
 	},
 	"references": {
 		"main": [
-			"app.bsky.actor.defs",
 			"place.stream.livestream"
 		]
 	}

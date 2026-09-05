@@ -1,0 +1,65 @@
+{
+	"authority": "did:web:bsky38.com",
+	"schema": {
+		"id": "com.bsky38.influential.getLeaderboard",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"nominees",
+							"closed"
+						],
+						"properties": {
+							"closed": {
+								"type": "boolean"
+							},
+							"cursor": {
+								"type": "string"
+							},
+							"closesAt": {
+								"type": "string",
+								"format": "datetime"
+							},
+							"nominees": {
+								"type": "array",
+								"items": {
+									"ref": "com.bsky38.influential.defs#nominee",
+									"type": "ref"
+								}
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"properties": {
+						"limit": {
+							"type": "integer",
+							"default": 38,
+							"maximum": 100,
+							"minimum": 1
+						},
+						"cursor": {
+							"type": "string"
+						}
+					}
+				},
+				"description": "Paginated leaderboard of nominees ranked by counted votes."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1788575837807
+	},
+	"references": {
+		"main": [
+			"com.bsky38.influential.defs"
+		]
+	}
+}

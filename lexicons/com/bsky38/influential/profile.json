@@ -1,0 +1,52 @@
+{
+	"authority": "did:web:bsky38.com",
+	"schema": {
+		"id": "com.bsky38.influential.profile",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"createdAt"
+					],
+					"properties": {
+						"avatar": {
+							"type": "blob",
+							"accept": [
+								"image/*"
+							],
+							"maxSize": 1000000,
+							"description": "Campaign avatar shown on the nominee's profile page."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"pinnedPost": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT-URI of an app.bsky.feed.post record to pin to the campaign page."
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 2000,
+							"description": "Short campaign blurb, in the author's own words.",
+							"maxGraphemes": 500
+						}
+					}
+				},
+				"description": "A nominee's campaign profile: a short blurb, a pinned post, and an avatar. Written by the nominee in their own repo; the record key MUST be 'self'."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1788575837807
+	},
+	"references": {
+		"main": []
+	}
+}
