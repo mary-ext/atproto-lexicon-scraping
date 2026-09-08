@@ -26,7 +26,9 @@
 					"embed": {
 						"refs": [
 							"social.coves.embed.images",
+							"social.coves.embed.images#view",
 							"social.coves.embed.video",
+							"social.coves.embed.video#view",
 							"social.coves.embed.external",
 							"social.coves.embed.external#view",
 							"social.coves.embed.post",
@@ -46,6 +48,18 @@
 					"record": {
 						"type": "unknown",
 						"description": "The actual post record (text, image, video, etc.)"
+					},
+					"status": {
+						"type": "string",
+						"maxLength": 64,
+						"description": "This post's per-community admission status. Present on an accepted post, and on an author's own view of their non-accepted posts; omitted from a public postView of a legacy/bridged row. Optional.",
+						"knownValues": [
+							"pending",
+							"accepted",
+							"pending_reacceptance",
+							"rejected",
+							"removed"
+						]
 					},
 					"viewer": {
 						"ref": "#viewerState",
@@ -71,6 +85,11 @@
 						"type": "string",
 						"format": "datetime",
 						"description": "When this post was indexed by the AppView"
+					},
+					"acceptanceUri": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "AT-URI of the community acceptance record that admitted this post. Present only while an acceptance stands. Optional."
 					}
 				}
 			},
@@ -161,7 +180,7 @@
 					"blockedBy": {
 						"type": "string",
 						"maxLength": 64,
-						"description": "What caused the block: viewer blocked author, viewer blocked community, or post was removed by moderators",
+						"description": "What caused the block. The AppView emits only 'author' (the viewer blocked the post's author). 'community' is reserved and not emitted — a community block mutes aggregate feeds, not permalinks. 'moderator' is not emitted either; removals are served as removedPost.",
 						"knownValues": [
 							"author",
 							"community",
@@ -173,7 +192,30 @@
 						"type": "ref"
 					}
 				},
-				"description": "Post is blocked due to viewer blocking author/community, or community moderation"
+				"description": "Post is hidden from this viewer because the viewer blocked its author. Community blocks mute aggregate feeds only and never produce this member (permalinks stay reachable); moderator removals are served as removedPost."
+			},
+			"removedPost": {
+				"type": "object",
+				"required": [
+					"uri",
+					"removed"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri"
+					},
+					"code": {
+						"type": "string",
+						"maxLength": 64,
+						"description": "The community's removal decision code (e.g. rule-violation, spam, off-topic)."
+					},
+					"removed": {
+						"type": "boolean",
+						"const": true
+					}
+				},
+				"description": "Post was removed by its own community's moderators. Served as a tombstone carrying the removal code — distinct from notFoundPost (which is indistinguishable from 'never existed') so a client can explain the takedown to the author."
 			},
 			"viewerState": {
 				"type": "object",
@@ -232,6 +274,11 @@
 						"type": "string",
 						"format": "handle",
 						"description": "Current handle resolved from DID"
+					},
+					"origin": {
+						"type": "string",
+						"maxLength": 253,
+						"description": "Instance this community actually lives on (hostname only, e.g. lemmy.world). Validated by the AppView at index time."
 					}
 				}
 			},
@@ -288,7 +335,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1784945468305
+		"indexedAt": 1788835501726
 	},
 	"references": {
 		"postView": [
@@ -301,6 +348,7 @@
 		"postStats": [],
 		"authorView": [],
 		"blockedPost": [],
+		"removedPost": [],
 		"viewerState": [],
 		"communityRef": [],
 		"notFoundPost": [],

@@ -41,15 +41,46 @@
 					}
 				},
 				"description": "Video embed with metadata"
+			},
+			"view": {
+				"type": "object",
+				"required": [
+					"video"
+				],
+				"properties": {
+					"alt": {
+						"type": "string",
+						"maxLength": 10000,
+						"description": "Alt text describing video content",
+						"maxGraphemes": 1000
+					},
+					"video": {
+						"type": "string",
+						"format": "uri",
+						"description": "URL of the video, served from the hosting PDS blob endpoint. Unlike images, video is not routed through the AppView's image proxy: the proxy decodes and re-encodes stills and cannot stream."
+					},
+					"duration": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Duration in seconds"
+					},
+					"thumbnail": {
+						"type": "string",
+						"format": "uri",
+						"description": "URL of the video thumbnail image"
+					}
+				},
+				"description": "View of a video embed as served by the AppView; blob references are replaced with fetchable URLs"
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1784945468305
+		"indexedAt": 1788835501726
 	},
 	"references": {
-		"main": []
+		"main": [],
+		"view": []
 	}
 }

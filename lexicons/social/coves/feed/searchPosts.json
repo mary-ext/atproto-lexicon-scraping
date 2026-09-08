@@ -1,7 +1,7 @@
 {
 	"authority": "did:web:coves.social",
 	"schema": {
-		"id": "social.coves.feed.getCommunity",
+		"id": "social.coves.feed.searchPosts",
 		"defs": {
 			"main": {
 				"type": "query",
@@ -30,18 +30,22 @@
 				"parameters": {
 					"type": "params",
 					"required": [
-						"community"
+						"q"
 					],
 					"properties": {
+						"q": {
+							"type": "string",
+							"maxLength": 500,
+							"description": "Search query. Supports quoted phrases and -negation."
+						},
 						"sort": {
 							"type": "string",
-							"default": "hot",
+							"default": "relevance",
 							"maxLength": 64,
-							"description": "Sort order for community feed",
 							"knownValues": [
-								"hot",
-								"top",
-								"new"
+								"relevance",
+								"new",
+								"top"
 							]
 						},
 						"limit": {
@@ -57,13 +61,13 @@
 						"community": {
 							"type": "string",
 							"maxLength": 320,
-							"description": "Get community feed for specific community (DID, handle, name@origin, or bare local name)"
+							"description": "Restrict results to one community: DID, handle, name@origin, or bare local name. Omit to search every community."
 						},
 						"timeframe": {
 							"type": "string",
-							"default": "day",
+							"default": "all",
 							"maxLength": 64,
-							"description": "Timeframe for top sorting (only applies when sort=top)",
+							"description": "Timeframe filter (only applies when sort=top)",
 							"knownValues": [
 								"hour",
 								"day",
@@ -75,7 +79,7 @@
 						}
 					}
 				},
-				"description": "Get a feed of posts from a specific community"
+				"description": "Full-text search over visible posts, across every community or restricted to one. Results honour the same admission, deletion and viewer-block rules as social.coves.feed.getDiscover and social.coves.feed.getCommunity."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",

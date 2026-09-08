@@ -24,11 +24,12 @@
 									"refs": [
 										"social.coves.community.post.defs#postView",
 										"social.coves.community.post.defs#notFoundPost",
+										"social.coves.community.post.defs#removedPost",
 										"social.coves.community.post.defs#blockedPost"
 									],
 									"type": "union"
 								},
-								"description": "Array of post views. May include notFound/blocked entries for missing posts."
+								"description": "Array of post views. May include notFound, blocked, or removed entries for posts that cannot be shown."
 							}
 						}
 					},
@@ -59,7 +60,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1784945468305
+		"indexedAt": 1788835501726
 	},
 	"references": {
 		"main": [

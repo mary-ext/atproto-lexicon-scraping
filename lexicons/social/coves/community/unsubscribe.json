@@ -14,8 +14,8 @@
 						"properties": {
 							"community": {
 								"type": "string",
-								"format": "at-identifier",
-								"description": "DID or handle of the community to unsubscribe from"
+								"maxLength": 320,
+								"description": "Community identifier (DID, handle, name@origin, or bare local name) of the community to unsubscribe from"
 							}
 						}
 					},
@@ -41,7 +41,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1784945468305
+		"indexedAt": 1788835501726
 	},
 	"references": {
 		"main": []

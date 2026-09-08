@@ -36,6 +36,11 @@
 							],
 							"maxSize": 2000000
 						},
+						"origin": {
+							"type": "string",
+							"maxLength": 253,
+							"description": "Instance this community actually lives on (hostname only, e.g. lemmy.world). Self-asserted; appviews must validate against the verified handle."
+						},
 						"hostedBy": {
 							"type": "string",
 							"format": "did",
@@ -113,7 +118,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1784945468305
+		"indexedAt": 1788835501726
 	},
 	"references": {
 		"main": [
