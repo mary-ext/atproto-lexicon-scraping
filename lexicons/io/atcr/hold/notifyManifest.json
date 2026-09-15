@@ -44,6 +44,16 @@
 								"maxLength": 256,
 								"description": "Image repository name"
 							},
+							"visibility": {
+								"type": "string",
+								"default": "public",
+								"maxLength": 16,
+								"description": "Visibility of the sailor repository this manifest belongs to. The hold records it against the manifest and enforces it on OCI blob reads: a layer or image config blob named only by private manifests is served to the hold's owner and crew only, even on a public hold. Absent means public. Re-sending the notification with a different value is how a repository is flipped. Honoured on a push only; ignored on a pull, whose token belongs to the puller rather than the repository owner.",
+								"knownValues": [
+									"public",
+									"private"
+								]
+							},
 							"manifestDigest": {
 								"type": "string",
 								"maxLength": 128,
@@ -114,6 +124,10 @@
 					"digest": {
 						"type": "string",
 						"maxLength": 128
+					},
+					"mediaType": {
+						"type": "string",
+						"maxLength": 256
 					}
 				}
 			},
@@ -146,6 +160,11 @@
 							"ref": "#layerInfo",
 							"type": "ref"
 						}
+					},
+					"subject": {
+						"ref": "#blobInfo",
+						"type": "ref",
+						"description": "Manifest this artifact refers to (attestations, signatures, SBOMs). Absent for ordinary images."
 					},
 					"manifests": {
 						"type": "array",
@@ -201,7 +220,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1785809013839
+		"indexedAt": 1789441430653
 	},
 	"references": {
 		"main": [],

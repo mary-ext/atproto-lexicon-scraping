@@ -26,6 +26,17 @@
 						"cursor": {
 							"type": "integer",
 							"description": "Sequence number to resume from. If omitted, starts from latest. Use -1 to receive only new jobs."
+						},
+						"workers": {
+							"type": "integer",
+							"maximum": 32,
+							"minimum": 1,
+							"description": "How many scans this scanner runs concurrently. The hold keeps this many jobs in flight for the connection. Omitted or unusable means one."
+						},
+						"instance": {
+							"type": "string",
+							"maxLength": 64,
+							"description": "Stable identity of the scanner process, sent on every connect. A scanner that reconnects with the same value resumes the jobs it was holding when the connection dropped, instead of having them offered to another scanner. Omitted means the hold assigns a per-connection identity and the scanner's in-flight work is reclaimed rather than resumed."
 						}
 					}
 				},
@@ -179,7 +190,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1785809013839
+		"indexedAt": 1789441430653
 	},
 	"references": {
 		"main": [],
