@@ -1,0 +1,35 @@
+{
+	"authority": "did:web:isnot.at",
+	"schema": {
+		"id": "at.isnot.authManageReviews",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Manage is/not review records",
+				"detail": "Create, update and delete your is/not reviews. Nothing else in your repo.",
+				"permissions": [
+					{
+						"type": "permission",
+						"action": [
+							"create",
+							"update",
+							"delete"
+						],
+						"resource": "repo",
+						"collection": [
+							"at.isnot.review"
+						]
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1789527620975
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -1,0 +1,60 @@
+{
+	"authority": "did:web:isnot.at",
+	"schema": {
+		"id": "at.isnot.suggestSubjects",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"subjects"
+						],
+						"properties": {
+							"subjects": {
+								"type": "array",
+								"items": {
+									"ref": "at.isnot.review#subject",
+									"type": "ref"
+								},
+								"maxLength": 25
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"q"
+					],
+					"properties": {
+						"q": {
+							"type": "string",
+							"maxLength": 512,
+							"description": "Text to match against subject titles, case-insensitively. An empty string returns no suggestions."
+						},
+						"limit": {
+							"type": "integer",
+							"default": 8,
+							"maximum": 25,
+							"minimum": 1
+						}
+					}
+				},
+				"description": "Suggest review subjects whose title matches a search string, most-reviewed first."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1789527620975
+	},
+	"references": {
+		"main": [
+			"at.isnot.review"
+		]
+	}
+}

@@ -11,8 +11,7 @@
 						"required": [
 							"repository",
 							"userDid",
-							"manifestDigest",
-							"manifest"
+							"manifestDigest"
 						],
 						"properties": {
 							"tag": {
@@ -27,16 +26,18 @@
 							},
 							"manifest": {
 								"ref": "#manifestInfo",
-								"type": "ref"
+								"type": "ref",
+								"description": "The pushed manifest. Required for 'push'; absent for 'pull' and 'visibility'."
 							},
 							"operation": {
 								"type": "string",
 								"default": "push",
 								"maxLength": 16,
-								"description": "Operation type (defaults to 'push' for backward compatibility)",
+								"description": "Operation type (defaults to 'push' for backward compatibility). 'visibility' records a new visibility for an already pushed manifest and does nothing else; it carries no manifest body and moves no counter.",
 								"knownValues": [
 									"push",
-									"pull"
+									"pull",
+									"visibility"
 								]
 							},
 							"repository": {
@@ -113,7 +114,7 @@
 					},
 					"encoding": "application/json"
 				},
-				"description": "Notify hold about a manifest push or pull operation. For pushes: creates layer records and optionally posts to Bluesky. For pulls: just increments stats. Always increments pull/push counts."
+				"description": "Notify hold about a manifest push, pull or visibility change. For pushes: records the repository's visibility and the manifest's blobs, creates layer records and optionally posts to Bluesky. For pulls: just increments stats. Pushes and pulls always increment the matching count. For visibility changes: records the new visibility and nothing else, so no counter moves and no manifest body is needed."
 			},
 			"blobInfo": {
 				"type": "object",
@@ -220,7 +221,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1789441430653
+		"indexedAt": 1789527620975
 	},
 	"references": {
 		"main": [],
