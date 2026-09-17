@@ -1,0 +1,44 @@
+{
+	"authority": "did:web:noted.at",
+	"schema": {
+		"id": "at.noted.note",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"title",
+						"body",
+						"createdAt"
+					],
+					"properties": {
+						"body": {
+							"type": "string",
+							"maxLength": 5000
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 500
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "Record representing a single note"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A brief note"
+	},
+	"meta": {
+		"indexedAt": 1789614263751
+	},
+	"references": {
+		"main": []
+	}
+}

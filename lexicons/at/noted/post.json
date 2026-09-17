@@ -1,0 +1,59 @@
+{
+	"authority": "did:web:noted.at",
+	"schema": {
+		"id": "at.noted.post",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"title",
+						"slug",
+						"createdAt"
+					],
+					"properties": {
+						"body": {
+							"type": "string",
+							"maxLength": 5000
+						},
+						"slug": {
+							"type": "string",
+							"maxLength": 500
+						},
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 50
+							}
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 500
+						},
+						"extended": {
+							"type": "string",
+							"maxLength": 5000
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "Record representing a single post"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A post on a website"
+	},
+	"meta": {
+		"indexedAt": 1789614263751
+	},
+	"references": {
+		"main": []
+	}
+}

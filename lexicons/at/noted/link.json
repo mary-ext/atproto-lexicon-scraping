@@ -1,0 +1,54 @@
+{
+	"authority": "did:web:noted.at",
+	"schema": {
+		"id": "at.noted.link",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"url",
+						"createdAt"
+					],
+					"properties": {
+						"url": {
+							"type": "string",
+							"format": "uri"
+						},
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 500
+							}
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 500
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"description": {
+							"type": "string",
+							"maxLength": 5000
+						}
+					}
+				},
+				"description": "Record representing a single link"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A link to a resource on the web"
+	},
+	"meta": {
+		"indexedAt": 1789614263751
+	},
+	"references": {
+		"main": []
+	}
+}
