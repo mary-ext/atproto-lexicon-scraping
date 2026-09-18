@@ -1,0 +1,80 @@
+{
+	"authority": "did:web:noted.at",
+	"schema": {
+		"id": "at.noted.radio.play",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"airdate",
+						"id",
+						"playType",
+						"createdAt"
+					],
+					"properties": {
+						"id": {
+							"type": "integer"
+						},
+						"show": {
+							"type": "string",
+							"format": "at-uri"
+						},
+						"song": {
+							"type": "string",
+							"maxLength": 500
+						},
+						"album": {
+							"type": "string",
+							"maxLength": 500
+						},
+						"artist": {
+							"type": "string",
+							"maxLength": 500
+						},
+						"airdate": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"comment": {
+							"type": "string",
+							"maxLength": 5000
+						},
+						"imageUri": {
+							"type": "string",
+							"format": "uri"
+						},
+						"playType": {
+							"type": "string",
+							"maxLength": 20,
+							"knownValues": [
+								"airbreak",
+								"trackplay"
+							]
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"thumbnailUri": {
+							"type": "string",
+							"format": "uri"
+						}
+					}
+				},
+				"description": "Record representing a single played item"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A play of a track on a radio show"
+	},
+	"meta": {
+		"indexedAt": 1789699907384
+	},
+	"references": {
+		"main": []
+	}
+}

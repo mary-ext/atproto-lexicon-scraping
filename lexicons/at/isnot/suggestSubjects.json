@@ -50,7 +50,8 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1789527620975
+		"indexedAt": 1789527620975,
+		"errorAt": 1789699907384
 	},
 	"references": {
 		"main": [

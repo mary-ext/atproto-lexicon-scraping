@@ -4,7 +4,7 @@
 		"id": "at.noted.note",
 		"defs": {
 			"main": {
-				"key": "tid",
+				"key": "any",
 				"type": "record",
 				"record": {
 					"type": "object",
@@ -36,7 +36,7 @@
 		"description": "A brief note"
 	},
 	"meta": {
-		"indexedAt": 1789614263751
+		"indexedAt": 1789699907384
 	},
 	"references": {
 		"main": []

@@ -4,7 +4,7 @@
 		"id": "at.noted.post",
 		"defs": {
 			"main": {
-				"key": "tid",
+				"key": "any",
 				"type": "record",
 				"record": {
 					"type": "object",
@@ -51,7 +51,7 @@
 		"description": "A post on a website"
 	},
 	"meta": {
-		"indexedAt": 1789614263751
+		"indexedAt": 1789699907384
 	},
 	"references": {
 		"main": []

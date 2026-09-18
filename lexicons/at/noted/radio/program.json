@@ -1,7 +1,7 @@
 {
 	"authority": "did:web:noted.at",
 	"schema": {
-		"id": "at.noted.link",
+		"id": "at.noted.radio.program",
 		"defs": {
 			"main": {
 				"key": "any",
@@ -9,13 +9,17 @@
 				"record": {
 					"type": "object",
 					"required": [
-						"url",
+						"id",
+						"name",
 						"createdAt"
 					],
 					"properties": {
-						"url": {
+						"id": {
+							"type": "integer"
+						},
+						"name": {
 							"type": "string",
-							"format": "uri"
+							"maxLength": 500
 						},
 						"tags": {
 							"type": "array",
@@ -24,9 +28,9 @@
 								"maxLength": 500
 							}
 						},
-						"title": {
+						"imageUri": {
 							"type": "string",
-							"maxLength": 500
+							"format": "uri"
 						},
 						"createdAt": {
 							"type": "string",
@@ -35,15 +39,19 @@
 						"description": {
 							"type": "string",
 							"maxLength": 5000
+						},
+						"thumbnailUri": {
+							"type": "string",
+							"format": "uri"
 						}
 					}
 				},
-				"description": "Record representing a single link"
+				"description": "Record representing a single program"
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1,
-		"description": "A link to a resource on the web"
+		"description": "A radio program"
 	},
 	"meta": {
 		"indexedAt": 1789699907384

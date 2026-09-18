@@ -1,7 +1,7 @@
 {
 	"authority": "did:web:noted.at",
 	"schema": {
-		"id": "at.noted.link",
+		"id": "at.noted.radio.host",
 		"defs": {
 			"main": {
 				"key": "any",
@@ -9,41 +9,38 @@
 				"record": {
 					"type": "object",
 					"required": [
-						"url",
+						"id",
+						"name",
 						"createdAt"
 					],
 					"properties": {
-						"url": {
-							"type": "string",
-							"format": "uri"
+						"id": {
+							"type": "integer"
 						},
-						"tags": {
-							"type": "array",
-							"items": {
-								"type": "string",
-								"maxLength": 500
-							}
-						},
-						"title": {
+						"name": {
 							"type": "string",
 							"maxLength": 500
+						},
+						"imageUri": {
+							"type": "string",
+							"format": "uri"
 						},
 						"createdAt": {
 							"type": "string",
 							"format": "datetime"
 						},
-						"description": {
+						"thumbnailUri": {
 							"type": "string",
-							"maxLength": 5000
+							"format": "uri"
 						}
 					}
 				},
-				"description": "Record representing a single link"
+				"description": "Record representing a single host"
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1,
-		"description": "A link to a resource on the web"
+		"description": "A host of a radio show"
 	},
 	"meta": {
 		"indexedAt": 1789699907384

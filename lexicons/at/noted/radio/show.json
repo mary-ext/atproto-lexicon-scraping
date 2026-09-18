@@ -1,7 +1,7 @@
 {
 	"authority": "did:web:noted.at",
 	"schema": {
-		"id": "at.noted.link",
+		"id": "at.noted.radio.show",
 		"defs": {
 			"main": {
 				"key": "any",
@@ -9,41 +9,49 @@
 				"record": {
 					"type": "object",
 					"required": [
-						"url",
+						"id",
+						"startTime",
 						"createdAt"
 					],
 					"properties": {
-						"url": {
-							"type": "string",
-							"format": "uri"
+						"id": {
+							"type": "integer"
 						},
-						"tags": {
+						"tagline": {
+							"type": "string",
+							"maxLength": 500
+						},
+						"hostUris": {
 							"type": "array",
 							"items": {
 								"type": "string",
-								"maxLength": 500
+								"format": "at-uri"
 							}
 						},
-						"title": {
+						"imageUri": {
 							"type": "string",
-							"maxLength": 500
+							"format": "uri"
 						},
 						"createdAt": {
 							"type": "string",
 							"format": "datetime"
 						},
-						"description": {
+						"startTime": {
 							"type": "string",
-							"maxLength": 5000
+							"format": "datetime"
+						},
+						"programUri": {
+							"type": "string",
+							"format": "at-uri"
 						}
 					}
 				},
-				"description": "Record representing a single link"
+				"description": "Record representing a single show"
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1,
-		"description": "A link to a resource on the web"
+		"description": "A radio show"
 	},
 	"meta": {
 		"indexedAt": 1789699907384
