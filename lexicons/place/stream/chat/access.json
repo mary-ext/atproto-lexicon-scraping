@@ -1,0 +1,88 @@
+{
+	"authority": "did:web:stream.place",
+	"schema": {
+		"id": "place.stream.chat.access",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"action",
+						"subject",
+						"createdAt"
+					],
+					"properties": {
+						"action": {
+							"enum": [
+								"allow",
+								"deny"
+							],
+							"type": "string",
+							"description": "Whether accounts matching the subject may chat (allow) or may not (deny). Deny wins over allow."
+						},
+						"subject": {
+							"refs": [
+								"#verifier",
+								"#label"
+							],
+							"type": "union",
+							"description": "Who the rule matches. Open: a node ignores subject types it does not understand."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Client-declared timestamp when this rule was created."
+						}
+					}
+				},
+				"description": "A rule about who may chat on this streamer's streams. Rules are evaluated per streamer: when any allow rule exists, only accounts matching an allow rule may chat; accounts matching a deny rule never may. A streamer with no rules has open chat."
+			},
+			"label": {
+				"type": "object",
+				"required": [
+					"labeler",
+					"value"
+				],
+				"properties": {
+					"value": {
+						"type": "string",
+						"maxLength": 128,
+						"description": "The label value that matches; a trailing * matches any label with that prefix."
+					},
+					"labeler": {
+						"type": "string",
+						"format": "did",
+						"description": "The labeler's DID."
+					}
+				},
+				"description": "Accounts carrying this label from this labeler. A node that sees a rule naming a labeler starts mirroring its matching labels."
+			},
+			"verifier": {
+				"type": "object",
+				"required": [
+					"did"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did",
+						"description": "The verifier's DID."
+					}
+				},
+				"description": "Accounts that hold an app.bsky.graph.verification record issued by this DID. A node that sees a rule naming a verifier starts indexing that verifier's records."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1790392221942
+	},
+	"references": {
+		"main": [],
+		"label": [],
+		"verifier": []
+	}
+}
