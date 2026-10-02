@@ -1,0 +1,46 @@
+{
+	"authority": "did:web:rebase.blog",
+	"schema": {
+		"id": "blog.rebase.webring.membership",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"ring",
+						"publication",
+						"createdAt"
+					],
+					"properties": {
+						"ring": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT URI of the blog.rebase.webring.ring record being joined"
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the publication owner accepted"
+						},
+						"publication": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "AT URI of the site.standard.publication record joining the ring. Must match an entry in the ring's members array for the membership to count."
+						}
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A publication owner's acceptance of a place in a webring. Written to the repo of the account that owns the publication; deleting it leaves the ring."
+	},
+	"meta": {
+		"indexedAt": 1790912683181
+	},
+	"references": {
+		"main": []
+	}
+}

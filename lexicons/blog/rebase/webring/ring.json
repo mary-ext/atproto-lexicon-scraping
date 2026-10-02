@@ -1,0 +1,107 @@
+{
+	"authority": "did:web:rebase.blog",
+	"schema": {
+		"id": "blog.rebase.webring.ring",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"name",
+						"createdAt"
+					],
+					"properties": {
+						"url": {
+							"type": "string",
+							"format": "uri",
+							"description": "External homepage for the ring, if it has one"
+						},
+						"name": {
+							"type": "string",
+							"description": "Display name of the ring",
+							"maxGraphemes": 64
+						},
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxGraphemes": 64
+							},
+							"maxLength": 10,
+							"description": "Topics the ring is about"
+						},
+						"rules": {
+							"type": "string",
+							"description": "Plain text rules a member publication is expected to follow. Not markdown or HTML; renderers display it as text.",
+							"maxGraphemes": 3000
+						},
+						"button": {
+							"type": "blob",
+							"accept": [
+								"image/png",
+								"image/gif",
+								"image/webp"
+							],
+							"maxSize": 100000,
+							"description": "Small image identifying the ring, shown beside its name in member sites' ring navigation"
+						},
+						"members": {
+							"type": "array",
+							"items": {
+								"ref": "#member",
+								"type": "ref"
+							},
+							"maxLength": 1000,
+							"description": "Publications the owner lists in the ring. Array order is the circle's order. A listed publication is a member only when its owner's repo also holds a blog.rebase.webring.membership record naming this ring and that publication."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the ring was created"
+						},
+						"updatedAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Timestamp when the ring was last edited"
+						},
+						"description": {
+							"type": "string",
+							"description": "Plain text theme of the ring. Not markdown or HTML; renderers display it as text.",
+							"maxGraphemes": 3000
+						}
+					}
+				}
+			},
+			"member": {
+				"type": "object",
+				"required": [
+					"publication"
+				],
+				"properties": {
+					"addedAt": {
+						"type": "string",
+						"format": "datetime",
+						"description": "Timestamp when the owner added this publication to the ring"
+					},
+					"publication": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "AT URI of the member's site.standard.publication record. Name, URL, and icon are resolved from that record, never copied here."
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A webring: a named, themed, ordered circle of publications, curated by the account whose repo holds this record"
+	},
+	"meta": {
+		"indexedAt": 1790912683181
+	},
+	"references": {
+		"main": [],
+		"member": []
+	}
+}
