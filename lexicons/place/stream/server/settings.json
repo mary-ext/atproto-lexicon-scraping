@@ -13,6 +13,10 @@
 							"type": "boolean",
 							"description": "Whether this node may archive your livestream for improving the service"
 						},
+						"autoPublishVods": {
+							"type": "boolean",
+							"description": "Whether this node should publish the VOD of each of your recorded livestreams as soon as it ends"
+						},
 						"livestreamRecording": {
 							"type": "boolean",
 							"description": "Whether this node should record your livestreams into VODs that you can publish"
@@ -26,7 +30,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1784772920157
+		"indexedAt": 1791519304547
 	},
 	"references": {
 		"main": []
