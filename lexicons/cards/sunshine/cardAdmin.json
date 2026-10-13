@@ -1,0 +1,52 @@
+{
+	"authority": "did:web:sunshine.cards",
+	"schema": {
+		"id": "cards.sunshine.cardAdmin",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"adminKey",
+						"signingKey",
+						"public"
+					],
+					"properties": {
+						"public": {
+							"type": "unknown",
+							"description": "The card's public details: a complete cards.sunshine.card record, published when someone first collects the card."
+						},
+						"adminKey": {
+							"type": "bytes",
+							"maxLength": 16,
+							"minLength": 16,
+							"description": "The tag's key 0, needed to change its settings or keys."
+						},
+						"signingKey": {
+							"type": "bytes",
+							"maxLength": 16,
+							"minLength": 16,
+							"description": "The key the tag signs taps with. It also decrypts the tag's PICC data."
+						},
+						"allowRescans": {
+							"type": "boolean",
+							"default": true,
+							"description": "Whether one person may collect this card more than once."
+						}
+					}
+				},
+				"description": "A card's secrets, kept in its creator's deck. The record key is the card's UID, as 14 upper-case hex characters."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1791868100772
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -1,0 +1,66 @@
+{
+	"authority": "did:web:sunshine.cards",
+	"schema": {
+		"id": "cards.sunshine.card",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"uid",
+						"counter",
+						"url"
+					],
+					"properties": {
+						"uid": {
+							"type": "string",
+							"maxLength": 14,
+							"minLength": 14,
+							"description": "The tag's serial number, as 14 upper-case hex characters."
+						},
+						"url": {
+							"type": "string",
+							"format": "uri",
+							"description": "Where the creator posts about this card."
+						},
+						"back": {
+							"type": "blob",
+							"accept": [
+								"image/*"
+							],
+							"maxSize": 1000000
+						},
+						"front": {
+							"type": "blob",
+							"accept": [
+								"image/*"
+							],
+							"maxSize": 1000000
+						},
+						"record": {
+							"type": "unknown",
+							"description": "An associated record, embedded whole."
+						},
+						"counter": {
+							"type": "integer",
+							"maximum": 16777215,
+							"minimum": 0,
+							"description": "The tag's read counter at the last accepted tap."
+						}
+					}
+				},
+				"description": "A Sunshine Card's public details. The record key is the card's UID."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1791868100772
+	},
+	"references": {
+		"main": []
+	}
+}

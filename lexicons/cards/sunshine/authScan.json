@@ -1,0 +1,41 @@
+{
+	"authority": "did:web:sunshine.cards",
+	"schema": {
+		"id": "cards.sunshine.authScan",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Collect Sunshine Cards",
+				"detail": "Check taps of Sunshine Cards, and save the cards you collect to your account.",
+				"permissions": [
+					{
+						"lxm": [
+							"cards.sunshine.verify"
+						],
+						"type": "permission",
+						"resource": "rpc",
+						"inheritAud": true
+					},
+					{
+						"type": "permission",
+						"action": [
+							"create"
+						],
+						"resource": "repo",
+						"collection": [
+							"cards.sunshine.scan"
+						]
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1791868100772
+	},
+	"references": {
+		"main": []
+	}
+}

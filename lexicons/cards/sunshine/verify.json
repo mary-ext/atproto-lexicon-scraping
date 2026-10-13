@@ -1,0 +1,127 @@
+{
+	"authority": "did:web:sunshine.cards",
+	"schema": {
+		"id": "cards.sunshine.verify",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"did",
+							"uid",
+							"mac"
+						],
+						"properties": {
+							"ctr": {
+								"type": "string",
+								"maxLength": 6,
+								"minLength": 6,
+								"description": "The read counter, in hex, from a plain-mirror tag."
+							},
+							"did": {
+								"type": "string",
+								"format": "did",
+								"description": "The card's creator."
+							},
+							"mac": {
+								"type": "string",
+								"maxLength": 16,
+								"minLength": 16,
+								"description": "The tap's signature, in hex."
+							},
+							"uid": {
+								"type": "string",
+								"maxLength": 14,
+								"minLength": 14,
+								"description": "The tag's serial number, in hex."
+							},
+							"picc": {
+								"type": "string",
+								"maxLength": 32,
+								"minLength": 32,
+								"description": "The encrypted serial number and counter, in hex, from an encrypted-mirror tag. Supply exactly one of ctr and picc."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "CreatorUnavailable",
+						"description": "The creator's deck can't be reached. Retry the same tap; if that returns replayed, tap again."
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"valid"
+						],
+						"properties": {
+							"proof": {
+								"ref": "#proof",
+								"type": "ref",
+								"description": "Write it whenever it's present, even when valid is false. When valid, it's the scan just made; when reason is alreadyCollected, it's the scanner's earlier scan of this card, signed again."
+							},
+							"valid": {
+								"type": "boolean"
+							},
+							"reason": {
+								"type": "string",
+								"maxLength": 64,
+								"knownValues": [
+									"notGenuine",
+									"replayed",
+									"alreadyCollected",
+									"unknownCard"
+								]
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Checks a tap of a Sunshine Card. Called through the scanner's PDS (service auth), it also returns a signed scan record for the caller to write into the scanner's repo."
+			},
+			"proof": {
+				"type": "object",
+				"required": [
+					"did",
+					"collection",
+					"rkey",
+					"record"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did",
+						"description": "The scanner: the repo to write to."
+					},
+					"rkey": {
+						"type": "string",
+						"format": "record-key"
+					},
+					"record": {
+						"type": "unknown",
+						"description": "The signed cards.sunshine.scan record."
+					},
+					"collection": {
+						"type": "string",
+						"format": "nsid"
+					}
+				},
+				"description": "A signed scan record, with the arguments com.atproto.repo.createRecord needs to write it."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1791868100772
+	},
+	"references": {
+		"main": [],
+		"proof": []
+	}
+}
