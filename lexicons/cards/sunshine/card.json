@@ -23,21 +23,33 @@
 						"url": {
 							"type": "string",
 							"format": "uri",
-							"description": "Where the creator posts about this card."
+							"description": "The URL anyone can visit when looking at this card collected in someone's account. It may be the same as the URL in the card's NFC (NDEF) record, or something different."
 						},
 						"back": {
 							"type": "blob",
 							"accept": [
 								"image/*"
 							],
-							"maxSize": 1000000
+							"maxSize": 1000000,
+							"description": "The card's back artwork: portrait, in ID-1 bank card proportions (53.98 × 85.60 mm)."
 						},
 						"front": {
 							"type": "blob",
 							"accept": [
 								"image/*"
 							],
-							"maxSize": 1000000
+							"maxSize": 1000000,
+							"description": "The card's front artwork: portrait, in ID-1 bank card proportions (53.98 × 85.60 mm)."
+						},
+						"colors": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 7,
+								"minLength": 7
+							},
+							"maxLength": 3,
+							"description": "The card's colours, most prominent first, each an sRGB hex colour like #f4b400."
 						},
 						"record": {
 							"type": "unknown",
@@ -48,6 +60,12 @@
 							"maximum": 16777215,
 							"minimum": 0,
 							"description": "The tag's read counter at the last accepted tap."
+						},
+						"collection": {
+							"type": "string",
+							"maxLength": 640,
+							"description": "The name of the collection this card is part of, like 'Autumn Market 2026'. Collections belong to the card's creator: two creators' collections with the same name are different collections.",
+							"maxGraphemes": 64
 						}
 					}
 				},
@@ -58,7 +76,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1791868100772
+		"indexedAt": 1791947635969
 	},
 	"references": {
 		"main": []
