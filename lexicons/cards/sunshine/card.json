@@ -14,6 +14,11 @@
 						"url"
 					],
 					"properties": {
+						"set": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "The cards.sunshine.set this card is primarily part of."
+						},
 						"uid": {
 							"type": "string",
 							"maxLength": 14,
@@ -61,24 +66,47 @@
 							"minimum": 0,
 							"description": "The tag's read counter at the last accepted tap."
 						},
-						"collection": {
-							"type": "string",
-							"maxLength": 640,
-							"description": "The name of the collection this card is part of, like 'Autumn Market 2026'. Collections belong to the card's creator: two creators' collections with the same name are different collections.",
-							"maxGraphemes": 64
+						"strings": {
+							"type": "array",
+							"items": {
+								"ref": "#strings",
+								"type": "ref"
+							},
+							"minLength": 1,
+							"description": "The card's title, one entry per language. The first entry is the default, shown when none matches the reader's language."
 						}
 					}
 				},
 				"description": "A Sunshine Card's public details. The record key is the card's UID."
+			},
+			"strings": {
+				"type": "object",
+				"required": [
+					"lang",
+					"title"
+				],
+				"properties": {
+					"lang": {
+						"type": "string",
+						"format": "language"
+					},
+					"title": {
+						"type": "string",
+						"maxLength": 640,
+						"maxGraphemes": 64
+					}
+				},
+				"description": "The card's strings in one language."
 			}
 		},
 		"$type": "com.atproto.lexicon.schema",
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1791947635969
+		"indexedAt": 1792291416728
 	},
 	"references": {
-		"main": []
+		"main": [],
+		"strings": []
 	}
 }

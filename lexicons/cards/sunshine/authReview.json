@@ -1,0 +1,31 @@
+{
+	"authority": "did:web:sunshine.cards",
+	"schema": {
+		"id": "cards.sunshine.authReview",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Review Sunshine Cards",
+				"detail": "See draft cards you've been asked to review.",
+				"permissions": [
+					{
+						"lxm": [
+							"cards.sunshine.getDraft"
+						],
+						"type": "permission",
+						"resource": "rpc",
+						"inheritAud": true
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1792291416728
+	},
+	"references": {
+		"main": []
+	}
+}

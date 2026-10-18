@@ -1,0 +1,78 @@
+{
+	"authority": "did:web:sunshine.cards",
+	"schema": {
+		"id": "cards.sunshine.set",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"strings",
+						"cards",
+						"createdAt"
+					],
+					"properties": {
+						"cards": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "at-uri"
+							},
+							"maxLength": 500,
+							"description": "The set's cards, in order: at-uris of cards.sunshine.card records. A card's record is only published once someone first scans it, so expect records listed here to be absent until then, and show the set gracefully when one is not found."
+						},
+						"strings": {
+							"type": "array",
+							"items": {
+								"ref": "#strings",
+								"type": "ref"
+							},
+							"minLength": 1,
+							"description": "The set's title and description, one entry per language. The first entry is the default, shown when none matches the reader's language."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						}
+					}
+				},
+				"description": "A set of Sunshine Cards, in order, like 'Autumn Market 2026'. A set may include other accounts' cards. Listing a card exposes its record key, which today is its tag's UID."
+			},
+			"strings": {
+				"type": "object",
+				"required": [
+					"lang",
+					"title"
+				],
+				"properties": {
+					"lang": {
+						"type": "string",
+						"format": "language"
+					},
+					"title": {
+						"type": "string",
+						"maxLength": 640,
+						"maxGraphemes": 64
+					},
+					"description": {
+						"type": "string",
+						"maxLength": 3000,
+						"maxGraphemes": 300
+					}
+				},
+				"description": "The set's strings in one language."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1792291416728
+	},
+	"references": {
+		"main": [],
+		"strings": []
+	}
+}

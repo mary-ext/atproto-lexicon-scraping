@@ -60,6 +60,10 @@
 							"valid"
 						],
 						"properties": {
+							"card": {
+								"type": "unknown",
+								"description": "The card's public details: a complete cards.sunshine.card record. Present when valid is true, and when reason is alreadyCollected. The card's record is only published once someone collects it, so this is the only place to find a new card's details."
+							},
 							"proof": {
 								"ref": "#proof",
 								"type": "ref",
@@ -118,7 +122,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1791868100772
+		"indexedAt": 1792291416728
 	},
 	"references": {
 		"main": [],

@@ -1,0 +1,102 @@
+{
+	"authority": "did:web:sunshine.cards",
+	"schema": {
+		"id": "cards.sunshine.listScans",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"scans"
+						],
+						"properties": {
+							"scans": {
+								"type": "array",
+								"items": {
+									"ref": "#scan",
+									"type": "ref"
+								}
+							},
+							"cursor": {
+								"type": "string",
+								"description": "Present when there may be more scans: pass it to list them."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"did",
+						"uid"
+					],
+					"properties": {
+						"did": {
+							"type": "string",
+							"format": "did",
+							"description": "The card's creator."
+						},
+						"uid": {
+							"type": "string",
+							"maxLength": 14,
+							"minLength": 14,
+							"description": "The tag's serial number, in hex."
+						},
+						"limit": {
+							"type": "integer",
+							"default": 50,
+							"maximum": 100,
+							"minimum": 1
+						},
+						"cursor": {
+							"type": "string"
+						}
+					}
+				},
+				"description": "Lists the scans of a Sunshine Card that this instance has signed, most recent (highest counter) first. A scan its scanner has since deleted is still listed."
+			},
+			"scan": {
+				"type": "object",
+				"required": [
+					"uri",
+					"scanner",
+					"counter",
+					"createdAt"
+				],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "The cards.sunshine.scan record in the scanner's repo."
+					},
+					"counter": {
+						"type": "integer",
+						"maximum": 16777215,
+						"minimum": 1,
+						"description": "The tag's read counter for this scan."
+					},
+					"scanner": {
+						"type": "string",
+						"format": "did"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime"
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1792291416728
+	},
+	"references": {
+		"main": [],
+		"scan": []
+	}
+}

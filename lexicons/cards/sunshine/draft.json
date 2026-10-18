@@ -1,0 +1,100 @@
+{
+	"authority": "did:web:sunshine.cards",
+	"schema": {
+		"id": "cards.sunshine.draft",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"cards",
+						"set",
+						"createdAt"
+					],
+					"properties": {
+						"set": {
+							"type": "unknown",
+							"description": "The proposed set: a complete cards.sunshine.set record whose cards is empty."
+						},
+						"cards": {
+							"type": "array",
+							"items": {
+								"type": "unknown"
+							},
+							"maxLength": 500,
+							"description": "The proposed cards, in order, each a complete cards.sunshine.card record with every detail the real card will have. A card is known by its position. Each one's uid is 00000000000000, which can't name a real card because every NXP tag's UID starts with its manufacturer code, 0x04, and its counter is 0. A card's art lives only in the creator's deck until a real card is made from it."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"explainer": {
+							"type": "string",
+							"maxLength": 100000,
+							"description": "A note to reviewers, in Markdown (CommonMark).",
+							"maxGraphemes": 10000
+						},
+						"reviewers": {
+							"type": "array",
+							"items": {
+								"refs": [
+									"#didReviewer",
+									"#recordPathReviewer"
+								],
+								"type": "union"
+							},
+							"maxLength": 500,
+							"description": "Who else may see the draft, and which of its cards. Entries add together. Absent, only the deck's owner sees it."
+						}
+					}
+				},
+				"description": "A proposed set of Sunshine Cards, kept in its creator's deck for chosen reviewers to see before any card is made. The deck's owner always sees all of it."
+			},
+			"didReviewer": {
+				"type": "object",
+				"required": [
+					"did"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did"
+					}
+				},
+				"description": "An account that may see every card."
+			},
+			"recordPathReviewer": {
+				"type": "object",
+				"required": [
+					"type",
+					"path"
+				],
+				"properties": {
+					"path": {
+						"type": "string",
+						"maxLength": 1000,
+						"description": "A RecordPath (https://tangled.org/microcosm.blue/RecordPath) into the card's associated record, like productAccountDid or details.creators[]. A path that doesn't parse grants nothing."
+					},
+					"type": {
+						"type": "string",
+						"format": "nsid",
+						"description": "The $type of the cards' associated records."
+					}
+				},
+				"description": "Lets the accounts a card's own associated record names see that card. It applies to each card whose record's $type is type. Every value path yields from that record that is a DID may see the card; other values are ignored."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1792291416728
+	},
+	"references": {
+		"main": [],
+		"didReviewer": [],
+		"recordPathReviewer": []
+	}
+}

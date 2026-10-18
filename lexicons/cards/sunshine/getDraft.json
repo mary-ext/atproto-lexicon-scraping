@@ -1,0 +1,114 @@
+{
+	"authority": "did:web:sunshine.cards",
+	"schema": {
+		"id": "cards.sunshine.getDraft",
+		"defs": {
+			"card": {
+				"type": "object",
+				"required": [
+					"index"
+				],
+				"properties": {
+					"back": {
+						"type": "string",
+						"format": "uri",
+						"description": "A short-lived URL of the card's back artwork."
+					},
+					"card": {
+						"type": "unknown",
+						"description": "The card's cards.sunshine.card record. Present only when the viewer may see it."
+					},
+					"front": {
+						"type": "string",
+						"format": "uri",
+						"description": "A short-lived URL of the card's front artwork."
+					},
+					"index": {
+						"type": "integer",
+						"maximum": 499,
+						"minimum": 0,
+						"description": "The card's position in the draft."
+					}
+				}
+			},
+			"main": {
+				"type": "query",
+				"errors": [
+					{
+						"name": "DraftNotFound",
+						"description": "There's no such draft, or the viewer may see none of it."
+					},
+					{
+						"name": "CreatorUnavailable",
+						"description": "The creator's deck can't be reached right now."
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"set",
+							"cards",
+							"createdAt"
+						],
+						"properties": {
+							"set": {
+								"type": "unknown",
+								"description": "The draft's cards.sunshine.set record."
+							},
+							"cards": {
+								"type": "array",
+								"items": {
+									"ref": "#card",
+									"type": "ref"
+								},
+								"maxLength": 500,
+								"description": "The draft's cards, in order. Asked for one card, just that one."
+							},
+							"createdAt": {
+								"type": "string",
+								"format": "datetime"
+							},
+							"explainer": {
+								"type": "string",
+								"maxLength": 100000,
+								"description": "The draft's note to reviewers, in Markdown (CommonMark).",
+								"maxGraphemes": 10000
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"uri"
+					],
+					"properties": {
+						"uri": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "The cards.sunshine.draft record, in its creator's deck."
+						},
+						"card": {
+							"type": "integer",
+							"maximum": 499,
+							"minimum": 0,
+							"description": "Ask for just the card at this position."
+						}
+					}
+				},
+				"description": "Shows a draft set to someone asked to review it. Called through the viewer's PDS (service auth). The viewer sees the cards meant for them; the rest are just their positions. A draft the viewer may see none of answers DraftNotFound, as a missing one does."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1792291416728
+	},
+	"references": {
+		"card": [],
+		"main": []
+	}
+}
