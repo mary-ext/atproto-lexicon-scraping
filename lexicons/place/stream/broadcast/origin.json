@@ -14,6 +14,11 @@
 						"updatedAt"
 					],
 					"properties": {
+						"moqURL": {
+							"type": "string",
+							"format": "uri",
+							"description": "moqt:// URL of the Media over QUIC endpoint serving the livestream's MUXL segments; a certhash query parameter pins the server certificate (SHA-256, hex) when it is self-signed"
+						},
 						"server": {
 							"type": "string",
 							"format": "did",
@@ -53,7 +58,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1784772920157
+		"indexedAt": 1792465651944
 	},
 	"references": {
 		"main": []
