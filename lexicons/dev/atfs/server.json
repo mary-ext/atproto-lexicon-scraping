@@ -48,7 +48,8 @@
 		"description": "An atfs instance's own configuration, read at boot — and re-read whenever it changes, the instance having subscribed to the owner's repo — by the instance whose libp2p peer ID is the record key (rkey) — at://{owner-did}/dev.atfs.server/{peer-id}. One owner repo can configure many instances this way. Changes to accounts, serviceDid and follows apply without a restart; the did:web document atfs serves for a bare-domain serviceDid is bound at startup and needs one to pick up a change. Unknown fields are tolerated and ignored, so a running instance is never broken by a schema field it predates. An absent record is not an error — the instance runs with defaults, and uploads stay disabled until accounts and serviceDid are both set."
 	},
 	"meta": {
-		"indexedAt": 1787274047156
+		"indexedAt": 1787274047156,
+		"errorAt": 1793591998275
 	},
 	"references": {
 		"main": []

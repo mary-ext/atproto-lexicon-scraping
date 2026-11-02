@@ -103,7 +103,8 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1792291416728
+		"indexedAt": 1792291416728,
+		"errorAt": 1793591998275
 	},
 	"references": {
 		"main": [],
