@@ -55,6 +55,11 @@
 							"format": "did",
 							"description": "DID of the user who created this community"
 						},
+						"originUrl": {
+							"type": "string",
+							"format": "uri",
+							"description": "Bridge-written URL of the community on its home instance; display only."
+						},
 						"visibility": {
 							"type": "string",
 							"default": "public",
@@ -88,6 +93,11 @@
 								"sortition"
 							]
 						},
+						"originSoftware": {
+							"type": "string",
+							"maxLength": 64,
+							"description": "Bridge-written home instance software; display only. maxLength counts UTF-8 bytes."
+						},
 						"contentWarnings": {
 							"type": "array",
 							"items": {
@@ -118,7 +128,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1788835501726
+		"indexedAt": 1793854186319
 	},
 	"references": {
 		"main": [

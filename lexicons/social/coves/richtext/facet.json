@@ -49,7 +49,8 @@
 								"#blockquote",
 								"#heading",
 								"#code",
-								"#codeBlock"
+								"#codeBlock",
+								"#image"
 							],
 							"type": "union"
 						},
@@ -58,6 +59,20 @@
 					}
 				},
 				"description": "Annotation of a sub-string within rich text"
+			},
+			"image": {
+				"type": "object",
+				"required": [
+					"index"
+				],
+				"properties": {
+					"index": {
+						"type": "integer",
+						"maximum": 7,
+						"minimum": 0
+					}
+				},
+				"description": "Places embed.images.images[index] at this position in the body. The covered text is the fallback that readers without image support render."
 			},
 			"italic": {
 				"type": "object",
@@ -156,13 +171,14 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1784945468305
+		"indexedAt": 1793854186319
 	},
 	"references": {
 		"bold": [],
 		"code": [],
 		"link": [],
 		"main": [],
+		"image": [],
 		"italic": [],
 		"heading": [],
 		"mention": [],

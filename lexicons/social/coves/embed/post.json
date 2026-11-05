@@ -30,7 +30,7 @@
 					},
 					"resolved": {
 						"type": "unknown",
-						"description": "Resolved data for the referenced post (e.g., a hydrated Bluesky post), or an unavailable marker with a user-facing message"
+						"description": "Resolved data for the referenced post (e.g., a hydrated Bluesky post), or an unavailable marker with a user-facing message. For a removed Coves subject, the embed resolves to nothing beyond the strongRef: no resolved object, copied body, or media; social.coves.community.post.get on that strongRef returns the tombstone."
 					}
 				},
 				"description": "View of a quoted-post embed as served by the AppView, optionally enriched with resolved post data"
@@ -40,7 +40,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1784945468305
+		"indexedAt": 1793854186319
 	},
 	"references": {
 		"main": [

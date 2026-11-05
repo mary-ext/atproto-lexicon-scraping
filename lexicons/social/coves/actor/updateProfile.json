@@ -9,12 +9,6 @@
 					"schema": {
 						"type": "object",
 						"properties": {
-							"bio": {
-								"type": "string",
-								"maxLength": 2560,
-								"description": "User bio. Stored as the `description` field of the social.coves.actor.profile record.",
-								"maxGraphemes": 256
-							},
 							"avatarBlob": {
 								"type": "string",
 								"maxLength": 1400000,
@@ -24,6 +18,12 @@
 								"type": "string",
 								"maxLength": 2800000,
 								"description": "Base64-encoded banner image data (png, jpeg, or webp; decoded size limit 2MB)"
+							},
+							"description": {
+								"type": "string",
+								"maxLength": 2560,
+								"description": "User bio, stored as the `description` field of the social.coves.actor.profile record.",
+								"maxGraphemes": 256
 							},
 							"displayName": {
 								"type": "string",
@@ -74,7 +74,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1784945468305
+		"indexedAt": 1793854186319
 	},
 	"references": {
 		"main": []

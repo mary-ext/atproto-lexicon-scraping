@@ -28,9 +28,19 @@
 							],
 							"maxSize": 2000000
 						},
+						"origin": {
+							"type": "string",
+							"maxLength": 253,
+							"description": "Bridge-written home instance hostname (e.g. lemmy.world); display only. maxLength counts UTF-8 bytes."
+						},
 						"createdAt": {
 							"type": "string",
 							"format": "datetime"
+						},
+						"originUrl": {
+							"type": "string",
+							"format": "uri",
+							"description": "Bridge-written URL of the account on its home instance; display only."
 						},
 						"description": {
 							"type": "string",
@@ -43,6 +53,16 @@
 							"maxLength": 640,
 							"description": "Optional display name",
 							"maxGraphemes": 64
+						},
+						"originSoftware": {
+							"type": "string",
+							"maxLength": 64,
+							"description": "Bridge-written home instance software; display only. maxLength counts UTF-8 bytes."
+						},
+						"originUsername": {
+							"type": "string",
+							"maxLength": 256,
+							"description": "Bridge-written username on the home instance; display only. maxLength counts UTF-8 bytes."
 						},
 						"descriptionFacets": {
 							"type": "array",
@@ -62,7 +82,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1784945468305
+		"indexedAt": 1793854186319
 	},
 	"references": {
 		"main": [

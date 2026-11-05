@@ -26,6 +26,7 @@
 						"embed": {
 							"refs": [
 								"social.coves.embed.images",
+								"social.coves.embed.imagesWithAttachment",
 								"social.coves.embed.video",
 								"social.coves.embed.external",
 								"social.coves.embed.post"
@@ -144,7 +145,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1788835501726
+		"indexedAt": 1793854186319
 	},
 	"references": {
 		"main": [
@@ -152,6 +153,7 @@
 			"com.atproto.repo.strongRef",
 			"social.coves.embed.external",
 			"social.coves.embed.images",
+			"social.coves.embed.imagesWithAttachment",
 			"social.coves.embed.post",
 			"social.coves.embed.video",
 			"social.coves.richtext.facet"

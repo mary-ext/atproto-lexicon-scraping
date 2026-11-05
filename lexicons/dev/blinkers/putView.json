@@ -1,0 +1,122 @@
+{
+	"authority": "did:web:blinkers.dev",
+	"schema": {
+		"id": "dev.blinkers.putView",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"nullable": [
+							"swapRecord"
+						],
+						"required": [
+							"lens",
+							"value"
+						],
+						"properties": {
+							"lens": {
+								"type": "string",
+								"format": "at-uri"
+							},
+							"rkey": {
+								"type": "string",
+								"format": "record-key"
+							},
+							"value": {
+								"type": "unknown"
+							},
+							"swapValue": {
+								"type": "unknown"
+							},
+							"swapRecord": {
+								"type": "string",
+								"format": "cid",
+								"description": "null means: only if the record doesn't exist yet."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "AuthenticationRequired"
+					},
+					{
+						"name": "InvalidRequest"
+					},
+					{
+						"name": "InvalidBlink"
+					},
+					{
+						"name": "NotAllowed"
+					},
+					{
+						"name": "InvalidSwap"
+					},
+					{
+						"name": "RecordExists"
+					},
+					{
+						"name": "WriteConflict"
+					},
+					{
+						"name": "InvalidRecord"
+					},
+					{
+						"name": "LensNotFound"
+					},
+					{
+						"name": "RecordNotFound"
+					},
+					{
+						"name": "RecordNotCovered"
+					},
+					{
+						"name": "InvalidLens"
+					},
+					{
+						"name": "UpstreamFailure"
+					},
+					{
+						"name": "LexiconUnavailable"
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uri",
+							"cid",
+							"value"
+						],
+						"properties": {
+							"cid": {
+								"type": "string",
+								"format": "cid"
+							},
+							"uri": {
+								"type": "string",
+								"format": "at-uri"
+							},
+							"value": {
+								"type": "unknown"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Write a blink back through a lens, or create a record from one."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1793854186319
+	},
+	"references": {
+		"main": []
+	}
+}

@@ -17,6 +17,7 @@
 						"embed": {
 							"refs": [
 								"social.coves.embed.images",
+								"social.coves.embed.imagesWithAttachment",
 								"social.coves.embed.post"
 							],
 							"type": "union",
@@ -121,13 +122,15 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1784945468305
+		"indexedAt": 1793854186319
 	},
 	"references": {
 		"main": [
 			"com.atproto.label.defs",
 			"com.atproto.repo.strongRef",
+			"social.coves.embed.external",
 			"social.coves.embed.images",
+			"social.coves.embed.imagesWithAttachment",
 			"social.coves.embed.post",
 			"social.coves.richtext.facet"
 		],

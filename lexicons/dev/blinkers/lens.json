@@ -1,0 +1,149 @@
+{
+	"authority": "did:web:blinkers.dev",
+	"schema": {
+		"id": "dev.blinkers.lens",
+		"defs": {
+			"each": {
+				"type": "object",
+				"properties": {
+					"path": {
+						"type": "string"
+					},
+					"allow": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"knownValues": [
+								"add",
+								"remove",
+								"replace"
+							]
+						}
+					},
+					"fields": {
+						"type": "array",
+						"items": {
+							"ref": "#field",
+							"type": "ref"
+						}
+					}
+				},
+				"description": "With items: how each item appears in the blink. Set path for a bare value or fields for an object. Paths are relative to the item. Leave each out to show the whole item."
+			},
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"collection",
+						"rkey",
+						"fields"
+					],
+					"properties": {
+						"rkey": {
+							"type": "string",
+							"maxLength": 512,
+							"description": "A record key, or a pattern where * stands for one or more characters, e.g. byjp.*"
+						},
+						"allow": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"knownValues": [
+									"add"
+								]
+							},
+							"description": "add lets keys create new records."
+						},
+						"fields": {
+							"type": "array",
+							"items": {
+								"ref": "#field",
+								"type": "ref"
+							},
+							"description": "The top-level fields of the blink."
+						},
+						"condition": {
+							"type": "string",
+							"description": "CEL expression. The lens only covers records for which it is true."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"newRecord": {
+							"type": "unknown",
+							"description": "The object new records start from. Strings wrapped in {% %} are CEL expressions."
+						},
+						"collection": {
+							"type": "string",
+							"format": "nsid",
+							"description": "The collection this lens covers, in this lens's repo."
+						}
+					}
+				},
+				"description": "Lets holders of a blinkers key read, change and optionally create selected records in this repo."
+			},
+			"field": {
+				"type": "object",
+				"required": [
+					"key"
+				],
+				"properties": {
+					"key": {
+						"type": "string",
+						"description": "The field's name in the blink."
+					},
+					"each": {
+						"ref": "#each",
+						"type": "ref"
+					},
+					"path": {
+						"type": "string",
+						"description": "JSONPath (RFC 9535) selecting at most one value in the record."
+					},
+					"allow": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"knownValues": [
+								"add",
+								"remove",
+								"replace"
+							]
+						},
+						"description": "Changes callers may make. Leave it out to make the field read-only."
+					},
+					"items": {
+						"type": "string",
+						"description": "JSONPath (RFC 9535) selecting list items: a singular query followed by one filter or wildcard selector."
+					},
+					"fields": {
+						"type": "array",
+						"items": {
+							"ref": "#field",
+							"type": "ref"
+						},
+						"description": "Child fields; the blink shows an object."
+					},
+					"newItem": {
+						"type": "unknown",
+						"description": "With items: the object new items start from, before posted values are filled in. Strings wrapped in {% %} are CEL expressions."
+					}
+				},
+				"description": "One field of the blink. Set exactly one of path, items or fields."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1793854186319
+	},
+	"references": {
+		"each": [],
+		"main": [],
+		"field": []
+	}
+}

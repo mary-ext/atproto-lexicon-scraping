@@ -1,0 +1,69 @@
+{
+	"authority": "did:web:coves.social",
+	"schema": {
+		"id": "social.coves.embed.imagesWithAttachment",
+		"defs": {
+			"main": {
+				"type": "object",
+				"required": [
+					"images",
+					"attachment"
+				],
+				"properties": {
+					"images": {
+						"ref": "social.coves.embed.images",
+						"type": "ref"
+					},
+					"attachment": {
+						"refs": [
+							"social.coves.embed.external",
+							"social.coves.embed.post"
+						],
+						"type": "union"
+					}
+				},
+				"description": "Images with an external link or a quoted post. At most eight images total across both galleries. Comments allow only a quoted-post attachment."
+			},
+			"view": {
+				"type": "object",
+				"required": [
+					"images",
+					"attachment"
+				],
+				"properties": {
+					"images": {
+						"ref": "social.coves.embed.images#view",
+						"type": "ref"
+					},
+					"attachment": {
+						"refs": [
+							"social.coves.embed.external#viewExternal",
+							"social.coves.embed.post#view"
+						],
+						"type": "union"
+					}
+				},
+				"description": "Images and attachment as served by the AppView. Image URLs are projected from blob references; Coves quotes retain only their strong reference. Every #image placement in the served record resolves to an image in the main images gallery, never the attachment. Images without a placement render as a gallery after the body."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1793854186319
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef",
+			"social.coves.embed.external",
+			"social.coves.embed.images",
+			"social.coves.embed.post"
+		],
+		"view": [
+			"com.atproto.repo.strongRef",
+			"social.coves.embed.external",
+			"social.coves.embed.images",
+			"social.coves.embed.post"
+		]
+	}
+}
