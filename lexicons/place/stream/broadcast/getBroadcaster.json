@@ -20,6 +20,11 @@
 								},
 								"description": "Array of DIDs authorized as admins"
 							},
+							"moqURL": {
+								"type": "string",
+								"format": "uri",
+								"description": "moqt:// URL of this server's Media over QUIC listener, which peers push streams to and pull them from; a certhash query parameter pins the server certificate (SHA-256, hex) when it is self-signed. Absent when the listener is off."
+							},
 							"server": {
 								"type": "string",
 								"format": "did",
@@ -45,7 +50,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1784772920157
+		"indexedAt": 1794461342804
 	},
 	"references": {
 		"main": []

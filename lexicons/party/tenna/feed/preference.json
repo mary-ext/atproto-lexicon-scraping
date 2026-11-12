@@ -27,7 +27,8 @@
 		"description": "A preference request for any tenna.party feed. The rkey must match with an existing tenna.party feed."
 	},
 	"meta": {
-		"indexedAt": 1793591998275
+		"indexedAt": 1793591998275,
+		"errorAt": 1794461342804
 	},
 	"references": {
 		"main": []

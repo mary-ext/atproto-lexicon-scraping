@@ -43,7 +43,8 @@
 		"description": "A host of a radio show"
 	},
 	"meta": {
-		"indexedAt": 1789699907384
+		"indexedAt": 1789699907384,
+		"errorAt": 1794461342804
 	},
 	"references": {
 		"main": []
