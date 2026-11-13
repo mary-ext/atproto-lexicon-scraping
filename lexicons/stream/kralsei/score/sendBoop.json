@@ -1,0 +1,54 @@
+{
+	"authority": "did:web:vessel.darkworld.download",
+	"schema": {
+		"id": "stream.kralsei.score.sendBoop",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"character": [
+							"subject"
+						],
+						"properties": {
+							"character": {
+								"type": "string",
+								"maxLength": 32,
+								"description": "The character getting booped",
+								"knownValues": [
+									"kris",
+									"ralsei"
+								]
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"success"
+						],
+						"properties": {
+							"success": {
+								"type": "boolean"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "API request to boop a character in the nose"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1794545141700
+	},
+	"references": {
+		"main": []
+	}
+}

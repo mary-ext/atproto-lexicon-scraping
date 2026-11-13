@@ -1,0 +1,40 @@
+{
+	"authority": "did:web:vessel.darkworld.download",
+	"schema": {
+		"id": "stream.kralsei.permissions",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Base kralsei.stream permissions",
+				"detail": "Boop characters to end up on the scoreboard!",
+				"permissions": [
+					{
+						"type": "permission",
+						"resource": "repo",
+						"collection": [
+							"stream.kralsei.score.boop"
+						]
+					},
+					{
+						"lxm": [
+							"stream.kralsei.score.sendBoop"
+						],
+						"type": "permission",
+						"resource": "rpc",
+						"inheritAud": true
+					}
+				],
+				"title:langs": {},
+				"detail:langs": {}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1794545141700
+	},
+	"references": {
+		"main": []
+	}
+}

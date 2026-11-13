@@ -1,0 +1,44 @@
+{
+	"authority": "did:web:vessel.darkworld.download",
+	"schema": {
+		"id": "stream.kralsei.score.boop",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"character",
+						"createdAt"
+					],
+					"properties": {
+						"character": {
+							"type": "string",
+							"maxLength": 32,
+							"description": "Character that got booped",
+							"knownValues": [
+								"kris",
+								"ralsei"
+							]
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "Time of boop"
+						}
+					}
+				},
+				"description": "A character getting booped in the nose"
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1794545141700
+	},
+	"references": {
+		"main": []
+	}
+}
