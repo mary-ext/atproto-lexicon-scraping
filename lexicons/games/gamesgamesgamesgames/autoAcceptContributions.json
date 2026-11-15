@@ -1,0 +1,87 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.autoAcceptContributions",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"properties": {
+							"after": {
+								"type": "string",
+								"maxLength": 4096,
+								"description": "Resume from this cursor. Use the `after` a previous sweep reported."
+							},
+							"limit": {
+								"type": "integer",
+								"default": 500,
+								"maximum": 5000,
+								"minimum": 1,
+								"description": "How many pending contributions the job looks at."
+							},
+							"dryRun": {
+								"type": "boolean",
+								"default": false,
+								"description": "Report what would be applied without writing anything."
+							},
+							"writes": {
+								"type": "string",
+								"maxLength": 64,
+								"description": "full writes the game, a verification and a review. minimal writes the game and the review, which is what marks the contribution as no longer pending.",
+								"knownValues": [
+									"full",
+									"minimal"
+								]
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"jobId"
+						],
+						"properties": {
+							"jobId": {
+								"type": "string",
+								"maxLength": 128
+							},
+							"status": {
+								"type": "string",
+								"maxLength": 32,
+								"description": "The existing sweep's status, when alreadyQueued is true.",
+								"knownValues": [
+									"pending",
+									"running"
+								]
+							},
+							"startedAt": {
+								"type": "string",
+								"format": "datetime",
+								"description": "When the existing sweep started running, when alreadyQueued is true and it has started."
+							},
+							"alreadyQueued": {
+								"type": "boolean",
+								"description": "True when a sweep for the same account was already pending or running; jobId is that sweep."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Queue a job that applies pending contributions from auto-accept accounts to the catalogue, oldest first. Admins sweep every auto-accept account; an auto-accept account can sweep only its own contributions. Only one sweep per account runs at a time."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1794717009211
+	},
+	"references": {
+		"main": []
+	}
+}
