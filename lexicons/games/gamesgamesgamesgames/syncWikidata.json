@@ -1,0 +1,66 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.syncWikidata",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"properties": {
+							"force": {
+								"type": "boolean",
+								"default": false,
+								"description": "Apply even when far fewer rows were staged than the table holds, which normally means Wikidata's answer was cut short."
+							},
+							"dryRun": {
+								"type": "boolean",
+								"default": false,
+								"description": "Fetch and stage everything, and report what would change, without changing the table search reads."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"jobId"
+						],
+						"properties": {
+							"jobId": {
+								"type": "string",
+								"maxLength": 128
+							},
+							"status": {
+								"type": "string",
+								"maxLength": 32,
+								"description": "The existing job's status, when alreadyQueued is true.",
+								"knownValues": [
+									"pending",
+									"running"
+								]
+							},
+							"alreadyQueued": {
+								"type": "boolean",
+								"description": "True when a sync was already pending or running; jobId is that job, and nothing new was queued."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Queue a job that copies Wikidata's sitelink counts, publishers, mod and fan game classes, and English Wikipedia articles for our games into the index, keyed by IGDB game ID. Admins only. One sync runs at a time."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1794803232239
+	},
+	"references": {
+		"main": []
+	}
+}

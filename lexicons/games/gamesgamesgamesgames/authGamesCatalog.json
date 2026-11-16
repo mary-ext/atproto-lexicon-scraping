@@ -12,6 +12,7 @@
 						"type": "permission",
 						"resource": "repo",
 						"collection": [
+							"games.gamesgamesgamesgames.contributionOwnerDecision",
 							"games.gamesgamesgamesgames.engine",
 							"games.gamesgamesgamesgames.game",
 							"games.gamesgamesgamesgames.platform",
@@ -22,6 +23,7 @@
 						"lxm": [
 							"games.gamesgamesgamesgames.acceptContribution",
 							"games.gamesgamesgamesgames.createGame",
+							"games.gamesgamesgamesgames.declineContribution",
 							"games.gamesgamesgamesgames.putGame"
 						],
 						"type": "permission",
@@ -35,7 +37,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1784167664177
+		"indexedAt": 1794803232239
 	},
 	"references": {
 		"main": []

@@ -1,0 +1,61 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.refreshPublisherCounts",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"properties": {
+							"dryRun": {
+								"type": "boolean",
+								"default": false,
+								"description": "Count only, and report what would change."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"jobId"
+						],
+						"properties": {
+							"jobId": {
+								"type": "string",
+								"maxLength": 128
+							},
+							"status": {
+								"type": "string",
+								"maxLength": 32,
+								"description": "The existing job's status, when alreadyQueued is true.",
+								"knownValues": [
+									"pending",
+									"running"
+								]
+							},
+							"alreadyQueued": {
+								"type": "boolean",
+								"description": "True when a refresh was already pending or running; jobId is that job, and nothing new was queued."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Queue a job that recounts how many games each organization is credited as publishing. Search uses the counts to tell established publishers from fan teams. Admins only. One refresh runs at a time."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1794803232239
+	},
+	"references": {
+		"main": []
+	}
+}

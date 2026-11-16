@@ -1,0 +1,57 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.declineContribution",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"contribution"
+						],
+						"properties": {
+							"reason": {
+								"type": "string",
+								"description": "Optional context for the contributor.",
+								"maxGraphemes": 3000
+							},
+							"contribution": {
+								"type": "string",
+								"format": "at-uri",
+								"description": "URI of the contribution record to decline."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uri"
+						],
+						"properties": {
+							"uri": {
+								"type": "string",
+								"format": "at-uri",
+								"description": "URI of the contributionOwnerDecision record."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Decline a contribution to an entity you own. Withdraws the public overlay if a moderator had approved it, and removes the contribution from your queue. The entity record is left unchanged."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1794803232239
+	},
+	"references": {
+		"main": []
+	}
+}
