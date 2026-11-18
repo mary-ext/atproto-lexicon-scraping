@@ -1,0 +1,403 @@
+{
+	"authority": "did:web:dotpostcard.org",
+	"schema": {
+		"id": "org.dotpostcard.postcard",
+		"defs": {
+			"date": {
+				"type": "object",
+				"required": [
+					"year",
+					"month",
+					"day"
+				],
+				"properties": {
+					"day": {
+						"type": "integer",
+						"maximum": 31,
+						"minimum": 1
+					},
+					"year": {
+						"type": "integer",
+						"minimum": 1
+					},
+					"month": {
+						"type": "integer",
+						"maximum": 12,
+						"minimum": 1
+					}
+				},
+				"description": "A calendar date, with no time of day or timezone."
+			},
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"image",
+						"flip",
+						"sides",
+						"physical"
+					],
+					"properties": {
+						"flip": {
+							"type": "string",
+							"maxLength": 100,
+							"description": "The axis the physical postcard flips about, to keep both sides upright.",
+							"knownValues": [
+								"org.dotpostcard.postcard#flipBook",
+								"org.dotpostcard.postcard#flipLeftHand",
+								"org.dotpostcard.postcard#flipCalendar",
+								"org.dotpostcard.postcard#flipRightHand",
+								"org.dotpostcard.postcard#flipNone"
+							]
+						},
+						"image": {
+							"type": "blob",
+							"accept": [
+								"image/*"
+							],
+							"description": "A 'web' format postcard image: the front of the postcard above the back (rotated so the specified flip works), with the postcard's XMP metadata embedded."
+						},
+						"sides": {
+							"type": "array",
+							"items": {
+								"ref": "#side",
+								"type": "ref"
+							},
+							"maxLength": 2,
+							"minLength": 1,
+							"description": "The sides of the postcard, front first. One-sided postcards (flipNone) have a single side."
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 3000,
+							"description": "The postcard's human-readable title.",
+							"maxGraphemes": 300
+						},
+						"locale": {
+							"type": "string",
+							"format": "language",
+							"description": "The language the descriptions and transcriptions are written in, unless annotated otherwise."
+						},
+						"sender": {
+							"ref": "#person",
+							"type": "ref"
+						},
+						"sentOn": {
+							"ref": "#date",
+							"type": "ref",
+							"description": "The date the postcard was sent."
+						},
+						"context": {
+							"ref": "#context",
+							"type": "ref"
+						},
+						"location": {
+							"ref": "#location",
+							"type": "ref"
+						},
+						"physical": {
+							"ref": "#physical",
+							"type": "ref"
+						},
+						"recipient": {
+							"ref": "#person",
+							"type": "ref"
+						}
+					}
+				},
+				"description": "A postcard. The record key is a TID whose timestamp is the date the postcard was sent (or the date it was uploaded, if that's unknown; 1970-01-01 if it was sent before then), with its remaining bits taken from the image's own hash."
+			},
+			"side": {
+				"type": "object",
+				"properties": {
+					"secrets": {
+						"type": "array",
+						"items": {
+							"ref": "#secret",
+							"type": "ref"
+						},
+						"description": "Regions of this side which hold private information, and should be obscured."
+					},
+					"description": {
+						"type": "string",
+						"maxLength": 20000,
+						"description": "A description of what this side depicts, suitable for use as alt text."
+					},
+					"transcription": {
+						"ref": "#annotatedText",
+						"type": "ref"
+					}
+				}
+			},
+			"size": {
+				"type": "object",
+				"required": [
+					"widthPx",
+					"heightPx"
+				],
+				"properties": {
+					"widthMm": {
+						"type": "integer",
+						"minimum": 1
+					},
+					"widthPx": {
+						"type": "integer",
+						"minimum": 1
+					},
+					"heightMm": {
+						"type": "integer",
+						"minimum": 1
+					},
+					"heightPx": {
+						"type": "integer",
+						"minimum": 1
+					}
+				},
+				"description": "The dimensions of the front of the postcard."
+			},
+			"point": {
+				"type": "object",
+				"required": [
+					"x",
+					"y"
+				],
+				"properties": {
+					"x": {
+						"type": "integer",
+						"maximum": 10000,
+						"minimum": 0
+					},
+					"y": {
+						"type": "integer",
+						"maximum": 10000,
+						"minimum": 0
+					}
+				},
+				"description": "A point on one side of the postcard, in ten-thousandths of that side's width (x, from the left) and height (y, from the top)."
+			},
+			"person": {
+				"type": "object",
+				"properties": {
+					"uri": {
+						"type": "string",
+						"format": "uri"
+					},
+					"name": {
+						"type": "string",
+						"maxLength": 1000
+					}
+				}
+			},
+			"secret": {
+				"type": "object",
+				"required": [
+					"points"
+				],
+				"properties": {
+					"points": {
+						"type": "array",
+						"items": {
+							"ref": "#point",
+							"type": "ref"
+						},
+						"minLength": 3,
+						"description": "The vertices of the polygon bounding the region."
+					},
+					"prehidden": {
+						"type": "boolean",
+						"default": true,
+						"description": "False if this region still shows its private information in the image; regions are assumed to be already obscured."
+					}
+				}
+			},
+			"context": {
+				"type": "object",
+				"properties": {
+					"author": {
+						"ref": "#person",
+						"type": "ref"
+					},
+					"description": {
+						"type": "string",
+						"maxLength": 20000
+					}
+				},
+				"description": "Where this postcard came from, and who is describing it."
+			},
+			"flipBook": {
+				"type": "token",
+				"description": "Flips about a vertical axis, like a book."
+			},
+			"flipNone": {
+				"type": "token",
+				"description": "The postcard has only one side."
+			},
+			"location": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string",
+						"maxLength": 1000
+					},
+					"latitude": {
+						"type": "string",
+						"maxLength": 32,
+						"description": "Decimal degrees, as a string (atproto has no floating point numbers)."
+					},
+					"longitude": {
+						"type": "string",
+						"maxLength": 32,
+						"description": "Decimal degrees, as a string (atproto has no floating point numbers)."
+					},
+					"countryCode": {
+						"type": "string",
+						"maxLength": 3,
+						"minLength": 3,
+						"description": "ISO 3166-1 alpha-3 country code."
+					}
+				}
+			},
+			"physical": {
+				"type": "object",
+				"required": [
+					"frontSize"
+				],
+				"properties": {
+					"cardColor": {
+						"ref": "#rgbColor",
+						"type": "ref",
+						"description": "The colour of the card the postcard is made from."
+					},
+					"frontSize": {
+						"ref": "#size",
+						"type": "ref"
+					},
+					"thicknessUm": {
+						"type": "integer",
+						"minimum": 1,
+						"description": "The thickness of the postcard, in micrometres."
+					}
+				},
+				"description": "The physical attributes of the postcard."
+			},
+			"rgbColor": {
+				"type": "object",
+				"required": [
+					"r",
+					"g",
+					"b"
+				],
+				"properties": {
+					"b": {
+						"type": "integer",
+						"maximum": 255,
+						"minimum": 0
+					},
+					"g": {
+						"type": "integer",
+						"maximum": 255,
+						"minimum": 0
+					},
+					"r": {
+						"type": "integer",
+						"maximum": 255,
+						"minimum": 0
+					}
+				}
+			},
+			"annotation": {
+				"type": "object",
+				"required": [
+					"type",
+					"byteStart",
+					"byteEnd"
+				],
+				"properties": {
+					"type": {
+						"type": "string",
+						"maxLength": 100,
+						"knownValues": [
+							"em",
+							"strong",
+							"underline",
+							"locale"
+						]
+					},
+					"value": {
+						"type": "string",
+						"maxLength": 100,
+						"description": "For 'locale' annotations, the language tag of the annotated range."
+					},
+					"byteEnd": {
+						"type": "integer",
+						"minimum": 0
+					},
+					"byteStart": {
+						"type": "integer",
+						"minimum": 0
+					}
+				},
+				"description": "Marks up a range of the text. Offsets are zero-indexed counts of UTF-8 bytes; the start is inclusive and the end exclusive."
+			},
+			"flipCalendar": {
+				"type": "token",
+				"description": "Flips about a horizontal axis, like a calendar."
+			},
+			"flipLeftHand": {
+				"type": "token",
+				"description": "Flips about the up-right diagonal axis, as if flipped with your left hand. The sides have different orientations."
+			},
+			"annotatedText": {
+				"type": "object",
+				"required": [
+					"text"
+				],
+				"properties": {
+					"text": {
+						"type": "string",
+						"maxLength": 20000
+					},
+					"annotations": {
+						"type": "array",
+						"items": {
+							"ref": "#annotation",
+							"type": "ref"
+						}
+					}
+				}
+			},
+			"flipRightHand": {
+				"type": "token",
+				"description": "Flips about the down-right diagonal axis, as if flipped with your right hand. The sides have different orientations."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A digitised physical postcard: an image of its side(s), and the metadata describing it."
+	},
+	"meta": {
+		"indexedAt": 1794980433107
+	},
+	"references": {
+		"date": [],
+		"main": [],
+		"side": [],
+		"size": [],
+		"point": [],
+		"person": [],
+		"secret": [],
+		"context": [],
+		"flipBook": [],
+		"flipNone": [],
+		"location": [],
+		"physical": [],
+		"rgbColor": [],
+		"annotation": [],
+		"flipCalendar": [],
+		"flipLeftHand": [],
+		"annotatedText": [],
+		"flipRightHand": []
+	}
+}

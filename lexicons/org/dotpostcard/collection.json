@@ -1,0 +1,53 @@
+{
+	"authority": "did:web:dotpostcard.org",
+	"schema": {
+		"id": "org.dotpostcard.collection",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"title",
+						"postcards",
+						"createdAt"
+					],
+					"properties": {
+						"title": {
+							"type": "string",
+							"maxLength": 3000,
+							"description": "The collection's human-readable name.",
+							"maxGraphemes": 300
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When the collection was first published."
+						},
+						"postcards": {
+							"type": "array",
+							"items": {
+								"ref": "com.atproto.repo.strongRef",
+								"type": "ref"
+							},
+							"description": "The collection's postcards, in order. Each reference points at an org.dotpostcard.postcard record."
+						}
+					}
+				},
+				"description": "A collection of postcards: a title and an ordered list of references to org.dotpostcard.postcard records."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A titled, ordered group of postcards."
+	},
+	"meta": {
+		"indexedAt": 1794980433107
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}

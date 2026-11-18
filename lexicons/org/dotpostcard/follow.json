@@ -1,0 +1,41 @@
+{
+	"authority": "did:web:dotpostcard.org",
+	"schema": {
+		"id": "org.dotpostcard.follow",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"subject",
+						"createdAt"
+					],
+					"properties": {
+						"subject": {
+							"type": "string",
+							"format": "at-uri",
+							"description": "The at-uri of the followed org.dotpostcard.collection record."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "When the collection was followed."
+						}
+					}
+				},
+				"description": "A dotpostcard collection the author wishes to follow for changes."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1,
+		"description": "A record of someone following a postcard collection."
+	},
+	"meta": {
+		"indexedAt": 1794980433107
+	},
+	"references": {
+		"main": []
+	}
+}
