@@ -1,0 +1,140 @@
+{
+	"authority": "did:web:jetbridge.link",
+	"schema": {
+		"id": "link.jetbridge.requestSession",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"hostnames"
+						],
+						"properties": {
+							"renew": {
+								"type": "string",
+								"maxLength": 512,
+								"description": "A currently active session token to extend, instead of creating a new one."
+							},
+							"hostnames": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"maxLength": 253
+								},
+								"maxLength": 64,
+								"minLength": 1,
+								"description": "Lowercase hostnames to serve. Each must have a link.jetbridge.route record in the caller's repo."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "HostnameNotBound",
+						"description": "_jetbridge.<hostname> does not have exactly one did= TXT value, or that value is not did=<caller's DID>."
+					},
+					{
+						"name": "RouteNotFound",
+						"description": "The caller's repo has no valid link.jetbridge.route record for the hostname."
+					},
+					{
+						"name": "RouteNotForProvider",
+						"description": "The route record for the hostname does not name this provider."
+					},
+					{
+						"name": "PolicyNotAccepted",
+						"description": "The route record's acceptedPolicy for this provider is not one the provider accepts now. Show the user the provider's current policy, and ask them to accept it."
+					},
+					{
+						"name": "ApprovalRequired",
+						"description": "Admission is approval and the caller has no unexpired link.jetbridge.approval record. Wait for the record to appear, then retry."
+					},
+					{
+						"name": "Denied",
+						"description": "Permission for this host is not granted. A retry will likely not help."
+					},
+					{
+						"name": "UpstreamFailure",
+						"description": "The provider could not check the hostname. A retry may help."
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"token",
+							"expiresAt"
+						],
+						"properties": {
+							"token": {
+								"type": "string",
+								"maxLength": 512,
+								"description": "Opaque random token bound to the caller's DID."
+							},
+							"refused": {
+								"type": "array",
+								"items": {
+									"ref": "#refusal",
+									"type": "ref"
+								},
+								"maxLength": 64,
+								"description": "Requested hostnames that the token does not grant, each with the reason. The token grants the rest. Absent when it grants them all."
+							},
+							"expiresAt": {
+								"type": "string",
+								"format": "datetime",
+								"description": "After this time the tunnel accepts no new logins or proxies with the token, and renew cannot extend it."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Request a session token from a Provider, to let a tunnel serve the given hostname(s)."
+			},
+			"refusal": {
+				"type": "object",
+				"required": [
+					"hostname",
+					"error"
+				],
+				"properties": {
+					"error": {
+						"type": "string",
+						"maxLength": 64,
+						"description": "Why this hostname was refused: one of this procedure's errors.",
+						"knownValues": [
+							"HostnameNotBound",
+							"RouteNotFound",
+							"RouteNotForProvider",
+							"PolicyNotAccepted",
+							"ApprovalRequired",
+							"Denied",
+							"UpstreamFailure"
+						]
+					},
+					"message": {
+						"type": "string",
+						"maxLength": 1000,
+						"description": "Why, for people."
+					},
+					"hostname": {
+						"type": "string",
+						"maxLength": 253
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1795152408967
+	},
+	"references": {
+		"main": [],
+		"refusal": []
+	}
+}

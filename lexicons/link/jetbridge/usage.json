@@ -1,0 +1,91 @@
+{
+	"authority": "did:web:jetbridge.link",
+	"schema": {
+		"id": "link.jetbridge.usage",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"day",
+						"subject",
+						"routes",
+						"createdAt"
+					],
+					"properties": {
+						"day": {
+							"type": "string",
+							"maxLength": 10,
+							"minLength": 10,
+							"description": "The UTC day counted, as YYYY-MM-DD. Must equal the date in the record key."
+						},
+						"routes": {
+							"type": "array",
+							"items": {
+								"ref": "#routeUsage",
+								"type": "ref"
+							},
+							"description": "One entry per route the client had a proxy open for."
+						},
+						"subject": {
+							"type": "string",
+							"format": "did",
+							"description": "The client's DID. Must equal the DID in the record key."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"countsLost": {
+							"type": "boolean",
+							"description": "True when the provider may have lost some of the day's counts, as after an unclean exit. This may result in published figures being too low, but never too high."
+						}
+					}
+				},
+				"description": "The traffic a Provider believes it carried for one Client in one UTC day. The client can verify against its own count. Providers use the record key <YYYY-MM-DD>~<client DID>."
+			},
+			"routeUsage": {
+				"type": "object",
+				"required": [
+					"route",
+					"ingress",
+					"egress",
+					"connections"
+				],
+				"properties": {
+					"route": {
+						"type": "string",
+						"format": "at-uri",
+						"description": "The at-uri of the client's link.jetbridge.route record, which must be in the client's own repo."
+					},
+					"egress": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Bytes, not megabytes, sent from the Client to visitors via the Provider."
+					},
+					"ingress": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Bytes, not megabytes, sent from visitors to the client."
+					},
+					"connections": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "How many visitor TCP connections closed on this day."
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1795152408967
+	},
+	"references": {
+		"main": [],
+		"routeUsage": []
+	}
+}

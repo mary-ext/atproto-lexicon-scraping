@@ -1,0 +1,81 @@
+{
+	"authority": "did:web:jetbridge.link",
+	"schema": {
+		"id": "link.jetbridge.route",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"hostname",
+						"providers",
+						"acmeAccount",
+						"createdAt"
+					],
+					"properties": {
+						"hostname": {
+							"type": "string",
+							"maxLength": 253,
+							"description": "Lowercase hostname, in punycode if not ASCII. Must equal the record key."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"providers": {
+							"type": "array",
+							"items": {
+								"ref": "#providerEntry",
+								"type": "ref"
+							},
+							"maxLength": 8,
+							"minLength": 1,
+							"description": "Providers that may serve the hostname. Clients write one, or two while switching provider: the new one, and the old one, which keeps serving until DNS has moved."
+						},
+						"acmeAccount": {
+							"type": "string",
+							"format": "uri",
+							"maxLength": 2048,
+							"description": "URI of the ACME account that the hostname's CAA record pins issuance to, so anyone can audit the pin."
+						}
+					}
+				},
+				"description": "A client's claim to serve a hostname through a provider, with the policy it accepted. Lives in the client's repo, with the lowercase hostname as the record key."
+			},
+			"providerEntry": {
+				"type": "object",
+				"required": [
+					"did",
+					"acceptedPolicy"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did",
+						"description": "The provider's DID."
+					},
+					"acceptedPolicy": {
+						"ref": "com.atproto.repo.strongRef",
+						"type": "ref",
+						"description": "The provider's link.jetbridge.policy record that the client accepted. The provider serves the route only while it still accepts this record's cid."
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1795152408967
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		],
+		"providerEntry": [
+			"com.atproto.repo.strongRef"
+		]
+	}
+}

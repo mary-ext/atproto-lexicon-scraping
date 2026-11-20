@@ -1,0 +1,62 @@
+{
+	"authority": "did:web:jetbridge.link",
+	"schema": {
+		"id": "link.jetbridge.policy",
+		"defs": {
+			"main": {
+				"key": "tid",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"terms",
+						"abuseContact",
+						"createdAt"
+					],
+					"properties": {
+						"terms": {
+							"refs": [
+								"at.markpub.markdown"
+							],
+							"type": "union",
+							"description": "The terms of use, in markdown."
+						},
+						"entity": {
+							"type": "string",
+							"maxLength": 512,
+							"description": "The name of the legal entity that operates the provider.",
+							"maxGraphemes": 256
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"abuseContact": {
+							"type": "string",
+							"maxLength": 512,
+							"description": "An email address or a URL to report abuse to.",
+							"maxGraphemes": 256
+						},
+						"jurisdiction": {
+							"type": "string",
+							"maxLength": 2,
+							"minLength": 2,
+							"description": "The ISO 3166-1 alpha-2 code of the country where the provider operates, in uppercase."
+						}
+					}
+				},
+				"description": "The acceptable-use terms of a provider. The terms are in the record, so the CID of the record that a client accepts identifies the terms. To change the terms, the provider writes a new record. The terms are not in link.jetbridge.provider, so a change of address does not change what clients accepted."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1795152408967
+	},
+	"references": {
+		"main": [
+			"at.markpub.markdown"
+		]
+	}
+}

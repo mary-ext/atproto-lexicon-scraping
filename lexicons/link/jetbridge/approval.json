@@ -1,0 +1,74 @@
+{
+	"authority": "did:web:jetbridge.link",
+	"schema": {
+		"id": "link.jetbridge.approval",
+		"defs": {
+			"main": {
+				"key": "any",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"subject",
+						"createdAt"
+					],
+					"properties": {
+						"limits": {
+							"ref": "#limits",
+							"type": "ref",
+							"description": "Overrides of the Provider's defaults for this Client."
+						},
+						"subject": {
+							"type": "string",
+							"format": "did",
+							"description": "The approved Client's DID. Must equal the record key."
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"expiresAt": {
+							"type": "string",
+							"format": "datetime",
+							"description": "After this time the approval no longer counts."
+						}
+					}
+				},
+				"description": "A Provider's approval of one Client, for all of that Client's hostnames. The rkey must be the Client's DID."
+			},
+			"limits": {
+				"type": "object",
+				"properties": {
+					"trafficCap": {
+						"type": "array",
+						"items": {
+							"ref": "link.jetbridge.provider#trafficCap",
+							"type": "ref"
+						},
+						"maxLength": 14,
+						"description": "Replaces all of the Provider's default caps for this Client. Empty means no cap."
+					},
+					"maxHostnames": {
+						"type": "integer",
+						"minimum": 1,
+						"description": "Most hostnames this Client may serve at once."
+					}
+				},
+				"description": "A field present here replaces the Provider's default for this Client. A field left out keeps the default."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1795152408967
+	},
+	"references": {
+		"main": [
+			"link.jetbridge.provider"
+		],
+		"limits": [
+			"link.jetbridge.provider"
+		]
+	}
+}

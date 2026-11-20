@@ -1,0 +1,143 @@
+{
+	"authority": "did:web:jetbridge.link",
+	"schema": {
+		"id": "link.jetbridge.provider",
+		"defs": {
+			"main": {
+				"key": "literal:self",
+				"type": "record",
+				"record": {
+					"type": "object",
+					"required": [
+						"protocol",
+						"ingress",
+						"admission",
+						"activePolicies",
+						"createdAt"
+					],
+					"properties": {
+						"limits": {
+							"ref": "#limits",
+							"type": "ref",
+							"description": "Default limits for every Client."
+						},
+						"ingress": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"maxLength": 45
+							},
+							"maxLength": 32,
+							"minLength": 1,
+							"description": "IPv4 and IPv6 addresses that clients write to their A and AAAA records."
+						},
+						"protocol": {
+							"type": "string",
+							"maxLength": 64,
+							"description": "The protocol version this Provider accepts.",
+							"knownValues": [
+								"jetbridge+frp/2"
+							]
+						},
+						"admission": {
+							"type": "string",
+							"maxLength": 32,
+							"description": "Who may open a tunnel: open (anyone), approval (Clients with an unexpired link.jetbridge.approval record) or closed (by out-of-band invitation only).",
+							"knownValues": [
+								"open",
+								"approval",
+								"closed"
+							]
+						},
+						"createdAt": {
+							"type": "string",
+							"format": "datetime"
+						},
+						"activePolicies": {
+							"type": "array",
+							"items": {
+								"ref": "com.atproto.repo.strongRef",
+								"type": "ref"
+							},
+							"maxLength": 16,
+							"minLength": 1,
+							"description": "The link.jetbridge.policy records a Client may accept, in the Provider's order of preference. A Client must accept one of them."
+						}
+					}
+				},
+				"description": "A provider's offer of ingress to other people's HTTPS services. Lives in the provider's repo. The repo's DID identifies the provider."
+			},
+			"limits": {
+				"type": "object",
+				"properties": {
+					"trafficCap": {
+						"type": "array",
+						"items": {
+							"ref": "#trafficCap",
+							"type": "ref"
+						},
+						"maxLength": 14,
+						"minLength": 0,
+						"description": "Caps on one Client's traffic, each over a rolling period. Left out when there is no cap. If a Client's traffic goes over any cap during its period, the Client must expect the Provider to throttle or cut its connections."
+					},
+					"maxHostnames": {
+						"type": "integer",
+						"minimum": 1,
+						"description": "Most hostnames one client may serve at once."
+					}
+				}
+			},
+			"trafficCap": {
+				"type": "object",
+				"required": [
+					"direction",
+					"bytes",
+					"timespan"
+				],
+				"properties": {
+					"bytes": {
+						"type": "integer",
+						"minimum": 1,
+						"description": "The most bytes the Client may send in this direction during the period."
+					},
+					"timespan": {
+						"type": "string",
+						"maxLength": 16,
+						"description": "The length of the rolling period the Provider will limit over.",
+						"knownValues": [
+							"1s",
+							"1h",
+							"6h",
+							"1d",
+							"7d",
+							"30d",
+							"365d"
+						]
+					},
+					"direction": {
+						"enum": [
+							"ingress",
+							"egress"
+						],
+						"type": "string",
+						"maxLength": 16,
+						"description": "ingress: bytes from visitors to the Client via the Provider. egress: bytes from the Client to visitors via the Provider."
+					}
+				},
+				"description": "A cap on the traffic of all of one Client's hostnames together, in one direction, over a rolling period."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1795152408967
+	},
+	"references": {
+		"main": [
+			"com.atproto.repo.strongRef"
+		],
+		"limits": [],
+		"trafficCap": []
+	}
+}
