@@ -1,0 +1,38 @@
+{
+	"authority": "did:web:jetbridge.link",
+	"schema": {
+		"id": "link.jetbridge.manageProvider",
+		"defs": {
+			"main": {
+				"type": "permission-set",
+				"title": "Manage your Jetbridge Provider",
+				"detail": "Approve, cap and deny the clients of a Jetbridge Provider you run, and see their traffic.",
+				"permissions": [
+					{
+						"aud": "*",
+						"lxm": [
+							"link.jetbridge.getManagement",
+							"link.jetbridge.getTraffic",
+							"link.jetbridge.approve",
+							"link.jetbridge.revoke",
+							"link.jetbridge.deny",
+							"link.jetbridge.undeny",
+							"link.jetbridge.setAdmission",
+							"link.jetbridge.setDefaultCaps"
+						],
+						"type": "permission",
+						"resource": "rpc"
+					}
+				]
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1795238378852
+	},
+	"references": {
+		"main": []
+	}
+}

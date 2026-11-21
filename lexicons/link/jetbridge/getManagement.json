@@ -1,0 +1,240 @@
+{
+	"authority": "did:web:jetbridge.link",
+	"schema": {
+		"id": "link.jetbridge.getManagement",
+		"defs": {
+			"main": {
+				"type": "query",
+				"errors": [
+					{
+						"name": "OperatorNotSet",
+						"description": "The Provider has no operator."
+					},
+					{
+						"name": "NotOperator",
+						"description": "The caller is not the Provider's operator."
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"admission",
+							"defaults",
+							"trusted",
+							"deniedDids",
+							"deniedHostnames",
+							"clients"
+						],
+						"properties": {
+							"clients": {
+								"type": "array",
+								"items": {
+									"ref": "#client",
+									"type": "ref"
+								},
+								"description": "The Clients the Provider knows of."
+							},
+							"trusted": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"format": "did"
+								},
+								"description": "Clients the Provider trusts."
+							},
+							"defaults": {
+								"ref": "link.jetbridge.provider#limits",
+								"type": "ref",
+								"description": "The limits for a Client that has no approval overriding them."
+							},
+							"admission": {
+								"type": "string",
+								"maxLength": 32,
+								"description": "Who may open a tunnel, as in the Provider's record.",
+								"knownValues": [
+									"open",
+									"approval",
+									"closed"
+								]
+							},
+							"deniedDids": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"format": "did"
+								},
+								"description": "Clients the Provider refuses."
+							},
+							"deniedHostnames": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"maxLength": 253
+								},
+								"description": "Hostnames the Provider refuses to serve."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Get how a Provider admits Clients, and what it knows about each of them."
+			},
+			"client": {
+				"type": "object",
+				"required": [
+					"did",
+					"limits",
+					"connected",
+					"hostnames",
+					"capUsage"
+				],
+				"properties": {
+					"did": {
+						"type": "string",
+						"format": "did"
+					},
+					"denied": {
+						"type": "boolean",
+						"description": "The Provider refuses this Client."
+					},
+					"limits": {
+						"ref": "link.jetbridge.provider#limits",
+						"type": "ref",
+						"description": "The limits that apply to this Client now."
+					},
+					"trusted": {
+						"type": "boolean",
+						"description": "The Provider trusts this Client."
+					},
+					"waiting": {
+						"ref": "#waiting",
+						"type": "ref",
+						"description": "The Client's latest request for approval, while it has not been answered."
+					},
+					"approval": {
+						"ref": "#approval",
+						"type": "ref",
+						"description": "The Client's approval, when it has one."
+					},
+					"capUsage": {
+						"type": "array",
+						"items": {
+							"ref": "#capUsage",
+							"type": "ref"
+						},
+						"description": "How much of each of the Client's traffic caps it has used."
+					},
+					"connected": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"maxLength": 253
+						},
+						"description": "Hostnames the Client has a tunnel open for now."
+					},
+					"hostnames": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"maxLength": 253
+						},
+						"description": "Hostnames the Client has had traffic for."
+					}
+				}
+			},
+			"waiting": {
+				"type": "object",
+				"required": [
+					"hostnames",
+					"firstAsked",
+					"lastAsked"
+				],
+				"properties": {
+					"hostnames": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"maxLength": 253
+						},
+						"description": "The hostnames in the Client's latest request."
+					},
+					"lastAsked": {
+						"type": "string",
+						"format": "datetime"
+					},
+					"firstAsked": {
+						"type": "string",
+						"format": "datetime"
+					}
+				}
+			},
+			"approval": {
+				"type": "object",
+				"required": [
+					"createdAt"
+				],
+				"properties": {
+					"limits": {
+						"ref": "link.jetbridge.approval#limits",
+						"type": "ref",
+						"description": "The approval's overrides of the Provider's defaults."
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "datetime"
+					},
+					"expiresAt": {
+						"type": "string",
+						"format": "datetime"
+					}
+				}
+			},
+			"capUsage": {
+				"type": "object",
+				"required": [
+					"cap",
+					"bytes"
+				],
+				"properties": {
+					"cap": {
+						"ref": "link.jetbridge.provider#trafficCap",
+						"type": "ref"
+					},
+					"bytes": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Bytes the Client has carried in the cap's direction during the cap's timespan, up to now."
+					},
+					"partial": {
+						"type": "boolean",
+						"description": "True when bytes may be too low, because the Provider doesn't keep traffic for the cap's whole timespan."
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1795238378852
+	},
+	"references": {
+		"main": [
+			"link.jetbridge.approval",
+			"link.jetbridge.provider"
+		],
+		"client": [
+			"link.jetbridge.approval",
+			"link.jetbridge.provider"
+		],
+		"waiting": [],
+		"approval": [
+			"link.jetbridge.approval",
+			"link.jetbridge.provider"
+		],
+		"capUsage": [
+			"link.jetbridge.provider"
+		]
+	}
+}

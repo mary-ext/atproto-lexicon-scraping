@@ -1,0 +1,83 @@
+{
+	"authority": "did:web:jetbridge.link",
+	"schema": {
+		"id": "link.jetbridge.approve",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"client"
+						],
+						"properties": {
+							"client": {
+								"type": "string",
+								"format": "did",
+								"description": "The Client to approve."
+							},
+							"expiresAt": {
+								"type": "string",
+								"format": "datetime",
+								"description": "When the approval ends. Left out for no end."
+							},
+							"trafficCap": {
+								"type": "array",
+								"items": {
+									"ref": "link.jetbridge.provider#trafficCap",
+									"type": "ref"
+								},
+								"maxLength": 14,
+								"description": "Caps that replace all of the Provider's default caps for the Client. Empty means no cap. Left out to keep the defaults."
+							},
+							"maxHostnames": {
+								"type": "integer",
+								"minimum": 1,
+								"description": "Most hostnames the Client may serve at once. Left out to keep the Provider's default."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "OperatorNotSet",
+						"description": "The Provider has no operator."
+					},
+					{
+						"name": "NotOperator",
+						"description": "The caller is not the Provider's operator."
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"uri"
+						],
+						"properties": {
+							"uri": {
+								"type": "string",
+								"format": "at-uri",
+								"description": "The approval record."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Approve a Client, replacing any approval it has."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1795238378852
+	},
+	"references": {
+		"main": [
+			"link.jetbridge.provider"
+		]
+	}
+}

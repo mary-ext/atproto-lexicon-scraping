@@ -1,0 +1,97 @@
+{
+	"authority": "did:web:gamesgamesgamesgames.games",
+	"schema": {
+		"id": "games.gamesgamesgamesgames.getGame",
+		"defs": {
+			"main": {
+				"type": "query",
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"game"
+						],
+						"properties": {
+							"game": {
+								"ref": "games.gamesgamesgamesgames.defs#gameDetailView",
+								"type": "ref"
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"properties": {
+						"uri": {
+							"type": "string",
+							"format": "at-uri"
+						},
+						"slug": {
+							"type": "string"
+						},
+						"gogId": {
+							"type": "string",
+							"description": "Look up a game by its GOG external ID."
+						},
+						"igdbId": {
+							"type": "string",
+							"description": "Look up a game by its IGDB external ID."
+						},
+						"xboxId": {
+							"type": "string",
+							"description": "Look up a game by its Xbox external ID."
+						},
+						"steamId": {
+							"type": "string",
+							"description": "Look up a game by its Steam external ID."
+						},
+						"epicGamesId": {
+							"type": "string",
+							"description": "Look up a game by its Epic Games external ID."
+						},
+						"googlePlayId": {
+							"type": "string",
+							"description": "Look up a game by its Google Play external ID."
+						},
+						"playStationId": {
+							"type": "string",
+							"description": "Look up a game by its PlayStation external ID."
+						},
+						"humbleBundleId": {
+							"type": "string",
+							"description": "Look up a game by its Humble Bundle external ID."
+						},
+						"appleAppStoreId": {
+							"type": "string",
+							"description": "Look up a game by its Apple App Store external ID."
+						},
+						"nintendoEshopId": {
+							"type": "string",
+							"description": "Look up a game by its Nintendo eShop external ID."
+						},
+						"includeOrgCredits": {
+							"type": "boolean",
+							"description": "Include organization credits for this game."
+						},
+						"includeActorCredits": {
+							"type": "boolean",
+							"description": "Include individual actor credits for this game."
+						}
+					}
+				},
+				"description": "Get all details of a game."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1795238378852
+	},
+	"references": {
+		"main": [
+			"games.gamesgamesgamesgames.defs"
+		]
+	}
+}

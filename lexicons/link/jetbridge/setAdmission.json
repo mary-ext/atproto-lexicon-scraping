@@ -1,0 +1,70 @@
+{
+	"authority": "did:web:jetbridge.link",
+	"schema": {
+		"id": "link.jetbridge.setAdmission",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"mode"
+						],
+						"properties": {
+							"mode": {
+								"type": "string",
+								"maxLength": 32,
+								"description": "The new admission mode, as in the Provider's record.",
+								"knownValues": [
+									"open",
+									"approval",
+									"closed"
+								]
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "OperatorNotSet",
+						"description": "The Provider has no operator."
+					},
+					{
+						"name": "NotOperator",
+						"description": "The caller is not the Provider's operator."
+					},
+					{
+						"name": "UneditableConfig",
+						"description": "The Provider can't make this change itself. Its operator must make it by hand."
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"changed"
+						],
+						"properties": {
+							"changed": {
+								"type": "boolean",
+								"description": "Whether this changed anything: false when the Provider already had this mode."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Set who may open a tunnel on the Provider."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1795238378852
+	},
+	"references": {
+		"main": []
+	}
+}

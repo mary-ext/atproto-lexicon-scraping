@@ -31,6 +31,16 @@
 							"minLength": 1,
 							"description": "IPv4 and IPv6 addresses that clients write to their A and AAAA records."
 						},
+						"version": {
+							"type": "string",
+							"maxLength": 64,
+							"description": "The Jetbridge release this Provider runs."
+						},
+						"operator": {
+							"type": "string",
+							"format": "did",
+							"description": "The atproto account of whoever runs this Provider."
+						},
 						"protocol": {
 							"type": "string",
 							"maxLength": 64,
@@ -131,7 +141,7 @@
 		"lexicon": 1
 	},
 	"meta": {
-		"indexedAt": 1795152408967
+		"indexedAt": 1795238378852
 	},
 	"references": {
 		"main": [

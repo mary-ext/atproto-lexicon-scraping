@@ -1,0 +1,132 @@
+{
+	"authority": "did:web:jetbridge.link",
+	"schema": {
+		"id": "link.jetbridge.getTraffic",
+		"defs": {
+			"main": {
+				"type": "query",
+				"errors": [
+					{
+						"name": "OperatorNotSet",
+						"description": "The Provider has no operator."
+					},
+					{
+						"name": "NotOperator",
+						"description": "The caller is not the Provider's operator."
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"bucketSeconds",
+							"from",
+							"to",
+							"buckets"
+						],
+						"properties": {
+							"to": {
+								"type": "string",
+								"format": "datetime"
+							},
+							"from": {
+								"type": "string",
+								"format": "datetime"
+							},
+							"buckets": {
+								"type": "array",
+								"items": {
+									"ref": "#bucket",
+									"type": "ref"
+								},
+								"description": "One per Client and hostname with traffic in that bucket."
+							},
+							"bucketSeconds": {
+								"type": "integer",
+								"minimum": 1,
+								"description": "The length of each bucket."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"parameters": {
+					"type": "params",
+					"required": [
+						"window"
+					],
+					"properties": {
+						"client": {
+							"type": "string",
+							"format": "did",
+							"description": "Only this Client's traffic."
+						},
+						"window": {
+							"type": "string",
+							"maxLength": 16,
+							"description": "How far back to look.",
+							"knownValues": [
+								"1h",
+								"6h",
+								"1d",
+								"7d",
+								"30d",
+								"365d"
+							]
+						}
+					}
+				},
+				"description": "Get the traffic a Provider carried, in buckets of time, for every Client or one."
+			},
+			"bucket": {
+				"type": "object",
+				"required": [
+					"start",
+					"client",
+					"hostname",
+					"ingress",
+					"egress",
+					"connections"
+				],
+				"properties": {
+					"start": {
+						"type": "string",
+						"format": "datetime"
+					},
+					"client": {
+						"type": "string",
+						"format": "did"
+					},
+					"egress": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Bytes from the Client to visitors."
+					},
+					"ingress": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Bytes from visitors to the Client."
+					},
+					"hostname": {
+						"type": "string",
+						"maxLength": 253
+					},
+					"connections": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "Visitor connections that reached the Client."
+					}
+				}
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1795238378852
+	},
+	"references": {
+		"main": [],
+		"bucket": []
+	}
+}

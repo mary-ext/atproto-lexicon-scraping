@@ -1,0 +1,65 @@
+{
+	"authority": "did:web:jetbridge.link",
+	"schema": {
+		"id": "link.jetbridge.undeny",
+		"defs": {
+			"main": {
+				"type": "procedure",
+				"input": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"subject"
+						],
+						"properties": {
+							"subject": {
+								"type": "string",
+								"maxLength": 253,
+								"description": "The DID of the Client, or the hostname, to stop refusing."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"errors": [
+					{
+						"name": "OperatorNotSet",
+						"description": "The Provider has no operator."
+					},
+					{
+						"name": "NotOperator",
+						"description": "The caller is not the Provider's operator."
+					},
+					{
+						"name": "UneditableConfig",
+						"description": "The Provider can't make this change itself. Its operator must make it by hand."
+					}
+				],
+				"output": {
+					"schema": {
+						"type": "object",
+						"required": [
+							"changed"
+						],
+						"properties": {
+							"changed": {
+								"type": "boolean",
+								"description": "Whether this changed anything: false when it was not denied."
+							}
+						}
+					},
+					"encoding": "application/json"
+				},
+				"description": "Stop refusing a Client or a hostname."
+			}
+		},
+		"$type": "com.atproto.lexicon.schema",
+		"lexicon": 1
+	},
+	"meta": {
+		"indexedAt": 1795238378852
+	},
+	"references": {
+		"main": []
+	}
+}
